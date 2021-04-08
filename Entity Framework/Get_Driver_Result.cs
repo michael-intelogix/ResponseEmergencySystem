@@ -18,5 +18,6 @@ namespace ResponseEmergencySystem.Entity_Framework
         public string phone_number { get; set; }
         public string Expidation_State { get; set; }
         public System.DateTime Expiration_Date { get; set; }
+        public string License { get; set; }
     }
 }

@@ -256,13 +256,21 @@ namespace ResponseEmergencySystem.Entity_Framework
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Update_Driver_Result>("Update_Driver", iD_DriverParameter, driver_NameParameter, driver_AddressParameter, driver_LicenseParameter, expidation_StateParameter, expiration_DateParameter, phone_NumberParameter, statusParameter);
         }
     
-        public virtual ObjectResult<Get_Driver_Result> Get_Driver(string iD_Driver)
+        public virtual ObjectResult<Get_Driver_Result> Get_Driver(string license, string phone_Number, string name)
         {
-            var iD_DriverParameter = iD_Driver != null ?
-                new ObjectParameter("ID_Driver", iD_Driver) :
-                new ObjectParameter("ID_Driver", typeof(string));
+            var licenseParameter = license != null ?
+                new ObjectParameter("License", license) :
+                new ObjectParameter("License", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Get_Driver_Result>("Get_Driver", iD_DriverParameter);
+            var phone_NumberParameter = phone_Number != null ?
+                new ObjectParameter("Phone_Number", phone_Number) :
+                new ObjectParameter("Phone_Number", typeof(string));
+    
+            var nameParameter = name != null ?
+                new ObjectParameter("Name", name) :
+                new ObjectParameter("Name", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Get_Driver_Result>("Get_Driver", licenseParameter, phone_NumberParameter, nameParameter);
         }
     
         public virtual ObjectResult<Update_Cargo_Result> Update_Cargo(Nullable<System.Guid> iD_cargo, string cargo_Type, string comments)

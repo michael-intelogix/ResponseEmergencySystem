@@ -32,13 +32,13 @@ namespace ResponseEmergencySystem.Forms
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IncidentCapture));
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
+            this.edt_PoliceReport = new DevExpress.XtraEditors.TextEdit();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.btn_AddIncident = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit13 = new DevExpress.XtraEditors.TextEdit();
-            this.radioGroup4 = new DevExpress.XtraEditors.RadioGroup();
+            this.edt_InjuredNames = new DevExpress.XtraEditors.TextEdit();
+            this.rdgrp_Injured = new DevExpress.XtraEditors.RadioGroup();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lue_states = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
@@ -50,32 +50,33 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
-            this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
-            this.timeEdit1 = new DevExpress.XtraEditors.TimeEdit();
-            this.radioGroup2 = new DevExpress.XtraEditors.RadioGroup();
+            this.dte_IncidentDate = new DevExpress.XtraEditors.DateEdit();
+            this.tme_IncidentTime = new DevExpress.XtraEditors.TimeEdit();
+            this.rdgrp_PoliceReport = new DevExpress.XtraEditors.RadioGroup();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.radioGroup1 = new DevExpress.XtraEditors.RadioGroup();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.radioGroup3 = new DevExpress.XtraEditors.RadioGroup();
+            this.rdgrp_TruckDamage = new DevExpress.XtraEditors.RadioGroup();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
+            this.edt_TruckNumber = new DevExpress.XtraEditors.TextEdit();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.radioGroup6 = new DevExpress.XtraEditors.RadioGroup();
             this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
-            this.radioGroup7 = new DevExpress.XtraEditors.RadioGroup();
+            this.rdgrp_TrailerDamage = new DevExpress.XtraEditors.RadioGroup();
             this.labelControl22 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.edt_TrailerNumber = new DevExpress.XtraEditors.TextEdit();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.edt_manifest = new DevExpress.XtraEditors.TextEdit();
-            this.radioGroup5 = new DevExpress.XtraEditors.RadioGroup();
+            this.rdgrp_CargoSpill = new DevExpress.XtraEditors.RadioGroup();
             this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.edt_Cargo = new DevExpress.XtraEditors.TextEdit();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.lbl_IdDriver = new System.Windows.Forms.Label();
             this.btn_LookUpLicence = new DevExpress.XtraEditors.SimpleButton();
             this.dte_ExpirationDate = new DevExpress.XtraEditors.DateEdit();
             this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
@@ -87,37 +88,38 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.edt_PhoneNumber = new DevExpress.XtraEditors.TextEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.lbl_IdDriver = new System.Windows.Forms.Label();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
             this.groupControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_PoliceReport.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit13.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radioGroup4.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_InjuredNames.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rdgrp_Injured.Properties)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lue_states.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_Cities.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_Highway.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.timeEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radioGroup2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dte_IncidentDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dte_IncidentDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tme_IncidentTime.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rdgrp_PoliceReport.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radioGroup3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rdgrp_TruckDamage.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_TruckNumber.Properties)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup6.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radioGroup7.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rdgrp_TrailerDamage.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_TrailerNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_manifest.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radioGroup5.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rdgrp_CargoSpill.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_Cargo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
@@ -136,46 +138,46 @@ namespace ResponseEmergencySystem.Forms
             this.groupControl3.GroupStyle = DevExpress.Utils.GroupStyle.Title;
             this.groupControl3.Location = new System.Drawing.Point(0, 312);
             this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(690, 258);
+            this.groupControl3.Size = new System.Drawing.Size(682, 258);
             this.groupControl3.TabIndex = 80;
             this.groupControl3.Text = "Accident Details";
             // 
             // panelControl1
             // 
-            this.panelControl1.Controls.Add(this.textEdit3);
+            this.panelControl1.Controls.Add(this.edt_PoliceReport);
             this.panelControl1.Controls.Add(this.panelControl2);
             this.panelControl1.Controls.Add(this.labelControl17);
             this.panelControl1.Controls.Add(this.labelControl16);
-            this.panelControl1.Controls.Add(this.textEdit13);
-            this.panelControl1.Controls.Add(this.radioGroup4);
+            this.panelControl1.Controls.Add(this.edt_InjuredNames);
+            this.panelControl1.Controls.Add(this.rdgrp_Injured);
             this.panelControl1.Controls.Add(this.groupBox1);
             this.panelControl1.Controls.Add(this.labelControl12);
             this.panelControl1.Controls.Add(this.labelControl11);
             this.panelControl1.Controls.Add(this.labelControl10);
             this.panelControl1.Controls.Add(this.labelControl9);
-            this.panelControl1.Controls.Add(this.dateEdit1);
-            this.panelControl1.Controls.Add(this.timeEdit1);
-            this.panelControl1.Controls.Add(this.radioGroup2);
+            this.panelControl1.Controls.Add(this.dte_IncidentDate);
+            this.panelControl1.Controls.Add(this.tme_IncidentTime);
+            this.panelControl1.Controls.Add(this.rdgrp_PoliceReport);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(0, 22);
+            this.panelControl1.Location = new System.Drawing.Point(0, 19);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(690, 236);
+            this.panelControl1.Size = new System.Drawing.Size(682, 239);
             this.panelControl1.TabIndex = 6;
             // 
-            // textEdit3
+            // edt_PoliceReport
             // 
-            this.textEdit3.Location = new System.Drawing.Point(274, 29);
-            this.textEdit3.Name = "textEdit3";
-            this.textEdit3.Size = new System.Drawing.Size(146, 20);
-            this.textEdit3.TabIndex = 87;
+            this.edt_PoliceReport.Location = new System.Drawing.Point(274, 29);
+            this.edt_PoliceReport.Name = "edt_PoliceReport";
+            this.edt_PoliceReport.Size = new System.Drawing.Size(146, 20);
+            this.edt_PoliceReport.TabIndex = 87;
             // 
             // panelControl2
             // 
             this.panelControl2.Controls.Add(this.btn_AddIncident);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl2.Location = new System.Drawing.Point(2, 189);
+            this.panelControl2.Location = new System.Drawing.Point(2, 192);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(686, 45);
+            this.panelControl2.Size = new System.Drawing.Size(678, 45);
             this.panelControl2.TabIndex = 79;
             // 
             // btn_AddIncident
@@ -203,27 +205,27 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl16.TabIndex = 77;
             this.labelControl16.Text = "Date";
             // 
-            // textEdit13
+            // edt_InjuredNames
             // 
-            this.textEdit13.Location = new System.Drawing.Point(386, 6);
-            this.textEdit13.Name = "textEdit13";
-            this.textEdit13.Size = new System.Drawing.Size(150, 20);
-            this.textEdit13.TabIndex = 69;
+            this.edt_InjuredNames.Location = new System.Drawing.Point(386, 6);
+            this.edt_InjuredNames.Name = "edt_InjuredNames";
+            this.edt_InjuredNames.Size = new System.Drawing.Size(150, 20);
+            this.edt_InjuredNames.TabIndex = 69;
             // 
-            // radioGroup4
+            // rdgrp_Injured
             // 
-            this.radioGroup4.Location = new System.Drawing.Point(57, 51);
-            this.radioGroup4.Name = "radioGroup4";
-            this.radioGroup4.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.radioGroup4.Properties.Appearance.Options.UseBackColor = true;
-            this.radioGroup4.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.radioGroup4.Properties.Columns = 2;
-            this.radioGroup4.Properties.ItemHorzAlignment = DevExpress.XtraEditors.RadioItemHorzAlignment.Center;
-            this.radioGroup4.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            this.rdgrp_Injured.Location = new System.Drawing.Point(57, 51);
+            this.rdgrp_Injured.Name = "rdgrp_Injured";
+            this.rdgrp_Injured.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.rdgrp_Injured.Properties.Appearance.Options.UseBackColor = true;
+            this.rdgrp_Injured.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.rdgrp_Injured.Properties.Columns = 2;
+            this.rdgrp_Injured.Properties.ItemHorzAlignment = DevExpress.XtraEditors.RadioItemHorzAlignment.Center;
+            this.rdgrp_Injured.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Yes", true, null, ""),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(((short)(1)), "No", true, "Yes", "")});
-            this.radioGroup4.Size = new System.Drawing.Size(92, 23);
-            this.radioGroup4.TabIndex = 76;
+            this.rdgrp_Injured.Size = new System.Drawing.Size(92, 23);
+            this.rdgrp_Injured.TabIndex = 76;
             // 
             // groupBox1
             // 
@@ -340,43 +342,43 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl9.TabIndex = 71;
             this.labelControl9.Text = "Police Report?";
             // 
-            // dateEdit1
+            // dte_IncidentDate
             // 
-            this.dateEdit1.EditValue = null;
-            this.dateEdit1.Location = new System.Drawing.Point(36, 6);
-            this.dateEdit1.Name = "dateEdit1";
-            this.dateEdit1.Properties.BeepOnError = false;
-            this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dte_IncidentDate.EditValue = null;
+            this.dte_IncidentDate.Location = new System.Drawing.Point(36, 6);
+            this.dte_IncidentDate.Name = "dte_IncidentDate";
+            this.dte_IncidentDate.Properties.BeepOnError = false;
+            this.dte_IncidentDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dte_IncidentDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Properties.MaskSettings.Set("mask", "d");
-            this.dateEdit1.Size = new System.Drawing.Size(85, 20);
-            this.dateEdit1.TabIndex = 67;
+            this.dte_IncidentDate.Properties.MaskSettings.Set("mask", "d");
+            this.dte_IncidentDate.Size = new System.Drawing.Size(85, 20);
+            this.dte_IncidentDate.TabIndex = 67;
             // 
-            // timeEdit1
+            // tme_IncidentTime
             // 
-            this.timeEdit1.EditValue = new System.DateTime(2021, 3, 26, 0, 0, 0, 0);
-            this.timeEdit1.Location = new System.Drawing.Point(155, 6);
-            this.timeEdit1.Name = "timeEdit1";
-            this.timeEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.tme_IncidentTime.EditValue = new System.DateTime(2021, 3, 26, 0, 0, 0, 0);
+            this.tme_IncidentTime.Location = new System.Drawing.Point(155, 6);
+            this.tme_IncidentTime.Name = "tme_IncidentTime";
+            this.tme_IncidentTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.timeEdit1.Size = new System.Drawing.Size(93, 20);
-            this.timeEdit1.TabIndex = 66;
+            this.tme_IncidentTime.Size = new System.Drawing.Size(93, 20);
+            this.tme_IncidentTime.TabIndex = 66;
             // 
-            // radioGroup2
+            // rdgrp_PoliceReport
             // 
-            this.radioGroup2.Location = new System.Drawing.Point(81, 27);
-            this.radioGroup2.Name = "radioGroup2";
-            this.radioGroup2.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.radioGroup2.Properties.Appearance.Options.UseBackColor = true;
-            this.radioGroup2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.radioGroup2.Properties.Columns = 2;
-            this.radioGroup2.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            this.rdgrp_PoliceReport.Location = new System.Drawing.Point(81, 27);
+            this.rdgrp_PoliceReport.Name = "rdgrp_PoliceReport";
+            this.rdgrp_PoliceReport.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.rdgrp_PoliceReport.Properties.Appearance.Options.UseBackColor = true;
+            this.rdgrp_PoliceReport.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.rdgrp_PoliceReport.Properties.Columns = 2;
+            this.rdgrp_PoliceReport.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Yes", true, null, ""),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "No", true, null, "")});
-            this.radioGroup2.Size = new System.Drawing.Size(92, 23);
-            this.radioGroup2.TabIndex = 68;
+            this.rdgrp_PoliceReport.Size = new System.Drawing.Size(92, 23);
+            this.rdgrp_PoliceReport.TabIndex = 68;
             // 
             // groupControl2
             // 
@@ -384,7 +386,7 @@ namespace ResponseEmergencySystem.Forms
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl2.Location = new System.Drawing.Point(0, 137);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(690, 176);
+            this.groupControl2.Size = new System.Drawing.Size(682, 176);
             this.groupControl2.TabIndex = 79;
             this.groupControl2.Text = "Status";
             // 
@@ -394,24 +396,24 @@ namespace ResponseEmergencySystem.Forms
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.labelControl7);
             this.panel1.Controls.Add(this.edt_manifest);
-            this.panel1.Controls.Add(this.radioGroup5);
+            this.panel1.Controls.Add(this.rdgrp_CargoSpill);
             this.panel1.Controls.Add(this.labelControl19);
             this.panel1.Controls.Add(this.labelControl5);
             this.panel1.Controls.Add(this.edt_Cargo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(2, 23);
+            this.panel1.Location = new System.Drawing.Point(2, 20);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(686, 151);
+            this.panel1.Size = new System.Drawing.Size(678, 154);
             this.panel1.TabIndex = 76;
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.radioGroup1);
             this.groupBox3.Controls.Add(this.labelControl6);
-            this.groupBox3.Controls.Add(this.radioGroup3);
+            this.groupBox3.Controls.Add(this.rdgrp_TruckDamage);
             this.groupBox3.Controls.Add(this.labelControl8);
             this.groupBox3.Controls.Add(this.labelControl18);
-            this.groupBox3.Controls.Add(this.textEdit2);
+            this.groupBox3.Controls.Add(this.edt_TruckNumber);
             this.groupBox3.Location = new System.Drawing.Point(13, 5);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(663, 50);
@@ -442,20 +444,20 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl6.TabIndex = 85;
             this.labelControl6.Text = "Photos of Damages?";
             // 
-            // radioGroup3
+            // rdgrp_TruckDamage
             // 
-            this.radioGroup3.Location = new System.Drawing.Point(279, 20);
-            this.radioGroup3.Name = "radioGroup3";
-            this.radioGroup3.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.radioGroup3.Properties.Appearance.Options.UseBackColor = true;
-            this.radioGroup3.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.radioGroup3.Properties.Columns = 2;
-            this.radioGroup3.Properties.ItemHorzAlignment = DevExpress.XtraEditors.RadioItemHorzAlignment.Center;
-            this.radioGroup3.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            this.rdgrp_TruckDamage.Location = new System.Drawing.Point(279, 20);
+            this.rdgrp_TruckDamage.Name = "rdgrp_TruckDamage";
+            this.rdgrp_TruckDamage.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.rdgrp_TruckDamage.Properties.Appearance.Options.UseBackColor = true;
+            this.rdgrp_TruckDamage.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.rdgrp_TruckDamage.Properties.Columns = 2;
+            this.rdgrp_TruckDamage.Properties.ItemHorzAlignment = DevExpress.XtraEditors.RadioItemHorzAlignment.Center;
+            this.rdgrp_TruckDamage.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Yes", true, null, ""),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(((short)(1)), "No", true, "Yes", "")});
-            this.radioGroup3.Size = new System.Drawing.Size(87, 23);
-            this.radioGroup3.TabIndex = 84;
+            this.rdgrp_TruckDamage.Size = new System.Drawing.Size(87, 23);
+            this.rdgrp_TruckDamage.TabIndex = 84;
             // 
             // labelControl8
             // 
@@ -473,21 +475,21 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl18.TabIndex = 82;
             this.labelControl18.Text = "Company #";
             // 
-            // textEdit2
+            // edt_TruckNumber
             // 
-            this.textEdit2.Location = new System.Drawing.Point(72, 22);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Size = new System.Drawing.Size(130, 20);
-            this.textEdit2.TabIndex = 81;
+            this.edt_TruckNumber.Location = new System.Drawing.Point(72, 22);
+            this.edt_TruckNumber.Name = "edt_TruckNumber";
+            this.edt_TruckNumber.Size = new System.Drawing.Size(130, 20);
+            this.edt_TruckNumber.TabIndex = 81;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.radioGroup6);
             this.groupBox2.Controls.Add(this.labelControl21);
-            this.groupBox2.Controls.Add(this.radioGroup7);
+            this.groupBox2.Controls.Add(this.rdgrp_TrailerDamage);
             this.groupBox2.Controls.Add(this.labelControl22);
             this.groupBox2.Controls.Add(this.labelControl23);
-            this.groupBox2.Controls.Add(this.textEdit1);
+            this.groupBox2.Controls.Add(this.edt_TrailerNumber);
             this.groupBox2.Location = new System.Drawing.Point(13, 61);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(663, 50);
@@ -518,20 +520,20 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl21.TabIndex = 85;
             this.labelControl21.Text = "Photos of Damages?";
             // 
-            // radioGroup7
+            // rdgrp_TrailerDamage
             // 
-            this.radioGroup7.Location = new System.Drawing.Point(279, 11);
-            this.radioGroup7.Name = "radioGroup7";
-            this.radioGroup7.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.radioGroup7.Properties.Appearance.Options.UseBackColor = true;
-            this.radioGroup7.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.radioGroup7.Properties.Columns = 2;
-            this.radioGroup7.Properties.ItemHorzAlignment = DevExpress.XtraEditors.RadioItemHorzAlignment.Center;
-            this.radioGroup7.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            this.rdgrp_TrailerDamage.Location = new System.Drawing.Point(279, 11);
+            this.rdgrp_TrailerDamage.Name = "rdgrp_TrailerDamage";
+            this.rdgrp_TrailerDamage.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.rdgrp_TrailerDamage.Properties.Appearance.Options.UseBackColor = true;
+            this.rdgrp_TrailerDamage.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.rdgrp_TrailerDamage.Properties.Columns = 2;
+            this.rdgrp_TrailerDamage.Properties.ItemHorzAlignment = DevExpress.XtraEditors.RadioItemHorzAlignment.Center;
+            this.rdgrp_TrailerDamage.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Yes", true, null, ""),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(((short)(1)), "No", true, "Yes", "")});
-            this.radioGroup7.Size = new System.Drawing.Size(87, 23);
-            this.radioGroup7.TabIndex = 84;
+            this.rdgrp_TrailerDamage.Size = new System.Drawing.Size(87, 23);
+            this.rdgrp_TrailerDamage.TabIndex = 84;
             // 
             // labelControl22
             // 
@@ -549,12 +551,12 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl23.TabIndex = 82;
             this.labelControl23.Text = "Company #";
             // 
-            // textEdit1
+            // edt_TrailerNumber
             // 
-            this.textEdit1.Location = new System.Drawing.Point(72, 13);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(130, 20);
-            this.textEdit1.TabIndex = 81;
+            this.edt_TrailerNumber.Location = new System.Drawing.Point(72, 13);
+            this.edt_TrailerNumber.Name = "edt_TrailerNumber";
+            this.edt_TrailerNumber.Size = new System.Drawing.Size(130, 20);
+            this.edt_TrailerNumber.TabIndex = 81;
             // 
             // labelControl7
             // 
@@ -571,20 +573,20 @@ namespace ResponseEmergencySystem.Forms
             this.edt_manifest.Size = new System.Drawing.Size(197, 20);
             this.edt_manifest.TabIndex = 45;
             // 
-            // radioGroup5
+            // rdgrp_CargoSpill
             // 
-            this.radioGroup5.Location = new System.Drawing.Point(272, 115);
-            this.radioGroup5.Name = "radioGroup5";
-            this.radioGroup5.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.radioGroup5.Properties.Appearance.Options.UseBackColor = true;
-            this.radioGroup5.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.radioGroup5.Properties.Columns = 2;
-            this.radioGroup5.Properties.ItemHorzAlignment = DevExpress.XtraEditors.RadioItemHorzAlignment.Center;
-            this.radioGroup5.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            this.rdgrp_CargoSpill.Location = new System.Drawing.Point(272, 115);
+            this.rdgrp_CargoSpill.Name = "rdgrp_CargoSpill";
+            this.rdgrp_CargoSpill.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.rdgrp_CargoSpill.Properties.Appearance.Options.UseBackColor = true;
+            this.rdgrp_CargoSpill.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.rdgrp_CargoSpill.Properties.Columns = 2;
+            this.rdgrp_CargoSpill.Properties.ItemHorzAlignment = DevExpress.XtraEditors.RadioItemHorzAlignment.Center;
+            this.rdgrp_CargoSpill.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Yes", true, null, ""),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(((short)(1)), "No", true, "Yes", "")});
-            this.radioGroup5.Size = new System.Drawing.Size(90, 23);
-            this.radioGroup5.TabIndex = 78;
+            this.rdgrp_CargoSpill.Size = new System.Drawing.Size(90, 23);
+            this.rdgrp_CargoSpill.TabIndex = 78;
             // 
             // labelControl19
             // 
@@ -611,6 +613,8 @@ namespace ResponseEmergencySystem.Forms
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.simpleButton3);
+            this.groupControl1.Controls.Add(this.simpleButton2);
             this.groupControl1.Controls.Add(this.lbl_IdDriver);
             this.groupControl1.Controls.Add(this.btn_LookUpLicence);
             this.groupControl1.Controls.Add(this.dte_ExpirationDate);
@@ -626,9 +630,19 @@ namespace ResponseEmergencySystem.Forms
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(690, 137);
+            this.groupControl1.Size = new System.Drawing.Size(682, 137);
             this.groupControl1.TabIndex = 78;
             this.groupControl1.Text = "Driver Information";
+            // 
+            // lbl_IdDriver
+            // 
+            this.lbl_IdDriver.AutoSize = true;
+            this.lbl_IdDriver.Location = new System.Drawing.Point(648, 29);
+            this.lbl_IdDriver.Name = "lbl_IdDriver";
+            this.lbl_IdDriver.Size = new System.Drawing.Size(37, 13);
+            this.lbl_IdDriver.TabIndex = 86;
+            this.lbl_IdDriver.Text = "empty";
+            this.lbl_IdDriver.Visible = false;
             // 
             // btn_LookUpLicence
             // 
@@ -689,7 +703,7 @@ namespace ResponseEmergencySystem.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.edt_FullName.Location = new System.Drawing.Point(41, 26);
             this.edt_FullName.Name = "edt_FullName";
-            this.edt_FullName.Size = new System.Drawing.Size(125, 20);
+            this.edt_FullName.Size = new System.Drawing.Size(117, 20);
             this.edt_FullName.TabIndex = 27;
             // 
             // labelControl1
@@ -727,7 +741,7 @@ namespace ResponseEmergencySystem.Forms
             // edt_PhoneNumber
             // 
             this.edt_PhoneNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.edt_PhoneNumber.Location = new System.Drawing.Point(251, 26);
+            this.edt_PhoneNumber.Location = new System.Drawing.Point(292, 26);
             this.edt_PhoneNumber.Name = "edt_PhoneNumber";
             this.edt_PhoneNumber.Size = new System.Drawing.Size(141, 20);
             this.edt_PhoneNumber.TabIndex = 33;
@@ -735,26 +749,47 @@ namespace ResponseEmergencySystem.Forms
             // labelControl4
             // 
             this.labelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelControl4.Location = new System.Drawing.Point(175, 29);
+            this.labelControl4.Location = new System.Drawing.Point(217, 29);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(70, 13);
             this.labelControl4.TabIndex = 34;
             this.labelControl4.Text = "Phone Number";
             // 
-            // lbl_IdDriver
+            // simpleButton2
             // 
-            this.lbl_IdDriver.AutoSize = true;
-            this.lbl_IdDriver.Location = new System.Drawing.Point(648, 29);
-            this.lbl_IdDriver.Name = "lbl_IdDriver";
-            this.lbl_IdDriver.Size = new System.Drawing.Size(37, 13);
-            this.lbl_IdDriver.TabIndex = 86;
-            this.lbl_IdDriver.Text = "empty";
+            this.simpleButton2.Appearance.BackColor = System.Drawing.SystemColors.Control;
+            this.simpleButton2.Appearance.BackColor2 = System.Drawing.Color.Transparent;
+            this.simpleButton2.Appearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.simpleButton2.Appearance.ForeColor = System.Drawing.Color.Transparent;
+            this.simpleButton2.Appearance.Options.UseBackColor = true;
+            this.simpleButton2.Appearance.Options.UseBorderColor = true;
+            this.simpleButton2.Appearance.Options.UseForeColor = true;
+            this.simpleButton2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
+            this.simpleButton2.Location = new System.Drawing.Point(447, 24);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(28, 23);
+            this.simpleButton2.TabIndex = 88;
+            // 
+            // simpleButton3
+            // 
+            this.simpleButton3.Appearance.BackColor = System.Drawing.SystemColors.Control;
+            this.simpleButton3.Appearance.BackColor2 = System.Drawing.Color.Transparent;
+            this.simpleButton3.Appearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.simpleButton3.Appearance.ForeColor = System.Drawing.Color.Transparent;
+            this.simpleButton3.Appearance.Options.UseBackColor = true;
+            this.simpleButton3.Appearance.Options.UseBorderColor = true;
+            this.simpleButton3.Appearance.Options.UseForeColor = true;
+            this.simpleButton3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton3.ImageOptions.Image")));
+            this.simpleButton3.Location = new System.Drawing.Point(172, 24);
+            this.simpleButton3.Name = "simpleButton3";
+            this.simpleButton3.Size = new System.Drawing.Size(28, 23);
+            this.simpleButton3.TabIndex = 89;
             // 
             // IncidentCapture
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(690, 570);
+            this.ClientSize = new System.Drawing.Size(682, 570);
             this.Controls.Add(this.groupControl3);
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.groupControl1);
@@ -766,20 +801,20 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_PoliceReport.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit13.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radioGroup4.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_InjuredNames.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rdgrp_Injured.Properties)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lue_states.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_Cities.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_Highway.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.timeEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radioGroup2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dte_IncidentDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dte_IncidentDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tme_IncidentTime.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rdgrp_PoliceReport.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -787,15 +822,15 @@ namespace ResponseEmergencySystem.Forms
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radioGroup3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rdgrp_TruckDamage.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_TruckNumber.Properties)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup6.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radioGroup7.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rdgrp_TrailerDamage.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_TrailerNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_manifest.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radioGroup5.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rdgrp_CargoSpill.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_Cargo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
@@ -818,8 +853,8 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraEditors.SimpleButton btn_AddIncident;
         private DevExpress.XtraEditors.LabelControl labelControl17;
         private DevExpress.XtraEditors.LabelControl labelControl16;
-        private DevExpress.XtraEditors.TextEdit textEdit13;
-        private DevExpress.XtraEditors.RadioGroup radioGroup4;
+        private DevExpress.XtraEditors.TextEdit edt_InjuredNames;
+        private DevExpress.XtraEditors.RadioGroup rdgrp_Injured;
         private System.Windows.Forms.GroupBox groupBox1;
         private DevExpress.XtraEditors.LabelControl labelControl14;
         private DevExpress.XtraEditors.LabelControl labelControl13;
@@ -828,14 +863,12 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraEditors.LabelControl labelControl11;
         private DevExpress.XtraEditors.LabelControl labelControl10;
         private DevExpress.XtraEditors.LabelControl labelControl9;
-        private DevExpress.XtraEditors.DateEdit dateEdit1;
-        private DevExpress.XtraEditors.TimeEdit timeEdit1;
-        private DevExpress.XtraEditors.RadioGroup radioGroup2;
+        private DevExpress.XtraEditors.TimeEdit tme_IncidentTime;
         private DevExpress.XtraEditors.GroupControl groupControl2;
         private System.Windows.Forms.Panel panel1;
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.TextEdit edt_manifest;
-        private DevExpress.XtraEditors.RadioGroup radioGroup5;
+        private DevExpress.XtraEditors.RadioGroup rdgrp_CargoSpill;
         private DevExpress.XtraEditors.LabelControl labelControl19;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.TextEdit edt_Cargo;
@@ -856,19 +889,23 @@ namespace ResponseEmergencySystem.Forms
         private System.Windows.Forms.GroupBox groupBox2;
         private DevExpress.XtraEditors.RadioGroup radioGroup6;
         private DevExpress.XtraEditors.LabelControl labelControl21;
-        private DevExpress.XtraEditors.RadioGroup radioGroup7;
+        private DevExpress.XtraEditors.RadioGroup rdgrp_TrailerDamage;
         private DevExpress.XtraEditors.LabelControl labelControl22;
         private DevExpress.XtraEditors.LabelControl labelControl23;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
-        private DevExpress.XtraEditors.TextEdit textEdit3;
+        private DevExpress.XtraEditors.TextEdit edt_TrailerNumber;
+        private DevExpress.XtraEditors.TextEdit edt_PoliceReport;
         private System.Windows.Forms.GroupBox groupBox3;
         private DevExpress.XtraEditors.RadioGroup radioGroup1;
         private DevExpress.XtraEditors.LabelControl labelControl6;
-        private DevExpress.XtraEditors.RadioGroup radioGroup3;
+        private DevExpress.XtraEditors.RadioGroup rdgrp_TruckDamage;
         private DevExpress.XtraEditors.LabelControl labelControl8;
         private DevExpress.XtraEditors.LabelControl labelControl18;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
+        private DevExpress.XtraEditors.TextEdit edt_TruckNumber;
         private DevExpress.XtraEditors.SimpleButton btn_LookUpLicence;
         private System.Windows.Forms.Label lbl_IdDriver;
+        private DevExpress.XtraEditors.SimpleButton simpleButton3;
+        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraEditors.DateEdit dte_IncidentDate;
+        private DevExpress.XtraEditors.RadioGroup rdgrp_PoliceReport;
     }
 }

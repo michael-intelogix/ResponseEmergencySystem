@@ -7,7 +7,9 @@
     <Schema Namespace="SIREMLocalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
         <Function Name="Get_Driver" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="ID_Driver" Type="nvarchar" Mode="In" />
+          <Parameter Name="License" Type="nvarchar" Mode="In" />
+          <Parameter Name="Phone_Number" Type="nvarchar" Mode="In" />
+          <Parameter Name="Name" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="List_Cities" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID_State" Type="uniqueidentifier" Mode="In" />
@@ -181,7 +183,9 @@
             <Parameter Name="status" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="Get_Driver" ReturnType="Collection(SIREMLocalModel.Get_Driver_Result)">
-            <Parameter Name="ID_Driver" Mode="In" Type="String" />
+            <Parameter Name="License" Mode="In" Type="String" />
+            <Parameter Name="Phone_Number" Mode="In" Type="String" />
+            <Parameter Name="Name" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="Update_Cargo" ReturnType="Collection(SIREMLocalModel.Update_Cargo_Result)">
             <Parameter Name="ID_cargo" Mode="In" Type="Guid" />
@@ -265,6 +269,7 @@
           <Property Type="String" Name="phone_number" Nullable="true" />
           <Property Type="String" Name="Expidation_State" Nullable="true" MaxLength="50" />
           <Property Type="DateTime" Name="Expiration_Date" Nullable="false" Precision="23" />
+          <Property Type="String" Name="License" Nullable="true" MaxLength="40" />
         </ComplexType>
         <ComplexType Name="Update_Cargo_Result">
           <Property Type="Int32" Name="Validacion" Nullable="false" />
@@ -386,6 +391,7 @@
                 <ScalarProperty Name="phone_number" ColumnName="phone_number" />
                 <ScalarProperty Name="Expidation_State" ColumnName="Expidation_State" />
                 <ScalarProperty Name="Expiration_Date" ColumnName="Expiration_Date" />
+                <ScalarProperty Name="License" ColumnName="License" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
