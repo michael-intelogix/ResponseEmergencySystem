@@ -33,6 +33,7 @@ namespace ResponseEmergencySystem.Forms
             this.fluentDesignFormContainer1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
             this.gc_Incidents = new DevExpress.XtraGrid.GridControl();
             this.gv_Incidents = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.ID_Incident = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ID_Driver = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Driver_Name = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Incident_No = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -45,7 +46,6 @@ namespace ResponseEmergencySystem.Forms
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
             this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
-            this.ID_Incident = new DevExpress.XtraGrid.Columns.GridColumn();
             this.fluentDesignFormContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gc_Incidents)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_Incidents)).BeginInit();
@@ -63,9 +63,9 @@ namespace ResponseEmergencySystem.Forms
             this.fluentDesignFormContainer1.Controls.Add(this.gc_Incidents);
             this.fluentDesignFormContainer1.Controls.Add(this.panelControl1);
             this.fluentDesignFormContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fluentDesignFormContainer1.Location = new System.Drawing.Point(48, 31);
+            this.fluentDesignFormContainer1.Location = new System.Drawing.Point(40, 27);
             this.fluentDesignFormContainer1.Name = "fluentDesignFormContainer1";
-            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(643, 442);
+            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(651, 446);
             this.fluentDesignFormContainer1.TabIndex = 0;
             // 
             // gc_Incidents
@@ -78,7 +78,7 @@ namespace ResponseEmergencySystem.Forms
             this.gc_Incidents.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.lue_test,
             this.repositoryItemButtonEdit1});
-            this.gc_Incidents.Size = new System.Drawing.Size(643, 399);
+            this.gc_Incidents.Size = new System.Drawing.Size(651, 403);
             this.gc_Incidents.TabIndex = 2;
             this.gc_Incidents.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_Incidents});
@@ -94,6 +94,13 @@ namespace ResponseEmergencySystem.Forms
             this.gv_Incidents.GridControl = this.gc_Incidents;
             this.gv_Incidents.Name = "gv_Incidents";
             this.gv_Incidents.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gv_Incidents_RowClick);
+            // 
+            // ID_Incident
+            // 
+            this.ID_Incident.Caption = "ID_Incident";
+            this.ID_Incident.FieldName = "ID_Incident";
+            this.ID_Incident.Name = "ID_Incident";
+            this.ID_Incident.OptionsColumn.AllowEdit = false;
             // 
             // ID_Driver
             // 
@@ -157,9 +164,9 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.panelControl1.Controls.Add(this.simpleButton1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl1.Location = new System.Drawing.Point(0, 399);
+            this.panelControl1.Location = new System.Drawing.Point(0, 403);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(643, 43);
+            this.panelControl1.Size = new System.Drawing.Size(651, 43);
             this.panelControl1.TabIndex = 1;
             // 
             // simpleButton1
@@ -176,11 +183,11 @@ namespace ResponseEmergencySystem.Forms
             this.accordionControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.accordionControl1.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElement1});
-            this.accordionControl1.Location = new System.Drawing.Point(0, 31);
+            this.accordionControl1.Location = new System.Drawing.Point(0, 27);
             this.accordionControl1.Name = "accordionControl1";
             this.accordionControl1.OptionsMinimizing.State = DevExpress.XtraBars.Navigation.AccordionControlState.Minimized;
             this.accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
-            this.accordionControl1.Size = new System.Drawing.Size(48, 442);
+            this.accordionControl1.Size = new System.Drawing.Size(40, 446);
             this.accordionControl1.TabIndex = 1;
             this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
@@ -195,16 +202,9 @@ namespace ResponseEmergencySystem.Forms
             this.fluentDesignFormControl1.Location = new System.Drawing.Point(0, 0);
             this.fluentDesignFormControl1.Manager = this.fluentFormDefaultManager1;
             this.fluentDesignFormControl1.Name = "fluentDesignFormControl1";
-            this.fluentDesignFormControl1.Size = new System.Drawing.Size(691, 31);
+            this.fluentDesignFormControl1.Size = new System.Drawing.Size(691, 27);
             this.fluentDesignFormControl1.TabIndex = 2;
             this.fluentDesignFormControl1.TabStop = false;
-            // 
-            // ID_Incident
-            // 
-            this.ID_Incident.Caption = "ID_Incident";
-            this.ID_Incident.FieldName = "ID_Incident";
-            this.ID_Incident.Name = "ID_Incident";
-            this.ID_Incident.OptionsColumn.AllowEdit = false;
             // 
             // IncidentReport
             // 

@@ -20,10 +20,10 @@ namespace ResponseEmergencySystem.Forms
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.Yes;
+            //DialogResult = DialogResult.Yes;
 
-            form_driver_report tuventana = new form_driver_report();
-            tuventana.ShowDialog();
+            //form_driver_report tuventana = new form_driver_report();
+            //tuventana.ShowDialog();
         }
     }
 }

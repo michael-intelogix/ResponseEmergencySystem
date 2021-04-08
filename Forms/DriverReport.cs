@@ -24,11 +24,12 @@ namespace ResponseEmergencySystem.Forms
         // public DateTime DateTime { get; set; }
         FirestoreDb dataBase;
         string user;
-        
+        Guid ID;
 
-        public form_driver_report()
+        public form_driver_report(string ID_Incident)
         {
             InitializeComponent();
+            ID = Guid.Parse(ID_Incident);
         }
 
         private void dateEdit1_EditValueChanged(object sender, EventArgs e)
@@ -119,7 +120,7 @@ namespace ResponseEmergencySystem.Forms
                 // Await the task to wait until upload is completed and get the download url
                 var downloadUrl = await task;
 
-                Image img = new Bitmap(ofd.FileName);
+                Image img = new Bitmap(filepath);
                 // image.Img = ofd.FileName;
                 imageBox.Image = img.GetThumbnailImage(350, 200, null, new IntPtr());
             }

@@ -15,6 +15,8 @@ namespace ResponseEmergencySystem.Forms
 {
     public partial class IncidentReport : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
     {
+
+        DataTable access = new DataTable();
          
         public IncidentReport()
         {
@@ -23,6 +25,21 @@ namespace ResponseEmergencySystem.Forms
 
         private void IncidentReport_Load(object sender, EventArgs e)
         {
+
+            frm_login login = new frm_login();
+
+
+            //if (login.ShowDialog() == DialogResult.OK) 
+            //{
+            //    access = login.myData;
+            //    string idmysoftware = "lolo";
+            //    DataRow[] accesos = access.Select($"ID_Software = '{idmysoftware}'");
+            //    if (accesos.Length > 0)
+            //    {
+
+            //    }
+            //}
+
             using (var context = new SIREMLocalEntities())
             {
                 var courses = context.List_Status_Detail();
@@ -48,18 +65,19 @@ namespace ResponseEmergencySystem.Forms
         private void simpleButton1_Click(object sender, EventArgs e)
         {
 
-            using (var context = new SIREMLocalEntities())
-            {
-                // var courses = context.List_Status_Detail();
+            IncidentCapture capture = new IncidentCapture();
 
-                var response = context.Update_Status_Detail(null, "test884354513654"); 
-                Console.WriteLine(response.ToList<Update_Status_Detail_Result>()[0].msg);
-            }
+            capture.ShowDialog();
+            
         }
 
         private void gv_Incidents_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
-            Console.WriteLine((sender as GridView).GetRowCellValue((sender as GridView).FocusedRowHandle, "ID_Incident").ToString());
+            string ID = (sender as GridView).GetRowCellValue((sender as GridView).FocusedRowHandle, "ID_Incident").ToString();
+
+            form_driver_report driver = new form_driver_report(ID);
+
+            driver.Show();
         }
     }
 }
