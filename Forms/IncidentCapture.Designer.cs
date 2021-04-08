@@ -76,6 +76,8 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.edt_Cargo = new DevExpress.XtraEditors.TextEdit();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.btn_LookUpName = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_LookUpPhoneNumber = new DevExpress.XtraEditors.SimpleButton();
             this.lbl_IdDriver = new System.Windows.Forms.Label();
             this.btn_LookUpLicence = new DevExpress.XtraEditors.SimpleButton();
             this.dte_ExpirationDate = new DevExpress.XtraEditors.DateEdit();
@@ -88,8 +90,6 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.edt_PhoneNumber = new DevExpress.XtraEditors.TextEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.btn_LookUpPhoneNumber = new DevExpress.XtraEditors.SimpleButton();
-            this.btn_LookUpName = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
             this.groupControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -182,7 +182,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             // btn_AddIncident
             // 
-            this.btn_AddIncident.Location = new System.Drawing.Point(540, 12);
+            this.btn_AddIncident.Location = new System.Drawing.Point(532, 12);
             this.btn_AddIncident.Name = "btn_AddIncident";
             this.btn_AddIncident.Size = new System.Drawing.Size(136, 23);
             this.btn_AddIncident.TabIndex = 0;
@@ -634,10 +634,42 @@ namespace ResponseEmergencySystem.Forms
             this.groupControl1.TabIndex = 78;
             this.groupControl1.Text = "Driver Information";
             // 
+            // btn_LookUpName
+            // 
+            this.btn_LookUpName.Appearance.BackColor = System.Drawing.SystemColors.Control;
+            this.btn_LookUpName.Appearance.BackColor2 = System.Drawing.Color.Transparent;
+            this.btn_LookUpName.Appearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.btn_LookUpName.Appearance.ForeColor = System.Drawing.Color.Transparent;
+            this.btn_LookUpName.Appearance.Options.UseBackColor = true;
+            this.btn_LookUpName.Appearance.Options.UseBorderColor = true;
+            this.btn_LookUpName.Appearance.Options.UseForeColor = true;
+            this.btn_LookUpName.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_LookUpName.ImageOptions.Image")));
+            this.btn_LookUpName.Location = new System.Drawing.Point(172, 24);
+            this.btn_LookUpName.Name = "btn_LookUpName";
+            this.btn_LookUpName.Size = new System.Drawing.Size(28, 23);
+            this.btn_LookUpName.TabIndex = 89;
+            this.btn_LookUpName.Click += new System.EventHandler(this.btn_LookUpName_Click);
+            // 
+            // btn_LookUpPhoneNumber
+            // 
+            this.btn_LookUpPhoneNumber.Appearance.BackColor = System.Drawing.SystemColors.Control;
+            this.btn_LookUpPhoneNumber.Appearance.BackColor2 = System.Drawing.Color.Transparent;
+            this.btn_LookUpPhoneNumber.Appearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.btn_LookUpPhoneNumber.Appearance.ForeColor = System.Drawing.Color.Transparent;
+            this.btn_LookUpPhoneNumber.Appearance.Options.UseBackColor = true;
+            this.btn_LookUpPhoneNumber.Appearance.Options.UseBorderColor = true;
+            this.btn_LookUpPhoneNumber.Appearance.Options.UseForeColor = true;
+            this.btn_LookUpPhoneNumber.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_LookUpPhoneNumber.ImageOptions.Image")));
+            this.btn_LookUpPhoneNumber.Location = new System.Drawing.Point(447, 24);
+            this.btn_LookUpPhoneNumber.Name = "btn_LookUpPhoneNumber";
+            this.btn_LookUpPhoneNumber.Size = new System.Drawing.Size(28, 23);
+            this.btn_LookUpPhoneNumber.TabIndex = 88;
+            this.btn_LookUpPhoneNumber.Click += new System.EventHandler(this.btn_PhoneNumber_Click);
+            // 
             // lbl_IdDriver
             // 
             this.lbl_IdDriver.AutoSize = true;
-            this.lbl_IdDriver.Location = new System.Drawing.Point(648, 29);
+            this.lbl_IdDriver.Location = new System.Drawing.Point(640, 29);
             this.lbl_IdDriver.Name = "lbl_IdDriver";
             this.lbl_IdDriver.Size = new System.Drawing.Size(37, 13);
             this.lbl_IdDriver.TabIndex = 86;
@@ -754,38 +786,6 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl4.Size = new System.Drawing.Size(70, 13);
             this.labelControl4.TabIndex = 34;
             this.labelControl4.Text = "Phone Number";
-            // 
-            // btn_LookUpPhoneNumber
-            // 
-            this.btn_LookUpPhoneNumber.Appearance.BackColor = System.Drawing.SystemColors.Control;
-            this.btn_LookUpPhoneNumber.Appearance.BackColor2 = System.Drawing.Color.Transparent;
-            this.btn_LookUpPhoneNumber.Appearance.BorderColor = System.Drawing.SystemColors.Control;
-            this.btn_LookUpPhoneNumber.Appearance.ForeColor = System.Drawing.Color.Transparent;
-            this.btn_LookUpPhoneNumber.Appearance.Options.UseBackColor = true;
-            this.btn_LookUpPhoneNumber.Appearance.Options.UseBorderColor = true;
-            this.btn_LookUpPhoneNumber.Appearance.Options.UseForeColor = true;
-            this.btn_LookUpPhoneNumber.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
-            this.btn_LookUpPhoneNumber.Location = new System.Drawing.Point(447, 24);
-            this.btn_LookUpPhoneNumber.Name = "btn_LookUpPhoneNumber";
-            this.btn_LookUpPhoneNumber.Size = new System.Drawing.Size(28, 23);
-            this.btn_LookUpPhoneNumber.TabIndex = 88;
-            this.btn_LookUpPhoneNumber.Click += new System.EventHandler(this.btn_PhoneNumber_Click);
-            // 
-            // btn_LookUpName
-            // 
-            this.btn_LookUpName.Appearance.BackColor = System.Drawing.SystemColors.Control;
-            this.btn_LookUpName.Appearance.BackColor2 = System.Drawing.Color.Transparent;
-            this.btn_LookUpName.Appearance.BorderColor = System.Drawing.SystemColors.Control;
-            this.btn_LookUpName.Appearance.ForeColor = System.Drawing.Color.Transparent;
-            this.btn_LookUpName.Appearance.Options.UseBackColor = true;
-            this.btn_LookUpName.Appearance.Options.UseBorderColor = true;
-            this.btn_LookUpName.Appearance.Options.UseForeColor = true;
-            this.btn_LookUpName.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton3.ImageOptions.Image")));
-            this.btn_LookUpName.Location = new System.Drawing.Point(172, 24);
-            this.btn_LookUpName.Name = "btn_LookUpName";
-            this.btn_LookUpName.Size = new System.Drawing.Size(28, 23);
-            this.btn_LookUpName.TabIndex = 89;
-            this.btn_LookUpName.Click += new System.EventHandler(this.btn_LookUpName_Click);
             // 
             // IncidentCapture
             // 
