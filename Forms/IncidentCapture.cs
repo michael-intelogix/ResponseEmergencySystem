@@ -26,8 +26,9 @@ namespace ResponseEmergencySystem.Forms
         {
             using (var context = new SIREMLocalEntities())
             {
-                lue_states.Properties.DataSource = context.List_States(Guid.Parse("69D30589-3090-45F9-8776-4DFEBCF39371"));
-                lue_DriverLicenceState.Properties.DataSource = context.List_States(Guid.Parse("69D30589-3090-45F9-8776-4DFEBCF39371"));
+                lue_states.Properties.DataSource = context.List_States(null);
+
+                lue_DriverLicenceState.Properties.DataSource = context.List_States(null);
             }
         }
 
@@ -55,7 +56,8 @@ namespace ResponseEmergencySystem.Forms
 
                 var id_driver = lbl_IdDriver.Text;
                 Task<List<Update_Driver_Result>> results_2;
-                if (id_driver == "empty") {
+                if (id_driver == "empty")
+                {
                     results_2 = context.Database.SqlQuery<Update_Driver_Result>("EXEC Update_Driver {0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}",
                         null,
                         edt_FullName.Text.ToString(),
@@ -120,34 +122,49 @@ namespace ResponseEmergencySystem.Forms
 
                 var no = rand.Next(0, 1000001).ToString();
 
+                DateTime incidentDate = new DateTime(dte_IncidentDate.DateTime.Ticks + tme_IncidentTime.Time.Ticks);
+                bool policeReportBoolean = GetRadioGroupYesNoSelection(rdgrp_PoliceReport);
+                string policeReportNumber = GetEdtValue(edt_PoliceReport);
+                bool injuredBoolean = GetRadioGroupYesNoSelection(rdgrp_Injured);
+                string injuredNames = GetEdtValue(edt_InjuredNames);
+                string truckNumber = GetEdtValue(edt_TruckNumber);
+                string trailerNumber = GetEdtValue(edt_TrailerNumber);
+                bool truckDamage = GetRadioGroupYesNoSelection(rdgrp_TruckDamage);
+                bool trailerDamage = GetRadioGroupYesNoSelection(rdgrp_TrailerDamage);
+                bool cargoSpill = GetRadioGroupYesNoSelection(rdgrp_CargoSpill);
+                string manifestNumber = GetEdtValue(edt_manifest);
+                bool status = true;
+
                 var Incident_Response = context.Update_Incident(
-                    null,
-                    //Guid.Parse("12D0FB1E-2797-EB11-BA73-8CDCD457CB4F"), 
-                    Guid.Parse(id_driver),
-                    Guid.Parse(results_1.Result[0].ID.ToString()),
-                    Guid.Parse(results_3.Result[0].ID.ToString()),
-                    Guid.Parse("EB06B210-E102-4AEC-9820-8AD3A49060D9"),
-                    no,
-                    DateTime.Now,
-                    DateTime.Now,
-                    "343234324",
-                    true,
-                    "2132354",
-                    true,
-                    "a lot of them",
-                    "4324324",
-                    "23432432",
-                    true,
-                    true,
-                    true,
-                    "43324324",
-                    Guid.Parse("7DC94B83-1E93-EB11-BA73-8CDCD457CB4F"),
-                    true
-                );
+                null,
+                //Guid.Parse("12D0FB1E-2797-EB11-BA73-8CDCD457CB4F"), 
+                Guid.Parse(id_driver),
+                Guid.Parse(results_1.Result[0].ID.ToString()),
+                Guid.Parse(results_3.Result[0].ID.ToString()),
+                Guid.Parse("EB06B210-E102-4AEC-9820-8AD3A49060D9"),
+                no,
+                incidentDate,
+                null,
+                policeReportNumber,
+                policeReportBoolean,
+                "",
+                injuredBoolean,
+                injuredNames,
+                truckNumber,
+                trailerNumber,
+                truckDamage,
+                trailerDamage,
+                cargoSpill,
+                manifestNumber,
+                Guid.Parse("7DC94B83-1E93-EB11-BA73-8CDCD457CB4F"),
+                status
+            );
 
-                Debug.WriteLine(Incident_Response.ToList()[0].msg);
+            Debug.WriteLine(Incident_Response.ToList()[0].msg);
 
+                //Debug.WriteLine(policeReportBool);
             }
+
         }
 
         private void lue_States_Properties_EditValueChanged(object sender, EventArgs e)
@@ -202,10 +219,54 @@ namespace ResponseEmergencySystem.Forms
         {
             using (var context = new SIREMLocalEntities())
             {
-                var Driver_Response = context.Get_Driver(edt_License.EditValue.ToString()).ToList()[0];
+                string license = GetEdtValue(edt_License);
+                var Driver_Response = context.Get_Driver(license, "", "").ToList()[0];
                 edt_FullName.EditValue = Driver_Response.Name.ToString();            
-                edt_PhoneNumber.EditValue = Driver_Response.phone_number.ToString();            
-                lue_DriverLicenceState.EditValue = Guid.Parse("583FB45E-E1B6-4E71-9471-7B2C5859FCD9");            
+                edt_PhoneNumber.EditValue = Driver_Response.phone_number.ToString();
+                edt_License.EditValue = Driver_Response.License.ToString();
+                lue_DriverLicenceState.EditValue = Guid.Parse(Driver_Response.Expidation_State.ToString());            
+                dte_ExpirationDate.EditValue = Driver_Response.Expiration_Date.ToString();
+                lbl_IdDriver.Text = Driver_Response.ID_Driver.ToString();
+            }
+        }
+
+        private bool GetRadioGroupYesNoSelection(RadioGroup rdgrp)
+        {
+            bool result = rdgrp.Properties.Items[rdgrp.SelectedIndex].Description.ToString().ToLower() == "yes";
+            return result;
+        }
+
+        private string GetEdtValue(TextEdit edt)
+        {
+            string result = edt.EditValue == null ? "" : edt.EditValue.ToString();
+            return result;
+        }
+
+        private void btn_LookUpName_Click(object sender, EventArgs e)
+        {
+            using (var context = new SIREMLocalEntities())
+            {
+                string fullName = GetEdtValue(edt_FullName);
+                var Driver_Response = context.Get_Driver("", "", fullName).ToList()[0];
+                edt_FullName.EditValue = Driver_Response.Name.ToString();
+                edt_PhoneNumber.EditValue = Driver_Response.phone_number.ToString();
+                edt_License.EditValue = Driver_Response.License.ToString();
+                lue_DriverLicenceState.EditValue = Guid.Parse(Driver_Response.Expidation_State.ToString());
+                dte_ExpirationDate.EditValue = Driver_Response.Expiration_Date.ToString();
+                lbl_IdDriver.Text = Driver_Response.ID_Driver.ToString();
+            }
+        }
+
+        private void btn_PhoneNumber_Click(object sender, EventArgs e)
+        {
+            using (var context = new SIREMLocalEntities())
+            {
+                string phoneNumber = GetEdtValue(edt_PhoneNumber);
+                var Driver_Response = context.Get_Driver("", phoneNumber, "").ToList()[0];
+                edt_FullName.EditValue = Driver_Response.Name.ToString();
+                edt_PhoneNumber.EditValue = Driver_Response.phone_number.ToString();
+                edt_License.EditValue = Driver_Response.License.ToString();
+                lue_DriverLicenceState.EditValue = Guid.Parse(Driver_Response.Expidation_State.ToString());
                 dte_ExpirationDate.EditValue = Driver_Response.Expiration_Date.ToString();
                 lbl_IdDriver.Text = Driver_Response.ID_Driver.ToString();
             }
