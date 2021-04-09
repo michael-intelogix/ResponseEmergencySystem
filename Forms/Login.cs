@@ -11,13 +11,13 @@ using System.Windows.Forms;
 
 namespace ResponseEmergencySystem.Forms
 {
-    public partial class frm_login : DevExpress.XtraEditors.XtraForm
+    public partial class Login : DevExpress.XtraEditors.XtraForm
     {
 
         object user;
         public DataTable myData = new DataTable();
 
-        public frm_login()
+        public Login()
         {
             InitializeComponent();
         }

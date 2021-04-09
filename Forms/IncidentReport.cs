@@ -10,6 +10,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using ResponseEmergencySystem.Code;
 
 namespace ResponseEmergencySystem.Forms
 {
@@ -26,13 +27,31 @@ namespace ResponseEmergencySystem.Forms
         private void IncidentReport_Load(object sender, EventArgs e)
         {
 
-            frm_login login = new frm_login();
+            Login login = new Login();
 
+            //private static SqlConnection cn(string database = "General")
+            //{
+            //    SqlConnection sqcn = new SqlConnection(
+            //        //$@"Server=35.223.136.179,1433;Initial Catalog={database}; Persist Security Info = True; User ID = sqluser; Password = Int3logix20.-");
+            //        $@"Server=DESKTOP-G404ISP\INTELOGIX205;Initial Catalog={database}; Persist Security Info = True; User ID = Yearim; Password = Taekwondo84 ");
+            //    if (sqcn.State == ConnectionState.Open)
+            //    {
+            //        sqcn.Close();
+            //    }
+            //    sqcn.Open();
+            //    return sqcn;
+            //}
 
-            //if (login.ShowDialog() == DialogResult.OK) 
+            constants.EmilioConn.Open();
+            if (constants.EmilioConn.State == ConnectionState.Open)
+            {
+                Debug.WriteLine("IT'S ALIVEEEEEEEEEEEEEEEEEEEE");
+            }
+
+            //if (login.ShowDialog() == DialogResult.OK)
             //{
             //    access = login.myData;
-            //    string idmysoftware = "lolo";
+            //    string idmysoftware = "2a5aa42b-2089-4fa8-b7cc-2cea2a017a8a";
             //    DataRow[] accesos = access.Select($"ID_Software = '{idmysoftware}'");
             //    if (accesos.Length > 0)
             //    {
@@ -73,9 +92,9 @@ namespace ResponseEmergencySystem.Forms
 
         private void gv_Incidents_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
-            string ID = (sender as GridView).GetRowCellValue((sender as GridView).FocusedRowHandle, "ID_Incident").ToString();
+            constants.id_capture = Guid.Parse(gv_Incidents.GetFocusedRowCellValue("ID_Capture").ToString());
 
-            form_driver_report driver = new form_driver_report(ID);
+            form_driver_report driver = new form_driver_report();
 
             driver.Show();
         }

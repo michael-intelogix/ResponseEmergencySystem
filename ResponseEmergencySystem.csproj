@@ -322,6 +322,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Code\constants.cs" />
+    <Compile Include="Code\FireBaseFunctions.cs" />
     <Compile Include="Code\Functions.cs" />
     <Compile Include="Code\Location.cs" />
     <Compile Include="Connection\Connection.cs" />
@@ -400,11 +402,11 @@
     <Compile Include="Forms\DriverReport.Designer.cs">
       <DependentUpon>DriverReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frm_login.cs">
+    <Compile Include="Forms\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frm_login.Designer.cs">
-      <DependentUpon>frm_login.cs</DependentUpon>
+    <Compile Include="Forms\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\IncidentCapture.cs">
       <SubType>Form</SubType>
@@ -429,8 +431,8 @@
     <EmbeddedResource Include="Forms\DriverReport.resx">
       <DependentUpon>DriverReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frm_login.resx">
-      <DependentUpon>frm_login.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\IncidentCapture.resx">
       <DependentUpon>IncidentCapture.cs</DependentUpon>

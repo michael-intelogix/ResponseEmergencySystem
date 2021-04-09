@@ -1,7 +1,7 @@
 ﻿
 namespace ResponseEmergencySystem.Forms
 {
-    partial class frm_login
+    partial class Login
     {
         /// <summary>
         /// Required designer variable.
@@ -29,8 +29,8 @@ namespace ResponseEmergencySystem.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_login));
-            this.loginCtrl1 = new Login.LoginCtrl();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
+            this.loginCtrl1 = new global::Login.LoginCtrl();
             this.SuspendLayout();
             // 
             // loginCtrl1
@@ -67,6 +67,6 @@ namespace ResponseEmergencySystem.Forms
 
         #endregion
 
-        private Login.LoginCtrl loginCtrl1;
+        private global::Login.LoginCtrl loginCtrl1;
     }
 }
