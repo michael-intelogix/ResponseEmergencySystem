@@ -29,25 +29,21 @@ namespace ResponseEmergencySystem.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form_driver_report));
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement2 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.groupControl5 = new DevExpress.XtraEditors.GroupControl();
-            this.groupControl7 = new DevExpress.XtraEditors.GroupControl();
-            this.progressBarControl1 = new DevExpress.XtraEditors.ProgressBarControl();
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
-            this.imageBox = new System.Windows.Forms.PictureBox();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl6 = new DevExpress.XtraEditors.GroupControl();
             this.gc_Images = new DevExpress.XtraGrid.GridControl();
             this.gv_Images = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colID_Image = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colID_Capture1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colID_ImageType = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDateTime1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colImageTitle = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDateTime1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colImagePath = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colComments = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colStatusDetail1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -55,6 +51,12 @@ namespace ResponseEmergencySystem.Forms
             this.colStatus1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Update = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btn_UpdateImage = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.repositoryItemPictureEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
+            this.groupControl7 = new DevExpress.XtraEditors.GroupControl();
+            this.progressBarControl1 = new DevExpress.XtraEditors.ProgressBarControl();
+            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
+            this.imageBox = new System.Windows.Forms.PictureBox();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
             this.gc_Captures = new DevExpress.XtraGrid.GridControl();
             this.gv_Captures = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -64,36 +66,42 @@ namespace ResponseEmergencySystem.Forms
             this.CaptureType = new DevExpress.XtraGrid.Columns.GridColumn();
             this.captures = new DevExpress.XtraGrid.Columns.GridColumn();
             this.comments = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.groupControl5 = new DevExpress.XtraEditors.GroupControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.edt_Message = new DevExpress.XtraEditors.TextEdit();
             this.btn_Send = new DevExpress.XtraEditors.SimpleButton();
             this.memoEdit_Chat = new DevExpress.XtraEditors.MemoEdit();
+            this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement2 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).BeginInit();
-            this.groupControl5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl7)).BeginInit();
-            this.groupControl7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.progressBarControl1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imageBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl6)).BeginInit();
             this.groupControl6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gc_Images)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_Images)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_StatusDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_UpdateImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl7)).BeginInit();
+            this.groupControl7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.progressBarControl1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
             this.groupControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gc_Captures)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_Captures)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).BeginInit();
+            this.groupControl5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.edt_Message.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit_Chat.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -115,46 +123,139 @@ namespace ResponseEmergencySystem.Forms
             this.splitContainer1.SplitterDistance = 893;
             this.splitContainer1.TabIndex = 23;
             // 
-            // accordionControlElement1
+            // groupControl6
             // 
-            this.accordionControlElement1.HeaderTemplate.AddRange(new DevExpress.XtraBars.Navigation.HeaderElementInfo[] {
-            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Text),
-            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Image),
-            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.HeaderControl),
-            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.ContextButtons)});
-            this.accordionControlElement1.Name = "accordionControlElement1";
-            this.accordionControlElement1.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement1.Text = "Element1";
+            this.groupControl6.Controls.Add(this.gc_Images);
+            this.groupControl6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupControl6.Location = new System.Drawing.Point(0, 165);
+            this.groupControl6.Name = "groupControl6";
+            this.groupControl6.Size = new System.Drawing.Size(893, 316);
+            this.groupControl6.TabIndex = 0;
+            this.groupControl6.Text = "IMAGES";
             // 
-            // accordionControlElement2
+            // gc_Images
             // 
-            this.accordionControlElement2.HeaderTemplate.AddRange(new DevExpress.XtraBars.Navigation.HeaderElementInfo[] {
-            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Text),
-            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Image),
-            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.HeaderControl),
-            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.ContextButtons)});
-            this.accordionControlElement2.Name = "accordionControlElement2";
-            this.accordionControlElement2.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement2.Text = "Element1";
+            this.gc_Images.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gc_Images.Location = new System.Drawing.Point(2, 23);
+            this.gc_Images.MainView = this.gv_Images;
+            this.gc_Images.Name = "gc_Images";
+            this.gc_Images.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.lue_StatusDetail,
+            this.btn_UpdateImage,
+            this.repositoryItemPictureEdit1});
+            this.gc_Images.Size = new System.Drawing.Size(889, 291);
+            this.gc_Images.TabIndex = 0;
+            this.gc_Images.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gv_Images});
             // 
-            // gridView1
+            // gv_Images
             // 
-            this.gridView1.Name = "gridView1";
+            this.gv_Images.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colID_Image,
+            this.colID_Capture1,
+            this.colID_ImageType,
+            this.colImageTitle,
+            this.colDateTime1,
+            this.colImagePath,
+            this.colComments,
+            this.colStatusDetail1,
+            this.colStatus1,
+            this.Update});
+            this.gv_Images.GridControl = this.gc_Images;
+            this.gv_Images.Name = "gv_Images";
             // 
-            // gridView2
+            // colID_Image
             // 
-            this.gridView2.Name = "gridView2";
+            this.colID_Image.FieldName = "ID_Image";
+            this.colID_Image.Name = "colID_Image";
             // 
-            // groupControl5
+            // colID_Capture1
             // 
-            this.groupControl5.Controls.Add(this.panelControl1);
-            this.groupControl5.Controls.Add(this.memoEdit_Chat);
-            this.groupControl5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl5.Location = new System.Drawing.Point(0, 0);
-            this.groupControl5.Name = "groupControl5";
-            this.groupControl5.Size = new System.Drawing.Size(493, 720);
-            this.groupControl5.TabIndex = 2;
-            this.groupControl5.Text = "CHAT";
+            this.colID_Capture1.FieldName = "ID_Capture";
+            this.colID_Capture1.Name = "colID_Capture1";
+            // 
+            // colID_ImageType
+            // 
+            this.colID_ImageType.FieldName = "ID_ImageType";
+            this.colID_ImageType.Name = "colID_ImageType";
+            // 
+            // colImageTitle
+            // 
+            this.colImageTitle.FieldName = "name";
+            this.colImageTitle.Name = "colImageTitle";
+            this.colImageTitle.OptionsColumn.AllowEdit = false;
+            this.colImageTitle.Visible = true;
+            this.colImageTitle.VisibleIndex = 1;
+            // 
+            // colDateTime1
+            // 
+            this.colDateTime1.DisplayFormat.FormatString = "hh:mm:ss";
+            this.colDateTime1.FieldName = "date";
+            this.colDateTime1.Name = "colDateTime1";
+            this.colDateTime1.OptionsColumn.AllowEdit = false;
+            this.colDateTime1.Visible = true;
+            this.colDateTime1.VisibleIndex = 0;
+            // 
+            // colImagePath
+            // 
+            this.colImagePath.FieldName = "ImagePath";
+            this.colImagePath.Name = "colImagePath";
+            this.colImagePath.OptionsColumn.AllowEdit = false;
+            // 
+            // colComments
+            // 
+            this.colComments.FieldName = "Comments";
+            this.colComments.Name = "colComments";
+            this.colComments.OptionsColumn.AllowEdit = false;
+            this.colComments.Visible = true;
+            this.colComments.VisibleIndex = 2;
+            // 
+            // colStatusDetail1
+            // 
+            this.colStatusDetail1.ColumnEdit = this.lue_StatusDetail;
+            this.colStatusDetail1.FieldName = "StatusDetail";
+            this.colStatusDetail1.Name = "colStatusDetail1";
+            this.colStatusDetail1.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowAlways;
+            // 
+            // lue_StatusDetail
+            // 
+            this.lue_StatusDetail.AutoHeight = false;
+            this.lue_StatusDetail.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lue_StatusDetail.Name = "lue_StatusDetail";
+            // 
+            // colStatus1
+            // 
+            this.colStatus1.FieldName = "Status";
+            this.colStatus1.Name = "colStatus1";
+            this.colStatus1.OptionsColumn.AllowEdit = false;
+            this.colStatus1.Visible = true;
+            this.colStatus1.VisibleIndex = 3;
+            // 
+            // Update
+            // 
+            this.Update.Caption = "Update";
+            this.Update.ColumnEdit = this.btn_UpdateImage;
+            this.Update.FieldName = "Update";
+            this.Update.MaxWidth = 150;
+            this.Update.MinWidth = 150;
+            this.Update.Name = "Update";
+            this.Update.Visible = true;
+            this.Update.VisibleIndex = 4;
+            this.Update.Width = 150;
+            // 
+            // btn_UpdateImage
+            // 
+            this.btn_UpdateImage.AutoHeight = false;
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            this.btn_UpdateImage.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.btn_UpdateImage.Name = "btn_UpdateImage";
+            this.btn_UpdateImage.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            // 
+            // repositoryItemPictureEdit1
+            // 
+            this.repositoryItemPictureEdit1.Name = "repositoryItemPictureEdit1";
             // 
             // groupControl7
             // 
@@ -163,15 +264,15 @@ namespace ResponseEmergencySystem.Forms
             this.groupControl7.Controls.Add(this.imageBox);
             this.groupControl7.Controls.Add(this.simpleButton1);
             this.groupControl7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupControl7.Location = new System.Drawing.Point(0, 365);
+            this.groupControl7.Location = new System.Drawing.Point(0, 481);
             this.groupControl7.Name = "groupControl7";
-            this.groupControl7.Size = new System.Drawing.Size(893, 355);
+            this.groupControl7.Size = new System.Drawing.Size(893, 239);
             this.groupControl7.TabIndex = 0;
             this.groupControl7.Text = "SHOW IMAGE";
             // 
             // progressBarControl1
             // 
-            this.progressBarControl1.Location = new System.Drawing.Point(22, 237);
+            this.progressBarControl1.Location = new System.Drawing.Point(253, 95);
             this.progressBarControl1.Name = "progressBarControl1";
             this.progressBarControl1.Size = new System.Drawing.Size(169, 18);
             this.progressBarControl1.TabIndex = 3;
@@ -201,132 +302,6 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton1.Size = new System.Drawing.Size(75, 23);
             this.simpleButton1.TabIndex = 0;
             this.simpleButton1.Text = "simpleButton1";
-            // 
-            // groupControl6
-            // 
-            this.groupControl6.Controls.Add(this.gc_Images);
-            this.groupControl6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl6.Location = new System.Drawing.Point(0, 165);
-            this.groupControl6.Name = "groupControl6";
-            this.groupControl6.Size = new System.Drawing.Size(893, 200);
-            this.groupControl6.TabIndex = 0;
-            this.groupControl6.Text = "IMAGES";
-            // 
-            // gc_Images
-            // 
-            this.gc_Images.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gc_Images.Location = new System.Drawing.Point(2, 23);
-            this.gc_Images.MainView = this.gv_Images;
-            this.gc_Images.Name = "gc_Images";
-            this.gc_Images.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.lue_StatusDetail,
-            this.btn_UpdateImage});
-            this.gc_Images.Size = new System.Drawing.Size(889, 175);
-            this.gc_Images.TabIndex = 0;
-            this.gc_Images.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gv_Images});
-            // 
-            // gv_Images
-            // 
-            this.gv_Images.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colID_Image,
-            this.colID_Capture1,
-            this.colID_ImageType,
-            this.colDateTime1,
-            this.colImageTitle,
-            this.colImagePath,
-            this.colComments,
-            this.colStatusDetail1,
-            this.colStatus1,
-            this.Update});
-            this.gv_Images.GridControl = this.gc_Images;
-            this.gv_Images.Name = "gv_Images";
-            // 
-            // colID_Image
-            // 
-            this.colID_Image.FieldName = "ID_Image";
-            this.colID_Image.Name = "colID_Image";
-            // 
-            // colID_Capture1
-            // 
-            this.colID_Capture1.FieldName = "ID_Capture";
-            this.colID_Capture1.Name = "colID_Capture1";
-            // 
-            // colID_ImageType
-            // 
-            this.colID_ImageType.FieldName = "ID_ImageType";
-            this.colID_ImageType.Name = "colID_ImageType";
-            // 
-            // colDateTime1
-            // 
-            this.colDateTime1.DisplayFormat.FormatString = "hh:mm:ss";
-            this.colDateTime1.FieldName = "DateTime";
-            this.colDateTime1.Name = "colDateTime1";
-            this.colDateTime1.OptionsColumn.AllowEdit = false;
-            this.colDateTime1.Visible = true;
-            this.colDateTime1.VisibleIndex = 0;
-            // 
-            // colImageTitle
-            // 
-            this.colImageTitle.FieldName = "ImageTitle";
-            this.colImageTitle.Name = "colImageTitle";
-            this.colImageTitle.OptionsColumn.AllowEdit = false;
-            this.colImageTitle.Visible = true;
-            this.colImageTitle.VisibleIndex = 1;
-            // 
-            // colImagePath
-            // 
-            this.colImagePath.FieldName = "ImagePath";
-            this.colImagePath.Name = "colImagePath";
-            this.colImagePath.OptionsColumn.AllowEdit = false;
-            // 
-            // colComments
-            // 
-            this.colComments.FieldName = "Comments";
-            this.colComments.Name = "colComments";
-            this.colComments.OptionsColumn.AllowEdit = false;
-            this.colComments.Visible = true;
-            this.colComments.VisibleIndex = 2;
-            // 
-            // colStatusDetail1
-            // 
-            this.colStatusDetail1.ColumnEdit = this.lue_StatusDetail;
-            this.colStatusDetail1.FieldName = "StatusDetail";
-            this.colStatusDetail1.Name = "colStatusDetail1";
-            this.colStatusDetail1.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowAlways;
-            this.colStatusDetail1.Visible = true;
-            this.colStatusDetail1.VisibleIndex = 3;
-            // 
-            // lue_StatusDetail
-            // 
-            this.lue_StatusDetail.AutoHeight = false;
-            this.lue_StatusDetail.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lue_StatusDetail.Name = "lue_StatusDetail";
-            // 
-            // colStatus1
-            // 
-            this.colStatus1.FieldName = "Status";
-            this.colStatus1.Name = "colStatus1";
-            this.colStatus1.OptionsColumn.AllowEdit = false;
-            this.colStatus1.Visible = true;
-            this.colStatus1.VisibleIndex = 4;
-            // 
-            // Update
-            // 
-            this.Update.Caption = "Update";
-            this.Update.ColumnEdit = this.btn_UpdateImage;
-            this.Update.FieldName = "Update";
-            this.Update.Name = "Update";
-            this.Update.Visible = true;
-            this.Update.VisibleIndex = 5;
-            // 
-            // btn_UpdateImage
-            // 
-            this.btn_UpdateImage.AutoHeight = false;
-            this.btn_UpdateImage.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.btn_UpdateImage.Name = "btn_UpdateImage";
             // 
             // groupControl4
             // 
@@ -409,6 +384,17 @@ namespace ResponseEmergencySystem.Forms
             this.comments.Visible = true;
             this.comments.VisibleIndex = 3;
             // 
+            // groupControl5
+            // 
+            this.groupControl5.Controls.Add(this.panelControl1);
+            this.groupControl5.Controls.Add(this.memoEdit_Chat);
+            this.groupControl5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupControl5.Location = new System.Drawing.Point(0, 0);
+            this.groupControl5.Name = "groupControl5";
+            this.groupControl5.Size = new System.Drawing.Size(493, 720);
+            this.groupControl5.TabIndex = 2;
+            this.groupControl5.Text = "CHAT";
+            // 
             // panelControl1
             // 
             this.panelControl1.Controls.Add(this.edt_Message);
@@ -423,16 +409,17 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.edt_Message.Location = new System.Drawing.Point(5, 10);
             this.edt_Message.Name = "edt_Message";
-            this.edt_Message.Size = new System.Drawing.Size(271, 20);
+            this.edt_Message.Size = new System.Drawing.Size(393, 20);
             this.edt_Message.TabIndex = 1;
             // 
             // btn_Send
             // 
-            this.btn_Send.Location = new System.Drawing.Point(282, 8);
+            this.btn_Send.Location = new System.Drawing.Point(404, 8);
             this.btn_Send.Name = "btn_Send";
             this.btn_Send.Size = new System.Drawing.Size(75, 23);
             this.btn_Send.TabIndex = 0;
             this.btn_Send.Text = "simpleButton2";
+            this.btn_Send.Click += new System.EventHandler(this.btn_Send_Click);
             // 
             // memoEdit_Chat
             // 
@@ -443,6 +430,36 @@ namespace ResponseEmergencySystem.Forms
             this.memoEdit_Chat.Name = "memoEdit_Chat";
             this.memoEdit_Chat.Size = new System.Drawing.Size(479, 650);
             this.memoEdit_Chat.TabIndex = 4;
+            // 
+            // accordionControlElement1
+            // 
+            this.accordionControlElement1.HeaderTemplate.AddRange(new DevExpress.XtraBars.Navigation.HeaderElementInfo[] {
+            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Text),
+            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Image),
+            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.HeaderControl),
+            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.ContextButtons)});
+            this.accordionControlElement1.Name = "accordionControlElement1";
+            this.accordionControlElement1.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement1.Text = "Element1";
+            // 
+            // accordionControlElement2
+            // 
+            this.accordionControlElement2.HeaderTemplate.AddRange(new DevExpress.XtraBars.Navigation.HeaderElementInfo[] {
+            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Text),
+            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Image),
+            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.HeaderControl),
+            new DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.ContextButtons)});
+            this.accordionControlElement2.Name = "accordionControlElement2";
+            this.accordionControlElement2.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement2.Text = "Element1";
+            // 
+            // gridView1
+            // 
+            this.gridView1.Name = "gridView1";
+            // 
+            // gridView2
+            // 
+            this.gridView2.Name = "gridView2";
             // 
             // form_driver_report
             // 
@@ -460,28 +477,29 @@ namespace ResponseEmergencySystem.Forms
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).EndInit();
-            this.groupControl5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl7)).EndInit();
-            this.groupControl7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.progressBarControl1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imageBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl6)).EndInit();
             this.groupControl6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gc_Images)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_Images)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_StatusDetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_UpdateImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl7)).EndInit();
+            this.groupControl7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.progressBarControl1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).EndInit();
             this.groupControl4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gc_Captures)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_Captures)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).EndInit();
+            this.groupControl5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.edt_Message.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit_Chat.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -527,5 +545,6 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraEditors.MemoEdit memoEdit_Chat;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit repositoryItemPictureEdit1;
     }
 }

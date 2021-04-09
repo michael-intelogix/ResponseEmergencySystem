@@ -27,6 +27,8 @@ namespace ResponseEmergencySystem.Code
 
         public static Guid id_capture { get; set; }
 
+        public static string userName { get; set; }
+
 
 
 

@@ -29,7 +29,7 @@ namespace ResponseEmergencySystem.Forms
         private int listening = 0;
 
         private DataTable dtIncidentCaptures = new DataTable();
-        //private DataTable dt = new DataTable();
+        private DataTable dtImagesTest = new DataTable();
 
         public form_driver_report()
         {
@@ -110,66 +110,46 @@ namespace ResponseEmergencySystem.Forms
             Debug.WriteLine(constants.id_capture);
 
 
-            //dtIncidentCaptures.Clear();
-            //dtIncidentCaptures.Columns.Add("ID_Capture");
-            //dtIncidentCaptures.Columns.Add("ID_CaptureType");
-            //dtIncidentCaptures.Columns.Add("capture_date");
-            //dtIncidentCaptures.Columns.Add("Type");
-            //dtIncidentCaptures.Columns.Add("CapturesByType");
-            //dtIncidentCaptures.Columns.Add("Comments");
-            //DataRow _data1 = dtIncidentCaptures.NewRow();
-            //_data1["ID_Capture"] = Guid.NewGuid();
-            //_data1["ID_CaptureType"] = Guid.NewGuid();
-            //_data1["capture_date"] = DateTime.Now;
-            //_data1["Type"] = "Vehicle";
-            //_data1["CapturesByType"] = 0;
-            //_data1["Comments"] = "data 1";
-            //dtIncidentCaptures.Rows.Add(_data1);
-            //DataRow _data2 = dtIncidentCaptures.NewRow();
-            //_data2["ID_Capture"] = Guid.NewGuid();
-            //_data2["ID_CaptureType"] = Guid.NewGuid();
-            //_data2["capture_date"] = DateTime.Now;
-            //_data2["Type"] = "Truck";
-            //_data2["CapturesByType"] = 0;
-            //_data2["Comments"] = "data 2";
-            //dtIncidentCaptures.Rows.Add(_data2);
-            //DataRow _data3 = dtIncidentCaptures.NewRow();
-            //_data3["ID_Capture"] = Guid.NewGuid();
-            //_data3["ID_CaptureType"] = Guid.NewGuid();
-            //_data3["capture_date"] = DateTime.Now;
-            //_data3["Type"] = "Trailer";
-            //_data3["CapturesByType"] = 0;
-            //_data3["Comments"] = "data 3";
-            //dtIncidentCaptures.Rows.Add(_data3);
-            //DataRow _data4 = dtIncidentCaptures.NewRow();
-            //_data4["ID_Capture"] = Guid.NewGuid();
-            //_data4["ID_CaptureType"] = Guid.NewGuid();
-            //_data4["capture_date"] = DateTime.Now;
-            //_data4["Type"] = "Insurance Policy";
-            //_data4["CapturesByType"] = 0;
-            //_data4["Comments"] = "data 4";
-            //dtIncidentCaptures.Rows.Add(_data4);
+            dtImagesTest.Clear();
+            dtImagesTest.Columns.Add("name");
+            dtImagesTest.Columns.Add("date");
+            DataRow _dataImg1 = dtImagesTest.NewRow();
+            _dataImg1["name"] = "front of the vehicle";
+            _dataImg1["date"] = DateTime.Now;
+            dtImagesTest.Rows.Add(_dataImg1);
+            DataRow _dataImg2 = dtImagesTest.NewRow();
+            _dataImg2["name"] = "back of the vehicle";
+            _dataImg2["date"] = DateTime.Now;
+            dtImagesTest.Rows.Add(_dataImg2);
+            DataRow _dataImg3 = dtImagesTest.NewRow();
+            _dataImg3["name"] = "right side of the vehicle";
+            _dataImg3["date"] = DateTime.Now;
+            dtImagesTest.Rows.Add(_dataImg3);
+            DataRow _dataImg4 = dtImagesTest.NewRow();
+            _dataImg4["name"] = "left side of the vehicle";
+            _dataImg4["date"] = DateTime.Now;
+            dtImagesTest.Rows.Add(_dataImg4);
 
-
+            gc_Images.DataSource = dtImagesTest;
 
             ///** Firestore Database Connection **/
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", constants.path);
             dataBase = FirestoreDb.Create("dcmanagement-3d402");
 
-            //CollectionReference messagesRef = dataBase.Collection("chats").Document("1654ec38-ec4f-4e05-9728-46154ad7d9ab").Collection("messages");
-            //Query query = messagesRef;
+            CollectionReference messagesRef = dataBase.Collection("chats").Document("1654ec38-ec4f-4e05-9728-46154ad7d9ab").Collection("messages");
+            Query query = messagesRef;
 
-            //FirestoreChangeListener listener = query.Listen(snapshot =>
-            //{
-            //    foreach (DocumentChange change in snapshot.Changes)
-            //    {
-            //        if (change.ChangeType.ToString() == "Added")
-            //        {
-            //            Refresh_Chat(change.Document);
+            FirestoreChangeListener listener = query.Listen(snapshot =>
+            {
+                foreach (DocumentChange change in snapshot.Changes)
+                {
+                    if (change.ChangeType.ToString() == "Added")
+                    {
+                        Refresh_Chat(change.Document);
 
-            //        }
-            //    }
-            //});
+                    }
+                }
+            });
         }
 
         private async void simpleButton1_Click(object sender, EventArgs e)
@@ -260,7 +240,7 @@ namespace ResponseEmergencySystem.Forms
             DocumentReference docRef = dataBase.Collection("chats").Document(idCapture).Collection("messages").Document(now);
             Dictionary<string, object> data1 = new Dictionary<string, object>()
             {
-                {"from", user  },
+                {"from", constants.userName  },
                 {"text", edt_Message.Text }
             };
 
@@ -328,9 +308,16 @@ namespace ResponseEmergencySystem.Forms
 
                 Image img = new Bitmap(ofd.FileName);
                 // image.Img = ofd.FileName;
+                
                 imageBox.Image = img.GetThumbnailImage(350, 200, null, new IntPtr());
             }
         }
+
+        private void btn_Send_Click(object sender, EventArgs e)
+        {
+            Send();
+        }
+
         /*
 private async void btn_UpdateImage_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
 {
@@ -345,7 +332,7 @@ for (int i = 0; i < gv_Images.DataRowCount; i++)
 {
 if (gv_Images.GetRowCellDisplayText(i, gv_Images.Columns.ColumnByFieldName("StatusDetail")).ToString() == "APPROVED")
 {
-  statusCounter++;
+statusCounter++;
 }
 }
 MessageBox.Show(statusCounter.ToString() + " of " + count.ToString() + "Captures Approved");

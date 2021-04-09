@@ -48,16 +48,16 @@ namespace ResponseEmergencySystem.Forms
                 Debug.WriteLine("IT'S ALIVEEEEEEEEEEEEEEEEEEEE");
             }
 
-            //if (login.ShowDialog() == DialogResult.OK)
-            //{
-            //    access = login.myData;
-            //    string idmysoftware = "2a5aa42b-2089-4fa8-b7cc-2cea2a017a8a";
-            //    DataRow[] accesos = access.Select($"ID_Software = '{idmysoftware}'");
-            //    if (accesos.Length > 0)
-            //    {
-
-            //    }
-            //}
+            if (login.ShowDialog() == DialogResult.OK)
+            {
+                access = login.myData;
+                string idmysoftware = "2a5aa42b-2089-4fa8-b7cc-2cea2a017a8a";
+                DataRow[] accesos = access.Select($"ID_Software = '{idmysoftware}'");
+                if (accesos.Length > 0)
+                {   
+                    constants.userName = accesos[0].ItemArray[13].ToString();
+                }
+            }
 
             using (var context = new SIREMLocalEntities())
             {
