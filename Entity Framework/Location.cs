@@ -12,9 +12,14 @@ namespace ResponseEmergencySystem.Entity_Framework
     using System;
     using System.Collections.Generic;
     
-    public partial class Status_Detail
+    public partial class Location
     {
-        public System.Guid ID_Status_Detail { get; set; }
-        public string Name { get; set; }
+        public System.Guid ID_Location { get; set; }
+        public System.Guid ID_City { get; set; }
+        public System.Guid ID_State { get; set; }
+        public string Highway { get; set; }
+        public string References { get; set; }
+        public string Latitude { get; set; }
+        public string Longitude { get; set; }
     }
 }

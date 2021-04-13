@@ -12,9 +12,10 @@ namespace ResponseEmergencySystem.Entity_Framework
     using System;
     using System.Collections.Generic;
     
-    public partial class Status_Detail
+    public partial class Broker
     {
-        public System.Guid ID_Status_Detail { get; set; }
-        public string Name { get; set; }
+        public System.Guid ID_Broker { get; set; }
+        public string Company { get; set; }
+        public string Address { get; set; }
     }
 }

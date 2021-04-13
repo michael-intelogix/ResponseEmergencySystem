@@ -12,9 +12,15 @@ namespace ResponseEmergencySystem.Entity_Framework
     using System;
     using System.Collections.Generic;
     
-    public partial class Status_Detail
+    public partial class Driver
     {
-        public System.Guid ID_Status_Detail { get; set; }
+        public System.Guid ID_Driver { get; set; }
         public string Name { get; set; }
+        public string Address { get; set; }
+        public string License { get; set; }
+        public bool status { get; set; }
+        public string Expidation_State { get; set; }
+        public System.DateTime Expiration_Date { get; set; }
+        public string phone_number { get; set; }
     }
 }

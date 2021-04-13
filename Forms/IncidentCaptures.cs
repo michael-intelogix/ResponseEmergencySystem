@@ -15,7 +15,7 @@ using System.IO;
 using Firebase.Storage;
 using ITXFramework;
 using ResponseEmergencySystem.Code;
-
+using ResponseEmergencySystem.Code.Captures;
 
 namespace ResponseEmergencySystem.Forms
 {
@@ -65,49 +65,58 @@ namespace ResponseEmergencySystem.Forms
 
 
             dtIncidentCaptures.Clear();
-            dtIncidentCaptures.Columns.Add("ID_Capture");
-            dtIncidentCaptures.Columns.Add("ID_CaptureType");
-            dtIncidentCaptures.Columns.Add("capture_date");
-            dtIncidentCaptures.Columns.Add("Type");
-            dtIncidentCaptures.Columns.Add("CapturesByType");
-            dtIncidentCaptures.Columns.Add("Comments");
-            DataRow _data1 = dtIncidentCaptures.NewRow();
-            _data1["ID_Capture"] = Guid.NewGuid();
-            _data1["ID_CaptureType"] = Guid.NewGuid();
-            _data1["capture_date"] = DateTime.Now;
-            _data1["Type"] = "Vehicle";
-            _data1["CapturesByType"] = 0;
-            _data1["Comments"] = "data 1";
-            dtIncidentCaptures.Rows.Add(_data1);
-            DataRow _data2 = dtIncidentCaptures.NewRow();
-            _data2["ID_Capture"] = Guid.NewGuid();
-            _data2["ID_CaptureType"] = Guid.NewGuid();
-            _data2["capture_date"] = DateTime.Now;
-            _data2["Type"] = "Truck";
-            _data2["CapturesByType"] = 0;
-            _data2["Comments"] = "data 2";
-            dtIncidentCaptures.Rows.Add(_data2);
-            DataRow _data3 = dtIncidentCaptures.NewRow();
-            _data3["ID_Capture"] = Guid.NewGuid();
-            _data3["ID_CaptureType"] = Guid.NewGuid();
-            _data3["capture_date"] = DateTime.Now;
-            _data3["Type"] = "Trailer";
-            _data3["CapturesByType"] = 0;
-            _data3["Comments"] = "data 3";
-            dtIncidentCaptures.Rows.Add(_data3);
-            DataRow _data4 = dtIncidentCaptures.NewRow();
-            _data4["ID_Capture"] = Guid.NewGuid();
-            _data4["ID_CaptureType"] = Guid.NewGuid();
-            _data4["capture_date"] = DateTime.Now;
-            _data4["Type"] = "Insurance Policy";
-            _data4["CapturesByType"] = 0;
-            _data4["Comments"] = "data 4";
-            dtIncidentCaptures.Rows.Add(_data4);
+
+            string[] columns = { "ID_Capture", "capture_date", "Type", "CapturesByType", "Comments" };
+            List<Capture> captures = new List<Capture>();
+
+            //dtIncidentCaptures.Columns.Add("ID_Capture");
+            //dtIncidentCaptures.Columns.Add("ID_CaptureType");
+            //dtIncidentCaptures.Columns.Add("capture_date");
+            //dtIncidentCaptures.Columns.Add("Type");
+            //dtIncidentCaptures.Columns.Add("CapturesByType");
+            //dtIncidentCaptures.Columns.Add("Comments");
+
+            captures.Add(new Capture(DateTime.Now, "Vehicle", 0, "data 1"));
+            captures.Add(new Capture(DateTime.Now, "Truck", 0, "data 2"));
+            captures.Add(new Capture(DateTime.Now, "Trailer", 0, "data 3"));
+            captures.Add(new Capture(DateTime.Now, "Insurance Policy", 0, "data 4"));
+            //DataRow _data1 = dtIncidentCaptures.NewRow();
+            //_data1["ID_Capture"] = Guid.NewGuid();
+            //_data1["ID_CaptureType"] = Guid.NewGuid();
+            //_data1["capture_date"] = DateTime.Now;
+            //_data1["Type"] = "Vehicle";
+            //_data1["CapturesByType"] = 0;
+            //_data1["Comments"] = "data 1";
+            //dtIncidentCaptures.Rows.Add(_data1);
+            //DataRow _data2 = dtIncidentCaptures.NewRow();
+            //_data2["ID_Capture"] = Guid.NewGuid();
+            //_data2["ID_CaptureType"] = Guid.NewGuid();
+            //_data2["capture_date"] = DateTime.Now;
+            //_data2["Type"] = "Truck";
+            //_data2["CapturesByType"] = 0;
+            //_data2["Comments"] = "data 2";
+            //dtIncidentCaptures.Rows.Add(_data2);
+            //DataRow _data3 = dtIncidentCaptures.NewRow();
+            //_data3["ID_Capture"] = Guid.NewGuid();
+            //_data3["ID_CaptureType"] = Guid.NewGuid();
+            //_data3["capture_date"] = DateTime.Now;
+            //_data3["Type"] = "Trailer";
+            //_data3["CapturesByType"] = 0;
+            //_data3["Comments"] = "data 3";
+            //dtIncidentCaptures.Rows.Add(_data3);
+            //DataRow _data4 = dtIncidentCaptures.NewRow();
+            //_data4["ID_Capture"] = Guid.NewGuid();
+            //_data4["ID_CaptureType"] = Guid.NewGuid();
+            //_data4["capture_date"] = DateTime.Now;
+            //_data4["Type"] = "Insurance Policy";
+            //_data4["CapturesByType"] = 0;
+            //_data4["Comments"] = "data 4";
+            //dtIncidentCaptures.Rows.Add(_data4);
             //DataRow _data5 = dtIncidentCaptures.NewRow();
             //DataRow _data6 = dtIncidentCaptures.NewRow();
             //DataRow _data7 = dtIncidentCaptures.NewRow();
-            gc_Captures.DataSource = dtIncidentCaptures;
-            Debug.WriteLine(constants.id_capture);
+            gc_Captures.DataSource = Functions.captureTable(columns, captures);
+            //Debug.WriteLine(constants.id_capture);
 
 
             dtImagesTest.Clear();
@@ -154,7 +163,7 @@ namespace ResponseEmergencySystem.Forms
 
         private async void simpleButton1_Click(object sender, EventArgs e)
         {
-            Main main = new Main();
+            ExtraForm main = new ExtraForm();
 
             if (main.ShowDialog() == DialogResult.Yes)
             {
@@ -234,7 +243,7 @@ namespace ResponseEmergencySystem.Forms
             // itx.cfrm_InsertForm
             // string idCapture = gv_Captures.GetFocusedRowCellValue("ID_Capture").ToString();
             string idCapture = "1654ec38-ec4f-4e05-9728-46154ad7d9ab";
-            string now = System.DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss");
+            string now = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             now = now.Replace("/", "-");
 
             DocumentReference docRef = dataBase.Collection("chats").Document(idCapture).Collection("messages").Document(now);

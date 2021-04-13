@@ -119,8 +119,8 @@ namespace ResponseEmergencySystem.Forms
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupControl5);
-            this.splitContainer1.Size = new System.Drawing.Size(1390, 720);
-            this.splitContainer1.SplitterDistance = 893;
+            this.splitContainer1.Size = new System.Drawing.Size(1382, 720);
+            this.splitContainer1.SplitterDistance = 887;
             this.splitContainer1.TabIndex = 23;
             // 
             // groupControl6
@@ -129,21 +129,21 @@ namespace ResponseEmergencySystem.Forms
             this.groupControl6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl6.Location = new System.Drawing.Point(0, 165);
             this.groupControl6.Name = "groupControl6";
-            this.groupControl6.Size = new System.Drawing.Size(893, 316);
+            this.groupControl6.Size = new System.Drawing.Size(887, 316);
             this.groupControl6.TabIndex = 0;
             this.groupControl6.Text = "IMAGES";
             // 
             // gc_Images
             // 
             this.gc_Images.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gc_Images.Location = new System.Drawing.Point(2, 23);
+            this.gc_Images.Location = new System.Drawing.Point(2, 20);
             this.gc_Images.MainView = this.gv_Images;
             this.gc_Images.Name = "gc_Images";
             this.gc_Images.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.lue_StatusDetail,
             this.btn_UpdateImage,
             this.repositoryItemPictureEdit1});
-            this.gc_Images.Size = new System.Drawing.Size(889, 291);
+            this.gc_Images.Size = new System.Drawing.Size(883, 294);
             this.gc_Images.TabIndex = 0;
             this.gc_Images.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_Images});
@@ -266,7 +266,7 @@ namespace ResponseEmergencySystem.Forms
             this.groupControl7.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupControl7.Location = new System.Drawing.Point(0, 481);
             this.groupControl7.Name = "groupControl7";
-            this.groupControl7.Size = new System.Drawing.Size(893, 239);
+            this.groupControl7.Size = new System.Drawing.Size(887, 239);
             this.groupControl7.TabIndex = 0;
             this.groupControl7.Text = "SHOW IMAGE";
             // 
@@ -309,17 +309,17 @@ namespace ResponseEmergencySystem.Forms
             this.groupControl4.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl4.Location = new System.Drawing.Point(0, 0);
             this.groupControl4.Name = "groupControl4";
-            this.groupControl4.Size = new System.Drawing.Size(893, 165);
+            this.groupControl4.Size = new System.Drawing.Size(887, 165);
             this.groupControl4.TabIndex = 6;
             this.groupControl4.Text = "group of files";
             // 
             // gc_Captures
             // 
             this.gc_Captures.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gc_Captures.Location = new System.Drawing.Point(2, 23);
+            this.gc_Captures.Location = new System.Drawing.Point(2, 20);
             this.gc_Captures.MainView = this.gv_Captures;
             this.gc_Captures.Name = "gc_Captures";
-            this.gc_Captures.Size = new System.Drawing.Size(889, 140);
+            this.gc_Captures.Size = new System.Drawing.Size(883, 143);
             this.gc_Captures.TabIndex = 0;
             this.gc_Captures.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_Captures});
@@ -391,7 +391,7 @@ namespace ResponseEmergencySystem.Forms
             this.groupControl5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl5.Location = new System.Drawing.Point(0, 0);
             this.groupControl5.Name = "groupControl5";
-            this.groupControl5.Size = new System.Drawing.Size(493, 720);
+            this.groupControl5.Size = new System.Drawing.Size(491, 720);
             this.groupControl5.TabIndex = 2;
             this.groupControl5.Text = "CHAT";
             // 
@@ -402,7 +402,7 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelControl1.Location = new System.Drawing.Point(2, 682);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(489, 36);
+            this.panelControl1.Size = new System.Drawing.Size(487, 36);
             this.panelControl1.TabIndex = 5;
             // 
             // edt_Message
@@ -428,7 +428,7 @@ namespace ResponseEmergencySystem.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.memoEdit_Chat.Location = new System.Drawing.Point(7, 26);
             this.memoEdit_Chat.Name = "memoEdit_Chat";
-            this.memoEdit_Chat.Size = new System.Drawing.Size(479, 650);
+            this.memoEdit_Chat.Size = new System.Drawing.Size(477, 650);
             this.memoEdit_Chat.TabIndex = 4;
             // 
             // accordionControlElement1
@@ -467,10 +467,10 @@ namespace ResponseEmergencySystem.Forms
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1390, 720);
+            this.ClientSize = new System.Drawing.Size(1382, 720);
             this.Controls.Add(this.splitContainer1);
             this.Name = "form_driver_report";
-            this.Text = "DriverReport";
+            this.Text = "Incident Captures";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.form_driver_report_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);

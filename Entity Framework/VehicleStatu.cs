@@ -12,9 +12,12 @@ namespace ResponseEmergencySystem.Entity_Framework
     using System;
     using System.Collections.Generic;
     
-    public partial class Status_Detail
+    public partial class VehicleStatu
     {
-        public System.Guid ID_Status_Detail { get; set; }
-        public string Name { get; set; }
+        public System.Guid ID_Status { get; set; }
+        public bool CanMove { get; set; }
+        public bool NeedCrane { get; set; }
+        public string Comments { get; set; }
+        public System.Guid ID_Broker { get; set; }
     }
 }

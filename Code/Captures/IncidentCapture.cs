@@ -10,10 +10,14 @@ namespace ResponseEmergencySystem.Code.Captures
     public class Capture
     {
         public Guid ID_Capture;
-        public DateTime captureDate { get; }
+
+        public DateTime captureDate;
+
         public string type;
+
         public int totalOfcaptures;
-        public string comments { get; }
+
+        public string comments;
 
         public Capture(DateTime captureDate, string type, int totalOfCaptures, string comments)
         {

@@ -66,15 +66,28 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Charts.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.Desktop.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Office.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v20.2.Export, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v20.2.UI, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraBars.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGauges.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraLayout.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v20.2.Extensions, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraScheduler.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraScheduler.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraScheduler.v20.2.Core.Desktop, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -322,16 +335,38 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Code\Captures\IncidentCapture.cs" />
     <Compile Include="Code\constants.cs" />
     <Compile Include="Code\FireBaseFunctions.cs" />
     <Compile Include="Code\Functions.cs" />
     <Compile Include="Code\Location.cs" />
     <Compile Include="Connection\Connection.cs" />
+    <Compile Include="Entity Framework\Broker.cs">
+      <DependentUpon>sirem_local.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity Framework\Capture.cs">
+      <DependentUpon>sirem_local.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity Framework\Capture_Types.cs">
+      <DependentUpon>sirem_local.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity Framework\Cargo.cs">
+      <DependentUpon>sirem_local.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity Framework\City.cs">
+      <DependentUpon>sirem_local.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity Framework\Driver.cs">
+      <DependentUpon>sirem_local.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity Framework\Get_Driver_Result.cs">
       <DependentUpon>sirem_local.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity Framework\Incident_Report.cs">
-      <DependentUpon>sirem.tt</DependentUpon>
+      <DependentUpon>sirem_local.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity Framework\Journal.cs">
+      <DependentUpon>sirem_local.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity Framework\List_Cities_Result.cs">
       <DependentUpon>sirem_local.tt</DependentUpon>
@@ -343,6 +378,9 @@
       <DependentUpon>sirem_local.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity Framework\List_Status_Detail_Result.cs">
+      <DependentUpon>sirem_local.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity Framework\Location.cs">
       <DependentUpon>sirem_local.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity Framework\sirem.Context.cs">
@@ -375,8 +413,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>sirem_local.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Entity Framework\State.cs">
+      <DependentUpon>sirem_local.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity Framework\Status_Detail.cs">
-      <DependentUpon>sirem.tt</DependentUpon>
+      <DependentUpon>sirem_local.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity Framework\Update_Cargo_Result.cs">
       <DependentUpon>sirem_local.tt</DependentUpon>
@@ -396,11 +437,17 @@
     <Compile Include="Entity Framework\Update_Vehicle_Status_Result.cs">
       <DependentUpon>sirem_local.tt</DependentUpon>
     </Compile>
-    <Compile Include="Forms\DriverReport.cs">
+    <Compile Include="Entity Framework\User.cs">
+      <DependentUpon>sirem_local.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity Framework\VehicleStatu.cs">
+      <DependentUpon>sirem_local.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\IncidentCaptures.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\DriverReport.Designer.cs">
-      <DependentUpon>DriverReport.cs</DependentUpon>
+    <Compile Include="Forms\IncidentCaptures.Designer.cs">
+      <DependentUpon>IncidentCaptures.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Login.cs">
       <SubType>Form</SubType>
@@ -408,17 +455,11 @@
     <Compile Include="Forms\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\IncidentCapture.cs">
+    <Compile Include="Forms\IncidentDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\IncidentCapture.Designer.cs">
-      <DependentUpon>IncidentCapture.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\IncidentReport.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\IncidentReport.Designer.cs">
-      <DependentUpon>IncidentReport.cs</DependentUpon>
+    <Compile Include="Forms\IncidentDetails.Designer.cs">
+      <DependentUpon>IncidentDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Main.cs">
       <SubType>Form</SubType>
@@ -426,22 +467,37 @@
     <Compile Include="Forms\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ExtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ExtraForm.Designer.cs">
+      <DependentUpon>ExtraForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\IncidentReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\IncidentReport.Designer.cs">
+      <DependentUpon>IncidentReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\DriverReport.resx">
-      <DependentUpon>DriverReport.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\IncidentCaptures.resx">
+      <DependentUpon>IncidentCaptures.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\IncidentCapture.resx">
-      <DependentUpon>IncidentCapture.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\IncidentReport.resx">
-      <DependentUpon>IncidentReport.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\IncidentDetails.resx">
+      <DependentUpon>IncidentDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ExtraForm.resx">
+      <DependentUpon>ExtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\IncidentReport.resx">
+      <DependentUpon>IncidentReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

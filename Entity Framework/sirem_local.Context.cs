@@ -27,6 +27,19 @@ namespace ResponseEmergencySystem.Entity_Framework
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Capture_Types> Capture_Types { get; set; }
+        public virtual DbSet<Capture> Captures { get; set; }
+        public virtual DbSet<Cargo> Cargoes { get; set; }
+        public virtual DbSet<City> Cities { get; set; }
+        public virtual DbSet<Driver> Drivers { get; set; }
+        public virtual DbSet<Incident_Report> Incident_Report { get; set; }
+        public virtual DbSet<Location> Locations { get; set; }
+        public virtual DbSet<State> States { get; set; }
+        public virtual DbSet<Status_Detail> Status_Detail { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<VehicleStatu> VehicleStatus { get; set; }
+        public virtual DbSet<Broker> Brokers { get; set; }
+        public virtual DbSet<Journal> Journals { get; set; }
     
         public virtual ObjectResult<List_Status_Detail_Result> List_Status_Detail()
         {

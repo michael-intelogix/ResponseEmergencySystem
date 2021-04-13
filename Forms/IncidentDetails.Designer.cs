@@ -1,7 +1,7 @@
 ﻿
 namespace ResponseEmergencySystem.Forms
 {
-    partial class IncidentCapture
+    partial class IncidentDetails
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace ResponseEmergencySystem.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IncidentCapture));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IncidentDetails));
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.edt_PoliceReport = new DevExpress.XtraEditors.TextEdit();
@@ -787,7 +787,7 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl4.TabIndex = 34;
             this.labelControl4.Text = "Phone Number";
             // 
-            // IncidentCapture
+            // IncidentDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -795,8 +795,8 @@ namespace ResponseEmergencySystem.Forms
             this.Controls.Add(this.groupControl3);
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.groupControl1);
-            this.Name = "IncidentCapture";
-            this.Text = "IncidentCapture";
+            this.Name = "IncidentDetails";
+            this.Text = "Incident Details";
             this.Load += new System.EventHandler(this.IncidentCapture_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
             this.groupControl3.ResumeLayout(false);

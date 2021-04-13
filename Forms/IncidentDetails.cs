@@ -15,9 +15,9 @@ using ResponseEmergencySystem.Code;
 namespace ResponseEmergencySystem.Forms
 {
     
-    public partial class IncidentCapture : DevExpress.XtraEditors.XtraForm
+    public partial class IncidentDetails : DevExpress.XtraEditors.XtraForm
     {
-        public IncidentCapture()
+        public IncidentDetails()
         {
             InitializeComponent();
         }
@@ -185,30 +185,30 @@ namespace ResponseEmergencySystem.Forms
         }
 
 
-        private static async void AddLocation(Location loc)
-        {
-            //Random rand = new Random();
-            //float lat = rand.Next(-101, 101) + Truncate((float)rand.NextDouble(), 7);
-            //float lon = rand.Next(-101, 101) + Truncate((float)rand.NextDouble(), 7);
-            //Debug.WriteLine(lat.ToString());
-            using (var context = new SIREMLocalEntities())
-            {
+        //private static async void AddLocation(Location loc)
+        //{
+        //    //Random rand = new Random();
+        //    //float lat = rand.Next(-101, 101) + Truncate((float)rand.NextDouble(), 7);
+        //    //float lon = rand.Next(-101, 101) + Truncate((float)rand.NextDouble(), 7);
+        //    //Debug.WriteLine(lat.ToString());
+        //    using (var context = new SIREMLocalEntities())
+        //    {
                 
 
-                //var location_response = context.Update_Location(
-                //    loc.ID_Location, 
-                //    loc.ID_City,
-                //    loc.ID_State,
-                //    loc.Highway,
-                //    loc.Latitude,
-                //    loc.Longitude,
-                //    loc.References
-                //    );
-                Debug.WriteLine("here");
-                //return results;
+        //        //var location_response = context.Update_Location(
+        //        //    loc.ID_Location, 
+        //        //    loc.ID_City,
+        //        //    loc.ID_State,
+        //        //    loc.Highway,
+        //        //    loc.Latitude,
+        //        //    loc.Longitude,
+        //        //    loc.References
+        //        //    );
+        //        Debug.WriteLine("here");
+        //        //return results;
 
-            }
-        }
+        //    }
+        //}
 
         private void edt_License_KeyUp(object sender, KeyEventArgs e)
         {

@@ -14,38 +14,32 @@ namespace ResponseEmergencySystem.Entity_Framework
     
     public partial class Incident_Report
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Incident_Report()
-        {
-            this.Status_Detail = new HashSet<Status_Detail>();
-        }
-    
         public System.Guid ID_Incident { get; set; }
-        public Nullable<System.Guid> ID_Driver { get; set; }
-        public Nullable<System.Guid> ID_Location { get; set; }
-        public Nullable<System.Guid> ID_CargoType { get; set; }
-        public Nullable<System.Guid> ID_StatusDetail { get; set; }
+        public System.Guid ID_Driver { get; set; }
+        public System.Guid ID_Location { get; set; }
+        public string ID_Cargo_Type { get; set; }
+        public string ID_Status_Detail { get; set; }
+        public Nullable<System.Guid> ID_Capture { get; set; }
+        public string ID_Status { get; set; }
         public string Incident_No { get; set; }
-        public Nullable<System.DateTime> Incident_Date { get; set; }
+        public System.DateTime Incident_Date { get; set; }
         public Nullable<System.DateTime> Incident_CloseDate { get; set; }
         public string PoliceReport_No { get; set; }
-        public Nullable<bool> PoliceReport_Bolean { get; set; }
+        public bool PoliceReport { get; set; }
         public string CitationReport_No { get; set; }
-        public Nullable<bool> Injuries { get; set; }
-        public string Name_Injuried { get; set; }
+        public bool Injuries { get; set; }
+        public string Name_Injured { get; set; }
         public string Truck_No { get; set; }
+        public bool Truck_Damage { get; set; }
         public string Trailer_No { get; set; }
-        public Nullable<bool> Truck_Damage { get; set; }
-        public Nullable<bool> Trailer_Damage { get; set; }
-        public Nullable<bool> CargoSplill { get; set; }
+        public bool Trailer_Damage { get; set; }
+        public bool Cargo_Spill { get; set; }
         public string Manifest_No { get; set; }
-        public Nullable<System.Guid> CreatedBy { get; set; }
-        public Nullable<System.Guid> UpdatedBy { get; set; }
-        public Nullable<System.DateTime> CreatedDate { get; set; }
-        public Nullable<System.DateTime> UpdatedDate { get; set; }
-        public Nullable<bool> Status { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Status_Detail> Status_Detail { get; set; }
+        public string Comments { get; set; }
+        public string CreatedBy { get; set; }
+        public string UpdatedBy { get; set; }
+        public System.DateTime CreatedAt { get; set; }
+        public System.DateTime UpdatedAt { get; set; }
+        public bool Status { get; set; }
     }
 }

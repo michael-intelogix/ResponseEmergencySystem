@@ -4,7 +4,21 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f6e09e1e69ff400d84cf3ea55351d9ef" Name="Diagram1" />
+      <Diagram DiagramId="f6e09e1e69ff400d84cf3ea55351d9ef" Name="Diagram1" >
+        <EntityTypeShape EntityType="SIREMLocalModel.Capture_Types" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIREMLocalModel.Capture" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="SIREMLocalModel.Cargo" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="SIREMLocalModel.City" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SIREMLocalModel.Driver" Width="1.5" PointX="4.75" PointY="3.75" />
+        <EntityTypeShape EntityType="SIREMLocalModel.Incident_Report" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SIREMLocalModel.Location" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="SIREMLocalModel.State" Width="1.5" PointX="2.75" PointY="7.75" />
+        <EntityTypeShape EntityType="SIREMLocalModel.Status_Detail" Width="1.5" PointX="4.75" PointY="7.75" />
+        <EntityTypeShape EntityType="SIREMLocalModel.User" Width="1.5" PointX="6.75" PointY="7.75" />
+        <EntityTypeShape EntityType="SIREMLocalModel.VehicleStatu" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIREMLocalModel.Broker" Width="1.5" PointX="9.375" PointY="0.75" />
+        <EntityTypeShape EntityType="SIREMLocalModel.Journal" Width="1.5" PointX="9.375" PointY="3.75" />
+      </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>
