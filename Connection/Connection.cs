@@ -40,6 +40,8 @@ namespace ResponseEmergencySystem.Connection
             get { return dt_Incidents; }
         }
 
+
+
         public static void Refresh_Captures(string idBusiness, string idBranchOffice, string idCaptureType, string dateTime, int status)
         {
             SqlConnection cn = new SqlConnection(Connection.cn);
