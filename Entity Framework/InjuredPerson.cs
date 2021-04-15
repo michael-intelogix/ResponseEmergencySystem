@@ -10,10 +10,12 @@
 namespace ResponseEmergencySystem.Entity_Framework
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class List_Status_Detail_Result
+    public partial class InjuredPerson
     {
-        public string ID_Status_Detail { get; set; }
-        public string Name { get; set; }
+        public System.Guid ID_InjuredPerson { get; set; }
+        public string FullName { get; set; }
+        public string ContactNumber { get; set; }
     }
 }

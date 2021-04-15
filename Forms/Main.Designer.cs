@@ -30,6 +30,12 @@ namespace ResponseEmergencySystem.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.fluentDesignFormContainer1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
             this.gc_Incidents = new DevExpress.XtraGrid.GridControl();
             this.gv_Incidents = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -40,6 +46,8 @@ namespace ResponseEmergencySystem.Forms
             this.Incident_No = new DevExpress.XtraGrid.Columns.GridColumn();
             this.StatusDetail = new DevExpress.XtraGrid.Columns.GridColumn();
             this.lue_test = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.view = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btn_View = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.fluentFormDefaultManager1 = new DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager(this.components);
             this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
@@ -51,6 +59,7 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.gc_Incidents)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_Incidents)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_test)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -78,7 +87,8 @@ namespace ResponseEmergencySystem.Forms
             this.gc_Incidents.Name = "gc_Incidents";
             this.gc_Incidents.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.lue_test,
-            this.repositoryItemButtonEdit1});
+            this.repositoryItemButtonEdit1,
+            this.btn_View});
             this.gc_Incidents.Size = new System.Drawing.Size(643, 399);
             this.gc_Incidents.TabIndex = 2;
             this.gc_Incidents.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -92,7 +102,8 @@ namespace ResponseEmergencySystem.Forms
             this.ID_Capture,
             this.Driver_Name,
             this.Incident_No,
-            this.StatusDetail});
+            this.StatusDetail,
+            this.view});
             this.gv_Incidents.GridControl = this.gc_Incidents;
             this.gv_Incidents.Name = "gv_Incidents";
             this.gv_Incidents.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gv_Incidents_RowClick);
@@ -128,7 +139,7 @@ namespace ResponseEmergencySystem.Forms
             // Incident_No
             // 
             this.Incident_No.Caption = "Incident No";
-            this.Incident_No.FieldName = "Incident_No";
+            this.Incident_No.FieldName = "IncidentNo";
             this.Incident_No.Name = "Incident_No";
             this.Incident_No.OptionsColumn.AllowEdit = false;
             this.Incident_No.Visible = true;
@@ -138,7 +149,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.StatusDetail.Caption = "Status Detail";
             this.StatusDetail.ColumnEdit = this.lue_test;
-            this.StatusDetail.FieldName = "ID_Status_Detail";
+            this.StatusDetail.FieldName = "ID_StatusDetail";
             this.StatusDetail.Name = "StatusDetail";
             this.StatusDetail.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowAlways;
             this.StatusDetail.Visible = true;
@@ -154,7 +165,27 @@ namespace ResponseEmergencySystem.Forms
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Name")});
             this.lue_test.DisplayMember = "Name";
             this.lue_test.Name = "lue_test";
-            this.lue_test.ValueMember = "ID_Status_Detail";
+            this.lue_test.ValueMember = "ID_StatusDetail";
+            // 
+            // view
+            // 
+            this.view.Caption = "Details";
+            this.view.ColumnEdit = this.btn_View;
+            this.view.FieldName = "Details";
+            this.view.Name = "view";
+            this.view.OptionsColumn.AllowEdit = false;
+            this.view.Visible = true;
+            this.view.VisibleIndex = 3;
+            // 
+            // btn_View
+            // 
+            this.btn_View.AutoHeight = false;
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            this.btn_View.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.btn_View.Name = "btn_View";
+            this.btn_View.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.btn_View.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btn_View_ButtonClick);
             // 
             // fluentFormDefaultManager1
             // 
@@ -179,11 +210,11 @@ namespace ResponseEmergencySystem.Forms
             // 
             // simpleButton1
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(541, 8);
+            this.simpleButton1.Location = new System.Drawing.Point(432, 8);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(75, 23);
+            this.simpleButton1.Size = new System.Drawing.Size(184, 23);
             this.simpleButton1.TabIndex = 0;
-            this.simpleButton1.Text = "simpleButton1";
+            this.simpleButton1.Text = "Create new Inicident Entry";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // accordionControl1
@@ -232,6 +263,7 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.gc_Incidents)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_Incidents)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_test)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
@@ -260,5 +292,7 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1;
         private DevExpress.XtraGrid.Columns.GridColumn ID_Incident;
         private DevExpress.XtraGrid.Columns.GridColumn ID_Capture;
+        private DevExpress.XtraGrid.Columns.GridColumn view;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btn_View;
     }
 }

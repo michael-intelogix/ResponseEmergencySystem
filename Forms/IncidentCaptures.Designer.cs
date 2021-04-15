@@ -1,7 +1,7 @@
 ﻿
 namespace ResponseEmergencySystem.Forms
 {
-    partial class form_driver_report
+    partial class frm_Incident_Captures
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace ResponseEmergencySystem.Forms
         private void InitializeComponent()
         {
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form_driver_report));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Incident_Captures));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -461,7 +461,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.gridView2.Name = "gridView2";
             // 
-            // form_driver_report
+            // frm_Incident_Captures
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
             this.Appearance.Options.UseBackColor = true;
@@ -469,7 +469,7 @@ namespace ResponseEmergencySystem.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1382, 720);
             this.Controls.Add(this.splitContainer1);
-            this.Name = "form_driver_report";
+            this.Name = "frm_Incident_Captures";
             this.Text = "Incident Captures";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.form_driver_report_Load);

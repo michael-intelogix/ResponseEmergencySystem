@@ -25,7 +25,7 @@ namespace ResponseEmergencySystem.Entity_Framework
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Incident_Report> Incident_Report { get; set; }
-        public virtual DbSet<Status_Detail> Status_Detail { get; set; }
+        public virtual DbSet<IncidentReport> Incident_Report { get; set; }
+        public virtual DbSet<StatusDetail> Status_Detail { get; set; }
     }
 }

@@ -11,10 +11,9 @@ namespace ResponseEmergencySystem.Entity_Framework
 {
     using System;
     
-    public partial class Update_Vehicle_Status_Result
+    public partial class List_StatusDetail_Result
     {
-        public int Validacion { get; set; }
-        public string msg { get; set; }
-        public Nullable<System.Guid> ID { get; set; }
+        public string ID_StatusDetail { get; set; }
+        public string Name { get; set; }
     }
 }

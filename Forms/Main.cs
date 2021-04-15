@@ -65,18 +65,18 @@ namespace ResponseEmergencySystem.Forms
 
             using (var context = new SIREMLocalEntities())
             {
-                var courses = context.List_Status_Detail();
+                var courses = context.List_StatusDetail();
 
-                lue_test.DataSource = context.List_Status_Detail().ToHashSet<List_Status_Detail_Result>();
+                lue_test.DataSource = context.List_StatusDetail().ToHashSet<List_StatusDetail_Result>();
                 //foreach (var cs in courses)
                 //    Console.WriteLine(cs.ID_Status_Detail);
             }
 
             using (var context = new SIREMLocalEntities())
             {
-                var courses = context.List_Status_Detail();
+                var courses = context.List_StatusDetail();
 
-                gc_Incidents.DataSource = context.List_Incidents("", "", "", "", "", "");
+                gc_Incidents.DataSource = context.List_Incidents("", "", null, "", "", "");
                 //Console.WriteLine(Guid.Empty.ToString());
             }
 
@@ -88,7 +88,7 @@ namespace ResponseEmergencySystem.Forms
         private void simpleButton1_Click(object sender, EventArgs e)
         {
 
-            IncidentDetails capture = new IncidentDetails();
+            AddIncidentDetails capture = new AddIncidentDetails();
 
             capture.ShowDialog();
             
@@ -98,9 +98,15 @@ namespace ResponseEmergencySystem.Forms
         {
             constants.id_capture = Guid.Parse(gv_Incidents.GetFocusedRowCellValue("ID_Capture").ToString());
 
-            form_driver_report driver = new form_driver_report();
+            frm_Incident_Captures driver = new frm_Incident_Captures();
 
             driver.Show();
+        }
+
+        private void btn_View_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            ExtraForm test = new ExtraForm();
+           
         }
     }
 }

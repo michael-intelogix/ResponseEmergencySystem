@@ -5,7 +5,7 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="SIREMLocalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Brokers">
+        <EntityType Name="Broker">
           <Key>
             <PropertyRef Name="ID_Broker" />
           </Key>
@@ -13,28 +13,21 @@
           <Property Name="Company" Type="nvarchar(max)" />
           <Property Name="Address" Type="nvarchar(max)" />
         </EntityType>
-        <EntityType Name="Capture_Types">
-          <Key>
-            <PropertyRef Name="ID_Capture_Type" />
-          </Key>
-          <Property Name="ID_Capture_Type" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="Type" Type="nvarchar(max)" />
-        </EntityType>
-        <EntityType Name="Captures">
+        <EntityType Name="Capture">
           <Key>
             <PropertyRef Name="ID_Capture" />
           </Key>
           <Property Name="ID_Capture" Type="uniqueidentifier" Nullable="false" />
           <Property Name="ID_Incident" Type="uniqueidentifier" Nullable="false" />
           <Property Name="ID_CaptureType" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="ID_Status_Detail" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="capture_date" Type="datetime" />
-          <Property Name="comments" Type="nvarchar(max)" />
-          <Property Name="createdBy" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="updatedBy" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="createdAt" Type="datetime" Nullable="false" />
-          <Property Name="updatedAt" Type="datetime" Nullable="false" />
-          <Property Name="status" Type="bit" Nullable="false" />
+          <Property Name="ID_StatusDetail" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CaptureDate" Type="datetime" />
+          <Property Name="Comments" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UpdatedBy" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Cargo">
           <Key>
@@ -59,43 +52,58 @@
           <Property Name="ID_Driver" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="Address" Type="nvarchar" MaxLength="200" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
           <Property Name="License" Type="nvarchar" MaxLength="40" />
-          <Property Name="status" Type="bit" Nullable="false" />
-          <Property Name="Expidation_State" Type="nvarchar" MaxLength="50" />
-          <Property Name="Expiration_Date" Type="datetime" Nullable="false" />
-          <Property Name="phone_number" Type="nvarchar(max)" />
+          <Property Name="ExpidationState" Type="nvarchar" MaxLength="50" />
+          <Property Name="ExpirationDate" Type="datetime" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
         </EntityType>
-        <EntityType Name="Incident_Report">
+        <EntityType Name="IncidentReport">
           <Key>
             <PropertyRef Name="ID_Incident" />
           </Key>
           <Property Name="ID_Incident" Type="uniqueidentifier" Nullable="false" />
           <Property Name="ID_Driver" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="ID_Location" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="ID_Cargo_Type" Type="nvarchar(max)" />
-          <Property Name="ID_Status_Detail" Type="nvarchar(max)" />
+          <Property Name="ID_City" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ID_Highway" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ID_Broker" Type="uniqueidentifier" Nullable="false" />
           <Property Name="ID_Capture" Type="uniqueidentifier" />
-          <Property Name="ID_Status" Type="nvarchar(max)" />
-          <Property Name="Incident_No" Type="nvarchar" MaxLength="30" />
-          <Property Name="Incident_Date" Type="datetime" Nullable="false" />
-          <Property Name="Incident_CloseDate" Type="datetime" />
-          <Property Name="PoliceReport_No" Type="nvarchar(max)" />
-          <Property Name="PoliceReport" Type="bit" Nullable="false" />
-          <Property Name="CitationReport_No" Type="nvarchar(max)" />
-          <Property Name="Injuries" Type="bit" Nullable="false" />
-          <Property Name="Name_Injured" Type="nvarchar(max)" />
-          <Property Name="Truck_No" Type="nvarchar" MaxLength="20" />
-          <Property Name="Truck_Damage" Type="bit" Nullable="false" />
-          <Property Name="Trailer_No" Type="nvarchar" MaxLength="10" />
-          <Property Name="Trailer_Damage" Type="bit" Nullable="false" />
-          <Property Name="Cargo_Spill" Type="bit" Nullable="false" />
-          <Property Name="Manifest_No" Type="nvarchar" MaxLength="50" />
+          <Property Name="ID_StatusDetail" Type="nvarchar(max)" />
+          <Property Name="IncidentNo" Type="nvarchar" MaxLength="30" />
+          <Property Name="IncidentDate" Type="datetime" Nullable="false" />
+          <Property Name="IncidentCloseDate" Type="datetime" />
+          <Property Name="PoliceReportBoolean" Type="bit" Nullable="false" />
+          <Property Name="CitationReportNo" Type="nvarchar(max)" />
+          <Property Name="InjuriesBoolean" Type="bit" Nullable="false" />
+          <Property Name="InjuredNames" Type="nvarchar(max)" />
+          <Property Name="CargoType" Type="nvarchar(max)" />
+          <Property Name="CargoSpill" Type="bit" Nullable="false" />
+          <Property Name="TruckNo" Type="nvarchar" MaxLength="20" />
+          <Property Name="TruckDamage" Type="bit" Nullable="false" />
+          <Property Name="TruckCanMove" Type="bit" Nullable="false" />
+          <Property Name="TruckNeedCrane" Type="bit" Nullable="false" />
+          <Property Name="TrailerNo" Type="nvarchar" MaxLength="10" />
+          <Property Name="TrailerDamage" Type="bit" Nullable="false" />
+          <Property Name="TrailerCanMove" Type="bit" Nullable="false" />
+          <Property Name="TrailerNeedCrane" Type="bit" Nullable="false" />
+          <Property Name="ManifestNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="LocationReferences" Type="nvarchar(max)" />
+          <Property Name="IncidentLatitude" Type="nvarchar(max)" />
+          <Property Name="IncidentLongitude" Type="nvarchar(max)" />
           <Property Name="Comments" Type="nvarchar" MaxLength="120" />
           <Property Name="CreatedBy" Type="nvarchar(max)" />
           <Property Name="UpdatedBy" Type="nvarchar(max)" />
           <Property Name="CreatedAt" Type="datetime" Nullable="false" />
           <Property Name="UpdatedAt" Type="datetime" Nullable="false" />
           <Property Name="Status" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InjuredPerson">
+          <Key>
+            <PropertyRef Name="ID_InjuredPerson" />
+          </Key>
+          <Property Name="ID_InjuredPerson" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar(max)" />
+          <Property Name="ContactNumber" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Journal">
           <Key>
@@ -105,21 +113,9 @@
           <Property Name="ID_Record" Type="uniqueidentifier" Nullable="false" />
           <Property Name="ID_User" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Value" Type="nvarchar(max)" />
-          <Property Name="Old_Value" Type="nvarchar(max)" />
+          <Property Name="OldValue" Type="nvarchar(max)" />
           <Property Name="Change" Type="nvarchar(max)" />
           <Property Name="Comments" Type="nvarchar(max)" />
-        </EntityType>
-        <EntityType Name="Location">
-          <Key>
-            <PropertyRef Name="ID_Location" />
-          </Key>
-          <Property Name="ID_Location" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="ID_City" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="ID_State" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="Highway" Type="nvarchar" MaxLength="40" Nullable="false" />
-          <Property Name="References" Type="nvarchar" MaxLength="600" />
-          <Property Name="Latitude" Type="nvarchar" MaxLength="40" />
-          <Property Name="Longitude" Type="nvarchar" MaxLength="40" />
         </EntityType>
         <EntityType Name="State">
           <Key>
@@ -128,11 +124,11 @@
           <Property Name="ID_State" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Name" Type="nvarchar(max)" />
         </EntityType>
-        <EntityType Name="Status_Detail">
+        <EntityType Name="StatusDetail">
           <Key>
-            <PropertyRef Name="ID_Status_Detail" />
+            <PropertyRef Name="ID_StatusDetail" />
           </Key>
-          <Property Name="ID_Status_Detail" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ID_StatusDetail" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="User">
@@ -141,16 +137,6 @@
           </Key>
           <Property Name="ID_User" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="30" />
-        </EntityType>
-        <EntityType Name="VehicleStatus">
-          <Key>
-            <PropertyRef Name="ID_Status" />
-          </Key>
-          <Property Name="ID_Status" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="ID_Broker" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="CanMove" Type="bit" Nullable="false" />
-          <Property Name="NeedCrane" Type="bit" Nullable="false" />
-          <Property Name="Comments" Type="nvarchar" MaxLength="300" />
         </EntityType>
         <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
         <Function Name="Get_Driver" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -164,16 +150,16 @@
         </Function>
         <Function Name="List_Incidents" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID_Incident" Type="nvarchar" Mode="In" />
-          <Parameter Name="Incident_No" Type="nvarchar" Mode="In" />
-          <Parameter Name="ID_Driver" Type="nvarchar" Mode="In" />
-          <Parameter Name="ID_Status_Detail" Type="nvarchar" Mode="In" />
-          <Parameter Name="Truck_No" Type="nvarchar" Mode="In" />
-          <Parameter Name="Trailer_No" Type="nvarchar" Mode="In" />
+          <Parameter Name="IncidentNo" Type="nvarchar" Mode="In" />
+          <Parameter Name="ID_Driver" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="ID_StatusDetail" Type="nvarchar" Mode="In" />
+          <Parameter Name="TruckNo" Type="nvarchar" Mode="In" />
+          <Parameter Name="TrailerNo" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="List_States" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID_State" Type="uniqueidentifier" Mode="In" />
         </Function>
-        <Function Name="List_Status_Detail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="List_StatusDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
@@ -262,35 +248,32 @@
           <Parameter Name="Comments" Type="nvarchar(max)" Mode="In" />
         </Function>
         <EntityContainer Name="SIREMLocalModelStoreContainer">
-          <EntitySet Name="Brokers" EntityType="Self.Brokers" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Capture_Types" EntityType="Self.Capture_Types" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Captures" EntityType="Self.Captures" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Broker" EntityType="Self.Broker" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Capture" EntityType="Self.Capture" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cargo" EntityType="Self.Cargo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Driver" EntityType="Self.Driver" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Incident_Report" EntityType="Self.Incident_Report" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IncidentReport" EntityType="Self.IncidentReport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InjuredPerson" EntityType="Self.InjuredPerson" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Journal" EntityType="Self.Journal" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Status_Detail" EntityType="Self.Status_Detail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StatusDetail" EntityType="Self.StatusDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="VehicleStatus" EntityType="Self.VehicleStatus" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SIREMLocalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="SIREMLocalEntities" annotation:LazyLoadingEnabled="true" >
-          <FunctionImport Name="List_Status_Detail" ReturnType="Collection(SIREMLocalModel.List_Status_Detail_Result)" />
           <FunctionImport Name="List_Incidents" ReturnType="Collection(SIREMLocalModel.List_Incidents_Result)">
             <Parameter Name="ID_Incident" Mode="In" Type="String" />
-            <Parameter Name="Incident_No" Mode="In" Type="String" />
-            <Parameter Name="ID_Driver" Mode="In" Type="String" />
-            <Parameter Name="ID_Status_Detail" Mode="In" Type="String" />
-            <Parameter Name="Truck_No" Mode="In" Type="String" />
-            <Parameter Name="Trailer_No" Mode="In" Type="String" />
+            <Parameter Name="IncidentNo" Mode="In" Type="String" />
+            <Parameter Name="ID_Driver" Mode="In" Type="Guid" />
+            <Parameter Name="ID_StatusDetail" Mode="In" Type="String" />
+            <Parameter Name="TruckNo" Mode="In" Type="String" />
+            <Parameter Name="TrailerNo" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="Update_Incident" ReturnType="Collection(SIREMLocalModel.Update_Incident_Result)">
+          <FunctionImport Name="Update_Incident">
             <Parameter Name="ID_Incident" Mode="In" Type="Guid" />
             <Parameter Name="ID_Driver" Mode="In" Type="Guid" />
             <Parameter Name="ID_Location" Mode="In" Type="Guid" />
@@ -313,18 +296,18 @@
             <Parameter Name="ID_User" Mode="In" Type="Guid" />
             <Parameter Name="Status" Mode="In" Type="Boolean" />
           </FunctionImport>
-          <FunctionImport Name="Update_Status_Detail" ReturnType="Collection(SIREMLocalModel.Update_Status_Detail_Result)">
+          <FunctionImport Name="Update_Status_Detail">
             <Parameter Name="ID_Status_Detail" Mode="In" Type="Guid" />
             <Parameter Name="Name" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="List_Cities" ReturnType="Collection(SIREMLocalModel.List_Cities_Result)">
+          <FunctionImport Name="List_Cities">
             <Parameter Name="ID_State" Mode="In" Type="Guid" />
             <Parameter Name="State_Name" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="List_States" ReturnType="Collection(SIREMLocalModel.List_States_Result)">
+          <FunctionImport Name="List_States">
           <Parameter Name="ID_State" Mode="In" Type="Guid" />
           </FunctionImport>
-          <FunctionImport Name="Update_Location" ReturnType="Collection(SIREMLocalModel.Update_Location_Result)">
+          <FunctionImport Name="Update_Location">
             <Parameter Name="ID_Location" Mode="In" Type="Guid" />
             <Parameter Name="ID_City" Mode="In" Type="Guid" />
             <Parameter Name="ID_State" Mode="In" Type="Guid" />
@@ -333,7 +316,7 @@
             <Parameter Name="Longitude" Mode="In" Type="String" />
             <Parameter Name="References" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="Update_Driver" ReturnType="Collection(SIREMLocalModel.Update_Driver_Result)">
+          <FunctionImport Name="Update_Driver">
             <Parameter Name="ID_Driver" Mode="In" Type="Guid" />
             <Parameter Name="Driver_Name" Mode="In" Type="String" />
             <Parameter Name="Driver_Address" Mode="In" Type="String" />
@@ -348,119 +331,37 @@
             <Parameter Name="Phone_Number" Mode="In" Type="String" />
             <Parameter Name="Name" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="Update_Cargo" ReturnType="Collection(SIREMLocalModel.Update_Cargo_Result)">
+          <FunctionImport Name="Update_Cargo">
             <Parameter Name="ID_cargo" Mode="In" Type="Guid" />
             <Parameter Name="Cargo_Type" Mode="In" Type="String" />
             <Parameter Name="Comments" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="Update_Vehicle_Status" ReturnType="Collection(SIREMLocalModel.Update_Vehicle_Status_Result)">
+          <FunctionImport Name="Update_Vehicle_Status">
             <Parameter Name="ID_Status" Mode="In" Type="Guid" />
             <Parameter Name="Can_Move" Mode="In" Type="Boolean" />
             <Parameter Name="Need_Crane" Mode="In" Type="Boolean" />
             <Parameter Name="Comments" Mode="In" Type="String" />
           </FunctionImport>
-          <EntitySet Name="Capture_Types" EntityType="SIREMLocalModel.Capture_Types" />
+          <EntitySet Name="Brokers" EntityType="SIREMLocalModel.Broker" />
           <EntitySet Name="Captures" EntityType="SIREMLocalModel.Capture" />
           <EntitySet Name="Cargoes" EntityType="SIREMLocalModel.Cargo" />
           <EntitySet Name="Cities" EntityType="SIREMLocalModel.City" />
-          <EntitySet Name="Drivers" EntityType="SIREMLocalModel.Driver" />
-          <EntitySet Name="Incident_Report" EntityType="SIREMLocalModel.Incident_Report" />
-          <EntitySet Name="Locations" EntityType="SIREMLocalModel.Location" />
-          <EntitySet Name="States" EntityType="SIREMLocalModel.State" />
-          <EntitySet Name="Status_Detail" EntityType="SIREMLocalModel.Status_Detail" />
-          <EntitySet Name="Users" EntityType="SIREMLocalModel.User" />
-          <EntitySet Name="VehicleStatus" EntityType="SIREMLocalModel.VehicleStatu" />
-          <EntitySet Name="Brokers" EntityType="SIREMLocalModel.Broker" />
           <EntitySet Name="Journals" EntityType="SIREMLocalModel.Journal" />
-        </EntityContainer>
-        <ComplexType Name="List_Incidents_Result">
-          <Property Type="Guid" Name="ID_Incident" Nullable="false" />
-          <Property Type="Guid" Name="ID_Driver" Nullable="false" />
-          <Property Type="Guid" Name="ID_Location" Nullable="false" />
-          <Property Type="String" Name="ID_Cargo_Type" Nullable="true" />
-          <Property Type="String" Name="ID_Status_Detail" Nullable="true" />
-          <Property Type="Guid" Name="ID_Capture" Nullable="false" />
-          <Property Type="String" Name="ID_Status" Nullable="true" />
-          <Property Type="String" Name="Incident_No" Nullable="true" MaxLength="30" />
-          <Property Type="DateTime" Name="Incident_Date" Nullable="false" Precision="23" />
-          <Property Type="DateTime" Name="Incident_CloseDate" Nullable="false" Precision="23" />
-          <Property Type="String" Name="PoliceReport_No" Nullable="true" />
-          <Property Type="Boolean" Name="PoliceReport" Nullable="false" />
-          <Property Type="String" Name="CitationReport_No" Nullable="true" />
-          <Property Type="Boolean" Name="Injuries" Nullable="false" />
-          <Property Type="String" Name="Name_Injured" Nullable="true" />
-          <Property Type="String" Name="Truck_No" Nullable="true" MaxLength="20" />
-          <Property Type="Boolean" Name="Truck_Damage" Nullable="false" />
-          <Property Type="String" Name="Trailer_No" Nullable="true" MaxLength="10" />
-          <Property Type="Boolean" Name="Trailer_Damage" Nullable="false" />
-          <Property Type="Boolean" Name="Cargo_Spill" Nullable="false" />
-          <Property Type="String" Name="Manifest_No" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="Comments" Nullable="true" MaxLength="120" />
-          <Property Type="String" Name="CreatedBy" Nullable="true" />
-          <Property Type="String" Name="UpdatedBy" Nullable="true" />
-          <Property Type="DateTime" Name="CreatedAt" Nullable="false" Precision="23" />
-          <Property Type="DateTime" Name="UpdatedAt" Nullable="false" Precision="23" />
-          <Property Type="Boolean" Name="Status" Nullable="false" />
-          <Property Type="String" Name="StatusDetail" Nullable="false" />
-          <Property Type="String" Name="Name" Nullable="false" MaxLength="30" />
-        </ComplexType>
-        <ComplexType Name="List_Status_Detail_Result">
-          <Property Type="String" Name="ID_Status_Detail" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="Name" Nullable="false" />
-        </ComplexType>
-        <ComplexType Name="Update_Incident_Result">
-          <Property Type="Int32" Name="Validacion" Nullable="false" />
-          <Property Type="String" Name="msg" Nullable="true" />
-          <Property Type="String" Name="ID" Nullable="true" MaxLength="50" />
-        </ComplexType>
-        <ComplexType Name="Update_Status_Detail_Result">
-          <Property Type="Int32" Name="Validacion" Nullable="false" />
-          <Property Type="String" Name="msg" Nullable="true" />
-          <Property Type="Guid" Name="ID" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="List_Cities_Result">
-          <Property Type="Guid" Name="ID_State" Nullable="false" />
-          <Property Type="Guid" Name="ID_City" Nullable="false" />
-          <Property Type="String" Name="Name" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="List_States_Result">
-          <Property Type="Guid" Name="ID_State" Nullable="false" />
-          <Property Type="String" Name="Name" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="Update_Location_Result">
-          <Property Type="Int32" Name="Validacion" Nullable="false" />
-          <Property Type="String" Name="msg" Nullable="true" />
-          <Property Type="Guid" Name="ID" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="Update_Driver_Result">
-          <Property Type="Int32" Name="Validacion" Nullable="false" />
-          <Property Type="String" Name="msg" Nullable="true" />
-          <Property Type="Guid" Name="ID" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="Get_Driver_Result">
-          <Property Type="Guid" Name="ID_Driver" Nullable="false" />
-          <Property Type="String" Name="Name" Nullable="false" MaxLength="200" />
-          <Property Type="String" Name="phone_number" Nullable="true" />
-          <Property Type="String" Name="Expidation_State" Nullable="true" MaxLength="50" />
-          <Property Type="DateTime" Name="Expiration_Date" Nullable="false" Precision="23" />
-          <Property Type="String" Name="License" Nullable="true" MaxLength="40" />
-        </ComplexType>
-        <ComplexType Name="Update_Cargo_Result">
-          <Property Type="Int32" Name="Validacion" Nullable="false" />
-          <Property Type="String" Name="msg" Nullable="true" />
-          <Property Type="Guid" Name="ID" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="Update_Vehicle_Status_Result">
-          <Property Type="Int32" Name="Validacion" Nullable="false" />
-          <Property Type="String" Name="msg" Nullable="true" />
-          <Property Type="Guid" Name="ID" Nullable="true" />
-        </ComplexType>
-        <EntityType Name="Capture_Types">
+          <EntitySet Name="States" EntityType="SIREMLocalModel.State" />
+          <EntitySet Name="StatusDetails" EntityType="SIREMLocalModel.StatusDetail" />
+          <EntitySet Name="Users" EntityType="SIREMLocalModel.User" />
+          <EntitySet Name="Drivers" EntityType="SIREMLocalModel.Driver" />
+          <EntitySet Name="IncidentReports" EntityType="SIREMLocalModel.IncidentReport" />
+          <FunctionImport Name="List_StatusDetail" ReturnType="Collection(SIREMLocalModel.List_StatusDetail_Result)" />
+          <EntitySet Name="InjuredPersons" EntityType="SIREMLocalModel.InjuredPerson" />
+          </EntityContainer>
+        <EntityType Name="Broker">
           <Key>
-            <PropertyRef Name="ID_Capture_Type" />
+            <PropertyRef Name="ID_Broker" />
           </Key>
-          <Property Name="ID_Capture_Type" Type="Guid" Nullable="false" />
-          <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ID_Broker" Type="Guid" Nullable="false" />
+          <Property Name="Company" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Capture">
           <Key>
@@ -469,14 +370,14 @@
           <Property Name="ID_Capture" Type="Guid" Nullable="false" />
           <Property Name="ID_Incident" Type="Guid" Nullable="false" />
           <Property Name="ID_CaptureType" Type="Guid" Nullable="false" />
-          <Property Name="ID_Status_Detail" Type="Guid" Nullable="false" />
-          <Property Name="capture_date" Type="DateTime" Precision="3" />
-          <Property Name="comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="createdBy" Type="Guid" Nullable="false" />
-          <Property Name="updatedBy" Type="Guid" Nullable="false" />
-          <Property Name="createdAt" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="updatedAt" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="status" Type="Boolean" Nullable="false" />
+          <Property Name="ID_StatusDetail" Type="Guid" Nullable="false" />
+          <Property Name="CaptureDate" Type="DateTime" Precision="3" />
+          <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+          <Property Name="UpdatedBy" Type="Guid" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Cargo">
           <Key>
@@ -494,62 +395,17 @@
           <Property Name="ID_State" Type="Guid" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="Driver">
+        <EntityType Name="Journal">
           <Key>
-            <PropertyRef Name="ID_Driver" />
+            <PropertyRef Name="ID_Journal" />
           </Key>
-          <Property Name="ID_Driver" Type="Guid" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="License" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-          <Property Name="status" Type="Boolean" Nullable="false" />
-          <Property Name="Expidation_State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Expiration_Date" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="phone_number" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="Incident_Report">
-          <Key>
-            <PropertyRef Name="ID_Incident" />
-          </Key>
-          <Property Name="ID_Incident" Type="Guid" Nullable="false" />
-          <Property Name="ID_Driver" Type="Guid" Nullable="false" />
-          <Property Name="ID_Location" Type="Guid" Nullable="false" />
-          <Property Name="ID_Cargo_Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ID_Status_Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ID_Capture" Type="Guid" />
-          <Property Name="ID_Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Incident_No" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Incident_Date" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Incident_CloseDate" Type="DateTime" Precision="3" />
-          <Property Name="PoliceReport_No" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PoliceReport" Type="Boolean" Nullable="false" />
-          <Property Name="CitationReport_No" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Injuries" Type="Boolean" Nullable="false" />
-          <Property Name="Name_Injured" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Truck_No" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Truck_Damage" Type="Boolean" Nullable="false" />
-          <Property Name="Trailer_No" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="Trailer_Damage" Type="Boolean" Nullable="false" />
-          <Property Name="Cargo_Spill" Type="Boolean" Nullable="false" />
-          <Property Name="Manifest_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Comments" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
-          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Status" Type="Boolean" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Location">
-          <Key>
-            <PropertyRef Name="ID_Location" />
-          </Key>
-          <Property Name="ID_Location" Type="Guid" Nullable="false" />
-          <Property Name="ID_City" Type="Guid" Nullable="false" />
-          <Property Name="ID_State" Type="Guid" Nullable="false" />
-          <Property Name="Highway" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
-          <Property Name="References" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
-          <Property Name="Latitude" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-          <Property Name="Longitude" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="ID_Journal" Type="Guid" Nullable="false" />
+          <Property Name="ID_Record" Type="Guid" Nullable="false" />
+          <Property Name="ID_User" Type="Guid" Nullable="false" />
+          <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OldValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Change" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="State">
           <Key>
@@ -558,11 +414,11 @@
           <Property Name="ID_State" Type="Guid" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="Status_Detail">
+        <EntityType Name="StatusDetail">
           <Key>
-            <PropertyRef Name="ID_Status_Detail" />
+            <PropertyRef Name="ID_StatusDetail" />
           </Key>
-          <Property Name="ID_Status_Detail" Type="Guid" Nullable="false" />
+          <Property Name="ID_StatusDetail" Type="Guid" Nullable="false" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="User">
@@ -572,74 +428,153 @@
           <Property Name="ID_User" Type="Guid" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="VehicleStatu">
+        <EntityType Name="Driver">
           <Key>
-            <PropertyRef Name="ID_Status" />
+            <PropertyRef Name="ID_Driver" />
           </Key>
-          <Property Name="ID_Status" Type="Guid" Nullable="false" />
-          <Property Name="CanMove" Type="Boolean" Nullable="false" />
-          <Property Name="NeedCrane" Type="Boolean" Nullable="false" />
-          <Property Name="Comments" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="ID_Driver" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="License" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="ExpidationState" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ExpirationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IncidentReport">
+          <Key>
+            <PropertyRef Name="ID_Incident" />
+          </Key>
+          <Property Name="ID_Incident" Type="Guid" Nullable="false" />
+          <Property Name="ID_Driver" Type="Guid" Nullable="false" />
+          <Property Name="ID_City" Type="Guid" Nullable="false" />
+          <Property Name="ID_Highway" Type="Guid" Nullable="false" />
           <Property Name="ID_Broker" Type="Guid" Nullable="false" />
+          <Property Name="ID_Capture" Type="Guid" />
+          <Property Name="ID_StatusDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IncidentNo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="IncidentDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IncidentCloseDate" Type="DateTime" Precision="3" />
+          <Property Name="PoliceReportBoolean" Type="Boolean" Nullable="false" />
+          <Property Name="CitationReportNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InjuriesBoolean" Type="Boolean" Nullable="false" />
+          <Property Name="InjuredNames" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CargoType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CargoSpill" Type="Boolean" Nullable="false" />
+          <Property Name="TruckNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="TruckDamage" Type="Boolean" Nullable="false" />
+          <Property Name="TruckCanMove" Type="Boolean" Nullable="false" />
+          <Property Name="TruckNeedCrane" Type="Boolean" Nullable="false" />
+          <Property Name="TrailerNo" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="TrailerDamage" Type="Boolean" Nullable="false" />
+          <Property Name="TrailerCanMove" Type="Boolean" Nullable="false" />
+          <Property Name="TrailerNeedCrane" Type="Boolean" Nullable="false" />
+          <Property Name="ManifestNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LocationReferences" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IncidentLatitude" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IncidentLongitude" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Comments" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
         </EntityType>
-        <EntityType Name="Broker">
+        <ComplexType Name="List_StatusDetail_Result">
+          <Property Type="String" Name="ID_StatusDetail" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Name" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="List_Incidents_Result">
+          <Property Type="Guid" Name="ID_Incident" Nullable="false" />
+          <Property Type="Guid" Name="ID_Driver" Nullable="false" />
+          <Property Type="Guid" Name="ID_City" Nullable="false" />
+          <Property Type="Guid" Name="ID_Highway" Nullable="false" />
+          <Property Type="Guid" Name="ID_Broker" Nullable="false" />
+          <Property Type="Guid" Name="ID_Capture" Nullable="true" />
+          <Property Type="String" Name="ID_StatusDetail" Nullable="true" />
+          <Property Type="String" Name="IncidentNo" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="IncidentDate" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="IncidentCloseDate" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="PoliceReportBoolean" Nullable="false" />
+          <Property Type="String" Name="CitationReportNo" Nullable="true" />
+          <Property Type="Boolean" Name="InjuriesBoolean" Nullable="false" />
+          <Property Type="String" Name="InjuredNames" Nullable="true" />
+          <Property Type="String" Name="CargoType" Nullable="true" />
+          <Property Type="Boolean" Name="CargoSpill" Nullable="false" />
+          <Property Type="String" Name="TruckNo" Nullable="true" MaxLength="20" />
+          <Property Type="Boolean" Name="TruckDamage" Nullable="false" />
+          <Property Type="Boolean" Name="TruckCanMove" Nullable="false" />
+          <Property Type="Boolean" Name="TruckNeedCrane" Nullable="false" />
+          <Property Type="String" Name="TrailerNo" Nullable="true" MaxLength="10" />
+          <Property Type="Boolean" Name="TrailerDamage" Nullable="false" />
+          <Property Type="Boolean" Name="TrailerCanMove" Nullable="false" />
+          <Property Type="Boolean" Name="TrailerNeedCrane" Nullable="false" />
+          <Property Type="String" Name="ManifestNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="LocationReferences" Nullable="true" />
+          <Property Type="String" Name="IncidentLatitude" Nullable="true" />
+          <Property Type="String" Name="IncidentLongitude" Nullable="true" />
+          <Property Type="String" Name="Comments" Nullable="true" MaxLength="120" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" />
+          <Property Type="DateTime" Name="CreatedAt" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="UpdatedAt" Nullable="false" Precision="23" />
+          <Property Type="Boolean" Name="Status" Nullable="false" />
+          <Property Type="String" Name="StatusDetail" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="200" />
+        </ComplexType>
+        <EntityType Name="InjuredPerson">
           <Key>
-            <PropertyRef Name="ID_Broker" />
+            <PropertyRef Name="ID_InjuredPerson" />
           </Key>
-          <Property Name="ID_Broker" Type="Guid" Nullable="false" />
-          <Property Name="Company" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ID_InjuredPerson" Type="Guid" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ContactNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="Journal">
-          <Key>
-            <PropertyRef Name="ID_Journal" />
-          </Key>
-          <Property Name="ID_Journal" Type="Guid" Nullable="false" />
-          <Property Name="ID_Record" Type="Guid" Nullable="false" />
-          <Property Name="ID_User" Type="Guid" Nullable="false" />
-          <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Old_Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Change" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
-      </Schema>
+        <ComplexType Name="Get_Driver_Result">
+          <Property Type="Guid" Name="ID_Driver" Nullable="false" />
+          <Property Type="String" Name="License" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="PhoneNumber" Nullable="true" />
+          <Property Type="String" Name="ExpidationState" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="ExpirationDate" Nullable="false" Precision="23" />
+        </ComplexType>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="SIREMLocalModelStoreContainer" CdmEntityContainer="SIREMLocalEntities" >
-          <FunctionImportMapping FunctionImportName="List_Status_Detail" FunctionName="SIREMLocalModel.Store.List_Status_Detail" >
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="SIREMLocalModel.List_Status_Detail_Result">
-                <ScalarProperty Name="ID_Status_Detail" ColumnName="ID_Status_Detail" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="List_Incidents" FunctionName="SIREMLocalModel.Store.List_Incidents" >
-          <ResultMapping>
+            <ResultMapping>
               <ComplexTypeMapping TypeName="SIREMLocalModel.List_Incidents_Result">
                 <ScalarProperty Name="ID_Incident" ColumnName="ID_Incident" />
                 <ScalarProperty Name="ID_Driver" ColumnName="ID_Driver" />
-                <ScalarProperty Name="ID_Location" ColumnName="ID_Location" />
-                <ScalarProperty Name="ID_Cargo_Type" ColumnName="ID_Cargo_Type" />
-                <ScalarProperty Name="ID_Status_Detail" ColumnName="ID_Status_Detail" />
+                <ScalarProperty Name="ID_City" ColumnName="ID_City" />
+                <ScalarProperty Name="ID_Highway" ColumnName="ID_Highway" />
+                <ScalarProperty Name="ID_Broker" ColumnName="ID_Broker" />
                 <ScalarProperty Name="ID_Capture" ColumnName="ID_Capture" />
-                <ScalarProperty Name="ID_Status" ColumnName="ID_Status" />
-                <ScalarProperty Name="Incident_No" ColumnName="Incident_No" />
-                <ScalarProperty Name="Incident_Date" ColumnName="Incident_Date" />
-                <ScalarProperty Name="Incident_CloseDate" ColumnName="Incident_CloseDate" />
-                <ScalarProperty Name="PoliceReport_No" ColumnName="PoliceReport_No" />
-                <ScalarProperty Name="PoliceReport" ColumnName="PoliceReport" />
-                <ScalarProperty Name="CitationReport_No" ColumnName="CitationReport_No" />
-                <ScalarProperty Name="Injuries" ColumnName="Injuries" />
-                <ScalarProperty Name="Name_Injured" ColumnName="Name_Injured" />
-                <ScalarProperty Name="Truck_No" ColumnName="Truck_No" />
-                <ScalarProperty Name="Truck_Damage" ColumnName="Truck_Damage" />
-                <ScalarProperty Name="Trailer_No" ColumnName="Trailer_No" />
-                <ScalarProperty Name="Trailer_Damage" ColumnName="Trailer_Damage" />
-                <ScalarProperty Name="Cargo_Spill" ColumnName="Cargo_Spill" />
-                <ScalarProperty Name="Manifest_No" ColumnName="Manifest_No" />
+                <ScalarProperty Name="ID_StatusDetail" ColumnName="ID_StatusDetail" />
+                <ScalarProperty Name="IncidentNo" ColumnName="IncidentNo" />
+                <ScalarProperty Name="IncidentDate" ColumnName="IncidentDate" />
+                <ScalarProperty Name="IncidentCloseDate" ColumnName="IncidentCloseDate" />
+                <ScalarProperty Name="PoliceReportBoolean" ColumnName="PoliceReportBoolean" />
+                <ScalarProperty Name="CitationReportNo" ColumnName="CitationReportNo" />
+                <ScalarProperty Name="InjuriesBoolean" ColumnName="InjuriesBoolean" />
+                <ScalarProperty Name="InjuredNames" ColumnName="InjuredNames" />
+                <ScalarProperty Name="CargoType" ColumnName="CargoType" />
+                <ScalarProperty Name="CargoSpill" ColumnName="CargoSpill" />
+                <ScalarProperty Name="TruckNo" ColumnName="TruckNo" />
+                <ScalarProperty Name="TruckDamage" ColumnName="TruckDamage" />
+                <ScalarProperty Name="TruckCanMove" ColumnName="TruckCanMove" />
+                <ScalarProperty Name="TruckNeedCrane" ColumnName="TruckNeedCrane" />
+                <ScalarProperty Name="TrailerNo" ColumnName="TrailerNo" />
+                <ScalarProperty Name="TrailerDamage" ColumnName="TrailerDamage" />
+                <ScalarProperty Name="TrailerCanMove" ColumnName="TrailerCanMove" />
+                <ScalarProperty Name="TrailerNeedCrane" ColumnName="TrailerNeedCrane" />
+                <ScalarProperty Name="ManifestNo" ColumnName="ManifestNo" />
+                <ScalarProperty Name="LocationReferences" ColumnName="LocationReferences" />
+                <ScalarProperty Name="IncidentLatitude" ColumnName="IncidentLatitude" />
+                <ScalarProperty Name="IncidentLongitude" ColumnName="IncidentLongitude" />
                 <ScalarProperty Name="Comments" ColumnName="Comments" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
@@ -652,107 +587,53 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="Update_Incident" FunctionName="SIREMLocalModel.Store.Update_Incident" >
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="SIREMLocalModel.Update_Incident_Result">
-                <ScalarProperty Name="Validacion" ColumnName="Validacion" />
-                <ScalarProperty Name="msg" ColumnName="msg" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </ComplexTypeMapping>
-            </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="Update_Status_Detail" FunctionName="SIREMLocalModel.Store.Update_Status_Detail">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="SIREMLocalModel.Update_Status_Detail_Result">
-                <ScalarProperty Name="Validacion" ColumnName="Validacion" />
-                <ScalarProperty Name="msg" ColumnName="msg" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </ComplexTypeMapping>
-            </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="List_Cities" FunctionName="SIREMLocalModel.Store.List_Cities">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="SIREMLocalModel.List_Cities_Result">
-                <ScalarProperty Name="ID_State" ColumnName="ID_State" />
-                <ScalarProperty Name="ID_City" ColumnName="ID_City" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-              </ComplexTypeMapping>
-            </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="List_States" FunctionName="SIREMLocalModel.Store.List_States">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="SIREMLocalModel.List_States_Result">
-                <ScalarProperty Name="ID_State" ColumnName="ID_State" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-              </ComplexTypeMapping>
-            </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="Update_Location" FunctionName="SIREMLocalModel.Store.Update_Location">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="SIREMLocalModel.Update_Location_Result">
-                <ScalarProperty Name="Validacion" ColumnName="Validacion" />
-                <ScalarProperty Name="msg" ColumnName="msg" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </ComplexTypeMapping>
-            </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="Update_Driver" FunctionName="SIREMLocalModel.Store.Update_Driver">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="SIREMLocalModel.Update_Driver_Result">
-                <ScalarProperty Name="Validacion" ColumnName="Validacion" />
-                <ScalarProperty Name="msg" ColumnName="msg" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </ComplexTypeMapping>
-            </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="Get_Driver" FunctionName="SIREMLocalModel.Store.Get_Driver">
             <ResultMapping>
               <ComplexTypeMapping TypeName="SIREMLocalModel.Get_Driver_Result">
                 <ScalarProperty Name="ID_Driver" ColumnName="ID_Driver" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
-                <ScalarProperty Name="Expidation_State" ColumnName="Expidation_State" />
-                <ScalarProperty Name="Expiration_Date" ColumnName="Expiration_Date" />
                 <ScalarProperty Name="License" ColumnName="License" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="ExpidationState" ColumnName="ExpidationState" />
+                <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="Update_Cargo" FunctionName="SIREMLocalModel.Store.Update_Cargo">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="SIREMLocalModel.Update_Cargo_Result">
-                <ScalarProperty Name="Validacion" ColumnName="Validacion" />
-                <ScalarProperty Name="msg" ColumnName="msg" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </ComplexTypeMapping>
-            </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="Update_Vehicle_Status" FunctionName="SIREMLocalModel.Store.Update_Vehicle_Status">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="SIREMLocalModel.Update_Vehicle_Status_Result">
-                <ScalarProperty Name="Validacion" ColumnName="Validacion" />
-                <ScalarProperty Name="msg" ColumnName="msg" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </ComplexTypeMapping>
-            </ResultMapping>
           </FunctionImportMapping>
-          <EntitySetMapping Name="Capture_Types">
-            <EntityTypeMapping TypeName="SIREMLocalModel.Capture_Types">
-              <MappingFragment StoreEntitySet="Capture_Types">
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="ID_Capture_Type" ColumnName="ID_Capture_Type" />
+          <EntitySetMapping Name="Brokers">
+            <EntityTypeMapping TypeName="SIREMLocalModel.Broker">
+              <MappingFragment StoreEntitySet="Broker">
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="ID_Broker" ColumnName="ID_Broker" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Captures">
             <EntityTypeMapping TypeName="SIREMLocalModel.Capture">
-              <MappingFragment StoreEntitySet="Captures">
-                <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="updatedAt" ColumnName="updatedAt" />
-                <ScalarProperty Name="createdAt" ColumnName="createdAt" />
-                <ScalarProperty Name="updatedBy" ColumnName="updatedBy" />
-                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
-                <ScalarProperty Name="comments" ColumnName="comments" />
-                <ScalarProperty Name="capture_date" ColumnName="capture_date" />
-                <ScalarProperty Name="ID_Status_Detail" ColumnName="ID_Status_Detail" />
+              <MappingFragment StoreEntitySet="Capture">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="CaptureDate" ColumnName="CaptureDate" />
+                <ScalarProperty Name="ID_StatusDetail" ColumnName="ID_StatusDetail" />
                 <ScalarProperty Name="ID_CaptureType" ColumnName="ID_CaptureType" />
                 <ScalarProperty Name="ID_Incident" ColumnName="ID_Incident" />
                 <ScalarProperty Name="ID_Capture" ColumnName="ID_Capture" />
@@ -777,63 +658,16 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Drivers">
-            <EntityTypeMapping TypeName="SIREMLocalModel.Driver">
-              <MappingFragment StoreEntitySet="Driver">
-                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
-                <ScalarProperty Name="Expiration_Date" ColumnName="Expiration_Date" />
-                <ScalarProperty Name="Expidation_State" ColumnName="Expidation_State" />
-                <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="License" ColumnName="License" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ID_Driver" ColumnName="ID_Driver" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Incident_Report">
-            <EntityTypeMapping TypeName="SIREMLocalModel.Incident_Report">
-              <MappingFragment StoreEntitySet="Incident_Report">
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
-                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <EntitySetMapping Name="Journals">
+            <EntityTypeMapping TypeName="SIREMLocalModel.Journal">
+              <MappingFragment StoreEntitySet="Journal">
                 <ScalarProperty Name="Comments" ColumnName="Comments" />
-                <ScalarProperty Name="Manifest_No" ColumnName="Manifest_No" />
-                <ScalarProperty Name="Cargo_Spill" ColumnName="Cargo_Spill" />
-                <ScalarProperty Name="Trailer_Damage" ColumnName="Trailer_Damage" />
-                <ScalarProperty Name="Trailer_No" ColumnName="Trailer_No" />
-                <ScalarProperty Name="Truck_Damage" ColumnName="Truck_Damage" />
-                <ScalarProperty Name="Truck_No" ColumnName="Truck_No" />
-                <ScalarProperty Name="Name_Injured" ColumnName="Name_Injured" />
-                <ScalarProperty Name="Injuries" ColumnName="Injuries" />
-                <ScalarProperty Name="CitationReport_No" ColumnName="CitationReport_No" />
-                <ScalarProperty Name="PoliceReport" ColumnName="PoliceReport" />
-                <ScalarProperty Name="PoliceReport_No" ColumnName="PoliceReport_No" />
-                <ScalarProperty Name="Incident_CloseDate" ColumnName="Incident_CloseDate" />
-                <ScalarProperty Name="Incident_Date" ColumnName="Incident_Date" />
-                <ScalarProperty Name="Incident_No" ColumnName="Incident_No" />
-                <ScalarProperty Name="ID_Status" ColumnName="ID_Status" />
-                <ScalarProperty Name="ID_Capture" ColumnName="ID_Capture" />
-                <ScalarProperty Name="ID_Status_Detail" ColumnName="ID_Status_Detail" />
-                <ScalarProperty Name="ID_Cargo_Type" ColumnName="ID_Cargo_Type" />
-                <ScalarProperty Name="ID_Location" ColumnName="ID_Location" />
-                <ScalarProperty Name="ID_Driver" ColumnName="ID_Driver" />
-                <ScalarProperty Name="ID_Incident" ColumnName="ID_Incident" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Locations">
-            <EntityTypeMapping TypeName="SIREMLocalModel.Location">
-              <MappingFragment StoreEntitySet="Location">
-                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
-                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
-                <ScalarProperty Name="References" ColumnName="References" />
-                <ScalarProperty Name="Highway" ColumnName="Highway" />
-                <ScalarProperty Name="ID_State" ColumnName="ID_State" />
-                <ScalarProperty Name="ID_City" ColumnName="ID_City" />
-                <ScalarProperty Name="ID_Location" ColumnName="ID_Location" />
+                <ScalarProperty Name="Change" ColumnName="Change" />
+                <ScalarProperty Name="OldValue" ColumnName="OldValue" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="ID_User" ColumnName="ID_User" />
+                <ScalarProperty Name="ID_Record" ColumnName="ID_Record" />
+                <ScalarProperty Name="ID_Journal" ColumnName="ID_Journal" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -845,11 +679,11 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Status_Detail">
-            <EntityTypeMapping TypeName="SIREMLocalModel.Status_Detail">
-              <MappingFragment StoreEntitySet="Status_Detail">
+          <EntitySetMapping Name="StatusDetails">
+            <EntityTypeMapping TypeName="SIREMLocalModel.StatusDetail">
+              <MappingFragment StoreEntitySet="StatusDetail">
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ID_Status_Detail" ColumnName="ID_Status_Detail" />
+                <ScalarProperty Name="ID_StatusDetail" ColumnName="ID_StatusDetail" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -861,40 +695,78 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="VehicleStatus">
-            <EntityTypeMapping TypeName="SIREMLocalModel.VehicleStatu">
-              <MappingFragment StoreEntitySet="VehicleStatus">
-                <ScalarProperty Name="ID_Broker" ColumnName="ID_Broker" />
-                <ScalarProperty Name="Comments" ColumnName="Comments" />
-                <ScalarProperty Name="NeedCrane" ColumnName="NeedCrane" />
-                <ScalarProperty Name="CanMove" ColumnName="CanMove" />
-                <ScalarProperty Name="ID_Status" ColumnName="ID_Status" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Brokers">
-            <EntityTypeMapping TypeName="SIREMLocalModel.Broker">
-              <MappingFragment StoreEntitySet="Brokers">
+          <EntitySetMapping Name="Drivers">
+            <EntityTypeMapping TypeName="SIREMLocalModel.Driver">
+              <MappingFragment StoreEntitySet="Driver">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
+                <ScalarProperty Name="ExpidationState" ColumnName="ExpidationState" />
+                <ScalarProperty Name="License" ColumnName="License" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Company" ColumnName="Company" />
-                <ScalarProperty Name="ID_Broker" ColumnName="ID_Broker" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID_Driver" ColumnName="ID_Driver" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Journals">
-            <EntityTypeMapping TypeName="SIREMLocalModel.Journal">
-              <MappingFragment StoreEntitySet="Journal">
+          <EntitySetMapping Name="IncidentReports">
+            <EntityTypeMapping TypeName="SIREMLocalModel.IncidentReport">
+              <MappingFragment StoreEntitySet="IncidentReport">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="Comments" ColumnName="Comments" />
-                <ScalarProperty Name="Change" ColumnName="Change" />
-                <ScalarProperty Name="Old_Value" ColumnName="Old_Value" />
-                <ScalarProperty Name="Value" ColumnName="Value" />
-                <ScalarProperty Name="ID_User" ColumnName="ID_User" />
-                <ScalarProperty Name="ID_Record" ColumnName="ID_Record" />
-                <ScalarProperty Name="ID_Journal" ColumnName="ID_Journal" />
+                <ScalarProperty Name="IncidentLongitude" ColumnName="IncidentLongitude" />
+                <ScalarProperty Name="IncidentLatitude" ColumnName="IncidentLatitude" />
+                <ScalarProperty Name="LocationReferences" ColumnName="LocationReferences" />
+                <ScalarProperty Name="ManifestNo" ColumnName="ManifestNo" />
+                <ScalarProperty Name="TrailerNeedCrane" ColumnName="TrailerNeedCrane" />
+                <ScalarProperty Name="TrailerCanMove" ColumnName="TrailerCanMove" />
+                <ScalarProperty Name="TrailerDamage" ColumnName="TrailerDamage" />
+                <ScalarProperty Name="TrailerNo" ColumnName="TrailerNo" />
+                <ScalarProperty Name="TruckNeedCrane" ColumnName="TruckNeedCrane" />
+                <ScalarProperty Name="TruckCanMove" ColumnName="TruckCanMove" />
+                <ScalarProperty Name="TruckDamage" ColumnName="TruckDamage" />
+                <ScalarProperty Name="TruckNo" ColumnName="TruckNo" />
+                <ScalarProperty Name="CargoSpill" ColumnName="CargoSpill" />
+                <ScalarProperty Name="CargoType" ColumnName="CargoType" />
+                <ScalarProperty Name="InjuredNames" ColumnName="InjuredNames" />
+                <ScalarProperty Name="InjuriesBoolean" ColumnName="InjuriesBoolean" />
+                <ScalarProperty Name="CitationReportNo" ColumnName="CitationReportNo" />
+                <ScalarProperty Name="PoliceReportBoolean" ColumnName="PoliceReportBoolean" />
+                <ScalarProperty Name="IncidentCloseDate" ColumnName="IncidentCloseDate" />
+                <ScalarProperty Name="IncidentDate" ColumnName="IncidentDate" />
+                <ScalarProperty Name="IncidentNo" ColumnName="IncidentNo" />
+                <ScalarProperty Name="ID_StatusDetail" ColumnName="ID_StatusDetail" />
+                <ScalarProperty Name="ID_Capture" ColumnName="ID_Capture" />
+                <ScalarProperty Name="ID_Broker" ColumnName="ID_Broker" />
+                <ScalarProperty Name="ID_Highway" ColumnName="ID_Highway" />
+                <ScalarProperty Name="ID_City" ColumnName="ID_City" />
+                <ScalarProperty Name="ID_Driver" ColumnName="ID_Driver" />
+                <ScalarProperty Name="ID_Incident" ColumnName="ID_Incident" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          <FunctionImportMapping FunctionImportName="List_StatusDetail" FunctionName="SIREMLocalModel.Store.List_StatusDetail" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SIREMLocalModel.List_StatusDetail_Result">
+                <ScalarProperty Name="ID_StatusDetail" ColumnName="ID_StatusDetail" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="InjuredPersons">
+            <EntityTypeMapping TypeName="SIREMLocalModel.InjuredPerson">
+              <MappingFragment StoreEntitySet="InjuredPerson">
+                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="ID_InjuredPerson" ColumnName="ID_InjuredPerson" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

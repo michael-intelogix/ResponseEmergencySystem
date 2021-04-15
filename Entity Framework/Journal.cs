@@ -18,7 +18,7 @@ namespace ResponseEmergencySystem.Entity_Framework
         public System.Guid ID_Record { get; set; }
         public System.Guid ID_User { get; set; }
         public string Value { get; set; }
-        public string Old_Value { get; set; }
+        public string OldValue { get; set; }
         public string Change { get; set; }
         public string Comments { get; set; }
     }

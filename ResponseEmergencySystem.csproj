@@ -91,6 +91,7 @@
     <Reference Include="DevExpress.XtraScheduler.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraScheduler.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraScheduler.v20.2.Core.Desktop, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -102,6 +103,9 @@
     </Reference>
     <Reference Include="Firebase.Storage, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\FirebaseStorage.net.1.0.3\lib\netstandard1.1\Firebase.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="FontAwesome.Sharp, Version=5.15.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\FontAwesome.Sharp.5.15.3\lib\net472\FontAwesome.Sharp.dll</HintPath>
     </Reference>
     <Reference Include="Google.Api.CommonProtos, Version=2.2.0.0, Culture=neutral, PublicKeyToken=3ec5ea7f18953e47, processorArchitecture=MSIL">
       <HintPath>packages\Google.Api.CommonProtos.2.2.0\lib\net461\Google.Api.CommonProtos.dll</HintPath>
@@ -347,9 +351,6 @@
     <Compile Include="Entity Framework\Capture.cs">
       <DependentUpon>sirem_local.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity Framework\Capture_Types.cs">
-      <DependentUpon>sirem_local.tt</DependentUpon>
-    </Compile>
     <Compile Include="Entity Framework\Cargo.cs">
       <DependentUpon>sirem_local.tt</DependentUpon>
     </Compile>
@@ -362,25 +363,19 @@
     <Compile Include="Entity Framework\Get_Driver_Result.cs">
       <DependentUpon>sirem_local.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity Framework\Incident_Report.cs">
+    <Compile Include="Entity Framework\IncidentReport.cs">
+      <DependentUpon>sirem_local.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity Framework\InjuredPerson.cs">
       <DependentUpon>sirem_local.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity Framework\Journal.cs">
       <DependentUpon>sirem_local.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity Framework\List_Cities_Result.cs">
-      <DependentUpon>sirem_local.tt</DependentUpon>
-    </Compile>
     <Compile Include="Entity Framework\List_Incidents_Result.cs">
       <DependentUpon>sirem_local.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity Framework\List_States_Result.cs">
-      <DependentUpon>sirem_local.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity Framework\List_Status_Detail_Result.cs">
-      <DependentUpon>sirem_local.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity Framework\Location.cs">
+    <Compile Include="Entity Framework\List_StatusDetail_Result.cs">
       <DependentUpon>sirem_local.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity Framework\sirem.Context.cs">
@@ -416,31 +411,10 @@
     <Compile Include="Entity Framework\State.cs">
       <DependentUpon>sirem_local.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity Framework\Status_Detail.cs">
-      <DependentUpon>sirem_local.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity Framework\Update_Cargo_Result.cs">
-      <DependentUpon>sirem_local.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity Framework\Update_Driver_Result.cs">
-      <DependentUpon>sirem_local.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity Framework\Update_Incident_Result.cs">
-      <DependentUpon>sirem_local.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity Framework\Update_Location_Result.cs">
-      <DependentUpon>sirem_local.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity Framework\Update_Status_Detail_Result.cs">
-      <DependentUpon>sirem_local.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity Framework\Update_Vehicle_Status_Result.cs">
+    <Compile Include="Entity Framework\StatusDetail.cs">
       <DependentUpon>sirem_local.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity Framework\User.cs">
-      <DependentUpon>sirem_local.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity Framework\VehicleStatu.cs">
       <DependentUpon>sirem_local.tt</DependentUpon>
     </Compile>
     <Compile Include="Forms\IncidentCaptures.cs">
@@ -449,17 +423,23 @@
     <Compile Include="Forms\IncidentCaptures.Designer.cs">
       <DependentUpon>IncidentCaptures.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ViewIncidentDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ViewIncidentDetails.Designer.cs">
+      <DependentUpon>ViewIncidentDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\IncidentDetails.cs">
+    <Compile Include="Forms\AddIncidentDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\IncidentDetails.Designer.cs">
-      <DependentUpon>IncidentDetails.cs</DependentUpon>
+    <Compile Include="Forms\AddIncidentDetails.Designer.cs">
+      <DependentUpon>AddIncidentDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Main.cs">
       <SubType>Form</SubType>
@@ -487,14 +467,17 @@
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\IncidentDetails.resx">
-      <DependentUpon>IncidentDetails.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\AddIncidentDetails.resx">
+      <DependentUpon>AddIncidentDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ExtraForm.resx">
       <DependentUpon>ExtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ViewIncidentDetails.resx">
+      <DependentUpon>ViewIncidentDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\IncidentReport.resx">
       <DependentUpon>IncidentReport.cs</DependentUpon>
@@ -508,6 +491,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="dcmanagement.json" />
     <EntityDeploy Include="Entity Framework\sirem.edmx">
@@ -568,6 +552,8 @@
       <DependentUpon>sirem_local.edmx</DependentUpon>
       <LastGenOutput>sirem_local.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\cancel_16x16.png" />
+    <None Include="Resources\add_16x16.png" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />

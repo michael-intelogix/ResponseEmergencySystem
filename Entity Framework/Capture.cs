@@ -17,13 +17,13 @@ namespace ResponseEmergencySystem.Entity_Framework
         public System.Guid ID_Capture { get; set; }
         public System.Guid ID_Incident { get; set; }
         public System.Guid ID_CaptureType { get; set; }
-        public System.Guid ID_Status_Detail { get; set; }
-        public Nullable<System.DateTime> capture_date { get; set; }
-        public string comments { get; set; }
-        public System.Guid createdBy { get; set; }
-        public System.Guid updatedBy { get; set; }
-        public System.DateTime createdAt { get; set; }
-        public System.DateTime updatedAt { get; set; }
-        public bool status { get; set; }
+        public System.Guid ID_StatusDetail { get; set; }
+        public Nullable<System.DateTime> CaptureDate { get; set; }
+        public string Comments { get; set; }
+        public System.Guid CreatedBy { get; set; }
+        public System.Guid UpdatedBy { get; set; }
+        public System.DateTime CreatedAt { get; set; }
+        public System.DateTime UpdatedAt { get; set; }
+        public bool Status { get; set; }
     }
 }

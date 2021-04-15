@@ -10,8 +10,9 @@
 namespace ResponseEmergencySystem.Entity_Framework
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class List_Incidents_Result
+    public partial class IncidentReport
     {
         public System.Guid ID_Incident { get; set; }
         public System.Guid ID_Driver { get; set; }
@@ -47,7 +48,5 @@ namespace ResponseEmergencySystem.Entity_Framework
         public System.DateTime CreatedAt { get; set; }
         public System.DateTime UpdatedAt { get; set; }
         public bool Status { get; set; }
-        public string StatusDetail { get; set; }
-        public string Name { get; set; }
     }
 }

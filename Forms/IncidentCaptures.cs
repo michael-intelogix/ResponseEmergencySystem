@@ -19,7 +19,7 @@ using ResponseEmergencySystem.Code.Captures;
 
 namespace ResponseEmergencySystem.Forms
 {
-    public partial class form_driver_report : DevExpress.XtraEditors.XtraForm
+    public partial class frm_Incident_Captures : DevExpress.XtraEditors.XtraForm
     {
         // public DateTime DateTime { get; set; }
         FirestoreDb dataBase;
@@ -31,7 +31,7 @@ namespace ResponseEmergencySystem.Forms
         private DataTable dtIncidentCaptures = new DataTable();
         private DataTable dtImagesTest = new DataTable();
 
-        public form_driver_report()
+        public frm_Incident_Captures()
         {
             InitializeComponent();
         }

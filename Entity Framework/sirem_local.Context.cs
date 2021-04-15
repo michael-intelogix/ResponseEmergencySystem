@@ -27,55 +27,48 @@ namespace ResponseEmergencySystem.Entity_Framework
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Capture_Types> Capture_Types { get; set; }
+        public virtual DbSet<Broker> Brokers { get; set; }
         public virtual DbSet<Capture> Captures { get; set; }
         public virtual DbSet<Cargo> Cargoes { get; set; }
         public virtual DbSet<City> Cities { get; set; }
-        public virtual DbSet<Driver> Drivers { get; set; }
-        public virtual DbSet<Incident_Report> Incident_Report { get; set; }
-        public virtual DbSet<Location> Locations { get; set; }
-        public virtual DbSet<State> States { get; set; }
-        public virtual DbSet<Status_Detail> Status_Detail { get; set; }
-        public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<VehicleStatu> VehicleStatus { get; set; }
-        public virtual DbSet<Broker> Brokers { get; set; }
         public virtual DbSet<Journal> Journals { get; set; }
+        public virtual DbSet<State> States { get; set; }
+        public virtual DbSet<StatusDetail> StatusDetails { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Driver> Drivers { get; set; }
+        public virtual DbSet<IncidentReport> IncidentReports { get; set; }
+        public virtual DbSet<InjuredPerson> InjuredPersons { get; set; }
     
-        public virtual ObjectResult<List_Status_Detail_Result> List_Status_Detail()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<List_Status_Detail_Result>("List_Status_Detail");
-        }
-    
-        public virtual ObjectResult<List_Incidents_Result> List_Incidents(string iD_Incident, string incident_No, string iD_Driver, string iD_Status_Detail, string truck_No, string trailer_No)
+        public virtual ObjectResult<List_Incidents_Result> List_Incidents(string iD_Incident, string incidentNo, Nullable<System.Guid> iD_Driver, string iD_StatusDetail, string truckNo, string trailerNo)
         {
             var iD_IncidentParameter = iD_Incident != null ?
                 new ObjectParameter("ID_Incident", iD_Incident) :
                 new ObjectParameter("ID_Incident", typeof(string));
     
-            var incident_NoParameter = incident_No != null ?
-                new ObjectParameter("Incident_No", incident_No) :
-                new ObjectParameter("Incident_No", typeof(string));
+            var incidentNoParameter = incidentNo != null ?
+                new ObjectParameter("IncidentNo", incidentNo) :
+                new ObjectParameter("IncidentNo", typeof(string));
     
-            var iD_DriverParameter = iD_Driver != null ?
+            var iD_DriverParameter = iD_Driver.HasValue ?
                 new ObjectParameter("ID_Driver", iD_Driver) :
-                new ObjectParameter("ID_Driver", typeof(string));
+                new ObjectParameter("ID_Driver", typeof(System.Guid));
     
-            var iD_Status_DetailParameter = iD_Status_Detail != null ?
-                new ObjectParameter("ID_Status_Detail", iD_Status_Detail) :
-                new ObjectParameter("ID_Status_Detail", typeof(string));
+            var iD_StatusDetailParameter = iD_StatusDetail != null ?
+                new ObjectParameter("ID_StatusDetail", iD_StatusDetail) :
+                new ObjectParameter("ID_StatusDetail", typeof(string));
     
-            var truck_NoParameter = truck_No != null ?
-                new ObjectParameter("Truck_No", truck_No) :
-                new ObjectParameter("Truck_No", typeof(string));
+            var truckNoParameter = truckNo != null ?
+                new ObjectParameter("TruckNo", truckNo) :
+                new ObjectParameter("TruckNo", typeof(string));
     
-            var trailer_NoParameter = trailer_No != null ?
-                new ObjectParameter("Trailer_No", trailer_No) :
-                new ObjectParameter("Trailer_No", typeof(string));
+            var trailerNoParameter = trailerNo != null ?
+                new ObjectParameter("TrailerNo", trailerNo) :
+                new ObjectParameter("TrailerNo", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<List_Incidents_Result>("List_Incidents", iD_IncidentParameter, incident_NoParameter, iD_DriverParameter, iD_Status_DetailParameter, truck_NoParameter, trailer_NoParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<List_Incidents_Result>("List_Incidents", iD_IncidentParameter, incidentNoParameter, iD_DriverParameter, iD_StatusDetailParameter, truckNoParameter, trailerNoParameter);
         }
     
-        public virtual ObjectResult<Update_Incident_Result> Update_Incident(Nullable<System.Guid> iD_Incident, Nullable<System.Guid> iD_Driver, Nullable<System.Guid> iD_Location, Nullable<System.Guid> iD_CargoType, Nullable<System.Guid> iD_StatusDetail, string incident_No, Nullable<System.DateTime> incident_Date, Nullable<System.DateTime> incident_CloseDate, string policeReport_No, Nullable<bool> policeReport_Bolean, string citationReport_No, Nullable<bool> injuries, string name_Injuried, string truck_No, string trailer_No, Nullable<bool> truck_Damage, Nullable<bool> trailer_Damage, Nullable<bool> cargoSplill, string manifest_No, Nullable<System.Guid> iD_User, Nullable<bool> status)
+        public virtual int Update_Incident(Nullable<System.Guid> iD_Incident, Nullable<System.Guid> iD_Driver, Nullable<System.Guid> iD_Location, Nullable<System.Guid> iD_CargoType, Nullable<System.Guid> iD_StatusDetail, string incident_No, Nullable<System.DateTime> incident_Date, Nullable<System.DateTime> incident_CloseDate, string policeReport_No, Nullable<bool> policeReport_Bolean, string citationReport_No, Nullable<bool> injuries, string name_Injuried, string truck_No, string trailer_No, Nullable<bool> truck_Damage, Nullable<bool> trailer_Damage, Nullable<bool> cargoSplill, string manifest_No, Nullable<System.Guid> iD_User, Nullable<bool> status)
         {
             var iD_IncidentParameter = iD_Incident.HasValue ?
                 new ObjectParameter("ID_Incident", iD_Incident) :
@@ -161,10 +154,10 @@ namespace ResponseEmergencySystem.Entity_Framework
                 new ObjectParameter("Status", status) :
                 new ObjectParameter("Status", typeof(bool));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Update_Incident_Result>("Update_Incident", iD_IncidentParameter, iD_DriverParameter, iD_LocationParameter, iD_CargoTypeParameter, iD_StatusDetailParameter, incident_NoParameter, incident_DateParameter, incident_CloseDateParameter, policeReport_NoParameter, policeReport_BoleanParameter, citationReport_NoParameter, injuriesParameter, name_InjuriedParameter, truck_NoParameter, trailer_NoParameter, truck_DamageParameter, trailer_DamageParameter, cargoSplillParameter, manifest_NoParameter, iD_UserParameter, statusParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Update_Incident", iD_IncidentParameter, iD_DriverParameter, iD_LocationParameter, iD_CargoTypeParameter, iD_StatusDetailParameter, incident_NoParameter, incident_DateParameter, incident_CloseDateParameter, policeReport_NoParameter, policeReport_BoleanParameter, citationReport_NoParameter, injuriesParameter, name_InjuriedParameter, truck_NoParameter, trailer_NoParameter, truck_DamageParameter, trailer_DamageParameter, cargoSplillParameter, manifest_NoParameter, iD_UserParameter, statusParameter);
         }
     
-        public virtual ObjectResult<Update_Status_Detail_Result> Update_Status_Detail(Nullable<System.Guid> iD_Status_Detail, string name)
+        public virtual int Update_Status_Detail(Nullable<System.Guid> iD_Status_Detail, string name)
         {
             var iD_Status_DetailParameter = iD_Status_Detail.HasValue ?
                 new ObjectParameter("ID_Status_Detail", iD_Status_Detail) :
@@ -174,10 +167,10 @@ namespace ResponseEmergencySystem.Entity_Framework
                 new ObjectParameter("Name", name) :
                 new ObjectParameter("Name", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Update_Status_Detail_Result>("Update_Status_Detail", iD_Status_DetailParameter, nameParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Update_Status_Detail", iD_Status_DetailParameter, nameParameter);
         }
     
-        public virtual ObjectResult<List_Cities_Result> List_Cities(Nullable<System.Guid> iD_State, string state_Name)
+        public virtual int List_Cities(Nullable<System.Guid> iD_State, string state_Name)
         {
             var iD_StateParameter = iD_State.HasValue ?
                 new ObjectParameter("ID_State", iD_State) :
@@ -187,19 +180,19 @@ namespace ResponseEmergencySystem.Entity_Framework
                 new ObjectParameter("State_Name", state_Name) :
                 new ObjectParameter("State_Name", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<List_Cities_Result>("List_Cities", iD_StateParameter, state_NameParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("List_Cities", iD_StateParameter, state_NameParameter);
         }
     
-        public virtual ObjectResult<List_States_Result> List_States(Nullable<System.Guid> iD_State)
+        public virtual int List_States(Nullable<System.Guid> iD_State)
         {
             var iD_StateParameter = iD_State.HasValue ?
                 new ObjectParameter("ID_State", iD_State) :
                 new ObjectParameter("ID_State", typeof(System.Guid));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<List_States_Result>("List_States", iD_StateParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("List_States", iD_StateParameter);
         }
     
-        public virtual ObjectResult<Update_Location_Result> Update_Location(Nullable<System.Guid> iD_Location, Nullable<System.Guid> iD_City, Nullable<System.Guid> iD_State, string highway, string latitude, string longitude, string references)
+        public virtual int Update_Location(Nullable<System.Guid> iD_Location, Nullable<System.Guid> iD_City, Nullable<System.Guid> iD_State, string highway, string latitude, string longitude, string references)
         {
             var iD_LocationParameter = iD_Location.HasValue ?
                 new ObjectParameter("ID_Location", iD_Location) :
@@ -229,10 +222,10 @@ namespace ResponseEmergencySystem.Entity_Framework
                 new ObjectParameter("References", references) :
                 new ObjectParameter("References", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Update_Location_Result>("Update_Location", iD_LocationParameter, iD_CityParameter, iD_StateParameter, highwayParameter, latitudeParameter, longitudeParameter, referencesParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Update_Location", iD_LocationParameter, iD_CityParameter, iD_StateParameter, highwayParameter, latitudeParameter, longitudeParameter, referencesParameter);
         }
     
-        public virtual ObjectResult<Update_Driver_Result> Update_Driver(Nullable<System.Guid> iD_Driver, string driver_Name, string driver_Address, string driver_License, string expidation_State, Nullable<System.DateTime> expiration_Date, string phone_Number, Nullable<bool> status)
+        public virtual int Update_Driver(Nullable<System.Guid> iD_Driver, string driver_Name, string driver_Address, string driver_License, string expidation_State, Nullable<System.DateTime> expiration_Date, string phone_Number, Nullable<bool> status)
         {
             var iD_DriverParameter = iD_Driver.HasValue ?
                 new ObjectParameter("ID_Driver", iD_Driver) :
@@ -266,7 +259,7 @@ namespace ResponseEmergencySystem.Entity_Framework
                 new ObjectParameter("status", status) :
                 new ObjectParameter("status", typeof(bool));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Update_Driver_Result>("Update_Driver", iD_DriverParameter, driver_NameParameter, driver_AddressParameter, driver_LicenseParameter, expidation_StateParameter, expiration_DateParameter, phone_NumberParameter, statusParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Update_Driver", iD_DriverParameter, driver_NameParameter, driver_AddressParameter, driver_LicenseParameter, expidation_StateParameter, expiration_DateParameter, phone_NumberParameter, statusParameter);
         }
     
         public virtual ObjectResult<Get_Driver_Result> Get_Driver(string license, string phone_Number, string name)
@@ -286,7 +279,7 @@ namespace ResponseEmergencySystem.Entity_Framework
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Get_Driver_Result>("Get_Driver", licenseParameter, phone_NumberParameter, nameParameter);
         }
     
-        public virtual ObjectResult<Update_Cargo_Result> Update_Cargo(Nullable<System.Guid> iD_cargo, string cargo_Type, string comments)
+        public virtual int Update_Cargo(Nullable<System.Guid> iD_cargo, string cargo_Type, string comments)
         {
             var iD_cargoParameter = iD_cargo.HasValue ?
                 new ObjectParameter("ID_cargo", iD_cargo) :
@@ -300,10 +293,10 @@ namespace ResponseEmergencySystem.Entity_Framework
                 new ObjectParameter("Comments", comments) :
                 new ObjectParameter("Comments", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Update_Cargo_Result>("Update_Cargo", iD_cargoParameter, cargo_TypeParameter, commentsParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Update_Cargo", iD_cargoParameter, cargo_TypeParameter, commentsParameter);
         }
     
-        public virtual ObjectResult<Update_Vehicle_Status_Result> Update_Vehicle_Status(Nullable<System.Guid> iD_Status, Nullable<bool> can_Move, Nullable<bool> need_Crane, string comments)
+        public virtual int Update_Vehicle_Status(Nullable<System.Guid> iD_Status, Nullable<bool> can_Move, Nullable<bool> need_Crane, string comments)
         {
             var iD_StatusParameter = iD_Status.HasValue ?
                 new ObjectParameter("ID_Status", iD_Status) :
@@ -321,7 +314,12 @@ namespace ResponseEmergencySystem.Entity_Framework
                 new ObjectParameter("Comments", comments) :
                 new ObjectParameter("Comments", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Update_Vehicle_Status_Result>("Update_Vehicle_Status", iD_StatusParameter, can_MoveParameter, need_CraneParameter, commentsParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Update_Vehicle_Status", iD_StatusParameter, can_MoveParameter, need_CraneParameter, commentsParameter);
+        }
+    
+        public virtual ObjectResult<List_StatusDetail_Result> List_StatusDetail()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<List_StatusDetail_Result>("List_StatusDetail");
         }
     }
 }

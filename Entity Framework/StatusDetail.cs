@@ -10,11 +10,11 @@
 namespace ResponseEmergencySystem.Entity_Framework
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class Update_Status_Detail_Result
+    public partial class StatusDetail
     {
-        public int Validacion { get; set; }
-        public string msg { get; set; }
-        public Nullable<System.Guid> ID { get; set; }
+        public System.Guid ID_StatusDetail { get; set; }
+        public string Name { get; set; }
     }
 }
