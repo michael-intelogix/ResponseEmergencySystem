@@ -706,6 +706,7 @@ namespace ResponseEmergencySystem.Forms
             this.Controls.Add(this.panelControl3);
             this.Controls.Add(this.pnl_footer);
             this.Name = "ExtraForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "testing form";
             ((System.ComponentModel.ISupportInitialize)(this.pnl_footer)).EndInit();
             this.pnl_footer.ResumeLayout(false);

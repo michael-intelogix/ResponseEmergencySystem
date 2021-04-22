@@ -54,7 +54,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>81D15E1C18097F0C168F224B2540B1B374CA6FC7</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>2EB4FB08179BDF10D5FD7809E9D90AF73C08B722</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>ResponseEmergencySystem_TemporaryKey.pfx</ManifestKeyFile>
@@ -159,9 +159,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Documents\ITXFramework.dll</HintPath>
     </Reference>
-    <Reference Include="Login, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Downloads\ResponseEmergencySystem-master\Login.dll</HintPath>
+    <Reference Include="Login">
+      <HintPath>.\Login.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.1.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
@@ -173,9 +172,6 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="SecurePassword">
-      <HintPath>..\..\..\Documents\SecurePassword.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.AppContext, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -348,51 +344,6 @@
     <Compile Include="Connection\Connection.cs" />
     <Compile Include="Controllers\IncidentController.cs" />
     <Compile Include="Controllers\IIncidentsView.cs" />
-    <Compile Include="Entity Framework\C__MigrationHistory.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity Framework\Folio.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity Framework\Incident.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity Framework\Log.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity Framework\Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity Framework\Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity Framework\Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Entity Framework\sirem.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>sirem.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity Framework\sirem.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>sirem.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity Framework\sirem.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>sirem.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Entity Framework\sysdiagram.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Forms\frm_DriverSearchList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -428,12 +379,6 @@
     </Compile>
     <Compile Include="Forms\ViewIncidentDetails.Designer.cs">
       <DependentUpon>ViewIncidentDetails.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Login.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\AddIncidentDetails.cs">
       <SubType>Form</SubType>
@@ -474,9 +419,6 @@
     <EmbeddedResource Include="Forms\IncidentCaptures.resx">
       <DependentUpon>IncidentCaptures.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddIncidentDetails.resx">
       <DependentUpon>AddIncidentDetails.cs</DependentUpon>
     </EmbeddedResource>
@@ -507,20 +449,6 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="dcmanagement.json" />
-    <EntityDeploy Include="Entity Framework\sirem.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>sirem.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <EntityDeploy Include="Entity Framework\Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Entity Framework\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </None>
-    <None Include="Entity Framework\sirem.edmx.diagram">
-      <DependentUpon>sirem.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\ResponseEmergencySystem.Entity_Framework.SIREMEntities.datasource" />
     <None Include="Properties\Settings.settings">
@@ -532,7 +460,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="ResponseEmergencySystem_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -544,26 +471,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Entity Framework\Model1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Entity Framework\Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-    </Content>
-    <Content Include="Entity Framework\sirem.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>sirem.edmx</DependentUpon>
-      <LastGenOutput>sirem.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Entity Framework\sirem.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>sirem.edmx</DependentUpon>
-      <LastGenOutput>sirem.cs</LastGenOutput>
-    </Content>
     <None Include="Resources\save_32x321.png" />
     <None Include="Resources\save_32x32.png" />
     <None Include="Resources\zoomin_32x32.png" />

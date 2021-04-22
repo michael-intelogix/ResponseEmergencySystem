@@ -31,13 +31,13 @@ namespace ResponseEmergencySystem.Forms
         {
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.pnl_Zoom = new DevExpress.XtraEditors.PanelControl();
+            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.pnl_ImgControls = new DevExpress.XtraEditors.PanelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.btn_SaveImage = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.img_Test = new DevExpress.XtraEditors.PictureEdit();
             this.pnl_Uploading = new DevExpress.XtraEditors.PanelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
@@ -73,6 +73,25 @@ namespace ResponseEmergencySystem.Forms
             this.pnl_Zoom.Size = new System.Drawing.Size(62, 31);
             this.pnl_Zoom.TabIndex = 7;
             this.pnl_Zoom.Visible = false;
+            // 
+            // simpleButton5
+            // 
+            this.simpleButton5.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.zoomin_16x161;
+            this.simpleButton5.Location = new System.Drawing.Point(3, 7);
+            this.simpleButton5.Name = "simpleButton5";
+            this.simpleButton5.Size = new System.Drawing.Size(24, 22);
+            this.simpleButton5.TabIndex = 1;
+            this.simpleButton5.Click += new System.EventHandler(this.simpleButton5_Click);
+            // 
+            // simpleButton4
+            // 
+            this.simpleButton4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButton4.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.zoomout_16x16;
+            this.simpleButton4.Location = new System.Drawing.Point(34, 7);
+            this.simpleButton4.Name = "simpleButton4";
+            this.simpleButton4.Size = new System.Drawing.Size(24, 22);
+            this.simpleButton4.TabIndex = 0;
+            this.simpleButton4.Click += new System.EventHandler(this.simpleButton4_Click);
             // 
             // pnl_ImgControls
             // 
@@ -136,25 +155,6 @@ namespace ResponseEmergencySystem.Forms
             this.btn_SaveImage.Visible = false;
             this.btn_SaveImage.Click += new System.EventHandler(this.btn_SaveImage_Click);
             // 
-            // simpleButton5
-            // 
-            this.simpleButton5.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.zoomin_16x161;
-            this.simpleButton5.Location = new System.Drawing.Point(3, 7);
-            this.simpleButton5.Name = "simpleButton5";
-            this.simpleButton5.Size = new System.Drawing.Size(24, 22);
-            this.simpleButton5.TabIndex = 1;
-            this.simpleButton5.Click += new System.EventHandler(this.simpleButton5_Click);
-            // 
-            // simpleButton4
-            // 
-            this.simpleButton4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButton4.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.zoomout_16x16;
-            this.simpleButton4.Location = new System.Drawing.Point(34, 7);
-            this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(24, 22);
-            this.simpleButton4.TabIndex = 0;
-            this.simpleButton4.Click += new System.EventHandler(this.simpleButton4_Click);
-            // 
             // img_Test
             // 
             this.img_Test.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -216,6 +216,7 @@ namespace ResponseEmergencySystem.Forms
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "frm_Image";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_Image";
             this.Shown += new System.EventHandler(this.frm_Image_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.pnl_Zoom)).EndInit();
