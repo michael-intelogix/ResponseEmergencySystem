@@ -191,6 +191,7 @@
     </Reference>
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Console, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Console.4.3.0\lib\net46\System.Console.dll</HintPath>
       <Private>True</Private>
@@ -345,38 +346,34 @@
     <Compile Include="Code\Functions.cs" />
     <Compile Include="Code\Location.cs" />
     <Compile Include="Connection\Connection.cs" />
-    <Compile Include="Entity Framework\Broker.cs">
-      <DependentUpon>sirem_local.tt</DependentUpon>
+    <Compile Include="Controllers\IncidentController.cs" />
+    <Compile Include="Controllers\IIncidentsView.cs" />
+    <Compile Include="Entity Framework\C__MigrationHistory.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity Framework\Capture.cs">
-      <DependentUpon>sirem_local.tt</DependentUpon>
+    <Compile Include="Entity Framework\Folio.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity Framework\Cargo.cs">
-      <DependentUpon>sirem_local.tt</DependentUpon>
+    <Compile Include="Entity Framework\Incident.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity Framework\City.cs">
-      <DependentUpon>sirem_local.tt</DependentUpon>
+    <Compile Include="Entity Framework\Log.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity Framework\Driver.cs">
-      <DependentUpon>sirem_local.tt</DependentUpon>
+    <Compile Include="Entity Framework\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity Framework\Get_Driver_Result.cs">
-      <DependentUpon>sirem_local.tt</DependentUpon>
+    <Compile Include="Entity Framework\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity Framework\IncidentReport.cs">
-      <DependentUpon>sirem_local.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity Framework\InjuredPerson.cs">
-      <DependentUpon>sirem_local.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity Framework\Journal.cs">
-      <DependentUpon>sirem_local.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity Framework\List_Incidents_Result.cs">
-      <DependentUpon>sirem_local.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity Framework\List_StatusDetail_Result.cs">
-      <DependentUpon>sirem_local.tt</DependentUpon>
+    <Compile Include="Entity Framework\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Entity Framework\sirem.Context.cs">
       <AutoGen>True</AutoGen>
@@ -393,35 +390,38 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>sirem.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Entity Framework\sirem_local.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>sirem_local.Context.tt</DependentUpon>
+    <Compile Include="Entity Framework\sysdiagram.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity Framework\sirem_local.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>sirem_local.tt</DependentUpon>
+    <Compile Include="Forms\frm_DriverSearchList.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Entity Framework\sirem_local.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>sirem_local.edmx</DependentUpon>
+    <Compile Include="Forms\frm_DriverSearchList.Designer.cs">
+      <DependentUpon>frm_DriverSearchList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Entity Framework\State.cs">
-      <DependentUpon>sirem_local.tt</DependentUpon>
+    <Compile Include="Forms\frm_Image.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Entity Framework\StatusDetail.cs">
-      <DependentUpon>sirem_local.tt</DependentUpon>
+    <Compile Include="Forms\frm_Image.Designer.cs">
+      <DependentUpon>frm_Image.cs</DependentUpon>
     </Compile>
-    <Compile Include="Entity Framework\User.cs">
-      <DependentUpon>sirem_local.tt</DependentUpon>
+    <Compile Include="Forms\Helpers\frm_Zoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Helpers\frm_Zoom.Designer.cs">
+      <DependentUpon>frm_Zoom.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\IncidentCaptures.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\IncidentCaptures.Designer.cs">
       <DependentUpon>IncidentCaptures.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Modals\frm_BrokerList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Modals\frm_BrokerList.Designer.cs">
+      <DependentUpon>frm_BrokerList.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ViewIncidentDetails.cs">
       <SubType>Form</SubType>
@@ -453,6 +453,7 @@
     <Compile Include="Forms\ExtraForm.Designer.cs">
       <DependentUpon>ExtraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Incident.cs" />
     <Compile Include="Reports\IncidentReport.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -461,6 +462,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\frm_DriverSearchList.resx">
+      <DependentUpon>frm_DriverSearchList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm_Image.resx">
+      <DependentUpon>frm_Image.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Helpers\frm_Zoom.resx">
+      <DependentUpon>frm_Zoom.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\IncidentCaptures.resx">
       <DependentUpon>IncidentCaptures.cs</DependentUpon>
     </EmbeddedResource>
@@ -475,6 +485,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ExtraForm.resx">
       <DependentUpon>ExtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Modals\frm_BrokerList.resx">
+      <DependentUpon>frm_BrokerList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ViewIncidentDetails.resx">
       <DependentUpon>ViewIncidentDetails.cs</DependentUpon>
@@ -498,15 +511,15 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>sirem.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <EntityDeploy Include="Entity Framework\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Entity Framework\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
     <None Include="Entity Framework\sirem.edmx.diagram">
       <DependentUpon>sirem.edmx</DependentUpon>
-    </None>
-    <EntityDeploy Include="Entity Framework\sirem_local.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>sirem_local.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Entity Framework\sirem_local.edmx.diagram">
-      <DependentUpon>sirem_local.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\ResponseEmergencySystem.Entity_Framework.SIREMEntities.datasource" />
@@ -531,27 +544,46 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Entity Framework\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entity Framework\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
     <Content Include="Entity Framework\sirem.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>sirem.edmx</DependentUpon>
       <LastGenOutput>sirem.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Entity Framework\sirem.edmx.sql" />
     <Content Include="Entity Framework\sirem.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>sirem.edmx</DependentUpon>
       <LastGenOutput>sirem.cs</LastGenOutput>
     </Content>
-    <Content Include="Entity Framework\sirem_local.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>sirem_local.edmx</DependentUpon>
-      <LastGenOutput>sirem_local.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Entity Framework\sirem_local.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>sirem_local.edmx</DependentUpon>
-      <LastGenOutput>sirem_local.cs</LastGenOutput>
-    </Content>
+    <None Include="Resources\save_32x321.png" />
+    <None Include="Resources\save_32x32.png" />
+    <None Include="Resources\zoomin_32x32.png" />
+    <None Include="Resources\zoomout_32x32.png" />
+    <None Include="Resources\refreshallpivottable_16x16.png" />
+    <None Include="Resources\refreshallpivottable_32x32.png" />
+    <None Include="Resources\importimage_32x32.png" />
+    <None Include="Resources\importimage_16x16.png" />
+    <None Include="Resources\zoomin_16x161.png" />
+    <None Include="Resources\zoomout_16x16.png" />
+    <None Include="Resources\zoomin_16x16.png" />
+    <None Include="Resources\actions_addcircled.svg" />
+    <None Include="Resources\preview_16x16.png" />
+    <None Include="Resources\cancel_16x161.png" />
+    <None Include="Resources\search_16x16.png" />
+    <None Include="Resources\apply_16x162.png" />
+    <None Include="Resources\find_16x161.png" />
+    <None Include="Resources\find_16x16.png" />
+    <None Include="Resources\apply_16x161.png" />
+    <None Include="Resources\apply_16x16.png" />
     <None Include="Resources\cancel_16x16.png" />
     <None Include="Resources\add_16x16.png" />
   </ItemGroup>
