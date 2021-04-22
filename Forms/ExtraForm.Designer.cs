@@ -31,89 +31,89 @@ namespace ResponseEmergencySystem.Forms
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExtraForm));
             this.pnl_footer = new DevExpress.XtraEditors.PanelControl();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
-            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
             this.labelControl28 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl31 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit5 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
-            this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
             this.labelControl30 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
-            this.textEdit6 = new DevExpress.XtraEditors.TextEdit();
             this.labelControl29 = new DevExpress.XtraEditors.LabelControl();
             this.xtraScrollableControl1 = new DevExpress.XtraEditors.XtraScrollableControl();
             this.xtraScrollableControl2 = new DevExpress.XtraEditors.XtraScrollableControl();
             this.panelControl8 = new DevExpress.XtraEditors.PanelControl();
-            this.simpleButton12 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton13 = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit13 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit14 = new DevExpress.XtraEditors.TextEdit();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit7 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit8 = new DevExpress.XtraEditors.TextEdit();
             this.labelControl32 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.simpleButton8 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton9 = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit9 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit10 = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl7 = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.simpleButton12 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton13 = new DevExpress.XtraEditors.SimpleButton();
+            this.textEdit13 = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit14 = new DevExpress.XtraEditors.TextEdit();
+            this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
+            this.textEdit7 = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit8 = new DevExpress.XtraEditors.TextEdit();
+            this.simpleButton8 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton9 = new DevExpress.XtraEditors.SimpleButton();
+            this.textEdit9 = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit10 = new DevExpress.XtraEditors.TextEdit();
             this.simpleButton10 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton11 = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.textEdit11 = new DevExpress.XtraEditors.TextEdit();
             this.textEdit12 = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
+            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
+            this.textEdit5 = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit6 = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.pnl_footer)).BeginInit();
             this.pnl_footer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).BeginInit();
             this.panelControl6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
             this.panelControl5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).BeginInit();
             this.xtraScrollableControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).BeginInit();
             this.panelControl8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit13.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit14.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit7.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit8.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit9.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit10.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).BeginInit();
             this.panelControl7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit13.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit14.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit7.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit8.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit9.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit10.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit11.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit12.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // pnl_footer
@@ -125,13 +125,6 @@ namespace ResponseEmergencySystem.Forms
             this.pnl_footer.Name = "pnl_footer";
             this.pnl_footer.Size = new System.Drawing.Size(731, 47);
             this.pnl_footer.TabIndex = 2;
-            // 
-            // textEdit1
-            // 
-            this.textEdit1.Location = new System.Drawing.Point(6, 15);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(423, 20);
-            this.textEdit1.TabIndex = 1;
             // 
             // simpleButton1
             // 
@@ -154,48 +147,6 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl6.Size = new System.Drawing.Size(362, 33);
             this.panelControl6.TabIndex = 108;
             this.panelControl6.Visible = false;
-            // 
-            // simpleButton4
-            // 
-            this.simpleButton4.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.simpleButton4.Appearance.BackColor = System.Drawing.SystemColors.Control;
-            this.simpleButton4.Appearance.BackColor2 = System.Drawing.Color.Transparent;
-            this.simpleButton4.Appearance.BorderColor = System.Drawing.SystemColors.Control;
-            this.simpleButton4.Appearance.ForeColor = System.Drawing.Color.Transparent;
-            this.simpleButton4.Appearance.Options.UseBackColor = true;
-            this.simpleButton4.Appearance.Options.UseBorderColor = true;
-            this.simpleButton4.Appearance.Options.UseForeColor = true;
-            this.simpleButton4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton4.ImageOptions.Image")));
-            this.simpleButton4.Location = new System.Drawing.Point(331, 3);
-            this.simpleButton4.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(25, 23);
-            this.simpleButton4.TabIndex = 108;
-            // 
-            // simpleButton3
-            // 
-            this.simpleButton3.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.simpleButton3.Appearance.BackColor = System.Drawing.SystemColors.Control;
-            this.simpleButton3.Appearance.BackColor2 = System.Drawing.Color.Transparent;
-            this.simpleButton3.Appearance.BorderColor = System.Drawing.SystemColors.Control;
-            this.simpleButton3.Appearance.ForeColor = System.Drawing.Color.Transparent;
-            this.simpleButton3.Appearance.Options.UseBackColor = true;
-            this.simpleButton3.Appearance.Options.UseBorderColor = true;
-            this.simpleButton3.Appearance.Options.UseForeColor = true;
-            this.simpleButton3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton3.ImageOptions.Image")));
-            this.simpleButton3.Location = new System.Drawing.Point(300, 3);
-            this.simpleButton3.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(25, 23);
-            this.simpleButton3.TabIndex = 107;
-            // 
-            // textEdit2
-            // 
-            this.textEdit2.Location = new System.Drawing.Point(152, 6);
-            this.textEdit2.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Size = new System.Drawing.Size(138, 20);
-            this.textEdit2.TabIndex = 104;
             // 
             // labelControl28
             // 
@@ -221,40 +172,6 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl5.TabIndex = 109;
             this.panelControl5.Visible = false;
             // 
-            // simpleButton2
-            // 
-            this.simpleButton2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.simpleButton2.Appearance.BackColor = System.Drawing.SystemColors.Control;
-            this.simpleButton2.Appearance.BackColor2 = System.Drawing.Color.Transparent;
-            this.simpleButton2.Appearance.BorderColor = System.Drawing.SystemColors.Control;
-            this.simpleButton2.Appearance.ForeColor = System.Drawing.Color.Transparent;
-            this.simpleButton2.Appearance.Options.UseBackColor = true;
-            this.simpleButton2.Appearance.Options.UseBorderColor = true;
-            this.simpleButton2.Appearance.Options.UseForeColor = true;
-            this.simpleButton2.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.cancel_16x16;
-            this.simpleButton2.Location = new System.Drawing.Point(571, 5);
-            this.simpleButton2.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(25, 23);
-            this.simpleButton2.TabIndex = 109;
-            // 
-            // simpleButton5
-            // 
-            this.simpleButton5.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.simpleButton5.Appearance.BackColor = System.Drawing.SystemColors.Control;
-            this.simpleButton5.Appearance.BackColor2 = System.Drawing.Color.Transparent;
-            this.simpleButton5.Appearance.BorderColor = System.Drawing.SystemColors.Control;
-            this.simpleButton5.Appearance.ForeColor = System.Drawing.Color.Transparent;
-            this.simpleButton5.Appearance.Options.UseBackColor = true;
-            this.simpleButton5.Appearance.Options.UseBorderColor = true;
-            this.simpleButton5.Appearance.Options.UseForeColor = true;
-            this.simpleButton5.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.add_16x16;
-            this.simpleButton5.Location = new System.Drawing.Point(536, 5);
-            this.simpleButton5.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.simpleButton5.Name = "simpleButton5";
-            this.simpleButton5.Size = new System.Drawing.Size(25, 23);
-            this.simpleButton5.TabIndex = 108;
-            // 
             // labelControl31
             // 
             this.labelControl31.Location = new System.Drawing.Point(300, 10);
@@ -263,22 +180,6 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl31.Size = new System.Drawing.Size(78, 13);
             this.labelControl31.TabIndex = 107;
             this.labelControl31.Text = "Contact Number";
-            // 
-            // textEdit5
-            // 
-            this.textEdit5.Location = new System.Drawing.Point(385, 7);
-            this.textEdit5.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.textEdit5.Name = "textEdit5";
-            this.textEdit5.Size = new System.Drawing.Size(138, 20);
-            this.textEdit5.TabIndex = 106;
-            // 
-            // textEdit3
-            // 
-            this.textEdit3.Location = new System.Drawing.Point(151, 7);
-            this.textEdit3.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.textEdit3.Name = "textEdit3";
-            this.textEdit3.Size = new System.Drawing.Size(138, 20);
-            this.textEdit3.TabIndex = 104;
             // 
             // labelControl7
             // 
@@ -300,14 +201,6 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl4.TabIndex = 110;
             this.panelControl4.Visible = false;
             // 
-            // textEdit4
-            // 
-            this.textEdit4.Location = new System.Drawing.Point(152, 6);
-            this.textEdit4.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.textEdit4.Name = "textEdit4";
-            this.textEdit4.Size = new System.Drawing.Size(138, 20);
-            this.textEdit4.TabIndex = 104;
-            // 
             // labelControl30
             // 
             this.labelControl30.Location = new System.Drawing.Point(4, 9);
@@ -327,14 +220,6 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl3.Size = new System.Drawing.Size(297, 33);
             this.panelControl3.TabIndex = 107;
             this.panelControl3.Visible = false;
-            // 
-            // textEdit6
-            // 
-            this.textEdit6.Location = new System.Drawing.Point(152, 6);
-            this.textEdit6.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.textEdit6.Name = "textEdit6";
-            this.textEdit6.Size = new System.Drawing.Size(138, 20);
-            this.textEdit6.TabIndex = 104;
             // 
             // labelControl29
             // 
@@ -379,6 +264,120 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl8.Size = new System.Drawing.Size(601, 33);
             this.panelControl8.TabIndex = 111;
             // 
+            // labelControl6
+            // 
+            this.labelControl6.Location = new System.Drawing.Point(300, 10);
+            this.labelControl6.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(78, 13);
+            this.labelControl6.TabIndex = 107;
+            this.labelControl6.Text = "Contact Number";
+            // 
+            // labelControl8
+            // 
+            this.labelControl8.Location = new System.Drawing.Point(5, 10);
+            this.labelControl8.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.labelControl8.Name = "labelControl8";
+            this.labelControl8.Size = new System.Drawing.Size(137, 13);
+            this.labelControl8.TabIndex = 105;
+            this.labelControl8.Text = "Name Of The Person Injured";
+            // 
+            // panelControl1
+            // 
+            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl1.Controls.Add(this.simpleButton6);
+            this.panelControl1.Controls.Add(this.simpleButton7);
+            this.panelControl1.Controls.Add(this.labelControl1);
+            this.panelControl1.Controls.Add(this.textEdit7);
+            this.panelControl1.Controls.Add(this.textEdit8);
+            this.panelControl1.Controls.Add(this.labelControl32);
+            this.panelControl1.Location = new System.Drawing.Point(12, 128);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(601, 31);
+            this.panelControl1.TabIndex = 114;
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(300, 10);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(78, 13);
+            this.labelControl1.TabIndex = 107;
+            this.labelControl1.Text = "Contact Number";
+            // 
+            // labelControl32
+            // 
+            this.labelControl32.Location = new System.Drawing.Point(5, 10);
+            this.labelControl32.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.labelControl32.Name = "labelControl32";
+            this.labelControl32.Size = new System.Drawing.Size(137, 13);
+            this.labelControl32.TabIndex = 105;
+            this.labelControl32.Text = "Name Of The Person Injured";
+            // 
+            // panelControl2
+            // 
+            this.panelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl2.Controls.Add(this.simpleButton8);
+            this.panelControl2.Controls.Add(this.simpleButton9);
+            this.panelControl2.Controls.Add(this.labelControl2);
+            this.panelControl2.Controls.Add(this.textEdit9);
+            this.panelControl2.Controls.Add(this.textEdit10);
+            this.panelControl2.Controls.Add(this.labelControl3);
+            this.panelControl2.Location = new System.Drawing.Point(12, 85);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(601, 37);
+            this.panelControl2.TabIndex = 115;
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Location = new System.Drawing.Point(300, 10);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(78, 13);
+            this.labelControl2.TabIndex = 107;
+            this.labelControl2.Text = "Contact Number";
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Location = new System.Drawing.Point(5, 10);
+            this.labelControl3.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(137, 13);
+            this.labelControl3.TabIndex = 105;
+            this.labelControl3.Text = "Name Of The Person Injured";
+            // 
+            // panelControl7
+            // 
+            this.panelControl7.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl7.Controls.Add(this.simpleButton10);
+            this.panelControl7.Controls.Add(this.simpleButton11);
+            this.panelControl7.Controls.Add(this.labelControl4);
+            this.panelControl7.Controls.Add(this.textEdit11);
+            this.panelControl7.Controls.Add(this.textEdit12);
+            this.panelControl7.Controls.Add(this.labelControl5);
+            this.panelControl7.Location = new System.Drawing.Point(12, 43);
+            this.panelControl7.Name = "panelControl7";
+            this.panelControl7.Size = new System.Drawing.Size(601, 36);
+            this.panelControl7.TabIndex = 116;
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Location = new System.Drawing.Point(300, 10);
+            this.labelControl4.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(78, 13);
+            this.labelControl4.TabIndex = 107;
+            this.labelControl4.Text = "Contact Number";
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Location = new System.Drawing.Point(5, 10);
+            this.labelControl5.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(137, 13);
+            this.labelControl5.TabIndex = 105;
+            this.labelControl5.Text = "Name Of The Person Injured";
+            // 
             // simpleButton12
             // 
             this.simpleButton12.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -413,15 +412,6 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton13.Size = new System.Drawing.Size(25, 23);
             this.simpleButton13.TabIndex = 108;
             // 
-            // labelControl6
-            // 
-            this.labelControl6.Location = new System.Drawing.Point(300, 10);
-            this.labelControl6.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(78, 13);
-            this.labelControl6.TabIndex = 107;
-            this.labelControl6.Text = "Contact Number";
-            // 
             // textEdit13
             // 
             this.textEdit13.Location = new System.Drawing.Point(385, 7);
@@ -437,29 +427,6 @@ namespace ResponseEmergencySystem.Forms
             this.textEdit14.Name = "textEdit14";
             this.textEdit14.Size = new System.Drawing.Size(138, 20);
             this.textEdit14.TabIndex = 104;
-            // 
-            // labelControl8
-            // 
-            this.labelControl8.Location = new System.Drawing.Point(5, 10);
-            this.labelControl8.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(137, 13);
-            this.labelControl8.TabIndex = 105;
-            this.labelControl8.Text = "Name Of The Person Injured";
-            // 
-            // panelControl1
-            // 
-            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl1.Controls.Add(this.simpleButton6);
-            this.panelControl1.Controls.Add(this.simpleButton7);
-            this.panelControl1.Controls.Add(this.labelControl1);
-            this.panelControl1.Controls.Add(this.textEdit7);
-            this.panelControl1.Controls.Add(this.textEdit8);
-            this.panelControl1.Controls.Add(this.labelControl32);
-            this.panelControl1.Location = new System.Drawing.Point(12, 128);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(601, 31);
-            this.panelControl1.TabIndex = 114;
             // 
             // simpleButton6
             // 
@@ -495,15 +462,6 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton7.Size = new System.Drawing.Size(25, 23);
             this.simpleButton7.TabIndex = 108;
             // 
-            // labelControl1
-            // 
-            this.labelControl1.Location = new System.Drawing.Point(300, 10);
-            this.labelControl1.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(78, 13);
-            this.labelControl1.TabIndex = 107;
-            this.labelControl1.Text = "Contact Number";
-            // 
             // textEdit7
             // 
             this.textEdit7.Location = new System.Drawing.Point(385, 7);
@@ -519,29 +477,6 @@ namespace ResponseEmergencySystem.Forms
             this.textEdit8.Name = "textEdit8";
             this.textEdit8.Size = new System.Drawing.Size(138, 20);
             this.textEdit8.TabIndex = 104;
-            // 
-            // labelControl32
-            // 
-            this.labelControl32.Location = new System.Drawing.Point(5, 10);
-            this.labelControl32.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.labelControl32.Name = "labelControl32";
-            this.labelControl32.Size = new System.Drawing.Size(137, 13);
-            this.labelControl32.TabIndex = 105;
-            this.labelControl32.Text = "Name Of The Person Injured";
-            // 
-            // panelControl2
-            // 
-            this.panelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl2.Controls.Add(this.simpleButton8);
-            this.panelControl2.Controls.Add(this.simpleButton9);
-            this.panelControl2.Controls.Add(this.labelControl2);
-            this.panelControl2.Controls.Add(this.textEdit9);
-            this.panelControl2.Controls.Add(this.textEdit10);
-            this.panelControl2.Controls.Add(this.labelControl3);
-            this.panelControl2.Location = new System.Drawing.Point(12, 85);
-            this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(601, 37);
-            this.panelControl2.TabIndex = 115;
             // 
             // simpleButton8
             // 
@@ -577,15 +512,6 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton9.Size = new System.Drawing.Size(25, 23);
             this.simpleButton9.TabIndex = 108;
             // 
-            // labelControl2
-            // 
-            this.labelControl2.Location = new System.Drawing.Point(300, 10);
-            this.labelControl2.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(78, 13);
-            this.labelControl2.TabIndex = 107;
-            this.labelControl2.Text = "Contact Number";
-            // 
             // textEdit9
             // 
             this.textEdit9.Location = new System.Drawing.Point(385, 7);
@@ -601,29 +527,6 @@ namespace ResponseEmergencySystem.Forms
             this.textEdit10.Name = "textEdit10";
             this.textEdit10.Size = new System.Drawing.Size(138, 20);
             this.textEdit10.TabIndex = 104;
-            // 
-            // labelControl3
-            // 
-            this.labelControl3.Location = new System.Drawing.Point(5, 10);
-            this.labelControl3.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(137, 13);
-            this.labelControl3.TabIndex = 105;
-            this.labelControl3.Text = "Name Of The Person Injured";
-            // 
-            // panelControl7
-            // 
-            this.panelControl7.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl7.Controls.Add(this.simpleButton10);
-            this.panelControl7.Controls.Add(this.simpleButton11);
-            this.panelControl7.Controls.Add(this.labelControl4);
-            this.panelControl7.Controls.Add(this.textEdit11);
-            this.panelControl7.Controls.Add(this.textEdit12);
-            this.panelControl7.Controls.Add(this.labelControl5);
-            this.panelControl7.Location = new System.Drawing.Point(12, 43);
-            this.panelControl7.Name = "panelControl7";
-            this.panelControl7.Size = new System.Drawing.Size(601, 36);
-            this.panelControl7.TabIndex = 116;
             // 
             // simpleButton10
             // 
@@ -659,15 +562,6 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton11.Size = new System.Drawing.Size(25, 23);
             this.simpleButton11.TabIndex = 108;
             // 
-            // labelControl4
-            // 
-            this.labelControl4.Location = new System.Drawing.Point(300, 10);
-            this.labelControl4.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(78, 13);
-            this.labelControl4.TabIndex = 107;
-            this.labelControl4.Text = "Contact Number";
-            // 
             // textEdit11
             // 
             this.textEdit11.Location = new System.Drawing.Point(385, 7);
@@ -684,14 +578,120 @@ namespace ResponseEmergencySystem.Forms
             this.textEdit12.Size = new System.Drawing.Size(138, 20);
             this.textEdit12.TabIndex = 104;
             // 
-            // labelControl5
+            // simpleButton4
             // 
-            this.labelControl5.Location = new System.Drawing.Point(5, 10);
-            this.labelControl5.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(137, 13);
-            this.labelControl5.TabIndex = 105;
-            this.labelControl5.Text = "Name Of The Person Injured";
+            this.simpleButton4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.simpleButton4.Appearance.BackColor = System.Drawing.SystemColors.Control;
+            this.simpleButton4.Appearance.BackColor2 = System.Drawing.Color.Transparent;
+            this.simpleButton4.Appearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.simpleButton4.Appearance.ForeColor = System.Drawing.Color.Transparent;
+            this.simpleButton4.Appearance.Options.UseBackColor = true;
+            this.simpleButton4.Appearance.Options.UseBorderColor = true;
+            this.simpleButton4.Appearance.Options.UseForeColor = true;
+            this.simpleButton4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton4.ImageOptions.Image")));
+            this.simpleButton4.Location = new System.Drawing.Point(331, 3);
+            this.simpleButton4.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.simpleButton4.Name = "simpleButton4";
+            this.simpleButton4.Size = new System.Drawing.Size(25, 23);
+            this.simpleButton4.TabIndex = 108;
+            // 
+            // simpleButton3
+            // 
+            this.simpleButton3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.simpleButton3.Appearance.BackColor = System.Drawing.SystemColors.Control;
+            this.simpleButton3.Appearance.BackColor2 = System.Drawing.Color.Transparent;
+            this.simpleButton3.Appearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.simpleButton3.Appearance.ForeColor = System.Drawing.Color.Transparent;
+            this.simpleButton3.Appearance.Options.UseBackColor = true;
+            this.simpleButton3.Appearance.Options.UseBorderColor = true;
+            this.simpleButton3.Appearance.Options.UseForeColor = true;
+            this.simpleButton3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton3.ImageOptions.Image")));
+            this.simpleButton3.Location = new System.Drawing.Point(300, 3);
+            this.simpleButton3.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.simpleButton3.Name = "simpleButton3";
+            this.simpleButton3.Size = new System.Drawing.Size(25, 23);
+            this.simpleButton3.TabIndex = 107;
+            // 
+            // textEdit2
+            // 
+            this.textEdit2.Location = new System.Drawing.Point(152, 6);
+            this.textEdit2.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.textEdit2.Name = "textEdit2";
+            this.textEdit2.Size = new System.Drawing.Size(138, 20);
+            this.textEdit2.TabIndex = 104;
+            // 
+            // simpleButton2
+            // 
+            this.simpleButton2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.simpleButton2.Appearance.BackColor = System.Drawing.SystemColors.Control;
+            this.simpleButton2.Appearance.BackColor2 = System.Drawing.Color.Transparent;
+            this.simpleButton2.Appearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.simpleButton2.Appearance.ForeColor = System.Drawing.Color.Transparent;
+            this.simpleButton2.Appearance.Options.UseBackColor = true;
+            this.simpleButton2.Appearance.Options.UseBorderColor = true;
+            this.simpleButton2.Appearance.Options.UseForeColor = true;
+            this.simpleButton2.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.cancel_16x16;
+            this.simpleButton2.Location = new System.Drawing.Point(571, 5);
+            this.simpleButton2.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(25, 23);
+            this.simpleButton2.TabIndex = 109;
+            // 
+            // simpleButton5
+            // 
+            this.simpleButton5.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.simpleButton5.Appearance.BackColor = System.Drawing.SystemColors.Control;
+            this.simpleButton5.Appearance.BackColor2 = System.Drawing.Color.Transparent;
+            this.simpleButton5.Appearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.simpleButton5.Appearance.ForeColor = System.Drawing.Color.Transparent;
+            this.simpleButton5.Appearance.Options.UseBackColor = true;
+            this.simpleButton5.Appearance.Options.UseBorderColor = true;
+            this.simpleButton5.Appearance.Options.UseForeColor = true;
+            this.simpleButton5.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.add_16x16;
+            this.simpleButton5.Location = new System.Drawing.Point(536, 5);
+            this.simpleButton5.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.simpleButton5.Name = "simpleButton5";
+            this.simpleButton5.Size = new System.Drawing.Size(25, 23);
+            this.simpleButton5.TabIndex = 108;
+            // 
+            // textEdit5
+            // 
+            this.textEdit5.Location = new System.Drawing.Point(385, 7);
+            this.textEdit5.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.textEdit5.Name = "textEdit5";
+            this.textEdit5.Size = new System.Drawing.Size(138, 20);
+            this.textEdit5.TabIndex = 106;
+            // 
+            // textEdit3
+            // 
+            this.textEdit3.Location = new System.Drawing.Point(151, 7);
+            this.textEdit3.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.textEdit3.Name = "textEdit3";
+            this.textEdit3.Size = new System.Drawing.Size(138, 20);
+            this.textEdit3.TabIndex = 104;
+            // 
+            // textEdit4
+            // 
+            this.textEdit4.Location = new System.Drawing.Point(152, 6);
+            this.textEdit4.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.textEdit4.Name = "textEdit4";
+            this.textEdit4.Size = new System.Drawing.Size(138, 20);
+            this.textEdit4.TabIndex = 104;
+            // 
+            // textEdit6
+            // 
+            this.textEdit6.Location = new System.Drawing.Point(152, 6);
+            this.textEdit6.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.textEdit6.Name = "textEdit6";
+            this.textEdit6.Size = new System.Drawing.Size(138, 20);
+            this.textEdit6.TabIndex = 104;
+            // 
+            // textEdit1
+            // 
+            this.textEdit1.Location = new System.Drawing.Point(6, 15);
+            this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Size = new System.Drawing.Size(423, 20);
+            this.textEdit1.TabIndex = 1;
             // 
             // ExtraForm
             // 
@@ -709,45 +709,45 @@ namespace ResponseEmergencySystem.Forms
             this.Text = "testing form";
             ((System.ComponentModel.ISupportInitialize)(this.pnl_footer)).EndInit();
             this.pnl_footer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).EndInit();
             this.panelControl6.ResumeLayout(false);
             this.panelControl6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).EndInit();
             this.panelControl5.ResumeLayout(false);
             this.panelControl5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
             this.panelControl4.ResumeLayout(false);
             this.panelControl4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             this.panelControl3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).EndInit();
             this.xtraScrollableControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).EndInit();
             this.panelControl8.ResumeLayout(false);
             this.panelControl8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit13.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit14.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit7.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit8.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             this.panelControl2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit9.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit10.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).EndInit();
             this.panelControl7.ResumeLayout(false);
             this.panelControl7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit13.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit14.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit7.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit8.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit9.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit10.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit11.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit12.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

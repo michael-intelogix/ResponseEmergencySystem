@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ResponseEmergencySystem.Code.Captures;
 using ResponseEmergencySystem.Forms;
+using ResponseEmergencySystem.Forms.Modals;
 
 namespace ResponseEmergencySystem.Code
 {
@@ -403,22 +404,22 @@ namespace ResponseEmergencySystem.Code
             return result;
         }
 
-        public static DataRow getBroker(string license, string phone, string name)
+        public static DataRow getBroker(string name)
         {
             opSuccess = false;
             try
             {
                 using (SqlCommand cmd = new SqlCommand
                 {
-                    Connection = constants.GeneralConnection,
+                    Connection = constants.SIREMConnection,
                     CommandText = $"List_Brokers",
                     CommandType = CommandType.StoredProcedure
                 })
                 {
-                    cmd.Parameters.AddWithValue("@ID_State", license);
-                    cmd.Parameters.AddWithValue("@ID_City", phone);
+                    cmd.Parameters.AddWithValue("@ID_State", "");
+                    cmd.Parameters.AddWithValue("@ID_City", "");
                     cmd.Parameters.AddWithValue("@Broker", name);
-                    cmd.Parameters.AddWithValue("@Address", name);
+                    cmd.Parameters.AddWithValue("@Address", "");
                     result = new DataTable();
                     using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
                     {
@@ -434,10 +435,10 @@ namespace ResponseEmergencySystem.Code
 
             if (result.Rows.Count > 1)
             {
-                frm_DriverSearchList drivers = new frm_DriverSearchList(result);
-                if (drivers.ShowDialog() == DialogResult.OK)
+                frm_BrokerList brokers = new frm_BrokerList(result);
+                if (brokers.ShowDialog() == DialogResult.OK)
                 {
-                    return result.Select()[drivers.dt_DriverRowSelected];
+                    return result.Select()[brokers.dt_BrokerRowSelected];
                 }
 
                 return errorsResult("Please select a broker from the list").Select().First();
@@ -447,6 +448,53 @@ namespace ResponseEmergencySystem.Code
                 return result.Select().First();
             }
             
+            return result.Select().First();
+        }
+
+        public static DataRow saveBroker(string name)
+        {
+            opSuccess = false;
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand
+                {
+                    Connection = constants.SIREMConnection,
+                    CommandText = $"List_Brokers",
+                    CommandType = CommandType.StoredProcedure
+                })
+                {
+                    cmd.Parameters.AddWithValue("@ID_State", "");
+                    cmd.Parameters.AddWithValue("@ID_City", "");
+                    cmd.Parameters.AddWithValue("@Broker", name);
+                    cmd.Parameters.AddWithValue("@Address", "");
+                    result = new DataTable();
+                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    {
+                        sda.Fill(result);
+                    }
+                    opSuccess = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Broker couldn't be found due: {ex.Message}");
+            }
+
+            if (result.Rows.Count > 1)
+            {
+                frm_BrokerList brokers = new frm_BrokerList(result);
+                if (brokers.ShowDialog() == DialogResult.OK)
+                {
+                    return result.Select()[brokers.dt_BrokerRowSelected];
+                }
+
+                return errorsResult("Please select a broker from the list").Select().First();
+            }
+            else if (result.Rows.Count == 1)
+            {
+                return result.Select().First();
+            }
+
             return result.Select().First();
         }
 

@@ -29,16 +29,16 @@ namespace ResponseEmergencySystem.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions11 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject41 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject42 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject43 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject44 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions12 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject45 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject46 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject47 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject48 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.lbl_CargoType = new DevExpress.XtraEditors.LabelControl();
             this.pnl_BOL = new DevExpress.XtraEditors.PanelControl();
@@ -98,15 +98,21 @@ namespace ResponseEmergencySystem.Forms
             this.col_Delete = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btn_DeleteInjuredRow = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl31 = new DevExpress.XtraEditors.LabelControl();
+            this.edt_Longitude = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
+            this.edt_Latitude = new DevExpress.XtraEditors.TextEdit();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl29 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl28 = new DevExpress.XtraEditors.LabelControl();
             this.lue_states = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
             this.lue_Cities = new DevExpress.XtraEditors.LookUpEdit();
-            this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
             this.edt_Highway = new DevExpress.XtraEditors.TextEdit();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.edt_BrokerName = new DevExpress.XtraEditors.TextEdit();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl30 = new DevExpress.XtraEditors.LabelControl();
             this.pnl_PoliceReport = new DevExpress.XtraEditors.PanelControl();
@@ -124,11 +130,12 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.dte_IncidentDate = new DevExpress.XtraEditors.DateEdit();
             this.tme_IncidentTime = new DevExpress.XtraEditors.TimeEdit();
-            this.edt_InjuredNames = new DevExpress.XtraEditors.TextEdit();
+            this.edt_Number = new DevExpress.XtraEditors.TextEdit();
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
+            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.btn_AddIncident = new DevExpress.XtraEditors.SimpleButton();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ResponseEmergencySystem.Forms.WaitForm1), true, true);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnl_BOL)).BeginInit();
@@ -166,11 +173,16 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.gv_InjuredPersons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_DeleteInjuredRow)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
+            this.panelControl5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_Longitude.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_Latitude.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_states.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_Cities.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_Highway.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_BrokerName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnl_PoliceReport)).BeginInit();
             this.pnl_PoliceReport.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.edt_PoliceReport.Properties)).BeginInit();
@@ -182,10 +194,9 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.dte_IncidentDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dte_IncidentDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tme_IncidentTime.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.edt_InjuredNames.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_Number.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl2
@@ -225,7 +236,7 @@ namespace ResponseEmergencySystem.Forms
             this.pnl_BOL.Controls.Add(this.edt_manifest);
             this.pnl_BOL.Location = new System.Drawing.Point(468, 172);
             this.pnl_BOL.Name = "pnl_BOL";
-            this.pnl_BOL.Size = new System.Drawing.Size(236, 33);
+            this.pnl_BOL.Size = new System.Drawing.Size(241, 33);
             this.pnl_BOL.TabIndex = 108;
             this.pnl_BOL.Visible = false;
             // 
@@ -245,7 +256,7 @@ namespace ResponseEmergencySystem.Forms
             this.edt_manifest.Location = new System.Drawing.Point(109, 6);
             this.edt_manifest.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.edt_manifest.Name = "edt_manifest";
-            this.edt_manifest.Size = new System.Drawing.Size(121, 20);
+            this.edt_manifest.Size = new System.Drawing.Size(125, 20);
             this.edt_manifest.TabIndex = 49;
             // 
             // ckedt_Spill
@@ -772,9 +783,9 @@ namespace ResponseEmergencySystem.Forms
             // btn_DeleteRow
             // 
             this.btn_DeleteRow.AutoHeight = false;
-            editorButtonImageOptions11.Image = global::ResponseEmergencySystem.Properties.Resources.cancel_16x16;
+            editorButtonImageOptions3.Image = global::ResponseEmergencySystem.Properties.Resources.cancel_16x16;
             this.btn_DeleteRow.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions11, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject41, serializableAppearanceObject42, serializableAppearanceObject43, serializableAppearanceObject44, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btn_DeleteRow.Name = "btn_DeleteRow";
             this.btn_DeleteRow.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
@@ -788,7 +799,7 @@ namespace ResponseEmergencySystem.Forms
             this.groupControl3.Location = new System.Drawing.Point(0, 324);
             this.groupControl3.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(721, 351);
+            this.groupControl3.Size = new System.Drawing.Size(721, 424);
             this.groupControl3.TabIndex = 84;
             this.groupControl3.Text = "Accident Details";
             // 
@@ -801,7 +812,7 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl1.Location = new System.Drawing.Point(0, 24);
             this.panelControl1.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(721, 327);
+            this.panelControl1.Size = new System.Drawing.Size(721, 400);
             this.panelControl1.TabIndex = 6;
             // 
             // panelControl3
@@ -809,7 +820,7 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl3.Controls.Add(this.gc_InjuredPersons);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl3.Location = new System.Drawing.Point(2, 148);
+            this.panelControl3.Location = new System.Drawing.Point(2, 199);
             this.panelControl3.Name = "panelControl3";
             this.panelControl3.Size = new System.Drawing.Size(717, 165);
             this.panelControl3.TabIndex = 108;
@@ -888,21 +899,22 @@ namespace ResponseEmergencySystem.Forms
             // btn_DeleteInjuredRow
             // 
             this.btn_DeleteInjuredRow.AutoHeight = false;
-            editorButtonImageOptions12.Image = global::ResponseEmergencySystem.Properties.Resources.cancel_16x16;
+            editorButtonImageOptions4.Image = global::ResponseEmergencySystem.Properties.Resources.cancel_16x16;
             this.btn_DeleteInjuredRow.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions12, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject45, serializableAppearanceObject46, serializableAppearanceObject47, serializableAppearanceObject48, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btn_DeleteInjuredRow.Name = "btn_DeleteInjuredRow";
             this.btn_DeleteInjuredRow.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btn_DeleteInjuredRow.Click += new System.EventHandler(this.btn_DeleteRowClick);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.panelControl5);
+            this.groupBox1.Controls.Add(this.simpleButton1);
             this.groupBox1.Controls.Add(this.labelControl29);
             this.groupBox1.Controls.Add(this.labelControl28);
             this.groupBox1.Controls.Add(this.lue_states);
             this.groupBox1.Controls.Add(this.labelControl15);
             this.groupBox1.Controls.Add(this.lue_Cities);
-            this.groupBox1.Controls.Add(this.labelControl14);
             this.groupBox1.Controls.Add(this.labelControl13);
             this.groupBox1.Controls.Add(this.edt_Highway);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -910,16 +922,93 @@ namespace ResponseEmergencySystem.Forms
             this.groupBox1.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.groupBox1.Size = new System.Drawing.Size(717, 60);
+            this.groupBox1.Size = new System.Drawing.Size(717, 111);
             this.groupBox1.TabIndex = 107;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Location";
+            // 
+            // panelControl5
+            // 
+            this.panelControl5.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl5.Controls.Add(this.labelControl31);
+            this.panelControl5.Controls.Add(this.edt_Longitude);
+            this.panelControl5.Controls.Add(this.labelControl14);
+            this.panelControl5.Controls.Add(this.edt_Latitude);
+            this.panelControl5.Location = new System.Drawing.Point(342, 19);
+            this.panelControl5.Name = "panelControl5";
+            this.panelControl5.Size = new System.Drawing.Size(365, 34);
+            this.panelControl5.TabIndex = 105;
+            // 
+            // labelControl31
+            // 
+            this.labelControl31.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelControl31.Appearance.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl31.Appearance.Options.UseFont = true;
+            this.labelControl31.Location = new System.Drawing.Point(182, 7);
+            this.labelControl31.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.labelControl31.Name = "labelControl31";
+            this.labelControl31.Size = new System.Drawing.Size(58, 15);
+            this.labelControl31.TabIndex = 109;
+            this.labelControl31.Text = "Longitude";
+            // 
+            // edt_Longitude
+            // 
+            this.edt_Longitude.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.edt_Longitude.Location = new System.Drawing.Point(250, 5);
+            this.edt_Longitude.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.edt_Longitude.Name = "edt_Longitude";
+            this.edt_Longitude.Size = new System.Drawing.Size(108, 20);
+            this.edt_Longitude.TabIndex = 108;
+            // 
+            // labelControl14
+            // 
+            this.labelControl14.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelControl14.Appearance.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl14.Appearance.Options.UseFont = true;
+            this.labelControl14.Location = new System.Drawing.Point(5, 6);
+            this.labelControl14.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.labelControl14.Name = "labelControl14";
+            this.labelControl14.Size = new System.Drawing.Size(47, 15);
+            this.labelControl14.TabIndex = 107;
+            this.labelControl14.Text = "Latitude";
+            // 
+            // edt_Latitude
+            // 
+            this.edt_Latitude.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.edt_Latitude.Location = new System.Drawing.Point(64, 5);
+            this.edt_Latitude.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.edt_Latitude.Name = "edt_Latitude";
+            this.edt_Latitude.Size = new System.Drawing.Size(109, 20);
+            this.edt_Latitude.TabIndex = 106;
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.simpleButton1.Appearance.BackColor = System.Drawing.SystemColors.Control;
+            this.simpleButton1.Appearance.BackColor2 = System.Drawing.Color.Transparent;
+            this.simpleButton1.Appearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.simpleButton1.Appearance.ForeColor = System.Drawing.Color.Transparent;
+            this.simpleButton1.Appearance.Options.UseBackColor = true;
+            this.simpleButton1.Appearance.Options.UseBorderColor = true;
+            this.simpleButton1.Appearance.Options.UseForeColor = true;
+            this.simpleButton1.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.search_16x16;
+            this.simpleButton1.Location = new System.Drawing.Point(15, 20);
+            this.simpleButton1.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(206, 24);
+            this.simpleButton1.TabIndex = 104;
+            this.simpleButton1.Text = "Find Truck Number using samsara";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // labelControl29
             // 
             this.labelControl29.Appearance.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl29.Appearance.Options.UseFont = true;
-            this.labelControl29.Location = new System.Drawing.Point(524, 27);
+            this.labelControl29.Location = new System.Drawing.Point(528, 62);
             this.labelControl29.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.labelControl29.Name = "labelControl29";
             this.labelControl29.Size = new System.Drawing.Size(24, 15);
@@ -930,7 +1019,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.labelControl28.Appearance.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl28.Appearance.Options.UseFont = true;
-            this.labelControl28.Location = new System.Drawing.Point(391, 27);
+            this.labelControl28.Location = new System.Drawing.Point(411, 62);
             this.labelControl28.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.labelControl28.Name = "labelControl28";
             this.labelControl28.Size = new System.Drawing.Size(29, 15);
@@ -939,7 +1028,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             // lue_states
             // 
-            this.lue_states.Location = new System.Drawing.Point(430, 25);
+            this.lue_states.Location = new System.Drawing.Point(450, 60);
             this.lue_states.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.lue_states.Name = "lue_states";
             this.lue_states.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -957,7 +1046,7 @@ namespace ResponseEmergencySystem.Forms
             // labelControl15
             // 
             this.labelControl15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelControl15.Location = new System.Drawing.Point(-241, 31);
+            this.labelControl15.Location = new System.Drawing.Point(-241, 82);
             this.labelControl15.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.labelControl15.Name = "labelControl15";
             this.labelControl15.Size = new System.Drawing.Size(26, 13);
@@ -966,7 +1055,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             // lue_Cities
             // 
-            this.lue_Cities.Location = new System.Drawing.Point(558, 25);
+            this.lue_Cities.Location = new System.Drawing.Point(562, 60);
             this.lue_Cities.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.lue_Cities.Name = "lue_Cities";
             this.lue_Cities.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -977,26 +1066,14 @@ namespace ResponseEmergencySystem.Forms
             this.lue_Cities.Properties.DisplayMember = "city";
             this.lue_Cities.Properties.NullText = "";
             this.lue_Cities.Properties.ValueMember = "pk_id";
-            this.lue_Cities.Size = new System.Drawing.Size(144, 20);
+            this.lue_Cities.Size = new System.Drawing.Size(138, 20);
             this.lue_Cities.TabIndex = 54;
-            // 
-            // labelControl14
-            // 
-            this.labelControl14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelControl14.Appearance.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl14.Appearance.Options.UseFont = true;
-            this.labelControl14.Location = new System.Drawing.Point(538, -17);
-            this.labelControl14.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.labelControl14.Name = "labelControl14";
-            this.labelControl14.Size = new System.Drawing.Size(24, 15);
-            this.labelControl14.TabIndex = 50;
-            this.labelControl14.Text = "City";
             // 
             // labelControl13
             // 
             this.labelControl13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelControl13.Location = new System.Drawing.Point(11, 27);
+            this.labelControl13.Location = new System.Drawing.Point(15, 62);
             this.labelControl13.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.labelControl13.Name = "labelControl13";
             this.labelControl13.Size = new System.Drawing.Size(87, 13);
@@ -1007,7 +1084,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.edt_Highway.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.edt_Highway.Location = new System.Drawing.Point(108, 24);
+            this.edt_Highway.Location = new System.Drawing.Point(112, 59);
             this.edt_Highway.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.edt_Highway.Name = "edt_Highway";
             this.edt_Highway.Size = new System.Drawing.Size(269, 20);
@@ -1016,7 +1093,7 @@ namespace ResponseEmergencySystem.Forms
             // panelControl2
             // 
             this.panelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl2.Controls.Add(this.textEdit1);
+            this.panelControl2.Controls.Add(this.edt_BrokerName);
             this.panelControl2.Controls.Add(this.simpleButton2);
             this.panelControl2.Controls.Add(this.labelControl30);
             this.panelControl2.Controls.Add(this.pnl_PoliceReport);
@@ -1035,6 +1112,15 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl2.Size = new System.Drawing.Size(717, 86);
             this.panelControl2.TabIndex = 106;
             // 
+            // edt_BrokerName
+            // 
+            this.edt_BrokerName.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.edt_BrokerName.Location = new System.Drawing.Point(375, 53);
+            this.edt_BrokerName.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.edt_BrokerName.Name = "edt_BrokerName";
+            this.edt_BrokerName.Size = new System.Drawing.Size(290, 20);
+            this.edt_BrokerName.TabIndex = 104;
+            // 
             // simpleButton2
             // 
             this.simpleButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1051,6 +1137,7 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(25, 25);
             this.simpleButton2.TabIndex = 104;
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
             // labelControl30
             // 
@@ -1240,14 +1327,14 @@ namespace ResponseEmergencySystem.Forms
             this.tme_IncidentTime.Size = new System.Drawing.Size(87, 20);
             this.tme_IncidentTime.TabIndex = 116;
             // 
-            // edt_InjuredNames
+            // edt_Number
             // 
-            this.edt_InjuredNames.Location = new System.Drawing.Point(178, 20);
-            this.edt_InjuredNames.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.edt_InjuredNames.Name = "edt_InjuredNames";
-            this.edt_InjuredNames.Size = new System.Drawing.Size(132, 20);
-            this.edt_InjuredNames.TabIndex = 118;
-            this.edt_InjuredNames.Visible = false;
+            this.edt_Number.Location = new System.Drawing.Point(301, 15);
+            this.edt_Number.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.edt_Number.Name = "edt_Number";
+            this.edt_Number.Size = new System.Drawing.Size(51, 20);
+            this.edt_Number.TabIndex = 118;
+            this.edt_Number.Visible = false;
             // 
             // labelControl11
             // 
@@ -1263,15 +1350,27 @@ namespace ResponseEmergencySystem.Forms
             // 
             // panelControl4
             // 
+            this.panelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelControl4.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl4.Controls.Add(this.simpleButton3);
             this.panelControl4.Controls.Add(this.btn_AddIncident);
             this.panelControl4.Controls.Add(this.labelControl11);
-            this.panelControl4.Controls.Add(this.edt_InjuredNames);
-            this.panelControl4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl4.Location = new System.Drawing.Point(0, 675);
+            this.panelControl4.Controls.Add(this.edt_Number);
+            this.panelControl4.Location = new System.Drawing.Point(0, 748);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(721, 100);
+            this.panelControl4.Size = new System.Drawing.Size(721, 48);
             this.panelControl4.TabIndex = 85;
+            // 
+            // simpleButton3
+            // 
+            this.simpleButton3.Location = new System.Drawing.Point(373, 13);
+            this.simpleButton3.Name = "simpleButton3";
+            this.simpleButton3.Size = new System.Drawing.Size(75, 24);
+            this.simpleButton3.TabIndex = 122;
+            this.simpleButton3.Text = "find";
+            this.simpleButton3.Visible = false;
+            this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
             // 
             // btn_AddIncident
             // 
@@ -1283,20 +1382,15 @@ namespace ResponseEmergencySystem.Forms
             this.btn_AddIncident.Text = "Add Incident";
             this.btn_AddIncident.Click += new System.EventHandler(this.btn_AddIncident_Click);
             // 
-            // textEdit1
+            // splashScreenManager1
             // 
-            this.textEdit1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textEdit1.Location = new System.Drawing.Point(375, 53);
-            this.textEdit1.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(290, 20);
-            this.textEdit1.TabIndex = 104;
+            this.splashScreenManager1.ClosingDelay = 500;
             // 
             // AddIncidentDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(721, 724);
+            this.ClientSize = new System.Drawing.Size(721, 797);
             this.Controls.Add(this.panelControl4);
             this.Controls.Add(this.groupControl3);
             this.Controls.Add(this.groupControl2);
@@ -1351,12 +1445,18 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.btn_DeleteInjuredRow)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).EndInit();
+            this.panelControl5.ResumeLayout(false);
+            this.panelControl5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_Longitude.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_Latitude.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_states.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_Cities.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_Highway.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             this.panelControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_BrokerName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnl_PoliceReport)).EndInit();
             this.pnl_PoliceReport.ResumeLayout(false);
             this.pnl_PoliceReport.PerformLayout();
@@ -1370,11 +1470,10 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.dte_IncidentDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dte_IncidentDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tme_IncidentTime.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.edt_InjuredNames.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_Number.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
             this.panelControl4.ResumeLayout(false);
             this.panelControl4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1430,7 +1529,6 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraEditors.LookUpEdit lue_states;
         private DevExpress.XtraEditors.LabelControl labelControl15;
         private DevExpress.XtraEditors.LookUpEdit lue_Cities;
-        private DevExpress.XtraEditors.LabelControl labelControl14;
         private DevExpress.XtraEditors.LabelControl labelControl13;
         private DevExpress.XtraEditors.TextEdit edt_Highway;
         private DevExpress.XtraEditors.PanelControl panelControl2;
@@ -1443,7 +1541,7 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraEditors.TextEdit edt_PoliceReport;
         private DevExpress.XtraEditors.LabelControl labelControl17;
         private DevExpress.XtraEditors.LabelControl labelControl16;
-        private DevExpress.XtraEditors.TextEdit edt_InjuredNames;
+        private DevExpress.XtraEditors.TextEdit edt_Number;
         private DevExpress.XtraEditors.LabelControl labelControl12;
         private DevExpress.XtraEditors.LabelControl labelControl11;
         private DevExpress.XtraEditors.LabelControl labelControl10;
@@ -1469,6 +1567,14 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraEditors.LabelControl lbl_CargoType;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.XtraEditors.LabelControl labelControl30;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit edt_BrokerName;
+        private DevExpress.XtraEditors.SimpleButton simpleButton3;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
+        private DevExpress.XtraEditors.PanelControl panelControl5;
+        private DevExpress.XtraEditors.LabelControl labelControl31;
+        private DevExpress.XtraEditors.TextEdit edt_Longitude;
+        private DevExpress.XtraEditors.LabelControl labelControl14;
+        private DevExpress.XtraEditors.TextEdit edt_Latitude;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
     }
 }

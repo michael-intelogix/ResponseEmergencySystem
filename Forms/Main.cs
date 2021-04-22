@@ -1,6 +1,5 @@
 ﻿using DevExpress.XtraBars;
 using DevExpress.XtraGrid.Views.Grid;
-using ResponseEmergencySystem.Entity_Framework;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -63,25 +62,6 @@ namespace ResponseEmergencySystem.Forms
                 }
             }
 
-            using (var context = new SIREMLocalEntities())
-            {
-                var courses = context.List_StatusDetail();
-
-                lue_test.DataSource = context.List_StatusDetail().ToHashSet<List_StatusDetail_Result>();
-                //foreach (var cs in courses)
-                //    Console.WriteLine(cs.ID_Status_Detail);
-            }
-
-            using (var context = new SIREMLocalEntities())
-            {
-                var courses = context.List_StatusDetail();
-
-                gc_Incidents.DataSource = context.List_Incidents("", "", null, "", "", "");
-                //Console.WriteLine(Guid.Empty.ToString());
-            }
-
-            //Connection.Connection.List_Incidents();
-            //gc_Incidents.DataSource = Connection.Connection.Dt_Incidents;
 
         }
 

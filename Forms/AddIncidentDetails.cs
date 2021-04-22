@@ -1,5 +1,4 @@
 ﻿using DevExpress.XtraEditors;
-using ResponseEmergencySystem.Entity_Framework;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,12 +12,34 @@ using System.Windows.Forms;
 using ResponseEmergencySystem.Code;
 using ResponseEmergencySystem.Properties;
 using ResponseEmergencySystem.Controllers;
+using ResponseEmergencySystem.Forms.Modals;
+using ResponseEmergencySystem.Samsara_Models;
+using System.Net.Http;
+using Newtonsoft.Json;
+using System.Net.Http.Headers;
+using Newtonsoft.Json.Linq;
+using System.IO;
 
 namespace ResponseEmergencySystem.Forms
 {
     
-    public partial class AddIncidentDetails : XtraForm, IIncidentsView
+    public partial class AddIncidentDetails : XtraForm
     {
+
+        #region SAMSARA CLASSES
+
+        public class Location
+        {
+            public string name;
+            public string time;
+            public float latitude;
+            public float longitude;
+            public int heading;
+            public int speed;
+            public string reverseGeo;
+        }
+
+        #endregion
         // driver E2E7FBBB-6BF8-414A-B160-1A4EE294DC97
         // driver2 C7B06EF3-869B-4212-A1EC-7820B2D17CA4
         private string ID_Driver = "";
@@ -295,6 +316,9 @@ namespace ResponseEmergencySystem.Forms
         {
 
             initializeLookUpsData();
+
+            //var json = GetCallAPI("https://api.samsara.com/fleet/drivers");
+            //JObject rss = JObject.Parse((string)json.Result);
             //using (var context = new SIREMLocalEntities())
             //{
             //    lue_states.Properties.DataSource = context.List_States(null);
@@ -705,7 +729,7 @@ namespace ResponseEmergencySystem.Forms
 
         private void AddIncidentDetails_Shown(object sender, EventArgs e)
         {
-            if (edt_InjuredNames.Location.X + edt_InjuredNames.Size.Width <= 564)
+            if (edt_Number.Location.X + edt_Number.Size.Width <= 564)
             {
                 //MessageBox.Show("you are fine");
                 
@@ -838,6 +862,119 @@ namespace ResponseEmergencySystem.Forms
         }
         #endregion
 
+
+        #region SAMSARA API
+
+        public async Task<object> GetCallAPI(string url)
+        {
+
+            string number = GetEdtValue(edt_TruckNumber);
+            try
+            {
+
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri(url);
+
+                    // Add an Accept header for JSON format.
+                    client.DefaultRequestHeaders.Accept.Add( new MediaTypeWithQualityHeaderValue("application/json") );
+
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "samsara_api_XwURzQhn0F9rijd0vqXwDgWir2zLWc");
+
+                    // List data response.
+                    HttpResponseMessage response = client.GetAsync(url).Result;  // Blocking call! Program will wait here until a response is received or a timeout occurs.}
+
+                    var data = JArray.Parse( 
+                        JObject.Parse(
+                            response.Content.ReadAsStringAsync().Result
+                        )["data"].ToString()
+                    );
+
+                    IList<Vehicle> locs = data.Select(p => new Vehicle
+                    {
+                        name = p["name"].ToString().Trim(),
+                        time = (DateTime)p["location"]["time"],
+                        latitude = (float)p["location"]["latitude"],
+                        longitude = (float)p["location"]["longitude"],
+                        heading = (int)p["location"]["heading"],
+                        speed = (int)p["location"]["speed"],
+                        formattedLocation = (string)p["location"]["reverseGeo"]["formattedLocation"]
+                    }).ToList();
+
+                    var filtered = locs.Where(x => x.name == number);
+
+                    foreach (var item in filtered)
+                    {
+                        edt_Latitude.EditValue = item.latitude.ToString();
+                        edt_Longitude.EditValue = item.longitude.ToString();
+                        Testing samsara = new Testing(item.name, item.time, item.latitude, item.longitude, item.heading, item.speed, item.formattedLocation);
+                        samsara.Show();
+                        Debug.WriteLine(item.latitude.ToString());
+                        Debug.WriteLine(item.longitude.ToString());
+                    }
+
+
+                    // Dispose once all HttpClient calls are complete. This is not necessary if the containing object will be disposed of; for example in this case the HttpClient instance will be disposed automatically when the application terminates so the following call is superfluous.
+                    //client.Dispose();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return null;
+        }
+
+        #endregion
+
+        private void simpleButton3_Click(object sender, EventArgs e)
+        {
+            // GetCallAPI("https://api.samsara.com/fleet/drivers");
+            splashScreenManager1.ShowWaitForm();
+            Task<object> task = GetCallAPI("https://api.samsara.com/fleet/vehicles/locations");
+            task.Wait();
+            splashScreenManager1.CloseWaitForm();
+            //JObject rss = JObject.Parse((string)json.Result);
+            //Debug.WriteLine((string)rss["data"]["id"]);
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            splashScreenManager1.ShowWaitForm();
+            Task<object> task = GetCallAPI("https://api.samsara.com/fleet/vehicles/locations");
+            task.Wait();
+            splashScreenManager1.CloseWaitForm();
+        }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            string brokerName = GetEdtValue(edt_BrokerName);
+            var brokerResponse = Functions.getBroker("");
+            if (brokerResponse.ItemArray[0].ToString() == "0")
+            {
+                MessageBox.Show(brokerResponse.ItemArray[1].ToString());
+            }
+            else
+            {
+                ID_Driver = brokerResponse.ItemArray[0].ToString();
+                string name = brokerResponse.ItemArray[5].ToString();
+                edt_BrokerName.EditValue = name;
+                //edt_PhoneNumber.EditValue = Driver_Response.ItemArray[6].ToString();
+                //edt_License.EditValue = Driver_Response.ItemArray[2].ToString();
+                //string[] dateArray = Driver_Response.ItemArray[8].ToString().Split('/');
+                //dte_ExpirationDate.EditValue = new DateTime(
+                //    Convert.ToInt32(dateArray[2].Split(' ')[0]),
+                //    Convert.ToInt32(dateArray[0]),
+                //    Convert.ToInt32(dateArray[1]));
+
+                //string filterExpression = "pk_id = '" + Driver_Response.ItemArray[1].ToString() + "'";
+                //lue_StateExp.EditValue = Functions.getStates().Select(filterExpression).First().ItemArray[0];
+                //var dt_Driver = Functions.getDriver("9092825", "", "");
+                //Debug.WriteLine(Functions.getStates().Select(filterExpression).First().ItemArray[0].ToString());
+
+            }
+        }
     }
 
 }
