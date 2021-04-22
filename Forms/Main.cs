@@ -108,5 +108,11 @@ namespace ResponseEmergencySystem.Forms
             ExtraForm test = new ExtraForm();
            
         }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            frm_Incident_Captures captures = new frm_Incident_Captures();
+            captures.Show();
+        }
     }
 }

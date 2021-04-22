@@ -28,12 +28,45 @@ namespace ResponseEmergencySystem.Forms
         private FirestoreChangeListener listener;
         private int listening = 0;
 
-        private DataTable dtIncidentCaptures = new DataTable();
+        private DataTable dt_IncidentCaptures = new DataTable();
         private DataTable dtImagesTest = new DataTable();
+        private DataTable dt_CaptureTypes;
 
         public frm_Incident_Captures()
         {
             InitializeComponent();
+        }
+
+        private void btn_ListOfImages(object sender, EventArgs e)
+        {
+            pnl_ListCaptures.Visible = true;
+            //Int32 index = gv_Drivers.FocusedRowHandle;
+
+            //this.dt_DriverRowSelected = index;
+            //this.DialogResult = DialogResult.OK;
+            //this.Close();
+        }
+
+        private void btn_DeleteCaptureClick(object sender, EventArgs e)
+        {
+            Int32 index = gv_Captures.FocusedRowHandle;
+
+            DialogResult result = MessageBox.Show(
+                "Are you sure you want to delete this row?",
+                "Delete injured person row",
+                MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Information);
+            if (result.Equals(DialogResult.OK))
+            {
+                gv_Captures.DeleteRow(index);
+            }
+        }
+
+        private void btn_AddCaptureClick(object sender, EventArgs e)
+        {
+            DataRow row = dt_CaptureTypes.Select().First();
+            addEmptyRowCaptures(row["ID_CaptureType"].ToString());
+            refreshTable(gc_Captures);
         }
 
         private void dateEdit1_EditValueChanged(object sender, EventArgs e)
@@ -49,37 +82,66 @@ namespace ResponseEmergencySystem.Forms
 
         }
 
+        private void refreshTable(DevExpress.XtraGrid.GridControl gc)
+        {
+            gc.DataSource = dt_IncidentCaptures;
+        }
+
+        private void addEmptyRowCaptures(string ID_CaptureType)
+        {
+            DataRow _data = dt_IncidentCaptures.NewRow();
+            _data["CaptureType"] = ID_CaptureType;
+            dt_IncidentCaptures.Rows.Add(_data);
+            refreshTable(gc_Captures);
+        }
+        System.Drawing.Image ZoomPicture(System.Drawing.Image img, Size size)
+        {
+            Bitmap bm = new Bitmap(img, Convert.ToInt32(img.Width + size.Width), Convert.ToInt32(img.Height + size.Height));
+            Graphics gpu = Graphics.FromImage(bm);
+            gpu.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+            return bm;
+        }
+
         private void form_driver_report_Load(object sender, EventArgs e)
         {
             /** SQL Server Database Connection **/
-            string idBusiness = "";
-            string idBranchOffice = "";
-            string idCaptureType = "";
-            string dateTime = "";
-            int status = 1;
-            Connection.Connection.Refresh_Captures(idBusiness, idBranchOffice, idCaptureType, dateTime, status);
+            //string idBusiness = "";
+            //string idBranchOffice = "";
+            //string idCaptureType = "";
+            //string dateTime = "";
+            //int status = 1;
+            //Connection.Connection.Refresh_Captures(idBusiness, idBranchOffice, idCaptureType, dateTime, status);
             //gc_Captures.DataSource = Connection.Connection.Dt_Captures;
-            Connection.Connection.List_StatusDetails();
-            DataTable table = Connection.Connection.Dt_StatusDetail;
-            lue_StatusDetail.DataSource = Connection.Connection.Dt_StatusDetail;
+            //Connection.Connection.List_StatusDetails();
+            //DataTable table = Connection.Connection.Dt_StatusDetail;
 
+            dt_CaptureTypes = Functions.list_CaptureType();
+            lue_Types.DataSource = dt_CaptureTypes;
 
-            dtIncidentCaptures.Clear();
+            dt_IncidentCaptures.Columns.Add("Date");
+            dt_IncidentCaptures.Columns.Add("CaptureType");
+
+            foreach (DataRow row in dt_CaptureTypes.Rows)
+            {
+                addEmptyRowCaptures(row["ID_CaptureType"].ToString());
+            }
+
+            //DataRow _data = dt_InjuredPersons.NewRow();
+            //_data["FullName"] = "";
+            //_data["LastName1"] = "";
+            //_data["LastName2"] = "";
+            //_data["Phone"] = "";
+            //dt_InjuredPersons.Rows.Add(_data);
+            //refreshInjuredPersonsTable();
+            //dtIncidentCaptures.Clear();
 
             string[] columns = { "ID_Capture", "capture_date", "Type", "CapturesByType", "Comments" };
             List<Capture> captures = new List<Capture>();
 
-            //dtIncidentCaptures.Columns.Add("ID_Capture");
-            //dtIncidentCaptures.Columns.Add("ID_CaptureType");
-            //dtIncidentCaptures.Columns.Add("capture_date");
-            //dtIncidentCaptures.Columns.Add("Type");
-            //dtIncidentCaptures.Columns.Add("CapturesByType");
-            //dtIncidentCaptures.Columns.Add("Comments");
-
-            captures.Add(new Capture(DateTime.Now, "Vehicle", 0, "data 1"));
-            captures.Add(new Capture(DateTime.Now, "Truck", 0, "data 2"));
-            captures.Add(new Capture(DateTime.Now, "Trailer", 0, "data 3"));
-            captures.Add(new Capture(DateTime.Now, "Insurance Policy", 0, "data 4"));
+            //captures.Add(new Capture(DateTime.Now, "Vehicle", 0, "data 1"));
+            //captures.Add(new Capture(DateTime.Now, "Truck", 0, "data 2"));
+            //captures.Add(new Capture(DateTime.Now, "Trailer", 0, "data 3"));
+            //captures.Add(new Capture(DateTime.Now, "Insurance Policy", 0, "data 4"));
             //DataRow _data1 = dtIncidentCaptures.NewRow();
             //_data1["ID_Capture"] = Guid.NewGuid();
             //_data1["ID_CaptureType"] = Guid.NewGuid();
@@ -115,7 +177,7 @@ namespace ResponseEmergencySystem.Forms
             //DataRow _data5 = dtIncidentCaptures.NewRow();
             //DataRow _data6 = dtIncidentCaptures.NewRow();
             //DataRow _data7 = dtIncidentCaptures.NewRow();
-            gc_Captures.DataSource = Functions.captureTable(columns, captures);
+            //gc_Captures.DataSource = Functions.captureTable(columns, captures);
             //Debug.WriteLine(constants.id_capture);
 
 
@@ -206,10 +268,67 @@ namespace ResponseEmergencySystem.Forms
                 // Await the task to wait until upload is completed and get the download url
                 var downloadUrl = await task;
 
-                Image img = new Bitmap(filepath);
+                System.Drawing.Image img = new Bitmap(filepath);
                 // image.Img = ofd.FileName;
                 imageBox.Image = img.GetThumbnailImage(350, 200, null, new IntPtr());
             }
+        }
+
+        private async void uploadImage(object sender, EventArgs e)
+        {
+            frm_Image capture = new frm_Image();
+            capture.ShowDialog();
+            //OpenFileDialog ofd = new OpenFileDialog();
+            //ofd.Title = "Select Image";
+            //ofd.Filter = "Image Files(*.jpg) | *.jpg";
+
+            //if (ofd.ShowDialog() == DialogResult.OK)
+            //{
+            //    // imageBox.ImageLocation = ofd.FileName;
+
+            //    pnl_Uploading.Visible = true;
+
+            //    string filepath = ofd.FileName;
+            //    Debug.WriteLine(filepath);
+            //    //MessageBox.Show(filepath);
+            //    // Get any Stream — it can be FileStream, MemoryStream or any other type of Stream
+            //    var stream = File.Open(filepath, FileMode.Open);
+
+            //    // Construct FirebaseStorage with path to where you want to upload the file and put it there
+            //    var task = new FirebaseStorage("dcmanagement-3d402.appspot.com")
+            //    .Child("data")
+            //    .Child("random")
+            //    .Child("file.png")
+            //    .PutAsync(stream);
+
+            //    // Track progress of the upload
+            //    task.Progress.ProgressChanged += (s, ev) =>
+            //    {
+            //        progressBarControl1.EditValue = ev.Percentage;
+            //        progressBarControl1.CreateGraphics().DrawString(ev.Percentage.ToString() + "%", new Font("Arial", (float)8.25, FontStyle.Regular), Brushes.Black, new PointF(progressBarControl1.Width / 2 - 10, progressBarControl1.Height / 2 - 7));
+            //        //Console.WriteLine($"Progress: {ev.Percentage} %");
+            //    };
+
+            //    // Await the task to wait until upload is completed and get the download url
+            //    var downloadUrl = await task;
+            //    pnl_Uploading.Visible = false;
+
+            //    System.Drawing.Image img = new Bitmap(ofd.FileName);
+            //    // image.Img = ofd.FileName;
+
+            //    imageBox.Image = img.GetThumbnailImage(350, 200, null, new IntPtr());
+            //    pnl_Zoom.Visible = true;
+            //}
+        }
+
+        private void zoomOut(object sender, EventArgs e)
+        {
+            imageBox.Image = ZoomPicture(imageBox.Image, new Size(50, 50));
+        }
+
+        private void zoomIn(object sender, EventArgs e)
+        {
+            imageBox.Image = ZoomPicture(imageBox.Image, new Size(-50, -50));
         }
 
         /************************************Functions************************************************/
@@ -280,46 +399,7 @@ namespace ResponseEmergencySystem.Forms
 
         private async void simpleButton3_Click_1(object sender, EventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Title = "Select Image";
-            ofd.Filter = "Image Files(*.jpg) | *.jpg";
-
-            if (ofd.ShowDialog() == DialogResult.OK)
-            {
-                // imageBox.ImageLocation = ofd.FileName;
-
-                progressBarControl1.Visible = true;
-
-                string filepath = ofd.FileName;
-                Debug.WriteLine(filepath);
-                //MessageBox.Show(filepath);
-                // Get any Stream — it can be FileStream, MemoryStream or any other type of Stream
-                var stream = File.Open(filepath, FileMode.Open);
-
-                // Construct FirebaseStorage with path to where you want to upload the file and put it there
-                var task = new FirebaseStorage("dcmanagement-3d402.appspot.com")
-                .Child("data")
-                .Child("random")
-                .Child("file.png")
-                .PutAsync(stream);
-
-                // Track progress of the upload
-                task.Progress.ProgressChanged += (s, ev) =>
-                {
-                    progressBarControl1.EditValue = ev.Percentage;
-                    progressBarControl1.CreateGraphics().DrawString(ev.Percentage.ToString() + "%", new Font("Arial", (float)8.25, FontStyle.Regular), Brushes.Black, new PointF(progressBarControl1.Width / 2 - 10, progressBarControl1.Height / 2 - 7));
-                    //Console.WriteLine($"Progress: {ev.Percentage} %");
-                };
-
-                // Await the task to wait until upload is completed and get the download url
-                var downloadUrl = await task;
-                progressBarControl1.Visible = false;
-
-                Image img = new Bitmap(ofd.FileName);
-                // image.Img = ofd.FileName;
-                
-                imageBox.Image = img.GetThumbnailImage(350, 200, null, new IntPtr());
-            }
+            
         }
 
         private void btn_Send_Click(object sender, EventArgs e)
@@ -328,39 +408,39 @@ namespace ResponseEmergencySystem.Forms
         }
 
         /*
-private async void btn_UpdateImage_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
-{
-string idImage = gv_Images.GetFocusedRowCellValue("ID_Image").ToString();
-string statusDetail = gv_Images.GetFocusedRowCellValue("StatusDetail").ToString();
-Connection.Connection.Update_Image_StatusDetail(idImage, statusDetail);
-MessageBox.Show("Status changed to " + gv_Images.GetFocusedRowCellDisplayText("StatusDetail"));
+        private async void btn_UpdateImage_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+        string idImage = gv_Images.GetFocusedRowCellValue("ID_Image").ToString();
+        string statusDetail = gv_Images.GetFocusedRowCellValue("StatusDetail").ToString();
+        Connection.Connection.Update_Image_StatusDetail(idImage, statusDetail);
+        MessageBox.Show("Status changed to " + gv_Images.GetFocusedRowCellDisplayText("StatusDetail"));
 
-int count = gv_Images.RowCount;
-int statusCounter = 0;
-for (int i = 0; i < gv_Images.DataRowCount; i++)
-{
-if (gv_Images.GetRowCellDisplayText(i, gv_Images.Columns.ColumnByFieldName("StatusDetail")).ToString() == "APPROVED")
-{
-statusCounter++;
-}
-}
-MessageBox.Show(statusCounter.ToString() + " of " + count.ToString() + "Captures Approved");
-string idCapture = gv_Images.GetFocusedRowCellValue("ID_Capture").ToString();
-if (statusCounter == count)
-{
-Connection.Connection.Update_CaptureStatus(idCapture, "D42952F8-C18A-4FF1-B6BF-1DD61C57908E");
-Connection.Connection.Refresh_Captures("", "", "", "", 1);
-gc_Captures.DataSource = Connection.Connection.Dt_Captures;
-}
-else
-{
-Connection.Connection.Update_CaptureStatus(idCapture, "0B335BC3-24AE-4399-8925-74935417B4F2");
-Connection.Connection.Refresh_Captures("", "", "", "", 1);
-gc_Captures.DataSource = Connection.Connection.Dt_Captures;
-}
+        int count = gv_Images.RowCount;
+        int statusCounter = 0;
+        for (int i = 0; i < gv_Images.DataRowCount; i++)
+        {
+        if (gv_Images.GetRowCellDisplayText(i, gv_Images.Columns.ColumnByFieldName("StatusDetail")).ToString() == "APPROVED")
+        {
+        statusCounter++;
+        }
+        }
+        MessageBox.Show(statusCounter.ToString() + " of " + count.ToString() + "Captures Approved");
+        string idCapture = gv_Images.GetFocusedRowCellValue("ID_Capture").ToString();
+        if (statusCounter == count)
+        {
+        Connection.Connection.Update_CaptureStatus(idCapture, "D42952F8-C18A-4FF1-B6BF-1DD61C57908E");
+        Connection.Connection.Refresh_Captures("", "", "", "", 1);
+        gc_Captures.DataSource = Connection.Connection.Dt_Captures;
+        }
+        else
+        {
+        Connection.Connection.Update_CaptureStatus(idCapture, "0B335BC3-24AE-4399-8925-74935417B4F2");
+        Connection.Connection.Refresh_Captures("", "", "", "", 1);
+        gc_Captures.DataSource = Connection.Connection.Dt_Captures;
+        }
 
-}
-*/
+        }
+        */
 
     }
 

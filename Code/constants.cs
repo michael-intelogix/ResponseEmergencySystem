@@ -19,6 +19,8 @@ namespace ResponseEmergencySystem.Code
 
         public static readonly string path = AppDomain.CurrentDomain.BaseDirectory + @"dcmanagement.json";
         public static SqlConnection GeneralConnection { get; }  = itx.DbCon("General");
+        public static SqlConnection SIREMConnection { get; }  = itx.DbCon("SIREM");
+        public static SqlConnection DCManagement { get; } = itx.DbCon("DCManagement");
         public static SqlConnection EmilioConn { get; } = itx.DbCon("DCManagement");
 
         public static Guid userID { get; set; }
@@ -29,8 +31,8 @@ namespace ResponseEmergencySystem.Code
 
         public static string userName { get; set; }
 
+        public static string folioCode { get; } = "T-SIREM";
 
-
-
+        public static string system { get; } = "SIREM";
     }
 }
