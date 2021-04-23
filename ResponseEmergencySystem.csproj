@@ -345,6 +345,7 @@
     <Compile Include="Code\FireBaseFunctions.cs" />
     <Compile Include="Code\Functions.cs" />
     <Compile Include="Code\Location.cs" />
+    <Compile Include="Code\Utils.cs" />
     <Compile Include="Connection\Connection.cs" />
     <Compile Include="Controllers\IncidentController.cs" />
     <Compile Include="Controllers\IIncidentsView.cs" />

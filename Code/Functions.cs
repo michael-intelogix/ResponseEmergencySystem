@@ -498,6 +498,71 @@ namespace ResponseEmergencySystem.Code
             return result.Select().First();
         }
 
+        public static DataTable list_Incidents(string folio, string driverId, string driverName, string truckNum, string statusDetailId, string incidentId = "00000000-0000-0000-0000-000000000000", string date1 = "", string date2 = "")
+        {
+            opSuccess = false;
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand
+                {
+                    Connection = constants.SIREMConnection,
+                    CommandText = $"List_Incidents",
+                    CommandType = CommandType.StoredProcedure
+                })
+                {
+                    cmd.Parameters.AddWithValue("@ID_Incident", Guid.Parse(incidentId));
+                    cmd.Parameters.AddWithValue("@Folio", folio);
+                    cmd.Parameters.AddWithValue("@ID_Driver", driverId);
+                    cmd.Parameters.AddWithValue("@ID_StatusDetail", statusDetailId);
+                    cmd.Parameters.AddWithValue("@DriverName", driverName);
+                    cmd.Parameters.AddWithValue("@Truck_No", truckNum);
+                    cmd.Parameters.AddWithValue("@Trailer_No", "");
+                    cmd.Parameters.AddWithValue("@Date1", date1);
+                    cmd.Parameters.AddWithValue("@Date2", date2);
+                    result = new DataTable();
+                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    {
+                        sda.Fill(result);
+                    }
+                    opSuccess = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Capture type couldn't be found due: {ex.Message}");
+            }
+
+            return result;
+        }
+
+        public static DataTable list_StatusDetail()
+        {
+            opSuccess = false;
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand
+                {
+                    Connection = constants.GeneralConnection,
+                    CommandText = $"List_StatusDetail",
+                    CommandType = CommandType.StoredProcedure
+                })
+                {
+                    result = new DataTable();
+                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    {
+                        sda.Fill(result);
+                    }
+                    opSuccess = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Capture type couldn't be found due: {ex.Message}");
+            }
+
+            return result;
+        }
+
         //public static DataTable UpdateEmployee(Employee updateEmployee, bool bln_UsaInfo, out bool opSuccess)
         //{
         //    opSuccess = false;

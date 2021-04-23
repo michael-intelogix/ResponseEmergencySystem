@@ -27,6 +27,11 @@ namespace ResponseEmergencySystem.Code
 
         public static Guid idIncident { get; set; }
 
+        public static Guid emptyId
+        {
+            get { return Guid.Empty; }
+        }
+
         public static Guid id_capture { get; set; }
 
         public static string userName { get; set; }

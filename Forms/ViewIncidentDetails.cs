@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using ResponseEmergencySystem.Code;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +18,7 @@ namespace ResponseEmergencySystem.Forms
     {
         DataTable dt_InjuredPersons = new DataTable();
 
-        public ViewIncidentDetails()
+        public ViewIncidentDetails(string incidentId)
         {
             InitializeComponent();
             dt_InjuredPersons.Columns.Add("FullName");
@@ -26,6 +27,7 @@ namespace ResponseEmergencySystem.Forms
             dt_InjuredPersons.Columns.Add("Phone");
 
             addEmptyRow();
+            loadData(incidentId);
             //DataRow _data1 = dtInjured.NewRow();
             //_data1["Name"] = "holi";
             //_data1["Number"] = "1";
@@ -35,6 +37,30 @@ namespace ResponseEmergencySystem.Forms
             //_data2["Number"] = "2";
             //dtInjured.Rows.Add(_data2);
             //lookUpEdit1.Properties.DataSource = dtInjured;
+        }
+
+        private void loadData(string incidentId)
+        {
+       
+            DataTable result = Functions.list_Incidents("", "", "", "", "", incidentId: incidentId);
+            edt_FullName.EditValue = result.Rows[0][1].ToString();
+            edt_PhoneNumber.EditValue = result.Rows[0][31].ToString();
+            edt_FullName.EditValue = result.Rows[0][32].ToString();
+            //edt_FullName.EditValue = result.Rows[0][33].ToString(); exp date
+            //lue.EditValue = result.Rows[0][34].ToString(); exp state
+            edt_TruckNumber.EditValue = result.Rows[0][35].ToString();
+            edt_TrailerNumber.EditValue = result.Rows[0][36].ToString();
+            edt_Cargo.EditValue = result.Rows[0][37].ToString();
+            ckedt_truckDamages.Checked = (bool)result.Rows[0][16];
+            ckedt_TruckNeedCrane.EditValue = (bool)result.Rows[0][18];
+            ckedt_TruckCanMove.EditValue = (bool)result.Rows[0][17];
+            ckedt_TrailerDamages.EditValue = (bool)result.Rows[0][20];
+            ckedt_TrailerNeedCrane.EditValue = (bool)result.Rows[0][22];
+            ckedt_TrailerNeedCrane.EditValue = (bool)result.Rows[0][21];
+            //edt_FullName.EditValue = result.Rows[0][1].ToString();
+            //edt_FullName.EditValue = result.Rows[0][1].ToString();
+            //edt_FullName.EditValue = result.Rows[0][1].ToString();
+            //edt_FullName.EditValue = result.Rows[0][1].ToString();
         }
 
         private void CreateInjuredpersons(Int16 numOfRows)
