@@ -368,6 +368,12 @@
     <Compile Include="Forms\IncidentCaptures.Designer.cs">
       <DependentUpon>IncidentCaptures.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Main2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Main2.Designer.cs">
+      <DependentUpon>Main2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Modals\frm_BrokerList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -427,6 +433,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ExtraForm.resx">
       <DependentUpon>ExtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Main2.resx">
+      <DependentUpon>Main2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Modals\frm_BrokerList.resx">
       <DependentUpon>frm_BrokerList.cs</DependentUpon>
@@ -508,6 +517,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoutWhite.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\Grpc.Core.2.31.0\build\net45\Grpc.Core.targets" Condition="Exists('packages\Grpc.Core.2.31.0\build\net45\Grpc.Core.targets')" />
