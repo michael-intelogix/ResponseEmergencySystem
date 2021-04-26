@@ -219,11 +219,11 @@ namespace ResponseEmergencySystem.Forms
             this.lue_DriverLicenceState.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lue_DriverLicenceState.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID_State", "ID_State", 36, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Name", 36, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
-            this.lue_DriverLicenceState.Properties.DisplayMember = "Name";
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("pk_id", "ID_State", 36, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("state", "Name", 36, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
+            this.lue_DriverLicenceState.Properties.DisplayMember = "state";
             this.lue_DriverLicenceState.Properties.NullText = "";
-            this.lue_DriverLicenceState.Properties.ValueMember = "ID_State";
+            this.lue_DriverLicenceState.Properties.ValueMember = "pk_id";
             this.lue_DriverLicenceState.Size = new System.Drawing.Size(115, 20);
             this.lue_DriverLicenceState.TabIndex = 97;
             // 
@@ -369,9 +369,9 @@ namespace ResponseEmergencySystem.Forms
             this.ckedt_Spill.Name = "ckedt_Spill";
             this.ckedt_Spill.Properties.Appearance.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ckedt_Spill.Properties.Appearance.Options.UseFont = true;
-            this.ckedt_Spill.Properties.Caption = "No";
+            this.ckedt_Spill.Properties.Caption = "";
             this.ckedt_Spill.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.ckedt_Spill.Size = new System.Drawing.Size(41, 19);
+            this.ckedt_Spill.Size = new System.Drawing.Size(20, 19);
             this.ckedt_Spill.TabIndex = 100;
             // 
             // groupBox3
@@ -737,12 +737,12 @@ namespace ResponseEmergencySystem.Forms
             // 
             // gc_InjuredPersons
             // 
-            this.gc_InjuredPersons.Location = new System.Drawing.Point(2, 0);
+            this.gc_InjuredPersons.Location = new System.Drawing.Point(2, 78);
             this.gc_InjuredPersons.MainView = this.gv_InjuredPersons;
             this.gc_InjuredPersons.Name = "gc_InjuredPersons";
             this.gc_InjuredPersons.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btn_DeleteRow});
-            this.gc_InjuredPersons.Size = new System.Drawing.Size(719, 304);
+            this.gc_InjuredPersons.Size = new System.Drawing.Size(719, 226);
             this.gc_InjuredPersons.TabIndex = 102;
             this.gc_InjuredPersons.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_InjuredPersons});
@@ -1087,6 +1087,7 @@ namespace ResponseEmergencySystem.Forms
             this.Name = "ViewIncidentDetails";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "IncidentDetailsView";
+            this.Load += new System.EventHandler(this.ViewIncidentDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();

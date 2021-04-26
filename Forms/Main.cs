@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using ResponseEmergencySystem.Code;
+using ResponseEmergencySystem.Services;
 using DevExpress.XtraEditors;
 using System.IO;
 
@@ -33,7 +34,7 @@ namespace ResponseEmergencySystem.Forms
             DataTable states = Functions.getStates();
             DataRow state = states.Select().First();
 
-            gc_Incidents.DataSource = Functions.list_Incidents("", "", "", "", "");
+            gc_Incidents.DataSource = IncidentService.list_Incidents("", "", "", "", "").Select(i => new { i.ID_Incident, i.Name, i.Folio, i.IncidentDate, i.truck.truckNumber, i.ID_StatusDetail });
             lue_StatusDetail.DataSource = Functions.list_StatusDetail();
 
             //var namefile = "test";

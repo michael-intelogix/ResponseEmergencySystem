@@ -26,10 +26,14 @@ namespace ResponseEmergencySystem.Forms
         OpenFileDialog ofd = new OpenFileDialog();
         string filepath = "";
         Image newImg = null;
+        private string ID_Capture = "";
+        private string fileName = "";
 
-        public frm_Image()
+        public frm_Image(string ID_Capture, string captureName)
         {
             InitializeComponent();
+            this.ID_Capture = ID_Capture;
+            fileName = captureName;
             //var value = section["url"];
         }
 
@@ -130,9 +134,10 @@ namespace ResponseEmergencySystem.Forms
 
             // Construct FirebaseStorage with path to where you want to upload the file and put it there
             var task = new FirebaseStorage("dcmanagement-3d402.appspot.com")
-            .Child("data")
-            .Child("random")
-            .Child("file.png")
+            .Child("SIREM")
+            .Child("Captures")
+            .Child(ID_Capture)
+            .Child(fileName)
             .PutAsync(stream);
 
             // Track progress of the upload

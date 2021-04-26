@@ -17,6 +17,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ResponseEmergencySystem.Samsara_Models;
 using ResponseEmergencySystem.Code;
+using ResponseEmergencySystem.Services;
 
 namespace ResponseEmergencySystem.Forms
 {
@@ -71,6 +72,22 @@ namespace ResponseEmergencySystem.Forms
 
             //form_driver_report tuventana = new form_driver_report();
             //tuventana.ShowDialog();
+        }
+
+        private void ExtraForm_Load(object sender, EventArgs e)
+        {
+            lue_Test.Properties.DataSource = StatusDetailService.list_StatusDetail();
+
+            foreach( var capture in CaptureService.list_Captures())
+            {
+                if (capture.images != null)
+                {
+                    //foreach (var t in capture.images)
+                    //{
+                    //    Debug.WriteLine(t.Trim() + " of the " + capture.captureType);
+                    //}
+                }
+            }
         }
     }
 }

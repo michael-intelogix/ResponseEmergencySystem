@@ -196,7 +196,7 @@ namespace ResponseEmergencySystem.Forms
             // col_TruckNumber
             // 
             this.col_TruckNumber.Caption = "Truck Number";
-            this.col_TruckNumber.FieldName = "TruckNumber";
+            this.col_TruckNumber.FieldName = "truckNumber";
             this.col_TruckNumber.Name = "col_TruckNumber";
             this.col_TruckNumber.Visible = true;
             this.col_TruckNumber.VisibleIndex = 3;

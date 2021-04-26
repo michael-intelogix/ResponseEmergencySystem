@@ -65,7 +65,6 @@ namespace ResponseEmergencySystem.Forms
             this.colID_Capture1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colID_ImageType = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colImageTitle = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDateTime1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colImagePath = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colComments = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colStatusDetail1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -324,7 +323,6 @@ namespace ResponseEmergencySystem.Forms
             this.pnl_ListCaptures.Name = "pnl_ListCaptures";
             this.pnl_ListCaptures.Size = new System.Drawing.Size(877, 448);
             this.pnl_ListCaptures.TabIndex = 2;
-            this.pnl_ListCaptures.Visible = false;
             // 
             // gc_Images
             // 
@@ -346,7 +344,6 @@ namespace ResponseEmergencySystem.Forms
             this.colID_Capture1,
             this.colID_ImageType,
             this.colImageTitle,
-            this.colDateTime1,
             this.colImagePath,
             this.colComments,
             this.colStatusDetail1,
@@ -377,16 +374,7 @@ namespace ResponseEmergencySystem.Forms
             this.colImageTitle.Name = "colImageTitle";
             this.colImageTitle.OptionsColumn.AllowEdit = false;
             this.colImageTitle.Visible = true;
-            this.colImageTitle.VisibleIndex = 1;
-            // 
-            // colDateTime1
-            // 
-            this.colDateTime1.DisplayFormat.FormatString = "hh:mm:ss";
-            this.colDateTime1.FieldName = "date";
-            this.colDateTime1.Name = "colDateTime1";
-            this.colDateTime1.OptionsColumn.AllowEdit = false;
-            this.colDateTime1.Visible = true;
-            this.colDateTime1.VisibleIndex = 0;
+            this.colImageTitle.VisibleIndex = 0;
             // 
             // colImagePath
             // 
@@ -400,7 +388,7 @@ namespace ResponseEmergencySystem.Forms
             this.colComments.Name = "colComments";
             this.colComments.OptionsColumn.AllowEdit = false;
             this.colComments.Visible = true;
-            this.colComments.VisibleIndex = 2;
+            this.colComments.VisibleIndex = 1;
             // 
             // colStatusDetail1
             // 
@@ -415,14 +403,14 @@ namespace ResponseEmergencySystem.Forms
             this.colStatus1.Name = "colStatus1";
             this.colStatus1.OptionsColumn.AllowEdit = false;
             this.colStatus1.Visible = true;
-            this.colStatus1.VisibleIndex = 3;
+            this.colStatus1.VisibleIndex = 2;
             // 
             // col_UploadImage
             // 
             this.col_UploadImage.ColumnEdit = this.btn_UploadImage;
             this.col_UploadImage.Name = "col_UploadImage";
             this.col_UploadImage.Visible = true;
-            this.col_UploadImage.VisibleIndex = 4;
+            this.col_UploadImage.VisibleIndex = 3;
             // 
             // btn_UploadImage
             // 
@@ -574,6 +562,7 @@ namespace ResponseEmergencySystem.Forms
             this.col_CaptureType.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.col_CaptureType.FieldName = "CaptureType";
             this.col_CaptureType.Name = "col_CaptureType";
+            this.col_CaptureType.OptionsColumn.AllowEdit = false;
             this.col_CaptureType.Visible = true;
             this.col_CaptureType.VisibleIndex = 0;
             this.col_CaptureType.Width = 232;
@@ -585,8 +574,8 @@ namespace ResponseEmergencySystem.Forms
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lue_Types.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID_CaptureType", "ID_CaptureType", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Capture Type")});
-            this.lue_Types.DisplayMember = "Name";
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("captureType", "Capture Type")});
+            this.lue_Types.DisplayMember = "captureType";
             this.lue_Types.Name = "lue_Types";
             this.lue_Types.NullText = "";
             this.lue_Types.ValueMember = "ID_CaptureType";
@@ -922,7 +911,6 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraGrid.Columns.GridColumn colID_Capture1;
         private DevExpress.XtraGrid.Columns.GridColumn colID_ImageType;
         private DevExpress.XtraGrid.Columns.GridColumn colImageTitle;
-        private DevExpress.XtraGrid.Columns.GridColumn colDateTime1;
         private DevExpress.XtraGrid.Columns.GridColumn colImagePath;
         private DevExpress.XtraGrid.Columns.GridColumn colComments;
         private DevExpress.XtraGrid.Columns.GridColumn colStatusDetail1;

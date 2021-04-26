@@ -557,7 +557,7 @@ namespace ResponseEmergencySystem.Code
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Capture type couldn't be found due: {ex.Message}");
+                MessageBox.Show($"Status Detail couldn't be found due: {ex.Message}");
             }
 
             return result;

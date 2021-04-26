@@ -1,5 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using ResponseEmergencySystem.Code;
+using ResponseEmergencySystem.Services;
+using ResponseEmergencySystem.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,39 +30,28 @@ namespace ResponseEmergencySystem.Forms
 
             addEmptyRow();
             loadData(incidentId);
-            //DataRow _data1 = dtInjured.NewRow();
-            //_data1["Name"] = "holi";
-            //_data1["Number"] = "1";
-            //dtInjured.Rows.Add(_data1);
-            //DataRow _data2 = dtInjured.NewRow();
-            //_data2["Name"] = "hey";
-            //_data2["Number"] = "2";
-            //dtInjured.Rows.Add(_data2);
-            //lookUpEdit1.Properties.DataSource = dtInjured;
+            
         }
 
         private void loadData(string incidentId)
         {
        
-            DataTable result = Functions.list_Incidents("", "", "", "", "", incidentId: incidentId);
-            edt_FullName.EditValue = result.Rows[0][1].ToString();
-            edt_PhoneNumber.EditValue = result.Rows[0][31].ToString();
-            edt_FullName.EditValue = result.Rows[0][32].ToString();
-            //edt_FullName.EditValue = result.Rows[0][33].ToString(); exp date
-            //lue.EditValue = result.Rows[0][34].ToString(); exp state
-            edt_TruckNumber.EditValue = result.Rows[0][35].ToString();
-            edt_TrailerNumber.EditValue = result.Rows[0][36].ToString();
-            edt_Cargo.EditValue = result.Rows[0][37].ToString();
-            ckedt_truckDamages.Checked = (bool)result.Rows[0][16];
-            ckedt_TruckNeedCrane.EditValue = (bool)result.Rows[0][18];
-            ckedt_TruckCanMove.EditValue = (bool)result.Rows[0][17];
-            ckedt_TrailerDamages.EditValue = (bool)result.Rows[0][20];
-            ckedt_TrailerNeedCrane.EditValue = (bool)result.Rows[0][22];
-            ckedt_TrailerNeedCrane.EditValue = (bool)result.Rows[0][21];
-            //edt_FullName.EditValue = result.Rows[0][1].ToString();
-            //edt_FullName.EditValue = result.Rows[0][1].ToString();
-            //edt_FullName.EditValue = result.Rows[0][1].ToString();
-            //edt_FullName.EditValue = result.Rows[0][1].ToString();
+            Incident result = IncidentService.list_Incidents("", "", "", "", "", incidentId: incidentId)[0];
+            edt_FullName.EditValue = result.Name;
+            edt_PhoneNumber.EditValue = result.PhoneNumber;
+            edt_License.EditValue = result.driver.License;
+            dte_ExpirationDate.EditValue = result.driver.ExpirationDate;
+            lue_DriverLicenceState.EditValue = result.driver.ID_StateOfExpedition;
+            edt_TruckNumber.EditValue = result.truck.truckNumber;
+            edt_TrailerNumber.EditValue = result.trailer.TrailerNumber;
+            ckedt_truckDamages.Checked = result.TruckDamage;
+            ckedt_TruckCanMove.Checked = result.TruckCanMove;
+            ckedt_TruckNeedCrane.Checked = result.TruckNeedCrane;
+            ckedt_TrailerDamages.Checked = result.TruckDamage;
+            ckedt_TrailerCanMove.Checked = result.TruckCanMove;
+            ckedt_TrailerNeedCrane.Checked = result.TrailerNeedCrane;
+            ckedt_Spill.Checked = result.trailer.CargoSpill;
+            edt_Cargo.EditValue = result.trailer.Commodity;
         }
 
         private void CreateInjuredpersons(Int16 numOfRows)
@@ -123,6 +114,11 @@ namespace ResponseEmergencySystem.Forms
             Int32 index = gv_InjuredPersons.FocusedRowHandle;
 
             gv_InjuredPersons.DeleteRow(index);
+        }
+
+        private void ViewIncidentDetails_Load(object sender, EventArgs e)
+        {
+            lue_DriverLicenceState.Properties.DataSource = Functions.getStates();
         }
     }
 

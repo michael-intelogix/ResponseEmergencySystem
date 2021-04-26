@@ -15,7 +15,8 @@ using System.IO;
 using Firebase.Storage;
 using ITXFramework;
 using ResponseEmergencySystem.Code;
-using ResponseEmergencySystem.Code.Captures;
+using ResponseEmergencySystem.Services;
+using ResponseEmergencySystem.Models;
 
 namespace ResponseEmergencySystem.Forms
 {
@@ -32,6 +33,10 @@ namespace ResponseEmergencySystem.Forms
         private DataTable dtImagesTest = new DataTable();
         private DataTable dt_CaptureTypes;
 
+        private List<Capture> captures = new List<Capture>();
+
+        private Guid CaptureSelected;
+
         public frm_Incident_Captures()
         {
             InitializeComponent();
@@ -39,8 +44,12 @@ namespace ResponseEmergencySystem.Forms
 
         private void btn_ListOfImages(object sender, EventArgs e)
         {
-            pnl_ListCaptures.Visible = true;
-            //Int32 index = gv_Drivers.FocusedRowHandle;
+            //pnl_ListCaptures.Visible = true;
+            Int32 idx = gv_Captures.FocusedRowHandle;
+            CaptureSelected = captures[idx].ID_Capture;
+
+            gc_Images.DataSource = captures[idx].images;
+
 
             //this.dt_DriverRowSelected = index;
             //this.DialogResult = DialogResult.OK;
@@ -105,103 +114,16 @@ namespace ResponseEmergencySystem.Forms
         private void form_driver_report_Load(object sender, EventArgs e)
         {
             /** SQL Server Database Connection **/
-            //string idBusiness = "";
-            //string idBranchOffice = "";
-            //string idCaptureType = "";
-            //string dateTime = "";
-            //int status = 1;
-            //Connection.Connection.Refresh_Captures(idBusiness, idBranchOffice, idCaptureType, dateTime, status);
-            //gc_Captures.DataSource = Connection.Connection.Dt_Captures;
-            //Connection.Connection.List_StatusDetails();
-            //DataTable table = Connection.Connection.Dt_StatusDetail;
-
-            dt_CaptureTypes = Functions.list_CaptureType();
-            lue_Types.DataSource = dt_CaptureTypes;
+            captures = CaptureService.list_Captures();
+            lue_Types.DataSource = captures;
 
             dt_IncidentCaptures.Columns.Add("Date");
             dt_IncidentCaptures.Columns.Add("CaptureType");
 
-            foreach (DataRow row in dt_CaptureTypes.Rows)
+            foreach (var capture in CaptureService.list_Captures())
             {
-                addEmptyRowCaptures(row["ID_CaptureType"].ToString());
+                addEmptyRowCaptures(capture.ID_CaptureType);
             }
-
-            //DataRow _data = dt_InjuredPersons.NewRow();
-            //_data["FullName"] = "";
-            //_data["LastName1"] = "";
-            //_data["LastName2"] = "";
-            //_data["Phone"] = "";
-            //dt_InjuredPersons.Rows.Add(_data);
-            //refreshInjuredPersonsTable();
-            //dtIncidentCaptures.Clear();
-
-            string[] columns = { "ID_Capture", "capture_date", "Type", "CapturesByType", "Comments" };
-            List<Capture> captures = new List<Capture>();
-
-            //captures.Add(new Capture(DateTime.Now, "Vehicle", 0, "data 1"));
-            //captures.Add(new Capture(DateTime.Now, "Truck", 0, "data 2"));
-            //captures.Add(new Capture(DateTime.Now, "Trailer", 0, "data 3"));
-            //captures.Add(new Capture(DateTime.Now, "Insurance Policy", 0, "data 4"));
-            //DataRow _data1 = dtIncidentCaptures.NewRow();
-            //_data1["ID_Capture"] = Guid.NewGuid();
-            //_data1["ID_CaptureType"] = Guid.NewGuid();
-            //_data1["capture_date"] = DateTime.Now;
-            //_data1["Type"] = "Vehicle";
-            //_data1["CapturesByType"] = 0;
-            //_data1["Comments"] = "data 1";
-            //dtIncidentCaptures.Rows.Add(_data1);
-            //DataRow _data2 = dtIncidentCaptures.NewRow();
-            //_data2["ID_Capture"] = Guid.NewGuid();
-            //_data2["ID_CaptureType"] = Guid.NewGuid();
-            //_data2["capture_date"] = DateTime.Now;
-            //_data2["Type"] = "Truck";
-            //_data2["CapturesByType"] = 0;
-            //_data2["Comments"] = "data 2";
-            //dtIncidentCaptures.Rows.Add(_data2);
-            //DataRow _data3 = dtIncidentCaptures.NewRow();
-            //_data3["ID_Capture"] = Guid.NewGuid();
-            //_data3["ID_CaptureType"] = Guid.NewGuid();
-            //_data3["capture_date"] = DateTime.Now;
-            //_data3["Type"] = "Trailer";
-            //_data3["CapturesByType"] = 0;
-            //_data3["Comments"] = "data 3";
-            //dtIncidentCaptures.Rows.Add(_data3);
-            //DataRow _data4 = dtIncidentCaptures.NewRow();
-            //_data4["ID_Capture"] = Guid.NewGuid();
-            //_data4["ID_CaptureType"] = Guid.NewGuid();
-            //_data4["capture_date"] = DateTime.Now;
-            //_data4["Type"] = "Insurance Policy";
-            //_data4["CapturesByType"] = 0;
-            //_data4["Comments"] = "data 4";
-            //dtIncidentCaptures.Rows.Add(_data4);
-            //DataRow _data5 = dtIncidentCaptures.NewRow();
-            //DataRow _data6 = dtIncidentCaptures.NewRow();
-            //DataRow _data7 = dtIncidentCaptures.NewRow();
-            //gc_Captures.DataSource = Functions.captureTable(columns, captures);
-            //Debug.WriteLine(constants.id_capture);
-
-
-            dtImagesTest.Clear();
-            dtImagesTest.Columns.Add("name");
-            dtImagesTest.Columns.Add("date");
-            DataRow _dataImg1 = dtImagesTest.NewRow();
-            _dataImg1["name"] = "front of the vehicle";
-            _dataImg1["date"] = DateTime.Now;
-            dtImagesTest.Rows.Add(_dataImg1);
-            DataRow _dataImg2 = dtImagesTest.NewRow();
-            _dataImg2["name"] = "back of the vehicle";
-            _dataImg2["date"] = DateTime.Now;
-            dtImagesTest.Rows.Add(_dataImg2);
-            DataRow _dataImg3 = dtImagesTest.NewRow();
-            _dataImg3["name"] = "right side of the vehicle";
-            _dataImg3["date"] = DateTime.Now;
-            dtImagesTest.Rows.Add(_dataImg3);
-            DataRow _dataImg4 = dtImagesTest.NewRow();
-            _dataImg4["name"] = "left side of the vehicle";
-            _dataImg4["date"] = DateTime.Now;
-            dtImagesTest.Rows.Add(_dataImg4);
-
-            gc_Images.DataSource = dtImagesTest;
 
             ///** Firestore Database Connection **/
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", constants.path);
@@ -276,8 +198,12 @@ namespace ResponseEmergencySystem.Forms
 
         private async void uploadImage(object sender, EventArgs e)
         {
-            frm_Image capture = new frm_Image();
-            capture.ShowDialog();
+            Int32 idx = gv_Images.FocusedRowHandle;
+
+            var capture = captures.Where(c => c.ID_Capture == CaptureSelected).First();
+            
+            frm_Image captureFrm = new frm_Image(capture.ID_Capture.ToString().ToUpper(), capture.images[idx].name);
+            captureFrm.ShowDialog();
             //OpenFileDialog ofd = new OpenFileDialog();
             //ofd.Title = "Select Image";
             //ofd.Filter = "Image Files(*.jpg) | *.jpg";
