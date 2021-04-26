@@ -91,6 +91,7 @@
     <Reference Include="DevExpress.XtraScheduler.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraScheduler.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraScheduler.v20.2.Core.Desktop, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraVerticalGrid.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
@@ -368,6 +369,12 @@
     <Compile Include="Forms\IncidentCaptures.Designer.cs">
       <DependentUpon>IncidentCaptures.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Main2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Main2.Designer.cs">
+      <DependentUpon>Main2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Modals\frm_BrokerList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -427,6 +434,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ExtraForm.resx">
       <DependentUpon>ExtraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Main2.resx">
+      <DependentUpon>Main2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Modals\frm_BrokerList.resx">
       <DependentUpon>frm_BrokerList.cs</DependentUpon>
@@ -508,6 +518,27 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoutWhite.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addWhite.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EyeBlue.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EyeBlue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editBlue.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sendWhite.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\picturesBlue.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\Grpc.Core.2.31.0\build\net45\Grpc.Core.targets" Condition="Exists('packages\Grpc.Core.2.31.0\build\net45\Grpc.Core.targets')" />
