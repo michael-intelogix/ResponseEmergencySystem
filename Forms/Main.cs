@@ -1,6 +1,5 @@
 ﻿using DevExpress.XtraBars;
 using DevExpress.XtraGrid.Views.Grid;
-using ResponseEmergencySystem.Entity_Framework;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,7 +26,7 @@ namespace ResponseEmergencySystem.Forms
         private void IncidentReport_Load(object sender, EventArgs e)
         {
 
-            Login login = new Login();
+          //  Login1 login = new Login1();
 
             //private static SqlConnection cn(string database = "General")
             //{
@@ -52,33 +51,18 @@ namespace ResponseEmergencySystem.Forms
             DataRow state = states.Select().First();
             Debug.WriteLine(state.ItemArray[2]);
              
-            if (login.ShowDialog() == DialogResult.OK)
-            {
-                access = login.myData;
-                string idmysoftware = "2a5aa42b-2089-4fa8-b7cc-2cea2a017a8a";
-                DataRow[] accesos = access.Select($"ID_Software = '{idmysoftware}'");
-                if (accesos.Length > 0)
-                {   
-                    constants.userName = accesos[0].ItemArray[13].ToString();
-                }
-            }
+            //if (login.ShowDialog() == DialogResult.OK)
+            //{
+            //    access = login.myData;
+            //    string idmysoftware = "2a5aa42b-2089-4fa8-b7cc-2cea2a017a8a";
+            //    DataRow[] accesos = access.Select($"ID_Software = '{idmysoftware}'");
+            //    if (accesos.Length > 0)
+            //    {   
+            //        constants.userName = accesos[0].ItemArray[13].ToString();
+            //    }
+            //}
 
-            using (var context = new SIREMLocalEntities())
-            {
-                var courses = context.List_StatusDetail();
-
-                lue_test.DataSource = context.List_StatusDetail().ToHashSet<List_StatusDetail_Result>();
-                //foreach (var cs in courses)
-                //    Console.WriteLine(cs.ID_Status_Detail);
-            }
-
-            using (var context = new SIREMLocalEntities())
-            {
-                var courses = context.List_StatusDetail();
-
-                gc_Incidents.DataSource = context.List_Incidents("", "", null, "", "", "");
-                //Console.WriteLine(Guid.Empty.ToString());
-            }
+         
 
             //Connection.Connection.List_Incidents();
             //gc_Incidents.DataSource = Connection.Connection.Dt_Incidents;
