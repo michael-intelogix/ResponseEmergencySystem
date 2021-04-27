@@ -345,16 +345,16 @@
     <Compile Include="Connection\Connection.cs" />
     <Compile Include="Controllers\IncidentController.cs" />
     <Compile Include="Controllers\IIncidentsView.cs" />
-    <Compile Include="Forms\AddComments.cs">
+    <Compile Include="Forms\Modals\AddComments.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AddComments.Designer.cs">
+    <Compile Include="Forms\Modals\AddComments.Designer.cs">
       <DependentUpon>AddComments.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AddMoreCaptures.cs">
+    <Compile Include="Forms\Modals\AddMoreCaptures.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AddMoreCaptures.Designer.cs">
+    <Compile Include="Forms\Modals\AddMoreCaptures.Designer.cs">
       <DependentUpon>AddMoreCaptures.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frm_DriverSearchList.cs">
@@ -386,6 +386,12 @@
     </Compile>
     <Compile Include="Forms\Main2.Designer.cs">
       <DependentUpon>Main2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Modals\EditComments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Modals\EditComments.Designer.cs">
+      <DependentUpon>EditComments.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Modals\frm_BrokerList.cs">
       <SubType>Form</SubType>
@@ -426,10 +432,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\AddComments.resx">
+    <EmbeddedResource Include="Forms\Modals\AddComments.resx">
       <DependentUpon>AddComments.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AddMoreCaptures.resx">
+    <EmbeddedResource Include="Forms\Modals\AddMoreCaptures.resx">
       <DependentUpon>AddMoreCaptures.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frm_DriverSearchList.resx">
@@ -455,6 +461,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Main2.resx">
       <DependentUpon>Main2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Modals\EditComments.resx">
+      <DependentUpon>EditComments.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Modals\frm_BrokerList.resx">
       <DependentUpon>frm_BrokerList.cs</DependentUpon>

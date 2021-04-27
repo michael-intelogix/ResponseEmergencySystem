@@ -70,5 +70,11 @@ namespace ResponseEmergencySystem.Forms
             AddComments addComments = new AddComments();
             addComments.ShowDialog();
         }
+
+        private void btn_Edit4_Click(object sender, EventArgs e)
+        {
+            Modals.EditComments editComments = new Modals.EditComments();
+            editComments.ShowDialog();
+        }
     }
 }
