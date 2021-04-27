@@ -31,17 +31,17 @@ namespace ResponseEmergencySystem.Forms
         {
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.pnl_Zoom = new DevExpress.XtraEditors.PanelControl();
+            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.pnl_ImgControls = new DevExpress.XtraEditors.PanelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.pnl_Uploading = new DevExpress.XtraEditors.PanelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.progressBarControl1 = new DevExpress.XtraEditors.ProgressBarControl();
             this.btn_SaveImage = new DevExpress.XtraEditors.SimpleButton();
             this.btn_Cancel = new DevExpress.XtraEditors.SimpleButton();
-            this.progressBarControl1 = new DevExpress.XtraEditors.ProgressBarControl();
-            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.img_Test = new DevExpress.XtraEditors.PictureEdit();
             ((System.ComponentModel.ISupportInitialize)(this.pnl_Zoom)).BeginInit();
             this.pnl_Zoom.SuspendLayout();
@@ -85,6 +85,27 @@ namespace ResponseEmergencySystem.Forms
             this.pnl_Zoom.TabIndex = 7;
             this.pnl_Zoom.Visible = false;
             // 
+            // simpleButton5
+            // 
+            this.simpleButton5.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.zoomin_16x161;
+            this.simpleButton5.Location = new System.Drawing.Point(3, 9);
+            this.simpleButton5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.simpleButton5.Name = "simpleButton5";
+            this.simpleButton5.Size = new System.Drawing.Size(28, 29);
+            this.simpleButton5.TabIndex = 1;
+            this.simpleButton5.Click += new System.EventHandler(this.simpleButton5_Click);
+            // 
+            // simpleButton4
+            // 
+            this.simpleButton4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButton4.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.zoomout_16x16;
+            this.simpleButton4.Location = new System.Drawing.Point(37, 9);
+            this.simpleButton4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.simpleButton4.Name = "simpleButton4";
+            this.simpleButton4.Size = new System.Drawing.Size(28, 29);
+            this.simpleButton4.TabIndex = 0;
+            this.simpleButton4.Click += new System.EventHandler(this.simpleButton4_Click);
+            // 
             // pnl_ImgControls
             // 
             this.pnl_ImgControls.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -94,10 +115,10 @@ namespace ResponseEmergencySystem.Forms
             this.pnl_ImgControls.Controls.Add(this.labelControl2);
             this.pnl_ImgControls.Controls.Add(this.labelControl3);
             this.pnl_ImgControls.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pnl_ImgControls.Location = new System.Drawing.Point(825, 500);
+            this.pnl_ImgControls.Location = new System.Drawing.Point(734, 16);
             this.pnl_ImgControls.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnl_ImgControls.Name = "pnl_ImgControls";
-            this.pnl_ImgControls.Size = new System.Drawing.Size(51, 161);
+            this.pnl_ImgControls.Size = new System.Drawing.Size(154, 43);
             this.pnl_ImgControls.TabIndex = 8;
             this.pnl_ImgControls.Visible = false;
             // 
@@ -106,7 +127,7 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelControl1.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.refreshBlue;
             this.labelControl1.ImageOptions.SvgImageSize = new System.Drawing.Size(45, 45);
-            this.labelControl1.Location = new System.Drawing.Point(5, 103);
+            this.labelControl1.Location = new System.Drawing.Point(109, -2);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(45, 45);
@@ -120,7 +141,7 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelControl2.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.zoomOutBlue;
             this.labelControl2.ImageOptions.SvgImageSize = new System.Drawing.Size(40, 40);
-            this.labelControl2.Location = new System.Drawing.Point(7, 55);
+            this.labelControl2.Location = new System.Drawing.Point(63, 3);
             this.labelControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(40, 40);
@@ -134,7 +155,7 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelControl3.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.zoomInBlue;
             this.labelControl3.ImageOptions.SvgImageSize = new System.Drawing.Size(40, 40);
-            this.labelControl3.Location = new System.Drawing.Point(7, 5);
+            this.labelControl3.Location = new System.Drawing.Point(17, 0);
             this.labelControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(40, 40);
@@ -165,6 +186,15 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl4.Size = new System.Drawing.Size(109, 17);
             this.labelControl4.TabIndex = 4;
             this.labelControl4.Text = "Uploading  Image";
+            // 
+            // progressBarControl1
+            // 
+            this.progressBarControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.progressBarControl1.Location = new System.Drawing.Point(117, 7);
+            this.progressBarControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.progressBarControl1.Name = "progressBarControl1";
+            this.progressBarControl1.Size = new System.Drawing.Size(197, 24);
+            this.progressBarControl1.TabIndex = 3;
             // 
             // btn_SaveImage
             // 
@@ -202,36 +232,6 @@ namespace ResponseEmergencySystem.Forms
             this.btn_Cancel.TabIndex = 16;
             this.btn_Cancel.Text = "Cancel";
             this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
-            // 
-            // progressBarControl1
-            // 
-            this.progressBarControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBarControl1.Location = new System.Drawing.Point(117, 7);
-            this.progressBarControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.progressBarControl1.Name = "progressBarControl1";
-            this.progressBarControl1.Size = new System.Drawing.Size(197, 24);
-            this.progressBarControl1.TabIndex = 3;
-            // 
-            // simpleButton5
-            // 
-            this.simpleButton5.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.zoomin_16x161;
-            this.simpleButton5.Location = new System.Drawing.Point(3, 9);
-            this.simpleButton5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.simpleButton5.Name = "simpleButton5";
-            this.simpleButton5.Size = new System.Drawing.Size(28, 29);
-            this.simpleButton5.TabIndex = 1;
-            this.simpleButton5.Click += new System.EventHandler(this.simpleButton5_Click);
-            // 
-            // simpleButton4
-            // 
-            this.simpleButton4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButton4.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.zoomout_16x16;
-            this.simpleButton4.Location = new System.Drawing.Point(37, 9);
-            this.simpleButton4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(28, 29);
-            this.simpleButton4.TabIndex = 0;
-            this.simpleButton4.Click += new System.EventHandler(this.simpleButton4_Click);
             // 
             // img_Test
             // 

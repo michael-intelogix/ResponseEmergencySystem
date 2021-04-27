@@ -20,7 +20,8 @@ namespace ResponseEmergencySystem.Forms
 
         private void simpleButton3_Click(object sender, EventArgs e)
         {
-
+            AddMoreCaptures AddMoreCaptures = new AddMoreCaptures();
+            AddMoreCaptures.ShowDialog();
         }
 
         private void simpleButton4_Click(object sender, EventArgs e)
@@ -50,6 +51,18 @@ namespace ResponseEmergencySystem.Forms
 
             capture.ShowDialog();
 
+        }
+
+        private void btn_View2_Click(object sender, EventArgs e)
+        {
+            AddIncidentDetails AddIncidentDetails = new AddIncidentDetails();
+            AddIncidentDetails.ShowDialog();
+        }
+
+        private void btn_Edit2_Click(object sender, EventArgs e)
+        {
+            AddIncidentDetails AddIncidentDetails = new AddIncidentDetails();
+            AddIncidentDetails.ShowDialog();
         }
     }
 }
