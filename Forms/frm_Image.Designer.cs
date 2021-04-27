@@ -38,7 +38,7 @@ namespace ResponseEmergencySystem.Forms
             this.pnl_Uploading = new DevExpress.XtraEditors.PanelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.btn_SaveImage = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_Cancel = new DevExpress.XtraEditors.SimpleButton();
             this.progressBarControl1 = new DevExpress.XtraEditors.ProgressBarControl();
             this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
@@ -104,11 +104,12 @@ namespace ResponseEmergencySystem.Forms
             // labelControl1
             // 
             this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelControl1.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.refreshallpivottable_32x32;
-            this.labelControl1.Location = new System.Drawing.Point(8, 112);
+            this.labelControl1.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.refreshBlue;
+            this.labelControl1.ImageOptions.SvgImageSize = new System.Drawing.Size(45, 45);
+            this.labelControl1.Location = new System.Drawing.Point(5, 103);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(32, 32);
+            this.labelControl1.Size = new System.Drawing.Size(45, 45);
             this.labelControl1.TabIndex = 12;
             this.labelControl1.ToolTip = "Reset Image";
             this.labelControl1.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Information;
@@ -183,23 +184,24 @@ namespace ResponseEmergencySystem.Forms
             this.btn_SaveImage.TabIndex = 15;
             this.btn_SaveImage.Text = "Save";
             // 
-            // simpleButton2
+            // btn_Cancel
             // 
-            this.simpleButton2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.simpleButton2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
-            this.simpleButton2.Appearance.ForeColor = System.Drawing.Color.White;
-            this.simpleButton2.Appearance.Options.UseBackColor = true;
-            this.simpleButton2.Appearance.Options.UseForeColor = true;
-            this.simpleButton2.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.closeWhite;
-            this.simpleButton2.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
-            this.simpleButton2.Location = new System.Drawing.Point(14, 684);
-            this.simpleButton2.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-            this.simpleButton2.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.simpleButton2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(129, 38);
-            this.simpleButton2.TabIndex = 16;
-            this.simpleButton2.Text = "Cancel";
+            this.btn_Cancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btn_Cancel.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
+            this.btn_Cancel.Appearance.ForeColor = System.Drawing.Color.White;
+            this.btn_Cancel.Appearance.Options.UseBackColor = true;
+            this.btn_Cancel.Appearance.Options.UseForeColor = true;
+            this.btn_Cancel.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.closeWhite;
+            this.btn_Cancel.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
+            this.btn_Cancel.Location = new System.Drawing.Point(14, 684);
+            this.btn_Cancel.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            this.btn_Cancel.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.btn_Cancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_Cancel.Name = "btn_Cancel";
+            this.btn_Cancel.Size = new System.Drawing.Size(129, 38);
+            this.btn_Cancel.TabIndex = 16;
+            this.btn_Cancel.Text = "Cancel";
+            this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
             // 
             // progressBarControl1
             // 
@@ -255,7 +257,7 @@ namespace ResponseEmergencySystem.Forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(902, 730);
-            this.Controls.Add(this.simpleButton2);
+            this.Controls.Add(this.btn_Cancel);
             this.Controls.Add(this.btn_SaveImage);
             this.Controls.Add(this.pnl_Uploading);
             this.Controls.Add(this.pnl_ImgControls);
@@ -267,7 +269,7 @@ namespace ResponseEmergencySystem.Forms
             this.MaximizeBox = false;
             this.Name = "frm_Image";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frm_Image";
+            this.Text = "Image";
             this.Shown += new System.EventHandler(this.frm_Image_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.pnl_Zoom)).EndInit();
             this.pnl_Zoom.ResumeLayout(false);
@@ -298,6 +300,6 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.ProgressBarControl progressBarControl1;
         private DevExpress.XtraEditors.SimpleButton btn_SaveImage;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraEditors.SimpleButton btn_Cancel;
     }
 }

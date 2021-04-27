@@ -148,5 +148,10 @@ namespace ResponseEmergencySystem.Forms
             pnl_Uploading.Visible = false;
 
         }
+
+        private void btn_Cancel_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+        }
     }
 }
