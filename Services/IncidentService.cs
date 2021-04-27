@@ -98,5 +98,37 @@ namespace ResponseEmergencySystem.Services
             return result;
         }
 
+        public static DataTable list_InjuredPerson(string incidentId)
+        {
+            opSuccess = false;
+            result = new DataTable();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand
+                {
+                    Connection = constants.SIREMConnection,
+                    CommandText = $"List_InjuredPerson",
+                    CommandType = CommandType.StoredProcedure
+                })
+                {
+
+                    cmd.Parameters.AddWithValue("@ID_Incident", Guid.Parse(incidentId));
+
+                    
+                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    {
+                        sda.Fill(result);
+                    }
+                    opSuccess = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Incident type couldn't be found due: {ex.Message}");
+            }
+
+            return result;
+        }
+
     }
 }

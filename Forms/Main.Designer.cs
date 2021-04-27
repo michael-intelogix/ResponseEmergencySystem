@@ -107,9 +107,9 @@ namespace ResponseEmergencySystem.Forms
             this.fluentDesignFormContainer1.Controls.Add(this.panelControl2);
             this.fluentDesignFormContainer1.Controls.Add(this.panelControl1);
             this.fluentDesignFormContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fluentDesignFormContainer1.Location = new System.Drawing.Point(0, 27);
+            this.fluentDesignFormContainer1.Location = new System.Drawing.Point(48, 31);
             this.fluentDesignFormContainer1.Name = "fluentDesignFormContainer1";
-            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(1186, 443);
+            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(635, 438);
             this.fluentDesignFormContainer1.TabIndex = 0;
             // 
             // panelControl3
@@ -134,7 +134,7 @@ namespace ResponseEmergencySystem.Forms
             this.gc_Incidents.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.lue_StatusDetail,
             this.btn_View});
-            this.gc_Incidents.Size = new System.Drawing.Size(1186, 367);
+            this.gc_Incidents.Size = new System.Drawing.Size(635, 395);
             this.gc_Incidents.TabIndex = 2;
             this.gc_Incidents.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_Incidents});
@@ -434,9 +434,9 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl1.Controls.Add(this.simpleButton2);
             this.panelControl1.Controls.Add(this.simpleButton1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl1.Location = new System.Drawing.Point(0, 400);
+            this.panelControl1.Location = new System.Drawing.Point(0, 395);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1186, 43);
+            this.panelControl1.Size = new System.Drawing.Size(635, 43);
             this.panelControl1.TabIndex = 1;
             // 
             // simpleButton2
@@ -457,13 +457,31 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton1.Text = "Create new Inicident Entry";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
+            // accordionControl1
+            // 
+            this.accordionControl1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.accordionControl1.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.accordionControlElement1});
+            this.accordionControl1.Location = new System.Drawing.Point(0, 31);
+            this.accordionControl1.Name = "accordionControl1";
+            this.accordionControl1.OptionsMinimizing.State = DevExpress.XtraBars.Navigation.AccordionControlState.Minimized;
+            this.accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
+            this.accordionControl1.Size = new System.Drawing.Size(48, 438);
+            this.accordionControl1.TabIndex = 1;
+            this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
+            // 
+            // accordionControlElement1
+            // 
+            this.accordionControlElement1.Name = "accordionControlElement1";
+            this.accordionControlElement1.Text = "Element1";
+            // 
             // fluentDesignFormControl1
             // 
             this.fluentDesignFormControl1.FluentDesignForm = this;
             this.fluentDesignFormControl1.Location = new System.Drawing.Point(0, 0);
             this.fluentDesignFormControl1.Manager = this.fluentFormDefaultManager1;
             this.fluentDesignFormControl1.Name = "fluentDesignFormControl1";
-            this.fluentDesignFormControl1.Size = new System.Drawing.Size(1186, 27);
+            this.fluentDesignFormControl1.Size = new System.Drawing.Size(683, 31);
             this.fluentDesignFormControl1.TabIndex = 2;
             this.fluentDesignFormControl1.TabStop = false;
             // 
@@ -477,7 +495,10 @@ namespace ResponseEmergencySystem.Forms
             this.Controls.Add(this.fluentDesignFormControl1);
             this.FluentDesignFormControl = this.fluentDesignFormControl1;
             this.Name = "Main";
+            this.NavigationControl = this.accordionControl1;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Incidents";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.IncidentReport_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.find_OnEdtKeyPress);
             this.fluentDesignFormContainer1.ResumeLayout(false);

@@ -29,7 +29,7 @@ namespace ResponseEmergencySystem.Forms
         private void IncidentReport_Load(object sender, EventArgs e)
         {
 
-            Login login = new Login();
+          //  Login1 login = new Login1();
 
             DataTable states = Functions.getStates();
             DataRow state = states.Select().First();
