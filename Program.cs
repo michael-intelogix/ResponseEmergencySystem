@@ -19,7 +19,7 @@ namespace ResponseEmergencySystem
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Forms.Main());
+            Application.Run(new Forms.Main2());
         }
     }
 }

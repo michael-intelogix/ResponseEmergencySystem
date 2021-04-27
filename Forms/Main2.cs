@@ -37,5 +37,11 @@ namespace ResponseEmergencySystem.Forms
         {
 
         }
+
+        private void btn_Picture_Click(object sender, EventArgs e)
+        {
+            frm_Image frm_Image = new frm_Image();
+            frm_Image.ShowDialog();
+        }
     }
 }

@@ -837,6 +837,15 @@ namespace ResponseEmergencySystem.Forms
         }
         #endregion
 
+        private void lbl_TrailerExists_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Cancel_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+        }
     }
 
 }

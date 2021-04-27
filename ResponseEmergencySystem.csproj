@@ -369,6 +369,12 @@
     <Compile Include="Forms\IncidentCaptures.Designer.cs">
       <DependentUpon>IncidentCaptures.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\IncidentsEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\IncidentsEntry.Designer.cs">
+      <DependentUpon>IncidentsEntry.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Main2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -428,6 +434,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddIncidentDetails.resx">
       <DependentUpon>AddIncidentDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\IncidentsEntry.resx">
+      <DependentUpon>IncidentsEntry.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
@@ -557,6 +566,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\refreshBlue.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\searchBlue.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\searchWhite.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancelRed.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\Grpc.Core.2.31.0\build\net45\Grpc.Core.targets" Condition="Exists('packages\Grpc.Core.2.31.0\build\net45\Grpc.Core.targets')" />
