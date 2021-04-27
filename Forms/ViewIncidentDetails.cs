@@ -13,17 +13,13 @@ using System.Windows.Forms;
 namespace ResponseEmergencySystem.Forms
 {
     // https://stackoverflow.com/questions/1774498/how-to-iterate-through-a-datatable
-    public partial class ViewIncidentDetails : DevExpress.XtraEditors.XtraForm
+    public partial class ViewIncidentDetails : DevExpress.XtraEditors.XtraForm, IShowIncidentDetails
     {
         DataTable dt_InjuredPersons = new DataTable();
 
         public ViewIncidentDetails()
         {
             InitializeComponent();
-            dt_InjuredPersons.Columns.Add("FullName");
-            dt_InjuredPersons.Columns.Add("LastName1");
-            dt_InjuredPersons.Columns.Add("LastName2");
-            dt_InjuredPersons.Columns.Add("Phone");
 
             addEmptyRow();
             //DataRow _data1 = dtInjured.NewRow();
@@ -37,66 +33,96 @@ namespace ResponseEmergencySystem.Forms
             //lookUpEdit1.Properties.DataSource = dtInjured;
         }
 
-        private void CreateInjuredpersons(Int16 numOfRows)
+        public bool TruckNeedCrane 
         {
-            Int16 currentRow = 0;
-            while (currentRow <= numOfRows)
-            {
-                addEmptyRow();
-                currentRow++;
-            }
-            
-
-            //Task.Delay(1000);
-            //return Task.FromResult("ok");
+            get { return (bool)ckedt_PoliceReport.EditValue; }
+            set { ckedt_PoliceReport.EditValue = value; }
         }
 
-
-        private void OnChangedCheckEdit(object sender, EventArgs e)
+        public string TrailerNumber 
         {
-            CheckEdit cb = (CheckEdit)sender;
-            bool ckedtValue = (bool)cb.EditValue;
-            cb.Properties.Caption = ckedtValue ? "Yes" : "No";
-
-            if (cb.Name == "ckedt_Spill")
-            {
-                //pnl_BOL.Visible = ckedtValue;
-            }
-
-            if (cb.Name == "ckedt_Injured")
-            {
-                //pnl_AddInjuredFields.Visible = ckedtValue;
-            }
+            get { return edt_FullName.EditValue.ToString(); }
+            set { edt_FullName.EditValue = value; }
         }
 
-        private void refreshInjuredPersonsTable()
+        public bool TrailerDamages 
         {
-            gc_InjuredPersons.DataSource = dt_InjuredPersons;
+            get { return (bool)ckedt_PoliceReport.EditValue; }
+            set { ckedt_PoliceReport.EditValue = value; }
         }
 
-        private void addEmptyRow()
+        public bool TrailerCanMove 
         {
-            DataRow _data = dt_InjuredPersons.NewRow();
-            _data["FullName"] = "";
-            _data["LastName1"] = "";
-            _data["LastName2"] = "";
-            _data["Phone"] = "";
-            dt_InjuredPersons.Rows.Add(_data);
-            refreshInjuredPersonsTable();
+            get { return (bool)ckedt_PoliceReport.EditValue; }
+            set { ckedt_PoliceReport.EditValue = value; }
         }
 
-        private void simpleButton1_Click(object sender, EventArgs e)
+        public bool TrailerNeedCrane 
         {
-            CreateInjuredpersons(Convert.ToInt16(textEdit1.EditValue));
-            //addEmptyRow();
-
+            get { return (bool)ckedt_PoliceReport.EditValue; }
+            set { ckedt_PoliceReport.EditValue = value; }
         }
 
-        private void btn_DeleteRowClick(object sender, EventArgs e)
+        public string CargoType 
         {
-            Int32 index = gv_InjuredPersons.FocusedRowHandle;
+            get { return edt_FullName.EditValue.ToString(); }
+            set { edt_FullName.EditValue = value; }
+        }
 
-            gv_InjuredPersons.DeleteRow(index);
+        public bool CargoSpill 
+        {
+            get { return (bool)ckedt_PoliceReport.EditValue; }
+            set { ckedt_PoliceReport.EditValue = value; }
+        }
+
+        public string ManifestNumber 
+        {
+            get { return edt_FullName.EditValue.ToString(); }
+            set { edt_FullName.EditValue = value; }
+        }
+
+        public string Broker 
+        {
+            get { return edt_FullName.EditValue.ToString(); }
+            set { edt_FullName.EditValue = value; }
+        }
+
+        public DateTime IncidentDate { get; set; }
+
+        public bool PoliceReport 
+        {
+            get { return (bool)ckedt_PoliceReport.EditValue; }
+            set { ckedt_PoliceReport.EditValue = value; }
+        }
+
+        public string CitationReportNumber 
+        {
+            get { return edt_FullName.EditValue.ToString(); }
+            set { edt_FullName.EditValue = value; }
+        }
+
+        public string Latitude 
+        {
+            get { return edt_FullName.EditValue.ToString(); }
+            set { edt_FullName.EditValue = value; }
+        }
+
+        public string Longitude 
+        {
+            get { return edt_FullName.EditValue.ToString(); }
+            set { edt_FullName.EditValue = value; }
+        }
+
+        public string ID_State 
+        {
+            get { return edt_FullName.EditValue.ToString(); }
+            set { edt_FullName.EditValue = value; }
+        }
+
+        public string ID_City 
+        {
+            get { return edt_FullName.EditValue.ToString(); }
+            set { edt_FullName.EditValue = value; }
         }
     }
 
