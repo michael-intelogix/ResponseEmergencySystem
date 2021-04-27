@@ -601,6 +601,7 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton2.StyleController = this.layoutControl3;
             this.simpleButton2.TabIndex = 4;
             this.simpleButton2.Text = "Create new incident entry";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
             // layoutControlGroup2
             // 

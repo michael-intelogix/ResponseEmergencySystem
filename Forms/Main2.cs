@@ -43,5 +43,13 @@ namespace ResponseEmergencySystem.Forms
             frm_Image frm_Image = new frm_Image();
             frm_Image.ShowDialog();
         }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            AddIncidentDetails capture = new AddIncidentDetails();
+
+            capture.ShowDialog();
+
+        }
     }
 }
