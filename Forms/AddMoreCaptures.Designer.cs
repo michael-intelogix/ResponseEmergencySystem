@@ -180,7 +180,7 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton5.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(138)))), ((int)(((byte)(50)))));
             this.simpleButton5.Appearance.Options.UseFont = true;
             this.simpleButton5.Appearance.Options.UseForeColor = true;
-            this.simpleButton5.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.checkGreen;
+            this.simpleButton5.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.apply_16x161;
             this.simpleButton5.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
             this.simpleButton5.Location = new System.Drawing.Point(361, 202);
             this.simpleButton5.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
@@ -218,7 +218,7 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton6.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(138)))), ((int)(((byte)(50)))));
             this.simpleButton6.Appearance.Options.UseFont = true;
             this.simpleButton6.Appearance.Options.UseForeColor = true;
-            this.simpleButton6.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.checkGreen;
+            this.simpleButton6.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.apply_16x161;
             this.simpleButton6.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
             this.simpleButton6.Location = new System.Drawing.Point(361, 242);
             this.simpleButton6.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
@@ -234,7 +234,7 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton7.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(138)))), ((int)(((byte)(50)))));
             this.simpleButton7.Appearance.Options.UseFont = true;
             this.simpleButton7.Appearance.Options.UseForeColor = true;
-            this.simpleButton7.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.checkGreen;
+            this.simpleButton7.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.apply_16x161;
             this.simpleButton7.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
             this.simpleButton7.Location = new System.Drawing.Point(361, 282);
             this.simpleButton7.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
@@ -250,7 +250,7 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton8.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(138)))), ((int)(((byte)(50)))));
             this.simpleButton8.Appearance.Options.UseFont = true;
             this.simpleButton8.Appearance.Options.UseForeColor = true;
-            this.simpleButton8.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.checkGreen;
+            this.simpleButton8.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.apply_16x161;
             this.simpleButton8.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
             this.simpleButton8.Location = new System.Drawing.Point(361, 322);
             this.simpleButton8.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;

@@ -345,6 +345,12 @@
     <Compile Include="Connection\Connection.cs" />
     <Compile Include="Controllers\IncidentController.cs" />
     <Compile Include="Controllers\IIncidentsView.cs" />
+    <Compile Include="Forms\AddComments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddComments.Designer.cs">
+      <DependentUpon>AddComments.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddMoreCaptures.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -420,6 +426,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\AddComments.resx">
+      <DependentUpon>AddComments.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddMoreCaptures.resx">
       <DependentUpon>AddMoreCaptures.cs</DependentUpon>
     </EmbeddedResource>
@@ -578,6 +587,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\checkGreen.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\commentsBlue.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\Grpc.Core.2.31.0\build\net45\Grpc.Core.targets" Condition="Exists('packages\Grpc.Core.2.31.0\build\net45\Grpc.Core.targets')" />

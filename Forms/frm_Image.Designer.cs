@@ -264,7 +264,7 @@ namespace ResponseEmergencySystem.Forms
             this.Controls.Add(this.pnl_Zoom);
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.img_Test);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.Name = "frm_Image";

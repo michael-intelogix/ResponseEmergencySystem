@@ -64,5 +64,11 @@ namespace ResponseEmergencySystem.Forms
             AddIncidentDetails AddIncidentDetails = new AddIncidentDetails();
             AddIncidentDetails.ShowDialog();
         }
+
+        private void btn_Comments_Click(object sender, EventArgs e)
+        {
+            AddComments addComments = new AddComments();
+            addComments.ShowDialog();
+        }
     }
 }

@@ -64,8 +64,9 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl1.Controls.Add(this.labelControl1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(629, 44);
+            this.panelControl1.Size = new System.Drawing.Size(734, 58);
             this.panelControl1.TabIndex = 1;
             // 
             // labelControl1
@@ -75,7 +76,8 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl1.Appearance.Options.UseTextOptions = true;
             this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.labelControl1.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.labelControl1.Location = new System.Drawing.Point(61, 12);
+            this.labelControl1.Location = new System.Drawing.Point(71, 16);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(516, 15);
             this.labelControl1.TabIndex = 2;
@@ -87,20 +89,23 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl2.Controls.Add(this.gc_Drivers);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl2.Location = new System.Drawing.Point(0, 44);
+            this.panelControl2.Location = new System.Drawing.Point(0, 58);
+            this.panelControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(629, 245);
+            this.panelControl2.Size = new System.Drawing.Size(734, 320);
             this.panelControl2.TabIndex = 2;
             // 
             // gc_Drivers
             // 
             this.gc_Drivers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gc_Drivers.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gc_Drivers.Location = new System.Drawing.Point(0, 0);
             this.gc_Drivers.MainView = this.gv_Drivers;
+            this.gc_Drivers.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gc_Drivers.Name = "gc_Drivers";
             this.gc_Drivers.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btn_approved});
-            this.gc_Drivers.Size = new System.Drawing.Size(629, 245);
+            this.gc_Drivers.Size = new System.Drawing.Size(734, 320);
             this.gc_Drivers.TabIndex = 1;
             this.gc_Drivers.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_Drivers});
@@ -115,6 +120,7 @@ namespace ResponseEmergencySystem.Forms
             this.col_ExpeditionState,
             this.col_ExpirationDate,
             this.col_Approved});
+            this.gv_Drivers.DetailHeight = 458;
             this.gv_Drivers.GridControl = this.gc_Drivers;
             this.gv_Drivers.Name = "gv_Drivers";
             this.gv_Drivers.OptionsView.ShowGroupPanel = false;
@@ -123,74 +129,82 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.col_DriverName.Caption = "Name";
             this.col_DriverName.FieldName = "driverName";
+            this.col_DriverName.MinWidth = 23;
             this.col_DriverName.Name = "col_DriverName";
             this.col_DriverName.OptionsColumn.AllowEdit = false;
             this.col_DriverName.Visible = true;
             this.col_DriverName.VisibleIndex = 0;
-            this.col_DriverName.Width = 94;
+            this.col_DriverName.Width = 110;
             // 
             // col_LastName
             // 
             this.col_LastName.Caption = "Last Name";
             this.col_LastName.FieldName = "pat_surname";
+            this.col_LastName.MinWidth = 23;
             this.col_LastName.Name = "col_LastName";
             this.col_LastName.OptionsColumn.AllowEdit = false;
             this.col_LastName.Visible = true;
             this.col_LastName.VisibleIndex = 1;
-            this.col_LastName.Width = 94;
+            this.col_LastName.Width = 110;
             // 
             // col_PhoneNumber
             // 
             this.col_PhoneNumber.Caption = "phone number";
             this.col_PhoneNumber.FieldName = "phone_number";
+            this.col_PhoneNumber.MinWidth = 23;
             this.col_PhoneNumber.Name = "col_PhoneNumber";
             this.col_PhoneNumber.OptionsColumn.AllowEdit = false;
             this.col_PhoneNumber.Visible = true;
             this.col_PhoneNumber.VisibleIndex = 3;
-            this.col_PhoneNumber.Width = 94;
+            this.col_PhoneNumber.Width = 110;
             // 
             // col_License
             // 
             this.col_License.Caption = "License";
             this.col_License.FieldName = "License";
+            this.col_License.MinWidth = 23;
             this.col_License.Name = "col_License";
             this.col_License.OptionsColumn.AllowEdit = false;
             this.col_License.Visible = true;
             this.col_License.VisibleIndex = 2;
-            this.col_License.Width = 105;
+            this.col_License.Width = 122;
             // 
             // col_ExpeditionState
             // 
             this.col_ExpeditionState.Caption = "Expedition State";
             this.col_ExpeditionState.FieldName = "state_name";
+            this.col_ExpeditionState.MinWidth = 23;
             this.col_ExpeditionState.Name = "col_ExpeditionState";
             this.col_ExpeditionState.OptionsColumn.AllowEdit = false;
             this.col_ExpeditionState.Visible = true;
             this.col_ExpeditionState.VisibleIndex = 4;
-            this.col_ExpeditionState.Width = 90;
+            this.col_ExpeditionState.Width = 105;
             // 
             // col_ExpirationDate
             // 
             this.col_ExpirationDate.Caption = "Expiration Date";
             this.col_ExpirationDate.FieldName = "Expiration_Date";
+            this.col_ExpirationDate.MinWidth = 23;
             this.col_ExpirationDate.Name = "col_ExpirationDate";
             this.col_ExpirationDate.OptionsColumn.AllowEdit = false;
             this.col_ExpirationDate.Visible = true;
             this.col_ExpirationDate.VisibleIndex = 5;
-            this.col_ExpirationDate.Width = 95;
+            this.col_ExpirationDate.Width = 111;
             // 
             // col_Approved
             // 
             this.col_Approved.ColumnEdit = this.btn_approved;
+            this.col_Approved.MinWidth = 23;
             this.col_Approved.Name = "col_Approved";
             this.col_Approved.Visible = true;
             this.col_Approved.VisibleIndex = 6;
-            this.col_Approved.Width = 39;
+            this.col_Approved.Width = 45;
             // 
             // btn_approved
             // 
             this.btn_approved.AutoHeight = false;
-            editorButtonImageOptions1.Image = global::ResponseEmergencySystem.Properties.Resources.apply_16x16;
+            editorButtonImageOptions1.SvgImage = global::ResponseEmergencySystem.Properties.Resources.checkGreen;
+            editorButtonImageOptions1.SvgImageSize = new System.Drawing.Size(20, 20);
             this.btn_approved.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btn_approved.Name = "btn_approved";
@@ -201,19 +215,21 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl3.Location = new System.Drawing.Point(0, 289);
+            this.panelControl3.Location = new System.Drawing.Point(0, 378);
+            this.panelControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(629, 70);
+            this.panelControl3.Size = new System.Drawing.Size(734, 92);
             this.panelControl3.TabIndex = 3;
             // 
             // frm_DriverSearchList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(629, 359);
+            this.ClientSize = new System.Drawing.Size(734, 469);
             this.Controls.Add(this.panelControl3);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frm_DriverSearchList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_DriverSearchList";
