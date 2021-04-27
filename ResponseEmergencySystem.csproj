@@ -347,39 +347,6 @@
     <Compile Include="Connection\Connection.cs" />
     <Compile Include="Controllers\IncidentController.cs" />
     <Compile Include="Controllers\IIncidentsView.cs" />
-    <Compile Include="Entity Framework\Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity Framework\Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity Framework\Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Entity Framework\sirem.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>sirem.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity Framework\sirem.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>sirem.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity Framework\sirem.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>sirem.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Entity Framework\sysdiagram.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Forms\frm_DriverSearchList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -546,7 +513,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Entity Framework\" />
+    <Folder Include="NewFolder1\" />
     <Folder Include="SQL Queries\" />
   </ItemGroup>
   <ItemGroup>
