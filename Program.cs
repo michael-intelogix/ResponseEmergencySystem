@@ -1,4 +1,7 @@
-﻿using System;
+﻿using ResponseEmergencySystem.Controllers;
+using ResponseEmergencySystem.Forms;
+using ResponseEmergencySystem.Services;
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Configuration;
@@ -16,10 +19,16 @@ namespace ResponseEmergencySystem
         [STAThread]
         static void Main()
         {
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Forms.Main2());
+            //Application.Run(new Main2());
+
+            Main2 mainView = new Main2();
+            MainController mainCtrl = new MainController(mainView, CaptureService.list_Captures(), IncidentService.list_Incidents("", "", "", "", ""));
+            mainCtrl.LoadData();
+
+
+            Application.Run(mainView);
         }
     }
 }

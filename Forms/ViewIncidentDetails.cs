@@ -2,6 +2,7 @@
 using ResponseEmergencySystem.Code;
 using ResponseEmergencySystem.Services;
 using ResponseEmergencySystem.Models;
+using ResponseEmergencySystem.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,6 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ResponseEmergencySystem.Controllers;
 
 namespace ResponseEmergencySystem.Forms
 {
@@ -20,34 +22,116 @@ namespace ResponseEmergencySystem.Forms
     {
         DataTable dt_InjuredPersons = new DataTable();
 
-        public ViewIncidentDetails(string incidentId)
+        public ViewIncidentDetails()
         {
             InitializeComponent();
-
-            addEmptyRow();
-            loadData(incidentId);
             
         }
 
+        IncidentController _controller;
+
         private void loadData(string incidentId)
         {
-       
-            Incident result = IncidentService.list_Incidents("", "", "", "", "", incidentId: incidentId)[0];
-            edt_FullName.EditValue = result.Name;
-            edt_PhoneNumber.EditValue = result.PhoneNumber;
-            edt_License.EditValue = result.driver.License;
-            dte_ExpirationDate.EditValue = result.driver.ExpirationDate;
-            lue_DriverLicenceState.EditValue = result.driver.ID_StateOfExpedition;
-            edt_TruckNumber.EditValue = result.truck.truckNumber;
-            edt_TrailerNumber.EditValue = result.trailer.TrailerNumber;
-            ckedt_truckDamages.Checked = result.TruckDamage;
-            ckedt_TruckCanMove.Checked = result.TruckCanMove;
-            ckedt_TruckNeedCrane.Checked = result.TruckNeedCrane;
-            ckedt_TrailerDamages.Checked = result.TruckDamage;
-            ckedt_TrailerCanMove.Checked = result.TruckCanMove;
-            ckedt_TrailerNeedCrane.Checked = result.TrailerNeedCrane;
-            ckedt_Spill.Checked = result.trailer.CargoSpill;
-            edt_Cargo.EditValue = result.trailer.Commodity;
+
+        }
+
+        public void SetController(IncidentController controller)
+        {
+            _controller = controller;
+        }
+        public void LoadIncident(Incident incident)
+        {
+            edt_FullName.EditValue = incident.Name;
+            edt_PhoneNumber.EditValue = incident.PhoneNumber;
+            edt_License.EditValue = incident.driver.License;
+            dte_ExpirationDate.EditValue = incident.driver.ExpirationDate;
+            lue_DriverLicenceState.EditValue = incident.driver.ID_StateOfExpedition;
+            edt_TruckNumber.EditValue = incident.truck.truckNumber;
+            edt_TrailerNumber.EditValue = incident.trailer.TrailerNumber;
+            ckedt_truckDamages.Checked = incident.TruckDamage;
+            ckedt_TruckCanMove.Checked = incident.TruckCanMove;
+            ckedt_TruckNeedCrane.Checked = incident.TruckNeedCrane;
+            ckedt_TrailerDamages.Checked = incident.TruckDamage;
+            ckedt_TrailerCanMove.Checked = incident.TruckCanMove;
+            ckedt_TrailerNeedCrane.Checked = incident.TrailerNeedCrane;
+            ckedt_Spill.Checked = incident.trailer.CargoSpill;
+            edt_Cargo.EditValue = incident.trailer.Commodity;
+
+            #region Accident Details
+            dte_IncidentDate.EditValue = incident.IncidentDate.Date;
+            tme_Incident.EditValue = incident.IncidentDate.ToString("hh:mm:ss tt");
+            ckedt_PoliceReport.EditValue = incident.PoliceReport;
+            edt_PoliceReport.EditValue = incident.CitationReportNumber;
+            edt_Latitude.EditValue = incident.IncidentLatitude;
+            edt_Longitude.EditValue = incident.IncidentLongitude;
+            edt_Highway.EditValue = incident.LocationReferences;
+            #endregion
+        }
+        public void LoadStates(DataTable dt_States) 
+        {
+            lue_DriverLicenceState.Properties.DataSource = dt_States;
+        }
+        public void LoadCities(DataTable dt_Cities)
+        {
+
+        }
+        public void LoadInjuredPersons(DataTable dt_InjuredPersons)
+        {
+            gc_InjuredPersons.DataSource = dt_InjuredPersons;
+        }
+
+        public string FullName
+        {
+            get { return edt_FullName.EditValue.ToString(); }
+            set { edt_FullName.EditValue = value; }
+        }
+
+        public string PhoneNumber
+        {
+            get { return edt_FullName.EditValue.ToString(); }
+            set { edt_FullName.EditValue = value; }
+        }
+
+        public string License
+        {
+            get { return edt_FullName.EditValue.ToString(); }
+            set { edt_FullName.EditValue = value; }
+        }
+
+        public string ExpirationDate
+        {
+            get { return edt_FullName.EditValue.ToString(); }
+            set { edt_FullName.EditValue = value; }
+        }
+
+        public string LicenseState
+        {
+            get { return edt_FullName.EditValue.ToString(); }
+            set { edt_FullName.EditValue = value; }
+        }
+
+        public string LocationReferences
+        {
+            get { return edt_FullName.EditValue.ToString(); }
+            set { edt_FullName.EditValue = value; }
+        }
+
+        public string TruckNumber
+        {
+            get { return edt_FullName.EditValue.ToString(); }
+            set { edt_FullName.EditValue = value; }
+        }
+
+        public bool TruckDamages
+        {
+            get { return (bool)ckedt_PoliceReport.EditValue; }
+            set { ckedt_PoliceReport.EditValue = value; }
+        }
+
+        public bool TruckCanMove
+        {
+            get { return (bool)ckedt_PoliceReport.EditValue; }
+            set { ckedt_PoliceReport.EditValue = value; }
         }
 
         public bool TruckNeedCrane 

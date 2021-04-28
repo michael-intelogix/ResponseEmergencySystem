@@ -86,8 +86,8 @@ namespace ResponseEmergencySystem.Forms
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gc_Incidents = new DevExpress.XtraGrid.GridControl();
+            this.gv_Incidents = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.Date = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -178,8 +178,8 @@ namespace ResponseEmergencySystem.Forms
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
             this.layoutControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gc_Incidents)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gv_Incidents)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_View2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Edit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
@@ -468,7 +468,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             // layoutControl3
             // 
-            this.layoutControl3.Controls.Add(this.gridControl1);
+            this.layoutControl3.Controls.Add(this.gc_Incidents);
             this.layoutControl3.Controls.Add(this.labelControl3);
             this.layoutControl3.Controls.Add(this.btn_NewIncidnetEntry);
             this.layoutControl3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -479,36 +479,38 @@ namespace ResponseEmergencySystem.Forms
             this.layoutControl3.TabIndex = 0;
             this.layoutControl3.Text = "layoutControl3";
             // 
-            // gridControl1
+            // gc_Incidents
             // 
-            this.gridControl1.Location = new System.Drawing.Point(12, 65);
-            this.gridControl1.MainView = this.gridView4;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.gc_Incidents.Location = new System.Drawing.Point(12, 65);
+            this.gc_Incidents.MainView = this.gv_Incidents;
+            this.gc_Incidents.Name = "gc_Incidents";
+            this.gc_Incidents.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btn_View2,
             this.btn_Edit2});
-            this.gridControl1.Size = new System.Drawing.Size(843, 742);
-            this.gridControl1.TabIndex = 6;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView4});
+            this.gc_Incidents.Size = new System.Drawing.Size(843, 742);
+            this.gc_Incidents.TabIndex = 6;
+            this.gc_Incidents.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gv_Incidents});
             // 
-            // gridView4
+            // gv_Incidents
             // 
-            this.gridView4.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gv_Incidents.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.Date,
             this.gridColumn5,
             this.gridColumn6,
             this.gridColumn7,
             this.gridColumn8,
             this.gridColumn9});
-            this.gridView4.GridControl = this.gridControl1;
-            this.gridView4.Name = "gridView4";
-            this.gridView4.OptionsView.ShowGroupPanel = false;
+            this.gv_Incidents.GridControl = this.gc_Incidents;
+            this.gv_Incidents.Name = "gv_Incidents";
+            this.gv_Incidents.OptionsView.ShowGroupPanel = false;
+            this.gv_Incidents.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gv_Incidents_RowClick);
             // 
             // Date
             // 
-            this.Date.FieldName = "Date";
+            this.Date.FieldName = "IncidentDate";
             this.Date.Name = "Date";
+            this.Date.OptionsColumn.AllowEdit = false;
             this.Date.Visible = true;
             this.Date.VisibleIndex = 0;
             this.Date.Width = 140;
@@ -517,22 +519,25 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.gridColumn5.FieldName = "Folio";
             this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.OptionsColumn.AllowEdit = false;
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 1;
             this.gridColumn5.Width = 140;
             // 
             // gridColumn6
             // 
-            this.gridColumn6.FieldName = "Driver";
+            this.gridColumn6.FieldName = "Name";
             this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.OptionsColumn.AllowEdit = false;
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 2;
             this.gridColumn6.Width = 140;
             // 
             // gridColumn7
             // 
-            this.gridColumn7.FieldName = "Truck number";
+            this.gridColumn7.FieldName = "truckNumber";
             this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.OptionsColumn.AllowEdit = false;
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 3;
             this.gridColumn7.Width = 317;
@@ -562,6 +567,7 @@ namespace ResponseEmergencySystem.Forms
             this.gridColumn9.ColumnEdit = this.btn_Edit2;
             this.gridColumn9.FieldName = "Edit";
             this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.OptionsColumn.AllowEdit = false;
             this.gridColumn9.Visible = true;
             this.gridColumn9.VisibleIndex = 5;
             this.gridColumn9.Width = 45;
@@ -637,7 +643,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             // layoutControlItem17
             // 
-            this.layoutControlItem17.Control = this.gridControl1;
+            this.layoutControlItem17.Control = this.gc_Incidents;
             this.layoutControlItem17.Location = new System.Drawing.Point(0, 53);
             this.layoutControlItem17.Name = "layoutControlItem17";
             this.layoutControlItem17.Size = new System.Drawing.Size(847, 746);
@@ -1116,6 +1122,7 @@ namespace ResponseEmergencySystem.Forms
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main2";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Main2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
@@ -1146,8 +1153,8 @@ namespace ResponseEmergencySystem.Forms
             this.splitContainerControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).EndInit();
             this.layoutControl3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gc_Incidents)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gv_Incidents)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_View2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Edit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
@@ -1236,8 +1243,8 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraLayout.LayoutControl layoutControl3;
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView4;
+        private DevExpress.XtraGrid.GridControl gc_Incidents;
+        private DevExpress.XtraGrid.Views.Grid.GridView gv_Incidents;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.SimpleButton btn_NewIncidnetEntry;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;

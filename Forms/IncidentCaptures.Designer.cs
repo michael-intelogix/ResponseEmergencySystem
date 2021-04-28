@@ -188,6 +188,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -198,8 +199,9 @@ namespace ResponseEmergencySystem.Forms
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupControl5);
-            this.splitContainer1.Size = new System.Drawing.Size(1382, 720);
-            this.splitContainer1.SplitterDistance = 881;
+            this.splitContainer1.Size = new System.Drawing.Size(1612, 942);
+            this.splitContainer1.SplitterDistance = 1027;
+            this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 23;
             // 
             // panelControl6
@@ -208,9 +210,10 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl6.Controls.Add(this.pnl_ListCaptures);
             this.panelControl6.Controls.Add(this.panelControl3);
             this.panelControl6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl6.Location = new System.Drawing.Point(0, 231);
+            this.panelControl6.Location = new System.Drawing.Point(0, 302);
+            this.panelControl6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelControl6.Name = "panelControl6";
-            this.panelControl6.Size = new System.Drawing.Size(881, 489);
+            this.panelControl6.Size = new System.Drawing.Size(1027, 640);
             this.panelControl6.TabIndex = 9;
             // 
             // pnl_ShowImage
@@ -220,9 +223,10 @@ namespace ResponseEmergencySystem.Forms
             this.pnl_ShowImage.Controls.Add(this.simpleButton1);
             this.pnl_ShowImage.Controls.Add(this.panelControl2);
             this.pnl_ShowImage.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnl_ShowImage.Location = new System.Drawing.Point(2, 152);
+            this.pnl_ShowImage.Location = new System.Drawing.Point(2, 329);
+            this.pnl_ShowImage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnl_ShowImage.Name = "pnl_ShowImage";
-            this.pnl_ShowImage.Size = new System.Drawing.Size(877, 335);
+            this.pnl_ShowImage.Size = new System.Drawing.Size(1023, 309);
             this.pnl_ShowImage.TabIndex = 2;
             this.pnl_ShowImage.Visible = false;
             // 
@@ -230,14 +234,16 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.xtraScrollableControl1.Controls.Add(this.imageBox);
             this.xtraScrollableControl1.FireScrollEventOnMouseWheel = true;
-            this.xtraScrollableControl1.Location = new System.Drawing.Point(230, 47);
+            this.xtraScrollableControl1.Location = new System.Drawing.Point(268, 61);
+            this.xtraScrollableControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.xtraScrollableControl1.Name = "xtraScrollableControl1";
-            this.xtraScrollableControl1.Size = new System.Drawing.Size(328, 285);
+            this.xtraScrollableControl1.Size = new System.Drawing.Size(383, 373);
             this.xtraScrollableControl1.TabIndex = 4;
             // 
             // imageBox
             // 
-            this.imageBox.Location = new System.Drawing.Point(27, 6);
+            this.imageBox.Location = new System.Drawing.Point(31, 8);
+            this.imageBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.imageBox.Name = "imageBox";
             this.imageBox.Size = new System.Drawing.Size(275, 272);
             this.imageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -246,9 +252,10 @@ namespace ResponseEmergencySystem.Forms
             // 
             // simpleButton1
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(624, 160);
+            this.simpleButton1.Location = new System.Drawing.Point(728, 209);
+            this.simpleButton1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(75, 23);
+            this.simpleButton1.Size = new System.Drawing.Size(87, 30);
             this.simpleButton1.TabIndex = 0;
             this.simpleButton1.Text = "simpleButton1";
             this.simpleButton1.Visible = false;
@@ -261,8 +268,9 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl2.Controls.Add(this.simpleButton3);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(0, 0);
+            this.panelControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(877, 43);
+            this.panelControl2.Size = new System.Drawing.Size(1023, 56);
             this.panelControl2.TabIndex = 2;
             // 
             // pnl_Zoom
@@ -271,18 +279,20 @@ namespace ResponseEmergencySystem.Forms
             this.pnl_Zoom.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.pnl_Zoom.Controls.Add(this.simpleButton5);
             this.pnl_Zoom.Controls.Add(this.simpleButton4);
-            this.pnl_Zoom.Location = new System.Drawing.Point(812, 3);
+            this.pnl_Zoom.Location = new System.Drawing.Point(947, 4);
+            this.pnl_Zoom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnl_Zoom.Name = "pnl_Zoom";
-            this.pnl_Zoom.Size = new System.Drawing.Size(62, 37);
+            this.pnl_Zoom.Size = new System.Drawing.Size(72, 48);
             this.pnl_Zoom.TabIndex = 6;
             this.pnl_Zoom.Visible = false;
             // 
             // simpleButton5
             // 
             this.simpleButton5.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.zoomin_16x161;
-            this.simpleButton5.Location = new System.Drawing.Point(3, 7);
+            this.simpleButton5.Location = new System.Drawing.Point(3, 9);
+            this.simpleButton5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.simpleButton5.Name = "simpleButton5";
-            this.simpleButton5.Size = new System.Drawing.Size(24, 22);
+            this.simpleButton5.Size = new System.Drawing.Size(28, 29);
             this.simpleButton5.TabIndex = 1;
             this.simpleButton5.Click += new System.EventHandler(this.zoomOut);
             // 
@@ -290,25 +300,28 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.simpleButton4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton4.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.zoomout_16x16;
-            this.simpleButton4.Location = new System.Drawing.Point(34, 7);
+            this.simpleButton4.Location = new System.Drawing.Point(40, 9);
+            this.simpleButton4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(24, 22);
+            this.simpleButton4.Size = new System.Drawing.Size(28, 29);
             this.simpleButton4.TabIndex = 0;
             this.simpleButton4.Click += new System.EventHandler(this.zoomIn);
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(358, 15);
+            this.labelControl4.Location = new System.Drawing.Point(418, 20);
+            this.labelControl4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(59, 13);
+            this.labelControl4.Size = new System.Drawing.Size(75, 17);
             this.labelControl4.TabIndex = 7;
             this.labelControl4.Text = "Show Image";
             // 
             // simpleButton3
             // 
-            this.simpleButton3.Location = new System.Drawing.Point(8, 10);
+            this.simpleButton3.Location = new System.Drawing.Point(9, 13);
+            this.simpleButton3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(169, 23);
+            this.simpleButton3.Size = new System.Drawing.Size(197, 30);
             this.simpleButton3.TabIndex = 2;
             this.simpleButton3.Text = "simpleButton3";
             this.simpleButton3.Visible = false;
@@ -319,20 +332,22 @@ namespace ResponseEmergencySystem.Forms
             this.pnl_ListCaptures.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.pnl_ListCaptures.Controls.Add(this.gc_Images);
             this.pnl_ListCaptures.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnl_ListCaptures.Location = new System.Drawing.Point(2, 39);
+            this.pnl_ListCaptures.Location = new System.Drawing.Point(2, 50);
+            this.pnl_ListCaptures.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnl_ListCaptures.Name = "pnl_ListCaptures";
-            this.pnl_ListCaptures.Size = new System.Drawing.Size(877, 448);
+            this.pnl_ListCaptures.Size = new System.Drawing.Size(1023, 588);
             this.pnl_ListCaptures.TabIndex = 2;
             // 
             // gc_Images
             // 
-            this.gc_Images.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gc_Images.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gc_Images.Location = new System.Drawing.Point(0, 0);
             this.gc_Images.MainView = this.gv_Images;
+            this.gc_Images.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gc_Images.Name = "gc_Images";
             this.gc_Images.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btn_UploadImage});
-            this.gc_Images.Size = new System.Drawing.Size(877, 448);
+            this.gc_Images.Size = new System.Drawing.Size(1023, 275);
             this.gc_Images.TabIndex = 1;
             this.gc_Images.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_Images});
@@ -349,6 +364,7 @@ namespace ResponseEmergencySystem.Forms
             this.colStatusDetail1,
             this.colStatus1,
             this.col_UploadImage});
+            this.gv_Images.DetailHeight = 458;
             this.gv_Images.GridControl = this.gc_Images;
             this.gv_Images.Name = "gv_Images";
             this.gv_Images.OptionsView.ShowGroupPanel = false;
@@ -356,61 +372,79 @@ namespace ResponseEmergencySystem.Forms
             // colID_Image
             // 
             this.colID_Image.FieldName = "ID_Image";
+            this.colID_Image.MinWidth = 23;
             this.colID_Image.Name = "colID_Image";
+            this.colID_Image.Width = 87;
             // 
             // colID_Capture1
             // 
             this.colID_Capture1.FieldName = "ID_Capture";
+            this.colID_Capture1.MinWidth = 23;
             this.colID_Capture1.Name = "colID_Capture1";
+            this.colID_Capture1.Width = 87;
             // 
             // colID_ImageType
             // 
             this.colID_ImageType.FieldName = "ID_ImageType";
+            this.colID_ImageType.MinWidth = 23;
             this.colID_ImageType.Name = "colID_ImageType";
+            this.colID_ImageType.Width = 87;
             // 
             // colImageTitle
             // 
             this.colImageTitle.FieldName = "name";
+            this.colImageTitle.MinWidth = 23;
             this.colImageTitle.Name = "colImageTitle";
             this.colImageTitle.OptionsColumn.AllowEdit = false;
             this.colImageTitle.Visible = true;
             this.colImageTitle.VisibleIndex = 0;
+            this.colImageTitle.Width = 87;
             // 
             // colImagePath
             // 
             this.colImagePath.FieldName = "ImagePath";
+            this.colImagePath.MinWidth = 23;
             this.colImagePath.Name = "colImagePath";
             this.colImagePath.OptionsColumn.AllowEdit = false;
+            this.colImagePath.Width = 87;
             // 
             // colComments
             // 
             this.colComments.FieldName = "Comments";
+            this.colComments.MinWidth = 23;
             this.colComments.Name = "colComments";
             this.colComments.OptionsColumn.AllowEdit = false;
             this.colComments.Visible = true;
             this.colComments.VisibleIndex = 1;
+            this.colComments.Width = 87;
             // 
             // colStatusDetail1
             // 
             this.colStatusDetail1.ColumnEdit = this.lue_StatusDetail;
             this.colStatusDetail1.FieldName = "StatusDetail";
+            this.colStatusDetail1.MinWidth = 23;
             this.colStatusDetail1.Name = "colStatusDetail1";
             this.colStatusDetail1.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowAlways;
+            this.colStatusDetail1.Width = 87;
             // 
             // colStatus1
             // 
             this.colStatus1.FieldName = "Status";
+            this.colStatus1.MinWidth = 23;
             this.colStatus1.Name = "colStatus1";
             this.colStatus1.OptionsColumn.AllowEdit = false;
             this.colStatus1.Visible = true;
             this.colStatus1.VisibleIndex = 2;
+            this.colStatus1.Width = 87;
             // 
             // col_UploadImage
             // 
             this.col_UploadImage.ColumnEdit = this.btn_UploadImage;
+            this.col_UploadImage.MinWidth = 23;
             this.col_UploadImage.Name = "col_UploadImage";
             this.col_UploadImage.Visible = true;
             this.col_UploadImage.VisibleIndex = 3;
+            this.col_UploadImage.Width = 87;
             // 
             // btn_UploadImage
             // 
@@ -430,15 +464,17 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl3.Controls.Add(this.pnl_Uploading);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl3.Location = new System.Drawing.Point(2, 2);
+            this.panelControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(877, 37);
+            this.panelControl3.Size = new System.Drawing.Size(1023, 48);
             this.panelControl3.TabIndex = 3;
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(354, 10);
+            this.labelControl3.Location = new System.Drawing.Point(413, 13);
+            this.labelControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(65, 13);
+            this.labelControl3.Size = new System.Drawing.Size(83, 17);
             this.labelControl3.TabIndex = 6;
             this.labelControl3.Text = "List of images";
             // 
@@ -447,9 +483,10 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl4.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl4.Controls.Add(this.simpleButton2);
             this.panelControl4.Controls.Add(this.labelControl1);
-            this.panelControl4.Location = new System.Drawing.Point(3, 3);
+            this.panelControl4.Location = new System.Drawing.Point(3, 4);
+            this.panelControl4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(117, 31);
+            this.panelControl4.Size = new System.Drawing.Size(136, 41);
             this.panelControl4.TabIndex = 5;
             this.panelControl4.Visible = false;
             // 
@@ -457,16 +494,18 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.simpleButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton2.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.add_16x16;
-            this.simpleButton2.Location = new System.Drawing.Point(90, 3);
+            this.simpleButton2.Location = new System.Drawing.Point(105, 4);
+            this.simpleButton2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(24, 22);
+            this.simpleButton2.Size = new System.Drawing.Size(28, 29);
             this.simpleButton2.TabIndex = 0;
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(3, 7);
+            this.labelControl1.Location = new System.Drawing.Point(3, 9);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(82, 13);
+            this.labelControl1.Size = new System.Drawing.Size(108, 17);
             this.labelControl1.TabIndex = 1;
             this.labelControl1.Text = "Add more images";
             // 
@@ -476,26 +515,29 @@ namespace ResponseEmergencySystem.Forms
             this.pnl_Uploading.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.pnl_Uploading.Controls.Add(this.labelControl2);
             this.pnl_Uploading.Controls.Add(this.progressBarControl1);
-            this.pnl_Uploading.Location = new System.Drawing.Point(594, 3);
+            this.pnl_Uploading.Location = new System.Drawing.Point(693, 4);
+            this.pnl_Uploading.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnl_Uploading.Name = "pnl_Uploading";
-            this.pnl_Uploading.Size = new System.Drawing.Size(274, 31);
+            this.pnl_Uploading.Size = new System.Drawing.Size(320, 41);
             this.pnl_Uploading.TabIndex = 2;
             this.pnl_Uploading.Visible = false;
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(5, 6);
+            this.labelControl2.Location = new System.Drawing.Point(6, 8);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(83, 13);
+            this.labelControl2.Size = new System.Drawing.Size(109, 17);
             this.labelControl2.TabIndex = 4;
             this.labelControl2.Text = "Uploading  Image";
             // 
             // progressBarControl1
             // 
             this.progressBarControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBarControl1.Location = new System.Drawing.Point(100, 5);
+            this.progressBarControl1.Location = new System.Drawing.Point(117, 7);
+            this.progressBarControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.progressBarControl1.Name = "progressBarControl1";
-            this.progressBarControl1.Size = new System.Drawing.Size(169, 18);
+            this.progressBarControl1.Size = new System.Drawing.Size(197, 24);
             this.progressBarControl1.TabIndex = 3;
             // 
             // pnl_Captures
@@ -507,8 +549,9 @@ namespace ResponseEmergencySystem.Forms
             this.pnl_Captures.Controls.Add(this.pnl_CapturesHeader);
             this.pnl_Captures.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_Captures.Location = new System.Drawing.Point(0, 0);
+            this.pnl_Captures.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnl_Captures.Name = "pnl_Captures";
-            this.pnl_Captures.Size = new System.Drawing.Size(881, 231);
+            this.pnl_Captures.Size = new System.Drawing.Size(1027, 302);
             this.pnl_Captures.TabIndex = 5;
             // 
             // pnl_CapturesContent
@@ -516,23 +559,26 @@ namespace ResponseEmergencySystem.Forms
             this.pnl_CapturesContent.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.pnl_CapturesContent.Controls.Add(this.gc_Captures);
             this.pnl_CapturesContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnl_CapturesContent.Location = new System.Drawing.Point(0, 38);
+            this.pnl_CapturesContent.Location = new System.Drawing.Point(0, 50);
+            this.pnl_CapturesContent.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnl_CapturesContent.Name = "pnl_CapturesContent";
-            this.pnl_CapturesContent.Size = new System.Drawing.Size(881, 193);
+            this.pnl_CapturesContent.Size = new System.Drawing.Size(1027, 252);
             this.pnl_CapturesContent.TabIndex = 6;
             // 
             // gc_Captures
             // 
             this.gc_Captures.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gc_Captures.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gc_Captures.Location = new System.Drawing.Point(0, 0);
             this.gc_Captures.MainView = this.gv_Captures;
+            this.gc_Captures.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gc_Captures.Name = "gc_Captures";
             this.gc_Captures.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.lue_Types,
             this.dte_CaptureDate,
             this.btn_ShowCaptures,
             this.btn_DeleteCapture});
-            this.gc_Captures.Size = new System.Drawing.Size(881, 193);
+            this.gc_Captures.Size = new System.Drawing.Size(1027, 252);
             this.gc_Captures.TabIndex = 6;
             this.gc_Captures.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_Captures});
@@ -546,6 +592,7 @@ namespace ResponseEmergencySystem.Forms
             this.comments,
             this.col_ListOfCaptures,
             this.col_DeleteCapture});
+            this.gv_Captures.DetailHeight = 458;
             this.gv_Captures.GridControl = this.gc_Captures;
             this.gv_Captures.Name = "gv_Captures";
             this.gv_Captures.OptionsView.ShowGroupPanel = false;
@@ -553,7 +600,9 @@ namespace ResponseEmergencySystem.Forms
             // ID_Incident
             // 
             this.ID_Incident.FieldName = "ID_Incident";
+            this.ID_Incident.MinWidth = 23;
             this.ID_Incident.Name = "ID_Incident";
+            this.ID_Incident.Width = 87;
             // 
             // col_CaptureType
             // 
@@ -561,11 +610,12 @@ namespace ResponseEmergencySystem.Forms
             this.col_CaptureType.ColumnEdit = this.lue_Types;
             this.col_CaptureType.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.col_CaptureType.FieldName = "CaptureType";
+            this.col_CaptureType.MinWidth = 23;
             this.col_CaptureType.Name = "col_CaptureType";
             this.col_CaptureType.OptionsColumn.AllowEdit = false;
             this.col_CaptureType.Visible = true;
             this.col_CaptureType.VisibleIndex = 0;
-            this.col_CaptureType.Width = 232;
+            this.col_CaptureType.Width = 271;
             // 
             // lue_Types
             // 
@@ -573,8 +623,8 @@ namespace ResponseEmergencySystem.Forms
             this.lue_Types.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lue_Types.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID_CaptureType", "ID_CaptureType", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("captureType", "Capture Type")});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID_CaptureType", "ID_CaptureType", 23, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("captureType", "Capture Type", 23, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
             this.lue_Types.DisplayMember = "captureType";
             this.lue_Types.Name = "lue_Types";
             this.lue_Types.NullText = "";
@@ -583,27 +633,30 @@ namespace ResponseEmergencySystem.Forms
             // col_Captures
             // 
             this.col_Captures.Caption = "captures registered";
+            this.col_Captures.MinWidth = 23;
             this.col_Captures.Name = "col_Captures";
             this.col_Captures.OptionsColumn.AllowEdit = false;
             this.col_Captures.Visible = true;
             this.col_Captures.VisibleIndex = 1;
-            this.col_Captures.Width = 232;
+            this.col_Captures.Width = 271;
             // 
             // comments
             // 
             this.comments.Caption = "comments";
+            this.comments.MinWidth = 23;
             this.comments.Name = "comments";
             this.comments.Visible = true;
             this.comments.VisibleIndex = 2;
-            this.comments.Width = 232;
+            this.comments.Width = 271;
             // 
             // col_ListOfCaptures
             // 
             this.col_ListOfCaptures.ColumnEdit = this.btn_ShowCaptures;
+            this.col_ListOfCaptures.MinWidth = 23;
             this.col_ListOfCaptures.Name = "col_ListOfCaptures";
             this.col_ListOfCaptures.Visible = true;
             this.col_ListOfCaptures.VisibleIndex = 3;
-            this.col_ListOfCaptures.Width = 48;
+            this.col_ListOfCaptures.Width = 56;
             // 
             // btn_ShowCaptures
             // 
@@ -618,10 +671,11 @@ namespace ResponseEmergencySystem.Forms
             // col_DeleteCapture
             // 
             this.col_DeleteCapture.ColumnEdit = this.btn_DeleteCapture;
+            this.col_DeleteCapture.MinWidth = 23;
             this.col_DeleteCapture.Name = "col_DeleteCapture";
             this.col_DeleteCapture.Visible = true;
             this.col_DeleteCapture.VisibleIndex = 4;
-            this.col_DeleteCapture.Width = 30;
+            this.col_DeleteCapture.Width = 35;
             // 
             // btn_DeleteCapture
             // 
@@ -648,8 +702,9 @@ namespace ResponseEmergencySystem.Forms
             this.pnl_CapturesHeader.Controls.Add(this.panelControl8);
             this.pnl_CapturesHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_CapturesHeader.Location = new System.Drawing.Point(0, 0);
+            this.pnl_CapturesHeader.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnl_CapturesHeader.Name = "pnl_CapturesHeader";
-            this.pnl_CapturesHeader.Size = new System.Drawing.Size(881, 38);
+            this.pnl_CapturesHeader.Size = new System.Drawing.Size(1027, 50);
             this.pnl_CapturesHeader.TabIndex = 5;
             // 
             // panelControl8
@@ -662,15 +717,17 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl8.Controls.Add(this.panelControl10);
             this.panelControl8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl8.Location = new System.Drawing.Point(0, 0);
+            this.panelControl8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelControl8.Name = "panelControl8";
-            this.panelControl8.Size = new System.Drawing.Size(881, 38);
+            this.panelControl8.Size = new System.Drawing.Size(1027, 50);
             this.panelControl8.TabIndex = 9;
             // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(354, 10);
+            this.labelControl7.Location = new System.Drawing.Point(413, 13);
+            this.labelControl7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(74, 13);
+            this.labelControl7.Size = new System.Drawing.Size(92, 17);
             this.labelControl7.TabIndex = 6;
             this.labelControl7.Text = "List of captures";
             // 
@@ -679,26 +736,29 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl9.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl9.Controls.Add(this.btn_AddCaptures);
             this.panelControl9.Controls.Add(this.labelControl8);
-            this.panelControl9.Location = new System.Drawing.Point(3, 3);
+            this.panelControl9.Location = new System.Drawing.Point(3, 4);
+            this.panelControl9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelControl9.Name = "panelControl9";
-            this.panelControl9.Size = new System.Drawing.Size(130, 31);
+            this.panelControl9.Size = new System.Drawing.Size(152, 41);
             this.panelControl9.TabIndex = 5;
             // 
             // btn_AddCaptures
             // 
             this.btn_AddCaptures.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_AddCaptures.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.add_16x16;
-            this.btn_AddCaptures.Location = new System.Drawing.Point(103, 3);
+            this.btn_AddCaptures.Location = new System.Drawing.Point(120, 4);
+            this.btn_AddCaptures.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_AddCaptures.Name = "btn_AddCaptures";
-            this.btn_AddCaptures.Size = new System.Drawing.Size(24, 22);
+            this.btn_AddCaptures.Size = new System.Drawing.Size(28, 29);
             this.btn_AddCaptures.TabIndex = 0;
             this.btn_AddCaptures.Click += new System.EventHandler(this.btn_AddCaptureClick);
             // 
             // labelControl8
             // 
-            this.labelControl8.Location = new System.Drawing.Point(3, 7);
+            this.labelControl8.Location = new System.Drawing.Point(3, 9);
+            this.labelControl8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(91, 13);
+            this.labelControl8.Size = new System.Drawing.Size(117, 17);
             this.labelControl8.TabIndex = 1;
             this.labelControl8.Text = "Add more captures";
             // 
@@ -708,26 +768,29 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl10.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl10.Controls.Add(this.labelControl9);
             this.panelControl10.Controls.Add(this.progressBarControl3);
-            this.panelControl10.Location = new System.Drawing.Point(596, 3);
+            this.panelControl10.Location = new System.Drawing.Point(694, 4);
+            this.panelControl10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelControl10.Name = "panelControl10";
-            this.panelControl10.Size = new System.Drawing.Size(274, 31);
+            this.panelControl10.Size = new System.Drawing.Size(320, 41);
             this.panelControl10.TabIndex = 2;
             this.panelControl10.Visible = false;
             // 
             // labelControl9
             // 
-            this.labelControl9.Location = new System.Drawing.Point(5, 6);
+            this.labelControl9.Location = new System.Drawing.Point(6, 8);
+            this.labelControl9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(83, 13);
+            this.labelControl9.Size = new System.Drawing.Size(109, 17);
             this.labelControl9.TabIndex = 4;
             this.labelControl9.Text = "Uploading  Image";
             // 
             // progressBarControl3
             // 
             this.progressBarControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBarControl3.Location = new System.Drawing.Point(100, 5);
+            this.progressBarControl3.Location = new System.Drawing.Point(117, 7);
+            this.progressBarControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.progressBarControl3.Name = "progressBarControl3";
-            this.progressBarControl3.Size = new System.Drawing.Size(169, 18);
+            this.progressBarControl3.Size = new System.Drawing.Size(197, 24);
             this.progressBarControl3.TabIndex = 3;
             // 
             // groupControl5
@@ -736,8 +799,9 @@ namespace ResponseEmergencySystem.Forms
             this.groupControl5.Controls.Add(this.memoEdit_Chat);
             this.groupControl5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl5.Location = new System.Drawing.Point(0, 0);
+            this.groupControl5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupControl5.Name = "groupControl5";
-            this.groupControl5.Size = new System.Drawing.Size(497, 720);
+            this.groupControl5.Size = new System.Drawing.Size(580, 942);
             this.groupControl5.TabIndex = 2;
             this.groupControl5.Text = "CHAT";
             // 
@@ -746,23 +810,26 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl1.Controls.Add(this.edt_Message);
             this.panelControl1.Controls.Add(this.btn_Send);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl1.Location = new System.Drawing.Point(2, 682);
+            this.panelControl1.Location = new System.Drawing.Point(2, 893);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(493, 36);
+            this.panelControl1.Size = new System.Drawing.Size(576, 47);
             this.panelControl1.TabIndex = 5;
             // 
             // edt_Message
             // 
-            this.edt_Message.Location = new System.Drawing.Point(5, 10);
+            this.edt_Message.Location = new System.Drawing.Point(6, 13);
+            this.edt_Message.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.edt_Message.Name = "edt_Message";
-            this.edt_Message.Size = new System.Drawing.Size(393, 20);
+            this.edt_Message.Size = new System.Drawing.Size(458, 24);
             this.edt_Message.TabIndex = 1;
             // 
             // btn_Send
             // 
-            this.btn_Send.Location = new System.Drawing.Point(404, 8);
+            this.btn_Send.Location = new System.Drawing.Point(471, 10);
+            this.btn_Send.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_Send.Name = "btn_Send";
-            this.btn_Send.Size = new System.Drawing.Size(75, 23);
+            this.btn_Send.Size = new System.Drawing.Size(87, 30);
             this.btn_Send.TabIndex = 0;
             this.btn_Send.Text = "simpleButton2";
             this.btn_Send.Click += new System.EventHandler(this.btn_Send_Click);
@@ -772,9 +839,10 @@ namespace ResponseEmergencySystem.Forms
             this.memoEdit_Chat.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.memoEdit_Chat.Location = new System.Drawing.Point(7, 26);
+            this.memoEdit_Chat.Location = new System.Drawing.Point(8, 34);
+            this.memoEdit_Chat.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.memoEdit_Chat.Name = "memoEdit_Chat";
-            this.memoEdit_Chat.Size = new System.Drawing.Size(483, 650);
+            this.memoEdit_Chat.Size = new System.Drawing.Size(563, 850);
             this.memoEdit_Chat.TabIndex = 4;
             // 
             // accordionControlElement1
@@ -811,10 +879,11 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
             this.Appearance.Options.UseBackColor = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1382, 720);
+            this.ClientSize = new System.Drawing.Size(1612, 942);
             this.Controls.Add(this.splitContainer1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frm_Incident_Captures";
             this.Text = "Incident Captures";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

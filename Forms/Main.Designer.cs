@@ -457,24 +457,6 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton1.Text = "Create new Inicident Entry";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
-            // accordionControl1
-            // 
-            this.accordionControl1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.accordionControl1.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
-            this.accordionControlElement1});
-            this.accordionControl1.Location = new System.Drawing.Point(0, 31);
-            this.accordionControl1.Name = "accordionControl1";
-            this.accordionControl1.OptionsMinimizing.State = DevExpress.XtraBars.Navigation.AccordionControlState.Minimized;
-            this.accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
-            this.accordionControl1.Size = new System.Drawing.Size(48, 438);
-            this.accordionControl1.TabIndex = 1;
-            this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
-            // 
-            // accordionControlElement1
-            // 
-            this.accordionControlElement1.Name = "accordionControlElement1";
-            this.accordionControlElement1.Text = "Element1";
-            // 
             // fluentDesignFormControl1
             // 
             this.fluentDesignFormControl1.FluentDesignForm = this;
@@ -495,7 +477,6 @@ namespace ResponseEmergencySystem.Forms
             this.Controls.Add(this.fluentDesignFormControl1);
             this.FluentDesignFormControl = this.fluentDesignFormControl1;
             this.Name = "Main";
-            this.NavigationControl = this.accordionControl1;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Incidents";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

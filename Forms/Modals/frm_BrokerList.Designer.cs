@@ -38,6 +38,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.gc_Brokers = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gv_Brokers = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.col_Broker = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_State = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -63,6 +64,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gc_Brokers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_Brokers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_approved)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
@@ -113,18 +115,18 @@ namespace ResponseEmergencySystem.Forms.Modals
             // 
             // gc_Brokers
             // 
-            this.gc_Drivers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gc_Drivers.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gc_Drivers.Location = new System.Drawing.Point(0, 0);
-            this.gc_Drivers.MainView = this.gv_Drivers;
-            this.gc_Drivers.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gc_Drivers.Name = "gc_Drivers";
-            this.gc_Drivers.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.btn_approved});
-            this.gc_Drivers.Size = new System.Drawing.Size(777, 201);
-            this.gc_Drivers.TabIndex = 1;
-            this.gc_Drivers.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gv_Drivers});
+            this.gc_Brokers.Location = new System.Drawing.Point(0, 0);
+            this.gc_Brokers.MainView = this.gridView1;
+            this.gc_Brokers.Name = "gc_Brokers";
+            this.gc_Brokers.Size = new System.Drawing.Size(731, 200);
+            this.gc_Brokers.TabIndex = 0;
+            this.gc_Brokers.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.GridControl = this.gc_Brokers;
+            this.gridView1.Name = "gridView1";
             // 
             // gv_Brokers
             // 
@@ -135,10 +137,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.col_Address,
             this.col_Type,
             this.col_Approved});
-            this.gv_Drivers.DetailHeight = 458;
-            this.gv_Drivers.GridControl = this.gc_Drivers;
-            this.gv_Drivers.Name = "gv_Drivers";
-            this.gv_Drivers.OptionsView.ShowGroupPanel = false;
+            this.gv_Brokers.Name = "gv_Brokers";
             // 
             // col_Broker
             // 
@@ -352,6 +351,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gc_Brokers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_Brokers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_approved)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
@@ -392,5 +392,6 @@ namespace ResponseEmergencySystem.Forms.Modals
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.TextEdit textEdit1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
     }
 }

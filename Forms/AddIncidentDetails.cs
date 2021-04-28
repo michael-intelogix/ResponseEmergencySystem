@@ -905,8 +905,8 @@ namespace ResponseEmergencySystem.Forms
 
                     foreach (var item in filtered)
                     {
-                        edt_Latitude.EditValue = item.latitude.ToString();
-                        edt_Longitude.EditValue = item.longitude.ToString();
+                        //edt_Latitude.EditValue = item.latitude.ToString();
+                        //edt_Longitude.EditValue = item.longitude.ToString();
                         Testing samsara = new Testing(item.name, item.time, item.latitude, item.longitude, item.heading, item.speed, item.formattedLocation);
                         samsara.Show();
                         Debug.WriteLine(item.latitude.ToString());
@@ -931,25 +931,22 @@ namespace ResponseEmergencySystem.Forms
         private void simpleButton3_Click(object sender, EventArgs e)
         {
             // GetCallAPI("https://api.samsara.com/fleet/drivers");
-            splashScreenManager1.ShowWaitForm();
             Task<object> task = GetCallAPI("https://api.samsara.com/fleet/vehicles/locations");
             task.Wait();
-            splashScreenManager1.CloseWaitForm();
+
             //JObject rss = JObject.Parse((string)json.Result);
             //Debug.WriteLine((string)rss["data"]["id"]);
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            splashScreenManager1.ShowWaitForm();
             Task<object> task = GetCallAPI("https://api.samsara.com/fleet/vehicles/locations");
             task.Wait();
-            splashScreenManager1.CloseWaitForm();
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
-            string brokerName = GetEdtValue(edt_BrokerName);
+            //string brokerName = GetEdtValue(edt_BrokerName);
             var brokerResponse = Functions.getBroker("");
             if (brokerResponse.ItemArray[0].ToString() == "0")
             {
@@ -959,7 +956,7 @@ namespace ResponseEmergencySystem.Forms
             {
                 ID_Driver = brokerResponse.ItemArray[0].ToString();
                 string name = brokerResponse.ItemArray[5].ToString();
-                edt_BrokerName.EditValue = name;
+                //edt_BrokerName.EditValue = name;
                 //edt_PhoneNumber.EditValue = Driver_Response.ItemArray[6].ToString();
                 //edt_License.EditValue = Driver_Response.ItemArray[2].ToString();
                 //string[] dateArray = Driver_Response.ItemArray[8].ToString().Split('/');
@@ -974,6 +971,12 @@ namespace ResponseEmergencySystem.Forms
                 //Debug.WriteLine(Functions.getStates().Select(filterExpression).First().ItemArray[0].ToString());
 
             }
+        }
+
+        private void simpleButton1_Click_1(object sender, EventArgs e)
+        {
+            Task<object> task = GetCallAPI("https://api.samsara.com/fleet/vehicles/locations");
+            task.Wait();
         }
     }
 

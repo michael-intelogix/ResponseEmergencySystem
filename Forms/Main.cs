@@ -34,7 +34,7 @@ namespace ResponseEmergencySystem.Forms
             DataTable states = Functions.getStates();
             DataRow state = states.Select().First();
 
-            gc_Incidents.DataSource = IncidentService.list_Incidents("", "", "", "", "").Select(i => new { i.ID_Incident, i.Name, i.Folio, i.IncidentDate, i.truck.truckNumber, i.ID_StatusDetail });
+            
             lue_StatusDetail.DataSource = Functions.list_StatusDetail();
 
             //var namefile = "test";
@@ -77,7 +77,7 @@ namespace ResponseEmergencySystem.Forms
         {
             Int32 index = gv_Incidents.FocusedRowHandle;
             string incidentId = gv_Incidents.GetRowCellValue(index, "ID_Incident").ToString();
-            ViewIncidentDetails viewIncident = new ViewIncidentDetails(incidentId);
+            ViewIncidentDetails viewIncident = new ViewIncidentDetails();
             viewIncident.Show();
         }
 

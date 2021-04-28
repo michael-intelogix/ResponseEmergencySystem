@@ -346,7 +346,7 @@
     <Compile Include="Code\Utils.cs" />
     <Compile Include="Connection\Connection.cs" />
     <Compile Include="Controllers\IncidentController.cs" />
-    <Compile Include="Controllers\IIncidentsView.cs" />
+    <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Forms\frm_DriverSearchList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -376,6 +376,18 @@
     </Compile>
     <Compile Include="Forms\Main2.Designer.cs">
       <DependentUpon>Main2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Modals\AddComments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Modals\AddComments.Designer.cs">
+      <DependentUpon>AddComments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Modals\AddMoreCaptures.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Modals\AddMoreCaptures.Designer.cs">
+      <DependentUpon>AddMoreCaptures.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Modals\EditComments.cs">
       <SubType>Form</SubType>
@@ -444,6 +456,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\IMainView.cs" />
+    <Compile Include="Views\IShowIncidentDetails.cs" />
     <EmbeddedResource Include="Forms\frm_DriverSearchList.resx">
       <DependentUpon>frm_DriverSearchList.cs</DependentUpon>
     </EmbeddedResource>
@@ -467,6 +481,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Main2.resx">
       <DependentUpon>Main2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Modals\AddComments.resx">
+      <DependentUpon>AddComments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Modals\AddMoreCaptures.resx">
+      <DependentUpon>AddMoreCaptures.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Modals\EditComments.resx">
       <DependentUpon>EditComments.cs</DependentUpon>
@@ -513,7 +533,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="NewFolder1\" />
     <Folder Include="SQL Queries\" />
   </ItemGroup>
   <ItemGroup>
