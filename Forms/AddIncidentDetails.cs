@@ -978,6 +978,23 @@ namespace ResponseEmergencySystem.Forms
             Task<object> task = GetCallAPI("https://api.samsara.com/fleet/vehicles/locations");
             task.Wait();
         }
+
+        private void simpleButton2_Click_1(object sender, EventArgs e)
+        {
+            //var brokerResponse = Functions.getBroker("");
+            //if (brokerResponse.ItemArray[0].ToString() == "0")
+            //{
+            //    MessageBox.Show(brokerResponse.ItemArray[1].ToString());
+            //}
+            //else
+            //{
+            //    ID_Driver = brokerResponse.ItemArray[0].ToString();
+            //    string name = brokerResponse.ItemArray[5].ToString();
+
+            //}
+            //frm_BrokerList frm_BrokerList = new frm_BrokerList(Functions.getBroker(""));
+            //frm_BrokerList.ShowDialog();
+        }
     }
 
 }

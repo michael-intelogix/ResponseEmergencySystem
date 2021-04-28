@@ -124,7 +124,7 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(135, 23);
             this.simpleButton1.TabIndex = 10;
-            this.simpleButton1.Text = "Upldoad image";
+            this.simpleButton1.Text = "Upload image";
             // 
             // simpleButton2
             // 
@@ -140,7 +140,7 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(135, 23);
             this.simpleButton2.TabIndex = 11;
-            this.simpleButton2.Text = "Upldoad image";
+            this.simpleButton2.Text = "Upload image";
             // 
             // simpleButton3
             // 
@@ -156,7 +156,7 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton3.Name = "simpleButton3";
             this.simpleButton3.Size = new System.Drawing.Size(135, 23);
             this.simpleButton3.TabIndex = 12;
-            this.simpleButton3.Text = "Upldoad image";
+            this.simpleButton3.Text = "Upload image";
             // 
             // simpleButton4
             // 
@@ -172,7 +172,7 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton4.Name = "simpleButton4";
             this.simpleButton4.Size = new System.Drawing.Size(135, 23);
             this.simpleButton4.TabIndex = 13;
-            this.simpleButton4.Text = "Upldoad image";
+            this.simpleButton4.Text = "Upload image";
             // 
             // simpleButton5
             // 

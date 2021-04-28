@@ -106,8 +106,6 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
             this.edt_Highway = new DevExpress.XtraEditors.TextEdit();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControl30 = new DevExpress.XtraEditors.LabelControl();
             this.pnl_PoliceReport = new DevExpress.XtraEditors.PanelControl();
             this.edt_PoliceReport = new DevExpress.XtraEditors.TextEdit();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
@@ -129,6 +127,7 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.btn_Cancel = new DevExpress.XtraEditors.SimpleButton();
             this.btn_AddIncident = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_SelectBroker = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnl_BOL)).BeginInit();
@@ -1034,8 +1033,7 @@ namespace ResponseEmergencySystem.Forms
             // panelControl2
             // 
             this.panelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl2.Controls.Add(this.simpleButton2);
-            this.panelControl2.Controls.Add(this.labelControl30);
+            this.panelControl2.Controls.Add(this.btn_SelectBroker);
             this.panelControl2.Controls.Add(this.pnl_PoliceReport);
             this.panelControl2.Controls.Add(this.pnl_AddInjuredFields);
             this.panelControl2.Controls.Add(this.ckedt_Injured);
@@ -1052,38 +1050,6 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(837, 112);
             this.panelControl2.TabIndex = 106;
-            // 
-            // simpleButton2
-            // 
-            this.simpleButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButton2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
-            this.simpleButton2.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
-            this.simpleButton2.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
-            this.simpleButton2.Appearance.ForeColor = System.Drawing.Color.Transparent;
-            this.simpleButton2.Appearance.Options.UseBackColor = true;
-            this.simpleButton2.Appearance.Options.UseBorderColor = true;
-            this.simpleButton2.Appearance.Options.UseForeColor = true;
-            this.simpleButton2.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.searchWhite;
-            this.simpleButton2.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.simpleButton2.Location = new System.Drawing.Point(788, 67);
-            this.simpleButton2.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(24, 26);
-            this.simpleButton2.TabIndex = 104;
-            this.simpleButton2.Visible = false;
-            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
-            // 
-            // labelControl30
-            // 
-            this.labelControl30.Appearance.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl30.Appearance.Options.UseFont = true;
-            this.labelControl30.Location = new System.Drawing.Point(381, 73);
-            this.labelControl30.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.labelControl30.Name = "labelControl30";
-            this.labelControl30.Size = new System.Drawing.Size(38, 15);
-            this.labelControl30.TabIndex = 104;
-            this.labelControl30.Text = "Broker";
-            this.labelControl30.Visible = false;
             // 
             // pnl_PoliceReport
             // 
@@ -1343,6 +1309,21 @@ namespace ResponseEmergencySystem.Forms
             this.btn_AddIncident.Text = "Save";
             this.btn_AddIncident.Click += new System.EventHandler(this.btn_AddIncident_Click);
             // 
+            // btn_SelectBroker
+            // 
+            this.btn_SelectBroker.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.btn_SelectBroker.Appearance.ForeColor = System.Drawing.Color.White;
+            this.btn_SelectBroker.Appearance.Options.UseBackColor = true;
+            this.btn_SelectBroker.Appearance.Options.UseForeColor = true;
+            this.btn_SelectBroker.Location = new System.Drawing.Point(373, 69);
+            this.btn_SelectBroker.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            this.btn_SelectBroker.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.btn_SelectBroker.Name = "btn_SelectBroker";
+            this.btn_SelectBroker.Size = new System.Drawing.Size(104, 23);
+            this.btn_SelectBroker.TabIndex = 130;
+            this.btn_SelectBroker.Text = "Select broker";
+            this.btn_SelectBroker.Click += new System.EventHandler(this.simpleButton2_Click_1);
+            // 
             // AddIncidentDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -1516,10 +1497,9 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraEditors.LabelControl lbl_TruckExists;
         private DevExpress.XtraEditors.LabelControl lbl_TrailerExists;
         private DevExpress.XtraEditors.LabelControl lbl_CargoType;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraEditors.LabelControl labelControl30;
         private DevExpress.XtraEditors.TextEdit textEdit1;
         private DevExpress.XtraEditors.SimpleButton btn_Cancel;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton btn_SelectBroker;
     }
 }

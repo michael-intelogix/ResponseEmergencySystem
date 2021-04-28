@@ -36,5 +36,10 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
+
+        private void frm_BrokerList_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

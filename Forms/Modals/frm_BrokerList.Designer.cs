@@ -345,6 +345,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frm_BrokerList";
             this.Text = "frm_BrokerList";
+            this.Load += new System.EventHandler(this.frm_BrokerList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();

@@ -54,10 +54,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>81D15E1C18097F0C168F224B2540B1B374CA6FC7</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>D537ED827D9F9B664432E65B36566D9339779B75</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>ResponseEmergencySystem_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>ResponseEmergencySystem_1_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -528,6 +528,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="ResponseEmergencySystem_1_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
