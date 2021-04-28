@@ -44,7 +44,7 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton9.Appearance.Options.UseForeColor = true;
             this.simpleButton9.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.saveWhite;
             this.simpleButton9.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.simpleButton9.Location = new System.Drawing.Point(321, 288);
+            this.simpleButton9.Location = new System.Drawing.Point(321, 299);
             this.simpleButton9.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.simpleButton9.LookAndFeel.UseDefaultLookAndFeel = false;
             this.simpleButton9.Name = "simpleButton9";
