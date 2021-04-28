@@ -14,6 +14,7 @@ using ResponseEmergencySystem.Views;
 using ResponseEmergencySystem.Models;
 using ResponseEmergencySystem.Code;
 using DevExpress.XtraGrid.Views.Grid;
+using System.Diagnostics;
 
 namespace ResponseEmergencySystem.Forms
 {
@@ -30,11 +31,8 @@ namespace ResponseEmergencySystem.Forms
 
         private void gv_Incidents_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
-            var gv = (GridView)sender;
-
-            Int32 index = gv_Incidents.FocusedRowHandle;
-            string incidentId = gv_Incidents.GetRowCellValue(index, "ID_Incident").ToString();
-
+            string incidentId = Utils.GetRowID(gv_Incidents, "ID_Incident");
+            Debug.WriteLine(incidentId);
         }
 
         #endregion

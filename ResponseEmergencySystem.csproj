@@ -419,7 +419,9 @@
     <Compile Include="Forms\AddIncidentDetails.Designer.cs">
       <DependentUpon>AddIncidentDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Broker.cs" />
     <Compile Include="Samsara Models\Vehicle.cs" />
+    <Compile Include="Services\BrokerService.cs" />
     <Compile Include="Services\CaptureService.cs" />
     <Compile Include="Services\IncidentService.cs" />
     <Compile Include="Services\StatusDetailService.cs" />
