@@ -48,7 +48,7 @@ namespace ResponseEmergencySystem.Forms
             Int32 idx = gv_Captures.FocusedRowHandle;
             CaptureSelected = captures[idx].ID_Capture;
 
-            gc_Images.DataSource = captures[idx].images;
+            gc_Images.DataSource = captures[idx].imagesListOfNames;
 
 
             //this.dt_DriverRowSelected = index;
@@ -114,13 +114,13 @@ namespace ResponseEmergencySystem.Forms
         private void form_driver_report_Load(object sender, EventArgs e)
         {
             /** SQL Server Database Connection **/
-            captures = CaptureService.list_Captures();
+            captures = CaptureService.list_CaptureTypes();
             lue_Types.DataSource = captures;
 
             dt_IncidentCaptures.Columns.Add("Date");
             dt_IncidentCaptures.Columns.Add("CaptureType");
 
-            foreach (var capture in CaptureService.list_Captures())
+            foreach (var capture in CaptureService.list_CaptureTypes())
             {
                 addEmptyRowCaptures(capture.ID_CaptureType);
             }
@@ -202,7 +202,7 @@ namespace ResponseEmergencySystem.Forms
 
             var capture = captures.Where(c => c.ID_Capture == CaptureSelected).First();
             
-            frm_Image captureFrm = new frm_Image(capture.ID_Capture.ToString().ToUpper(), capture.images[idx].name);
+            frm_Image captureFrm = new frm_Image(capture.ID_Capture.ToString().ToUpper(), capture.imagesListOfNames[idx].name);
             captureFrm.ShowDialog();
             //OpenFileDialog ofd = new OpenFileDialog();
             //ofd.Title = "Select Image";

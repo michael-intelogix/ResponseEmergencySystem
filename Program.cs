@@ -1,6 +1,7 @@
 ﻿using ResponseEmergencySystem.Controllers;
 using ResponseEmergencySystem.Forms;
 using ResponseEmergencySystem.Services;
+using ResponseEmergencySystem.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -24,10 +25,12 @@ namespace ResponseEmergencySystem
             //Application.Run(new Main2());
 
             Main2 mainView = new Main2();
-            MainController mainCtrl = new MainController(mainView, CaptureService.list_Captures(), IncidentService.list_Incidents("", "", "", "", ""));
+            List<Incident> incidents = IncidentService.list_Incidents("", "", "", "", "");
+            List<Capture> captureByIncident = CaptureService.list_Captures(incidents[0].ID_Incident.ToString());
+            MainController mainCtrl = new MainController(mainView, captureByIncident, incidents);
             mainCtrl.LoadData();
 
-
+            
             Application.Run(mainView);
         }
     }

@@ -17,7 +17,7 @@ namespace ResponseEmergencySystem.Services
 
         private static Boolean opSuccess;
 
-        public static List<Capture> list_Captures()
+        public static List<Capture> list_CaptureTypes()
         {
             opSuccess = false;
             List<Capture> result = new List<Capture>();
@@ -63,6 +63,57 @@ namespace ResponseEmergencySystem.Services
             catch (Exception ex)
             {
                 MessageBox.Show($"Capture type couldn't be found due: {ex.Message}");
+            }
+
+            return result;
+        }
+
+        public static List<Capture> list_Captures(string ID_Incident)
+        {
+            opSuccess = false;
+            List<Capture> result = new List<Capture>();
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand
+                {
+                    Connection = constants.SIREMConnection,
+                    CommandText = $"List_Capture",
+                    CommandType = CommandType.StoredProcedure
+                })
+                {
+                    cmd.Parameters.AddWithValue("@ID_Incident", ID_Incident);
+
+                    cmd.Connection.Open();
+                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    {
+                        if (sdr == null)
+                        {
+                            throw new NullReferenceException("No Information Available.");
+                        }
+                        while (sdr.Read())
+                        {
+                            Debug.WriteLine((string)sdr["CapturesNames"]);
+
+                            result.Add(
+                                new Capture(
+                                    sdr["ID_Capture"].ToString(),
+                                    (string)sdr["ID_StatusDetail"],
+                                    sdr["ID_CaptureType"].ToString(),
+                                    (string)sdr["Name"],
+                                    (string)sdr["ImagePath"],
+                                    (string)sdr["Comments"]
+                                )
+                            );
+                        }
+                    }
+                    cmd.Connection.Close();
+                    opSuccess = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Capture couldn't be found due: {ex.Message}");
             }
 
             return result;

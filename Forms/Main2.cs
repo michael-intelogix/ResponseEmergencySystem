@@ -32,7 +32,19 @@ namespace ResponseEmergencySystem.Forms
         private void gv_Incidents_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
             string incidentId = Utils.GetRowID(gv_Incidents, "ID_Incident");
-            Debug.WriteLine(incidentId);
+            _controller.SetCaptures(incidentId);
+            gc_Captures.DataSource = _controller._captures.Select(i => new { i.captureType, i.comments });
+
+            gc_Images.DataSource = _controller._captures.Where(c => c.captureType == gv_Captures.GetRowCellValue(0, "captureType").ToString());
+        }
+
+        private void gv_Incidents_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            string incidentId = Utils.GetRowID(gv_Incidents, "ID_Incident");
+            _controller.SetCaptures(incidentId);
+            gc_Captures.DataSource = _controller._captures.Select(i => new { i.captureType, i.comments });
+
+            gc_Images.DataSource = _controller._captures.Where(c => c.captureType == gv_Captures.GetRowCellValue(0, "captureType").ToString());
         }
 
         #endregion
@@ -60,7 +72,8 @@ namespace ResponseEmergencySystem.Forms
 
         private void btn_Picture_Click(object sender, EventArgs e)
         {
-            frm_Image frm_Image = new frm_Image("", "");
+            string imgPath = Utils.GetRowID(gv_Images, "ImagePath");
+            frm_Image frm_Image = new frm_Image("", "", imgPath);
             frm_Image.ShowDialog();
         }
 
@@ -126,10 +139,13 @@ namespace ResponseEmergencySystem.Forms
 
         public void LoadCaptures(List<Capture> captures)
         {
-
+            //List<ImageCapture> images = captures[0].images;
+            gc_Captures.DataSource = captures;
+            gc_Images.DataSource = captures.Where(c => c.captureType == gv_Captures.GetRowCellValue(0, "captureType").ToString());
+            
         }
+
         #endregion
 
-   
     }
 }

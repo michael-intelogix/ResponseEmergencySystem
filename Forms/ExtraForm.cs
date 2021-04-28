@@ -78,15 +78,15 @@ namespace ResponseEmergencySystem.Forms
         {
             lue_Test.Properties.DataSource = StatusDetailService.list_StatusDetail();
 
-            foreach( var capture in CaptureService.list_Captures())
+            foreach( var capture in CaptureService.list_CaptureTypes())
             {
-                if (capture.images != null)
-                {
-                    //foreach (var t in capture.images)
-                    //{
-                    //    Debug.WriteLine(t.Trim() + " of the " + capture.captureType);
-                    //}
-                }
+                //if (capture.images != null)
+                //{
+                //    //foreach (var t in capture.images)
+                //    //{
+                //    //    Debug.WriteLine(t.Trim() + " of the " + capture.captureType);
+                //    //}
+                //}
             }
         }
     }

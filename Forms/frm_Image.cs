@@ -29,12 +29,40 @@ namespace ResponseEmergencySystem.Forms
         private string ID_Capture = "";
         private string fileName = "";
 
-        public frm_Image(string ID_Capture, string captureName)
+        public frm_Image(string ID_Capture, string captureName, string imgPath = "")
         {
             InitializeComponent();
             this.ID_Capture = ID_Capture;
             fileName = captureName;
+            LoadImage(imgPath);
+            Debug.WriteLine(imgPath);
             //var value = section["url"];
+        }
+
+        public void LoadImage(string imgPath)
+        {
+            try
+            {
+                System.Net.WebRequest request =
+                System.Net.WebRequest.Create(imgPath);
+                System.Net.WebResponse response = request.GetResponse();
+                System.IO.Stream responseStream = response.GetResponseStream();
+                //Bitmap bitmap2 = new Bitmap(responseStream);
+                //img_Test.Image = bitmap2;
+                //splashScreenManager1.CloseWaitForm();
+                //btn_View.Enabled = true;
+                //btn_RotateInverse.Enabled = true;
+
+                using (var bmpTemp = new Bitmap(responseStream))
+                {
+                    newImg = new Bitmap(bmpTemp);
+                    img_Test.Image = newImg;
+                }
+            }
+            catch (System.Net.WebException)
+            {
+                MessageBox.Show("There was an error opening the image file.");
+            }
         }
 
         public void onClickLoadImage (object sender, EventArgs e)
