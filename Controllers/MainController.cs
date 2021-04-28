@@ -15,7 +15,7 @@ namespace ResponseEmergencySystem.Controllers
         List<Capture> _captures;
         List<Incident> _incidents;
         public string ID_Incident;
-        Incident _selectedIncident;
+        //Incident _selectedIncident;
         //DataTable dt_InjuredPersons = new DataTable();
 
         public MainController(IMainView view, List<Capture> captures, List<Incident> incidents)

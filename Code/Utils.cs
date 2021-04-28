@@ -64,5 +64,12 @@ namespace ResponseEmergencySystem.Code
             string result = edt.EditValue == null ? "" : edt.EditValue.ToString();
             return result;
         }
+
+        public static string GetRowID(DevExpress.XtraGrid.Views.Grid.GridView gv, string ID_Name)
+        {
+            Int32 index = gv.FocusedRowHandle;
+            string ID = gv.GetRowCellValue(index, ID_Name).ToString();
+            return ID;
+        }
     }
 }
