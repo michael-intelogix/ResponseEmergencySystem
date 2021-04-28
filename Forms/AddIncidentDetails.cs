@@ -13,6 +13,7 @@ using ResponseEmergencySystem.Code;
 using ResponseEmergencySystem.Properties;
 using ResponseEmergencySystem.Controllers;
 using ResponseEmergencySystem.Forms.Modals;
+using ResponseEmergencySystem.Services;
 using ResponseEmergencySystem.Samsara_Models;
 using System.Net.Http;
 using Newtonsoft.Json;
@@ -981,19 +982,8 @@ namespace ResponseEmergencySystem.Forms
 
         private void simpleButton2_Click_1(object sender, EventArgs e)
         {
-            //var brokerResponse = Functions.getBroker("");
-            //if (brokerResponse.ItemArray[0].ToString() == "0")
-            //{
-            //    MessageBox.Show(brokerResponse.ItemArray[1].ToString());
-            //}
-            //else
-            //{
-            //    ID_Driver = brokerResponse.ItemArray[0].ToString();
-            //    string name = brokerResponse.ItemArray[5].ToString();
-
-            //}
-            //frm_BrokerList frm_BrokerList = new frm_BrokerList(Functions.getBroker(""));
-            //frm_BrokerList.ShowDialog();
+            frm_BrokerList frm_BrokerList = new frm_BrokerList(BrokerService.list_Brokers());
+            frm_BrokerList.ShowDialog();
         }
     }
 

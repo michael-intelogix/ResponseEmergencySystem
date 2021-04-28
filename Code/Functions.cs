@@ -435,11 +435,11 @@ namespace ResponseEmergencySystem.Code
 
             if (result.Rows.Count > 1)
             {
-                frm_BrokerList brokers = new frm_BrokerList(result);
-                if (brokers.ShowDialog() == DialogResult.OK)
-                {
-                    return result.Select()[brokers.dt_BrokerRowSelected];
-                }
+                //frm_BrokerList brokers = new frm_BrokerList(result);
+                //if (brokers.ShowDialog() == DialogResult.OK)
+                //{
+                //    return result.Select()[brokers.dt_BrokerRowSelected];
+                //}
 
                 return errorsResult("Please select a broker from the list").Select().First();
             }
@@ -482,11 +482,11 @@ namespace ResponseEmergencySystem.Code
 
             if (result.Rows.Count > 1)
             {
-                frm_BrokerList brokers = new frm_BrokerList(result);
-                if (brokers.ShowDialog() == DialogResult.OK)
-                {
-                    return result.Select()[brokers.dt_BrokerRowSelected];
-                }
+                //frm_BrokerList brokers = new frm_BrokerList(result);
+                //if (brokers.ShowDialog() == DialogResult.OK)
+                //{
+                //    return result.Select()[brokers.dt_BrokerRowSelected];
+                //}
 
                 return errorsResult("Please select a broker from the list").Select().First();
             }

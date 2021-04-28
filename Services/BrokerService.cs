@@ -45,7 +45,7 @@ namespace ResponseEmergencySystem.Services
                         {
                             result.Add(
                                 new Broker(
-                                    (string)sdr["ID_Broker"],
+                                    (string)sdr["ID_Broker"].ToString(),
                                     (string)sdr["ID_State"],
                                     (string)sdr["ID_City"],
                                     (string)sdr["State"],

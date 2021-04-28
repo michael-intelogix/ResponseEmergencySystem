@@ -8,24 +8,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ResponseEmergencySystem.Models;
 
 namespace ResponseEmergencySystem.Forms.Modals
 {
     public partial class frm_BrokerList : DevExpress.XtraEditors.XtraForm
     {
         public Int32 dt_BrokerRowSelected { get; set; }
-        private DataTable dt_Brokers = new DataTable();
+        private List<Broker> brokers = new List<Broker>();
 
-        public frm_BrokerList(DataTable dt_Brokers)
+        public frm_BrokerList(List<Broker> brokers)
         {
-            this.dt_Brokers = dt_Brokers;
+            this.brokers = brokers;
             InitializeComponent();
             loadBrokers();
         }
 
         private void loadBrokers()
         {
-            gc_Brokers.DataSource = dt_Brokers;
+            gc_Brokers.DataSource = brokers;
         }
 
         private void btn_ApprovedDriver(object sender, EventArgs e)
