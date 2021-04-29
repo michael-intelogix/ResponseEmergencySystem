@@ -345,6 +345,7 @@
     <Compile Include="Code\Location.cs" />
     <Compile Include="Code\Utils.cs" />
     <Compile Include="Connection\Connection.cs" />
+    <Compile Include="Controllers\BrokerController.cs" />
     <Compile Include="Controllers\IncidentController.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Forms\frm_DriverSearchList.cs">
@@ -458,6 +459,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\IBrokerView.cs" />
     <Compile Include="Views\IMainView.cs" />
     <Compile Include="Views\IShowIncidentDetails.cs" />
     <EmbeddedResource Include="Forms\frm_DriverSearchList.resx">

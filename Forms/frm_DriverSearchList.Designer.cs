@@ -134,7 +134,7 @@ namespace ResponseEmergencySystem.Forms
             this.col_DriverName.OptionsColumn.AllowEdit = false;
             this.col_DriverName.Visible = true;
             this.col_DriverName.VisibleIndex = 0;
-            this.col_DriverName.Width = 110;
+            this.col_DriverName.Width = 109;
             // 
             // col_LastName
             // 
@@ -145,7 +145,7 @@ namespace ResponseEmergencySystem.Forms
             this.col_LastName.OptionsColumn.AllowEdit = false;
             this.col_LastName.Visible = true;
             this.col_LastName.VisibleIndex = 1;
-            this.col_LastName.Width = 110;
+            this.col_LastName.Width = 109;
             // 
             // col_PhoneNumber
             // 
@@ -156,7 +156,7 @@ namespace ResponseEmergencySystem.Forms
             this.col_PhoneNumber.OptionsColumn.AllowEdit = false;
             this.col_PhoneNumber.Visible = true;
             this.col_PhoneNumber.VisibleIndex = 3;
-            this.col_PhoneNumber.Width = 110;
+            this.col_PhoneNumber.Width = 109;
             // 
             // col_License
             // 
@@ -167,7 +167,7 @@ namespace ResponseEmergencySystem.Forms
             this.col_License.OptionsColumn.AllowEdit = false;
             this.col_License.Visible = true;
             this.col_License.VisibleIndex = 2;
-            this.col_License.Width = 122;
+            this.col_License.Width = 121;
             // 
             // col_ExpeditionState
             // 
@@ -178,7 +178,7 @@ namespace ResponseEmergencySystem.Forms
             this.col_ExpeditionState.OptionsColumn.AllowEdit = false;
             this.col_ExpeditionState.Visible = true;
             this.col_ExpeditionState.VisibleIndex = 4;
-            this.col_ExpeditionState.Width = 105;
+            this.col_ExpeditionState.Width = 104;
             // 
             // col_ExpirationDate
             // 
@@ -189,7 +189,7 @@ namespace ResponseEmergencySystem.Forms
             this.col_ExpirationDate.OptionsColumn.AllowEdit = false;
             this.col_ExpirationDate.Visible = true;
             this.col_ExpirationDate.VisibleIndex = 5;
-            this.col_ExpirationDate.Width = 111;
+            this.col_ExpirationDate.Width = 117;
             // 
             // col_Approved
             // 
@@ -198,7 +198,7 @@ namespace ResponseEmergencySystem.Forms
             this.col_Approved.Name = "col_Approved";
             this.col_Approved.Visible = true;
             this.col_Approved.VisibleIndex = 6;
-            this.col_Approved.Width = 45;
+            this.col_Approved.Width = 38;
             // 
             // btn_approved
             // 

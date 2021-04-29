@@ -982,7 +982,9 @@ namespace ResponseEmergencySystem.Forms
 
         private void simpleButton2_Click_1(object sender, EventArgs e)
         {
-            frm_BrokerList frm_BrokerList = new frm_BrokerList(BrokerService.list_Brokers());
+            frm_BrokerList frm_BrokerList = new frm_BrokerList();
+            BrokerController brokerCtrl = new BrokerController(frm_BrokerList, BrokerService.list_Brokers());
+            brokerCtrl.LoadBrokers();
             frm_BrokerList.ShowDialog();
         }
     }

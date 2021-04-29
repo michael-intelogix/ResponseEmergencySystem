@@ -34,6 +34,11 @@ namespace ResponseEmergencySystem.Forms.Modals
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.gv_Brokers = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -57,15 +62,17 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.buttonEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btn_Approved1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.gc_Brokers = new DevExpress.XtraGrid.GridControl();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gv_Brokers)).BeginInit();
@@ -80,6 +87,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Approved1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc_Brokers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -324,6 +332,23 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.panelControl3.Size = new System.Drawing.Size(658, 49);
             this.panelControl3.TabIndex = 4;
             // 
+            // simpleButton3
+            // 
+            this.simpleButton3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
+            this.simpleButton3.Appearance.ForeColor = System.Drawing.Color.White;
+            this.simpleButton3.Appearance.Options.UseBackColor = true;
+            this.simpleButton3.Appearance.Options.UseForeColor = true;
+            this.simpleButton3.ImageOptions.ImageToTextIndent = 0;
+            this.simpleButton3.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.closeWhite;
+            this.simpleButton3.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.simpleButton3.Location = new System.Drawing.Point(5, 3);
+            this.simpleButton3.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            this.simpleButton3.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.simpleButton3.Name = "simpleButton3";
+            this.simpleButton3.Size = new System.Drawing.Size(109, 43);
+            this.simpleButton3.TabIndex = 1;
+            this.simpleButton3.Text = "Cancel";
+            // 
             // simpleButton2
             // 
             this.simpleButton2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
@@ -342,23 +367,6 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.simpleButton2.TabIndex = 0;
             this.simpleButton2.Text = "Save";
             // 
-            // simpleButton3
-            // 
-            this.simpleButton3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
-            this.simpleButton3.Appearance.ForeColor = System.Drawing.Color.White;
-            this.simpleButton3.Appearance.Options.UseBackColor = true;
-            this.simpleButton3.Appearance.Options.UseForeColor = true;
-            this.simpleButton3.ImageOptions.ImageToTextIndent = 0;
-            this.simpleButton3.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.closeWhite;
-            this.simpleButton3.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.simpleButton3.Location = new System.Drawing.Point(5, 3);
-            this.simpleButton3.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-            this.simpleButton3.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(109, 43);
-            this.simpleButton3.TabIndex = 1;
-            this.simpleButton3.Text = "Cancel";
-            // 
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -366,44 +374,63 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.gridColumn2,
             this.gridColumn3,
             this.gridColumn4,
+            this.gridColumn6,
             this.gridColumn5});
             this.gridView1.GridControl = this.gc_Brokers;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
             // 
             // gridColumn1
             // 
-            this.gridColumn1.FieldName = "Broker";
+            this.gridColumn1.FieldName = "Name";
             this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.AllowEdit = false;
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
+            this.gridColumn1.Width = 126;
             // 
             // gridColumn2
             // 
             this.gridColumn2.FieldName = "State";
             this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.OptionsColumn.AllowEdit = false;
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 1;
+            this.gridColumn2.Width = 126;
             // 
             // gridColumn3
             // 
             this.gridColumn3.FieldName = "City";
             this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.OptionsColumn.AllowEdit = false;
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 2;
+            this.gridColumn3.Width = 126;
             // 
             // gridColumn4
             // 
             this.gridColumn4.FieldName = "Address";
             this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.OptionsColumn.AllowEdit = false;
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 3;
+            this.gridColumn4.Width = 126;
             // 
             // gridColumn5
             // 
+            this.gridColumn5.ColumnEdit = this.btn_Approved1;
             this.gridColumn5.FieldName = "Select";
             this.gridColumn5.Name = "gridColumn5";
-            this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 4;
+            // 
+            // btn_Approved1
+            // 
+            this.btn_Approved1.AutoHeight = false;
+            editorButtonImageOptions4.SvgImage = global::ResponseEmergencySystem.Properties.Resources.checkGreen;
+            editorButtonImageOptions4.SvgImageSize = new System.Drawing.Size(20, 20);
+            this.btn_Approved1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.btn_Approved1.Name = "btn_Approved1";
+            this.btn_Approved1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
             // gc_Brokers
             // 
@@ -411,10 +438,20 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.gc_Brokers.Location = new System.Drawing.Point(0, 129);
             this.gc_Brokers.MainView = this.gridView1;
             this.gc_Brokers.Name = "gc_Brokers";
+            this.gc_Brokers.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.btn_Approved1});
             this.gc_Brokers.Size = new System.Drawing.Size(658, 421);
             this.gc_Brokers.TabIndex = 5;
             this.gc_Brokers.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.ColumnEdit = this.btn_Approved1;
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 4;
+            this.gridColumn6.Width = 38;
             // 
             // frm_BrokerList
             // 
@@ -447,6 +484,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Approved1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc_Brokers)).EndInit();
             this.ResumeLayout(false);
 
@@ -486,5 +524,7 @@ namespace ResponseEmergencySystem.Forms.Modals
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
         private DevExpress.XtraGrid.GridControl gc_Brokers;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btn_Approved1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
     }
 }
