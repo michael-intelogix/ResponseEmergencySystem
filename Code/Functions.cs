@@ -120,11 +120,11 @@ namespace ResponseEmergencySystem.Code
 
             if (result.Rows.Count > 1)
             {
-                frm_DriverSearchList drivers = new frm_DriverSearchList(result);
-                if (drivers.ShowDialog() == DialogResult.OK)
-                {
-                    return result.Select()[drivers.dt_DriverRowSelected];
-                }
+                //frm_DriverSearchList drivers = new frm_DriverSearchList(result);
+                //if (drivers.ShowDialog() == DialogResult.OK)
+                //{
+                //    return result.Select()[drivers.dt_DriverRowSelected];
+                //}
 
                 return errorsResult("Please select a driver from the list").Select().First();
             }

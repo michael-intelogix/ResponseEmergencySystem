@@ -1,6 +1,4 @@
-﻿using ResponseEmergencySystem.Code;
-using ResponseEmergencySystem.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -9,25 +7,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ResponseEmergencySystem.Code;
+using ResponseEmergencySystem.Models;
 
 namespace ResponseEmergencySystem.Services
 {
-    public static class CaptureService
+    public static class GeneralService
     {
 
         private static Boolean opSuccess;
 
-        public static List<Capture> list_CaptureTypes()
+        public static List<State> list_States()
         {
             opSuccess = false;
-            List<Capture> result = new List<Capture>();
-
+            List<State> result = new List<State>();
             try
             {
                 using (SqlCommand cmd = new SqlCommand
                 {
-                    Connection = constants.DCManagement,
-                    CommandText = $"List_CaptureType",
+                    Connection = constants.GeneralConnection,
+                    CommandText = $"List_States",
                     CommandType = CommandType.StoredProcedure
                 })
                 {
@@ -36,11 +35,7 @@ namespace ResponseEmergencySystem.Services
                         cmd.Connection.Close();
                     }
 
-                    cmd.Parameters.AddWithValue("@ID_CaptureType", "");
-                    cmd.Parameters.AddWithValue("@Name", "");
-                    cmd.Parameters.AddWithValue("@Description", "SIREM");
-                    cmd.Parameters.AddWithValue("@Status", 1);
-
+                    cmd.Parameters.AddWithValue("@ID_Country", Guid.Parse("99F9B034-75BE-4615-88C6-8D64BC3549DC"));
                     cmd.Connection.Open();
                     using (SqlDataReader sdr = cmd.ExecuteReader())
                     {
@@ -50,13 +45,12 @@ namespace ResponseEmergencySystem.Services
                         }
                         while (sdr.Read())
                         {
-                            Debug.WriteLine((string)sdr["CapturesNames"]);
 
                             result.Add(
-                                new Capture(
-                                    (string)sdr["ID_CaptureType"],
-                                    (string)sdr["Name"],
-                                    (string)sdr["CapturesNames"]
+                                new State(
+                                    (string)sdr["pk_id"],
+                                    (string)sdr["country"],
+                                    (string)sdr["state"]
                                 )
                             );
                         }
@@ -67,33 +61,33 @@ namespace ResponseEmergencySystem.Services
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Capture type couldn't be found due: {ex.Message}");
+                MessageBox.Show($"State couldn't be found due: {ex.Message}");
             }
 
             return result;
         }
 
-        public static List<Capture> list_Captures(string ID_Incident)
+        public static List<City> list_Cities(string stateId)
         {
             opSuccess = false;
-            List<Capture> result = new List<Capture>();
-
+            List<City> result = new List<City>();
             try
             {
                 using (SqlCommand cmd = new SqlCommand
                 {
-                    Connection = constants.SIREMConnection,
-                    CommandText = $"List_Capture",
+                    Connection = constants.GeneralConnection,
+                    CommandText = $"List_Cities",
                     CommandType = CommandType.StoredProcedure
                 })
                 {
+
                     if (cmd.Connection.State == ConnectionState.Open)
                     {
                         cmd.Connection.Close();
                     }
-
-                    cmd.Parameters.AddWithValue("@ID_Incident", ID_Incident);
-
+                    //cmd.Parameters.AddWithValue("@ID_State", Guid.Parse("608C35C3-2ED5-43AA-AE86-3C515CB6E612"));
+                    cmd.Parameters.AddWithValue("@ID_State", Guid.Parse(stateId));
+                    cmd.Parameters.AddWithValue("@State_Name", "");
                     cmd.Connection.Open();
                     using (SqlDataReader sdr = cmd.ExecuteReader())
                     {
@@ -103,16 +97,12 @@ namespace ResponseEmergencySystem.Services
                         }
                         while (sdr.Read())
                         {
-                            Debug.WriteLine((string)sdr["CapturesNames"]);
 
                             result.Add(
-                                new Capture(
-                                    sdr["ID_Capture"].ToString(),
-                                    (string)sdr["ID_StatusDetail"],
-                                    sdr["ID_CaptureType"].ToString(),
-                                    (string)sdr["Name"],
-                                    (string)sdr["ImagePath"],
-                                    (string)sdr["Comments"]
+                                new City(
+                                    (string)sdr["pk_id"],
+                                    (string)sdr["state"],
+                                    (string)sdr["city"]
                                 )
                             );
                         }
@@ -123,11 +113,10 @@ namespace ResponseEmergencySystem.Services
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Capture couldn't be found due: {ex.Message}");
+                MessageBox.Show($"City couldn't be found due: {ex.Message}");
             }
 
             return result;
         }
-
     }
 }

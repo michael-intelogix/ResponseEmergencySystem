@@ -43,6 +43,7 @@ namespace ResponseEmergencySystem.Forms
             this.btn_SaveImage = new DevExpress.XtraEditors.SimpleButton();
             this.btn_Cancel = new DevExpress.XtraEditors.SimpleButton();
             this.img_Test = new DevExpress.XtraEditors.PictureEdit();
+            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ResponseEmergencySystem.Forms.WaitForm1), true, true);
             ((System.ComponentModel.ISupportInitialize)(this.pnl_Zoom)).BeginInit();
             this.pnl_Zoom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnl_ImgControls)).BeginInit();
@@ -252,6 +253,10 @@ namespace ResponseEmergencySystem.Forms
             this.img_Test.EditValueChanged += new System.EventHandler(this.img_Test_EditValueChanged);
             this.img_Test.MouseDown += new System.Windows.Forms.MouseEventHandler(this.img_Test_Click);
             // 
+            // splashScreenManager1
+            // 
+            this.splashScreenManager1.ClosingDelay = 500;
+            // 
             // frm_Image
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -301,5 +306,6 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraEditors.ProgressBarControl progressBarControl1;
         private DevExpress.XtraEditors.SimpleButton btn_SaveImage;
         private DevExpress.XtraEditors.SimpleButton btn_Cancel;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
     }
 }

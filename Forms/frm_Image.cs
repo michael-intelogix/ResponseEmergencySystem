@@ -32,9 +32,11 @@ namespace ResponseEmergencySystem.Forms
         public frm_Image(string ID_Capture, string captureName, string imgPath = "")
         {
             InitializeComponent();
+            splashScreenManager1.ShowWaitForm();
             this.ID_Capture = ID_Capture;
             fileName = captureName;
             LoadImage(imgPath);
+            splashScreenManager1.CloseWaitForm();
             Debug.WriteLine(imgPath);
             //var value = section["url"];
         }

@@ -104,9 +104,8 @@ namespace ResponseEmergencySystem.Forms
             this.layoutControlItem17 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControl4 = new DevExpress.XtraLayout.LayoutControl();
-            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
-            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.memoEdit_Chat = new DevExpress.XtraEditors.MemoEdit();
+            this.btn_Send = new DevExpress.XtraEditors.SimpleButton();
             this.gc_Images = new DevExpress.XtraGrid.GridControl();
             this.gv_Images = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.col_ImagePath = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -127,7 +126,7 @@ namespace ResponseEmergencySystem.Forms
             this.btn_Comments = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.btn_AddCaptures = new DevExpress.XtraEditors.SimpleButton();
-            this.buttonEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.edt_Message = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
@@ -135,14 +134,12 @@ namespace ResponseEmergencySystem.Forms
             this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem16 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.emptySpaceItem7 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlItem19 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem8 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
             this.btn_View = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.btn_Edit = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -190,6 +187,7 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl4)).BeginInit();
             this.layoutControl4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.memoEdit_Chat.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc_Images)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_Images)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Picture)).BeginInit();
@@ -197,7 +195,7 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.gc_Captures)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_Captures)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Comments)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_Message.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).BeginInit();
@@ -205,14 +203,12 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Edit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -663,15 +659,14 @@ namespace ResponseEmergencySystem.Forms
             // 
             // layoutControl4
             // 
-            this.layoutControl4.Controls.Add(this.labelControl7);
-            this.layoutControl4.Controls.Add(this.simpleButton4);
-            this.layoutControl4.Controls.Add(this.treeView1);
+            this.layoutControl4.Controls.Add(this.memoEdit_Chat);
+            this.layoutControl4.Controls.Add(this.btn_Send);
             this.layoutControl4.Controls.Add(this.gc_Images);
             this.layoutControl4.Controls.Add(this.labelControl5);
             this.layoutControl4.Controls.Add(this.gc_Captures);
             this.layoutControl4.Controls.Add(this.labelControl4);
             this.layoutControl4.Controls.Add(this.btn_AddCaptures);
-            this.layoutControl4.Controls.Add(this.buttonEdit1);
+            this.layoutControl4.Controls.Add(this.edt_Message);
             this.layoutControl4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl4.Location = new System.Drawing.Point(0, 0);
             this.layoutControl4.Name = "layoutControl4";
@@ -680,39 +675,29 @@ namespace ResponseEmergencySystem.Forms
             this.layoutControl4.TabIndex = 0;
             this.layoutControl4.Text = "layoutControl4";
             // 
-            // labelControl7
+            // memoEdit_Chat
             // 
-            this.labelControl7.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl7.Appearance.Options.UseFont = true;
-            this.labelControl7.Location = new System.Drawing.Point(241, 572);
-            this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(33, 21);
-            this.labelControl7.StyleController = this.layoutControl4;
-            this.labelControl7.TabIndex = 13;
-            this.labelControl7.Text = "Chat";
+            this.memoEdit_Chat.Location = new System.Drawing.Point(316, 572);
+            this.memoEdit_Chat.Name = "memoEdit_Chat";
+            this.memoEdit_Chat.Size = new System.Drawing.Size(403, 207);
+            this.memoEdit_Chat.StyleController = this.layoutControl4;
+            this.memoEdit_Chat.TabIndex = 12;
             // 
-            // simpleButton4
+            // btn_Send
             // 
-            this.simpleButton4.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
-            this.simpleButton4.Appearance.ForeColor = System.Drawing.Color.White;
-            this.simpleButton4.Appearance.Options.UseBackColor = true;
-            this.simpleButton4.Appearance.Options.UseForeColor = true;
-            this.simpleButton4.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.sendWhite;
-            this.simpleButton4.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.simpleButton4.Location = new System.Drawing.Point(659, 783);
-            this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(60, 24);
-            this.simpleButton4.StyleController = this.layoutControl4;
-            this.simpleButton4.TabIndex = 10;
-            this.simpleButton4.Text = "Send";
-            this.simpleButton4.Click += new System.EventHandler(this.simpleButton4_Click);
-            // 
-            // treeView1
-            // 
-            this.treeView1.Location = new System.Drawing.Point(278, 572);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(441, 207);
-            this.treeView1.TabIndex = 9;
+            this.btn_Send.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.btn_Send.Appearance.ForeColor = System.Drawing.Color.White;
+            this.btn_Send.Appearance.Options.UseBackColor = true;
+            this.btn_Send.Appearance.Options.UseForeColor = true;
+            this.btn_Send.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.sendWhite;
+            this.btn_Send.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
+            this.btn_Send.Location = new System.Drawing.Point(659, 783);
+            this.btn_Send.Name = "btn_Send";
+            this.btn_Send.Size = new System.Drawing.Size(60, 24);
+            this.btn_Send.StyleController = this.layoutControl4;
+            this.btn_Send.TabIndex = 10;
+            this.btn_Send.Text = "Send";
+            this.btn_Send.Click += new System.EventHandler(this.simpleButton4_Click);
             // 
             // gc_Images
             // 
@@ -920,13 +905,14 @@ namespace ResponseEmergencySystem.Forms
             this.btn_AddCaptures.Text = "Add more captures";
             this.btn_AddCaptures.Click += new System.EventHandler(this.simpleButton3_Click);
             // 
-            // buttonEdit1
+            // edt_Message
             // 
-            this.buttonEdit1.Location = new System.Drawing.Point(430, 783);
-            this.buttonEdit1.Name = "buttonEdit1";
-            this.buttonEdit1.Size = new System.Drawing.Size(225, 24);
-            this.buttonEdit1.StyleController = this.layoutControl4;
-            this.buttonEdit1.TabIndex = 11;
+            this.edt_Message.Location = new System.Drawing.Point(430, 783);
+            this.edt_Message.Name = "edt_Message";
+            this.edt_Message.Size = new System.Drawing.Size(225, 24);
+            this.edt_Message.StyleController = this.layoutControl4;
+            this.edt_Message.TabIndex = 11;
+            this.edt_Message.KeyDown += new System.Windows.Forms.KeyEventHandler(this.edt_Message_KeyDown);
             // 
             // layoutControlGroup3
             // 
@@ -939,14 +925,12 @@ namespace ResponseEmergencySystem.Forms
             this.layoutControlItem11,
             this.layoutControlItem12,
             this.layoutControlItem13,
-            this.layoutControlItem14,
             this.layoutControlItem15,
             this.layoutControlItem16,
             this.emptySpaceItem5,
             this.emptySpaceItem3,
-            this.emptySpaceItem7,
-            this.layoutControlItem19,
-            this.emptySpaceItem8});
+            this.emptySpaceItem8,
+            this.layoutControlItem14});
             this.layoutControlGroup3.Name = "layoutControlGroup3";
             this.layoutControlGroup3.Size = new System.Drawing.Size(731, 819);
             this.layoutControlGroup3.TextVisible = false;
@@ -1004,22 +988,9 @@ namespace ResponseEmergencySystem.Forms
             this.layoutControlItem13.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem13.TextVisible = false;
             // 
-            // layoutControlItem14
-            // 
-            this.layoutControlItem14.Control = this.treeView1;
-            this.layoutControlItem14.Location = new System.Drawing.Point(266, 560);
-            this.layoutControlItem14.Name = "layoutControlItem14";
-            this.layoutControlItem14.Size = new System.Drawing.Size(445, 211);
-            this.layoutControlItem14.Text = "Chat";
-            this.layoutControlItem14.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
-            this.layoutControlItem14.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem14.TextToControlDistance = 0;
-            this.layoutControlItem14.TextVisible = false;
-            // 
             // layoutControlItem15
             // 
-            this.layoutControlItem15.Control = this.simpleButton4;
+            this.layoutControlItem15.Control = this.btn_Send;
             this.layoutControlItem15.Location = new System.Drawing.Point(647, 771);
             this.layoutControlItem15.Name = "layoutControlItem15";
             this.layoutControlItem15.Size = new System.Drawing.Size(64, 28);
@@ -1028,7 +999,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             // layoutControlItem16
             // 
-            this.layoutControlItem16.Control = this.buttonEdit1;
+            this.layoutControlItem16.Control = this.edt_Message;
             this.layoutControlItem16.Location = new System.Drawing.Point(418, 771);
             this.layoutControlItem16.Name = "layoutControlItem16";
             this.layoutControlItem16.Size = new System.Drawing.Size(229, 28);
@@ -1048,25 +1019,8 @@ namespace ResponseEmergencySystem.Forms
             this.emptySpaceItem3.AllowHotTrack = false;
             this.emptySpaceItem3.Location = new System.Drawing.Point(0, 560);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(229, 211);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(265, 211);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // emptySpaceItem7
-            // 
-            this.emptySpaceItem7.AllowHotTrack = false;
-            this.emptySpaceItem7.Location = new System.Drawing.Point(229, 585);
-            this.emptySpaceItem7.Name = "emptySpaceItem7";
-            this.emptySpaceItem7.Size = new System.Drawing.Size(37, 186);
-            this.emptySpaceItem7.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // layoutControlItem19
-            // 
-            this.layoutControlItem19.Control = this.labelControl7;
-            this.layoutControlItem19.Location = new System.Drawing.Point(229, 560);
-            this.layoutControlItem19.Name = "layoutControlItem19";
-            this.layoutControlItem19.Size = new System.Drawing.Size(37, 25);
-            this.layoutControlItem19.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem19.TextVisible = false;
             // 
             // emptySpaceItem8
             // 
@@ -1075,6 +1029,17 @@ namespace ResponseEmergencySystem.Forms
             this.emptySpaceItem8.Name = "emptySpaceItem8";
             this.emptySpaceItem8.Size = new System.Drawing.Size(711, 30);
             this.emptySpaceItem8.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem14
+            // 
+            this.layoutControlItem14.AppearanceItemCaption.Options.UseTextOptions = true;
+            this.layoutControlItem14.AppearanceItemCaption.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
+            this.layoutControlItem14.Control = this.memoEdit_Chat;
+            this.layoutControlItem14.Location = new System.Drawing.Point(265, 560);
+            this.layoutControlItem14.Name = "layoutControlItem14";
+            this.layoutControlItem14.Size = new System.Drawing.Size(446, 211);
+            this.layoutControlItem14.Text = "Chat";
+            this.layoutControlItem14.TextSize = new System.Drawing.Size(27, 17);
             // 
             // btn_View
             // 
@@ -1177,6 +1142,7 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl4)).EndInit();
             this.layoutControl4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.memoEdit_Chat.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc_Images)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_Images)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Picture)).EndInit();
@@ -1184,7 +1150,7 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.gc_Captures)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_Captures)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Comments)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_Message.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).EndInit();
@@ -1192,14 +1158,12 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Edit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
@@ -1245,8 +1209,8 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem11;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem12;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem13;
-        private DevExpress.XtraEditors.SimpleButton simpleButton4;
-        private DevExpress.XtraEditors.TextEdit buttonEdit1;
+        private DevExpress.XtraEditors.SimpleButton btn_Send;
+        private DevExpress.XtraEditors.TextEdit edt_Message;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem15;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem16;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btn_View;
@@ -1285,14 +1249,11 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btn_Comments;
-        private System.Windows.Forms.TreeView treeView1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem14;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem5;
-        private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem7;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem19;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem8;
         private DevExpress.XtraGrid.Columns.GridColumn col_ImagePath;
+        private DevExpress.XtraEditors.MemoEdit memoEdit_Chat;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem14;
     }
 }

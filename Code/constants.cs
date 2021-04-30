@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 using Firebase.Storage;
 using Google.Cloud.Firestore;
 using System.Net;
-
+using ResponseEmergencySystem.Models;
+using ResponseEmergencySystem.Services;
 
 namespace ResponseEmergencySystem.Code
 {
@@ -24,6 +25,7 @@ namespace ResponseEmergencySystem.Code
         public static SqlConnection EmilioConn { get; } = itx.DbCon("DCManagement");
 
         public static Guid userID { get; set; }
+        public static Guid userIDTest { get; } = Guid.Parse("00000000-0000-0000-0000-000000000000");
 
         public static Guid idIncident { get; set; }
 
@@ -39,5 +41,8 @@ namespace ResponseEmergencySystem.Code
         public static string folioCode { get; } = "T-SIREM";
 
         public static string system { get; } = "SIREM";
+
+        public static List<State> states { get; set; }
+
     }
 }

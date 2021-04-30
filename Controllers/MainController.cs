@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using ResponseEmergencySystem.Views;
 using ResponseEmergencySystem.Models;
 using ResponseEmergencySystem.Services;
+using Google.Cloud.Firestore;
+using ResponseEmergencySystem.Code;
+using System.Windows.Forms;
 
 namespace ResponseEmergencySystem.Controllers
 {
@@ -15,6 +18,9 @@ namespace ResponseEmergencySystem.Controllers
         public List<Capture> _captures;
         List<Incident> _incidents;
         public string ID_Incident;
+
+        FirestoreDb dataBase;
+
         //Incident _selectedIncident;
         //DataTable dt_InjuredPersons = new DataTable();
 
@@ -35,6 +41,30 @@ namespace ResponseEmergencySystem.Controllers
         {
             _view.LoadIncidents(_incidents);
             _view.LoadCaptures(_captures);
+
+        }
+
+        public void LoadChat(string ID_incident = "")
+        {
+            string document = ID_Incident != "" ? ID_Incident : _view.ID_Incident;
+            ///** Firestore Database Connection **/
+            Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", constants.path);
+            dataBase = FirestoreDb.Create("dcmanagement-3d402");
+
+            CollectionReference messagesRef = dataBase.Collection("SIREM-chats").Document("75329DD7-BD87-4D65-BF84-1B7EBF3C8DD6").Collection("messages");
+            Query query = messagesRef;
+
+            FirestoreChangeListener listener = query.Listen(snapshot =>
+            {
+                foreach (DocumentChange change in snapshot.Changes)
+                {
+                    if (change.ChangeType.ToString() == "Added")
+                    {
+                        _view.Refresh_Chat(change.Document);
+
+                    }
+                }
+            });
         }
 
         public void SetCaptures(string ID_Incident)
@@ -69,5 +99,40 @@ namespace ResponseEmergencySystem.Controllers
             //    MessageBox.Show("There was an error opening the image file.");
             //}
         }
+
+        public void Send()
+        {
+            ITXFramework.ITXFramework itx = new ITXFramework.ITXFramework();
+
+            // itx.cfrm_InsertForm
+            string now = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            now = now.Replace("/", "-");
+
+            DocumentReference docRef = dataBase.Collection("SIREM-Chats").Document("75329DD7-BD87-4D65-BF84-1B7EBF3C8DD6").Collection("messages").Document(now);
+            Dictionary<string, object> data1 = new Dictionary<string, object>()
+            {
+                {"from", constants.userName  },
+                {"text", _view.Message }
+            };
+
+            if (_view.Message == "")
+            {
+                MessageBox.Show("Message is Empty");
+                return;
+            }
+            docRef.SetAsync(data1);
+            _view.Message = "";
+        }
     }
+
+    #region firestore properties
+    [FirestoreData]
+    internal class Data
+    {
+        [FirestoreProperty]
+        public string from { get; set; }
+        [FirestoreProperty]
+        public string text { get; set; }
+    }
+    #endregion
 }

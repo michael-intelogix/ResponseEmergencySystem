@@ -8,23 +8,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ResponseEmergencySystem.Models;
 
 namespace ResponseEmergencySystem.Forms
 {
     public partial class frm_DriverSearchList : DevExpress.XtraEditors.XtraForm
     {
         public Int32 dt_DriverRowSelected  { get; set; }
-        private DataTable dt_Drivers = new DataTable();
-        public frm_DriverSearchList(DataTable dt_Drivers)
+        private List<Driver> drivers;
+        public frm_DriverSearchList(List<Driver> drivers)
         {
-            this.dt_Drivers = dt_Drivers;
+            this.drivers = drivers;
             InitializeComponent();
             loadDrivers();
         }
 
         private void loadDrivers()
         {
-            gc_Drivers.DataSource = dt_Drivers;
+            gc_Drivers.DataSource = drivers;
         }
 
         private void btn_ApprovedDriver(object sender, EventArgs e)

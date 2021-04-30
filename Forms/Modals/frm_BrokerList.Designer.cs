@@ -29,16 +29,22 @@ namespace ResponseEmergencySystem.Forms.Modals
         /// </summary>
         private void InitializeComponent()
         {
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
+            this.btn_Approved1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.gv_Brokers = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -50,46 +56,57 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.col_Approved = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btn_approved = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
-            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.lue_City = new DevExpress.XtraEditors.LookUpEdit();
+            this.lue_State = new DevExpress.XtraEditors.LookUpEdit();
+            this.btn_Add = new DevExpress.XtraEditors.SimpleButton();
+            this.ckedt_Private = new DevExpress.XtraEditors.CheckEdit();
+            this.edt_Address = new DevExpress.XtraEditors.TextEdit();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.edt_Broker = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.buttonEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.btn_Approved1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.gc_Brokers = new DevExpress.XtraGrid.GridControl();
-            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.col_ID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_BrokerName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_StateName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_CityName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_BrokerAddress = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_BrokerAccepted = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btn_Accpeted = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Approved1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gv_Brokers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_approved)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lue_City.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lue_State.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckedt_Private.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_Address.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_Broker.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_Approved1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc_Brokers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Accpeted)).BeginInit();
             this.SuspendLayout();
+            // 
+            // btn_Approved1
+            // 
+            this.btn_Approved1.AutoHeight = false;
+            editorButtonImageOptions1.SvgImage = global::ResponseEmergencySystem.Properties.Resources.checkGreen;
+            editorButtonImageOptions1.SvgImageSize = new System.Drawing.Size(20, 20);
+            this.btn_Approved1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.btn_Approved1.Name = "btn_Approved1";
+            this.btn_Approved1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
             // panelControl1
             // 
@@ -198,72 +215,95 @@ namespace ResponseEmergencySystem.Forms.Modals
             // btn_approved
             // 
             this.btn_approved.AutoHeight = false;
-            editorButtonImageOptions3.SvgImage = global::ResponseEmergencySystem.Properties.Resources.checkGreen;
-            editorButtonImageOptions3.SvgImageSize = new System.Drawing.Size(20, 20);
+            editorButtonImageOptions2.SvgImage = global::ResponseEmergencySystem.Properties.Resources.checkGreen;
+            editorButtonImageOptions2.SvgImageSize = new System.Drawing.Size(20, 20);
             this.btn_approved.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btn_approved.Name = "btn_approved";
             this.btn_approved.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.btn_approved.Click += new System.EventHandler(this.btn_ApprovedDriver);
+            this.btn_approved.Click += new System.EventHandler(this.btn_ApprovedBroker);
             // 
             // panelControl2
             // 
-            this.panelControl2.Controls.Add(this.simpleButton1);
-            this.panelControl2.Controls.Add(this.checkEdit1);
-            this.panelControl2.Controls.Add(this.textEdit2);
-            this.panelControl2.Controls.Add(this.comboBoxEdit1);
+            this.panelControl2.Controls.Add(this.lue_City);
+            this.panelControl2.Controls.Add(this.lue_State);
+            this.panelControl2.Controls.Add(this.btn_Add);
+            this.panelControl2.Controls.Add(this.ckedt_Private);
+            this.panelControl2.Controls.Add(this.edt_Address);
             this.panelControl2.Controls.Add(this.labelControl6);
             this.panelControl2.Controls.Add(this.labelControl5);
             this.panelControl2.Controls.Add(this.labelControl4);
-            this.panelControl2.Controls.Add(this.textEdit1);
+            this.panelControl2.Controls.Add(this.edt_Broker);
             this.panelControl2.Controls.Add(this.labelControl3);
             this.panelControl2.Controls.Add(this.labelControl2);
-            this.panelControl2.Controls.Add(this.buttonEdit1);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(0, 28);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(658, 101);
             this.panelControl2.TabIndex = 3;
             // 
-            // simpleButton1
+            // lue_City
             // 
-            this.simpleButton1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(138)))), ((int)(((byte)(50)))));
-            this.simpleButton1.Appearance.ForeColor = System.Drawing.Color.White;
-            this.simpleButton1.Appearance.Options.UseBackColor = true;
-            this.simpleButton1.Appearance.Options.UseForeColor = true;
-            this.simpleButton1.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.addWhite;
-            this.simpleButton1.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.simpleButton1.Location = new System.Drawing.Point(558, 65);
-            this.simpleButton1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-            this.simpleButton1.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(75, 23);
-            this.simpleButton1.TabIndex = 10;
-            this.simpleButton1.Text = "Add";
-            // 
-            // checkEdit1
-            // 
-            this.checkEdit1.Location = new System.Drawing.Point(460, 69);
-            this.checkEdit1.Name = "checkEdit1";
-            this.checkEdit1.Properties.Caption = "Private";
-            this.checkEdit1.Size = new System.Drawing.Size(65, 21);
-            this.checkEdit1.TabIndex = 9;
-            // 
-            // textEdit2
-            // 
-            this.textEdit2.Location = new System.Drawing.Point(80, 68);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Size = new System.Drawing.Size(360, 24);
-            this.textEdit2.TabIndex = 8;
-            // 
-            // comboBoxEdit1
-            // 
-            this.comboBoxEdit1.Location = new System.Drawing.Point(500, 29);
-            this.comboBoxEdit1.Name = "comboBoxEdit1";
-            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.lue_City.Location = new System.Drawing.Point(496, 29);
+            this.lue_City.Name = "lue_City";
+            this.lue_City.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit1.Size = new System.Drawing.Size(133, 24);
-            this.comboBoxEdit1.TabIndex = 7;
+            this.lue_City.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID_City", "ID_City", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Name")});
+            this.lue_City.Properties.DisplayMember = "Name";
+            this.lue_City.Properties.NullText = "";
+            this.lue_City.Properties.ValueMember = "ID_City";
+            this.lue_City.Size = new System.Drawing.Size(137, 24);
+            this.lue_City.TabIndex = 12;
+            // 
+            // lue_State
+            // 
+            this.lue_State.Location = new System.Drawing.Point(316, 32);
+            this.lue_State.Name = "lue_State";
+            this.lue_State.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lue_State.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID_State", "ID_State", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Name")});
+            this.lue_State.Properties.DisplayMember = "Name";
+            this.lue_State.Properties.NullText = "";
+            this.lue_State.Properties.ValueMember = "ID_State";
+            this.lue_State.Size = new System.Drawing.Size(124, 24);
+            this.lue_State.TabIndex = 11;
+            this.lue_State.EditValueChanged += new System.EventHandler(this.lue_State_EditValueChanged);
+            // 
+            // btn_Add
+            // 
+            this.btn_Add.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(138)))), ((int)(((byte)(50)))));
+            this.btn_Add.Appearance.ForeColor = System.Drawing.Color.White;
+            this.btn_Add.Appearance.Options.UseBackColor = true;
+            this.btn_Add.Appearance.Options.UseForeColor = true;
+            this.btn_Add.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.addWhite;
+            this.btn_Add.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.btn_Add.Location = new System.Drawing.Point(558, 65);
+            this.btn_Add.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            this.btn_Add.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.btn_Add.Name = "btn_Add";
+            this.btn_Add.Size = new System.Drawing.Size(75, 23);
+            this.btn_Add.TabIndex = 10;
+            this.btn_Add.Text = "Add";
+            this.btn_Add.Click += new System.EventHandler(this.add_Click);
+            // 
+            // ckedt_Private
+            // 
+            this.ckedt_Private.Location = new System.Drawing.Point(460, 69);
+            this.ckedt_Private.Name = "ckedt_Private";
+            this.ckedt_Private.Properties.Caption = "Private";
+            this.ckedt_Private.Size = new System.Drawing.Size(65, 21);
+            this.ckedt_Private.TabIndex = 9;
+            // 
+            // edt_Address
+            // 
+            this.edt_Address.Location = new System.Drawing.Point(80, 68);
+            this.edt_Address.Name = "edt_Address";
+            this.edt_Address.Size = new System.Drawing.Size(360, 24);
+            this.edt_Address.TabIndex = 8;
             // 
             // labelControl6
             // 
@@ -289,12 +329,12 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.labelControl4.TabIndex = 3;
             this.labelControl4.Text = "State";
             // 
-            // textEdit1
+            // edt_Broker
             // 
-            this.textEdit1.Location = new System.Drawing.Point(68, 32);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(188, 24);
-            this.textEdit1.TabIndex = 2;
+            this.edt_Broker.Location = new System.Drawing.Point(68, 32);
+            this.edt_Broker.Name = "edt_Broker";
+            this.edt_Broker.Size = new System.Drawing.Size(188, 24);
+            this.edt_Broker.TabIndex = 2;
             // 
             // labelControl3
             // 
@@ -311,15 +351,6 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.labelControl2.Size = new System.Drawing.Size(100, 17);
             this.labelControl2.TabIndex = 0;
             this.labelControl2.Text = "Add new broker";
-            // 
-            // buttonEdit1
-            // 
-            this.buttonEdit1.Location = new System.Drawing.Point(307, 29);
-            this.buttonEdit1.Name = "buttonEdit1";
-            this.buttonEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.buttonEdit1.Size = new System.Drawing.Size(133, 24);
-            this.buttonEdit1.TabIndex = 6;
             // 
             // panelControl3
             // 
@@ -367,71 +398,6 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.simpleButton2.TabIndex = 0;
             this.simpleButton2.Text = "Save";
             // 
-            // gridView1
-            // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn1,
-            this.gridColumn2,
-            this.gridColumn3,
-            this.gridColumn4,
-            this.gridColumn6,
-            this.gridColumn5});
-            this.gridView1.GridControl = this.gc_Brokers;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
-            // 
-            // gridColumn1
-            // 
-            this.gridColumn1.FieldName = "Name";
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.OptionsColumn.AllowEdit = false;
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 0;
-            this.gridColumn1.Width = 126;
-            // 
-            // gridColumn2
-            // 
-            this.gridColumn2.FieldName = "State";
-            this.gridColumn2.Name = "gridColumn2";
-            this.gridColumn2.OptionsColumn.AllowEdit = false;
-            this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 1;
-            this.gridColumn2.Width = 126;
-            // 
-            // gridColumn3
-            // 
-            this.gridColumn3.FieldName = "City";
-            this.gridColumn3.Name = "gridColumn3";
-            this.gridColumn3.OptionsColumn.AllowEdit = false;
-            this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 2;
-            this.gridColumn3.Width = 126;
-            // 
-            // gridColumn4
-            // 
-            this.gridColumn4.FieldName = "Address";
-            this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.OptionsColumn.AllowEdit = false;
-            this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 3;
-            this.gridColumn4.Width = 126;
-            // 
-            // gridColumn5
-            // 
-            this.gridColumn5.ColumnEdit = this.btn_Approved1;
-            this.gridColumn5.FieldName = "Select";
-            this.gridColumn5.Name = "gridColumn5";
-            // 
-            // btn_Approved1
-            // 
-            this.btn_Approved1.AutoHeight = false;
-            editorButtonImageOptions4.SvgImage = global::ResponseEmergencySystem.Properties.Resources.checkGreen;
-            editorButtonImageOptions4.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.btn_Approved1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.btn_Approved1.Name = "btn_Approved1";
-            this.btn_Approved1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            // 
             // gc_Brokers
             // 
             this.gc_Brokers.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -439,19 +405,85 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.gc_Brokers.MainView = this.gridView1;
             this.gc_Brokers.Name = "gc_Brokers";
             this.gc_Brokers.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.btn_Approved1});
+            this.btn_Accpeted});
             this.gc_Brokers.Size = new System.Drawing.Size(658, 421);
             this.gc_Brokers.TabIndex = 5;
             this.gc_Brokers.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
-            // gridColumn6
+            // gridView1
             // 
-            this.gridColumn6.ColumnEdit = this.btn_Approved1;
-            this.gridColumn6.Name = "gridColumn6";
-            this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 4;
-            this.gridColumn6.Width = 38;
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.col_ID,
+            this.col_BrokerName,
+            this.col_StateName,
+            this.col_CityName,
+            this.col_BrokerAddress,
+            this.col_BrokerAccepted});
+            this.gridView1.GridControl = this.gc_Brokers;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsView.ShowGroupPanel = false;
+            // 
+            // col_ID
+            // 
+            this.col_ID.Caption = "ID_Broker";
+            this.col_ID.FieldName = "ID_Broker";
+            this.col_ID.Name = "col_ID";
+            // 
+            // col_BrokerName
+            // 
+            this.col_BrokerName.Caption = "Broker";
+            this.col_BrokerName.FieldName = "Name";
+            this.col_BrokerName.Name = "col_BrokerName";
+            this.col_BrokerName.Visible = true;
+            this.col_BrokerName.VisibleIndex = 0;
+            this.col_BrokerName.Width = 126;
+            // 
+            // col_StateName
+            // 
+            this.col_StateName.Caption = "State";
+            this.col_StateName.FieldName = "State";
+            this.col_StateName.Name = "col_StateName";
+            this.col_StateName.Visible = true;
+            this.col_StateName.VisibleIndex = 1;
+            this.col_StateName.Width = 126;
+            // 
+            // col_CityName
+            // 
+            this.col_CityName.Caption = "City";
+            this.col_CityName.FieldName = "City";
+            this.col_CityName.Name = "col_CityName";
+            this.col_CityName.Visible = true;
+            this.col_CityName.VisibleIndex = 2;
+            this.col_CityName.Width = 126;
+            // 
+            // col_BrokerAddress
+            // 
+            this.col_BrokerAddress.Caption = "Address";
+            this.col_BrokerAddress.FieldName = "Address";
+            this.col_BrokerAddress.Name = "col_BrokerAddress";
+            this.col_BrokerAddress.Visible = true;
+            this.col_BrokerAddress.VisibleIndex = 3;
+            this.col_BrokerAddress.Width = 126;
+            // 
+            // col_BrokerAccepted
+            // 
+            this.col_BrokerAccepted.ColumnEdit = this.btn_Accpeted;
+            this.col_BrokerAccepted.Name = "col_BrokerAccepted";
+            this.col_BrokerAccepted.Visible = true;
+            this.col_BrokerAccepted.VisibleIndex = 4;
+            this.col_BrokerAccepted.Width = 30;
+            // 
+            // btn_Accpeted
+            // 
+            this.btn_Accpeted.AutoHeight = false;
+            editorButtonImageOptions3.SvgImage = global::ResponseEmergencySystem.Properties.Resources.checkGreen;
+            editorButtonImageOptions3.SvgImageSize = new System.Drawing.Size(20, 20);
+            this.btn_Accpeted.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.btn_Accpeted.Name = "btn_Accpeted";
+            this.btn_Accpeted.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.btn_Accpeted.Click += new System.EventHandler(this.btn_ApprovedBroker);
             // 
             // frm_BrokerList
             // 
@@ -468,6 +500,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Broker List";
             this.Load += new System.EventHandler(this.frm_BrokerList_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Approved1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
@@ -476,16 +509,16 @@ namespace ResponseEmergencySystem.Forms.Modals
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             this.panelControl2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lue_City.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lue_State.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckedt_Private.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_Address.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_Broker.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_Approved1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc_Brokers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Accpeted)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -504,27 +537,28 @@ namespace ResponseEmergencySystem.Forms.Modals
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btn_approved;
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private DevExpress.XtraEditors.PanelControl panelControl3;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.CheckEdit checkEdit1;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
+        private DevExpress.XtraEditors.SimpleButton btn_Add;
+        private DevExpress.XtraEditors.CheckEdit ckedt_Private;
+        private DevExpress.XtraEditors.TextEdit edt_Address;
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.LabelControl labelControl4;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit edt_Broker;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.ComboBoxEdit buttonEdit1;
         private DevExpress.XtraEditors.SimpleButton simpleButton3;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
-        private DevExpress.XtraGrid.GridControl gc_Brokers;
+        private DevExpress.XtraEditors.LookUpEdit lue_City;
+        private DevExpress.XtraEditors.LookUpEdit lue_State;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btn_Approved1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
+        private DevExpress.XtraGrid.GridControl gc_Brokers;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Columns.GridColumn col_ID;
+        private DevExpress.XtraGrid.Columns.GridColumn col_BrokerName;
+        private DevExpress.XtraGrid.Columns.GridColumn col_StateName;
+        private DevExpress.XtraGrid.Columns.GridColumn col_CityName;
+        private DevExpress.XtraGrid.Columns.GridColumn col_BrokerAddress;
+        private DevExpress.XtraGrid.Columns.GridColumn col_BrokerAccepted;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btn_Accpeted;
     }
 }

@@ -29,11 +29,11 @@ namespace ResponseEmergencySystem.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
@@ -128,7 +128,7 @@ namespace ResponseEmergencySystem.Forms
             // col_DriverName
             // 
             this.col_DriverName.Caption = "Name";
-            this.col_DriverName.FieldName = "driverName";
+            this.col_DriverName.FieldName = "Name";
             this.col_DriverName.MinWidth = 23;
             this.col_DriverName.Name = "col_DriverName";
             this.col_DriverName.OptionsColumn.AllowEdit = false;
@@ -139,7 +139,7 @@ namespace ResponseEmergencySystem.Forms
             // col_LastName
             // 
             this.col_LastName.Caption = "Last Name";
-            this.col_LastName.FieldName = "pat_surname";
+            this.col_LastName.FieldName = "LastName1";
             this.col_LastName.MinWidth = 23;
             this.col_LastName.Name = "col_LastName";
             this.col_LastName.OptionsColumn.AllowEdit = false;
@@ -150,7 +150,7 @@ namespace ResponseEmergencySystem.Forms
             // col_PhoneNumber
             // 
             this.col_PhoneNumber.Caption = "phone number";
-            this.col_PhoneNumber.FieldName = "phone_number";
+            this.col_PhoneNumber.FieldName = "PhoneNumber";
             this.col_PhoneNumber.MinWidth = 23;
             this.col_PhoneNumber.Name = "col_PhoneNumber";
             this.col_PhoneNumber.OptionsColumn.AllowEdit = false;
@@ -172,7 +172,7 @@ namespace ResponseEmergencySystem.Forms
             // col_ExpeditionState
             // 
             this.col_ExpeditionState.Caption = "Expedition State";
-            this.col_ExpeditionState.FieldName = "state_name";
+            this.col_ExpeditionState.FieldName = "State";
             this.col_ExpeditionState.MinWidth = 23;
             this.col_ExpeditionState.Name = "col_ExpeditionState";
             this.col_ExpeditionState.OptionsColumn.AllowEdit = false;
@@ -183,7 +183,7 @@ namespace ResponseEmergencySystem.Forms
             // col_ExpirationDate
             // 
             this.col_ExpirationDate.Caption = "Expiration Date";
-            this.col_ExpirationDate.FieldName = "Expiration_Date";
+            this.col_ExpirationDate.FieldName = "ExpirationDate";
             this.col_ExpirationDate.MinWidth = 23;
             this.col_ExpirationDate.Name = "col_ExpirationDate";
             this.col_ExpirationDate.OptionsColumn.AllowEdit = false;
@@ -203,10 +203,10 @@ namespace ResponseEmergencySystem.Forms
             // btn_approved
             // 
             this.btn_approved.AutoHeight = false;
-            editorButtonImageOptions1.SvgImage = global::ResponseEmergencySystem.Properties.Resources.checkGreen;
-            editorButtonImageOptions1.SvgImageSize = new System.Drawing.Size(20, 20);
+            editorButtonImageOptions2.SvgImage = global::ResponseEmergencySystem.Properties.Resources.checkGreen;
+            editorButtonImageOptions2.SvgImageSize = new System.Drawing.Size(20, 20);
             this.btn_approved.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btn_approved.Name = "btn_approved";
             this.btn_approved.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btn_approved.Click += new System.EventHandler(this.btn_ApprovedDriver);

@@ -9,6 +9,7 @@ using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ResponseEmergencySystem.Code;
 
 namespace ResponseEmergencySystem
 {
@@ -24,13 +25,16 @@ namespace ResponseEmergencySystem
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Main2());
 
+            constants.states = GeneralService.list_States();
+
             Main2 mainView = new Main2();
             List<Incident> incidents = IncidentService.list_Incidents("", "", "", "", "");
             List<Capture> captureByIncident = CaptureService.list_Captures(incidents[0].ID_Incident.ToString());
             MainController mainCtrl = new MainController(mainView, captureByIncident, incidents);
+
             mainCtrl.LoadData();
 
-            
+           
             Application.Run(mainView);
         }
     }

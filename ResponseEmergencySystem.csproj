@@ -347,6 +347,7 @@
     <Compile Include="Connection\Connection.cs" />
     <Compile Include="Controllers\BrokerController.cs" />
     <Compile Include="Controllers\IncidentController.cs" />
+    <Compile Include="Controllers\Incidents\AddIncidentController.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Forms\frm_DriverSearchList.cs">
       <SubType>Form</SubType>
@@ -421,10 +422,15 @@
       <DependentUpon>AddIncidentDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Broker.cs" />
-    <Compile Include="Samsara Models\Vehicle.cs" />
+    <Compile Include="Models\City.cs" />
+    <Compile Include="Models\Response.cs" />
+    <Compile Include="Models\State.cs" />
+    <Compile Include="Models\Samsara\Vehicle.cs" />
     <Compile Include="Services\BrokerService.cs" />
     <Compile Include="Services\CaptureService.cs" />
+    <Compile Include="Services\DriverService.cs" />
     <Compile Include="Services\IncidentService.cs" />
+    <Compile Include="Services\GeneralService.cs" />
     <Compile Include="Services\StatusDetailService.cs" />
     <Compile Include="Forms\Main.cs">
       <SubType>Form</SubType>
@@ -459,6 +465,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\IAddIncidentView.cs" />
     <Compile Include="Views\IBrokerView.cs" />
     <Compile Include="Views\IMainView.cs" />
     <Compile Include="Views\IShowIncidentDetails.cs" />
@@ -539,6 +546,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="SQL Queries\" />
+    <Folder Include="Views\Incidents\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

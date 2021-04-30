@@ -14,17 +14,18 @@ using ResponseEmergencySystem.Properties;
 using ResponseEmergencySystem.Controllers;
 using ResponseEmergencySystem.Forms.Modals;
 using ResponseEmergencySystem.Services;
-using ResponseEmergencySystem.Samsara_Models;
+using ResponseEmergencySystem.Views;
 using System.Net.Http;
 using Newtonsoft.Json;
 using System.Net.Http.Headers;
 using Newtonsoft.Json.Linq;
 using System.IO;
+using ResponseEmergencySystem.Models;
 
 namespace ResponseEmergencySystem.Forms
 {
     
-    public partial class AddIncidentDetails : XtraForm
+    public partial class AddIncidentDetails : XtraForm, IAddIncidentView
     {
 
         #region SAMSARA CLASSES
@@ -43,22 +44,7 @@ namespace ResponseEmergencySystem.Forms
         #endregion
         // driver E2E7FBBB-6BF8-414A-B160-1A4EE294DC97
         // driver2 C7B06EF3-869B-4212-A1EC-7820B2D17CA4
-        private string ID_Driver = "";
-        private string ID_Truck = "";
-        private string ID_Trailer = "";
-        private bool truckDamages = false;
-        private int cont = 0;
-        private Point pnl_loc = new Point(6, 3);
-        private string [] Injured = { "First", "Second", "Third", "Four", "Five" };
-        private int injuredPersonsCount = 0;
-        private PanelControl pnl_Injures = new PanelControl();
-        private LabelControl lbl_InjuredName = new LabelControl();
-        private TextEdit edt_InjuredName = new TextEdit();
-        private LabelControl lbl_InjuredContactNumber = new LabelControl();
-        private TextEdit edt_InjuredContactNumber = new TextEdit();
-        private SimpleButton btn_AddInjuredPerson = new SimpleButton();
-        private SimpleButton btn_RemoveInjuredPerson = new SimpleButton();
-
+        
         private DataTable dt_InjuredPersons;
 
         public AddIncidentDetails()
@@ -66,21 +52,9 @@ namespace ResponseEmergencySystem.Forms
             InitializeComponent();
             initializeDatatable();
 
-            //dtInjured.Columns.Add("Name");
-            //dtInjured.Columns.Add("Number");
-            //DataRow _data1 = dtInjured.NewRow();
-            //_data1["Name"] = "holi";
-            //_data1["Number"] = "1";
-            //dtInjured.Rows.Add(_data1);
-            //DataRow _data2 = dtInjured.NewRow();
-            //_data2["Name"] = "hey";
-            //_data2["Number"] = "2";
-            //dtInjured.Rows.Add(_data2);
-            //lookUpEdit1.Properties.DataSource = dtInjured;
-
         }
 
-        IncidentController _controller;
+        Controllers.Incidents.AddIncidentController _controller;
 
         private void initializeDatatable()
         {
@@ -92,26 +66,6 @@ namespace ResponseEmergencySystem.Forms
             gc_InjuredPersons.DataSource = dt_InjuredPersons;
         }
 
-        private void initializeLookUpsData()
-        {
-            DataTable dt_States = Functions.getStates();
-            lue_StateExp.Properties.DataSource = dt_States;
-            lue_states.Properties.DataSource = dt_States;
-        }
-
-        private void CreateInjuredpersons(Int16 numOfRows)
-        {
-            Int16 currentRow = 0;
-            while (currentRow < numOfRows)
-            {
-                addEmptyRow();
-                currentRow++;
-            }
-
-
-            //Task.Delay(1000);
-            //return Task.FromResult("ok");
-        }
 
         private void refreshInjuredPersonsTable()
         {
@@ -136,7 +90,7 @@ namespace ResponseEmergencySystem.Forms
             {
                 lbl_Exists.ImageOptions.Image = Resources.cancel_16x161;
                 lbl_Exists.Visible = true;
-                if (type == "Trailer") { lbl_CargoType.Visible = false; }
+                if (type == "Trailer") { edt_Cargo.Visible = false; }
             }
             else
             {
@@ -145,8 +99,8 @@ namespace ResponseEmergencySystem.Forms
 
                 if (type == "Trailer")
                 {
-                    lbl_CargoType.Visible = true;
-                    lbl_CargoType.Text = response.ItemArray[3].ToString();
+                    edt_Cargo.Visible = true;
+                    edt_Cargo.EditValue = response.ItemArray[3].ToString();
                 }
                 
             }
@@ -154,7 +108,12 @@ namespace ResponseEmergencySystem.Forms
 
         private void btn_AddRowsClick(object sender, EventArgs e)
         {
-            CreateInjuredpersons(Convert.ToInt16(edt_NumberOfInjured.EditValue));
+            Int16 currentRow = 0;
+            while (currentRow < Convert.ToInt16(edt_NumberOfInjured.EditValue))
+            {
+                addEmptyRow();
+                currentRow++;
+            }
             //addEmptyRow();
 
         }
@@ -174,344 +133,63 @@ namespace ResponseEmergencySystem.Forms
             }
         }
 
-        //private Task<string> CreatePersonInjuredCapture (Point loc, XtraScrollableControl spnl_Injured, string pnlName)
-        //{
-        //    //if (injuredNumber < 1)
-        //    //{
-        //    //    TextEdit edt_PersonInjured = new TextEdit();
-        //    //    edt_PersonInjured.Width = 138;
-        //    //    edt_PersonInjured.Height = 20;
-
-        //    //    var edtLocX = edt_PersonInjured.Location.X;
-        //    //    var edtLocY = edt_PersonInjured.Location.Y;
-
-        //    //    if (lastEdt.Location.X + lastEdt.Size.Width <= 564)
-        //    //    {
-        //    //        edtLocX = lastEdt.Location.X + lastEdt.Size.Width + 20;
-        //    //        edtLocY = lastEdt.Location.Y;
-
-        //    //        edt_PersonInjured.Size = new System.Drawing.Size(138, 20);
-        //    //        edt_PersonInjured.Location = new System.Drawing.Point(lastEdt.Location.X + lastEdt.Size.Width + 20, lastEdt.Location.Y);
-
-        //    //        Debug.WriteLine(lastEdt.Location.Y);
-        //    //        groupControl3.Controls.Add(edt_PersonInjured);
-        //    //        Controls.Add(edt_PersonInjured);
-        //    //        panelControl1.Refresh();
-        //    //    }
-
-        //    //}
-
-        //    PanelControl pnl_Injures = new PanelControl();
-        //    LabelControl lbl_InjuredName = new LabelControl();
-        //    TextEdit edt_InjuredName = new TextEdit();
-        //    LabelControl lbl_InjuredContactNumber = new LabelControl();
-        //    TextEdit edt_InjuredContactNumber = new TextEdit();
-        //    SimpleButton btn_AddInjuredPerson = new SimpleButton();
-        //    SimpleButton btn_RemoveInjuredPerson = new SimpleButton();
-
-        //    pnl_Injures.Location = loc;
-
-        //    pnl_Injures.Name = pnlName;
-        //    pnl_Injures.Size = new Size(601, 33);
-        //    pnl_Injures.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-
-        //    lbl_InjuredName.Text = "Name of the person injured";
-        //    lbl_InjuredName.Location = new Point(5, 10);
-        //    lbl_InjuredName.Size = new Size(137, 13);
-
-        //    edt_InjuredName.Location = new Point(151, 7);
-        //    edt_InjuredName.Size = new Size(138, 20);
-
-        //    lbl_InjuredContactNumber.Text = "Contact Number";
-        //    lbl_InjuredContactNumber.Location = new Point(300, 10);
-        //    lbl_InjuredContactNumber.Size = new Size(78, 13);
-
-        //    edt_InjuredContactNumber.Location = new Point(385, 7);
-        //    edt_InjuredContactNumber.Size = new Size(138, 20);
-
-        //    btn_RemoveInjuredPerson.Location = new Point(536, 5);
-        //    btn_RemoveInjuredPerson.Size = new Size(25, 23);
-        //    btn_RemoveInjuredPerson.Click += RemoveIncidentCapture;
-        //    btn_RemoveInjuredPerson.ImageOptions.Image = Resources.cancel_16x16;
-
-        //    //btn_AddInjuredPerson.Location = new Point(571, 5);
-        //    //btn_AddInjuredPerson.Size = new Size(25, 23);
-        //    //btn_AddInjuredPerson.ImageOptions.Image = Resources.add_16x16;
-
-        //    pnl_Injures.Controls.Add(lbl_InjuredName);
-        //    pnl_Injures.Controls.Add(edt_InjuredName);
-        //    pnl_Injures.Controls.Add(lbl_InjuredContactNumber);
-        //    pnl_Injures.Controls.Add(edt_InjuredContactNumber);
-        //    //pnl_Injures.Controls.Add(btn_AddInjuredPerson);
-        //    pnl_Injures.Controls.Add(btn_RemoveInjuredPerson);
-
-        //    Task.Delay(1000);
-
-        //    spnl_Injured.Controls.Add(pnl_Injures);
-        //    Debug.WriteLine(pnl_Injures.Name);
-        //    return Task.FromResult("ok");
-        //}
-
-        //private void RemoveIncidentCapture(object sender, EventArgs e)
-        //{
-        //    // pnl_InjuredCapture-1
-        //    SimpleButton sb = (SimpleButton)sender;
-        //    PanelControl pnl_Injured = (PanelControl) sb.Parent;
-        //    XtraScrollableControl spnl_Injuredpersons = (XtraScrollableControl) sb.Parent.Parent;
-        //    string pnlName = (string)pnl_Injured.Name.ToString();
-
-        //    Int16 indx = Convert.ToInt16(pnlName.Split('-')[1]);
-        //    string controlName = pnlName.Split('-')[0];
-        //    Int16 loc_Y = 0;
-
-        //    Debug.WriteLine("removed: " + (string)pnl_Injured.Name);
-        //    injuredPersonsCount -= 1;
-        //    loc_Y = Convert.ToInt16(pnl_Injured.Location.Y);
-        //    if (injuredPersonsCount == 1) 
-        //    {
-        //        pnl_loc.Y = (injuredPersonsCount * 30) + 3;
-        //        loc_Y = 3;
-        //    } 
-
-        //    if (injuredPersonsCount > 1)
-        //    {
-        //        pnl_loc.Y = (injuredPersonsCount * 30) + 3;
-        //        loc_Y = (Int16) (pnl_loc.Y - 30);
-        //    }
-
-        //    pnl_Injured.Dispose();
-
-        //    if (injuredPersonsCount > 0)
-        //    {   
-
-        //        for (Int16 i = indx; i < injuredPersonsCount; i++)
-        //        {
-        //            Debug.WriteLine("here");
-        //            Debug.WriteLine(spnl_Injuredpersons.Controls[i].Name);
-        //            spnl_Injuredpersons.Controls[i].Name = controlName + (i - 1);
-        //            spnl_Injuredpersons.Controls[i].Location = new Point(spnl_Injuredpersons.Controls[i].Location.X, loc_Y);
-        //            spnl_Injuredpersons.Refresh();
-        //        }
-
-
-        //    }
-
-        //}
-
-        //private void removeIncidentCapture(object sender, EventArgs e, string name, XtraScrollableControl spnl_Injured)
-        //{
-        //    // pnl_InjuredCapture-1
-        //    Int16 indx = Convert.ToInt16(name.Split('-')[1]);
-        //    string controlName = name.Split('-')[0];
-
-        //    spnl_Injured.Controls[indx].Dispose();
-
-        //    for (Int16 i = indx; indx < injuredPersonsCount; i++)
-        //    {
-        //        spnl_Injured.Controls[indx].Name = controlName + '-' + (i - 1);
-        //        spnl_Injured.Controls[indx].Location = new Point(spnl_Injured.Controls[indx].Location.X, spnl_Injured.Controls[indx].Location.Y - 30);
-        //    }
-        //}
 
         private void IncidentCapture_Load(object sender, EventArgs e)
-        {
-
-            initializeLookUpsData();
-
-            //var json = GetCallAPI("https://api.samsara.com/fleet/drivers");
-            //JObject rss = JObject.Parse((string)json.Result);
-            //using (var context = new SIREMLocalEntities())
-            //{
-            //    lue_states.Properties.DataSource = context.List_States(null);
-
-            //    lue_DriverLicenceState.Properties.DataSource = context.List_States(null);
-            //}
+        { 
         }
 
         private void btn_AddIncident_Click(object sender, EventArgs e)
         {
-            Random rand = new Random();
-            float lat = rand.Next(-101, 101) + Truncate((float)rand.NextDouble(), 7);
-            float lon = rand.Next(-101, 101) + Truncate((float)rand.NextDouble(), 7);
-            Debug.WriteLine(lat.ToString());
-            DataRow folioReponse = Functions.Get_Folio().Select().First();
-            string folio = folioReponse.ItemArray[2].ToString() + "-" + folioReponse.ItemArray[3].ToString();
+            _controller.AddIncident();
+            //Random rand = new Random();
+            
+            //string folio = folioReponse.ItemArray[2].ToString() + "-" + folioReponse.ItemArray[3].ToString();
 
             // receive a table of the SP
-            DataTable dt_Injured = new DataTable();
+            //DataTable dt_Injured = new DataTable();
 
-            DataRow incidentResponse = Functions.AddIncidentReport(
-                ID_Driver,
-                lue_states.EditValue.ToString(),
-                lue_Cities.EditValue.ToString(),
-                Guid.NewGuid().ToString(),
-                ID_Truck,
-                ID_Trailer,
-                folio,
-                new DateTime(dte_IncidentDate.DateTime.Ticks + tme_IncidentTime.Time.Ticks),
-                (bool)ckedt_PoliceReport.EditValue,
-                GetEdtValue(edt_PoliceReport),
-                (bool)ckedt_Spill.EditValue,
-                GetEdtValue(edt_manifest),
-                GetEdtValue(edt_Highway),
-                lat.ToString(),
-                lon.ToString(),
-                (bool)ckedt_truckDamages.EditValue,
-                (bool)ckedt_TruckCanMove.EditValue,
-                (bool)ckedt_TruckNeedCrane.EditValue,
-                (bool)ckedt_TrailerDamage.EditValue,
-                (bool)ckedt_TrailerCanMove.EditValue,
-                (bool)ckedt_TrailerNeedCrane.EditValue,
-                constants.userID.ToString(),
-                ""
-            ).Select().First();
+            //DataRow incidentResponse = Functions.AddIncidentReport(
+                //ID_Driver,
+                //lue_states.EditValue.ToString(),
+                //lue_Cities.EditValue.ToString(),
+                //Guid.NewGuid().ToString(),
+                //ID_Truck,
+                //ID_Trailer,
+                //folio,
+                //new DateTime(dte_IncidentDate.DateTime.Ticks + tme_IncidentTime.Time.Ticks),
+                //(bool)ckedt_PoliceReport.EditValue,
+                //GetEdtValue(edt_PoliceReport),
+                //(bool)ckedt_Spill.EditValue,
+                //GetEdtValue(edt_manifest),
+                //GetEdtValue(edt_Highway),
+                //lat.ToString(),
+                //lon.ToString(),
+                //(bool)ckedt_truckDamages.EditValue,
+                //(bool)ckedt_TruckCanMove.EditValue,
+                //(bool)ckedt_TruckNeedCrane.EditValue,
+                //(bool)ckedt_TrailerDamages.EditValue,
+                //(bool)ckedt_TrailerCanMove.EditValue,
+                //(bool)ckedt_TrailerNeedCrane.EditValue,
+                //constants.userID.ToString(),
+                //""
+            //).Select().First();
 
 
-            foreach (DataRow row in dt_InjuredPersons.Rows)
-            {
-                string fullName = row["FullName"].ToString();
-                string lastName1 = row["LastName1"].ToString();
-                string lastName2 = row["LastName2"].ToString();
-                string phoneNumber = row["Phone"].ToString();
-                dt_Injured = Functions.updateInjuredPerson(Guid.Empty, fullName, lastName1, lastName2, phoneNumber, Guid.Parse(incidentResponse.ItemArray[2].ToString()));
-                
-            }
-
-            if (dt_Injured.Rows.Count > 0)
-            {
-                MessageBox.Show(dt_Injured.Select().First().ItemArray[1].ToString());
-            }
-            
-            //spnl_InjuredPersons.Controls.Add(CreatePersonInjuredCapture(pnl_loc));
-            pnl_loc.Y += 39;
-
-            //using (var context = new SIREMLocalEntities())
+            //foreach (DataRow row in dt_InjuredPersons.Rows)
             //{
-
-                //var results_1 = context.Database.SqlQuery<Update_Location_Result>("EXEC Update_Location {0}, {1}, {2}, {3}, {4}, {5}, {6}",
-                //    null,
-                //    Guid.Parse(lue_Cities.EditValue.ToString()),
-                //    Guid.Parse(lue_states.EditValue.ToString()),
-                //    edt_Highway.Text.ToString(),
-                //    lat.ToString(),
-                //    lon.ToString(),
-                //    ""
-                //).ToListAsync();
-
-                //results_1.Wait();
-                //Debug.WriteLine(results_1.Result[0].msg);
-
-                //var id_driver = lbl_IdDriver.Text;
-                //Task<List<Update_Driver_Result>> results_2;
-                //if (id_driver == "empty")
-                //{
-                //    results_2 = context.Database.SqlQuery<Update_Driver_Result>("EXEC Update_Driver {0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}",
-                //        null,
-                //        edt_FullName.Text.ToString(),
-                //        "address",
-                //        edt_License.Text.ToString(),
-                //        lue_DriverLicenceState.EditValue.ToString(),
-                //        dte_ExpirationDate.DateTime,
-                //        edt_PhoneNumber.Text.ToString(),
-                //        true
-                //    ).ToListAsync();
-
-                //    results_2.Wait();
-                //    id_driver = results_2.Result[0].ID.ToString();
-                //    Debug.WriteLine(results_2.Result[0].msg);
-                //}
-                //var results_3 = context.Database.SqlQuery<Update_Cargo_Result>("EXEC Update_Cargo {0}, {1}, {2}",
-                //    null,
-                //    edt_Cargo.EditValue.ToString(),
-                //    edt_manifest.ToString()
-                //).ToListAsync();
-                //results_3.Wait();
-                //Debug.WriteLine(results_3.Result[0].msg);
-                //var driver_response = context.Update_Driver(
-                //    null,
-                //    edt_FullName.Text.ToString(),
-                //    "address",
-                //    edt_License.Text.ToString(),
-                //    lue_DriverLicenceState.EditValue.ToString(),
-                //    dte_ExpirationDate.DateTime,
-                //    edt_PhoneNumber.Text.ToString(),
-                //    true
-                //    );
-
-                //Debug.WriteLine(driver_response.ToList<Update_Driver_Result>()[0].msg);
-
-                //var results_3 = context.Database.SqlQuery<Update_Location_Result>("EXEC Update_Driver {0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}, {11}, {12}, {13}, {14}, {15}, {16}, {17}, {18}, {19}, {20}, {21}",
-                //    null,
-                //    Guid.Parse(results_2.Result[0].ID.ToString()),
-                //    Guid.Parse(results_1.Result[0].ID.ToString()),
-                //    Guid.Parse("24C94B83-1E93-EB11-BA73-8CDCD457CB4F"),
-                //    Guid.Parse("EB06B210-E102-4AEC-9820-8AD3A49060D9"),
-                //    "178784111",
-                //    DateTime.Now,
-                //    DateTime.Now,
-                //    "343234324",
-                //    true,
-                //    "2132354",
-                //    true,
-                //    "a lot of them",
-                //    "4324324",
-                //    "23432432",
-                //    true,
-                //    true,
-                //    true,
-                //    "43324324",
-                //    Guid.Parse("7DC94B83-1E93-EB11-BA73-8CDCD457CB4F"),
-                //    true
-                //).ToListAsync();
-
-                //results_3.Wait();
-                //Debug.WriteLine(results_3.Result[0].msg);
-
-                var no = rand.Next(0, 1000001).ToString();
-
-                //DateTime incidentDate = new DateTime(dte_IncidentDate.DateTime.Ticks + tme_IncidentTime.Time.Ticks);
-                //bool policeReportBoolean = GetRadioGroupYesNoSelection(rdgrp_PoliceReport);
-                //string policeReportNumber = GetEdtValue(edt_PoliceReport);
-                //bool injuredBoolean = GetRadioGroupYesNoSelection(rdgrp_Injured);
-                //string injuredNames = GetEdtValue(edt_InjuredNames);
-                //string truckNumber = GetEdtValue(edt_TruckNumber);
-                //string trailerNumber = GetEdtValue(edt_TrailerNumber);
-                //bool truckDamage = GetRadioGroupYesNoSelection(rdgrp_TruckDamage);
-                //bool trailerDamage = GetRadioGroupYesNoSelection(rdgrp_TrailerDamage);
-                //bool cargoSpill = GetRadioGroupYesNoSelection(rdgrp_CargoSpill);
-                //string manifestNumber = GetEdtValue(edt_manifest);
-                //bool status = true;
-
-                //    var Incident_Response = context.Update_Incident(
-                //    null,
-                //    //Guid.Parse("12D0FB1E-2797-EB11-BA73-8CDCD457CB4F"), 
-                //    //Guid.Parse(id_driver),
-                //    //Guid.Parse(results_1.Result[0].ID.ToString()),
-                //    //Guid.Parse(results_3.Result[0].ID.ToString()),
-                //    Guid.Parse("EB06B210-E102-4AEC-9820-8AD3A49060D9"),
-                //    no,
-                //    incidentDate,
-                //    null,
-                //    policeReportNumber,
-                //    policeReportBoolean,
-                //    "",
-                //    injuredBoolean,
-                //    injuredNames,
-                //    truckNumber,
-                //    trailerNumber,
-                //    truckDamage,
-                //    trailerDamage,
-                //    cargoSpill,
-                //    manifestNumber,
-                //    Guid.Parse("7DC94B83-1E93-EB11-BA73-8CDCD457CB4F"),
-                //    status
-                //);
-
-                //Debug.WriteLine(Incident_Response.ToList()[0].msg);
-
-                //Debug.WriteLine(policeReportBool);
+            //    string fullName = row["FullName"].ToString();
+            //    string lastName1 = row["LastName1"].ToString();
+            //    string lastName2 = row["LastName2"].ToString();
+            //    string phoneNumber = row["Phone"].ToString();
+            //    dt_Injured = Functions.updateInjuredPerson(Guid.Empty, fullName, lastName1, lastName2, phoneNumber, Guid.Parse(incidentResponse.ItemArray[2].ToString()));
+                
             //}
 
+            //if (dt_Injured.Rows.Count > 0)
+            //{
+            //    MessageBox.Show(dt_Injured.Select().First().ItemArray[1].ToString());
+            //}
+            
         }
 
         private void lue_States_Properties_EditValueChanged(object sender, EventArgs e)
@@ -532,162 +210,20 @@ namespace ResponseEmergencySystem.Forms
             return (float)result;
         }
 
-
-        //private static async void AddLocation(Location loc)
-        //{
-        //    //Random rand = new Random();
-        //    //float lat = rand.Next(-101, 101) + Truncate((float)rand.NextDouble(), 7);
-        //    //float lon = rand.Next(-101, 101) + Truncate((float)rand.NextDouble(), 7);
-        //    //Debug.WriteLine(lat.ToString());
-        //    using (var context = new SIREMLocalEntities())
-        //    {
-
-
-        //        //var location_response = context.Update_Location(
-        //        //    loc.ID_Location, 
-        //        //    loc.ID_City,
-        //        //    loc.ID_State,
-        //        //    loc.Highway,
-        //        //    loc.Latitude,
-        //        //    loc.Longitude,
-        //        //    loc.References
-        //        //    );
-        //        Debug.WriteLine("here");
-        //        //return results;
-
-        //    }
-        //}
-
-        //private void edt_License_KeyUp(object sender, KeyEventArgs e)
-        //{
-
-        //}
-
         private void btn_LookUpLicence_Click(object sender, EventArgs e)
         {
-            //using (var context = new SIREMLocalEntities())
-            //{
-            //    string license = GetEdtValue(edt_License);
-            //var Driver_Response = context.Get_Driver(license, "", "").ToList()[0];
-            //edt_FullName.EditValue = Driver_Response.Name.ToString();            
-            //edt_PhoneNumber.EditValue = Driver_Response.phone_number.ToString();
-            //edt_License.EditValue = Driver_Response.License.ToString();
-            //lue_DriverLicenceState.EditValue = Guid.Parse(Driver_Response.Expidation_State.ToString());            
-            //dte_ExpirationDate.EditValue = Driver_Response.Expiration_Date.ToString();
-            //lbl_IdDriver.Text = Driver_Response.ID_Driver.ToString();
-            //}
-            //9092825
-
-            string license = GetEdtValue(edt_License);
-            var Driver_Response = Functions.getDriver(license, "", "");
-            if (Driver_Response.ItemArray[0].ToString() == "0")
-            {
-                MessageBox.Show(Driver_Response.ItemArray[1].ToString());
-            }
-            else
-            {
-                ID_Driver = Driver_Response.ItemArray[0].ToString();
-                string fullName = Driver_Response.ItemArray[3].ToString() + " " + Driver_Response.ItemArray[4].ToString();
-                edt_FullName.EditValue = fullName;
-                edt_PhoneNumber.EditValue = Driver_Response.ItemArray[6].ToString();
-                edt_License.EditValue = Driver_Response.ItemArray[2].ToString();
-                string[] dateArray = Driver_Response.ItemArray[8].ToString().Split('/');
-                dte_ExpirationDate.EditValue = new DateTime(
-                    Convert.ToInt32(dateArray[2].Split(' ')[0]),
-                    Convert.ToInt32(dateArray[0]),
-                    Convert.ToInt32(dateArray[1]));
-
-                string filterExpression = "pk_id = '" + Driver_Response.ItemArray[1].ToString() + "'";
-                lue_StateExp.EditValue = Functions.getStates().Select(filterExpression).First().ItemArray[0];
-                //var dt_Driver = Functions.getDriver("9092825", "", "");
-                Debug.WriteLine(Functions.getStates().Select(filterExpression).First().ItemArray[0].ToString());
-
-            }
+            _controller.GetDriver();
         }
 
         private void btn_LookUpPhoneNumber_Click(object sender, EventArgs e)
         {
-            //using (var context = new SIREMLocalEntities())
-            //{
-            //    //string phoneNumber = GetEdtValue(edt_PhoneNumber);
-            //    //var Driver_Response = context.Get_Driver("", "", "").ToList()[0];
-            //    //edt_FullName.EditValue = Driver_Response.Name.ToString();
-            //    ////edt_PhoneNumber.EditValue = Driver_Response.PhoneNumber.ToString();
-            //    //edt_PhoneNumber.EditValue = "5611541325";
-            //    //edt_License.EditValue = Driver_Response.License.ToString();
-            //    //lue_DriverLicenceState.EditValue = Guid.Parse(Driver_Response.ExpidationState.ToString());
-            //    //dte_ExpirationDate.EditValue = Driver_Response.ExpirationDate.ToString();
-            //    //lbl_IdDriver.Text = Driver_Response.ID_Driver.ToString();
-            //}
-
-            string phoneNumber = GetEdtValue(edt_PhoneNumber);
-            var Driver_Response = Functions.getDriver("", phoneNumber, "");
-            if (Driver_Response.ItemArray[0].ToString() == "0")
-            {
-                MessageBox.Show(Driver_Response.ItemArray[1].ToString());
-            }
-            else
-            {
-                ID_Driver = Driver_Response.ItemArray[0].ToString();
-                string fullName = Driver_Response.ItemArray[3].ToString() + " " + Driver_Response.ItemArray[4].ToString();
-                edt_FullName.EditValue = fullName;
-                edt_PhoneNumber.EditValue = Driver_Response.ItemArray[6].ToString();
-                edt_License.EditValue = Driver_Response.ItemArray[2].ToString();
-                string[] dateArray = Driver_Response.ItemArray[8].ToString().Split('/');
-                dte_ExpirationDate.EditValue = new DateTime(
-                    Convert.ToInt32(dateArray[2].Split(' ')[0]),
-                    Convert.ToInt32(dateArray[0]),
-                    Convert.ToInt32(dateArray[1]));
-
-                string filterExpression = "pk_id = '" + Driver_Response.ItemArray[1].ToString() + "'";
-                lue_StateExp.EditValue = Functions.getStates().Select(filterExpression).First().ItemArray[0];
-            }
+            _controller.GetDriver();
         }
 
         private void btn_LookUpName_Click(object sender, EventArgs e)
         {
-            //using (var context = new SIREMLocalEntities())
-            //{
-            //    string fullName = GetEdtValue(edt_FullName);
-            //    //var Driver_Response = context.Get_Driver("", "", fullName).ToList()[0];
-            //    //edt_FullName.EditValue = Driver_Response.Name.ToString();
-            //    //edt_PhoneNumber.EditValue = Driver_Response.phone_number.ToString();
-            //    //edt_License.EditValue = Driver_Response.License.ToString();
-            //    //lue_DriverLicenceState.EditValue = Guid.Parse(Driver_Response.Expidation_State.ToString());
-            //    //dte_ExpirationDate.EditValue = Driver_Response.Expiration_Date.ToString();
-            //    //lbl_IdDriver.Text = Driver_Response.ID_Driver.ToString();
-            //}
-
-            string name = GetEdtValue(edt_FullName);
-            var Driver_Response = Functions.getDriver("", "", name);
-            if (Driver_Response.ItemArray[0].ToString() == "0")
-            {
-                MessageBox.Show(Driver_Response.ItemArray[1].ToString());
-            } 
-            else
-            {
-                ID_Driver = Driver_Response.ItemArray[0].ToString();
-                string fullName = Driver_Response.ItemArray[3].ToString() + " " + Driver_Response.ItemArray[4].ToString();
-                edt_FullName.EditValue = fullName;
-                edt_PhoneNumber.EditValue = Driver_Response.ItemArray[6].ToString();
-                edt_License.EditValue = Driver_Response.ItemArray[2].ToString();
-                string[] dateArray = Driver_Response.ItemArray[8].ToString().Split('/');
-                dte_ExpirationDate.EditValue = new DateTime(
-                    Convert.ToInt32(dateArray[2].Split(' ')[0]),
-                    Convert.ToInt32(dateArray[0]),
-                    Convert.ToInt32(dateArray[1]));
-
-                string filterExpression = "pk_id = '" + Driver_Response.ItemArray[1].ToString() + "'";
-                lue_StateExp.EditValue = Functions.getStates().Select(filterExpression).First().ItemArray[0];
-            }
-
+            _controller.GetDriver();
         }
-
-        //private bool GetRadioGroupYesNoSelection(RadioGroup rdgrp)
-        //{
-        //    bool result = rdgrp.Properties.Items[rdgrp.SelectedIndex].Description.ToString().ToLower() == "yes";
-        //    return result;
-        //}
 
         private string GetEdtValue(TextEdit edt)
         {
@@ -695,17 +231,10 @@ namespace ResponseEmergencySystem.Forms
             return result;
         }
 
-        private void SetEdtValue(TextEdit edt, string value)
-        {
-            edt.EditValue = value.ToString();
-
-        }
-
         private void OnChangedCheckEdit(object sender, EventArgs e)
         {
             CheckEdit cb = (CheckEdit)sender;
             bool ckedtValue = (bool)cb.EditValue;
-            cb.Properties.Caption = ckedtValue ? "Yes" : "No";
 
             switch (cb.Name)
             {
@@ -753,13 +282,13 @@ namespace ResponseEmergencySystem.Forms
                 case "edt_TruckNumber":
                     dt_Response = Functions.Get_Truck(number);
                     DataRow truckResponse = dt_Response.Select().First();
-                    ID_Truck = truckResponse.ItemArray[0].ToString();
+                    _controller.SetTruck(truckResponse.ItemArray[0].ToString());
                     numberExists(lbl_TruckExists, truckResponse);
                     break;
                 case "edt_TrailerNumber":
                     dt_Response = Functions.Get_Trailer(number);
                     DataRow trailerResponse = dt_Response.Select().First();
-                    ID_Trailer = trailerResponse.ItemArray[0].ToString();
+                    _controller.SetTrailer(trailerResponse.ItemArray[0].ToString());
                     numberExists(
                         lbl_TrailerExists, 
                         trailerResponse,
@@ -782,13 +311,13 @@ namespace ResponseEmergencySystem.Forms
                     case "edt_TruckNumber":
                         dt_Response = Functions.Get_Truck(number);
                         DataRow truckResponse = dt_Response.Select().First();
-                        ID_Truck = truckResponse.ItemArray[0].ToString();
+                        _controller.SetTruck(truckResponse.ItemArray[0].ToString());
                         numberExists(lbl_TruckExists, truckResponse);
                         break;
                     case "edt_TrailerNumber":
                         dt_Response = Functions.Get_Trailer(number);
                         DataRow trailerResponse = dt_Response.Select().First();
-                        ID_Trailer = trailerResponse.ItemArray[0].ToString();
+                        _controller.SetTrailer(trailerResponse.ItemArray[0].ToString());
                         numberExists(
                             lbl_TrailerExists, 
                             trailerResponse,
@@ -801,192 +330,208 @@ namespace ResponseEmergencySystem.Forms
 
         }
 
-        //private async void btn_AddInjuredPersonsControls_Click(object sender, EventArgs e)
-        //{
-        //    //int total = Convert.ToInt16(edt_NumberOfInjured.EditValue);
-        //    //edt_NumberOfInjured.Enabled = false;
-        //    //btn_AddInjuredPersonsControls.Enabled = false;
-        //    //List<Task<string>> listOfTasks = new List<Task<string>>();
 
-        //    //injuredPersonsCount += total;
+        private void FindTruckSamsara_Click(object sender, EventArgs e)
+        {
+            splashScreenManager1.ShowWaitForm();
+            _controller.GetTruckSamsara();
+            splashScreenManager1.CloseWaitForm();
+        }
 
-        //    //for (int i = 0; i < total; i++)
-        //    //{
-        //    //    string pnlName = "pnl_InjuredCapture-" + i;
-        //    //    //PanelControl pnl_Injured = CreatePersonInjuredCapture(pnl_loc);
-        //    //    listOfTasks.Add(CreatePersonInjuredCapture(pnl_loc, spnl_InjuredPersons, pnlName));
-        //    //    //spnl_InjuredPersons.Controls.Add(pnl_Injured);
 
-        //    //    pnl_loc.Y += 30;
-        //    //}
+        private void simpleButton2_Click_1(object sender, EventArgs e)
+        {
+            frm_BrokerList brokerView = new frm_BrokerList();
+            BrokerController brokerCtrl = new BrokerController(brokerView, BrokerService.list_Brokers());
+            brokerCtrl.LoadBrokers();
+            if (brokerView.ShowDialog() == DialogResult.OK)
+            {
+                edt_Broker.EditValue = brokerView.broker;
+                _controller.SetBroker(brokerView.ID);
+            }
 
-        //    //await Task.WhenAll<string>(listOfTasks);
-        //    //edt_NumberOfInjured.Enabled = true;
-        //    //btn_AddInjuredPersonsControls.Enabled = true;
-        //}
+        }
 
-        #region ICatalogView implementation
-        public void SetController(IncidentController controller)
+
+        #region view interface
+        public void SetController(Controllers.Incidents.AddIncidentController controller)
         {
             _controller = controller;
         }
 
-        public DataRow GetDriverData()
+        public void LoadIncident(Incident incident)
         {
-            DataTable dt_Empty = new DataTable();
-            return dt_Empty.Select().First();
         }
 
-        public string FirstName
+        public void LoadStates(DataTable dt_States)
         {
-            get { return GetEdtValue(edt_FullName); }
-            set { edt_FullName.EditValue.ToString(); }
+            lue_StateExp.Properties.DataSource = dt_States;
+            lue_states.Properties.DataSource = dt_States;
         }
 
-        public string LastName
+        public void LoadCities(DataTable dt_Cities)
         {
-            get { return GetEdtValue(edt_FullName); }
-            set { edt_FullName.EditValue.ToString(); }
+
+        }
+
+        public void LoadInjuredPersons(DataTable dt_InjuredPersons)
+        {
+            gc_InjuredPersons.DataSource = dt_InjuredPersons;
+        }
+
+        public string FullName
+        {
+            get { return Utils.GetEdtValue(edt_FullName); }
+            set { edt_FullName.EditValue = value; }
         }
 
         public string PhoneNumber
         {
-            get { return GetEdtValue(edt_PhoneNumber); }
-            set { edt_FullName.EditValue.ToString(); }
+            get { return Utils.GetEdtValue(edt_PhoneNumber); }
+            set { edt_PhoneNumber.EditValue = value; }
         }
-
 
         public string License
         {
-            get { return GetEdtValue(edt_License); }
-            set { edt_FullName.EditValue.ToString(); }
+            get { return Utils.GetEdtValue(edt_License); }
+            set { edt_License.EditValue = value; }
+        }
+
+        public DateTime ExpirationDate
+        {
+            get { return dte_ExpirationDate.DateTime; }
+            set { dte_ExpirationDate.EditValue = value; }
+        }
+
+        public string LicenseState
+        {
+            get { return lue_StateExp.EditValue.ToString(); }
+            set { lue_StateExp.EditValue = value; }
+        }
+
+        public string LocationReferences
+        {
+            get { return Utils.GetEdtValue(edt_Highway); }
+            set { edt_Highway.EditValue = value; }
+        }
+
+        public string TruckNumber
+        {
+            get { return Utils.GetEdtValue(edt_TruckNumber); }
+            set { edt_TruckNumber.EditValue = value; }
+        }
+
+        public bool TruckDamages
+        {
+            get { return (bool)ckedt_truckDamages.EditValue; }
+            set { ckedt_truckDamages.EditValue = value; }
+        }
+
+        public bool TruckCanMove
+        {
+            get { return (bool)ckedt_TruckCanMove.EditValue; }
+            set { ckedt_TruckCanMove.EditValue = value; }
+        }
+
+        public bool TruckNeedCrane
+        {
+            get { return (bool)ckedt_TruckNeedCrane.EditValue; }
+            set { ckedt_TruckNeedCrane.EditValue = value; }
+        }
+
+        public string TrailerNumber
+        {
+            get { return Utils.GetEdtValue(edt_TrailerNumber); }
+            set { edt_TrailerNumber.EditValue = value; }
+        }
+
+        public bool TrailerDamages
+        {
+            get { return (bool)ckedt_TrailerDamages.EditValue; }
+            set { ckedt_TrailerDamages.EditValue = value; }
+        }
+
+        public bool TrailerCanMove
+        {
+            get { return (bool)ckedt_TrailerCanMove.EditValue; }
+            set { ckedt_TrailerCanMove.EditValue = value; }
+        }
+
+        public bool TrailerNeedCrane
+        {
+            get { return (bool)ckedt_TrailerNeedCrane.EditValue; }
+            set { ckedt_TrailerNeedCrane.EditValue = value; }
+        }
+
+        public string CargoType
+        {
+            get { return Utils.GetEdtValue(edt_Cargo); }
+            set { edt_Cargo.EditValue = value; }
+        }
+
+        public bool CargoSpill
+        {
+            get { return (bool)ckedt_Spill.EditValue; }
+            set { ckedt_Spill.EditValue = value; }
+        }
+
+        public string ManifestNumber
+        {
+            get { return Utils.GetEdtValue(edt_manifest); }
+            set { edt_manifest.EditValue = value; }
+        }
+
+        public string Broker
+        {
+            get { return Utils.GetEdtValue(edt_Broker); }
+            set { edt_Broker.EditValue = value; }
+        }
+
+        public DateTime IncidentDate {
+            get { return new DateTime(dte_IncidentDate.DateTime.Ticks + tme_IncidentTime.Time.Ticks); } 
+        }
+
+        public bool PoliceReport
+        {
+            get { return (bool)ckedt_PoliceReport.EditValue; }
+            set { ckedt_PoliceReport.EditValue = value; }
+        }
+
+        public string CitationReportNumber
+        {
+            get { return Utils.GetEdtValue(edt_PoliceReport); }
+            set { edt_PoliceReport.EditValue = value; }
+        }
+
+        public string Latitude
+        {
+            get { return Utils.GetEdtValue(edt_Latitude); }
+            set { edt_Latitude.EditValue = value; }
+        }
+
+        public string Longitude
+        {
+            get { return Utils.GetEdtValue(edt_Longitude); }
+            set { edt_Longitude.EditValue = value; }
+        }
+
+        public string ID_State
+        {
+            get { return lue_states.EditValue.ToString(); }
+            set { lue_states.EditValue = value; }
+        }
+
+        public string ID_City
+        {
+            get { return lue_Cities.EditValue.ToString(); }
+            set { lue_Cities.EditValue = value; }
+        }
+
+        private void ViewIncidentDetails_Load(object sender, EventArgs e)
+        {
+            lue_StateExp.Properties.DataSource = Functions.getStates();
         }
         #endregion
-
-
-        #region SAMSARA API
-
-        public async Task<object> GetCallAPI(string url)
-        {
-
-            string number = GetEdtValue(edt_TruckNumber);
-            try
-            {
-
-                using (var client = new HttpClient())
-                {
-                    client.BaseAddress = new Uri(url);
-
-                    // Add an Accept header for JSON format.
-                    client.DefaultRequestHeaders.Accept.Add( new MediaTypeWithQualityHeaderValue("application/json") );
-
-                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "samsara_api_XwURzQhn0F9rijd0vqXwDgWir2zLWc");
-
-                    // List data response.
-                    HttpResponseMessage response = client.GetAsync(url).Result;  // Blocking call! Program will wait here until a response is received or a timeout occurs.}
-
-                    var data = JArray.Parse( 
-                        JObject.Parse(
-                            response.Content.ReadAsStringAsync().Result
-                        )["data"].ToString()
-                    );
-
-                    IList<Vehicle> locs = data.Select(p => new Vehicle
-                    {
-                        name = p["name"].ToString().Trim(),
-                        time = (DateTime)p["location"]["time"],
-                        latitude = (float)p["location"]["latitude"],
-                        longitude = (float)p["location"]["longitude"],
-                        heading = (int)p["location"]["heading"],
-                        speed = (int)p["location"]["speed"],
-                        formattedLocation = (string)p["location"]["reverseGeo"]["formattedLocation"]
-                    }).ToList();
-
-                    var filtered = locs.Where(x => x.name == number);
-
-                    foreach (var item in filtered)
-                    {
-                        //edt_Latitude.EditValue = item.latitude.ToString();
-                        //edt_Longitude.EditValue = item.longitude.ToString();
-                        Testing samsara = new Testing(item.name, item.time, item.latitude, item.longitude, item.heading, item.speed, item.formattedLocation);
-                        samsara.Show();
-                        Debug.WriteLine(item.latitude.ToString());
-                        Debug.WriteLine(item.longitude.ToString());
-                    }
-
-
-                    // Dispose once all HttpClient calls are complete. This is not necessary if the containing object will be disposed of; for example in this case the HttpClient instance will be disposed automatically when the application terminates so the following call is superfluous.
-                    //client.Dispose();
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            return null;
-        }
-
-        #endregion
-
-        private void simpleButton3_Click(object sender, EventArgs e)
-        {
-            // GetCallAPI("https://api.samsara.com/fleet/drivers");
-            Task<object> task = GetCallAPI("https://api.samsara.com/fleet/vehicles/locations");
-            task.Wait();
-
-            //JObject rss = JObject.Parse((string)json.Result);
-            //Debug.WriteLine((string)rss["data"]["id"]);
-        }
-
-        private void simpleButton1_Click(object sender, EventArgs e)
-        {
-            Task<object> task = GetCallAPI("https://api.samsara.com/fleet/vehicles/locations");
-            task.Wait();
-        }
-
-        private void simpleButton2_Click(object sender, EventArgs e)
-        {
-            //string brokerName = GetEdtValue(edt_BrokerName);
-            var brokerResponse = Functions.getBroker("");
-            if (brokerResponse.ItemArray[0].ToString() == "0")
-            {
-                MessageBox.Show(brokerResponse.ItemArray[1].ToString());
-            }
-            else
-            {
-                ID_Driver = brokerResponse.ItemArray[0].ToString();
-                string name = brokerResponse.ItemArray[5].ToString();
-                //edt_BrokerName.EditValue = name;
-                //edt_PhoneNumber.EditValue = Driver_Response.ItemArray[6].ToString();
-                //edt_License.EditValue = Driver_Response.ItemArray[2].ToString();
-                //string[] dateArray = Driver_Response.ItemArray[8].ToString().Split('/');
-                //dte_ExpirationDate.EditValue = new DateTime(
-                //    Convert.ToInt32(dateArray[2].Split(' ')[0]),
-                //    Convert.ToInt32(dateArray[0]),
-                //    Convert.ToInt32(dateArray[1]));
-
-                //string filterExpression = "pk_id = '" + Driver_Response.ItemArray[1].ToString() + "'";
-                //lue_StateExp.EditValue = Functions.getStates().Select(filterExpression).First().ItemArray[0];
-                //var dt_Driver = Functions.getDriver("9092825", "", "");
-                //Debug.WriteLine(Functions.getStates().Select(filterExpression).First().ItemArray[0].ToString());
-
-            }
-        }
-
-        private void simpleButton1_Click_1(object sender, EventArgs e)
-        {
-            Task<object> task = GetCallAPI("https://api.samsara.com/fleet/vehicles/locations");
-            task.Wait();
-        }
-
-        private void simpleButton2_Click_1(object sender, EventArgs e)
-        {
-            frm_BrokerList frm_BrokerList = new frm_BrokerList();
-            BrokerController brokerCtrl = new BrokerController(frm_BrokerList, BrokerService.list_Brokers());
-            brokerCtrl.LoadBrokers();
-            frm_BrokerList.ShowDialog();
-        }
     }
 
 }

@@ -15,6 +15,7 @@ using ResponseEmergencySystem.Models;
 using ResponseEmergencySystem.Code;
 using DevExpress.XtraGrid.Views.Grid;
 using System.Diagnostics;
+using Google.Cloud.Firestore;
 
 namespace ResponseEmergencySystem.Forms
 {
@@ -57,7 +58,15 @@ namespace ResponseEmergencySystem.Forms
 
         private void simpleButton4_Click(object sender, EventArgs e)
         {
+            _controller.Send();
+        }
 
+        private void edt_Message_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                _controller.Send();
+            }
         }
 
         private void labelControl4_Click(object sender, EventArgs e)
@@ -75,13 +84,15 @@ namespace ResponseEmergencySystem.Forms
             string imgPath = Utils.GetRowID(gv_Images, "ImagePath");
             frm_Image frm_Image = new frm_Image("", "", imgPath);
             frm_Image.ShowDialog();
+            
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
-            AddIncidentDetails capture = new AddIncidentDetails();
-
-            capture.ShowDialog();
+            AddIncidentDetails addIncidentView = new AddIncidentDetails();
+            Controllers.Incidents.AddIncidentController addIncidentCtrl = new Controllers.Incidents.AddIncidentController(addIncidentView);
+            addIncidentCtrl.LoadStates();
+            addIncidentView.ShowDialog();
 
         }
 
@@ -120,6 +131,7 @@ namespace ResponseEmergencySystem.Forms
 
         private void Main2_Load(object sender, EventArgs e)
         {
+            _controller.LoadChat();
             //gc_Incidents.DataSource = IncidentService.list_Incidents("", "", "", "", "").Select(i => new { i.ID_Incident, i.Name, i.Folio, i.IncidentDate, i.truck.truckNumber, i.ID_StatusDetail });
             //lue_StatusDetail.DataSource = Functions.list_StatusDetail();
         }
@@ -132,9 +144,8 @@ namespace ResponseEmergencySystem.Forms
 
         public void LoadIncidents(List<Incident> incidents)
         {
-            //.Select(i => new { i.ID_Incident, i.Name, i.Folio, i.IncidentDate, i.truck.truckNumber, i.ID_StatusDetail }).ToList()
             gc_Incidents.DataSource = incidents.Select(i => new { i.ID_Incident, i.Name, i.Folio, i.IncidentDate, i.truck.truckNumber, i.ID_StatusDetail });
-            //gv_Incidents
+            _controller.LoadChat(incidents.FirstOrDefault().ID_Incident.ToString());
         }
 
         public void LoadCaptures(List<Capture> captures)
@@ -142,9 +153,38 @@ namespace ResponseEmergencySystem.Forms
             //List<ImageCapture> images = captures[0].images;
             gc_Captures.DataSource = captures;
             gc_Images.DataSource = captures.Where(c => c.captureType == gv_Captures.GetRowCellValue(0, "captureType").ToString());
-            
         }
 
+        public void Refresh_Chat(DocumentSnapshot docsnap)
+        {
+            Data data = docsnap.ConvertTo<Data>();
+
+            if (docsnap.Exists)
+            {
+                memoEdit_Chat.BeginInvoke((MethodInvoker)delegate ()
+                {
+                    memoEdit_Chat.MaskBox.AppendText(data.from + ":     ");
+                    memoEdit_Chat.MaskBox.AppendText(data.text + "\r\n\r\n");
+                });
+
+            }
+            else
+            {
+                MessageBox.Show("Chat is Empty");
+            }
+
+        }
+
+        public string Message
+        {
+            get { return Utils.GetEdtValue(edt_Message); }
+            set { edt_Message.EditValue = ""; }
+        }
+
+        public string ID_Incident
+        {   
+            get { return gv_Incidents.GetFocusedRowCellValue("ID_Capture").ToString(); }
+        }
         #endregion
 
     }
