@@ -1213,8 +1213,7 @@ namespace ResponseEmergencySystem.Forms
             this.ckedt_Injured.Name = "ckedt_Injured";
             this.ckedt_Injured.Properties.Appearance.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ckedt_Injured.Properties.Appearance.Options.UseFont = true;
-            this.ckedt_Injured.Properties.Caption = "No";
-            this.ckedt_Injured.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.ckedt_Injured.Properties.Caption = "";
             this.ckedt_Injured.Size = new System.Drawing.Size(48, 20);
             this.ckedt_Injured.TabIndex = 127;
             this.ckedt_Injured.CheckedChanged += new System.EventHandler(this.OnChangedCheckEdit);

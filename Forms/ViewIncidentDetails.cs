@@ -41,31 +41,7 @@ namespace ResponseEmergencySystem.Forms
         }
         public void LoadIncident(Incident incident)
         {
-            edt_FullName.EditValue = incident.Name;
-            edt_PhoneNumber.EditValue = incident.PhoneNumber;
-            edt_License.EditValue = incident.driver.License;
-            dte_ExpirationDate.EditValue = incident.driver.ExpirationDate;
-            lue_DriverLicenceState.EditValue = incident.driver.ID_StateOfExpedition;
-            edt_TruckNumber.EditValue = incident.truck.truckNumber;
-            edt_TrailerNumber.EditValue = incident.trailer.TrailerNumber;
-            ckedt_truckDamages.Checked = incident.TruckDamage;
-            ckedt_TruckCanMove.Checked = incident.TruckCanMove;
-            ckedt_TruckNeedCrane.Checked = incident.TruckNeedCrane;
-            ckedt_TrailerDamages.Checked = incident.TruckDamage;
-            ckedt_TrailerCanMove.Checked = incident.TruckCanMove;
-            ckedt_TrailerNeedCrane.Checked = incident.TrailerNeedCrane;
-            ckedt_Spill.Checked = incident.trailer.CargoSpill;
-            edt_Cargo.EditValue = incident.trailer.Commodity;
-
-            #region Accident Details
-            dte_IncidentDate.EditValue = incident.IncidentDate.Date;
-            tme_Incident.EditValue = incident.IncidentDate.ToString("hh:mm:ss tt");
-            ckedt_PoliceReport.EditValue = incident.PoliceReport;
-            edt_PoliceReport.EditValue = incident.CitationReportNumber;
-            edt_Latitude.EditValue = incident.IncidentLatitude;
-            edt_Longitude.EditValue = incident.IncidentLongitude;
-            edt_Highway.EditValue = incident.LocationReferences;
-            #endregion
+            
         }
         public void LoadStates(DataTable dt_States) 
         {
@@ -82,113 +58,122 @@ namespace ResponseEmergencySystem.Forms
 
         public string FullName
         {
-            get { return edt_FullName.EditValue.ToString(); }
+            get { return Utils.GetEdtValue(edt_FullName); }
             set { edt_FullName.EditValue = value; }
         }
 
         public string PhoneNumber
         {
-            get { return edt_FullName.EditValue.ToString(); }
-            set { edt_FullName.EditValue = value; }
+            get { return Utils.GetEdtValue(edt_PhoneNumber); }
+            set { edt_PhoneNumber.EditValue = value; }
         }
 
         public string License
         {
-            get { return edt_FullName.EditValue.ToString(); }
-            set { edt_FullName.EditValue = value; }
+            get { return Utils.GetEdtValue(edt_License); }
+            set { edt_License.EditValue = value; }
         }
 
         public string ExpirationDate
         {
-            get { return edt_FullName.EditValue.ToString(); }
-            set { edt_FullName.EditValue = value; }
+            get { return dte_ExpirationDate.DateTime.Date.ToString(); }
+            set { dte_ExpirationDate.DateTime = Convert.ToDateTime(value).Date; }
         }
 
         public string LicenseState
         {
-            get { return edt_FullName.EditValue.ToString(); }
-            set { edt_FullName.EditValue = value; }
+            get { return lue_DriverLicenceState.EditValue.ToString(); }
+            set { lue_DriverLicenceState.EditValue = value; }
         }
 
         public string LocationReferences
         {
-            get { return edt_FullName.EditValue.ToString(); }
-            set { edt_FullName.EditValue = value; }
+            get { return Utils.GetEdtValue(edt_Highway); }
+            set { edt_Highway.EditValue = value; }
         }
 
         public string TruckNumber
         {
-            get { return edt_FullName.EditValue.ToString(); }
-            set { edt_FullName.EditValue = value; }
+            get { return Utils.GetEdtValue(edt_TruckNumber); }
+            set { edt_TruckNumber.EditValue = value; }
         }
 
         public bool TruckDamages
         {
-            get { return (bool)ckedt_PoliceReport.EditValue; }
-            set { ckedt_PoliceReport.EditValue = value; }
+            get { return (bool)ckedt_truckDamages.EditValue; }
+            set { ckedt_truckDamages.EditValue = value; }
         }
 
         public bool TruckCanMove
         {
-            get { return (bool)ckedt_PoliceReport.EditValue; }
-            set { ckedt_PoliceReport.EditValue = value; }
+            get { return (bool)ckedt_TruckCanMove.EditValue; }
+            set { ckedt_TruckCanMove.EditValue = value; }
         }
 
         public bool TruckNeedCrane 
         {
-            get { return (bool)ckedt_PoliceReport.EditValue; }
-            set { ckedt_PoliceReport.EditValue = value; }
+            get { return (bool)ckedt_TruckNeedCrane.EditValue; }
+            set { ckedt_TruckNeedCrane.EditValue = value; }
         }
 
         public string TrailerNumber 
         {
-            get { return edt_FullName.EditValue.ToString(); }
-            set { edt_FullName.EditValue = value; }
+            get { return edt_TrailerNumber.EditValue.ToString(); }
+            set { edt_TrailerNumber.EditValue = value; }
         }
 
         public bool TrailerDamages 
         {
-            get { return (bool)ckedt_PoliceReport.EditValue; }
-            set { ckedt_PoliceReport.EditValue = value; }
+            get { return (bool)ckedt_TrailerDamages.EditValue; }
+            set { ckedt_TrailerDamages.EditValue = value; }
         }
 
         public bool TrailerCanMove 
         {
-            get { return (bool)ckedt_PoliceReport.EditValue; }
-            set { ckedt_PoliceReport.EditValue = value; }
+            get { return (bool)ckedt_TrailerCanMove.EditValue; }
+            set { ckedt_TrailerCanMove.EditValue = value; }
         }
 
         public bool TrailerNeedCrane 
         {
-            get { return (bool)ckedt_PoliceReport.EditValue; }
-            set { ckedt_PoliceReport.EditValue = value; }
+            get { return (bool)ckedt_TrailerNeedCrane.EditValue; }
+            set { ckedt_TrailerNeedCrane.EditValue = value; }
         }
 
         public string CargoType 
         {
-            get { return edt_FullName.EditValue.ToString(); }
-            set { edt_FullName.EditValue = value; }
+            get { return Utils.GetEdtValue(edt_Cargo); }
+            set { edt_Cargo.EditValue = value; }
         }
 
         public bool CargoSpill 
         {
-            get { return (bool)ckedt_PoliceReport.EditValue; }
-            set { ckedt_PoliceReport.EditValue = value; }
+            get { return (bool)ckedt_Spill.EditValue; }
+            set { ckedt_Spill.EditValue = value; }
         }
 
         public string ManifestNumber 
         {
-            get { return edt_FullName.EditValue.ToString(); }
-            set { edt_FullName.EditValue = value; }
+            get { return Utils.GetEdtValue(edt_manifest); }
+            set { edt_manifest.EditValue = value; }
         }
 
         public string Broker 
         {
-            get { return edt_FullName.EditValue.ToString(); }
-            set { edt_FullName.EditValue = value; }
+            get { return Utils.GetEdtValue(edt_Broker); }
+            set { edt_Broker.EditValue = value; }
         }
 
-        public DateTime IncidentDate { get; set; }
+        public string IncidentDate {
+            get { return dte_IncidentDate.DateTime.Date.ToString(); }
+            set { dte_IncidentDate.EditValue = value; } 
+        }
+
+        public string IncidentTime
+        {
+            get { return tme_Incident.Time.ToString(); }
+            set { tme_Incident.EditValue = value; }
+        }
 
         public bool PoliceReport 
         {
@@ -198,37 +183,38 @@ namespace ResponseEmergencySystem.Forms
 
         public string CitationReportNumber 
         {
-            get { return edt_FullName.EditValue.ToString(); }
-            set { edt_FullName.EditValue = value; }
+            get { return Utils.GetEdtValue(edt_PoliceReport); }
+            set { edt_PoliceReport.EditValue = value; }
         }
 
         public string Latitude 
         {
-            get { return edt_FullName.EditValue.ToString(); }
-            set { edt_FullName.EditValue = value; }
+            get { return Utils.GetEdtValue(edt_Latitude); }
+            set { edt_Latitude.EditValue = value; }
         }
 
         public string Longitude 
         {
-            get { return edt_FullName.EditValue.ToString(); }
-            set { edt_FullName.EditValue = value; }
+            get { return Utils.GetEdtValue(edt_Longitude); }
+            set { edt_Longitude.EditValue = value; }
         }
 
         public string ID_State 
         {
-            get { return edt_FullName.EditValue.ToString(); }
-            set { edt_FullName.EditValue = value; }
+            get { return lue_LocationStates.EditValue.ToString(); }
+            set { lue_LocationStates.EditValue = value; }
         }
 
         public string ID_City 
         {
-            get { return edt_FullName.EditValue.ToString(); }
-            set { edt_FullName.EditValue = value; }
+            get { return lue_LocationCities.EditValue.ToString(); }
+            set { lue_LocationCities.EditValue = value; }
         }
 
         private void ViewIncidentDetails_Load(object sender, EventArgs e)
         {
             lue_DriverLicenceState.Properties.DataSource = Functions.getStates();
+            lue_LocationStates.Properties.DataSource = Functions.getStates();
         }
     }
 

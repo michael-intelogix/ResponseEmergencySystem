@@ -27,21 +27,6 @@ namespace ResponseEmergencySystem.Forms
     
     public partial class AddIncidentDetails : XtraForm, IAddIncidentView
     {
-
-        #region SAMSARA CLASSES
-
-        public class Location
-        {
-            public string name;
-            public string time;
-            public float latitude;
-            public float longitude;
-            public int heading;
-            public int speed;
-            public string reverseGeo;
-        }
-
-        #endregion
         // driver E2E7FBBB-6BF8-414A-B160-1A4EE294DC97
         // driver2 C7B06EF3-869B-4212-A1EC-7820B2D17CA4
         
@@ -50,38 +35,9 @@ namespace ResponseEmergencySystem.Forms
         public AddIncidentDetails()
         {
             InitializeComponent();
-            initializeDatatable();
-
         }
 
         Controllers.Incidents.AddIncidentController _controller;
-
-        private void initializeDatatable()
-        {
-            dt_InjuredPersons = new DataTable();
-            dt_InjuredPersons.Columns.Add("FullName");
-            dt_InjuredPersons.Columns.Add("LastName1");
-            dt_InjuredPersons.Columns.Add("LastName2");
-            dt_InjuredPersons.Columns.Add("Phone");
-            gc_InjuredPersons.DataSource = dt_InjuredPersons;
-        }
-
-
-        private void refreshInjuredPersonsTable()
-        {
-            gc_InjuredPersons.DataSource = dt_InjuredPersons;
-        }
-
-        private void addEmptyRow()
-        {
-            DataRow _data = dt_InjuredPersons.NewRow();
-            _data["FullName"] = "";
-            _data["LastName1"] = "";
-            _data["LastName2"] = "";
-            _data["Phone"] = "";
-            dt_InjuredPersons.Rows.Add(_data);
-            refreshInjuredPersonsTable();
-        }
 
         private void numberExists(LabelControl lbl_Exists, DataRow response, string type = "")
         {
@@ -111,10 +67,9 @@ namespace ResponseEmergencySystem.Forms
             Int16 currentRow = 0;
             while (currentRow < Convert.ToInt16(edt_NumberOfInjured.EditValue))
             {
-                addEmptyRow();
+                _controller.addEmptyRow();
                 currentRow++;
             }
-            //addEmptyRow();
 
         }
 
@@ -135,79 +90,18 @@ namespace ResponseEmergencySystem.Forms
 
 
         private void IncidentCapture_Load(object sender, EventArgs e)
-        { 
+        {
+            _controller.CreateInjuredPersonsTable();
         }
 
         private void btn_AddIncident_Click(object sender, EventArgs e)
         {
             _controller.AddIncident();
-            //Random rand = new Random();
-            
-            //string folio = folioReponse.ItemArray[2].ToString() + "-" + folioReponse.ItemArray[3].ToString();
-
-            // receive a table of the SP
-            //DataTable dt_Injured = new DataTable();
-
-            //DataRow incidentResponse = Functions.AddIncidentReport(
-                //ID_Driver,
-                //lue_states.EditValue.ToString(),
-                //lue_Cities.EditValue.ToString(),
-                //Guid.NewGuid().ToString(),
-                //ID_Truck,
-                //ID_Trailer,
-                //folio,
-                //new DateTime(dte_IncidentDate.DateTime.Ticks + tme_IncidentTime.Time.Ticks),
-                //(bool)ckedt_PoliceReport.EditValue,
-                //GetEdtValue(edt_PoliceReport),
-                //(bool)ckedt_Spill.EditValue,
-                //GetEdtValue(edt_manifest),
-                //GetEdtValue(edt_Highway),
-                //lat.ToString(),
-                //lon.ToString(),
-                //(bool)ckedt_truckDamages.EditValue,
-                //(bool)ckedt_TruckCanMove.EditValue,
-                //(bool)ckedt_TruckNeedCrane.EditValue,
-                //(bool)ckedt_TrailerDamages.EditValue,
-                //(bool)ckedt_TrailerCanMove.EditValue,
-                //(bool)ckedt_TrailerNeedCrane.EditValue,
-                //constants.userID.ToString(),
-                //""
-            //).Select().First();
-
-
-            //foreach (DataRow row in dt_InjuredPersons.Rows)
-            //{
-            //    string fullName = row["FullName"].ToString();
-            //    string lastName1 = row["LastName1"].ToString();
-            //    string lastName2 = row["LastName2"].ToString();
-            //    string phoneNumber = row["Phone"].ToString();
-            //    dt_Injured = Functions.updateInjuredPerson(Guid.Empty, fullName, lastName1, lastName2, phoneNumber, Guid.Parse(incidentResponse.ItemArray[2].ToString()));
-                
-            //}
-
-            //if (dt_Injured.Rows.Count > 0)
-            //{
-            //    MessageBox.Show(dt_Injured.Select().First().ItemArray[1].ToString());
-            //}
-            
         }
 
         private void lue_States_Properties_EditValueChanged(object sender, EventArgs e)
         {
-            Debug.WriteLine(lue_states.EditValue);
-
             lue_Cities.Properties.DataSource = Functions.getCities(Guid.Parse(lue_states.EditValue.ToString()), "");
-            //using (var context = new SIREMLocalEntities())
-            //{
-            //    lue_Cities.Properties.DataSource = context.List_Cities(Guid.Parse(lue_states.EditValue.ToString()), "");
-            //}
-        }
-
-        public float Truncate(float value, int digits)
-        {
-            double mult = Math.Pow(10.0, digits);
-            double result = Math.Truncate(mult * value) / mult;
-            return (float)result;
         }
 
         private void btn_LookUpLicence_Click(object sender, EventArgs e)
@@ -223,12 +117,6 @@ namespace ResponseEmergencySystem.Forms
         private void btn_LookUpName_Click(object sender, EventArgs e)
         {
             _controller.GetDriver();
-        }
-
-        private string GetEdtValue(TextEdit edt)
-        {
-            string result = edt.EditValue == null ? "" : edt.EditValue.ToString();
-            return result;
         }
 
         private void OnChangedCheckEdit(object sender, EventArgs e)
@@ -249,8 +137,8 @@ namespace ResponseEmergencySystem.Forms
                     pnl_AddInjuredFields.Visible = ckedtValue;
                     gc_InjuredPersons.Enabled = ckedtValue;
 
-                    if (dt_InjuredPersons.Rows.Count == 0)
-                        addEmptyRow();
+                    if (_controller.dt_InjuredPersons.Rows.Count == 0)
+                        _controller.addEmptyRow();
 
                     break;
             }
@@ -258,23 +146,14 @@ namespace ResponseEmergencySystem.Forms
         }
 
         private void AddIncidentDetails_Shown(object sender, EventArgs e)
-        {
-            if (edt_Number.Location.X + edt_Number.Size.Width <= 564)
-            {
-                //MessageBox.Show("you are fine");
-                
-            }
-            else
-            {
-                //MessageBox.Show("creo que no se a poder carnalito");
-            }
+        { 
         }
         
         private void checkNumber_OnEdtLeave (object sender, EventArgs e)
         {
             TextEdit edt_Number =  (TextEdit) sender;
             DataTable dt_Response = new DataTable();
-            string number = GetEdtValue(edt_Number);
+            string number = Utils.GetEdtValue(edt_Number);
 
 
             switch (edt_Number.Name)
@@ -302,7 +181,7 @@ namespace ResponseEmergencySystem.Forms
         {
             TextEdit edt_Number = (TextEdit)sender;
             DataTable dt_Response = new DataTable();
-            string number = GetEdtValue(edt_Number);
+            string number = Utils.GetEdtValue(edt_Number);
 
             if (e.KeyChar == (char)13)
             { 
@@ -341,15 +220,7 @@ namespace ResponseEmergencySystem.Forms
 
         private void simpleButton2_Click_1(object sender, EventArgs e)
         {
-            frm_BrokerList brokerView = new frm_BrokerList();
-            BrokerController brokerCtrl = new BrokerController(brokerView, BrokerService.list_Brokers());
-            brokerCtrl.LoadBrokers();
-            if (brokerView.ShowDialog() == DialogResult.OK)
-            {
-                edt_Broker.EditValue = brokerView.broker;
-                _controller.SetBroker(brokerView.ID);
-            }
-
+            _controller.SetBroker();
         }
 
 

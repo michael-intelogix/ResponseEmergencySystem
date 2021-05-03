@@ -22,7 +22,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
     {
         IAddIncidentView _view;
         Incident _selectedIncident;
-        DataTable dt_InjuredPersons = new DataTable();
+        public DataTable dt_InjuredPersons = new DataTable();
 
         private string ID_Driver;
         private string ID_Broker;
@@ -125,9 +125,17 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             _view.LicenseState = Driver_Response.ID_StateOfExpedition;
         }
 
-        public void SetBroker(string ID_Broker)
+        public void SetBroker()
         {
-            this.ID_Broker = ID_Broker;
+            frm_BrokerList brokerView = new frm_BrokerList();
+            BrokerController brokerCtrl = new BrokerController(brokerView, BrokerService.list_Brokers());
+            brokerCtrl.LoadBrokers();
+            if (brokerView.ShowDialog() == DialogResult.OK)
+            {
+                this.ID_Broker = brokerView.ID;
+                _view.Broker = brokerView.broker;
+            }
+            
         }
 
         public void SetTruck(string ID_Truck)
@@ -182,7 +190,49 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                 comments
             );
 
+            //foreach (DataRow row in dt_InjuredPersons.Rows)
+            //{
+            //    string fullName = row["FullName"].ToString();
+            //    string lastName1 = row["LastName1"].ToString();
+            //    string lastName2 = row["LastName2"].ToString();
+            //    string phoneNumber = row["Phone"].ToString();
+            //    dt_Injured = Functions.updateInjuredPerson(Guid.Empty, fullName, lastName1, lastName2, phoneNumber, Guid.Parse(incidentResponse.ItemArray[2].ToString()));
+
+            //}
+
+            //if (dt_Injured.Rows.Count > 0)
+            //{
+            //    MessageBox.Show(dt_Injured.Select().First().ItemArray[1].ToString());
+            //}
+
             /*MessageBox.Show(IncidentService.response.Message);*/
+        }
+
+        public void CreateInjuredPersonsTable()
+        {
+            dt_InjuredPersons.Columns.Add("FullName");
+            dt_InjuredPersons.Columns.Add("LastName1");
+            dt_InjuredPersons.Columns.Add("LastName2");
+            dt_InjuredPersons.Columns.Add("Phone");
+            _view.LoadInjuredPersons(dt_InjuredPersons);
+        }
+
+        public void addEmptyRow()
+        {
+            DataRow _data = dt_InjuredPersons.NewRow();
+            _data["FullName"] = "";
+            _data["LastName1"] = "";
+            _data["LastName2"] = "";
+            _data["Phone"] = "";
+            dt_InjuredPersons.Rows.Add(_data);
+            _view.LoadInjuredPersons(dt_InjuredPersons);
+        }
+
+        private float Truncate(float value, int digits)
+        {
+            double mult = Math.Pow(10.0, digits);
+            double result = Math.Truncate(mult * value) / mult;
+            return (float)result;
         }
 
 

@@ -83,8 +83,8 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.edt_Latitude = new DevExpress.XtraEditors.TextEdit();
             this.labelControl29 = new DevExpress.XtraEditors.LabelControl();
-            this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
-            this.lookUpEdit2 = new DevExpress.XtraEditors.LookUpEdit();
+            this.lue_LocationStates = new DevExpress.XtraEditors.LookUpEdit();
+            this.lue_LocationCities = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl30 = new DevExpress.XtraEditors.LabelControl();
             this.edt_Highway = new DevExpress.XtraEditors.TextEdit();
             this.gc_InjuredPersons = new DevExpress.XtraGrid.GridControl();
@@ -100,6 +100,8 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.dte_IncidentDate = new DevExpress.XtraEditors.DateEdit();
             this.tme_Incident = new DevExpress.XtraEditors.TimeEdit();
+            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.edt_Broker = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dte_ExpirationDate.Properties.CalendarTimeProperties)).BeginInit();
@@ -138,8 +140,8 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.edt_Longitude.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_Latitude.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lue_LocationStates.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lue_LocationCities.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_Highway.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc_InjuredPersons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_InjuredPersons)).BeginInit();
@@ -147,6 +149,8 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.dte_IncidentDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dte_IncidentDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tme_Incident.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_Broker.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -726,11 +730,12 @@ namespace ResponseEmergencySystem.Forms
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.edt_Broker);
             this.groupBox4.Controls.Add(this.labelControl10);
             this.groupBox4.Controls.Add(this.panelControl5);
             this.groupBox4.Controls.Add(this.labelControl29);
-            this.groupBox4.Controls.Add(this.lookUpEdit1);
-            this.groupBox4.Controls.Add(this.lookUpEdit2);
+            this.groupBox4.Controls.Add(this.lue_LocationStates);
+            this.groupBox4.Controls.Add(this.lue_LocationCities);
             this.groupBox4.Controls.Add(this.labelControl30);
             this.groupBox4.Controls.Add(this.edt_Highway);
             this.groupBox4.Location = new System.Drawing.Point(5, 41);
@@ -824,39 +829,39 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl29.TabIndex = 103;
             this.labelControl29.Text = "City";
             // 
-            // lookUpEdit1
+            // lue_LocationStates
             // 
-            this.lookUpEdit1.Location = new System.Drawing.Point(553, 24);
-            this.lookUpEdit1.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.lookUpEdit1.Name = "lookUpEdit1";
-            this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.lue_LocationStates.Location = new System.Drawing.Point(553, 24);
+            this.lue_LocationStates.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.lue_LocationStates.Name = "lue_LocationStates";
+            this.lue_LocationStates.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpEdit1.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            this.lue_LocationStates.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("pk_id", "ID_State", 36, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("state", "Name", 36, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
-            this.lookUpEdit1.Properties.DisplayMember = "state";
-            this.lookUpEdit1.Properties.NullText = "";
-            this.lookUpEdit1.Properties.ReadOnly = true;
-            this.lookUpEdit1.Properties.ValueMember = "pk_id";
-            this.lookUpEdit1.Size = new System.Drawing.Size(64, 24);
-            this.lookUpEdit1.TabIndex = 81;
+            this.lue_LocationStates.Properties.DisplayMember = "state";
+            this.lue_LocationStates.Properties.NullText = "";
+            this.lue_LocationStates.Properties.ReadOnly = true;
+            this.lue_LocationStates.Properties.ValueMember = "pk_id";
+            this.lue_LocationStates.Size = new System.Drawing.Size(64, 24);
+            this.lue_LocationStates.TabIndex = 81;
             // 
-            // lookUpEdit2
+            // lue_LocationCities
             // 
-            this.lookUpEdit2.Location = new System.Drawing.Point(676, 24);
-            this.lookUpEdit2.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
-            this.lookUpEdit2.Name = "lookUpEdit2";
-            this.lookUpEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.lue_LocationCities.Location = new System.Drawing.Point(676, 24);
+            this.lue_LocationCities.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
+            this.lue_LocationCities.Name = "lue_LocationCities";
+            this.lue_LocationCities.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpEdit2.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            this.lue_LocationCities.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("pk_id", "ID_city", 36, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("city", "City", 36, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
-            this.lookUpEdit2.Properties.DisplayMember = "city";
-            this.lookUpEdit2.Properties.NullText = "";
-            this.lookUpEdit2.Properties.ReadOnly = true;
-            this.lookUpEdit2.Properties.ValueMember = "pk_id";
-            this.lookUpEdit2.Size = new System.Drawing.Size(138, 24);
-            this.lookUpEdit2.TabIndex = 54;
+            this.lue_LocationCities.Properties.DisplayMember = "city";
+            this.lue_LocationCities.Properties.NullText = "";
+            this.lue_LocationCities.Properties.ReadOnly = true;
+            this.lue_LocationCities.Properties.ValueMember = "pk_id";
+            this.lue_LocationCities.Size = new System.Drawing.Size(138, 24);
+            this.lue_LocationCities.TabIndex = 54;
             // 
             // labelControl30
             // 
@@ -1025,11 +1030,28 @@ namespace ResponseEmergencySystem.Forms
             this.tme_Incident.Size = new System.Drawing.Size(101, 24);
             this.tme_Incident.TabIndex = 66;
             // 
+            // textEdit1
+            // 
+            this.textEdit1.Location = new System.Drawing.Point(0, 0);
+            this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Size = new System.Drawing.Size(100, 24);
+            this.textEdit1.TabIndex = 82;
+            // 
+            // edt_Broker
+            // 
+            this.edt_Broker.Location = new System.Drawing.Point(676, 59);
+            this.edt_Broker.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.edt_Broker.Name = "edt_Broker";
+            this.edt_Broker.Properties.ReadOnly = true;
+            this.edt_Broker.Size = new System.Drawing.Size(138, 24);
+            this.edt_Broker.TabIndex = 109;
+            // 
             // ViewIncidentDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(841, 857);
+            this.Controls.Add(this.textEdit1);
             this.Controls.Add(this.groupControl3);
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.groupControl1);
@@ -1086,8 +1108,8 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.edt_Longitude.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_Latitude.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lue_LocationStates.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lue_LocationCities.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_Highway.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc_InjuredPersons)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_InjuredPersons)).EndInit();
@@ -1095,6 +1117,8 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.dte_IncidentDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dte_IncidentDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tme_Incident.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_Broker.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1159,8 +1183,8 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.TextEdit edt_Latitude;
         private DevExpress.XtraEditors.LabelControl labelControl29;
-        private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
-        private DevExpress.XtraEditors.LookUpEdit lookUpEdit2;
+        private DevExpress.XtraEditors.LookUpEdit lue_LocationStates;
+        private DevExpress.XtraEditors.LookUpEdit lue_LocationCities;
         private DevExpress.XtraEditors.LabelControl labelControl30;
         private DevExpress.XtraEditors.TextEdit edt_Highway;
         private DevExpress.XtraEditors.LabelControl labelControl13;
@@ -1172,5 +1196,7 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraEditors.CheckEdit ckedt_TrailerNeedCrane;
         private DevExpress.XtraEditors.CheckEdit ckedt_TrailerDamages;
         private DevExpress.XtraEditors.LabelControl labelControl10;
+        private DevExpress.XtraEditors.TextEdit edt_Broker;
+        private DevExpress.XtraEditors.TextEdit textEdit1;
     }
 }
