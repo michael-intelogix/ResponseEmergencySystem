@@ -29,7 +29,7 @@ namespace ResponseEmergencySystem.Forms
         private void IncidentReport_Load(object sender, EventArgs e)
         {
 
-          //  Login1 login = new Login1();
+            frm_Login login = new frm_Login();
 
             DataTable states = Functions.getStates();
             DataRow state = states.Select().First();
@@ -40,17 +40,17 @@ namespace ResponseEmergencySystem.Forms
             //var namefile = "test";
             //string ReportPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), $"{namefile}.pdf");
             //Utils.email_send(ReportPath, false);
-             
-            //if (login.ShowDialog() == DialogResult.OK)
-            //{
-            //    access = login.myData;
-            //    string idmysoftware = "2a5aa42b-2089-4fa8-b7cc-2cea2a017a8a";
-            //    DataRow[] accesos = access.Select($"ID_Software = '{idmysoftware}'");
-            //    if (accesos.Length > 0)
-            //    {   
-            //        constants.userName = accesos[0].ItemArray[13].ToString();
-            //    }
-            //}
+
+            if (login.ShowDialog() == DialogResult.OK)
+            {
+                access = login.myData;
+                string idmysoftware = "2a5aa42b-2089-4fa8-b7cc-2cea2a017a8a";
+                DataRow[] accesos = access.Select($"ID_Software = '{idmysoftware}'");
+                if (accesos.Length > 0)
+                {
+                    constants.userName = accesos[0].ItemArray[13].ToString();
+                }
+            }
 
 
         }

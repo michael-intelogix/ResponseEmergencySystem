@@ -9,6 +9,8 @@ using ResponseEmergencySystem.Services;
 using Google.Cloud.Firestore;
 using ResponseEmergencySystem.Code;
 using System.Windows.Forms;
+using ResponseEmergencySystem.Forms;
+using System.Data;
 
 namespace ResponseEmergencySystem.Controllers
 {
@@ -18,6 +20,8 @@ namespace ResponseEmergencySystem.Controllers
         public List<Capture> _captures;
         List<Incident> _incidents;
         public string ID_Incident;
+
+        DataTable access = new DataTable();
 
         FirestoreDb dataBase;
 
@@ -37,8 +41,25 @@ namespace ResponseEmergencySystem.Controllers
         //    get { return _selectedIncident; }
         //}
 
+        public void Login()
+        {
+            frm_Login login = new frm_Login();
+
+            if (login.ShowDialog() == DialogResult.OK)
+            {
+                access = login.myData;
+                string idmysoftware = "2a5aa42b-2089-4fa8-b7cc-2cea2a017a8a";
+                DataRow[] accesos = access.Select($"ID_Software = '{idmysoftware}'");
+                if (accesos.Length > 0)
+                {
+                    constants.userName = accesos[0].ItemArray[13].ToString();
+                }
+            }
+        }
+
         public void LoadData()
         {
+            Login();
             _view.LoadIncidents(_incidents);
             _view.LoadCaptures(_captures);
 
@@ -111,8 +132,8 @@ namespace ResponseEmergencySystem.Controllers
             DocumentReference docRef = dataBase.Collection("SIREM-Chats").Document("75329DD7-BD87-4D65-BF84-1B7EBF3C8DD6").Collection("messages").Document(now);
             Dictionary<string, object> data1 = new Dictionary<string, object>()
             {
-                {"from", constants.userName  },
-                {"text", _view.Message }
+                { "from", constants.userName },
+                { "text", _view.Message }
             };
 
             if (_view.Message == "")

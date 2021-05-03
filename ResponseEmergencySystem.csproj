@@ -175,6 +175,9 @@
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="SecurePassword">
+      <HintPath>..\..\..\Documents\SecurePassword.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.AppContext, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.AppContext.4.3.0\lib\net463\System.AppContext.dll</HintPath>
@@ -368,6 +371,12 @@
     <Compile Include="Forms\frm_Image.Designer.cs">
       <DependentUpon>frm_Image.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frm_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm_Login.Designer.cs">
+      <DependentUpon>frm_Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Helpers\frm_Zoom.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -486,6 +495,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frm_Image.resx">
       <DependentUpon>frm_Image.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm_Login.resx">
+      <DependentUpon>frm_Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Helpers\frm_Zoom.resx">
       <DependentUpon>frm_Zoom.cs</DependentUpon>
