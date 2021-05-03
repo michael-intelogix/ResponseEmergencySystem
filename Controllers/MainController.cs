@@ -20,6 +20,7 @@ namespace ResponseEmergencySystem.Controllers
         public List<Capture> _captures;
         List<Incident> _incidents;
         public string ID_Incident;
+        public bool loaded = false;
 
         DataTable access = new DataTable();
 
@@ -102,20 +103,21 @@ namespace ResponseEmergencySystem.Controllers
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", constants.path);
             dataBase = FirestoreDb.Create("dcmanagement-3d402");
 
-            CollectionReference messagesRef = dataBase.Collection("SIREM-Chats").Document("75329DD7-BD87-4D65-BF84-1B7EBF3C8DD6").Collection("messages");
-            Query query = messagesRef;
+            //CollectionReference messagesRef = dataBase.Collection("SIREM-Chats").Document("75329DD7-BD87-4D65-BF84-1B7EBF3C8DD6").Collection("messages");
+            //Query query = messagesRef;
 
-            FirestoreChangeListener listener = query.Listen(snapshot =>
-            {
-                foreach (DocumentChange change in snapshot.Changes)
-                {
-                    if (change.ChangeType.ToString() == "Added")
-                    {
-                        _view.Refresh_Chat(change.Document);
+            //FirestoreChangeListener listener = query.Listen(snapshot =>
+            //{
+            //    foreach (DocumentChange change in snapshot.Changes)
+            //    {
+            //        if (change.ChangeType.ToString() == "Added")
+            //        {
+            //            _view.Refresh_Chat(change.Document);
 
-                    }
-                }
-            });
+            //        }
+            //    }
+            //});
+            ChatListener();
         }
 
         public void SetCaptures(string ID_Incident)

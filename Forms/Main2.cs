@@ -186,7 +186,7 @@ namespace ResponseEmergencySystem.Forms
         {
             gc_Incidents.DataSource = incidents.Select(i => new { i.ID_Incident, i.Name, i.Folio, i.IncidentDate, i.truck.truckNumber, i.ID_StatusDetail });
             _controller.LoadChat(incidents.FirstOrDefault().ID_Incident.ToString());
-            _controller.ChatListener();
+            //_controller.ChatListener();
         }
 
         public void LoadCaptures(List<Capture> captures)
