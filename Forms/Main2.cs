@@ -186,6 +186,7 @@ namespace ResponseEmergencySystem.Forms
         {
             gc_Incidents.DataSource = incidents.Select(i => new { i.ID_Incident, i.Name, i.Folio, i.IncidentDate, i.truck.truckNumber, i.ID_StatusDetail });
             _controller.LoadChat(incidents.FirstOrDefault().ID_Incident.ToString());
+            _controller.ChatListener();
         }
 
         public void LoadCaptures(List<Capture> captures)
@@ -214,10 +215,16 @@ namespace ResponseEmergencySystem.Forms
 
         }
 
+        public string ChatText
+        {
+            get { return memoEdit_Chat.Text; }
+            set { memoEdit_Chat.Text = value; }
+        } 
+
         public string Message
         {
             get { return Utils.GetEdtValue(edt_Message); }
-            set { edt_Message.EditValue = ""; }
+            set { edt_Message.EditValue = value; }
         }
 
         public string ID_Incident

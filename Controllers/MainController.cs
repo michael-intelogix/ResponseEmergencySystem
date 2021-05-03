@@ -25,6 +25,9 @@ namespace ResponseEmergencySystem.Controllers
 
         FirestoreDb dataBase;
 
+        FirestoreChangeListener listener;
+        int listening = 0;
+
         //Incident _selectedIncident;
         //DataTable dt_InjuredPersons = new DataTable();
 
@@ -55,6 +58,33 @@ namespace ResponseEmergencySystem.Controllers
                     constants.userName = accesos[0].ItemArray[13].ToString();
                 }
             }
+        }
+
+        public void ChatListener()
+        {
+            if (listening == 1)
+            {
+                _view.ChatText = "";
+                listener.StopAsync();
+                listening = 0;
+            }
+
+            //btn_Send.Enabled = true;
+            CollectionReference messagesRef = dataBase.Collection("SIREM-Chats").Document("75329DD7-BD87-4D65-BF84-1B7EBF3C8DD6").Collection("messages");
+            Query query = messagesRef;
+
+            listener = query.Listen(snapshot =>
+            {
+                listening = 1;
+                foreach (DocumentChange change in snapshot.Changes)
+                {
+                    if (change.ChangeType.ToString() == "Added")
+                    {
+                        _view.Refresh_Chat(change.Document);
+                    }
+
+                }
+            });
         }
 
         public void LoadData()

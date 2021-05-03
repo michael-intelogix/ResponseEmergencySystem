@@ -19,6 +19,8 @@ namespace ResponseEmergencySystem.Views
         //void LoadCities(DataTable dt_Cities);
         //void LoadInjuredPersons(DataTable dt_InjuredPersons);
 
+        string ChatText { get; set; }
+
         string Message { get; set; }
         
         string ID_Incident { get; }
