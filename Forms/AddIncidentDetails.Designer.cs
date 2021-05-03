@@ -129,6 +129,7 @@ namespace ResponseEmergencySystem.Forms
             this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.edt_Number = new DevExpress.XtraEditors.TextEdit();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
+            this.btn_AddComments = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.btn_Cancel = new DevExpress.XtraEditors.SimpleButton();
             this.btn_AddIncident = new DevExpress.XtraEditors.SimpleButton();
@@ -1320,6 +1321,7 @@ namespace ResponseEmergencySystem.Forms
             // panelControl4
             // 
             this.panelControl4.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl4.Controls.Add(this.btn_AddComments);
             this.panelControl4.Controls.Add(this.simpleButton1);
             this.panelControl4.Controls.Add(this.btn_Cancel);
             this.panelControl4.Controls.Add(this.btn_AddIncident);
@@ -1330,9 +1332,31 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl4.Size = new System.Drawing.Size(841, 131);
             this.panelControl4.TabIndex = 85;
             // 
+            // btn_AddComments
+            // 
+            this.btn_AddComments.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_AddComments.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.btn_AddComments.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.btn_AddComments.Appearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.btn_AddComments.Appearance.ForeColor = System.Drawing.Color.Transparent;
+            this.btn_AddComments.Appearance.Options.UseBackColor = true;
+            this.btn_AddComments.Appearance.Options.UseBorderColor = true;
+            this.btn_AddComments.Appearance.Options.UseForeColor = true;
+            this.btn_AddComments.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.chatboxWhite;
+            this.btn_AddComments.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
+            this.btn_AddComments.Location = new System.Drawing.Point(369, 22);
+            this.btn_AddComments.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            this.btn_AddComments.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.btn_AddComments.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.btn_AddComments.Name = "btn_AddComments";
+            this.btn_AddComments.Size = new System.Drawing.Size(154, 32);
+            this.btn_AddComments.TabIndex = 110;
+            this.btn_AddComments.Text = "Add Comments";
+            this.btn_AddComments.Click += new System.EventHandler(this.btn_AddComments_Click);
+            // 
             // simpleButton1
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(392, 25);
+            this.simpleButton1.Location = new System.Drawing.Point(562, 26);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(75, 23);
             this.simpleButton1.TabIndex = 123;
@@ -1363,7 +1387,7 @@ namespace ResponseEmergencySystem.Forms
             this.btn_AddIncident.Appearance.Options.UseForeColor = true;
             this.btn_AddIncident.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.saveWhite;
             this.btn_AddIncident.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
-            this.btn_AddIncident.Location = new System.Drawing.Point(720, 8);
+            this.btn_AddIncident.Location = new System.Drawing.Point(720, 17);
             this.btn_AddIncident.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.btn_AddIncident.LookAndFeel.UseDefaultLookAndFeel = false;
             this.btn_AddIncident.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
@@ -1563,5 +1587,6 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraEditors.TextEdit edt_Latitude;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
+        private DevExpress.XtraEditors.SimpleButton btn_AddComments;
     }
 }

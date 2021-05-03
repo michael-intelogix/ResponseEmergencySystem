@@ -27,7 +27,7 @@ namespace ResponseEmergencySystem.Code
             {
                 mail.To.Add(email);
             }
-            //mail.To.Add("jgonzalez@intelogix.mx");
+            //mail.To.Add("jjind@citlogistics.us");
             mail.Subject = "Información del reporte registrado";
             mail.Body = "Buen día,\n\rEnvío información el reporte sobre el accidente que se registro hoy";
             if (resend)

@@ -51,6 +51,7 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton9.Size = new System.Drawing.Size(102, 42);
             this.simpleButton9.TabIndex = 1;
             this.simpleButton9.Text = "Save";
+            this.simpleButton9.Click += new System.EventHandler(this.simpleButton9_Click);
             // 
             // btn_Cancel2
             // 

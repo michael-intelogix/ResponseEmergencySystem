@@ -532,6 +532,11 @@ namespace ResponseEmergencySystem.Forms
             lue_StateExp.Properties.DataSource = Functions.getStates();
         }
         #endregion
+
+        private void btn_AddComments_Click(object sender, EventArgs e)
+        {
+            _controller.SetComments();
+        }
     }
 
 }

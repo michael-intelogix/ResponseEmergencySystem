@@ -228,5 +228,102 @@ namespace ResponseEmergencySystem.Services
 
         }
 
+        public static void UpdateIncident(
+            string ID_Incident,
+            string ID_Driver,
+            string ID_State,
+            string ID_City,
+            string ID_Broker,
+            string ID_Truck,
+            string ID_Trailer,
+            DateTime incidentDate,
+            bool policeReport,
+            string citationReport,
+            bool cargoSpill,
+            string manifestNumber,
+            string locationReferences,
+            string incidentLatitude,
+            string incidentLongitude,
+            bool truckDamage,
+            bool truckCanMove,
+            bool truckNeedCrane,
+            bool trailerDamage,
+            bool trailerCanMove,
+            bool trailerNeedCrane,
+            string ID_User,
+            string comments
+        )
+        {
+            opSuccess = false;
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand
+                {
+                    Connection = constants.SIREMConnection,
+                    CommandText = $"Update_Incident",
+                    CommandType = CommandType.StoredProcedure
+                })
+                {
+                    if (cmd.Connection.State == ConnectionState.Open)
+                    {
+                        cmd.Connection.Close();
+                    }
+
+                    cmd.Parameters.AddWithValue("@ID_Incident", Guid.Parse(ID_Incident));
+                    cmd.Parameters.AddWithValue("@ID_Driver", ID_Driver);
+                    cmd.Parameters.AddWithValue("@ID_State", ID_State);
+                    cmd.Parameters.AddWithValue("@ID_City", ID_City);
+                    cmd.Parameters.AddWithValue("@ID_Broker", ID_Broker);
+                    cmd.Parameters.AddWithValue("@ID_Truck", ID_Truck);
+                    cmd.Parameters.AddWithValue("@ID_Trailer", ID_Trailer);
+                    cmd.Parameters.AddWithValue("@Folio", "");
+                    cmd.Parameters.AddWithValue("@IncidentDate", incidentDate);
+                    cmd.Parameters.AddWithValue("@IncidentCloseDate", "");
+                    cmd.Parameters.AddWithValue("@PoliceReportBoolean", policeReport);
+                    cmd.Parameters.AddWithValue("@CitationReportNumber", citationReport);
+                    cmd.Parameters.AddWithValue("@CargoSpill", cargoSpill);
+                    cmd.Parameters.AddWithValue("@ManifestNumber", manifestNumber);
+                    cmd.Parameters.AddWithValue("@LocationReferences", locationReferences);
+                    cmd.Parameters.AddWithValue("@IncidentLatitude", incidentLatitude);
+                    cmd.Parameters.AddWithValue("@IncidentLongitude", incidentLongitude);
+                    cmd.Parameters.AddWithValue("@TruckDamage", truckDamage);
+                    cmd.Parameters.AddWithValue("@TruckCanMove", truckCanMove);
+                    cmd.Parameters.AddWithValue("@TruckNeedCrane", truckNeedCrane);
+                    cmd.Parameters.AddWithValue("@TrailerDamage", trailerDamage);
+                    cmd.Parameters.AddWithValue("@TrailerCanMove", trailerCanMove);
+                    cmd.Parameters.AddWithValue("@TrailerNeedCrane", trailerNeedCrane);
+                    cmd.Parameters.AddWithValue("@ID_User", ID_User);
+                    cmd.Parameters.AddWithValue("@Comments", comments);
+
+                    cmd.Connection.Open();
+                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    {
+                        if (sdr == null)
+                        {
+                            throw new NullReferenceException("No Information Available.");
+                        }
+                        while (sdr.Read())
+                        {
+                            Debug.WriteLine(sdr["Validacion"]);
+                            Debug.WriteLine(sdr["msg"]);
+                            Debug.WriteLine(sdr["ID"]);
+
+                            MessageBox.Show((string)sdr["msg"]);
+
+                            response = new Response(Convert.ToBoolean(sdr["Validacion"]), sdr["msg"].ToString(), sdr["ID"].ToString());
+                        }
+                    }
+                    cmd.Connection.Close();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Incident couldn't be saved due: {ex.Message}");
+            }
+
+        }
+
     }
 }

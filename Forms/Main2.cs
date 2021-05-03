@@ -16,6 +16,8 @@ using ResponseEmergencySystem.Code;
 using DevExpress.XtraGrid.Views.Grid;
 using System.Diagnostics;
 using Google.Cloud.Firestore;
+using System.IO;
+using ResponseEmergencySystem.Reports;
 
 namespace ResponseEmergencySystem.Forms
 {
@@ -107,14 +109,18 @@ namespace ResponseEmergencySystem.Forms
             incidentCtrl.LoadIncident();
 
             viewIncident.Show();
-            //AddIncidentDetails AddIncidentDetails = new AddIncidentDetails();
-            //AddIncidentDetails.ShowDialog();
         }
 
         private void btn_Edit2_Click(object sender, EventArgs e)
         {
-            AddIncidentDetails AddIncidentDetails = new AddIncidentDetails();
-            AddIncidentDetails.ShowDialog();
+            string incidentId =  Utils.GetRowID(gv_Incidents, "ID_Incident");
+
+            EditIncidentDetails viewEditIncident = new EditIncidentDetails();
+
+            Controllers.Incidents.EditIncidentController incidentCtrl = new Controllers.Incidents.EditIncidentController(viewEditIncident, incidentId);
+            incidentCtrl.LoadIncident();
+
+            viewEditIncident.Show();
         }
 
         private void btn_Comments_Click(object sender, EventArgs e)
@@ -129,11 +135,45 @@ namespace ResponseEmergencySystem.Forms
             editComments.ShowDialog();
         }
 
+        private void btn_Email_click(object sender, EventArgs e)
+        {
+            var namefile = Utils.GetRowID(gv_Incidents, "Folio");
+            string ReportPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), $"{namefile}.pdf");
+            splashScreenManager1.ShowWaitForm();
+            bool emailResponse = Utils.email_send(ReportPath, false);
+            splashScreenManager1.CloseWaitForm();
+            if (emailResponse)
+            {
+                MessageBox.Show("Mail Sent");
+            }
+            else
+            {
+                MessageBox.Show("Mail Error");
+            }
+        }
+
+        private void btn_PDF_Click(object sender, EventArgs e)
+        {
+            string incidentId = Utils.GetRowID(gv_Incidents, "ID_Incident").ToString();
+            IncidentReport report1 = new IncidentReport(IncidentService.list_Incidents("", "","","","", incidentId)[0]);
+            var namefile = Utils.GetRowID(gv_Incidents, "Folio");
+            string ReportPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), $"{namefile}.pdf");
+            DevExpress.XtraPrinting.PdfExportOptions MyPdfOptions = new DevExpress.XtraPrinting.PdfExportOptions();
+            try
+            {
+                report1.ExportToPdf(ReportPath);
+                MessageBox.Show("PDF saved!");
+            }
+            catch
+            {
+                MessageBox.Show("Problem with the pdf");
+                return;
+            }
+        }
+
         private void Main2_Load(object sender, EventArgs e)
         {
             _controller.LoadChat();
-            //gc_Incidents.DataSource = IncidentService.list_Incidents("", "", "", "", "").Select(i => new { i.ID_Incident, i.Name, i.Folio, i.IncidentDate, i.truck.truckNumber, i.ID_StatusDetail });
-            //lue_StatusDetail.DataSource = Functions.list_StatusDetail();
         }
 
         #region IMain 
@@ -150,7 +190,6 @@ namespace ResponseEmergencySystem.Forms
 
         public void LoadCaptures(List<Capture> captures)
         {
-            //List<ImageCapture> images = captures[0].images;
             gc_Captures.DataSource = captures;
             gc_Images.DataSource = captures.Where(c => c.captureType == gv_Captures.GetRowCellValue(0, "captureType").ToString());
         }

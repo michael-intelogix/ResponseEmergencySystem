@@ -153,6 +153,16 @@ namespace ResponseEmergencySystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
         /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage chatboxWhite {
+            get {
+                object obj = ResourceManager.GetObject("chatboxWhite", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
         internal static DevExpress.Utils.Svg.SvgImage checkGreen {
             get {
                 object obj = ResourceManager.GetObject("checkGreen", resourceCulture);
@@ -256,6 +266,26 @@ namespace ResponseEmergencySystem.Properties {
         internal static DevExpress.Utils.Svg.SvgImage logoutWhite {
             get {
                 object obj = ResourceManager.GetObject("logoutWhite", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage mailBlue {
+            get {
+                object obj = ResourceManager.GetObject("mailBlue", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage pdfBlue {
+            get {
+                object obj = ResourceManager.GetObject("pdfBlue", resourceCulture);
                 return ((DevExpress.Utils.Svg.SvgImage)(obj));
             }
         }

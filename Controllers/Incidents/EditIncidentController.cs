@@ -1,26 +1,26 @@
-﻿using Newtonsoft.Json.Linq;
-using ResponseEmergencySystem.Code;
-using ResponseEmergencySystem.Forms.Modals;
-using ResponseEmergencySystem.Models;
-using ResponseEmergencySystem.Samsara_Models;
-using ResponseEmergencySystem.Services;
-using ResponseEmergencySystem.Views;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Diagnostics;
 using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using ResponseEmergencySystem.Models;
+using ResponseEmergencySystem.Views;
+using ResponseEmergencySystem.Services;
+using ResponseEmergencySystem.Samsara_Models;
+using System.Data;
+using ResponseEmergencySystem.Code;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using Newtonsoft.Json.Linq;
 using System.Windows.Forms;
+using ResponseEmergencySystem.Forms.Modals;
 
 namespace ResponseEmergencySystem.Controllers.Incidents
 {
-    public class AddIncidentController
+    public class EditIncidentController
     {
-        IAddIncidentView _view;
+        IEditIncidentView _view;
+        private string ID_Incident;
         Incident _selectedIncident;
         DataTable dt_InjuredPersons = new DataTable();
 
@@ -30,8 +30,9 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         private string ID_Trailer;
         private string comments = "";
 
-        public AddIncidentController(IAddIncidentView view)
+        public EditIncidentController(IEditIncidentView view, string incidentId)
         {
+            ID_Incident = incidentId;
             _view = view;
             view.SetController(this);
         }
@@ -43,12 +44,55 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
         public void LoadIncident()
         {
+            _selectedIncident = IncidentService.list_Incidents("", "", "", "", "", incidentId: ID_Incident)[0];
+            dt_InjuredPersons = IncidentService.list_InjuredPerson(ID_Incident);
+
+            _view.FullName = _selectedIncident.Name;
+            _view.PhoneNumber = _selectedIncident.PhoneNumber;
+            _view.License = _selectedIncident.driver.License;
+            _view.ExpirationDate = Convert.ToDateTime(_selectedIncident.driver.ExpirationDate).Date;
+            _view.LicenseState = _selectedIncident.driver.ID_StateOfExpedition;
+            _view.TruckNumber = _selectedIncident.truck.truckNumber;
+            _view.TruckDamages = _selectedIncident.TruckDamage;
+            _view.TruckCanMove = _selectedIncident.TruckCanMove;
+            _view.TruckNeedCrane = _selectedIncident.TruckNeedCrane;
+            _view.TrailerNumber = _selectedIncident.trailer.TrailerNumber;
+            _view.TrailerDamages = _selectedIncident.TrailerDamage;
+            _view.TrailerCanMove = _selectedIncident.TrailerCanMove;
+            _view.TrailerNeedCrane = _selectedIncident.TrailerNeedCrane;
+            _view.CargoSpill = _selectedIncident.trailer.CargoSpill;
+            _view.CargoType = _selectedIncident.trailer.Commodity;
+            _view.ManifestNumber = _selectedIncident.ManifestNumber;
+
+            #region Accident Details
+            //_view.IncidentDate = _selectedIncident.IncidentDate.Date;
+            //_view.IncidentDate = _selectedIncident.IncidentDate.ToString("hh:mm:ss tt");
+            _view.PoliceReport = _selectedIncident.PoliceReport;
+            _view.CitationReportNumber = _selectedIncident.CitationReportNumber;
+            _view.Latitude = _selectedIncident.IncidentLatitude;
+            _view.Longitude = _selectedIncident.IncidentLongitude;
+            _view.LocationReferences = _selectedIncident.LocationReferences;
+            #endregion
+
+
+
+            _view.LoadIncident(_selectedIncident);
+            _view.LoadStates(Functions.getStates());
+            if (dt_InjuredPersons.Rows.Count > 0)
+                _view.LoadInjuredPersons(dt_InjuredPersons);
 
         }
 
-        public void LoadStates()
+        public void GetBroker()
         {
-            _view.LoadStates(Functions.getStates());
+            frm_BrokerList brokerView = new frm_BrokerList();
+            BrokerController brokerCtrl = new BrokerController(brokerView, BrokerService.list_Brokers());
+            brokerCtrl.LoadBrokers();
+            if (brokerView.ShowDialog() == DialogResult.OK)
+            {
+                _view.Broker = brokerView.broker;
+                ID_Broker = brokerView.ID;
+            }
         }
 
         public void GetTruckSamsara()
@@ -140,51 +184,48 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             this.ID_Trailer = ID_Trailer;
         }
 
-        public void SetComments()
-        {
-            Forms.AddComments commentsView = new Forms.AddComments();
-            if (commentsView.ShowDialog() == DialogResult.OK)
-            {
-                comments = commentsView.comments; 
-            }
-        }
 
-        public void AddIncident()
+        public void Update()
         {
-            DataRow folioReponse = Functions.Get_Folio().Select().First();
-            string folio = folioReponse.ItemArray[2].ToString() + "-" + folioReponse.ItemArray[3].ToString();
-            
+            //DataRow folioReponse = Functions.Get_Folio().Select().First();
+            //string folio = folioReponse.ItemArray[2].ToString() + "-" + folioReponse.ItemArray[3].ToString();
+
             //check location refreces
+            try
+            {
+                IncidentService.UpdateIncident(
+                    ID_Incident,
+                    ID_Driver.ToUpper(),
+                    _view.ID_State,
+                    _view.ID_City,
+                    ID_Broker.ToUpper(),
+                    ID_Truck,
+                    ID_Trailer,
+                    _view.IncidentDate,
+                    _view.PoliceReport,
+                    _view.CitationReportNumber,
+                    _view.CargoSpill,
+                    _view.ManifestNumber,
+                    _view.LocationReferences,
+                    _view.Latitude,
+                    _view.Longitude,
+                    _view.TruckDamages,
+                    _view.TruckCanMove,
+                    _view.TruckNeedCrane,
+                    _view.TrailerDamages,
+                    _view.TrailerCanMove,
+                    _view.TrailerNeedCrane,
+                    constants.userIDTest.ToString(),
+                    comments
+                );
+            } 
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
 
-            IncidentService.AdddIncident(
-                ID_Driver.ToUpper(),
-                _view.ID_State,
-                _view.ID_City,
-                ID_Broker.ToUpper(),
-                ID_Truck,
-                ID_Trailer,
-                folio,
-                _view.IncidentDate,
-                _view.PoliceReport,
-                _view.CitationReportNumber,
-                _view.CargoSpill,
-                _view.ManifestNumber,
-                _view.LocationReferences,
-                _view.Latitude,
-                _view.Longitude,
-                _view.TruckDamages,
-                _view.TruckCanMove,
-                _view.TruckNeedCrane,
-                _view.TrailerDamages,
-                _view.TrailerCanMove,
-                _view.TrailerNeedCrane,
-                constants.userIDTest.ToString(),
-                comments
-            );
 
             /*MessageBox.Show(IncidentService.response.Message);*/
         }
-
-
     }
 }
