@@ -173,7 +173,7 @@ namespace ResponseEmergencySystem.Forms
 
         private void Main2_Load(object sender, EventArgs e)
         {
-            _controller.LoadChat();
+            //_controller.LoadChat();
         }
 
         #region IMain 

@@ -51,7 +51,7 @@ namespace ResponseEmergencySystem.Controllers
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", constants.path);
             dataBase = FirestoreDb.Create("dcmanagement-3d402");
 
-            CollectionReference messagesRef = dataBase.Collection("SIREM-chats").Document("75329DD7-BD87-4D65-BF84-1B7EBF3C8DD6").Collection("messages");
+            CollectionReference messagesRef = dataBase.Collection("SIREM-Chats").Document("75329DD7-BD87-4D65-BF84-1B7EBF3C8DD6").Collection("messages");
             Query query = messagesRef;
 
             FirestoreChangeListener listener = query.Listen(snapshot =>

@@ -59,7 +59,7 @@ namespace ResponseEmergencySystem.Controllers
             _view.CargoType = _selectedIncident.trailer.Commodity;
 
             #region Accident Details
-            _view.IncidentDate = _selectedIncident.IncidentDate.Date.ToString();
+            _view.IncidentDate = _selectedIncident.IncidentDate.ToString("MM/dd/yyyy");
             _view.IncidentTime = _selectedIncident.IncidentDate.ToString("hh:mm:ss tt");
             _view.PoliceReport = _selectedIncident.PoliceReport;
             _view.CitationReportNumber = _selectedIncident.CitationReportNumber;
