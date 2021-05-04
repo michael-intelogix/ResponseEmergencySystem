@@ -37,5 +37,12 @@ namespace ResponseEmergencySystem.Models
             ID_StatusDetail = id;
             ImageName = imgPath.Split(new string[] { "%2F" }, StringSplitOptions.None)[3].Split('?')[0].Replace("%20", " ");
         }
+        public ImageCapture(string c, string id, string captureId, string imgSubType, string imgType)
+        {
+            name = imgSubType + " of the " + imgType;
+            comments = c;
+            ID_StatusDetail = id;
+            ImagePath = $"https://firebasestorage.googleapis.com/v0/b/dcmanagement-3d402.appspot.com/o/SIREM%2FCaptures%2F{captureId}%2F{imgSubType}%20of%20the%20{imgType}?alt=media&token=a2b4133a-affa-4234-8b62-bf5790fdfba4";
+        }
     }
 }

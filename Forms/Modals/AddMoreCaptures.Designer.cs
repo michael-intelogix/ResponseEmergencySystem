@@ -29,27 +29,43 @@ namespace ResponseEmergencySystem.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
+            this.lbl_Capture3 = new DevExpress.XtraEditors.LabelControl();
+            this.lbl_Capture4 = new DevExpress.XtraEditors.LabelControl();
             this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
-            this.buttonEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton8 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton9 = new DevExpress.XtraEditors.SimpleButton();
             this.btn_Cancel2 = new DevExpress.XtraEditors.SimpleButton();
+            this.lue_Type = new DevExpress.XtraEditors.LookUpEdit();
+            this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.pnl_Capture1 = new DevExpress.XtraEditors.PanelControl();
+            this.simpleButton10 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton11 = new DevExpress.XtraEditors.SimpleButton();
+            this.lbl_Capture1 = new DevExpress.XtraEditors.LabelControl();
+            this.pnl_Capture2 = new DevExpress.XtraEditors.PanelControl();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
+            this.pnl_Capture3 = new DevExpress.XtraEditors.PanelControl();
+            this.simpleButton12 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton13 = new DevExpress.XtraEditors.SimpleButton();
+            this.lbl_Capture2 = new DevExpress.XtraEditors.LabelControl();
+            this.pnl_Capture4 = new DevExpress.XtraEditors.PanelControl();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lue_Type.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pnl_Capture1)).BeginInit();
+            this.pnl_Capture1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pnl_Capture2)).BeginInit();
+            this.pnl_Capture2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pnl_Capture3)).BeginInit();
+            this.pnl_Capture3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pnl_Capture4)).BeginInit();
+            this.pnl_Capture4.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -78,117 +94,21 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl3.TabIndex = 5;
             this.labelControl3.Text = "Captures";
             // 
-            // labelControl4
+            // lbl_Capture3
             // 
-            this.labelControl4.Location = new System.Drawing.Point(12, 208);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(117, 17);
-            this.labelControl4.TabIndex = 6;
-            this.labelControl4.Text = "Front of the vehicle";
+            this.lbl_Capture3.Location = new System.Drawing.Point(8, 7);
+            this.lbl_Capture3.Name = "lbl_Capture3";
+            this.lbl_Capture3.Size = new System.Drawing.Size(146, 17);
+            this.lbl_Capture3.TabIndex = 8;
+            this.lbl_Capture3.Text = "Right side of the vehicle";
             // 
-            // labelControl5
+            // lbl_Capture4
             // 
-            this.labelControl5.Location = new System.Drawing.Point(12, 248);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(114, 17);
-            this.labelControl5.TabIndex = 7;
-            this.labelControl5.Text = "Back of the vehicle";
-            // 
-            // labelControl6
-            // 
-            this.labelControl6.Location = new System.Drawing.Point(12, 288);
-            this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(146, 17);
-            this.labelControl6.TabIndex = 8;
-            this.labelControl6.Text = "Right side of the vehicle";
-            // 
-            // labelControl7
-            // 
-            this.labelControl7.Location = new System.Drawing.Point(12, 328);
-            this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(136, 17);
-            this.labelControl7.TabIndex = 9;
-            this.labelControl7.Text = "Left side of the vehicle";
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
-            this.simpleButton1.Appearance.ForeColor = System.Drawing.Color.White;
-            this.simpleButton1.Appearance.Options.UseBackColor = true;
-            this.simpleButton1.Appearance.Options.UseForeColor = true;
-            this.simpleButton1.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.uploadWhite;
-            this.simpleButton1.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.simpleButton1.Location = new System.Drawing.Point(192, 204);
-            this.simpleButton1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-            this.simpleButton1.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(135, 23);
-            this.simpleButton1.TabIndex = 10;
-            this.simpleButton1.Text = "Upload image";
-            // 
-            // simpleButton2
-            // 
-            this.simpleButton2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
-            this.simpleButton2.Appearance.ForeColor = System.Drawing.Color.White;
-            this.simpleButton2.Appearance.Options.UseBackColor = true;
-            this.simpleButton2.Appearance.Options.UseForeColor = true;
-            this.simpleButton2.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.uploadWhite;
-            this.simpleButton2.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.simpleButton2.Location = new System.Drawing.Point(192, 244);
-            this.simpleButton2.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-            this.simpleButton2.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(135, 23);
-            this.simpleButton2.TabIndex = 11;
-            this.simpleButton2.Text = "Upload image";
-            // 
-            // simpleButton3
-            // 
-            this.simpleButton3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
-            this.simpleButton3.Appearance.ForeColor = System.Drawing.Color.White;
-            this.simpleButton3.Appearance.Options.UseBackColor = true;
-            this.simpleButton3.Appearance.Options.UseForeColor = true;
-            this.simpleButton3.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.uploadWhite;
-            this.simpleButton3.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.simpleButton3.Location = new System.Drawing.Point(192, 284);
-            this.simpleButton3.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-            this.simpleButton3.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(135, 23);
-            this.simpleButton3.TabIndex = 12;
-            this.simpleButton3.Text = "Upload image";
-            // 
-            // simpleButton4
-            // 
-            this.simpleButton4.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
-            this.simpleButton4.Appearance.ForeColor = System.Drawing.Color.White;
-            this.simpleButton4.Appearance.Options.UseBackColor = true;
-            this.simpleButton4.Appearance.Options.UseForeColor = true;
-            this.simpleButton4.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.uploadWhite;
-            this.simpleButton4.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.simpleButton4.Location = new System.Drawing.Point(192, 324);
-            this.simpleButton4.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-            this.simpleButton4.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(135, 23);
-            this.simpleButton4.TabIndex = 13;
-            this.simpleButton4.Text = "Upload image";
-            // 
-            // simpleButton5
-            // 
-            this.simpleButton5.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton5.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(138)))), ((int)(((byte)(50)))));
-            this.simpleButton5.Appearance.Options.UseFont = true;
-            this.simpleButton5.Appearance.Options.UseForeColor = true;
-            this.simpleButton5.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.apply_16x161;
-            this.simpleButton5.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.simpleButton5.Location = new System.Drawing.Point(361, 202);
-            this.simpleButton5.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-            this.simpleButton5.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.simpleButton5.Name = "simpleButton5";
-            this.simpleButton5.Size = new System.Drawing.Size(88, 23);
-            this.simpleButton5.TabIndex = 14;
-            this.simpleButton5.Text = "Upload";
+            this.lbl_Capture4.Location = new System.Drawing.Point(8, 7);
+            this.lbl_Capture4.Name = "lbl_Capture4";
+            this.lbl_Capture4.Size = new System.Drawing.Size(136, 17);
+            this.lbl_Capture4.TabIndex = 9;
+            this.lbl_Capture4.Text = "Left side of the vehicle";
             // 
             // memoEdit1
             // 
@@ -196,69 +116,6 @@ namespace ResponseEmergencySystem.Forms
             this.memoEdit1.Name = "memoEdit1";
             this.memoEdit1.Size = new System.Drawing.Size(315, 96);
             this.memoEdit1.TabIndex = 4;
-            // 
-            // buttonEdit1
-            // 
-            this.buttonEdit1.Location = new System.Drawing.Point(134, 16);
-            this.buttonEdit1.Name = "buttonEdit1";
-            this.buttonEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.buttonEdit1.Properties.Items.AddRange(new object[] {
-            "Vehicle",
-            "Truck",
-            "Trailer",
-            "Insurance policy",
-            "Testimony"});
-            this.buttonEdit1.Size = new System.Drawing.Size(315, 24);
-            this.buttonEdit1.TabIndex = 1;
-            // 
-            // simpleButton6
-            // 
-            this.simpleButton6.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton6.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(138)))), ((int)(((byte)(50)))));
-            this.simpleButton6.Appearance.Options.UseFont = true;
-            this.simpleButton6.Appearance.Options.UseForeColor = true;
-            this.simpleButton6.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.apply_16x161;
-            this.simpleButton6.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.simpleButton6.Location = new System.Drawing.Point(361, 242);
-            this.simpleButton6.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-            this.simpleButton6.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.simpleButton6.Name = "simpleButton6";
-            this.simpleButton6.Size = new System.Drawing.Size(88, 23);
-            this.simpleButton6.TabIndex = 15;
-            this.simpleButton6.Text = "Upload";
-            // 
-            // simpleButton7
-            // 
-            this.simpleButton7.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton7.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(138)))), ((int)(((byte)(50)))));
-            this.simpleButton7.Appearance.Options.UseFont = true;
-            this.simpleButton7.Appearance.Options.UseForeColor = true;
-            this.simpleButton7.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.apply_16x161;
-            this.simpleButton7.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.simpleButton7.Location = new System.Drawing.Point(361, 282);
-            this.simpleButton7.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-            this.simpleButton7.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.simpleButton7.Name = "simpleButton7";
-            this.simpleButton7.Size = new System.Drawing.Size(88, 23);
-            this.simpleButton7.TabIndex = 16;
-            this.simpleButton7.Text = "Upload";
-            // 
-            // simpleButton8
-            // 
-            this.simpleButton8.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton8.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(138)))), ((int)(((byte)(50)))));
-            this.simpleButton8.Appearance.Options.UseFont = true;
-            this.simpleButton8.Appearance.Options.UseForeColor = true;
-            this.simpleButton8.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.apply_16x161;
-            this.simpleButton8.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.simpleButton8.Location = new System.Drawing.Point(361, 322);
-            this.simpleButton8.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-            this.simpleButton8.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.simpleButton8.Name = "simpleButton8";
-            this.simpleButton8.Size = new System.Drawing.Size(88, 23);
-            this.simpleButton8.TabIndex = 17;
-            this.simpleButton8.Text = "Upload";
             // 
             // simpleButton9
             // 
@@ -293,61 +150,286 @@ namespace ResponseEmergencySystem.Forms
             this.btn_Cancel2.Text = "Cancel";
             this.btn_Cancel2.Click += new System.EventHandler(this.btn_Cancel2_Click);
             // 
+            // lue_Type
+            // 
+            this.lue_Type.Location = new System.Drawing.Point(134, 16);
+            this.lue_Type.Name = "lue_Type";
+            this.lue_Type.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lue_Type.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID_CaptureType", "ID_CaptureType", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("captureType", "type")});
+            this.lue_Type.Properties.DisplayMember = "captureType";
+            this.lue_Type.Properties.NullText = "";
+            this.lue_Type.Properties.ValueMember = "ID_CaptureType";
+            this.lue_Type.Size = new System.Drawing.Size(315, 24);
+            this.lue_Type.TabIndex = 18;
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "This value is not valid";
+            conditionValidationRule1.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
+            this.dxValidationProvider1.SetValidationRule(this.lue_Type, conditionValidationRule1);
+            this.lue_Type.EditValueChanged += new System.EventHandler(this.lue_Type_EditValueChanged);
+            // 
+            // pnl_Capture1
+            // 
+            this.pnl_Capture1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pnl_Capture1.Controls.Add(this.simpleButton10);
+            this.pnl_Capture1.Controls.Add(this.simpleButton11);
+            this.pnl_Capture1.Controls.Add(this.lbl_Capture1);
+            this.pnl_Capture1.Location = new System.Drawing.Point(4, 198);
+            this.pnl_Capture1.Name = "pnl_Capture1";
+            this.pnl_Capture1.Size = new System.Drawing.Size(459, 31);
+            this.pnl_Capture1.TabIndex = 19;
+            this.pnl_Capture1.Visible = false;
+            // 
+            // simpleButton10
+            // 
+            this.simpleButton10.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton10.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(138)))), ((int)(((byte)(50)))));
+            this.simpleButton10.Appearance.Options.UseFont = true;
+            this.simpleButton10.Appearance.Options.UseForeColor = true;
+            this.simpleButton10.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.apply_16x161;
+            this.simpleButton10.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
+            this.simpleButton10.Location = new System.Drawing.Point(357, 4);
+            this.simpleButton10.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            this.simpleButton10.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.simpleButton10.Name = "simpleButton10";
+            this.simpleButton10.Size = new System.Drawing.Size(88, 23);
+            this.simpleButton10.TabIndex = 17;
+            this.simpleButton10.Text = "Upload";
+            // 
+            // simpleButton11
+            // 
+            this.simpleButton11.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.simpleButton11.Appearance.ForeColor = System.Drawing.Color.White;
+            this.simpleButton11.Appearance.Options.UseBackColor = true;
+            this.simpleButton11.Appearance.Options.UseForeColor = true;
+            this.simpleButton11.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.uploadWhite;
+            this.simpleButton11.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.simpleButton11.Location = new System.Drawing.Point(188, 3);
+            this.simpleButton11.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            this.simpleButton11.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.simpleButton11.Name = "simpleButton11";
+            this.simpleButton11.Size = new System.Drawing.Size(135, 23);
+            this.simpleButton11.TabIndex = 16;
+            this.simpleButton11.Text = "Upload image";
+            // 
+            // lbl_Capture1
+            // 
+            this.lbl_Capture1.Location = new System.Drawing.Point(8, 7);
+            this.lbl_Capture1.Name = "lbl_Capture1";
+            this.lbl_Capture1.Size = new System.Drawing.Size(117, 17);
+            this.lbl_Capture1.TabIndex = 15;
+            this.lbl_Capture1.Text = "Front of the vehicle";
+            // 
+            // pnl_Capture2
+            // 
+            this.pnl_Capture2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pnl_Capture2.Controls.Add(this.lbl_Capture2);
+            this.pnl_Capture2.Controls.Add(this.simpleButton1);
+            this.pnl_Capture2.Controls.Add(this.simpleButton5);
+            this.pnl_Capture2.Location = new System.Drawing.Point(4, 235);
+            this.pnl_Capture2.Name = "pnl_Capture2";
+            this.pnl_Capture2.Size = new System.Drawing.Size(459, 31);
+            this.pnl_Capture2.TabIndex = 20;
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton1.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(138)))), ((int)(((byte)(50)))));
+            this.simpleButton1.Appearance.Options.UseFont = true;
+            this.simpleButton1.Appearance.Options.UseForeColor = true;
+            this.simpleButton1.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.apply_16x161;
+            this.simpleButton1.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
+            this.simpleButton1.Location = new System.Drawing.Point(357, 4);
+            this.simpleButton1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            this.simpleButton1.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(88, 23);
+            this.simpleButton1.TabIndex = 17;
+            this.simpleButton1.Text = "Upload";
+            // 
+            // simpleButton5
+            // 
+            this.simpleButton5.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.simpleButton5.Appearance.ForeColor = System.Drawing.Color.White;
+            this.simpleButton5.Appearance.Options.UseBackColor = true;
+            this.simpleButton5.Appearance.Options.UseForeColor = true;
+            this.simpleButton5.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.uploadWhite;
+            this.simpleButton5.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.simpleButton5.Location = new System.Drawing.Point(188, 3);
+            this.simpleButton5.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            this.simpleButton5.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.simpleButton5.Name = "simpleButton5";
+            this.simpleButton5.Size = new System.Drawing.Size(135, 23);
+            this.simpleButton5.TabIndex = 16;
+            this.simpleButton5.Text = "Upload image";
+            this.simpleButton5.Click += new System.EventHandler(this.simpleButton5_Click);
+            // 
+            // pnl_Capture3
+            // 
+            this.pnl_Capture3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pnl_Capture3.Controls.Add(this.simpleButton12);
+            this.pnl_Capture3.Controls.Add(this.simpleButton13);
+            this.pnl_Capture3.Controls.Add(this.lbl_Capture3);
+            this.pnl_Capture3.Location = new System.Drawing.Point(4, 272);
+            this.pnl_Capture3.Name = "pnl_Capture3";
+            this.pnl_Capture3.Size = new System.Drawing.Size(459, 31);
+            this.pnl_Capture3.TabIndex = 20;
+            // 
+            // simpleButton12
+            // 
+            this.simpleButton12.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton12.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(138)))), ((int)(((byte)(50)))));
+            this.simpleButton12.Appearance.Options.UseFont = true;
+            this.simpleButton12.Appearance.Options.UseForeColor = true;
+            this.simpleButton12.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.apply_16x161;
+            this.simpleButton12.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
+            this.simpleButton12.Location = new System.Drawing.Point(357, 4);
+            this.simpleButton12.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            this.simpleButton12.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.simpleButton12.Name = "simpleButton12";
+            this.simpleButton12.Size = new System.Drawing.Size(88, 23);
+            this.simpleButton12.TabIndex = 17;
+            this.simpleButton12.Text = "Upload";
+            // 
+            // simpleButton13
+            // 
+            this.simpleButton13.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.simpleButton13.Appearance.ForeColor = System.Drawing.Color.White;
+            this.simpleButton13.Appearance.Options.UseBackColor = true;
+            this.simpleButton13.Appearance.Options.UseForeColor = true;
+            this.simpleButton13.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.uploadWhite;
+            this.simpleButton13.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.simpleButton13.Location = new System.Drawing.Point(188, 3);
+            this.simpleButton13.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            this.simpleButton13.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.simpleButton13.Name = "simpleButton13";
+            this.simpleButton13.Size = new System.Drawing.Size(135, 23);
+            this.simpleButton13.TabIndex = 16;
+            this.simpleButton13.Text = "Upload image";
+            this.simpleButton13.Click += new System.EventHandler(this.simpleButton13_Click);
+            // 
+            // lbl_Capture2
+            // 
+            this.lbl_Capture2.Location = new System.Drawing.Point(8, 7);
+            this.lbl_Capture2.Name = "lbl_Capture2";
+            this.lbl_Capture2.Size = new System.Drawing.Size(114, 17);
+            this.lbl_Capture2.TabIndex = 18;
+            this.lbl_Capture2.Text = "Back of the vehicle";
+            // 
+            // pnl_Capture4
+            // 
+            this.pnl_Capture4.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pnl_Capture4.Controls.Add(this.simpleButton2);
+            this.pnl_Capture4.Controls.Add(this.simpleButton3);
+            this.pnl_Capture4.Controls.Add(this.lbl_Capture4);
+            this.pnl_Capture4.Location = new System.Drawing.Point(4, 309);
+            this.pnl_Capture4.Name = "pnl_Capture4";
+            this.pnl_Capture4.Size = new System.Drawing.Size(459, 31);
+            this.pnl_Capture4.TabIndex = 21;
+            // 
+            // simpleButton2
+            // 
+            this.simpleButton2.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton2.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(138)))), ((int)(((byte)(50)))));
+            this.simpleButton2.Appearance.Options.UseFont = true;
+            this.simpleButton2.Appearance.Options.UseForeColor = true;
+            this.simpleButton2.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.apply_16x161;
+            this.simpleButton2.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
+            this.simpleButton2.Location = new System.Drawing.Point(357, 4);
+            this.simpleButton2.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            this.simpleButton2.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(88, 23);
+            this.simpleButton2.TabIndex = 17;
+            this.simpleButton2.Text = "Upload";
+            // 
+            // simpleButton3
+            // 
+            this.simpleButton3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.simpleButton3.Appearance.ForeColor = System.Drawing.Color.White;
+            this.simpleButton3.Appearance.Options.UseBackColor = true;
+            this.simpleButton3.Appearance.Options.UseForeColor = true;
+            this.simpleButton3.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.uploadWhite;
+            this.simpleButton3.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.simpleButton3.Location = new System.Drawing.Point(188, 3);
+            this.simpleButton3.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            this.simpleButton3.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.simpleButton3.Name = "simpleButton3";
+            this.simpleButton3.Size = new System.Drawing.Size(135, 23);
+            this.simpleButton3.TabIndex = 16;
+            this.simpleButton3.Text = "Upload image";
+            this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
+            // 
             // AddMoreCaptures
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(475, 440);
+            this.Controls.Add(this.pnl_Capture4);
+            this.Controls.Add(this.pnl_Capture2);
+            this.Controls.Add(this.pnl_Capture3);
+            this.Controls.Add(this.pnl_Capture1);
+            this.Controls.Add(this.lue_Type);
             this.Controls.Add(this.simpleButton9);
             this.Controls.Add(this.btn_Cancel2);
-            this.Controls.Add(this.simpleButton8);
-            this.Controls.Add(this.simpleButton7);
-            this.Controls.Add(this.simpleButton6);
-            this.Controls.Add(this.simpleButton5);
-            this.Controls.Add(this.simpleButton4);
-            this.Controls.Add(this.simpleButton3);
-            this.Controls.Add(this.simpleButton2);
-            this.Controls.Add(this.simpleButton1);
-            this.Controls.Add(this.labelControl7);
-            this.Controls.Add(this.labelControl6);
-            this.Controls.Add(this.labelControl5);
-            this.Controls.Add(this.labelControl4);
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.memoEdit1);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.labelControl1);
-            this.Controls.Add(this.buttonEdit1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AddMoreCaptures";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add More Captures";
             this.Load += new System.EventHandler(this.AddMoreCaptures_Load);
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lue_Type.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pnl_Capture1)).EndInit();
+            this.pnl_Capture1.ResumeLayout(false);
+            this.pnl_Capture1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pnl_Capture2)).EndInit();
+            this.pnl_Capture2.ResumeLayout(false);
+            this.pnl_Capture2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pnl_Capture3)).EndInit();
+            this.pnl_Capture3.ResumeLayout(false);
+            this.pnl_Capture3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pnl_Capture4)).EndInit();
+            this.pnl_Capture4.ResumeLayout(false);
+            this.pnl_Capture4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private DevExpress.XtraEditors.ComboBoxEdit buttonEdit1;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.MemoEdit memoEdit1;
         private DevExpress.XtraEditors.LabelControl labelControl3;
-        private DevExpress.XtraEditors.LabelControl labelControl4;
-        private DevExpress.XtraEditors.LabelControl labelControl5;
-        private DevExpress.XtraEditors.LabelControl labelControl6;
-        private DevExpress.XtraEditors.LabelControl labelControl7;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton3;
-        private DevExpress.XtraEditors.SimpleButton simpleButton4;
-        private DevExpress.XtraEditors.SimpleButton simpleButton5;
+        private DevExpress.XtraEditors.LabelControl lbl_Capture3;
+        private DevExpress.XtraEditors.LabelControl lbl_Capture4;
         private DevExpress.XtraEditors.SimpleButton btn_Cancel2;
         private DevExpress.XtraEditors.SimpleButton simpleButton9;
-        private DevExpress.XtraEditors.SimpleButton simpleButton6;
-        private DevExpress.XtraEditors.SimpleButton simpleButton7;
-        private DevExpress.XtraEditors.SimpleButton simpleButton8;
+        private DevExpress.XtraEditors.LookUpEdit lue_Type;
+        private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProvider1;
+        private DevExpress.XtraEditors.PanelControl pnl_Capture1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton10;
+        private DevExpress.XtraEditors.SimpleButton simpleButton11;
+        private DevExpress.XtraEditors.LabelControl lbl_Capture1;
+        private DevExpress.XtraEditors.PanelControl pnl_Capture2;
+        private DevExpress.XtraEditors.LabelControl lbl_Capture2;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton5;
+        private DevExpress.XtraEditors.PanelControl pnl_Capture3;
+        private DevExpress.XtraEditors.SimpleButton simpleButton12;
+        private DevExpress.XtraEditors.SimpleButton simpleButton13;
+        private DevExpress.XtraEditors.PanelControl pnl_Capture4;
+        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraEditors.SimpleButton simpleButton3;
     }
 }

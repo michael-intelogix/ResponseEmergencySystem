@@ -15,6 +15,7 @@ namespace ResponseEmergencySystem.Models
         public string ImageName { get; set; }
         public string comments { get; }
         public string captureType { get; }
+        public string Description { get; set; }
 
         public List<ImageCapture> imagesListOfNames { get; set; } = new List<ImageCapture>();
 
@@ -49,7 +50,7 @@ namespace ResponseEmergencySystem.Models
             }
         }
 
-        public Capture(string id, string statusId, string captureTypeId, string type, string imgPath, string comments)
+        public Capture(string id, string statusId, string captureTypeId, string type, string imgPath, string comments, string Description, string NamesOfImages)
         {
             ID_Capture = Guid.Parse(id);
             ID_StatusDetail = statusId;
@@ -58,7 +59,15 @@ namespace ResponseEmergencySystem.Models
             ImagePath = imgPath;
             ImageName = imgPath.Split(new string[] { "%2F" }, StringSplitOptions.None)[3].Split('?')[0].Replace("%20", " ");
             this.comments = comments;
-
+            this.Description = Description;
+            if (NamesOfImages.Length > 0)
+            {
+                foreach (var n in NamesOfImages.Split(','))
+                {
+                    imagesListOfNames.Add(new ImageCapture(comments, statusId, captureTypeId, n.Trim(), captureType));
+                }
+            } 
+            
         }
 
     }

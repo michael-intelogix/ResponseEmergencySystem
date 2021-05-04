@@ -90,7 +90,7 @@ namespace ResponseEmergencySystem.Controllers
 
         public void LoadData()
         {
-            Login();
+            //Login();
             _view.LoadIncidents(_incidents);
             _view.LoadCaptures(_captures);
 
@@ -175,6 +175,48 @@ namespace ResponseEmergencySystem.Controllers
             }
             docRef.SetAsync(data1);
             _view.Message = "";
+        }
+
+        public void EditIncidentView(string incidentId)
+        {
+            EditIncidentDetails viewEditIncident = new EditIncidentDetails();
+
+            Controllers.Incidents.EditIncidentController incidentCtrl = new Controllers.Incidents.EditIncidentController(viewEditIncident, incidentId);
+            incidentCtrl.LoadIncident();
+
+            viewEditIncident.Show();
+        }
+
+        public void ShowIncident(string incidentId)
+        {
+            ViewIncidentDetails viewIncident = new ViewIncidentDetails();
+
+            IncidentController incidentCtrl = new IncidentController(viewIncident, incidentId);
+            incidentCtrl.LoadIncident();
+
+            viewIncident.Show();
+        }
+
+        public void AddIncidentView()
+        {
+            AddIncidentDetails addIncidentView = new AddIncidentDetails();
+            Controllers.Incidents.AddIncidentController addIncidentCtrl = new Controllers.Incidents.AddIncidentController(addIncidentView);
+            addIncidentCtrl.LoadStates();
+            addIncidentView.ShowDialog();
+        }
+
+        public void EditImageView(string imgPath)
+        {
+            frm_Image frm_Image = new frm_Image("", "", imgPath);
+            frm_Image.ShowDialog();
+        }
+
+        public void AddMoreCaptures()
+        {
+            AddMoreCaptures AddMoreCaptures = new AddMoreCaptures();
+            Captures.AddCapturesController addCapturesCtrl = new Captures.AddCapturesController(AddMoreCaptures, CaptureService.list_CaptureTypes());
+            addCapturesCtrl.LoadCaptures();
+            AddMoreCaptures.ShowDialog();
         }
     }
 

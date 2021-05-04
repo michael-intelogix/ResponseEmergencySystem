@@ -49,11 +49,6 @@ namespace ResponseEmergencySystem.Forms
                 System.Net.WebRequest.Create(imgPath);
                 System.Net.WebResponse response = request.GetResponse();
                 System.IO.Stream responseStream = response.GetResponseStream();
-                //Bitmap bitmap2 = new Bitmap(responseStream);
-                //img_Test.Image = bitmap2;
-                //splashScreenManager1.CloseWaitForm();
-                //btn_View.Enabled = true;
-                //btn_RotateInverse.Enabled = true;
 
                 using (var bmpTemp = new Bitmap(responseStream))
                 {
@@ -159,28 +154,37 @@ namespace ResponseEmergencySystem.Forms
             pnl_Uploading.BackColor = Color.FromArgb(17, 0, 0, 0);
             pnl_Uploading.Visible = true;
             //MessageBox.Show(filepath);
-            // Get any Stream — it can be FileStream, MemoryStream or any other type of Stream
-            var stream = File.Open(filepath, FileMode.Open);
 
-            // Construct FirebaseStorage with path to where you want to upload the file and put it there
-            var task = new FirebaseStorage("dcmanagement-3d402.appspot.com")
-            .Child("SIREM")
-            .Child("Captures")
-            .Child(ID_Capture)
-            .Child(fileName)
-            .PutAsync(stream);
-
-            // Track progress of the upload
-            task.Progress.ProgressChanged += (s, ev) =>
+            try
             {
-                progressBarControl1.EditValue = ev.Percentage;
-                progressBarControl1.CreateGraphics().DrawString(ev.Percentage.ToString() + "%", new Font("Arial", (float)8.25, FontStyle.Regular), Brushes.Black, new PointF(progressBarControl1.Width / 2 - 10, progressBarControl1.Height / 2 - 7));
-                //Console.WriteLine($"Progress: {ev.Percentage} %");
-            };
+                // Get any Stream — it can be FileStream, MemoryStream or any other type of Stream
+                var stream = File.Open(filepath, FileMode.Open);
 
-            // Await the task to wait until upload is completed and get the download url
-            var downloadUrl = await task;
-            pnl_Uploading.Visible = false;
+                // Construct FirebaseStorage with path to where you want to upload the file and put it there
+                var task = new FirebaseStorage("dcmanagement-3d402.appspot.com")
+                .Child("SIREM")
+                .Child("DD0C17C7-2D9C-4A84-8851-5647A8373669")
+                .Child("test")
+                .PutAsync(stream);
+
+                // Track progress of the upload
+                task.Progress.ProgressChanged += (s, ev) =>
+                {
+                    progressBarControl1.EditValue = ev.Percentage;
+                    progressBarControl1.CreateGraphics().DrawString(ev.Percentage.ToString() + "%", new Font("Arial", (float)8.25, FontStyle.Regular), Brushes.Black, new PointF(progressBarControl1.Width / 2 - 10, progressBarControl1.Height / 2 - 7));
+                    //Console.WriteLine($"Progress: {ev.Percentage} %");
+                };
+
+                // Await the task to wait until upload is completed and get the download url
+                var downloadUrl = await task;
+                Debug.WriteLine(downloadUrl);
+                pnl_Uploading.Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
 
         }
 
