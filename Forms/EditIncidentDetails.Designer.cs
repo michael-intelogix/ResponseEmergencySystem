@@ -361,7 +361,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.btn_DeleteInjuredRow.AutoHeight = false;
             editorButtonImageOptions1.SvgImage = global::ResponseEmergencySystem.Properties.Resources.cancelRed;
-            editorButtonImageOptions1.SvgImageSize = new System.Drawing.Size(25, 25);
+            editorButtonImageOptions1.SvgImageSize = new System.Drawing.Size(20, 25);
             this.btn_DeleteInjuredRow.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btn_DeleteInjuredRow.Name = "btn_DeleteInjuredRow";
