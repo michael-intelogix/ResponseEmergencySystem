@@ -37,6 +37,23 @@ namespace ResponseEmergencySystem.Controllers
             get { return _selectedIncident; }
         }
 
+        //public void SendMail()
+        //{
+        //    var namefile = Utils.GetRowID(gv_Incidents, "Folio");
+        //    string ReportPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), $"{namefile}.pdf");
+        //    splashScreenManager1.ShowWaitForm();
+        //    bool emailResponse = Utils.email_send(ReportPath, false);
+        //    splashScreenManager1.CloseWaitForm();
+        //    if (emailResponse)
+        //    {
+        //        MessageBox.Show("Mail Sent");
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Mail Error");
+        //    }
+        //}
+
         public void LoadIncident()
         {
             _selectedIncident = IncidentService.list_Incidents("", "", "", "", "", incidentId: ID_Incident)[0];
