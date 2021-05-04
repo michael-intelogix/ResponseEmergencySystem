@@ -158,7 +158,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         public void GetDriver()
         {
             string name = _view.FullName;
-            var Driver_Response = DriverService.GetDriver(_view.License, _view.PhoneNumber, _view.FullName);
+            var Driver_Response = DriverService.GetDriver(_view.License);
 
 
             ID_Driver = Driver_Response.ID_Driver.ToString();

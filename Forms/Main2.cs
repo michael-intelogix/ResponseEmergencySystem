@@ -54,8 +54,7 @@ namespace ResponseEmergencySystem.Forms
 
         private void simpleButton3_Click(object sender, EventArgs e)
         {
-            AddMoreCaptures AddMoreCaptures = new AddMoreCaptures();
-            AddMoreCaptures.ShowDialog();
+            _controller.AddMoreCaptures();
         }
 
         private void simpleButton4_Click(object sender, EventArgs e)
@@ -84,43 +83,28 @@ namespace ResponseEmergencySystem.Forms
         private void btn_Picture_Click(object sender, EventArgs e)
         {
             string imgPath = Utils.GetRowID(gv_Images, "ImagePath");
-            frm_Image frm_Image = new frm_Image("", "", imgPath);
-            frm_Image.ShowDialog();
-            
+
+            _controller.EditImageView(imgPath);
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
-            AddIncidentDetails addIncidentView = new AddIncidentDetails();
-            Controllers.Incidents.AddIncidentController addIncidentCtrl = new Controllers.Incidents.AddIncidentController(addIncidentView);
-            addIncidentCtrl.LoadStates();
-            addIncidentView.ShowDialog();
 
+            _controller.AddIncidentView();
         }
 
         private void btn_View2_Click(object sender, EventArgs e)
         {
-            Int32 index = gv_Incidents.FocusedRowHandle;
-            string incidentId = gv_Incidents.GetRowCellValue(index, "ID_Incident").ToString();
+            string incidentId = Utils.GetRowID(gv_Incidents, "ID_Incident");
 
-            ViewIncidentDetails viewIncident = new ViewIncidentDetails();
-
-            IncidentController incidentCtrl = new IncidentController(viewIncident, incidentId);
-            incidentCtrl.LoadIncident();
-
-            viewIncident.Show();
+            _controller.ShowIncident(incidentId);
         }
 
         private void btn_Edit2_Click(object sender, EventArgs e)
         {
             string incidentId =  Utils.GetRowID(gv_Incidents, "ID_Incident");
 
-            EditIncidentDetails viewEditIncident = new EditIncidentDetails();
-
-            Controllers.Incidents.EditIncidentController incidentCtrl = new Controllers.Incidents.EditIncidentController(viewEditIncident, incidentId);
-            incidentCtrl.LoadIncident();
-
-            viewEditIncident.Show();
+            _controller.EditIncidentView(incidentId);
         }
 
         private void btn_Comments_Click(object sender, EventArgs e)
@@ -173,7 +157,6 @@ namespace ResponseEmergencySystem.Forms
 
         private void Main2_Load(object sender, EventArgs e)
         {
-            //_controller.LoadChat();
         }
 
         #region IMain 
@@ -186,7 +169,6 @@ namespace ResponseEmergencySystem.Forms
         {
             gc_Incidents.DataSource = incidents.Select(i => new { i.ID_Incident, i.Name, i.Folio, i.IncidentDate, i.truck.truckNumber, i.ID_StatusDetail });
             _controller.LoadChat(incidents.FirstOrDefault().ID_Incident.ToString());
-            //_controller.ChatListener();
         }
 
         public void LoadCaptures(List<Capture> captures)

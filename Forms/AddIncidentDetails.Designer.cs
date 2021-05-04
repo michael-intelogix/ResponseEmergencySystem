@@ -686,6 +686,7 @@ namespace ResponseEmergencySystem.Forms
             this.edt_FullName.Location = new System.Drawing.Point(62, 43);
             this.edt_FullName.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.edt_FullName.Name = "edt_FullName";
+            this.edt_FullName.Properties.ReadOnly = true;
             this.edt_FullName.Size = new System.Drawing.Size(184, 24);
             this.edt_FullName.TabIndex = 90;
             // 
@@ -738,6 +739,7 @@ namespace ResponseEmergencySystem.Forms
             this.edt_PhoneNumber.Location = new System.Drawing.Point(375, 43);
             this.edt_PhoneNumber.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.edt_PhoneNumber.Name = "edt_PhoneNumber";
+            this.edt_PhoneNumber.Properties.ReadOnly = true;
             this.edt_PhoneNumber.Size = new System.Drawing.Size(124, 24);
             this.edt_PhoneNumber.TabIndex = 95;
             // 

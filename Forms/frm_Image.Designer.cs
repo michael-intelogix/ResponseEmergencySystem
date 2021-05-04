@@ -214,6 +214,7 @@ namespace ResponseEmergencySystem.Forms
             this.btn_SaveImage.Size = new System.Drawing.Size(129, 38);
             this.btn_SaveImage.TabIndex = 15;
             this.btn_SaveImage.Text = "Save";
+            this.btn_SaveImage.Click += new System.EventHandler(this.btn_SaveImage_Click);
             // 
             // btn_Cancel
             // 

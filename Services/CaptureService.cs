@@ -112,7 +112,9 @@ namespace ResponseEmergencySystem.Services
                                     sdr["ID_CaptureType"].ToString(),
                                     (string)sdr["Name"],
                                     (string)sdr["ImagePath"],
-                                    (string)sdr["Comments"]
+                                    (string)sdr["Comments"],
+                                    (string)sdr["Description"],
+                                    (string)sdr["NamesOfImages"]
                                 )
                             );
                         }
