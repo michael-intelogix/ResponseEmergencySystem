@@ -157,9 +157,6 @@
   <data name="sendWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sendWhite.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="pdfBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pdfBlue.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
   <data name="cancel_16x161" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cancel_16x161.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -169,8 +166,8 @@
   <data name="zoomin_16x161" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\zoomin_16x161.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="apply_16x162" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\apply_16x162.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pdfBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pdfBlue.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="picturesBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\picturesBlue.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
@@ -180,6 +177,9 @@
   </data>
   <data name="editBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\editBlue.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="apply_16x162" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\apply_16x162.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="uploadWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\uploadWhite.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
@@ -211,6 +211,9 @@
   <data name="save_32x321" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\save_32x321.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="chatboxWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\chatboxWhite.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
   <data name="searchWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\searchWhite.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
@@ -225,6 +228,9 @@
   </data>
   <data name="cancelRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cancelRed.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="mailWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mailWhite.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="mailBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mailBlue.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
@@ -244,7 +250,7 @@
   <data name="zoomInBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\zoomInBlue.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="chatboxWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\chatboxWhite.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  <data name="pdfWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pdfWhite.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
 </root>

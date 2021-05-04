@@ -216,6 +216,141 @@ namespace ResponseEmergencySystem.Forms
             lue_DriverLicenceState.Properties.DataSource = Functions.getStates();
             lue_LocationStates.Properties.DataSource = Functions.getStates();
         }
+
+        private void ckedt_TrailerNeedCrane_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelControl2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelControl4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelControl5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelControl6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelControl7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelControl8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupControl1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void groupControl2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void labelControl9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelControl10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelControl12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelControl14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkEdit9_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelControl17_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelControl18_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelControl19_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelControl20_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelControl21_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelControl23_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textEdit4_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textEdit13_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelControl24_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkEdit2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gc_InjuredPersons_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelControl2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 
 }

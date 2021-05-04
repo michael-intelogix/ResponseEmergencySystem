@@ -1252,7 +1252,7 @@ namespace ResponseEmergencySystem.Forms
             // edt_FullName
             // 
             this.edt_FullName.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.edt_FullName.Location = new System.Drawing.Point(62, 43);
+            this.edt_FullName.Location = new System.Drawing.Point(63, 45);
             this.edt_FullName.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.edt_FullName.Name = "edt_FullName";
             this.edt_FullName.Size = new System.Drawing.Size(184, 24);
