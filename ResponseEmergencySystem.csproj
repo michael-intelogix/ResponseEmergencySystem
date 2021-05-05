@@ -445,6 +445,12 @@
     <Compile Include="Models\Response.cs" />
     <Compile Include="Models\State.cs" />
     <Compile Include="Models\Samsara\Vehicle.cs" />
+    <Compile Include="Reports\XtraReport1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\XtraReport1.Designer.cs">
+      <DependentUpon>XtraReport1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Services\BrokerService.cs" />
     <Compile Include="Services\CaptureService.cs" />
     <Compile Include="Services\DriverService.cs" />
@@ -554,6 +560,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reports\XtraReport1.resx">
+      <DependentUpon>XtraReport1.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="dcmanagement.json" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\ResponseEmergencySystem.Entity_Framework.SIREMEntities.datasource" />
