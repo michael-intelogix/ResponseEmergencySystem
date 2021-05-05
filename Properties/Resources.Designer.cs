@@ -423,6 +423,16 @@ namespace ResponseEmergencySystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
         /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage searchWhite1 {
+            get {
+                object obj = ResourceManager.GetObject("searchWhite1", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
         internal static DevExpress.Utils.Svg.SvgImage sendWhite {
             get {
                 object obj = ResourceManager.GetObject("sendWhite", resourceCulture);

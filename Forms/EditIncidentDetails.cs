@@ -29,7 +29,7 @@ namespace ResponseEmergencySystem.Forms
 
         private void lue_States_Properties_EditValueChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void OnChangedCheckEdit(object sender, EventArgs e)
@@ -101,7 +101,8 @@ namespace ResponseEmergencySystem.Forms
         }
         public void LoadStates(DataTable dt_States)
         {
-            lue_StateExp.Properties.DataSource = dt_States;
+            lue_states.Properties.DataSource = dt_States;
+            lue_DriverLicenseState.Properties.DataSource = dt_States;
         }
         public void LoadCities(DataTable dt_Cities)
         {
@@ -138,8 +139,8 @@ namespace ResponseEmergencySystem.Forms
 
         public string LicenseState
         {
-            get { return lue_StateExp.EditValue.ToString(); }
-            set { lue_StateExp.EditValue = value; }
+            get { return lue_DriverLicenseState.EditValue.ToString(); }
+            set { lue_DriverLicenseState.EditValue = value; }
         }
 
         public string LocationReferences
@@ -270,9 +271,22 @@ namespace ResponseEmergencySystem.Forms
 
         private void ViewIncidentDetails_Load(object sender, EventArgs e)
         {
-            lue_StateExp.Properties.DataSource = Functions.getStates();
+            lue_DriverLicenseState.Properties.DataSource = Functions.getStates();
         }
 
-   
+        private void textEdit3_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelControl25_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lue_DriverLicenseState_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
