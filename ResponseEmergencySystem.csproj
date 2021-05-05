@@ -444,6 +444,12 @@
     <Compile Include="Models\Response.cs" />
     <Compile Include="Models\State.cs" />
     <Compile Include="Models\Samsara\Vehicle.cs" />
+    <Compile Include="Reports\XtraReport1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\XtraReport1.Designer.cs">
+      <DependentUpon>XtraReport1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Services\BrokerService.cs" />
     <Compile Include="Services\CaptureService.cs" />
     <Compile Include="Services\DriverService.cs" />
@@ -553,6 +559,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reports\XtraReport1.resx">
+      <DependentUpon>XtraReport1.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="dcmanagement.json" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\ResponseEmergencySystem.Entity_Framework.SIREMEntities.datasource" />
@@ -687,6 +696,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\searchWhite1.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Intelogix White.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Intelogix White1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\Grpc.Core.2.31.0\build\net45\Grpc.Core.targets" Condition="Exists('packages\Grpc.Core.2.31.0\build\net45\Grpc.Core.targets')" />
