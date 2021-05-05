@@ -145,7 +145,7 @@ namespace ResponseEmergencySystem.Reports
             // 
             // xrPictureBox1
             // 
-            this.xrPictureBox1.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource(global::ResponseEmergencySystem.Properties.Resources.Intelogix_White1, true);
+            this.xrPictureBox1.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource(global::ResponseEmergencySystem.Properties.Resources.Intelogix_White2, true);
             this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(10.00001F, 10.00001F);
             this.xrPictureBox1.Name = "xrPictureBox1";
             this.xrPictureBox1.SizeF = new System.Drawing.SizeF(206.25F, 85.41666F);
