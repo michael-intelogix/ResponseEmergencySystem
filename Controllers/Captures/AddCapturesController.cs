@@ -84,22 +84,24 @@ namespace ResponseEmergencySystem.Controllers.Captures
 
                 for (var i = 0; i < _images.Count(); i++)
                 {
-                    var task = UploadImgFirebaseAsync(_images[i].ImagePath);
-                    _view.BtnArray[i].Visible = false;
-                    _view.PbrArray[i].Visible = true;
+                    var id = _images[i].ID;
+                    var task = UploadImgFirebaseAsync(_images[i].ImagePath, _images[i].ImageName);
+                    _view.BtnArray[id].Visible = false;
+                    _view.PbrArray[id].Visible = true;
 
                     // Track progress of the upload
                     task.Progress.ProgressChanged += (s, ev) =>
                     {
-                        _view.PbrArray[i].EditValue = ev.Percentage;
-                        _view.PbrArray[i].CreateGraphics().DrawString(ev.Percentage.ToString() + "%", new Font("Arial", (float)8.25, FontStyle.Regular), Brushes.Black, new PointF(_view.PbrArray[i].Width / 2 - 10, _view.PbrArray[i].Height / 2 - 7));
+                        _view.PbrArray[id].EditValue = ev.Percentage;
+                        _view.PbrArray[id].CreateGraphics().DrawString(ev.Percentage.ToString() + "%", new Font("Arial", (float)8.25, FontStyle.Regular), Brushes.Black, new PointF(_view.PbrArray[i].Width / 2 - 10, _view.PbrArray[i].Height / 2 - 7));
                         Console.WriteLine($"Progress: {ev.Percentage} %");
                     };
 
                     _images[i].ImageFireBaseUrl = await task;
-                    _view.PbrArray[i].Visible = false;
-                    _view.BtnArray[i].Text = "Uploaded";
-                    _view.BtnArray[i].Visible = true;
+
+                    _view.PbrArray[id].Visible = false;
+                    _view.BtnArray[id].Text = "Uploaded";
+                    _view.BtnArray[id].Visible = true;
                 }
                 Reset();
             }
@@ -139,7 +141,7 @@ namespace ResponseEmergencySystem.Controllers.Captures
             
         }
 
-        private FirebaseStorageTask UploadImgFirebaseAsync(string filepath)
+        private FirebaseStorageTask UploadImgFirebaseAsync(string filepath, string name)
         {
             try
             {
@@ -150,7 +152,7 @@ namespace ResponseEmergencySystem.Controllers.Captures
                 var task = new FirebaseStorage("dcmanagement-3d402.appspot.com")
                 .Child("SIREM")
                 .Child("DD0C17C7-2D9C-4A84-8851-5647A8373669")
-                .Child("test")
+                .Child(name)
                 .PutAsync(stream);
 
                 
@@ -169,7 +171,7 @@ namespace ResponseEmergencySystem.Controllers.Captures
         {
             for (var i = 0; i < _images.Count(); i++)
             {
-                _view.BtnArray[i].Visible = false;
+                _view.BtnArray[_images[i].ID].Visible = false;
             }
             _images.Clear();
             _view.LueTypeBlock = false;

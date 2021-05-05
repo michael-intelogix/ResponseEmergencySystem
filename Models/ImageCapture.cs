@@ -41,6 +41,7 @@ namespace ResponseEmergencySystem.Models
             this.ImagePath = imgPath;
             this.ImageName = imgName;
             this.Uploaded = false;
+            this.ID = id - 1;
         }
 
         public ImageCapture(string n, string c, string id, string imgPath)
