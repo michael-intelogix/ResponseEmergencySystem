@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using ResponseEmergencySystem.Views.Captures;
 using ResponseEmergencySystem.Models;
 using ResponseEmergencySystem.Controllers.Captures;
+using ResponseEmergencySystem.Code;
 using System.IO;
 using System.Diagnostics;
 
@@ -47,30 +48,23 @@ namespace ResponseEmergencySystem.Forms
            
         }
 
-        private void simpleButton1_Click(object sender, EventArgs e)
+        private void UploadImageOnClick(object sender, EventArgs e)
         {
-            _controller.UploadImage("Front");
+            //Debug.WriteLine(((SimpleButton)sender).Name.Split('_')[1]);
+            //Debug.WriteLine(((SimpleButton)sender).Parent.Controls["lbl_" + ((SimpleButton)sender).Name.Split('_')[1]].Name);
+            _controller.UploadImage(Utils.GetTextOfLabelInCaptures((SimpleButton)sender));
         }
 
-
-        private void simpleButton5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void simpleButton13_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void simpleButton3_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void lue_Type_EditValueChanged(object sender, EventArgs e)
         {
             _controller.SetType(lue_Type.EditValue.ToString());
+        }
+
+    
+        public bool LueTypeBlock
+        {
+            set { lue_Type.Properties.ReadOnly = value; }
         }
 
         public bool PnlCapture1Visbility
@@ -80,15 +74,15 @@ namespace ResponseEmergencySystem.Forms
 
         public bool PnlCapture2Visbility
         {
-            set { pnl_Capture1.Visible = value; }
+            set { pnl_Capture2.Visible = value; }
         }
         public bool PnlCapture3Visbility
         {
-            set { pnl_Capture1.Visible = value; }
+            set { pnl_Capture3.Visible = value; }
         }
         public bool PnlCapture4Visbility
         {
-            set { pnl_Capture1.Visible = value; }
+            set { pnl_Capture4.Visible = value; }
         }
 
         public string LblCapture1Name
@@ -111,6 +105,11 @@ namespace ResponseEmergencySystem.Forms
             set { lbl_Capture4.Text = value; }
         }
 
-
+        private void simpleButton9_Click(object sender, EventArgs e)
+        {
+            splashScreenManager1.ShowWaitForm();
+            _controller.SaveAsync();
+            splashScreenManager1.CloseWaitForm();
+        }
     }
 }

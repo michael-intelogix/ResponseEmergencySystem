@@ -71,5 +71,12 @@ namespace ResponseEmergencySystem.Code
             string ID = gv.GetRowCellValue(index, ID_Name).ToString();
             return ID;
         }
+
+        // this only works if the name of the label is like the button and they are sibilings (lbl_text1 - btn_text1 both childs of pnl_1)
+        public static string GetTextOfLabelInCaptures(SimpleButton btn)
+        {
+            return btn.Parent.Controls["lbl_" + btn.Name.Split('_')[1]].Text;
+        }
+
     }
 }
