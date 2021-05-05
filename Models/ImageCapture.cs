@@ -8,6 +8,7 @@ namespace ResponseEmergencySystem.Models
 {
     public class ImageCapture
     {
+        public int ID { get; set; }
         public string name { get; set; }
         public string comments { get; set; }
         public string ID_StatusDetail { get; set; }
@@ -32,7 +33,7 @@ namespace ResponseEmergencySystem.Models
             ID_StatusDetail = id;
         }
 
-        public ImageCapture(string imgName, string imgPath)
+        public ImageCapture(string imgName, string imgPath, int id)
         {
             this.name = "";
             this.comments = "";

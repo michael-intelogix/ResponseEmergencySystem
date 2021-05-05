@@ -54,8 +54,9 @@ namespace ResponseEmergencySystem.Forms
             //Debug.WriteLine(((SimpleButton)sender).Name.Split('_')[1]);
             //Debug.WriteLine(((SimpleButton)sender).Parent.Controls["lbl_" + ((SimpleButton)sender).Name.Split('_')[1]].Name);
             var btn = (SimpleButton)sender;
-            var status = btn.Parent.Controls["status_" + btn.Name.Split('_')[1]];
-            _controller.UploadImage(Utils.GetTextOfLabelInCaptures(btn));
+            var name = btn.Name.Split('_')[1];
+            var status = btn.Parent.Controls["status_" + name];
+            _controller.UploadImage(Utils.GetTextOfLabelInCaptures(btn), Convert.ToInt32(name.Replace("Capture",  "")));
             status.Text = "Preloaded";
             status.Visible = true;
         }

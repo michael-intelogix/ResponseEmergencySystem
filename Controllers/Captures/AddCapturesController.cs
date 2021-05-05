@@ -35,7 +35,7 @@ namespace ResponseEmergencySystem.Controllers.Captures
             _view.LoadCapturesTypes(_captures);
         }
 
-        public void UploadImage(string imgName)
+        public void UploadImage(string imgName, int idx)
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
@@ -49,9 +49,12 @@ namespace ResponseEmergencySystem.Controllers.Captures
                     {
                         if (ext == ".GIF" || ext == ".JPG" || ext == ".PNG" || ext == ".BMP")
                         {
-                            var test = _captures.Where(c => c.captureType == _selectedCaptureType.captureType).First();
-                            _images.Add(new ImageCapture(imgName, ofd.FileName));
+                            if (idx > _images.Count())
+                                _images.Add(new ImageCapture(imgName, ofd.FileName, idx));
+                            else
+                                _images[idx].ImagePath = ofd.FileName;
                             _view.LueTypeBlock = true;
+                            _view.SaveButtonEnable = true;
                             img = true;
                             //MessageBox.Show(ofd.FileName);
                         }
@@ -98,9 +101,7 @@ namespace ResponseEmergencySystem.Controllers.Captures
                     _view.BtnArray[i].Text = "Uploaded";
                     _view.BtnArray[i].Visible = true;
                 }
-               
-                _view.LueTypeBlock = false;
-                _view.SaveButtonEnable = true;
+                Reset();
             }
         }
 
@@ -168,16 +169,11 @@ namespace ResponseEmergencySystem.Controllers.Captures
         {
             for (var i = 0; i < _images.Count(); i++)
             {
-                var task = UploadImgFirebaseAsync(_images[i].ImagePath);
                 _view.BtnArray[i].Visible = false;
-                _view.PbrArray[i].Visible = true;
-
-
-
-                _view.PbrArray[i].Visible = false;
-                _view.BtnArray[i].Text = "Uploaded";
-                _view.BtnArray[i].Visible = true;
             }
+            _images.Clear();
+            _view.LueTypeBlock = false;
+            //_view.SaveButtonEnable = true;
         }
     }
 
