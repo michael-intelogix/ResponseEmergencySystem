@@ -1,6 +1,8 @@
 ﻿using DevExpress.XtraEditors;
+using ResponseEmergencySystem.Properties;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Net.Mail;
 using System.Text;
@@ -76,6 +78,18 @@ namespace ResponseEmergencySystem.Code
         public static string GetTextOfLabelInCaptures(SimpleButton btn)
         {
             return btn.Parent.Controls["lbl_" + btn.Name.Split('_')[1]].Text;
+        }
+
+        public static ProgressBarControl GetCurrentProgressBar(Form form, string pnlName, string progressBarName)
+        {
+            return (ProgressBarControl)form.Controls[pnlName].Controls[progressBarName];
+        }
+
+        public static void CustomizeButton(SimpleButton btn, Color c, DevExpress.Utils.Svg.SvgImage svg, string t)
+        {
+            btn.ForeColor = c;
+            btn.ImageOptions.SvgImage = svg;
+            btn.Text = t;
         }
 
     }

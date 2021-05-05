@@ -14,6 +14,7 @@ using ResponseEmergencySystem.Controllers.Captures;
 using ResponseEmergencySystem.Code;
 using System.IO;
 using System.Diagnostics;
+using ResponseEmergencySystem.Properties;
 
 namespace ResponseEmergencySystem.Forms
 {
@@ -52,7 +53,11 @@ namespace ResponseEmergencySystem.Forms
         {
             //Debug.WriteLine(((SimpleButton)sender).Name.Split('_')[1]);
             //Debug.WriteLine(((SimpleButton)sender).Parent.Controls["lbl_" + ((SimpleButton)sender).Name.Split('_')[1]].Name);
-            _controller.UploadImage(Utils.GetTextOfLabelInCaptures((SimpleButton)sender));
+            var btn = (SimpleButton)sender;
+            var status = btn.Parent.Controls["status_" + btn.Name.Split('_')[1]];
+            _controller.UploadImage(Utils.GetTextOfLabelInCaptures(btn));
+            status.Text = "Preloaded";
+            status.Visible = true;
         }
 
 
@@ -60,7 +65,6 @@ namespace ResponseEmergencySystem.Forms
         {
             _controller.SetType(lue_Type.EditValue.ToString());
         }
-
     
         public bool LueTypeBlock
         {
@@ -103,6 +107,26 @@ namespace ResponseEmergencySystem.Forms
         public string LblCapture4Name
         {
             set { lbl_Capture4.Text = value; }
+        }
+
+        public bool SaveButtonEnable
+        {
+            set { btn_Save.Enabled = value; }
+        }
+
+        public ProgressBarControl[] PbrArray
+        {
+            get { return new ProgressBarControl[] { pbr_Cpature1, pbr_Capture2, pbr_Capture3, pbr_Capture4}; }
+        }
+
+        public LabelControl[] LblArray
+        {
+            get { return new LabelControl[] { lbl_Capture1, lbl_Capture2, lbl_Capture3, lbl_Capture4 }; }
+        }
+
+        public SimpleButton[] BtnArray
+        {
+            get { return new SimpleButton[] { status_Capture1, status_Capture2, status_Capture3, status_Capture4 }; }
         }
 
         private void simpleButton9_Click(object sender, EventArgs e)

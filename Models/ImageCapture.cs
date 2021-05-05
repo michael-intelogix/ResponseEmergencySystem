@@ -13,6 +13,7 @@ namespace ResponseEmergencySystem.Models
         public string ID_StatusDetail { get; set; }
         public string ImagePath { get; set; }
         public string ImageName { get; set; }
+        public string ImageFireBaseUrl { get; set; }
         public bool Uploaded { get; set; }
 
         public ImageCapture(string n)

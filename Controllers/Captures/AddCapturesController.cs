@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Threading;
 using Firebase.Storage;
+using System.Drawing;
 
 namespace ResponseEmergencySystem.Controllers.Captures
 {
@@ -52,7 +53,7 @@ namespace ResponseEmergencySystem.Controllers.Captures
                             _images.Add(new ImageCapture(imgName, ofd.FileName));
                             _view.LueTypeBlock = true;
                             img = true;
-                            MessageBox.Show(ofd.FileName);
+                            //MessageBox.Show(ofd.FileName);
                         }
                     }
                     else
@@ -74,11 +75,32 @@ namespace ResponseEmergencySystem.Controllers.Captures
         {
             if (img)
             {
+                _view.SaveButtonEnable = false;
+
                 //Thread.Sleep(5000);
-                
-                var test = await UploadImgFirebaseAsync(_images[0].ImagePath);
-                MessageBox.Show(test);
+
+                for (var i = 0; i < _images.Count(); i++)
+                {
+                    var task = UploadImgFirebaseAsync(_images[i].ImagePath);
+                    _view.BtnArray[i].Visible = false;
+                    _view.PbrArray[i].Visible = true;
+
+                    // Track progress of the upload
+                    task.Progress.ProgressChanged += (s, ev) =>
+                    {
+                        _view.PbrArray[i].EditValue = ev.Percentage;
+                        _view.PbrArray[i].CreateGraphics().DrawString(ev.Percentage.ToString() + "%", new Font("Arial", (float)8.25, FontStyle.Regular), Brushes.Black, new PointF(_view.PbrArray[i].Width / 2 - 10, _view.PbrArray[i].Height / 2 - 7));
+                        Console.WriteLine($"Progress: {ev.Percentage} %");
+                    };
+
+                    _images[i].ImageFireBaseUrl = await task;
+                    _view.PbrArray[i].Visible = false;
+                    _view.BtnArray[i].Text = "Uploaded";
+                    _view.BtnArray[i].Visible = true;
+                }
+               
                 _view.LueTypeBlock = false;
+                _view.SaveButtonEnable = true;
             }
         }
 
@@ -130,13 +152,7 @@ namespace ResponseEmergencySystem.Controllers.Captures
                 .Child("test")
                 .PutAsync(stream);
 
-                // Track progress of the upload
-                task.Progress.ProgressChanged += (s, ev) =>
-                {
-                    //progressBarControl1.EditValue = ev.Percentage;
-                    //progressBarControl1.CreateGraphics().DrawString(ev.Percentage.ToString() + "%", new Font("Arial", (float)8.25, FontStyle.Regular), Brushes.Black, new PointF(progressBarControl1.Width / 2 - 10, progressBarControl1.Height / 2 - 7));
-                    Console.WriteLine($"Progress: {ev.Percentage} %");
-                };
+                
 
                 // Await the task to wait until upload is completed and get the download url
                 return task;
@@ -146,6 +162,22 @@ namespace ResponseEmergencySystem.Controllers.Captures
                 MessageBox.Show(ex.Message);
                 return null;
             }  
+        }
+
+        private void Reset()
+        {
+            for (var i = 0; i < _images.Count(); i++)
+            {
+                var task = UploadImgFirebaseAsync(_images[i].ImagePath);
+                _view.BtnArray[i].Visible = false;
+                _view.PbrArray[i].Visible = true;
+
+
+
+                _view.PbrArray[i].Visible = false;
+                _view.BtnArray[i].Text = "Uploaded";
+                _view.BtnArray[i].Visible = true;
+            }
         }
     }
 

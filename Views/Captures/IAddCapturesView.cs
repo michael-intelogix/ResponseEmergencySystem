@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ResponseEmergencySystem.Controllers.Captures;
 using ResponseEmergencySystem.Models;
+using DevExpress.XtraEditors;
 
 namespace ResponseEmergencySystem.Views.Captures
 {
@@ -23,6 +24,11 @@ namespace ResponseEmergencySystem.Views.Captures
         string LblCapture2Name { set; }
         string LblCapture3Name { set; }
         string LblCapture4Name { set; }
+        bool SaveButtonEnable { set; }
+        ProgressBarControl[] PbrArray { get; }
+        LabelControl[] LblArray { get; }
+        SimpleButton[] BtnArray { get; }
+
     }
 
 }
