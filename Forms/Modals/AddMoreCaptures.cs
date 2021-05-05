@@ -13,6 +13,7 @@ using ResponseEmergencySystem.Models;
 using ResponseEmergencySystem.Controllers.Captures;
 using System.IO;
 using System.Diagnostics;
+using ResponseEmergencySystem.Code;
 
 namespace ResponseEmergencySystem.Forms
 {
@@ -47,26 +48,11 @@ namespace ResponseEmergencySystem.Forms
            
         }
 
-        private void simpleButton1_Click(object sender, EventArgs e)
+        private void UploadImage_Click(object sender, EventArgs e)
         {
-            _controller.UploadImage("Front");
+            _controller.UploadImage(Utils.GetLabelByNameOfButton((SimpleButton)sender));
         }
 
-
-        private void simpleButton5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void simpleButton13_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void simpleButton3_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void lue_Type_EditValueChanged(object sender, EventArgs e)
         {

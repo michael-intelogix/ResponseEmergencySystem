@@ -71,5 +71,10 @@ namespace ResponseEmergencySystem.Code
             string ID = gv.GetRowCellValue(index, ID_Name).ToString();
             return ID;
         }
+
+        public static string GetLabelByNameOfButton(SimpleButton btn)
+        {
+            return btn.Parent.Controls["lbl_" + btn.Name.Split('_')[1]].Text;
+        }
     }
 }

@@ -43,18 +43,18 @@ namespace ResponseEmergencySystem.Forms
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.pnl_Capture1 = new DevExpress.XtraEditors.PanelControl();
             this.simpleButton10 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton11 = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_Capture1 = new DevExpress.XtraEditors.SimpleButton();
             this.lbl_Capture1 = new DevExpress.XtraEditors.LabelControl();
             this.pnl_Capture2 = new DevExpress.XtraEditors.PanelControl();
             this.lbl_Capture2 = new DevExpress.XtraEditors.LabelControl();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_Capture2 = new DevExpress.XtraEditors.SimpleButton();
             this.pnl_Capture3 = new DevExpress.XtraEditors.PanelControl();
             this.simpleButton12 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton13 = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_Capture3 = new DevExpress.XtraEditors.SimpleButton();
             this.pnl_Capture4 = new DevExpress.XtraEditors.PanelControl();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_Capture4 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_Type.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
@@ -184,7 +184,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.pnl_Capture1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.pnl_Capture1.Controls.Add(this.simpleButton10);
-            this.pnl_Capture1.Controls.Add(this.simpleButton11);
+            this.pnl_Capture1.Controls.Add(this.btn_Capture1);
             this.pnl_Capture1.Controls.Add(this.lbl_Capture1);
             this.pnl_Capture1.Location = new System.Drawing.Point(5, 245);
             this.pnl_Capture1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -209,23 +209,25 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton10.Size = new System.Drawing.Size(113, 28);
             this.simpleButton10.TabIndex = 17;
             this.simpleButton10.Text = "Upload";
+            this.simpleButton10.Visible = false;
             // 
-            // simpleButton11
+            // btn_Capture1
             // 
-            this.simpleButton11.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
-            this.simpleButton11.Appearance.ForeColor = System.Drawing.Color.White;
-            this.simpleButton11.Appearance.Options.UseBackColor = true;
-            this.simpleButton11.Appearance.Options.UseForeColor = true;
-            this.simpleButton11.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.uploadWhite;
-            this.simpleButton11.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.simpleButton11.Location = new System.Drawing.Point(242, 4);
-            this.simpleButton11.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-            this.simpleButton11.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.simpleButton11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.simpleButton11.Name = "simpleButton11";
-            this.simpleButton11.Size = new System.Drawing.Size(174, 28);
-            this.simpleButton11.TabIndex = 16;
-            this.simpleButton11.Text = "Upload image";
+            this.btn_Capture1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.btn_Capture1.Appearance.ForeColor = System.Drawing.Color.White;
+            this.btn_Capture1.Appearance.Options.UseBackColor = true;
+            this.btn_Capture1.Appearance.Options.UseForeColor = true;
+            this.btn_Capture1.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.uploadWhite;
+            this.btn_Capture1.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.btn_Capture1.Location = new System.Drawing.Point(242, 4);
+            this.btn_Capture1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            this.btn_Capture1.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.btn_Capture1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Capture1.Name = "btn_Capture1";
+            this.btn_Capture1.Size = new System.Drawing.Size(174, 28);
+            this.btn_Capture1.TabIndex = 16;
+            this.btn_Capture1.Text = "Upload image";
+            this.btn_Capture1.Click += new System.EventHandler(this.UploadImage_Click);
             // 
             // lbl_Capture1
             // 
@@ -241,7 +243,7 @@ namespace ResponseEmergencySystem.Forms
             this.pnl_Capture2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.pnl_Capture2.Controls.Add(this.lbl_Capture2);
             this.pnl_Capture2.Controls.Add(this.simpleButton1);
-            this.pnl_Capture2.Controls.Add(this.simpleButton5);
+            this.pnl_Capture2.Controls.Add(this.btn_Capture2);
             this.pnl_Capture2.Location = new System.Drawing.Point(5, 290);
             this.pnl_Capture2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnl_Capture2.Name = "pnl_Capture2";
@@ -274,30 +276,31 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton1.Size = new System.Drawing.Size(113, 28);
             this.simpleButton1.TabIndex = 17;
             this.simpleButton1.Text = "Upload";
+            this.simpleButton1.Visible = false;
             // 
-            // simpleButton5
+            // btn_Capture2
             // 
-            this.simpleButton5.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
-            this.simpleButton5.Appearance.ForeColor = System.Drawing.Color.White;
-            this.simpleButton5.Appearance.Options.UseBackColor = true;
-            this.simpleButton5.Appearance.Options.UseForeColor = true;
-            this.simpleButton5.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.uploadWhite;
-            this.simpleButton5.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.simpleButton5.Location = new System.Drawing.Point(242, 4);
-            this.simpleButton5.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-            this.simpleButton5.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.simpleButton5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.simpleButton5.Name = "simpleButton5";
-            this.simpleButton5.Size = new System.Drawing.Size(174, 28);
-            this.simpleButton5.TabIndex = 16;
-            this.simpleButton5.Text = "Upload image";
-            this.simpleButton5.Click += new System.EventHandler(this.simpleButton5_Click);
+            this.btn_Capture2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.btn_Capture2.Appearance.ForeColor = System.Drawing.Color.White;
+            this.btn_Capture2.Appearance.Options.UseBackColor = true;
+            this.btn_Capture2.Appearance.Options.UseForeColor = true;
+            this.btn_Capture2.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.uploadWhite;
+            this.btn_Capture2.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.btn_Capture2.Location = new System.Drawing.Point(242, 4);
+            this.btn_Capture2.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            this.btn_Capture2.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.btn_Capture2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Capture2.Name = "btn_Capture2";
+            this.btn_Capture2.Size = new System.Drawing.Size(174, 28);
+            this.btn_Capture2.TabIndex = 16;
+            this.btn_Capture2.Text = "Upload image";
+            this.btn_Capture2.Click += new System.EventHandler(this.UploadImage_Click);
             // 
             // pnl_Capture3
             // 
             this.pnl_Capture3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.pnl_Capture3.Controls.Add(this.simpleButton12);
-            this.pnl_Capture3.Controls.Add(this.simpleButton13);
+            this.pnl_Capture3.Controls.Add(this.btn_Capture3);
             this.pnl_Capture3.Controls.Add(this.lbl_Capture3);
             this.pnl_Capture3.Location = new System.Drawing.Point(5, 336);
             this.pnl_Capture3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -322,30 +325,31 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton12.Size = new System.Drawing.Size(113, 28);
             this.simpleButton12.TabIndex = 17;
             this.simpleButton12.Text = "Upload";
+            this.simpleButton12.Visible = false;
             // 
-            // simpleButton13
+            // btn_Capture3
             // 
-            this.simpleButton13.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
-            this.simpleButton13.Appearance.ForeColor = System.Drawing.Color.White;
-            this.simpleButton13.Appearance.Options.UseBackColor = true;
-            this.simpleButton13.Appearance.Options.UseForeColor = true;
-            this.simpleButton13.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.uploadWhite;
-            this.simpleButton13.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.simpleButton13.Location = new System.Drawing.Point(242, 4);
-            this.simpleButton13.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-            this.simpleButton13.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.simpleButton13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.simpleButton13.Name = "simpleButton13";
-            this.simpleButton13.Size = new System.Drawing.Size(174, 28);
-            this.simpleButton13.TabIndex = 16;
-            this.simpleButton13.Text = "Upload image";
-            this.simpleButton13.Click += new System.EventHandler(this.simpleButton13_Click);
+            this.btn_Capture3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.btn_Capture3.Appearance.ForeColor = System.Drawing.Color.White;
+            this.btn_Capture3.Appearance.Options.UseBackColor = true;
+            this.btn_Capture3.Appearance.Options.UseForeColor = true;
+            this.btn_Capture3.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.uploadWhite;
+            this.btn_Capture3.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.btn_Capture3.Location = new System.Drawing.Point(242, 4);
+            this.btn_Capture3.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            this.btn_Capture3.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.btn_Capture3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Capture3.Name = "btn_Capture3";
+            this.btn_Capture3.Size = new System.Drawing.Size(174, 28);
+            this.btn_Capture3.TabIndex = 16;
+            this.btn_Capture3.Text = "Upload image";
+            this.btn_Capture3.Click += new System.EventHandler(this.UploadImage_Click);
             // 
             // pnl_Capture4
             // 
             this.pnl_Capture4.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.pnl_Capture4.Controls.Add(this.simpleButton2);
-            this.pnl_Capture4.Controls.Add(this.simpleButton3);
+            this.pnl_Capture4.Controls.Add(this.btn_Capture4);
             this.pnl_Capture4.Controls.Add(this.lbl_Capture4);
             this.pnl_Capture4.Location = new System.Drawing.Point(5, 382);
             this.pnl_Capture4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -370,24 +374,25 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton2.Size = new System.Drawing.Size(113, 28);
             this.simpleButton2.TabIndex = 17;
             this.simpleButton2.Text = "Upload";
+            this.simpleButton2.Visible = false;
             // 
-            // simpleButton3
+            // btn_Capture4
             // 
-            this.simpleButton3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
-            this.simpleButton3.Appearance.ForeColor = System.Drawing.Color.White;
-            this.simpleButton3.Appearance.Options.UseBackColor = true;
-            this.simpleButton3.Appearance.Options.UseForeColor = true;
-            this.simpleButton3.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.uploadWhite;
-            this.simpleButton3.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.simpleButton3.Location = new System.Drawing.Point(242, 4);
-            this.simpleButton3.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-            this.simpleButton3.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.simpleButton3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(174, 28);
-            this.simpleButton3.TabIndex = 16;
-            this.simpleButton3.Text = "Upload image";
-            this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
+            this.btn_Capture4.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.btn_Capture4.Appearance.ForeColor = System.Drawing.Color.White;
+            this.btn_Capture4.Appearance.Options.UseBackColor = true;
+            this.btn_Capture4.Appearance.Options.UseForeColor = true;
+            this.btn_Capture4.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.uploadWhite;
+            this.btn_Capture4.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.btn_Capture4.Location = new System.Drawing.Point(242, 4);
+            this.btn_Capture4.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            this.btn_Capture4.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.btn_Capture4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Capture4.Name = "btn_Capture4";
+            this.btn_Capture4.Size = new System.Drawing.Size(174, 28);
+            this.btn_Capture4.TabIndex = 16;
+            this.btn_Capture4.Text = "Upload image";
+            this.btn_Capture4.Click += new System.EventHandler(this.UploadImage_Click);
             // 
             // AddMoreCaptures
             // 
@@ -447,17 +452,17 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProvider1;
         private DevExpress.XtraEditors.PanelControl pnl_Capture1;
         private DevExpress.XtraEditors.SimpleButton simpleButton10;
-        private DevExpress.XtraEditors.SimpleButton simpleButton11;
+        private DevExpress.XtraEditors.SimpleButton btn_Capture1;
         private DevExpress.XtraEditors.LabelControl lbl_Capture1;
         private DevExpress.XtraEditors.PanelControl pnl_Capture2;
         private DevExpress.XtraEditors.LabelControl lbl_Capture2;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton5;
+        private DevExpress.XtraEditors.SimpleButton btn_Capture2;
         private DevExpress.XtraEditors.PanelControl pnl_Capture3;
         private DevExpress.XtraEditors.SimpleButton simpleButton12;
-        private DevExpress.XtraEditors.SimpleButton simpleButton13;
+        private DevExpress.XtraEditors.SimpleButton btn_Capture3;
         private DevExpress.XtraEditors.PanelControl pnl_Capture4;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton3;
+        private DevExpress.XtraEditors.SimpleButton btn_Capture4;
     }
 }

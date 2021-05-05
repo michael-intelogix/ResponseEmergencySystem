@@ -29,7 +29,7 @@ namespace ResponseEmergencySystem.Controllers.Captures
             _view.LoadCapturesTypes(_captures);
         }
 
-        public void UploadImage(string subType)
+        public void UploadImage(string imgName)
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
@@ -39,14 +39,16 @@ namespace ResponseEmergencySystem.Controllers.Captures
                 string ext = Path.GetExtension(ofd.FileName).ToUpper();
                 try
                 {
-                    if (_selectedCaptureType == null)
+                    if (_selectedCaptureType != null)
                     {
-                        MessageBox.Show("NULL");
                         if (ext == ".GIF" || ext == ".JPG" || ext == ".PNG" || ext == ".BMP")
                         {
-
                             MessageBox.Show(ofd.FileName);
                         }
+                    }
+                    else
+                    {
+                        MessageBox.Show("NULL");
                     }
                     
                 }
