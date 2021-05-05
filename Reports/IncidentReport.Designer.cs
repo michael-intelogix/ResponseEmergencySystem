@@ -5,7 +5,7 @@ namespace ResponseEmergencySystem.Reports
     {
         /// <summary>
         /// Required designer variable.
-        /// </summary>
+        /// </summary> 
         private System.ComponentModel.IContainer components = null;
 
         /// <summary> 

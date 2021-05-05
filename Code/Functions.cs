@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ResponseEmergencySystem.Code.Captures;
 using ResponseEmergencySystem.Forms;
 using ResponseEmergencySystem.Forms.Modals;
 
@@ -152,27 +151,6 @@ namespace ResponseEmergencySystem.Code
                 return errorsResult("There is no driver with the information supplied").Select().First();
             }
             //return result;
-        }
-
-        public static DataTable captureTable(string [] columns, List<Capture> data)
-        {
-            DataTable result = new DataTable();
-            foreach (string column in columns)
-            {
-                result.Columns.Add(column);
-            }
-
-            foreach (Capture ic in data)
-            {
-                DataRow _data = result.NewRow();
-                _data["ID_capture"] = ic.ID_Capture;
-                _data["capture_date"] = ic.captureDate;
-                _data["Type"] = ic.type;
-                _data["CapturesByType"] = ic.totalOfcaptures;
-                _data["Comments"] = ic.comments;
-                result.Rows.Add(_data);
-            }
-            return result;
         }
 
         public static DataTable updateInjuredPerson(Guid ID, string fullName, string lastName1, string lastName2, string phone, Guid ID_Incident)
