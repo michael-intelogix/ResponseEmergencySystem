@@ -77,18 +77,17 @@ namespace ResponseEmergencySystem.Forms
         {
             set { pnl_Capture1.Visible = value; }
         }
-
         public bool PnlCapture2Visbility
         {
-            set { pnl_Capture1.Visible = value; }
+            set { pnl_Capture2.Visible = value; }
         }
         public bool PnlCapture3Visbility
         {
-            set { pnl_Capture1.Visible = value; }
+            set { pnl_Capture3.Visible = value; }
         }
         public bool PnlCapture4Visbility
         {
-            set { pnl_Capture1.Visible = value; }
+            set { pnl_Capture4.Visible = value; }
         }
 
         public string LblCapture1Name

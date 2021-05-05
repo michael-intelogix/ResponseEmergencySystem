@@ -66,30 +66,29 @@ namespace ResponseEmergencySystem.Controllers.Captures
             switch(_selectedCaptureType.captureType)
             {
                 case "Insurance Policy":
+                    _view.PnlCapture1Visbility = true;
+                    _view.PnlCapture2Visbility = false;
+                    _view.PnlCapture3Visbility = false;
+                    _view.PnlCapture4Visbility = false;
                     _view.LblCapture1Name = _selectedCaptureType.imagesListOfNames[0].name;
                     break;
                 case "Testimony":
+                    _view.PnlCapture1Visbility = true;
+                    _view.PnlCapture2Visbility = false;
+                    _view.PnlCapture3Visbility = false;
+                    _view.PnlCapture4Visbility = false;
                     _view.LblCapture1Name = _selectedCaptureType.imagesListOfNames[0].name;
                     break;
                 default:
                     _view.PnlCapture1Visbility = true;
-                    _view.PnlCapture1Visbility = true;
-                    _view.PnlCapture1Visbility = true;
-                    _view.PnlCapture1Visbility = true;
+                    _view.PnlCapture2Visbility = true;
+                    _view.PnlCapture3Visbility = true;
+                    _view.PnlCapture4Visbility = true;
                     _view.LblCapture1Name = _selectedCaptureType.imagesListOfNames[0].name;
                     _view.LblCapture2Name = _selectedCaptureType.imagesListOfNames[1].name;
                     _view.LblCapture3Name = _selectedCaptureType.imagesListOfNames[2].name;
                     _view.LblCapture4Name = _selectedCaptureType.imagesListOfNames[3].name;
                     break;
-            }
-
-            if (_selectedCaptureType.captureType == "Vehicle" || _selectedCaptureType.captureType == "Truck" || _selectedCaptureType.captureType == "Trailer")
-            {
-                _view.PnlCapture1Visbility = true;
-            }
-            else
-            {
-                _view.PnlCapture1Visbility = false;
             }
             
         }
