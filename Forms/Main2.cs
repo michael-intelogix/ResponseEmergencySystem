@@ -18,6 +18,7 @@ using System.Diagnostics;
 using Google.Cloud.Firestore;
 using System.IO;
 using ResponseEmergencySystem.Reports;
+using ResponseEmergencySystem.Properties;
 
 namespace ResponseEmergencySystem.Forms
 {
@@ -96,8 +97,9 @@ namespace ResponseEmergencySystem.Forms
         private void btn_View2_Click(object sender, EventArgs e)
         {
             string incidentId = Utils.GetRowID(gv_Incidents, "ID_Incident");
+            string folio = Utils.GetRowID(gv_Incidents, "Folio");
 
-            _controller.ShowIncident(incidentId);
+            _controller.ShowIncident(incidentId, folio);
         }
 
         private void btn_Edit2_Click(object sender, EventArgs e)
@@ -215,5 +217,18 @@ namespace ResponseEmergencySystem.Forms
         }
         #endregion
 
+        private void simpleButton2_Click_1(object sender, EventArgs e)
+        {
+            xtraFolderBrowserDialog1.ShowDialog();
+
+
+            Settings.Default.AppFolder = xtraFolderBrowserDialog1.SelectedPath;
+            Settings.Default.Save();
+        }
+
+        private void simpleButton3_Click_1(object sender, EventArgs e)
+        {
+            MessageBox.Show(Settings.Default.AppFolder);
+        }
     }
 }

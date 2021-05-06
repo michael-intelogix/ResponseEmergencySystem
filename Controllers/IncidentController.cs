@@ -15,6 +15,9 @@ using System.Net.Http.Headers;
 using Newtonsoft.Json.Linq;
 using System.Diagnostics;
 using ResponseEmergencySystem.Forms.Modals;
+using ResponseEmergencySystem.Reports;
+using System.IO;
+using ResponseEmergencySystem.Properties;
 
 namespace ResponseEmergencySystem.Controllers
 {
@@ -22,12 +25,19 @@ namespace ResponseEmergencySystem.Controllers
     {
         IShowIncidentDetails _view;
         private string ID_Incident;
+        private string Folio;
+        private string ReportPath;
         Incident _selectedIncident;
         DataTable dt_InjuredPersons = new DataTable();
 
-        public IncidentController(IShowIncidentDetails view, string incidentId)
+        public IncidentController(IShowIncidentDetails view, string incidentId, string folio)
         {
             ID_Incident = incidentId;
+            Folio = folio;
+            ReportPath = Settings.Default.AppFolder;
+
+            
+
             _view = view;
             view.SetController(this);
         }
@@ -89,6 +99,64 @@ namespace ResponseEmergencySystem.Controllers
             if (dt_InjuredPersons.Rows.Count > 0)
                 _view.LoadInjuredPersons(dt_InjuredPersons);
 
+        }
+
+        public bool SendEmail()
+        {
+            //var namefile = Utils.GetRowID(gv_Incidents, "Folio");
+
+            if (!File.Exists(ReportPath + $"{Folio}.pdf"))
+            {
+                PDF();
+            }
+
+            return Utils.email_send(ReportPath + $"{Folio}.pdf", false);
+
+            //using (var ofd = new OpenFileDialog())
+            //{
+            //    ofd.Filter = "PDF Files (*.PDF)|*.PDF";
+            //    ofd.ShowDialog();
+
+            //    string ext = Path.GetExtension(ofd.FileName).ToUpper();
+            //    try
+            //    {
+            //        if (ext == ".PDF")
+            //        {
+            //            ReportPath = ofd.FileName;
+            //            PDF = true;
+            //        }
+
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    }
+            //}
+
+            //if (PDF)
+            //{
+            //    //string ReportPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), $"{Folio}.pdf");
+            //    return Utils.email_send(ReportPath, false);
+            //}
+
+            //return false;
+
+        }
+
+        public void PDF()
+        {
+            IncidentReport report1 = new IncidentReport(_selectedIncident);
+            DevExpress.XtraPrinting.PdfExportOptions MyPdfOptions = new DevExpress.XtraPrinting.PdfExportOptions();
+            try
+            {
+                report1.ExportToPdf(ReportPath + $"{Folio}.pdf");
+                MessageBox.Show("PDF saved!");
+            }
+            catch
+            {
+                MessageBox.Show("Problem with the pdf");
+                return;
+            }
         }
 
     }

@@ -17,6 +17,8 @@ namespace ResponseEmergencySystem.Views
         void LoadCities(DataTable dt_Cities);
         void LoadInjuredPersons(DataTable dt_InjuredPersons);
 
+        bool ShowMailButton { set; }
+
         string FullName { get; set; }
         string PhoneNumber { get; set; }
         string License { get; set; }

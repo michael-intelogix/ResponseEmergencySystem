@@ -172,11 +172,11 @@ namespace ResponseEmergencySystem.Controllers
             viewEditIncident.Show();
         }
 
-        public void ShowIncident(string incidentId)
+        public void ShowIncident(string incidentId, string folio)
         {
             ViewIncidentDetails viewIncident = new ViewIncidentDetails();
 
-            IncidentController incidentCtrl = new IncidentController(viewIncident, incidentId);
+            IncidentController incidentCtrl = new IncidentController(viewIncident, incidentId, folio);
             incidentCtrl.LoadIncident();
 
             viewIncident.Show();

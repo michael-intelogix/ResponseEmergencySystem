@@ -34,5 +34,17 @@ namespace ResponseEmergencySystem.Properties {
                 this["ZoomMsg"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string AppFolder {
+            get {
+                return ((string)(this["AppFolder"]));
+            }
+            set {
+                this["AppFolder"] = value;
+            }
+        }
     }
 }

@@ -25,7 +25,7 @@ namespace ResponseEmergencySystem.Forms
         public ViewIncidentDetails()
         {
             InitializeComponent();
-            
+
         }
 
         IncidentController _controller;
@@ -41,9 +41,9 @@ namespace ResponseEmergencySystem.Forms
         }
         public void LoadIncident(Incident incident)
         {
-            
+
         }
-        public void LoadStates(DataTable dt_States) 
+        public void LoadStates(DataTable dt_States)
         {
             lue_DriverLicenceState.Properties.DataSource = dt_States;
         }
@@ -54,6 +54,10 @@ namespace ResponseEmergencySystem.Forms
         public void LoadInjuredPersons(DataTable dt_InjuredPersons)
         {
             gc_InjuredPersons.DataSource = dt_InjuredPersons;
+        }
+
+        public bool ShowMailButton { 
+            set { simpleButton2.Visible = value;  }
         }
 
         public string FullName
@@ -224,6 +228,20 @@ namespace ResponseEmergencySystem.Forms
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
+            splashScreenManager1.ShowWaitForm();
+            
+            if (_controller.SendEmail())
+            {
+                splashScreenManager1.CloseWaitForm();
+                //MessageBox.Show("Mail Sent");
+            }
+            else
+            {
+                splashScreenManager1.CloseWaitForm();
+                MessageBox.Show("Mail Error");
+            }
+
+            
 
         }
 
@@ -355,6 +373,11 @@ namespace ResponseEmergencySystem.Forms
         private void textEdit1_EditValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            _controller.PDF();
         }
     }
 
