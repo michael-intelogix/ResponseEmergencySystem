@@ -121,42 +121,6 @@ namespace ResponseEmergencySystem.Forms
             editComments.ShowDialog();
         }
 
-        private void btn_Email_click(object sender, EventArgs e)
-        {
-            var namefile = Utils.GetRowID(gv_Incidents, "Folio");
-            string ReportPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), $"{namefile}.pdf");
-            splashScreenManager1.ShowWaitForm();
-            bool emailResponse = Utils.email_send(ReportPath, false);
-            splashScreenManager1.CloseWaitForm();
-            if (emailResponse)
-            {
-                MessageBox.Show("Mail Sent");
-            }
-            else
-            {
-                MessageBox.Show("Mail Error");
-            }
-        }
-
-        private void btn_PDF_Click(object sender, EventArgs e)
-        {
-            string incidentId = Utils.GetRowID(gv_Incidents, "ID_Incident").ToString();
-            IncidentReport report1 = new IncidentReport(IncidentService.list_Incidents("", "","","","", incidentId)[0]);
-            var namefile = Utils.GetRowID(gv_Incidents, "Folio");
-            string ReportPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), $"{namefile}.pdf");
-            DevExpress.XtraPrinting.PdfExportOptions MyPdfOptions = new DevExpress.XtraPrinting.PdfExportOptions();
-            try
-            {
-                report1.ExportToPdf(ReportPath);
-                MessageBox.Show("PDF saved!");
-            }
-            catch
-            {
-                MessageBox.Show("Problem with the pdf");
-                return;
-            }
-        }
-
         private void Main2_Load(object sender, EventArgs e)
         {
         }
@@ -240,6 +204,19 @@ namespace ResponseEmergencySystem.Forms
         private void simpleButton4_Click_1(object sender, EventArgs e)
         {
             _controller.AddMoreCaptures();
+        }
+
+        private void textEdit1_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textEdit1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+
+            }
         }
     }
 }
