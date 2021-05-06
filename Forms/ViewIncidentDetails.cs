@@ -379,6 +379,16 @@ namespace ResponseEmergencySystem.Forms
         {
             _controller.PDF();
         }
+
+        private void simpleButton1_Click_1(object sender, EventArgs e)
+        {
+            _controller.PDF();
+        }
+
+        private void simpleButton2_Click_1(object sender, EventArgs e)
+        {
+            _controller.SendEmail();
+        }
     }
 
 }

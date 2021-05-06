@@ -18,6 +18,7 @@ using ResponseEmergencySystem.Forms.Modals;
 using ResponseEmergencySystem.Reports;
 using System.IO;
 using ResponseEmergencySystem.Properties;
+using Settings = ResponseEmergencySystem.Properties.Settings;
 
 namespace ResponseEmergencySystem.Controllers
 {
@@ -35,8 +36,6 @@ namespace ResponseEmergencySystem.Controllers
             ID_Incident = incidentId;
             Folio = folio;
             ReportPath = Settings.Default.AppFolder;
-
-            
 
             _view = view;
             view.SetController(this);

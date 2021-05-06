@@ -230,5 +230,16 @@ namespace ResponseEmergencySystem.Forms
         {
             _controller.AddIncidentView();
         }
+
+        private void simpleButton2_Click_2(object sender, EventArgs e)
+        {
+            //Modals.Settings s = new Modals.Settings();
+            //s.ShowDialog();
+        }
+
+        private void simpleButton4_Click_1(object sender, EventArgs e)
+        {
+            _controller.AddMoreCaptures();
+        }
     }
 }
