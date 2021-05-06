@@ -160,9 +160,6 @@
   <data name="sendWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sendWhite.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="searchWhite1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\searchWhite1.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
   <data name="Intelogix White" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Intelogix White.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -174,6 +171,12 @@
   </data>
   <data name="zoomin_16x161" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\zoomin_16x161.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Intelogix White3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Intelogix White3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="importimage_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\importimage_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pdfBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pdfBlue.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
@@ -205,8 +208,8 @@
   <data name="commentsBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\commentsBlue.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="importimage_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\importimage_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="searchWhite1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\searchWhite1.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="preview_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\preview_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -268,7 +271,7 @@
   <data name="zoomInBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\zoomInBlue.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="Intelogix White3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Intelogix White3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="settingsBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\settingsBlue.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
 </root>

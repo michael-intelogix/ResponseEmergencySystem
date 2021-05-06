@@ -129,13 +129,15 @@ namespace ResponseEmergencySystem.Forms
             // btn_Save
             // 
             this.btn_Save.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.btn_Save.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Save.Appearance.ForeColor = System.Drawing.Color.White;
             this.btn_Save.Appearance.Options.UseBackColor = true;
+            this.btn_Save.Appearance.Options.UseFont = true;
             this.btn_Save.Appearance.Options.UseForeColor = true;
-            this.btn_Save.Enabled = false;
+            this.btn_Save.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btn_Save.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.saveWhite;
             this.btn_Save.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btn_Save.Location = new System.Drawing.Point(361, 386);
+            this.btn_Save.Location = new System.Drawing.Point(261, 386);
             this.btn_Save.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.btn_Save.LookAndFeel.UseDefaultLookAndFeel = false;
             this.btn_Save.Name = "btn_Save";
@@ -146,13 +148,18 @@ namespace ResponseEmergencySystem.Forms
             // 
             // btn_Cancel2
             // 
-            this.btn_Cancel2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
+            this.btn_Cancel2.Appearance.BackColor = System.Drawing.Color.Maroon;
+            this.btn_Cancel2.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Cancel2.Appearance.ForeColor = System.Drawing.Color.White;
             this.btn_Cancel2.Appearance.Options.UseBackColor = true;
+            this.btn_Cancel2.Appearance.Options.UseFont = true;
             this.btn_Cancel2.Appearance.Options.UseForeColor = true;
+            this.btn_Cancel2.AppearanceDisabled.BackColor = System.Drawing.Color.Maroon;
+            this.btn_Cancel2.AppearanceDisabled.Options.UseBackColor = true;
+            this.btn_Cancel2.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btn_Cancel2.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.closeWhite;
             this.btn_Cancel2.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btn_Cancel2.Location = new System.Drawing.Point(12, 386);
+            this.btn_Cancel2.Location = new System.Drawing.Point(144, 386);
             this.btn_Cancel2.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.btn_Cancel2.LookAndFeel.UseDefaultLookAndFeel = false;
             this.btn_Cancel2.Name = "btn_Cancel2";
