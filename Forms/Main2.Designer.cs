@@ -81,16 +81,20 @@ namespace ResponseEmergencySystem.Forms
             this.simpleLabelItem1 = new DevExpress.XtraLayout.SimpleLabelItem();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
-            this.stackPanel2 = new DevExpress.Utils.Layout.StackPanel();
-            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
-            this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
-            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.xtraScrollableControl2 = new DevExpress.XtraEditors.XtraScrollableControl();
+            this.xtraScrollableControl1 = new DevExpress.XtraEditors.XtraScrollableControl();
+            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
             this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
+            this.dateEdit2 = new DevExpress.XtraEditors.DateEdit();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
+            this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.gc_Incidents = new DevExpress.XtraGrid.GridControl();
             this.gv_Incidents = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.Date = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -106,11 +110,12 @@ namespace ResponseEmergencySystem.Forms
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem17 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem20 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.emptySpaceItem7 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem9 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.emptySpaceItem7 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.layoutControl4 = new DevExpress.XtraLayout.LayoutControl();
             this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
@@ -159,6 +164,7 @@ namespace ResponseEmergencySystem.Forms
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ResponseEmergencySystem.Forms.WaitForm1), true, true);
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.emptySpaceItem12 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
@@ -178,13 +184,14 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.simpleLabelItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
             this.layoutControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.stackPanel2)).BeginInit();
-            this.stackPanel2.SuspendLayout();
+            this.xtraScrollableControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc_Incidents)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_Incidents)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_View2)).BeginInit();
@@ -193,11 +200,12 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).BeginInit();
             this.splitContainerControl1.Panel1.SuspendLayout();
@@ -234,6 +242,7 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.btn_Edit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem12)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -283,9 +292,11 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton1.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.simpleButton1.Appearance.BackColor2 = System.Drawing.Color.Transparent;
             this.simpleButton1.Appearance.BorderColor = System.Drawing.Color.Transparent;
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton1.Appearance.ForeColor = System.Drawing.Color.Transparent;
             this.simpleButton1.Appearance.Options.UseBackColor = true;
             this.simpleButton1.Appearance.Options.UseBorderColor = true;
+            this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.Appearance.Options.UseForeColor = true;
             this.simpleButton1.AppearanceDisabled.BackColor = System.Drawing.Color.Transparent;
             this.simpleButton1.AppearanceDisabled.BackColor2 = System.Drawing.Color.Transparent;
@@ -297,10 +308,11 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton1.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
             this.simpleButton1.Location = new System.Drawing.Point(1490, 5);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(117, 26);
+            this.simpleButton1.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.simpleButton1.Size = new System.Drawing.Size(117, 27);
             this.simpleButton1.StyleController = this.layoutControl1;
             this.simpleButton1.TabIndex = 4;
-            this.simpleButton1.Text = "LogOut";
+            this.simpleButton1.Text = "Logout";
             // 
             // Root
             // 
@@ -366,9 +378,9 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.stackPanel1.Controls.Add(this.simpleButton2);
             this.stackPanel1.LayoutDirection = DevExpress.Utils.Layout.StackPanelLayoutDirection.RightToLeft;
-            this.stackPanel1.Location = new System.Drawing.Point(1546, 12);
+            this.stackPanel1.Location = new System.Drawing.Point(1552, 12);
             this.stackPanel1.Name = "stackPanel1";
-            this.stackPanel1.Size = new System.Drawing.Size(50, 38);
+            this.stackPanel1.Size = new System.Drawing.Size(44, 38);
             this.stackPanel1.TabIndex = 4;
             // 
             // simpleButton2
@@ -381,8 +393,9 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton2.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.settingsBlue;
             this.simpleButton2.ImageOptions.SvgImageColorizationMode = DevExpress.Utils.SvgImageColorizationMode.Full;
             this.simpleButton2.ImageOptions.SvgImageSize = new System.Drawing.Size(35, 35);
-            this.simpleButton2.Location = new System.Drawing.Point(2, 1);
+            this.simpleButton2.Location = new System.Drawing.Point(-4, 1);
             this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.simpleButton2.Size = new System.Drawing.Size(45, 35);
             this.simpleButton2.StyleController = this.layoutControl2;
             this.simpleButton2.TabIndex = 9;
@@ -402,9 +415,9 @@ namespace ResponseEmergencySystem.Forms
             // layoutControlItem18
             // 
             this.layoutControlItem18.Control = this.stackPanel1;
-            this.layoutControlItem18.Location = new System.Drawing.Point(1534, 0);
+            this.layoutControlItem18.Location = new System.Drawing.Point(1540, 0);
             this.layoutControlItem18.Name = "layoutControlItem18";
-            this.layoutControlItem18.Size = new System.Drawing.Size(54, 42);
+            this.layoutControlItem18.Size = new System.Drawing.Size(48, 42);
             this.layoutControlItem18.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem18.TextVisible = false;
             // 
@@ -417,7 +430,7 @@ namespace ResponseEmergencySystem.Forms
             this.simpleLabelItem1.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.simpleLabelItem1.Location = new System.Drawing.Point(0, 0);
             this.simpleLabelItem1.Name = "simpleLabelItem1";
-            this.simpleLabelItem1.Size = new System.Drawing.Size(1534, 42);
+            this.simpleLabelItem1.Size = new System.Drawing.Size(1540, 42);
             this.simpleLabelItem1.Text = "SIREM";
             this.simpleLabelItem1.TextSize = new System.Drawing.Size(64, 30);
             // 
@@ -434,8 +447,9 @@ namespace ResponseEmergencySystem.Forms
             // 
             // layoutControl3
             // 
+            this.layoutControl3.Controls.Add(this.xtraScrollableControl2);
+            this.layoutControl3.Controls.Add(this.xtraScrollableControl1);
             this.layoutControl3.Controls.Add(this.simpleButton3);
-            this.layoutControl3.Controls.Add(this.stackPanel2);
             this.layoutControl3.Controls.Add(this.gc_Incidents);
             this.layoutControl3.Controls.Add(this.labelControl2);
             this.layoutControl3.Controls.Add(this.labelControl3);
@@ -447,114 +461,159 @@ namespace ResponseEmergencySystem.Forms
             this.layoutControl3.TabIndex = 0;
             this.layoutControl3.Text = "layoutControl3";
             // 
-            // simpleButton3
+            // xtraScrollableControl2
             // 
-            this.simpleButton3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
-            this.simpleButton3.Appearance.ForeColor = System.Drawing.Color.White;
-            this.simpleButton3.Appearance.Options.UseBackColor = true;
-            this.simpleButton3.Appearance.Options.UseForeColor = true;
-            this.simpleButton3.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.simpleButton3.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.addWhite;
-            this.simpleButton3.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.simpleButton3.Location = new System.Drawing.Point(670, 80);
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(185, 24);
-            this.simpleButton3.StyleController = this.layoutControl3;
-            this.simpleButton3.TabIndex = 9;
-            this.simpleButton3.Text = "Add Incindent";
-            this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click_1);
+            this.xtraScrollableControl2.Location = new System.Drawing.Point(12, 800);
+            this.xtraScrollableControl2.Name = "xtraScrollableControl2";
+            this.xtraScrollableControl2.Size = new System.Drawing.Size(843, 20);
+            this.xtraScrollableControl2.TabIndex = 11;
             // 
-            // stackPanel2
+            // xtraScrollableControl1
             // 
-            this.stackPanel2.Controls.Add(this.labelControl9);
-            this.stackPanel2.Controls.Add(this.dateEdit1);
-            this.stackPanel2.Controls.Add(this.labelControl8);
-            this.stackPanel2.Controls.Add(this.textEdit1);
-            this.stackPanel2.Controls.Add(this.labelControl7);
-            this.stackPanel2.Controls.Add(this.textEdit2);
-            this.stackPanel2.Controls.Add(this.labelControl6);
-            this.stackPanel2.Controls.Add(this.textEdit3);
-            this.stackPanel2.Location = new System.Drawing.Point(12, 36);
-            this.stackPanel2.Name = "stackPanel2";
-            this.stackPanel2.Size = new System.Drawing.Size(843, 30);
-            this.stackPanel2.TabIndex = 10;
+            this.xtraScrollableControl1.Controls.Add(this.simpleButton5);
+            this.xtraScrollableControl1.Controls.Add(this.textEdit3);
+            this.xtraScrollableControl1.Controls.Add(this.labelControl10);
+            this.xtraScrollableControl1.Controls.Add(this.textEdit2);
+            this.xtraScrollableControl1.Controls.Add(this.labelControl9);
+            this.xtraScrollableControl1.Controls.Add(this.textEdit1);
+            this.xtraScrollableControl1.Controls.Add(this.labelControl8);
+            this.xtraScrollableControl1.Controls.Add(this.dateEdit2);
+            this.xtraScrollableControl1.Controls.Add(this.labelControl7);
+            this.xtraScrollableControl1.Controls.Add(this.dateEdit1);
+            this.xtraScrollableControl1.Controls.Add(this.labelControl6);
+            this.xtraScrollableControl1.Location = new System.Drawing.Point(12, 36);
+            this.xtraScrollableControl1.Name = "xtraScrollableControl1";
+            this.xtraScrollableControl1.Size = new System.Drawing.Size(843, 52);
+            this.xtraScrollableControl1.TabIndex = 10;
+            // 
+            // simpleButton5
+            // 
+            this.simpleButton5.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.simpleButton5.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton5.Appearance.Options.UseBackColor = true;
+            this.simpleButton5.Appearance.Options.UseFont = true;
+            this.simpleButton5.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.simpleButton5.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.clearWhite;
+            this.simpleButton5.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.simpleButton5.Location = new System.Drawing.Point(1022, 4);
+            this.simpleButton5.Name = "simpleButton5";
+            this.simpleButton5.Size = new System.Drawing.Size(75, 23);
+            this.simpleButton5.TabIndex = 10;
+            this.simpleButton5.Text = "Clear";
+            // 
+            // textEdit3
+            // 
+            this.textEdit3.Location = new System.Drawing.Point(912, 3);
+            this.textEdit3.Name = "textEdit3";
+            this.textEdit3.Size = new System.Drawing.Size(100, 24);
+            this.textEdit3.TabIndex = 9;
+            // 
+            // labelControl10
+            // 
+            this.labelControl10.Location = new System.Drawing.Point(823, 7);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(85, 17);
+            this.labelControl10.TabIndex = 8;
+            this.labelControl10.Text = "Truck number";
+            // 
+            // textEdit2
+            // 
+            this.textEdit2.Location = new System.Drawing.Point(627, 3);
+            this.textEdit2.Name = "textEdit2";
+            this.textEdit2.Size = new System.Drawing.Size(187, 24);
+            this.textEdit2.TabIndex = 7;
             // 
             // labelControl9
             // 
-            this.labelControl9.Location = new System.Drawing.Point(3, 6);
+            this.labelControl9.Location = new System.Drawing.Point(586, 7);
             this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(27, 17);
-            this.labelControl9.TabIndex = 3;
-            this.labelControl9.Text = "Date";
+            this.labelControl9.Size = new System.Drawing.Size(35, 17);
+            this.labelControl9.TabIndex = 6;
+            this.labelControl9.Text = "Name";
+            // 
+            // textEdit1
+            // 
+            this.textEdit1.Location = new System.Drawing.Point(477, 3);
+            this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Size = new System.Drawing.Size(100, 24);
+            this.textEdit1.TabIndex = 5;
+            // 
+            // labelControl8
+            // 
+            this.labelControl8.Location = new System.Drawing.Point(443, 7);
+            this.labelControl8.Name = "labelControl8";
+            this.labelControl8.Size = new System.Drawing.Size(28, 17);
+            this.labelControl8.TabIndex = 4;
+            this.labelControl8.Text = "Folio";
+            // 
+            // dateEdit2
+            // 
+            this.dateEdit2.EditValue = null;
+            this.dateEdit2.Location = new System.Drawing.Point(282, 3);
+            this.dateEdit2.Name = "dateEdit2";
+            this.dateEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit2.Size = new System.Drawing.Size(150, 24);
+            this.dateEdit2.TabIndex = 3;
+            // 
+            // labelControl7
+            // 
+            this.labelControl7.Location = new System.Drawing.Point(232, 7);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(44, 17);
+            this.labelControl7.TabIndex = 2;
+            this.labelControl7.Text = "Date to";
             // 
             // dateEdit1
             // 
             this.dateEdit1.EditValue = null;
-            this.dateEdit1.Location = new System.Drawing.Point(36, 3);
+            this.dateEdit1.Location = new System.Drawing.Point(70, 3);
             this.dateEdit1.Name = "dateEdit1";
             this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Size = new System.Drawing.Size(182, 24);
-            this.dateEdit1.TabIndex = 4;
-            // 
-            // labelControl8
-            // 
-            this.labelControl8.Location = new System.Drawing.Point(224, 6);
-            this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(35, 17);
-            this.labelControl8.TabIndex = 2;
-            this.labelControl8.Text = "Name";
-            // 
-            // textEdit1
-            // 
-            this.textEdit1.Location = new System.Drawing.Point(265, 3);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(183, 24);
-            this.textEdit1.TabIndex = 5;
-            this.textEdit1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textEdit1_KeyPress);
-            this.textEdit1.Leave += new System.EventHandler(this.textEdit1_Leave);
-            // 
-            // labelControl7
-            // 
-            this.labelControl7.Location = new System.Drawing.Point(454, 6);
-            this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(28, 17);
-            this.labelControl7.TabIndex = 1;
-            this.labelControl7.Text = "Folio";
-            // 
-            // textEdit2
-            // 
-            this.textEdit2.Location = new System.Drawing.Point(488, 3);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Size = new System.Drawing.Size(100, 24);
-            this.textEdit2.TabIndex = 6;
+            this.dateEdit1.Size = new System.Drawing.Size(150, 24);
+            this.dateEdit1.TabIndex = 1;
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(594, 6);
+            this.labelControl6.Location = new System.Drawing.Point(5, 7);
             this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(85, 17);
+            this.labelControl6.Size = new System.Drawing.Size(60, 17);
             this.labelControl6.TabIndex = 0;
-            this.labelControl6.Text = "Truck number";
+            this.labelControl6.Text = "Date from";
             // 
-            // textEdit3
+            // simpleButton3
             // 
-            this.textEdit3.Location = new System.Drawing.Point(685, 3);
-            this.textEdit3.Name = "textEdit3";
-            this.textEdit3.Size = new System.Drawing.Size(158, 24);
-            this.textEdit3.TabIndex = 7;
+            this.simpleButton3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.simpleButton3.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton3.Appearance.ForeColor = System.Drawing.Color.White;
+            this.simpleButton3.Appearance.Options.UseBackColor = true;
+            this.simpleButton3.Appearance.Options.UseFont = true;
+            this.simpleButton3.Appearance.Options.UseForeColor = true;
+            this.simpleButton3.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.simpleButton3.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.addWhite;
+            this.simpleButton3.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
+            this.simpleButton3.Location = new System.Drawing.Point(670, 102);
+            this.simpleButton3.Name = "simpleButton3";
+            this.simpleButton3.Size = new System.Drawing.Size(185, 25);
+            this.simpleButton3.StyleController = this.layoutControl3;
+            this.simpleButton3.TabIndex = 9;
+            this.simpleButton3.Text = "Add Incindent";
+            this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click_1);
             // 
             // gc_Incidents
             // 
-            this.gc_Incidents.Location = new System.Drawing.Point(12, 118);
+            this.gc_Incidents.Location = new System.Drawing.Point(12, 150);
             this.gc_Incidents.MainView = this.gv_Incidents;
             this.gc_Incidents.Name = "gc_Incidents";
             this.gc_Incidents.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btn_View2,
             this.btn_Edit2});
-            this.gc_Incidents.Size = new System.Drawing.Size(843, 702);
+            this.gc_Incidents.Size = new System.Drawing.Size(843, 646);
             this.gc_Incidents.TabIndex = 6;
             this.gc_Incidents.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_Incidents});
@@ -655,7 +714,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl3.Appearance.Options.UseFont = true;
-            this.labelControl3.Location = new System.Drawing.Point(12, 80);
+            this.labelControl3.Location = new System.Drawing.Point(12, 102);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(64, 20);
             this.labelControl3.StyleController = this.layoutControl3;
@@ -670,11 +729,12 @@ namespace ResponseEmergencySystem.Forms
             this.layoutControlItem8,
             this.layoutControlItem17,
             this.layoutControlItem6,
-            this.layoutControlItem20,
             this.layoutControlItem3,
             this.emptySpaceItem2,
-            this.emptySpaceItem7,
-            this.emptySpaceItem9});
+            this.layoutControlItem5,
+            this.layoutControlItem7,
+            this.emptySpaceItem9,
+            this.emptySpaceItem7});
             this.layoutControlGroup2.Name = "layoutControlGroup2";
             this.layoutControlGroup2.Size = new System.Drawing.Size(867, 832);
             this.layoutControlGroup2.TextVisible = false;
@@ -682,18 +742,18 @@ namespace ResponseEmergencySystem.Forms
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.labelControl3;
-            this.layoutControlItem8.Location = new System.Drawing.Point(0, 68);
+            this.layoutControlItem8.Location = new System.Drawing.Point(0, 90);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(68, 28);
+            this.layoutControlItem8.Size = new System.Drawing.Size(68, 29);
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
             // 
             // layoutControlItem17
             // 
             this.layoutControlItem17.Control = this.gc_Incidents;
-            this.layoutControlItem17.Location = new System.Drawing.Point(0, 106);
+            this.layoutControlItem17.Location = new System.Drawing.Point(0, 138);
             this.layoutControlItem17.Name = "layoutControlItem17";
-            this.layoutControlItem17.Size = new System.Drawing.Size(847, 706);
+            this.layoutControlItem17.Size = new System.Drawing.Size(847, 650);
             this.layoutControlItem17.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem17.TextVisible = false;
             // 
@@ -706,47 +766,56 @@ namespace ResponseEmergencySystem.Forms
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
             // 
-            // layoutControlItem20
-            // 
-            this.layoutControlItem20.Control = this.stackPanel2;
-            this.layoutControlItem20.Location = new System.Drawing.Point(0, 24);
-            this.layoutControlItem20.Name = "layoutControlItem20";
-            this.layoutControlItem20.Size = new System.Drawing.Size(847, 34);
-            this.layoutControlItem20.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem20.TextVisible = false;
-            // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.simpleButton3;
-            this.layoutControlItem3.Location = new System.Drawing.Point(658, 68);
+            this.layoutControlItem3.Location = new System.Drawing.Point(658, 90);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(189, 28);
+            this.layoutControlItem3.Size = new System.Drawing.Size(189, 29);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(68, 68);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(68, 90);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(590, 28);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(590, 29);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // emptySpaceItem7
+            // layoutControlItem5
             // 
-            this.emptySpaceItem7.AllowHotTrack = false;
-            this.emptySpaceItem7.Location = new System.Drawing.Point(0, 96);
-            this.emptySpaceItem7.Name = "emptySpaceItem7";
-            this.emptySpaceItem7.Size = new System.Drawing.Size(847, 10);
-            this.emptySpaceItem7.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem5.Control = this.xtraScrollableControl1;
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(847, 56);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem5.TextVisible = false;
+            // 
+            // layoutControlItem7
+            // 
+            this.layoutControlItem7.Control = this.xtraScrollableControl2;
+            this.layoutControlItem7.Location = new System.Drawing.Point(0, 788);
+            this.layoutControlItem7.Name = "layoutControlItem7";
+            this.layoutControlItem7.Size = new System.Drawing.Size(847, 24);
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem7.TextVisible = false;
             // 
             // emptySpaceItem9
             // 
             this.emptySpaceItem9.AllowHotTrack = false;
-            this.emptySpaceItem9.Location = new System.Drawing.Point(0, 58);
+            this.emptySpaceItem9.Location = new System.Drawing.Point(0, 119);
             this.emptySpaceItem9.Name = "emptySpaceItem9";
-            this.emptySpaceItem9.Size = new System.Drawing.Size(847, 10);
+            this.emptySpaceItem9.Size = new System.Drawing.Size(847, 19);
             this.emptySpaceItem9.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // emptySpaceItem7
+            // 
+            this.emptySpaceItem7.AllowHotTrack = false;
+            this.emptySpaceItem7.Location = new System.Drawing.Point(0, 80);
+            this.emptySpaceItem7.Name = "emptySpaceItem7";
+            this.emptySpaceItem7.Size = new System.Drawing.Size(847, 10);
+            this.emptySpaceItem7.TextSize = new System.Drawing.Size(0, 0);
             // 
             // splitContainerControl1
             // 
@@ -789,15 +858,17 @@ namespace ResponseEmergencySystem.Forms
             // simpleButton4
             // 
             this.simpleButton4.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.simpleButton4.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton4.Appearance.ForeColor = System.Drawing.Color.White;
             this.simpleButton4.Appearance.Options.UseBackColor = true;
+            this.simpleButton4.Appearance.Options.UseFont = true;
             this.simpleButton4.Appearance.Options.UseForeColor = true;
             this.simpleButton4.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.simpleButton4.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.addWhite;
             this.simpleButton4.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.simpleButton4.Location = new System.Drawing.Point(572, 12);
+            this.simpleButton4.Location = new System.Drawing.Point(553, 12);
             this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(147, 24);
+            this.simpleButton4.Size = new System.Drawing.Size(166, 25);
             this.simpleButton4.StyleController = this.layoutControl4;
             this.simpleButton4.TabIndex = 5;
             this.simpleButton4.Text = "Add more captures";
@@ -805,23 +876,26 @@ namespace ResponseEmergencySystem.Forms
             // 
             // memoEdit_Chat
             // 
-            this.memoEdit_Chat.Location = new System.Drawing.Point(322, 553);
+            this.memoEdit_Chat.Location = new System.Drawing.Point(322, 565);
             this.memoEdit_Chat.Name = "memoEdit_Chat";
-            this.memoEdit_Chat.Size = new System.Drawing.Size(397, 239);
+            this.memoEdit_Chat.Size = new System.Drawing.Size(397, 226);
             this.memoEdit_Chat.StyleController = this.layoutControl4;
             this.memoEdit_Chat.TabIndex = 12;
             // 
             // btn_Send
             // 
             this.btn_Send.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.btn_Send.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Send.Appearance.ForeColor = System.Drawing.Color.White;
             this.btn_Send.Appearance.Options.UseBackColor = true;
+            this.btn_Send.Appearance.Options.UseFont = true;
             this.btn_Send.Appearance.Options.UseForeColor = true;
+            this.btn_Send.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btn_Send.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.sendWhite;
             this.btn_Send.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.btn_Send.Location = new System.Drawing.Point(659, 796);
+            this.btn_Send.Location = new System.Drawing.Point(655, 795);
             this.btn_Send.Name = "btn_Send";
-            this.btn_Send.Size = new System.Drawing.Size(60, 24);
+            this.btn_Send.Size = new System.Drawing.Size(64, 25);
             this.btn_Send.StyleController = this.layoutControl4;
             this.btn_Send.TabIndex = 10;
             this.btn_Send.Text = "Send";
@@ -829,13 +903,13 @@ namespace ResponseEmergencySystem.Forms
             // 
             // gc_Images
             // 
-            this.gc_Images.Location = new System.Drawing.Point(12, 340);
+            this.gc_Images.Location = new System.Drawing.Point(12, 350);
             this.gc_Images.MainView = this.gv_Images;
             this.gc_Images.Name = "gc_Images";
             this.gc_Images.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btn_Picture,
             this.btn_Edit4});
-            this.gc_Images.Size = new System.Drawing.Size(707, 199);
+            this.gc_Images.Size = new System.Drawing.Size(707, 201);
             this.gc_Images.TabIndex = 8;
             this.gc_Images.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_Images});
@@ -937,7 +1011,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl5.Appearance.Options.UseFont = true;
-            this.labelControl5.Location = new System.Drawing.Point(12, 306);
+            this.labelControl5.Location = new System.Drawing.Point(12, 316);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(100, 20);
             this.labelControl5.StyleController = this.layoutControl4;
@@ -947,12 +1021,12 @@ namespace ResponseEmergencySystem.Forms
             // 
             // gc_Captures
             // 
-            this.gc_Captures.Location = new System.Drawing.Point(12, 50);
+            this.gc_Captures.Location = new System.Drawing.Point(12, 51);
             this.gc_Captures.MainView = this.gv_Captures;
             this.gc_Captures.Name = "gc_Captures";
             this.gc_Captures.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btn_Comments});
-            this.gc_Captures.Size = new System.Drawing.Size(707, 252);
+            this.gc_Captures.Size = new System.Drawing.Size(707, 251);
             this.gc_Captures.TabIndex = 6;
             this.gc_Captures.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_Captures});
@@ -1019,9 +1093,9 @@ namespace ResponseEmergencySystem.Forms
             // 
             // edt_Message
             // 
-            this.edt_Message.Location = new System.Drawing.Point(430, 796);
+            this.edt_Message.Location = new System.Drawing.Point(430, 795);
             this.edt_Message.Name = "edt_Message";
-            this.edt_Message.Size = new System.Drawing.Size(225, 24);
+            this.edt_Message.Size = new System.Drawing.Size(221, 24);
             this.edt_Message.StyleController = this.layoutControl4;
             this.edt_Message.TabIndex = 11;
             this.edt_Message.KeyDown += new System.Windows.Forms.KeyEventHandler(this.edt_Message_KeyDown);
@@ -1044,7 +1118,8 @@ namespace ResponseEmergencySystem.Forms
             this.emptySpaceItem6,
             this.emptySpaceItem10,
             this.emptySpaceItem8,
-            this.emptySpaceItem11});
+            this.emptySpaceItem11,
+            this.emptySpaceItem12});
             this.layoutControlGroup3.Name = "layoutControlGroup3";
             this.layoutControlGroup3.Size = new System.Drawing.Size(731, 832);
             this.layoutControlGroup3.TextVisible = false;
@@ -1054,23 +1129,23 @@ namespace ResponseEmergencySystem.Forms
             this.layoutControlItem10.Control = this.labelControl4;
             this.layoutControlItem10.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(114, 28);
+            this.layoutControlItem10.Size = new System.Drawing.Size(114, 29);
             this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem10.TextVisible = false;
             // 
             // layoutControlItem11
             // 
             this.layoutControlItem11.Control = this.gc_Captures;
-            this.layoutControlItem11.Location = new System.Drawing.Point(0, 38);
+            this.layoutControlItem11.Location = new System.Drawing.Point(0, 39);
             this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(711, 256);
+            this.layoutControlItem11.Size = new System.Drawing.Size(711, 255);
             this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem11.TextVisible = false;
             // 
             // layoutControlItem12
             // 
             this.layoutControlItem12.Control = this.labelControl5;
-            this.layoutControlItem12.Location = new System.Drawing.Point(0, 294);
+            this.layoutControlItem12.Location = new System.Drawing.Point(0, 304);
             this.layoutControlItem12.Name = "layoutControlItem12";
             this.layoutControlItem12.Size = new System.Drawing.Size(711, 24);
             this.layoutControlItem12.TextSize = new System.Drawing.Size(0, 0);
@@ -1079,44 +1154,44 @@ namespace ResponseEmergencySystem.Forms
             // layoutControlItem13
             // 
             this.layoutControlItem13.Control = this.gc_Images;
-            this.layoutControlItem13.Location = new System.Drawing.Point(0, 328);
+            this.layoutControlItem13.Location = new System.Drawing.Point(0, 338);
             this.layoutControlItem13.Name = "layoutControlItem13";
-            this.layoutControlItem13.Size = new System.Drawing.Size(711, 203);
+            this.layoutControlItem13.Size = new System.Drawing.Size(711, 205);
             this.layoutControlItem13.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem13.TextVisible = false;
             // 
             // layoutControlItem15
             // 
             this.layoutControlItem15.Control = this.btn_Send;
-            this.layoutControlItem15.Location = new System.Drawing.Point(647, 784);
+            this.layoutControlItem15.Location = new System.Drawing.Point(643, 783);
             this.layoutControlItem15.Name = "layoutControlItem15";
-            this.layoutControlItem15.Size = new System.Drawing.Size(64, 28);
+            this.layoutControlItem15.Size = new System.Drawing.Size(68, 29);
             this.layoutControlItem15.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem15.TextVisible = false;
             // 
             // layoutControlItem16
             // 
             this.layoutControlItem16.Control = this.edt_Message;
-            this.layoutControlItem16.Location = new System.Drawing.Point(418, 784);
+            this.layoutControlItem16.Location = new System.Drawing.Point(418, 783);
             this.layoutControlItem16.Name = "layoutControlItem16";
-            this.layoutControlItem16.Size = new System.Drawing.Size(229, 28);
+            this.layoutControlItem16.Size = new System.Drawing.Size(225, 29);
             this.layoutControlItem16.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem16.TextVisible = false;
             // 
             // emptySpaceItem5
             // 
             this.emptySpaceItem5.AllowHotTrack = false;
-            this.emptySpaceItem5.Location = new System.Drawing.Point(0, 784);
+            this.emptySpaceItem5.Location = new System.Drawing.Point(0, 783);
             this.emptySpaceItem5.Name = "emptySpaceItem5";
-            this.emptySpaceItem5.Size = new System.Drawing.Size(418, 28);
+            this.emptySpaceItem5.Size = new System.Drawing.Size(418, 29);
             this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem3
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.Location = new System.Drawing.Point(0, 541);
+            this.emptySpaceItem3.Location = new System.Drawing.Point(0, 553);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(265, 243);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(265, 230);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem14
@@ -1126,18 +1201,18 @@ namespace ResponseEmergencySystem.Forms
             this.layoutControlItem14.AppearanceItemCaption.Options.UseTextOptions = true;
             this.layoutControlItem14.AppearanceItemCaption.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
             this.layoutControlItem14.Control = this.memoEdit_Chat;
-            this.layoutControlItem14.Location = new System.Drawing.Point(265, 541);
+            this.layoutControlItem14.Location = new System.Drawing.Point(265, 553);
             this.layoutControlItem14.Name = "layoutControlItem14";
-            this.layoutControlItem14.Size = new System.Drawing.Size(446, 243);
+            this.layoutControlItem14.Size = new System.Drawing.Size(446, 230);
             this.layoutControlItem14.Text = "Chat";
             this.layoutControlItem14.TextSize = new System.Drawing.Size(33, 20);
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.simpleButton4;
-            this.layoutControlItem4.Location = new System.Drawing.Point(560, 0);
+            this.layoutControlItem4.Location = new System.Drawing.Point(541, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(151, 28);
+            this.layoutControlItem4.Size = new System.Drawing.Size(170, 29);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
@@ -1146,13 +1221,13 @@ namespace ResponseEmergencySystem.Forms
             this.emptySpaceItem6.AllowHotTrack = false;
             this.emptySpaceItem6.Location = new System.Drawing.Point(114, 0);
             this.emptySpaceItem6.Name = "emptySpaceItem6";
-            this.emptySpaceItem6.Size = new System.Drawing.Size(446, 28);
+            this.emptySpaceItem6.Size = new System.Drawing.Size(427, 29);
             this.emptySpaceItem6.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem10
             // 
             this.emptySpaceItem10.AllowHotTrack = false;
-            this.emptySpaceItem10.Location = new System.Drawing.Point(0, 28);
+            this.emptySpaceItem10.Location = new System.Drawing.Point(0, 29);
             this.emptySpaceItem10.Name = "emptySpaceItem10";
             this.emptySpaceItem10.Size = new System.Drawing.Size(711, 10);
             this.emptySpaceItem10.TextSize = new System.Drawing.Size(0, 0);
@@ -1160,7 +1235,7 @@ namespace ResponseEmergencySystem.Forms
             // emptySpaceItem8
             // 
             this.emptySpaceItem8.AllowHotTrack = false;
-            this.emptySpaceItem8.Location = new System.Drawing.Point(0, 318);
+            this.emptySpaceItem8.Location = new System.Drawing.Point(0, 328);
             this.emptySpaceItem8.Name = "emptySpaceItem8";
             this.emptySpaceItem8.Size = new System.Drawing.Size(711, 10);
             this.emptySpaceItem8.TextSize = new System.Drawing.Size(0, 0);
@@ -1168,7 +1243,7 @@ namespace ResponseEmergencySystem.Forms
             // emptySpaceItem11
             // 
             this.emptySpaceItem11.AllowHotTrack = false;
-            this.emptySpaceItem11.Location = new System.Drawing.Point(0, 531);
+            this.emptySpaceItem11.Location = new System.Drawing.Point(0, 543);
             this.emptySpaceItem11.Name = "emptySpaceItem11";
             this.emptySpaceItem11.Size = new System.Drawing.Size(711, 10);
             this.emptySpaceItem11.TextSize = new System.Drawing.Size(0, 0);
@@ -1232,6 +1307,14 @@ namespace ResponseEmergencySystem.Forms
             this.emptySpaceItem4.Size = new System.Drawing.Size(847, 10);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // emptySpaceItem12
+            // 
+            this.emptySpaceItem12.AllowHotTrack = false;
+            this.emptySpaceItem12.Location = new System.Drawing.Point(0, 294);
+            this.emptySpaceItem12.Name = "emptySpaceItem12";
+            this.emptySpaceItem12.Size = new System.Drawing.Size(711, 10);
+            this.emptySpaceItem12.TextSize = new System.Drawing.Size(0, 0);
+            // 
             // Main2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -1264,14 +1347,15 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.simpleLabelItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).EndInit();
             this.layoutControl3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.stackPanel2)).EndInit();
-            this.stackPanel2.ResumeLayout(false);
-            this.stackPanel2.PerformLayout();
+            this.xtraScrollableControl1.ResumeLayout(false);
+            this.xtraScrollableControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc_Incidents)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_Incidents)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_View2)).EndInit();
@@ -1280,11 +1364,12 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).EndInit();
             this.splitContainerControl1.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel2)).EndInit();
@@ -1321,6 +1406,7 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.btn_Edit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem12)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1399,19 +1485,9 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.Utils.Layout.StackPanel stackPanel1;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem18;
-        private DevExpress.Utils.Layout.StackPanel stackPanel2;
-        private DevExpress.XtraEditors.LabelControl labelControl9;
-        private DevExpress.XtraEditors.LabelControl labelControl8;
-        private DevExpress.XtraEditors.LabelControl labelControl7;
-        private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem17;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem20;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
-        private DevExpress.XtraEditors.DateEdit dateEdit1;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
-        private DevExpress.XtraEditors.TextEdit textEdit3;
         private DevExpress.XtraEditors.SimpleButton simpleButton3;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraEditors.SimpleButton simpleButton4;
@@ -1420,7 +1496,23 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem7;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem10;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem11;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem9;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
+        private DevExpress.XtraEditors.XtraScrollableControl xtraScrollableControl2;
+        private DevExpress.XtraEditors.XtraScrollableControl xtraScrollableControl1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton5;
+        private DevExpress.XtraEditors.TextEdit textEdit3;
+        private DevExpress.XtraEditors.LabelControl labelControl10;
+        private DevExpress.XtraEditors.TextEdit textEdit2;
+        private DevExpress.XtraEditors.LabelControl labelControl9;
+        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.LabelControl labelControl8;
+        private DevExpress.XtraEditors.DateEdit dateEdit2;
+        private DevExpress.XtraEditors.LabelControl labelControl7;
+        private DevExpress.XtraEditors.DateEdit dateEdit1;
+        private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem9;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem12;
     }
 }

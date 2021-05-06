@@ -722,6 +722,9 @@
     <None Include="Resources\settingsBlue.svg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\clearWhite.svg" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\open1.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
