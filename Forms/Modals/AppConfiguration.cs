@@ -17,5 +17,12 @@ namespace ResponseEmergencySystem.Forms.Modals
         {
             InitializeComponent();
         }
+
+        private void simpleButton3_Click(object sender, EventArgs e)
+        {
+            xtraFolderBrowserDialog1.ShowDialog();
+            textEdit1.Text = xtraFolderBrowserDialog1.SelectedPath;
+            MessageBox.Show(textEdit1.Text);
+        }
     }
 }

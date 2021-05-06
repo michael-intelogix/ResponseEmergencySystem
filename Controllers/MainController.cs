@@ -45,6 +45,11 @@ namespace ResponseEmergencySystem.Controllers
         //    get { return _selectedIncident; }
         //}
 
+        public List<Incident> IncidentsFilter()
+        {
+            return _incidents;
+        }
+
         public void Login()
         {
             frm_Login login = new frm_Login();

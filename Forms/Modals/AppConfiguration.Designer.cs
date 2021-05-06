@@ -29,9 +29,11 @@ namespace ResponseEmergencySystem.Forms.Modals
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.xtraFolderBrowserDialog1 = new DevExpress.XtraEditors.XtraFolderBrowserDialog(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,9 +51,11 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.simpleButton3.Size = new System.Drawing.Size(185, 24);
             this.simpleButton3.TabIndex = 10;
             this.simpleButton3.Text = "Files Folder";
+            this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
             // 
             // textEdit1
             // 
+            this.textEdit1.EditValue = "\\\\\\\\";
             this.textEdit1.Location = new System.Drawing.Point(42, 48);
             this.textEdit1.Name = "textEdit1";
             this.textEdit1.Size = new System.Drawing.Size(437, 24);
@@ -77,6 +81,10 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.simpleButton1.TabIndex = 12;
             this.simpleButton1.Text = "Save";
             // 
+            // xtraFolderBrowserDialog1
+            // 
+            this.xtraFolderBrowserDialog1.SelectedPath = "xtraFolderBrowserDialog1";
+            // 
             // AppConfiguration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -97,5 +105,6 @@ namespace ResponseEmergencySystem.Forms.Modals
         private DevExpress.XtraEditors.SimpleButton simpleButton3;
         private DevExpress.XtraEditors.TextEdit textEdit1;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.XtraFolderBrowserDialog xtraFolderBrowserDialog1;
     }
 }

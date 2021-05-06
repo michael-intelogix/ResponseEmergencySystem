@@ -197,8 +197,8 @@ namespace ResponseEmergencySystem.Forms
 
         private void simpleButton2_Click_2(object sender, EventArgs e)
         {
-            //Modals.Settings s = new Modals.Settings();
-            //s.ShowDialog();
+            Modals.AppConfiguration appConfig = new Modals.AppConfiguration();
+            appConfig.ShowDialog();
         }
 
         private void simpleButton4_Click_1(object sender, EventArgs e)
@@ -216,6 +216,24 @@ namespace ResponseEmergencySystem.Forms
             if (e.KeyChar == (char)13)
             {
 
+            }
+        }
+
+        private void simpleButton5_Click(object sender, EventArgs e)
+        {
+            dateEdit1.EditValue = null;
+        }
+
+        private void dateEdit1_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateEdit1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                
             }
         }
     }
