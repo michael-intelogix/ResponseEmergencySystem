@@ -228,18 +228,18 @@ namespace ResponseEmergencySystem.Forms
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
-            splashScreenManager1.ShowWaitForm();
+            //splashScreenManager1.ShowWaitForm();
             
-            if (_controller.SendEmail())
-            {
-                splashScreenManager1.CloseWaitForm();
-                //MessageBox.Show("Mail Sent");
-            }
-            else
-            {
-                splashScreenManager1.CloseWaitForm();
-                MessageBox.Show("Mail Error");
-            }
+            //if (_controller.SendEmail())
+            //{
+            //    splashScreenManager1.CloseWaitForm();
+            //    //MessageBox.Show("Mail Sent");
+            //}
+            //else
+            //{
+            //    splashScreenManager1.CloseWaitForm();
+            //    MessageBox.Show("Mail Error");
+            //}
 
             
 

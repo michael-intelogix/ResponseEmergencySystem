@@ -166,9 +166,6 @@ namespace ResponseEmergencySystem.Forms
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ResponseEmergencySystem.Forms.WaitForm1), true, true);
-            this.xtraFolderBrowserDialog1 = new DevExpress.XtraEditors.XtraFolderBrowserDialog(this.components);
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlItem19 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
@@ -241,7 +238,6 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.btn_View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Edit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -424,7 +420,6 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl2.StyleController = this.layoutControl3;
             this.labelControl2.TabIndex = 7;
             this.labelControl2.Text = "Filter by";
-            this.labelControl2.Click += new System.EventHandler(this.labelControl2_Click);
             // 
             // layoutControl3
             // 
@@ -454,8 +449,9 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton3.Name = "simpleButton3";
             this.simpleButton3.Size = new System.Drawing.Size(185, 24);
             this.simpleButton3.StyleController = this.layoutControl3;
-            this.simpleButton3.TabIndex = 5;
-            this.simpleButton3.Text = "Create new incident entry";
+            this.simpleButton3.TabIndex = 9;
+            this.simpleButton3.Text = "Add Incindent";
+            this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click_1);
             // 
             // stackPanel2
             // 
@@ -479,7 +475,6 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl9.Size = new System.Drawing.Size(27, 17);
             this.labelControl9.TabIndex = 3;
             this.labelControl9.Text = "Date";
-            this.labelControl9.Click += new System.EventHandler(this.labelControl9_Click);
             // 
             // dateEdit1
             // 
@@ -515,7 +510,6 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl7.Size = new System.Drawing.Size(28, 17);
             this.labelControl7.TabIndex = 1;
             this.labelControl7.Text = "Folio";
-            this.labelControl7.Click += new System.EventHandler(this.labelControl7_Click);
             // 
             // textEdit2
             // 
@@ -1213,29 +1207,6 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.splashScreenManager1.ClosingDelay = 500;
             // 
-            // xtraFolderBrowserDialog1
-            // 
-            this.xtraFolderBrowserDialog1.SelectedPath = "xtraFolderBrowserDialog1";
-            // 
-            // simpleButton3
-            // 
-            this.simpleButton3.Location = new System.Drawing.Point(883, 33);
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(92, 22);
-            this.simpleButton3.StyleController = this.layoutControl2;
-            this.simpleButton3.TabIndex = 9;
-            this.simpleButton3.Text = "simpleButton3";
-            this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click_1);
-            // 
-            // layoutControlItem19
-            // 
-            this.layoutControlItem19.Control = this.simpleButton3;
-            this.layoutControlItem19.Location = new System.Drawing.Point(871, 21);
-            this.layoutControlItem19.Name = "layoutControlItem19";
-            this.layoutControlItem19.Size = new System.Drawing.Size(96, 34);
-            this.layoutControlItem19.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem19.TextVisible = false;
-            // 
             // Main2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -1322,7 +1293,6 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.btn_View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Edit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).EndInit();
             this.ResumeLayout(false);
 
         }

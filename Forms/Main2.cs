@@ -228,7 +228,7 @@ namespace ResponseEmergencySystem.Forms
 
         private void simpleButton3_Click_1(object sender, EventArgs e)
         {
-            MessageBox.Show(Settings.Default.AppFolder);
+            _controller.AddIncidentView();
         }
     }
 }
