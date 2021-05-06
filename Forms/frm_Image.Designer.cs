@@ -58,9 +58,12 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.simpleButton1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.simpleButton1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton1.Appearance.ForeColor = System.Drawing.Color.White;
             this.simpleButton1.Appearance.Options.UseBackColor = true;
+            this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.Appearance.Options.UseForeColor = true;
+            this.simpleButton1.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.simpleButton1.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.uploadWhite;
             this.simpleButton1.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
             this.simpleButton1.Location = new System.Drawing.Point(369, 684);
@@ -68,7 +71,7 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.simpleButton1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(129, 38);
+            this.simpleButton1.Size = new System.Drawing.Size(133, 34);
             this.simpleButton1.TabIndex = 1;
             this.simpleButton1.Text = "Load Image";
             this.simpleButton1.Click += new System.EventHandler(this.onClickLoadImage);
@@ -79,7 +82,7 @@ namespace ResponseEmergencySystem.Forms
             this.pnl_Zoom.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.pnl_Zoom.Controls.Add(this.simpleButton5);
             this.pnl_Zoom.Controls.Add(this.simpleButton4);
-            this.pnl_Zoom.Location = new System.Drawing.Point(250, 684);
+            this.pnl_Zoom.Location = new System.Drawing.Point(226, 620);
             this.pnl_Zoom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnl_Zoom.Name = "pnl_Zoom";
             this.pnl_Zoom.Size = new System.Drawing.Size(72, 41);
@@ -201,17 +204,20 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.btn_SaveImage.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btn_SaveImage.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.btn_SaveImage.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_SaveImage.Appearance.ForeColor = System.Drawing.Color.White;
             this.btn_SaveImage.Appearance.Options.UseBackColor = true;
+            this.btn_SaveImage.Appearance.Options.UseFont = true;
             this.btn_SaveImage.Appearance.Options.UseForeColor = true;
+            this.btn_SaveImage.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btn_SaveImage.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.saveWhite;
             this.btn_SaveImage.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
-            this.btn_SaveImage.Location = new System.Drawing.Point(736, 684);
+            this.btn_SaveImage.Location = new System.Drawing.Point(508, 684);
             this.btn_SaveImage.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.btn_SaveImage.LookAndFeel.UseDefaultLookAndFeel = false;
             this.btn_SaveImage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_SaveImage.Name = "btn_SaveImage";
-            this.btn_SaveImage.Size = new System.Drawing.Size(129, 38);
+            this.btn_SaveImage.Size = new System.Drawing.Size(86, 34);
             this.btn_SaveImage.TabIndex = 15;
             this.btn_SaveImage.Text = "Save";
             this.btn_SaveImage.Click += new System.EventHandler(this.btn_SaveImage_Click);
@@ -219,18 +225,21 @@ namespace ResponseEmergencySystem.Forms
             // btn_Cancel
             // 
             this.btn_Cancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btn_Cancel.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
+            this.btn_Cancel.Appearance.BackColor = System.Drawing.Color.Maroon;
+            this.btn_Cancel.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Cancel.Appearance.ForeColor = System.Drawing.Color.White;
             this.btn_Cancel.Appearance.Options.UseBackColor = true;
+            this.btn_Cancel.Appearance.Options.UseFont = true;
             this.btn_Cancel.Appearance.Options.UseForeColor = true;
+            this.btn_Cancel.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btn_Cancel.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.closeWhite;
             this.btn_Cancel.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
-            this.btn_Cancel.Location = new System.Drawing.Point(14, 684);
+            this.btn_Cancel.Location = new System.Drawing.Point(277, 684);
             this.btn_Cancel.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.btn_Cancel.LookAndFeel.UseDefaultLookAndFeel = false;
             this.btn_Cancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_Cancel.Name = "btn_Cancel";
-            this.btn_Cancel.Size = new System.Drawing.Size(129, 38);
+            this.btn_Cancel.Size = new System.Drawing.Size(86, 34);
             this.btn_Cancel.TabIndex = 16;
             this.btn_Cancel.Text = "Cancel";
             this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);

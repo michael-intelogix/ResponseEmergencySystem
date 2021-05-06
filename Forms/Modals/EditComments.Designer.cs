@@ -56,13 +56,16 @@ namespace ResponseEmergencySystem.Forms.Modals
             // 
             // btn_Cancel2
             // 
-            this.btn_Cancel2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
+            this.btn_Cancel2.Appearance.BackColor = System.Drawing.Color.Maroon;
+            this.btn_Cancel2.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Cancel2.Appearance.ForeColor = System.Drawing.Color.White;
             this.btn_Cancel2.Appearance.Options.UseBackColor = true;
+            this.btn_Cancel2.Appearance.Options.UseFont = true;
             this.btn_Cancel2.Appearance.Options.UseForeColor = true;
+            this.btn_Cancel2.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btn_Cancel2.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.closeWhite;
             this.btn_Cancel2.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btn_Cancel2.Location = new System.Drawing.Point(24, 286);
+            this.btn_Cancel2.Location = new System.Drawing.Point(125, 265);
             this.btn_Cancel2.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.btn_Cancel2.LookAndFeel.UseDefaultLookAndFeel = false;
             this.btn_Cancel2.Name = "btn_Cancel2";
@@ -73,12 +76,15 @@ namespace ResponseEmergencySystem.Forms.Modals
             // simpleButton9
             // 
             this.simpleButton9.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.simpleButton9.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton9.Appearance.ForeColor = System.Drawing.Color.White;
             this.simpleButton9.Appearance.Options.UseBackColor = true;
+            this.simpleButton9.Appearance.Options.UseFont = true;
             this.simpleButton9.Appearance.Options.UseForeColor = true;
+            this.simpleButton9.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.simpleButton9.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.saveWhite;
             this.simpleButton9.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.simpleButton9.Location = new System.Drawing.Point(322, 275);
+            this.simpleButton9.Location = new System.Drawing.Point(233, 265);
             this.simpleButton9.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.simpleButton9.LookAndFeel.UseDefaultLookAndFeel = false;
             this.simpleButton9.Name = "simpleButton9";
@@ -107,7 +113,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(449, 360);
+            this.ClientSize = new System.Drawing.Size(449, 325);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.memoEdit1);
             this.Controls.Add(this.labelControl2);
@@ -116,6 +122,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.Controls.Add(this.textEdit1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "EditComments";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit";
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();

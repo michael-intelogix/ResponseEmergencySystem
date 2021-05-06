@@ -215,5 +215,19 @@ namespace ResponseEmergencySystem.Forms
         }
         #endregion
 
+        private void labelControl9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelControl7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelControl2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
