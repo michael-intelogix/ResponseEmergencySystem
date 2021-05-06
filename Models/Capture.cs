@@ -52,14 +52,29 @@ namespace ResponseEmergencySystem.Models
 
         public Capture(string id, string statusId, string captureTypeId, string type, string imgPath, string comments, string Description, string NamesOfImages)
         {
+            var localID = "FDD0C17C7-2D9C-4A84-8851-5647A8373669";
+            var des = Description;
             ID_Capture = Guid.Parse(id);
             ID_StatusDetail = statusId;
             ID_CaptureType = captureTypeId;
             captureType = type;
             ImagePath = imgPath;
-            ImageName = imgPath.Split(new string[] { "%2F" }, StringSplitOptions.None)[3].Split('?')[0].Replace("%20", " ");
+            if (!des.Contains(",") && des.Contains("_"))
+            {
+                ImageName = des.Split('_')[0] + " of the " + type;
+                ImagePath = $"https://firebasestorage.googleapis.com/v0/b/dcmanagement-3d402.appspot.com/o/SIREM%2{localID}%2F{des.Split('_')[0]}%20of%20the%20{type}?alt=media&token={des.Split('-')[1]}";
+            }
+            else
+            {
+                foreach (var code in des.Split(','))
+                {
+                    ImageName = code.Split('_')[0] + " of the " + type;
+                    ImagePath = $"https://firebasestorage.googleapis.com/v0/b/dcmanagement-3d402.appspot.com/o/SIREM%2{localID}%2F{code.Split('_')[0]}%20of%20the%20{type}?alt=media&token={code.Split('_')[1]}";
+                }
+            }
+            
             this.comments = comments;
-            this.Description = Description;
+            this.Description = "";
             if (NamesOfImages.Length > 0)
             {
                 foreach (var n in NamesOfImages.Split(','))

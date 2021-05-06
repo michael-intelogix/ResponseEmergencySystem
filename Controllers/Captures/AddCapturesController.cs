@@ -99,6 +99,10 @@ namespace ResponseEmergencySystem.Controllers.Captures
 
                     _images[i].ImageFireBaseUrl = await task;
 
+                    var urlTest = _images[i].ImageFireBaseUrl.Split(new string[] { "%2F" }, StringSplitOptions.None)[2].Split('=')[2];
+                    //var urlTest2 = urlTest[2].Split('=');
+                    //var token = urlTest2[2];
+
                     _view.PbrArray[id].Visible = false;
                     _view.BtnArray[id].Text = "Uploaded";
                     _view.BtnArray[id].Visible = true;

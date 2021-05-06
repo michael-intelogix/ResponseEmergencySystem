@@ -51,8 +51,6 @@ namespace ResponseEmergencySystem.Forms
 
         private void UploadImageOnClick(object sender, EventArgs e)
         {
-            //Debug.WriteLine(((SimpleButton)sender).Name.Split('_')[1]);
-            //Debug.WriteLine(((SimpleButton)sender).Parent.Controls["lbl_" + ((SimpleButton)sender).Name.Split('_')[1]].Name);
             var btn = (SimpleButton)sender;
             var name = btn.Name.Split('_')[1];
             var status = btn.Parent.Controls["status_" + name];
