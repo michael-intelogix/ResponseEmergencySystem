@@ -39,54 +39,13 @@ namespace ResponseEmergencySystem.Forms
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
-            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
-            this.edt_Cargo = new DevExpress.XtraEditors.TextEdit();
-            this.pnl_BOL = new DevExpress.XtraEditors.PanelControl();
-            this.lbl_Bol = new DevExpress.XtraEditors.LabelControl();
-            this.edt_manifest = new DevExpress.XtraEditors.TextEdit();
-            this.ckedt_Spill = new DevExpress.XtraEditors.CheckEdit();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.lbl_TruckExists = new DevExpress.XtraEditors.LabelControl();
-            this.ckedt_TruckCanMove = new DevExpress.XtraEditors.CheckEdit();
-            this.ckedt_TruckNeedCrane = new DevExpress.XtraEditors.CheckEdit();
-            this.labelControl25 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl24 = new DevExpress.XtraEditors.LabelControl();
-            this.checkEdit2 = new DevExpress.XtraEditors.CheckEdit();
-            this.ckedt_truckDamages = new DevExpress.XtraEditors.CheckEdit();
-            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
-            this.edt_TruckNumber = new DevExpress.XtraEditors.TextEdit();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lbl_TrailerExists = new DevExpress.XtraEditors.LabelControl();
-            this.ckedt_TrailerCanMove = new DevExpress.XtraEditors.CheckEdit();
-            this.ckedt_TrailerNeedCrane = new DevExpress.XtraEditors.CheckEdit();
-            this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl22 = new DevExpress.XtraEditors.LabelControl();
-            this.checkEdit6 = new DevExpress.XtraEditors.CheckEdit();
-            this.ckedt_TrailerDamages = new DevExpress.XtraEditors.CheckEdit();
-            this.labelControl26 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl27 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
-            this.edt_TrailerNumber = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.lue_StateExp = new DevExpress.XtraEditors.LookUpEdit();
-            this.btn_LookUpLicence = new DevExpress.XtraEditors.SimpleButton();
-            this.dte_ExpirationDate = new DevExpress.XtraEditors.DateEdit();
-            this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
-            this.edt_FullName = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.edt_License = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.edt_PhoneNumber = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.btn_DeleteRow = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.edt_Number = new DevExpress.XtraEditors.TextEdit();
+            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ResponseEmergencySystem.Forms.WaitForm1), true, true);
+            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.stackPanel2 = new DevExpress.Utils.Layout.StackPanel();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.gc_InjuredPersons = new DevExpress.XtraGrid.GridControl();
             this.gv_InjuredPersons = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.col_FullName = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -95,665 +54,159 @@ namespace ResponseEmergencySystem.Forms
             this.col_PhoneNumber = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_Delete = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btn_DeleteInjuredRow = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.stackPanel1 = new DevExpress.Utils.Layout.StackPanel();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
-            this.edt_Longitude = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
-            this.edt_Latitude = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl29 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.pnl_AddInjuredFields = new DevExpress.XtraEditors.PanelControl();
+            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
+            this.edt_NumberOfInjured = new DevExpress.XtraEditors.TextEdit();
             this.labelControl28 = new DevExpress.XtraEditors.LabelControl();
-            this.lue_states = new DevExpress.XtraEditors.LookUpEdit();
-            this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
-            this.lue_Cities = new DevExpress.XtraEditors.LookUpEdit();
-            this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
-            this.edt_Highway = new DevExpress.XtraEditors.TextEdit();
-            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.edt_Broker = new DevExpress.XtraEditors.TextEdit();
-            this.btn_SelectBroker = new DevExpress.XtraEditors.SimpleButton();
+            this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
             this.pnl_PoliceReport = new DevExpress.XtraEditors.PanelControl();
             this.edt_PoliceReport = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
-            this.pnl_AddInjuredFields = new DevExpress.XtraEditors.PanelControl();
-            this.btn_AddInjuredPersonsControls = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.edt_NumberOfInjured = new DevExpress.XtraEditors.TextEdit();
-            this.ckedt_Injured = new DevExpress.XtraEditors.CheckEdit();
-            this.ckedt_PoliceReport = new DevExpress.XtraEditors.CheckEdit();
-            this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl22 = new DevExpress.XtraEditors.LabelControl();
+            this.edt_Longitude = new DevExpress.XtraEditors.TextEdit();
+            this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
+            this.edt_Broker = new DevExpress.XtraEditors.TextEdit();
             this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.edt_Highway = new DevExpress.XtraEditors.TextEdit();
+            this.lue_Cities = new DevExpress.XtraEditors.LookUpEdit();
+            this.lue_StateExp = new DevExpress.XtraEditors.LookUpEdit();
+            this.edt_Latitude = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
+            this.ckedt_PoliceReport = new DevExpress.XtraEditors.CheckEdit();
+            this.labelControl24 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl25 = new DevExpress.XtraEditors.LabelControl();
             this.dte_IncidentDate = new DevExpress.XtraEditors.DateEdit();
             this.tme_IncidentTime = new DevExpress.XtraEditors.TimeEdit();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.edt_Number = new DevExpress.XtraEditors.TextEdit();
-            this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
-            this.btn_AddComments = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.btn_Cancel = new DevExpress.XtraEditors.SimpleButton();
-            this.btn_AddIncident = new DevExpress.XtraEditors.SimpleButton();
-            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ResponseEmergencySystem.Forms.WaitForm1), true, true);
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
-            this.groupControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.edt_Cargo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pnl_BOL)).BeginInit();
-            this.pnl_BOL.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.edt_manifest.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ckedt_Spill.Properties)).BeginInit();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ckedt_TruckCanMove.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ckedt_TruckNeedCrane.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ckedt_truckDamages.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.edt_TruckNumber.Properties)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ckedt_TrailerCanMove.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ckedt_TrailerNeedCrane.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit6.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ckedt_TrailerDamages.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.edt_TrailerNumber.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
-            this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lue_StateExp.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dte_ExpirationDate.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dte_ExpirationDate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.edt_FullName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.edt_License.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.edt_PhoneNumber.Properties)).BeginInit();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl27 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl26 = new DevExpress.XtraEditors.LabelControl();
+            this.lbl_TrailerExists = new DevExpress.XtraEditors.LabelControl();
+            this.lbl_TruckExists = new DevExpress.XtraEditors.LabelControl();
+            this.pnl_BOL = new DevExpress.XtraEditors.PanelControl();
+            this.edt_manifest = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.ckedt_Spill = new DevExpress.XtraEditors.CheckEdit();
+            this.edt_Cargo = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
+            this.ckedt_TrailerCanMove = new DevExpress.XtraEditors.CheckEdit();
+            this.ckedt_TrailerNeedCrane = new DevExpress.XtraEditors.CheckEdit();
+            this.checkEdit4 = new DevExpress.XtraEditors.CheckEdit();
+            this.ckedt_TrailerDamages = new DevExpress.XtraEditors.CheckEdit();
+            this.edt_TrailerNumber = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
+            this.ckedt_TruckCanMove = new DevExpress.XtraEditors.CheckEdit();
+            this.ckedt_TruckNeedCrane = new DevExpress.XtraEditors.CheckEdit();
+            this.checkEdit8 = new DevExpress.XtraEditors.CheckEdit();
+            this.ckedt_truckDamages = new DevExpress.XtraEditors.CheckEdit();
+            this.edt_TruckNumber = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.textEdit13 = new DevExpress.XtraEditors.TextEdit();
+            this.btn_LookUpLicense = new DevExpress.XtraEditors.SimpleButton();
+            this.lue_DriverLicenseState = new DevExpress.XtraEditors.LookUpEdit();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.edt_License = new DevExpress.XtraEditors.TextEdit();
+            this.edt_PhoneNumber = new DevExpress.XtraEditors.TextEdit();
+            this.edt_FullName = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.dte_ExpirationDate = new DevExpress.XtraEditors.DateEdit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.btn_DeleteRow)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
-            this.groupControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-            this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
-            this.panelControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_Number.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
+            this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stackPanel2)).BeginInit();
+            this.stackPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gc_InjuredPersons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_InjuredPersons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_DeleteInjuredRow)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.edt_Longitude.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.edt_Latitude.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lue_states.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lue_Cities.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.edt_Highway.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
-            this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.edt_Broker.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pnl_PoliceReport)).BeginInit();
-            this.pnl_PoliceReport.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.edt_PoliceReport.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stackPanel1)).BeginInit();
+            this.stackPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
+            this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnl_AddInjuredFields)).BeginInit();
             this.pnl_AddInjuredFields.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.edt_NumberOfInjured.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ckedt_Injured.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pnl_PoliceReport)).BeginInit();
+            this.pnl_PoliceReport.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_PoliceReport.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_Longitude.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_Broker.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_Highway.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lue_Cities.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lue_StateExp.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_Latitude.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckedt_PoliceReport.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dte_IncidentDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dte_IncidentDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tme_IncidentTime.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.edt_Number.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
-            this.panelControl4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
+            this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pnl_BOL)).BeginInit();
+            this.pnl_BOL.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_manifest.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckedt_Spill.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_Cargo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckedt_TrailerCanMove.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckedt_TrailerNeedCrane.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit4.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckedt_TrailerDamages.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_TrailerNumber.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckedt_TruckCanMove.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckedt_TruckNeedCrane.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit8.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckedt_truckDamages.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_TruckNumber.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit13.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lue_DriverLicenseState.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_License.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_PhoneNumber.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_FullName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dte_ExpirationDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dte_ExpirationDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             this.SuspendLayout();
-            // 
-            // groupControl2
-            // 
-            this.groupControl2.AppearanceCaption.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupControl2.AppearanceCaption.Options.UseFont = true;
-            this.groupControl2.Controls.Add(this.edt_Cargo);
-            this.groupControl2.Controls.Add(this.pnl_BOL);
-            this.groupControl2.Controls.Add(this.ckedt_Spill);
-            this.groupControl2.Controls.Add(this.groupBox3);
-            this.groupControl2.Controls.Add(this.groupBox2);
-            this.groupControl2.Controls.Add(this.labelControl19);
-            this.groupControl2.Controls.Add(this.labelControl5);
-            this.groupControl2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupControl2.Location = new System.Drawing.Point(0, 139);
-            this.groupControl2.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(841, 285);
-            this.groupControl2.TabIndex = 79;
-            this.groupControl2.Text = "Status";
-            // 
-            // edt_Cargo
-            // 
-            this.edt_Cargo.Location = new System.Drawing.Point(105, 231);
-            this.edt_Cargo.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.edt_Cargo.Name = "edt_Cargo";
-            this.edt_Cargo.Properties.ReadOnly = true;
-            this.edt_Cargo.Size = new System.Drawing.Size(141, 24);
-            this.edt_Cargo.TabIndex = 51;
-            // 
-            // pnl_BOL
-            // 
-            this.pnl_BOL.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.pnl_BOL.Controls.Add(this.lbl_Bol);
-            this.pnl_BOL.Controls.Add(this.edt_manifest);
-            this.pnl_BOL.Location = new System.Drawing.Point(546, 225);
-            this.pnl_BOL.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pnl_BOL.Name = "pnl_BOL";
-            this.pnl_BOL.Size = new System.Drawing.Size(275, 43);
-            this.pnl_BOL.TabIndex = 108;
-            this.pnl_BOL.Visible = false;
-            // 
-            // lbl_Bol
-            // 
-            this.lbl_Bol.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Bol.Appearance.Options.UseFont = true;
-            this.lbl_Bol.Location = new System.Drawing.Point(16, 10);
-            this.lbl_Bol.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.lbl_Bol.Name = "lbl_Bol";
-            this.lbl_Bol.Size = new System.Drawing.Size(93, 17);
-            this.lbl_Bol.TabIndex = 50;
-            this.lbl_Bol.Text = "Manifest/BOL #";
-            // 
-            // edt_manifest
-            // 
-            this.edt_manifest.Location = new System.Drawing.Point(127, 8);
-            this.edt_manifest.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.edt_manifest.Name = "edt_manifest";
-            this.edt_manifest.Size = new System.Drawing.Size(141, 24);
-            this.edt_manifest.TabIndex = 49;
-            // 
-            // ckedt_Spill
-            // 
-            this.ckedt_Spill.Location = new System.Drawing.Point(420, 233);
-            this.ckedt_Spill.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ckedt_Spill.Name = "ckedt_Spill";
-            this.ckedt_Spill.Properties.Appearance.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckedt_Spill.Properties.Appearance.Options.UseFont = true;
-            this.ckedt_Spill.Properties.Caption = "";
-            this.ckedt_Spill.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
-            this.ckedt_Spill.Size = new System.Drawing.Size(26, 20);
-            this.ckedt_Spill.TabIndex = 107;
-            this.ckedt_Spill.CheckedChanged += new System.EventHandler(this.OnChangedCheckEdit);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.lbl_TruckExists);
-            this.groupBox3.Controls.Add(this.ckedt_TruckCanMove);
-            this.groupBox3.Controls.Add(this.ckedt_TruckNeedCrane);
-            this.groupBox3.Controls.Add(this.labelControl25);
-            this.groupBox3.Controls.Add(this.labelControl24);
-            this.groupBox3.Controls.Add(this.checkEdit2);
-            this.groupBox3.Controls.Add(this.ckedt_truckDamages);
-            this.groupBox3.Controls.Add(this.labelControl6);
-            this.groupBox3.Controls.Add(this.labelControl8);
-            this.groupBox3.Controls.Add(this.labelControl18);
-            this.groupBox3.Controls.Add(this.edt_TruckNumber);
-            this.groupBox3.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(8, 37);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.groupBox3.Size = new System.Drawing.Size(825, 81);
-            this.groupBox3.TabIndex = 106;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Truck";
-            // 
-            // lbl_TruckExists
-            // 
-            this.lbl_TruckExists.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.apply_16x162;
-            this.lbl_TruckExists.Location = new System.Drawing.Point(163, 35);
-            this.lbl_TruckExists.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.lbl_TruckExists.Name = "lbl_TruckExists";
-            this.lbl_TruckExists.Size = new System.Drawing.Size(16, 17);
-            this.lbl_TruckExists.TabIndex = 104;
-            this.lbl_TruckExists.Visible = false;
-            // 
-            // ckedt_TruckCanMove
-            // 
-            this.ckedt_TruckCanMove.Location = new System.Drawing.Point(770, 33);
-            this.ckedt_TruckCanMove.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ckedt_TruckCanMove.Name = "ckedt_TruckCanMove";
-            this.ckedt_TruckCanMove.Properties.Appearance.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckedt_TruckCanMove.Properties.Appearance.Options.UseFont = true;
-            this.ckedt_TruckCanMove.Properties.Caption = "";
-            this.ckedt_TruckCanMove.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
-            this.ckedt_TruckCanMove.Size = new System.Drawing.Size(48, 20);
-            this.ckedt_TruckCanMove.TabIndex = 91;
-            this.ckedt_TruckCanMove.CheckedChanged += new System.EventHandler(this.OnChangedCheckEdit);
-            // 
-            // ckedt_TruckNeedCrane
-            // 
-            this.ckedt_TruckNeedCrane.Location = new System.Drawing.Point(623, 33);
-            this.ckedt_TruckNeedCrane.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ckedt_TruckNeedCrane.Name = "ckedt_TruckNeedCrane";
-            this.ckedt_TruckNeedCrane.Properties.Appearance.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckedt_TruckNeedCrane.Properties.Appearance.Options.UseFont = true;
-            this.ckedt_TruckNeedCrane.Properties.Caption = "";
-            this.ckedt_TruckNeedCrane.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
-            this.ckedt_TruckNeedCrane.Size = new System.Drawing.Size(48, 20);
-            this.ckedt_TruckNeedCrane.TabIndex = 90;
-            this.ckedt_TruckNeedCrane.CheckedChanged += new System.EventHandler(this.OnChangedCheckEdit);
-            // 
-            // labelControl25
-            // 
-            this.labelControl25.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl25.Appearance.Options.UseFont = true;
-            this.labelControl25.Location = new System.Drawing.Point(688, 35);
-            this.labelControl25.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.labelControl25.Name = "labelControl25";
-            this.labelControl25.Size = new System.Drawing.Size(67, 17);
-            this.labelControl25.TabIndex = 89;
-            this.labelControl25.Text = "Can Move?";
-            // 
-            // labelControl24
-            // 
-            this.labelControl24.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl24.Appearance.Options.UseFont = true;
-            this.labelControl24.Location = new System.Drawing.Point(531, 35);
-            this.labelControl24.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.labelControl24.Name = "labelControl24";
-            this.labelControl24.Size = new System.Drawing.Size(78, 17);
-            this.labelControl24.TabIndex = 88;
-            this.labelControl24.Text = "Need Crane?";
-            // 
-            // checkEdit2
-            // 
-            this.checkEdit2.Location = new System.Drawing.Point(467, 33);
-            this.checkEdit2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.checkEdit2.Name = "checkEdit2";
-            this.checkEdit2.Properties.Appearance.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkEdit2.Properties.Appearance.Options.UseFont = true;
-            this.checkEdit2.Properties.Caption = "";
-            this.checkEdit2.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
-            this.checkEdit2.Size = new System.Drawing.Size(48, 20);
-            this.checkEdit2.TabIndex = 87;
-            this.checkEdit2.CheckedChanged += new System.EventHandler(this.OnChangedCheckEdit);
-            // 
-            // ckedt_truckDamages
-            // 
-            this.ckedt_truckDamages.Location = new System.Drawing.Point(267, 33);
-            this.ckedt_truckDamages.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ckedt_truckDamages.Name = "ckedt_truckDamages";
-            this.ckedt_truckDamages.Properties.Appearance.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckedt_truckDamages.Properties.Appearance.Options.UseFont = true;
-            this.ckedt_truckDamages.Properties.Caption = "";
-            this.ckedt_truckDamages.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
-            this.ckedt_truckDamages.Size = new System.Drawing.Size(48, 20);
-            this.ckedt_truckDamages.TabIndex = 16;
-            this.ckedt_truckDamages.CheckedChanged += new System.EventHandler(this.OnChangedCheckEdit);
-            // 
-            // labelControl6
-            // 
-            this.labelControl6.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl6.Appearance.Options.UseFont = true;
-            this.labelControl6.Location = new System.Drawing.Point(324, 35);
-            this.labelControl6.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(124, 17);
-            this.labelControl6.TabIndex = 85;
-            this.labelControl6.Text = "Photos of Damages?";
-            // 
-            // labelControl8
-            // 
-            this.labelControl8.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl8.Appearance.Options.UseFont = true;
-            this.labelControl8.Location = new System.Drawing.Point(191, 35);
-            this.labelControl8.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(61, 17);
-            this.labelControl8.TabIndex = 83;
-            this.labelControl8.Text = "Damages?";
-            // 
-            // labelControl18
-            // 
-            this.labelControl18.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl18.Appearance.Options.UseFont = true;
-            this.labelControl18.Location = new System.Drawing.Point(12, 35);
-            this.labelControl18.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.labelControl18.Name = "labelControl18";
-            this.labelControl18.Size = new System.Drawing.Size(69, 17);
-            this.labelControl18.TabIndex = 82;
-            this.labelControl18.Text = "Company #";
-            // 
-            // edt_TruckNumber
-            // 
-            this.edt_TruckNumber.Location = new System.Drawing.Point(97, 34);
-            this.edt_TruckNumber.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.edt_TruckNumber.Name = "edt_TruckNumber";
-            this.edt_TruckNumber.Size = new System.Drawing.Size(59, 24);
-            this.edt_TruckNumber.TabIndex = 81;
-            this.edt_TruckNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumber_OnEdtKeyPress);
-            this.edt_TruckNumber.Leave += new System.EventHandler(this.checkNumber_OnEdtLeave);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.lbl_TrailerExists);
-            this.groupBox2.Controls.Add(this.ckedt_TrailerCanMove);
-            this.groupBox2.Controls.Add(this.ckedt_TrailerNeedCrane);
-            this.groupBox2.Controls.Add(this.labelControl21);
-            this.groupBox2.Controls.Add(this.labelControl22);
-            this.groupBox2.Controls.Add(this.checkEdit6);
-            this.groupBox2.Controls.Add(this.ckedt_TrailerDamages);
-            this.groupBox2.Controls.Add(this.labelControl26);
-            this.groupBox2.Controls.Add(this.labelControl27);
-            this.groupBox2.Controls.Add(this.labelControl23);
-            this.groupBox2.Controls.Add(this.edt_TrailerNumber);
-            this.groupBox2.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(8, 126);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.groupBox2.Size = new System.Drawing.Size(825, 88);
-            this.groupBox2.TabIndex = 105;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Trailer";
-            // 
-            // lbl_TrailerExists
-            // 
-            this.lbl_TrailerExists.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.cancel_16x161;
-            this.lbl_TrailerExists.Location = new System.Drawing.Point(163, 39);
-            this.lbl_TrailerExists.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.lbl_TrailerExists.Name = "lbl_TrailerExists";
-            this.lbl_TrailerExists.Size = new System.Drawing.Size(16, 17);
-            this.lbl_TrailerExists.TabIndex = 105;
-            this.lbl_TrailerExists.Visible = false;
-            // 
-            // ckedt_TrailerCanMove
-            // 
-            this.ckedt_TrailerCanMove.Location = new System.Drawing.Point(770, 35);
-            this.ckedt_TrailerCanMove.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ckedt_TrailerCanMove.Name = "ckedt_TrailerCanMove";
-            this.ckedt_TrailerCanMove.Properties.Appearance.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckedt_TrailerCanMove.Properties.Appearance.Options.UseFont = true;
-            this.ckedt_TrailerCanMove.Properties.Caption = "";
-            this.ckedt_TrailerCanMove.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
-            this.ckedt_TrailerCanMove.Size = new System.Drawing.Size(22, 20);
-            this.ckedt_TrailerCanMove.TabIndex = 99;
-            this.ckedt_TrailerCanMove.CheckedChanged += new System.EventHandler(this.OnChangedCheckEdit);
-            // 
-            // ckedt_TrailerNeedCrane
-            // 
-            this.ckedt_TrailerNeedCrane.Location = new System.Drawing.Point(623, 35);
-            this.ckedt_TrailerNeedCrane.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ckedt_TrailerNeedCrane.Name = "ckedt_TrailerNeedCrane";
-            this.ckedt_TrailerNeedCrane.Properties.Appearance.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckedt_TrailerNeedCrane.Properties.Appearance.Options.UseFont = true;
-            this.ckedt_TrailerNeedCrane.Properties.Caption = "";
-            this.ckedt_TrailerNeedCrane.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
-            this.ckedt_TrailerNeedCrane.Size = new System.Drawing.Size(48, 20);
-            this.ckedt_TrailerNeedCrane.TabIndex = 98;
-            this.ckedt_TrailerNeedCrane.CheckedChanged += new System.EventHandler(this.OnChangedCheckEdit);
-            // 
-            // labelControl21
-            // 
-            this.labelControl21.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl21.Appearance.Options.UseFont = true;
-            this.labelControl21.Location = new System.Drawing.Point(688, 38);
-            this.labelControl21.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.labelControl21.Name = "labelControl21";
-            this.labelControl21.Size = new System.Drawing.Size(67, 17);
-            this.labelControl21.TabIndex = 97;
-            this.labelControl21.Text = "Can Move?";
-            // 
-            // labelControl22
-            // 
-            this.labelControl22.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl22.Appearance.Options.UseFont = true;
-            this.labelControl22.Location = new System.Drawing.Point(531, 38);
-            this.labelControl22.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.labelControl22.Name = "labelControl22";
-            this.labelControl22.Size = new System.Drawing.Size(78, 17);
-            this.labelControl22.TabIndex = 96;
-            this.labelControl22.Text = "Need Crane?";
-            // 
-            // checkEdit6
-            // 
-            this.checkEdit6.Location = new System.Drawing.Point(467, 35);
-            this.checkEdit6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.checkEdit6.Name = "checkEdit6";
-            this.checkEdit6.Properties.Appearance.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkEdit6.Properties.Appearance.Options.UseFont = true;
-            this.checkEdit6.Properties.Caption = "";
-            this.checkEdit6.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
-            this.checkEdit6.Size = new System.Drawing.Size(48, 20);
-            this.checkEdit6.TabIndex = 95;
-            this.checkEdit6.CheckedChanged += new System.EventHandler(this.OnChangedCheckEdit);
-            // 
-            // ckedt_TrailerDamages
-            // 
-            this.ckedt_TrailerDamages.Location = new System.Drawing.Point(267, 35);
-            this.ckedt_TrailerDamages.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ckedt_TrailerDamages.Name = "ckedt_TrailerDamages";
-            this.ckedt_TrailerDamages.Properties.Appearance.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckedt_TrailerDamages.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.ckedt_TrailerDamages.Properties.Appearance.Options.UseFont = true;
-            this.ckedt_TrailerDamages.Properties.Appearance.Options.UseForeColor = true;
-            this.ckedt_TrailerDamages.Properties.Caption = "";
-            this.ckedt_TrailerDamages.Properties.CheckBoxOptions.SvgColorChecked = System.Drawing.Color.Transparent;
-            this.ckedt_TrailerDamages.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
-            this.ckedt_TrailerDamages.Size = new System.Drawing.Size(20, 20);
-            this.ckedt_TrailerDamages.TabIndex = 92;
-            this.ckedt_TrailerDamages.CheckedChanged += new System.EventHandler(this.OnChangedCheckEdit);
-            // 
-            // labelControl26
-            // 
-            this.labelControl26.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl26.Appearance.Options.UseFont = true;
-            this.labelControl26.Location = new System.Drawing.Point(324, 38);
-            this.labelControl26.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.labelControl26.Name = "labelControl26";
-            this.labelControl26.Size = new System.Drawing.Size(124, 17);
-            this.labelControl26.TabIndex = 94;
-            this.labelControl26.Text = "Photos of Damages?";
-            // 
-            // labelControl27
-            // 
-            this.labelControl27.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl27.Appearance.Options.UseFont = true;
-            this.labelControl27.Location = new System.Drawing.Point(191, 38);
-            this.labelControl27.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.labelControl27.Name = "labelControl27";
-            this.labelControl27.Size = new System.Drawing.Size(61, 17);
-            this.labelControl27.TabIndex = 93;
-            this.labelControl27.Text = "Damages?";
-            // 
-            // labelControl23
-            // 
-            this.labelControl23.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl23.Appearance.Options.UseFont = true;
-            this.labelControl23.Location = new System.Drawing.Point(13, 38);
-            this.labelControl23.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.labelControl23.Name = "labelControl23";
-            this.labelControl23.Size = new System.Drawing.Size(69, 17);
-            this.labelControl23.TabIndex = 82;
-            this.labelControl23.Text = "Company #";
-            // 
-            // edt_TrailerNumber
-            // 
-            this.edt_TrailerNumber.Location = new System.Drawing.Point(98, 37);
-            this.edt_TrailerNumber.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.edt_TrailerNumber.Name = "edt_TrailerNumber";
-            this.edt_TrailerNumber.Size = new System.Drawing.Size(58, 24);
-            this.edt_TrailerNumber.TabIndex = 81;
-            this.edt_TrailerNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumber_OnEdtKeyPress);
-            this.edt_TrailerNumber.Leave += new System.EventHandler(this.checkNumber_OnEdtLeave);
-            // 
-            // labelControl19
-            // 
-            this.labelControl19.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl19.Appearance.Options.UseFont = true;
-            this.labelControl19.Location = new System.Drawing.Point(331, 235);
-            this.labelControl19.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.labelControl19.Name = "labelControl19";
-            this.labelControl19.Size = new System.Drawing.Size(71, 17);
-            this.labelControl19.TabIndex = 104;
-            this.labelControl19.Text = "Cargo Spill?";
-            // 
-            // labelControl5
-            // 
-            this.labelControl5.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl5.Appearance.Options.UseFont = true;
-            this.labelControl5.Location = new System.Drawing.Point(24, 235);
-            this.labelControl5.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(69, 17);
-            this.labelControl5.TabIndex = 103;
-            this.labelControl5.Text = "Cargo Type";
-            // 
-            // groupControl1
-            // 
-            this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupControl1.AppearanceCaption.Options.UseFont = true;
-            this.groupControl1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.groupControl1.Controls.Add(this.lue_StateExp);
-            this.groupControl1.Controls.Add(this.btn_LookUpLicence);
-            this.groupControl1.Controls.Add(this.dte_ExpirationDate);
-            this.groupControl1.Controls.Add(this.labelControl20);
-            this.groupControl1.Controls.Add(this.edt_FullName);
-            this.groupControl1.Controls.Add(this.labelControl1);
-            this.groupControl1.Controls.Add(this.edt_License);
-            this.groupControl1.Controls.Add(this.labelControl2);
-            this.groupControl1.Controls.Add(this.labelControl3);
-            this.groupControl1.Controls.Add(this.edt_PhoneNumber);
-            this.groupControl1.Controls.Add(this.labelControl4);
-            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupControl1.Location = new System.Drawing.Point(0, 0);
-            this.groupControl1.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(841, 139);
-            this.groupControl1.TabIndex = 78;
-            this.groupControl1.Text = "Driver Information";
-            // 
-            // lue_StateExp
-            // 
-            this.lue_StateExp.Location = new System.Drawing.Point(458, 99);
-            this.lue_StateExp.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.lue_StateExp.Name = "lue_StateExp";
-            this.lue_StateExp.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lue_StateExp.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("pk_id", "ID_State", 23, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("state", "State", 23, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
-            this.lue_StateExp.Properties.DisplayMember = "state";
-            this.lue_StateExp.Properties.NullText = "";
-            this.lue_StateExp.Properties.ValueMember = "pk_id";
-            this.lue_StateExp.Size = new System.Drawing.Size(51, 24);
-            this.lue_StateExp.TabIndex = 103;
-            // 
-            // btn_LookUpLicence
-            // 
-            this.btn_LookUpLicence.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_LookUpLicence.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
-            this.btn_LookUpLicence.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
-            this.btn_LookUpLicence.Appearance.BorderColor = System.Drawing.SystemColors.Control;
-            this.btn_LookUpLicence.Appearance.ForeColor = System.Drawing.Color.Transparent;
-            this.btn_LookUpLicence.Appearance.Options.UseBackColor = true;
-            this.btn_LookUpLicence.Appearance.Options.UseBorderColor = true;
-            this.btn_LookUpLicence.Appearance.Options.UseForeColor = true;
-            this.btn_LookUpLicence.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.searchWhite;
-            this.btn_LookUpLicence.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.btn_LookUpLicence.Location = new System.Drawing.Point(710, 43);
-            this.btn_LookUpLicence.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.btn_LookUpLicence.Name = "btn_LookUpLicence";
-            this.btn_LookUpLicence.Size = new System.Drawing.Size(104, 24);
-            this.btn_LookUpLicence.TabIndex = 100;
-            this.btn_LookUpLicence.Text = "Find Driver";
-            this.btn_LookUpLicence.Click += new System.EventHandler(this.btn_LookUpLicence_Click);
-            // 
-            // dte_ExpirationDate
-            // 
-            this.dte_ExpirationDate.EditValue = null;
-            this.dte_ExpirationDate.Location = new System.Drawing.Point(133, 99);
-            this.dte_ExpirationDate.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.dte_ExpirationDate.Name = "dte_ExpirationDate";
-            this.dte_ExpirationDate.Properties.BeepOnError = false;
-            this.dte_ExpirationDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dte_ExpirationDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dte_ExpirationDate.Properties.MaskSettings.Set("mask", "d");
-            this.dte_ExpirationDate.Size = new System.Drawing.Size(154, 24);
-            this.dte_ExpirationDate.TabIndex = 99;
-            // 
-            // labelControl20
-            // 
-            this.labelControl20.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl20.Appearance.Options.UseFont = true;
-            this.labelControl20.Location = new System.Drawing.Point(16, 101);
-            this.labelControl20.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.labelControl20.Name = "labelControl20";
-            this.labelControl20.Size = new System.Drawing.Size(91, 17);
-            this.labelControl20.TabIndex = 98;
-            this.labelControl20.Text = "Expiration Date";
-            // 
-            // edt_FullName
-            // 
-            this.edt_FullName.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.edt_FullName.Location = new System.Drawing.Point(62, 43);
-            this.edt_FullName.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.edt_FullName.Name = "edt_FullName";
-            this.edt_FullName.Properties.ReadOnly = true;
-            this.edt_FullName.Size = new System.Drawing.Size(184, 24);
-            this.edt_FullName.TabIndex = 90;
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(16, 48);
-            this.labelControl1.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(35, 17);
-            this.labelControl1.TabIndex = 91;
-            this.labelControl1.Text = "Name";
-            // 
-            // edt_License
-            // 
-            this.edt_License.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.edt_License.Location = new System.Drawing.Point(597, 43);
-            this.edt_License.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.edt_License.Name = "edt_License";
-            this.edt_License.Size = new System.Drawing.Size(82, 24);
-            this.edt_License.TabIndex = 92;
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelControl2.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(533, 48);
-            this.labelControl2.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(56, 17);
-            this.labelControl2.TabIndex = 93;
-            this.labelControl2.Text = "License #";
-            // 
-            // labelControl3
-            // 
-            this.labelControl3.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl3.Appearance.Options.UseFont = true;
-            this.labelControl3.Location = new System.Drawing.Point(325, 101);
-            this.labelControl3.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(113, 17);
-            this.labelControl3.TabIndex = 94;
-            this.labelControl3.Text = "State of expedition";
-            // 
-            // edt_PhoneNumber
-            // 
-            this.edt_PhoneNumber.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.edt_PhoneNumber.Location = new System.Drawing.Point(375, 43);
-            this.edt_PhoneNumber.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.edt_PhoneNumber.Name = "edt_PhoneNumber";
-            this.edt_PhoneNumber.Properties.ReadOnly = true;
-            this.edt_PhoneNumber.Size = new System.Drawing.Size(124, 24);
-            this.edt_PhoneNumber.TabIndex = 95;
-            // 
-            // labelControl4
-            // 
-            this.labelControl4.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelControl4.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Location = new System.Drawing.Point(277, 48);
-            this.labelControl4.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(92, 17);
-            this.labelControl4.TabIndex = 96;
-            this.labelControl4.Text = "Phone Number";
             // 
             // btn_DeleteRow
             // 
@@ -764,57 +217,85 @@ namespace ResponseEmergencySystem.Forms
             this.btn_DeleteRow.Name = "btn_DeleteRow";
             this.btn_DeleteRow.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
-            // groupControl3
+            // textEdit1
             // 
-            this.groupControl3.AppearanceCaption.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupControl3.AppearanceCaption.Options.UseFont = true;
-            this.groupControl3.Controls.Add(this.panelControl1);
-            this.groupControl3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupControl3.GroupStyle = DevExpress.Utils.GroupStyle.Title;
-            this.groupControl3.Location = new System.Drawing.Point(0, 424);
-            this.groupControl3.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(841, 459);
-            this.groupControl3.TabIndex = 84;
-            this.groupControl3.Text = "Accident Details";
+            this.textEdit1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textEdit1.Location = new System.Drawing.Point(437, 69);
+            this.textEdit1.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Size = new System.Drawing.Size(338, 24);
+            this.textEdit1.TabIndex = 104;
             // 
-            // panelControl1
+            // edt_Number
             // 
-            this.panelControl1.Controls.Add(this.panelControl3);
-            this.panelControl1.Controls.Add(this.groupBox1);
-            this.panelControl1.Controls.Add(this.panelControl2);
-            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(0, 26);
-            this.panelControl1.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(841, 433);
-            this.panelControl1.TabIndex = 6;
+            this.edt_Number.Location = new System.Drawing.Point(0, 0);
+            this.edt_Number.Name = "edt_Number";
+            this.edt_Number.Size = new System.Drawing.Size(100, 20);
+            this.edt_Number.TabIndex = 0;
             // 
-            // panelControl3
+            // splashScreenManager1
             // 
-            this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl3.Controls.Add(this.gc_InjuredPersons);
-            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl3.Location = new System.Drawing.Point(2, 222);
-            this.panelControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(837, 178);
-            this.panelControl3.TabIndex = 108;
-            this.panelControl3.Visible = false;
+            this.splashScreenManager1.ClosingDelay = 500;
+            // 
+            // layoutControl1
+            // 
+            this.layoutControl1.Controls.Add(this.stackPanel2);
+            this.layoutControl1.Controls.Add(this.gc_InjuredPersons);
+            this.layoutControl1.Controls.Add(this.stackPanel1);
+            this.layoutControl1.Controls.Add(this.labelControl4);
+            this.layoutControl1.Controls.Add(this.panelControl3);
+            this.layoutControl1.Controls.Add(this.labelControl3);
+            this.layoutControl1.Controls.Add(this.panelControl2);
+            this.layoutControl1.Controls.Add(this.labelControl2);
+            this.layoutControl1.Controls.Add(this.panelControl1);
+            this.layoutControl1.Controls.Add(this.labelControl1);
+            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl1.Name = "layoutControl1";
+            this.layoutControl1.Root = this.Root;
+            this.layoutControl1.Size = new System.Drawing.Size(841, 947);
+            this.layoutControl1.TabIndex = 0;
+            this.layoutControl1.Text = "layoutControl1";
+            // 
+            // stackPanel2
+            // 
+            this.stackPanel2.Controls.Add(this.simpleButton1);
+            this.stackPanel2.Location = new System.Drawing.Point(422, 890);
+            this.stackPanel2.Name = "stackPanel2";
+            this.stackPanel2.Size = new System.Drawing.Size(407, 45);
+            this.stackPanel2.TabIndex = 111;
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButton1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.simpleButton1.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton1.Appearance.Options.UseBackColor = true;
+            this.simpleButton1.Appearance.Options.UseBorderColor = true;
+            this.simpleButton1.Appearance.Options.UseFont = true;
+            this.simpleButton1.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.simpleButton1.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.saveWhite;
+            this.simpleButton1.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
+            this.simpleButton1.Location = new System.Drawing.Point(3, 5);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(94, 35);
+            this.simpleButton1.TabIndex = 1;
+            this.simpleButton1.Text = "Save";
             // 
             // gc_InjuredPersons
             // 
-            this.gc_InjuredPersons.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gc_InjuredPersons.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gc_InjuredPersons.Enabled = false;
-            this.gc_InjuredPersons.Location = new System.Drawing.Point(0, 0);
+            this.gc_InjuredPersons.Location = new System.Drawing.Point(12, 764);
             this.gc_InjuredPersons.MainView = this.gv_InjuredPersons;
             this.gc_InjuredPersons.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gc_InjuredPersons.Name = "gc_InjuredPersons";
             this.gc_InjuredPersons.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btn_DeleteInjuredRow});
-            this.gc_InjuredPersons.Size = new System.Drawing.Size(837, 178);
-            this.gc_InjuredPersons.TabIndex = 107;
+            this.gc_InjuredPersons.Size = new System.Drawing.Size(817, 122);
+            this.gc_InjuredPersons.TabIndex = 110;
             this.gc_InjuredPersons.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_InjuredPersons});
             // 
@@ -867,8 +348,6 @@ namespace ResponseEmergencySystem.Forms
             this.col_PhoneNumber.FieldName = "Phone";
             this.col_PhoneNumber.MinWidth = 23;
             this.col_PhoneNumber.Name = "col_PhoneNumber";
-            this.col_PhoneNumber.Visible = true;
-            this.col_PhoneNumber.VisibleIndex = 3;
             this.col_PhoneNumber.Width = 162;
             // 
             // col_Delete
@@ -877,691 +356,1063 @@ namespace ResponseEmergencySystem.Forms
             this.col_Delete.MinWidth = 23;
             this.col_Delete.Name = "col_Delete";
             this.col_Delete.Visible = true;
-            this.col_Delete.VisibleIndex = 4;
+            this.col_Delete.VisibleIndex = 3;
             this.col_Delete.Width = 23;
             // 
             // btn_DeleteInjuredRow
             // 
             this.btn_DeleteInjuredRow.AutoHeight = false;
             editorButtonImageOptions2.SvgImage = global::ResponseEmergencySystem.Properties.Resources.cancelRed;
-            editorButtonImageOptions2.SvgImageSize = new System.Drawing.Size(25, 25);
+            editorButtonImageOptions2.SvgImageSize = new System.Drawing.Size(20, 25);
             this.btn_DeleteInjuredRow.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btn_DeleteInjuredRow.Name = "btn_DeleteInjuredRow";
             this.btn_DeleteInjuredRow.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.btn_DeleteInjuredRow.Click += new System.EventHandler(this.btn_DeleteRowClick);
             // 
-            // groupBox1
+            // stackPanel1
             // 
-            this.groupBox1.Controls.Add(this.simpleButton2);
-            this.groupBox1.Controls.Add(this.labelControl14);
-            this.groupBox1.Controls.Add(this.edt_Longitude);
-            this.groupBox1.Controls.Add(this.labelControl11);
-            this.groupBox1.Controls.Add(this.edt_Latitude);
-            this.groupBox1.Controls.Add(this.labelControl29);
-            this.groupBox1.Controls.Add(this.labelControl28);
-            this.groupBox1.Controls.Add(this.lue_states);
-            this.groupBox1.Controls.Add(this.labelControl15);
-            this.groupBox1.Controls.Add(this.lue_Cities);
-            this.groupBox1.Controls.Add(this.labelControl13);
-            this.groupBox1.Controls.Add(this.edt_Highway);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox1.Location = new System.Drawing.Point(2, 114);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.groupBox1.Size = new System.Drawing.Size(837, 108);
-            this.groupBox1.TabIndex = 107;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Location";
+            this.stackPanel1.Controls.Add(this.simpleButton2);
+            this.stackPanel1.LayoutDirection = DevExpress.Utils.Layout.StackPanelLayoutDirection.RightToLeft;
+            this.stackPanel1.Location = new System.Drawing.Point(12, 890);
+            this.stackPanel1.Name = "stackPanel1";
+            this.stackPanel1.Size = new System.Drawing.Size(406, 45);
+            this.stackPanel1.TabIndex = 11;
             // 
             // simpleButton2
             // 
-            this.simpleButton2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.simpleButton2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
-            this.simpleButton2.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
-            this.simpleButton2.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
-            this.simpleButton2.Appearance.ForeColor = System.Drawing.Color.Transparent;
+            this.simpleButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButton2.Appearance.BackColor = System.Drawing.Color.Maroon;
+            this.simpleButton2.Appearance.BorderColor = System.Drawing.Color.Maroon;
+            this.simpleButton2.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton2.Appearance.Options.UseBackColor = true;
             this.simpleButton2.Appearance.Options.UseBorderColor = true;
-            this.simpleButton2.Appearance.Options.UseForeColor = true;
-            this.simpleButton2.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.searchWhite;
-            this.simpleButton2.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.simpleButton2.Location = new System.Drawing.Point(610, 65);
-            this.simpleButton2.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-            this.simpleButton2.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.simpleButton2.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.simpleButton2.Appearance.Options.UseFont = true;
+            this.simpleButton2.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.simpleButton2.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.closeWhite;
+            this.simpleButton2.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
+            this.simpleButton2.Location = new System.Drawing.Point(309, 5);
             this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(202, 26);
-            this.simpleButton2.TabIndex = 104;
-            this.simpleButton2.Text = "Find Truck Using Samsara";
-            this.simpleButton2.Click += new System.EventHandler(this.FindTruckSamsara_Click);
+            this.simpleButton2.Size = new System.Drawing.Size(94, 35);
+            this.simpleButton2.TabIndex = 2;
+            this.simpleButton2.Text = "Cancel";
             // 
-            // labelControl14
+            // labelControl4
             // 
-            this.labelControl14.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelControl14.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl14.Appearance.Options.UseFont = true;
-            this.labelControl14.Location = new System.Drawing.Point(233, 70);
-            this.labelControl14.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.labelControl14.Name = "labelControl14";
-            this.labelControl14.Size = new System.Drawing.Size(60, 17);
-            this.labelControl14.TabIndex = 107;
-            this.labelControl14.Text = "Longitude";
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl4.Appearance.Options.UseFont = true;
+            this.labelControl4.Location = new System.Drawing.Point(12, 740);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(118, 20);
+            this.labelControl4.StyleController = this.layoutControl1;
+            this.labelControl4.TabIndex = 10;
+            this.labelControl4.Text = "Injuered persons";
             // 
-            // edt_Longitude
+            // panelControl3
             // 
-            this.edt_Longitude.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.edt_Longitude.Location = new System.Drawing.Point(305, 67);
-            this.edt_Longitude.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.edt_Longitude.Name = "edt_Longitude";
-            this.edt_Longitude.Properties.ReadOnly = true;
-            this.edt_Longitude.Size = new System.Drawing.Size(136, 24);
-            this.edt_Longitude.TabIndex = 106;
-            // 
-            // labelControl11
-            // 
-            this.labelControl11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelControl11.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl11.Appearance.Options.UseFont = true;
-            this.labelControl11.Location = new System.Drawing.Point(11, 70);
-            this.labelControl11.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.labelControl11.Name = "labelControl11";
-            this.labelControl11.Size = new System.Drawing.Size(51, 17);
-            this.labelControl11.TabIndex = 105;
-            this.labelControl11.Text = "Latitutde";
-            // 
-            // edt_Latitude
-            // 
-            this.edt_Latitude.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.edt_Latitude.Location = new System.Drawing.Point(74, 67);
-            this.edt_Latitude.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.edt_Latitude.Name = "edt_Latitude";
-            this.edt_Latitude.Properties.ReadOnly = true;
-            this.edt_Latitude.Size = new System.Drawing.Size(147, 24);
-            this.edt_Latitude.TabIndex = 104;
-            // 
-            // labelControl29
-            // 
-            this.labelControl29.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl29.Appearance.Options.UseFont = true;
-            this.labelControl29.Location = new System.Drawing.Point(611, 35);
-            this.labelControl29.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.labelControl29.Name = "labelControl29";
-            this.labelControl29.Size = new System.Drawing.Size(21, 17);
-            this.labelControl29.TabIndex = 103;
-            this.labelControl29.Text = "City";
-            // 
-            // labelControl28
-            // 
-            this.labelControl28.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl28.Appearance.Options.UseFont = true;
-            this.labelControl28.Location = new System.Drawing.Point(456, 35);
-            this.labelControl28.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.labelControl28.Name = "labelControl28";
-            this.labelControl28.Size = new System.Drawing.Size(29, 17);
-            this.labelControl28.TabIndex = 102;
-            this.labelControl28.Text = "State";
-            // 
-            // lue_states
-            // 
-            this.lue_states.Location = new System.Drawing.Point(502, 33);
-            this.lue_states.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.lue_states.Name = "lue_states";
-            this.lue_states.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lue_states.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("pk_id", "ID_State", 42, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("state", "Name", 42, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
-            this.lue_states.Properties.DisplayMember = "state";
-            this.lue_states.Properties.NullText = "";
-            this.lue_states.Properties.ValueMember = "pk_id";
-            this.lue_states.Properties.EditValueChanged += new System.EventHandler(this.lue_States_Properties_EditValueChanged);
-            this.lue_states.Size = new System.Drawing.Size(75, 24);
-            this.lue_states.TabIndex = 81;
-            // 
-            // labelControl15
-            // 
-            this.labelControl15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelControl15.Location = new System.Drawing.Point(-280, 71);
-            this.labelControl15.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.labelControl15.Name = "labelControl15";
-            this.labelControl15.Size = new System.Drawing.Size(29, 17);
-            this.labelControl15.TabIndex = 80;
-            this.labelControl15.Text = "State";
-            // 
-            // lue_Cities
-            // 
-            this.lue_Cities.Location = new System.Drawing.Point(651, 33);
-            this.lue_Cities.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.lue_Cities.Name = "lue_Cities";
-            this.lue_Cities.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lue_Cities.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("pk_id", "ID_city", 42, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("city", "City", 42, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
-            this.lue_Cities.Properties.DisplayMember = "city";
-            this.lue_Cities.Properties.NullText = "";
-            this.lue_Cities.Properties.ValueMember = "pk_id";
-            this.lue_Cities.Size = new System.Drawing.Size(161, 24);
-            this.lue_Cities.TabIndex = 54;
-            // 
-            // labelControl13
-            // 
-            this.labelControl13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelControl13.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl13.Appearance.Options.UseFont = true;
-            this.labelControl13.Location = new System.Drawing.Point(13, 35);
-            this.labelControl13.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.labelControl13.Name = "labelControl13";
-            this.labelControl13.Size = new System.Drawing.Size(108, 17);
-            this.labelControl13.TabIndex = 48;
-            this.labelControl13.Text = "Street or Highway";
-            // 
-            // edt_Highway
-            // 
-            this.edt_Highway.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.edt_Highway.Location = new System.Drawing.Point(126, 31);
-            this.edt_Highway.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.edt_Highway.Name = "edt_Highway";
-            this.edt_Highway.Size = new System.Drawing.Size(315, 24);
-            this.edt_Highway.TabIndex = 44;
-            // 
-            // panelControl2
-            // 
-            this.panelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl2.Controls.Add(this.edt_Broker);
-            this.panelControl2.Controls.Add(this.btn_SelectBroker);
-            this.panelControl2.Controls.Add(this.pnl_PoliceReport);
-            this.panelControl2.Controls.Add(this.pnl_AddInjuredFields);
-            this.panelControl2.Controls.Add(this.ckedt_Injured);
-            this.panelControl2.Controls.Add(this.ckedt_PoliceReport);
-            this.panelControl2.Controls.Add(this.labelControl17);
-            this.panelControl2.Controls.Add(this.labelControl16);
-            this.panelControl2.Controls.Add(this.labelControl10);
-            this.panelControl2.Controls.Add(this.labelControl9);
-            this.panelControl2.Controls.Add(this.dte_IncidentDate);
-            this.panelControl2.Controls.Add(this.tme_IncidentTime);
-            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl2.Location = new System.Drawing.Point(2, 2);
-            this.panelControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(837, 112);
-            this.panelControl2.TabIndex = 106;
-            // 
-            // edt_Broker
-            // 
-            this.edt_Broker.Location = new System.Drawing.Point(504, 69);
-            this.edt_Broker.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.edt_Broker.Name = "edt_Broker";
-            this.edt_Broker.Properties.ReadOnly = true;
-            this.edt_Broker.Size = new System.Drawing.Size(308, 24);
-            this.edt_Broker.TabIndex = 51;
-            // 
-            // btn_SelectBroker
-            // 
-            this.btn_SelectBroker.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
-            this.btn_SelectBroker.Appearance.ForeColor = System.Drawing.Color.White;
-            this.btn_SelectBroker.Appearance.Options.UseBackColor = true;
-            this.btn_SelectBroker.Appearance.Options.UseForeColor = true;
-            this.btn_SelectBroker.Location = new System.Drawing.Point(373, 69);
-            this.btn_SelectBroker.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-            this.btn_SelectBroker.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.btn_SelectBroker.Name = "btn_SelectBroker";
-            this.btn_SelectBroker.Size = new System.Drawing.Size(104, 23);
-            this.btn_SelectBroker.TabIndex = 130;
-            this.btn_SelectBroker.Text = "Select broker";
-            this.btn_SelectBroker.Click += new System.EventHandler(this.simpleButton2_Click_1);
-            // 
-            // pnl_PoliceReport
-            // 
-            this.pnl_PoliceReport.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.pnl_PoliceReport.Controls.Add(this.edt_PoliceReport);
-            this.pnl_PoliceReport.Controls.Add(this.labelControl12);
-            this.pnl_PoliceReport.Location = new System.Drawing.Point(544, 10);
-            this.pnl_PoliceReport.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pnl_PoliceReport.Name = "pnl_PoliceReport";
-            this.pnl_PoliceReport.Size = new System.Drawing.Size(281, 46);
-            this.pnl_PoliceReport.TabIndex = 129;
-            this.pnl_PoliceReport.Visible = false;
-            // 
-            // edt_PoliceReport
-            // 
-            this.edt_PoliceReport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.edt_PoliceReport.Location = new System.Drawing.Point(135, 10);
-            this.edt_PoliceReport.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.edt_PoliceReport.Name = "edt_PoliceReport";
-            this.edt_PoliceReport.Size = new System.Drawing.Size(133, 24);
-            this.edt_PoliceReport.TabIndex = 125;
-            // 
-            // labelControl12
-            // 
-            this.labelControl12.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl12.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl12.Appearance.Options.UseFont = true;
-            this.labelControl12.Location = new System.Drawing.Point(16, 13);
-            this.labelControl12.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.labelControl12.Name = "labelControl12";
-            this.labelControl12.Size = new System.Drawing.Size(103, 17);
-            this.labelControl12.TabIndex = 122;
-            this.labelControl12.Text = "Citation/Report #";
+            this.panelControl3.Appearance.BackColor = System.Drawing.Color.White;
+            this.panelControl3.Appearance.Options.UseBackColor = true;
+            this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl3.Controls.Add(this.pnl_AddInjuredFields);
+            this.panelControl3.Controls.Add(this.checkEdit1);
+            this.panelControl3.Controls.Add(this.pnl_PoliceReport);
+            this.panelControl3.Controls.Add(this.edt_Longitude);
+            this.panelControl3.Controls.Add(this.panelControl4);
+            this.panelControl3.Controls.Add(this.edt_Broker);
+            this.panelControl3.Controls.Add(this.labelControl16);
+            this.panelControl3.Controls.Add(this.edt_Highway);
+            this.panelControl3.Controls.Add(this.lue_Cities);
+            this.panelControl3.Controls.Add(this.lue_StateExp);
+            this.panelControl3.Controls.Add(this.edt_Latitude);
+            this.panelControl3.Controls.Add(this.labelControl17);
+            this.panelControl3.Controls.Add(this.labelControl18);
+            this.panelControl3.Controls.Add(this.labelControl19);
+            this.panelControl3.Controls.Add(this.labelControl20);
+            this.panelControl3.Controls.Add(this.labelControl21);
+            this.panelControl3.Controls.Add(this.labelControl23);
+            this.panelControl3.Controls.Add(this.ckedt_PoliceReport);
+            this.panelControl3.Controls.Add(this.labelControl24);
+            this.panelControl3.Controls.Add(this.labelControl25);
+            this.panelControl3.Controls.Add(this.dte_IncidentDate);
+            this.panelControl3.Controls.Add(this.tme_IncidentTime);
+            this.panelControl3.Location = new System.Drawing.Point(12, 389);
+            this.panelControl3.Name = "panelControl3";
+            this.panelControl3.Size = new System.Drawing.Size(817, 347);
+            this.panelControl3.TabIndex = 9;
             // 
             // pnl_AddInjuredFields
             // 
+            this.pnl_AddInjuredFields.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.pnl_AddInjuredFields.Appearance.Options.UseBackColor = true;
             this.pnl_AddInjuredFields.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.pnl_AddInjuredFields.Controls.Add(this.btn_AddInjuredPersonsControls);
-            this.pnl_AddInjuredFields.Controls.Add(this.labelControl7);
+            this.pnl_AddInjuredFields.Controls.Add(this.simpleButton3);
             this.pnl_AddInjuredFields.Controls.Add(this.edt_NumberOfInjured);
-            this.pnl_AddInjuredFields.Location = new System.Drawing.Point(132, 64);
-            this.pnl_AddInjuredFields.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pnl_AddInjuredFields.Controls.Add(this.labelControl28);
+            this.pnl_AddInjuredFields.Location = new System.Drawing.Point(109, 269);
             this.pnl_AddInjuredFields.Name = "pnl_AddInjuredFields";
-            this.pnl_AddInjuredFields.Size = new System.Drawing.Size(220, 38);
-            this.pnl_AddInjuredFields.TabIndex = 128;
-            this.pnl_AddInjuredFields.Visible = false;
+            this.pnl_AddInjuredFields.Size = new System.Drawing.Size(372, 40);
+            this.pnl_AddInjuredFields.TabIndex = 113;
             // 
-            // btn_AddInjuredPersonsControls
+            // simpleButton3
             // 
-            this.btn_AddInjuredPersonsControls.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_AddInjuredPersonsControls.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
-            this.btn_AddInjuredPersonsControls.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
-            this.btn_AddInjuredPersonsControls.Appearance.BorderColor = System.Drawing.SystemColors.Control;
-            this.btn_AddInjuredPersonsControls.Appearance.ForeColor = System.Drawing.Color.Transparent;
-            this.btn_AddInjuredPersonsControls.Appearance.Options.UseBackColor = true;
-            this.btn_AddInjuredPersonsControls.Appearance.Options.UseBorderColor = true;
-            this.btn_AddInjuredPersonsControls.Appearance.Options.UseForeColor = true;
-            this.btn_AddInjuredPersonsControls.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.addWhite;
-            this.btn_AddInjuredPersonsControls.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.btn_AddInjuredPersonsControls.Location = new System.Drawing.Point(182, 7);
-            this.btn_AddInjuredPersonsControls.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-            this.btn_AddInjuredPersonsControls.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.btn_AddInjuredPersonsControls.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.btn_AddInjuredPersonsControls.Name = "btn_AddInjuredPersonsControls";
-            this.btn_AddInjuredPersonsControls.Size = new System.Drawing.Size(29, 22);
-            this.btn_AddInjuredPersonsControls.TabIndex = 109;
-            this.btn_AddInjuredPersonsControls.Click += new System.EventHandler(this.btn_AddRowsClick);
-            // 
-            // labelControl7
-            // 
-            this.labelControl7.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl7.Appearance.Options.UseFont = true;
-            this.labelControl7.Location = new System.Drawing.Point(6, 10);
-            this.labelControl7.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(131, 17);
-            this.labelControl7.TabIndex = 104;
-            this.labelControl7.Text = "Add persons Injured ";
+            this.simpleButton3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.simpleButton3.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.simpleButton3.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton3.Appearance.Options.UseBackColor = true;
+            this.simpleButton3.Appearance.Options.UseBorderColor = true;
+            this.simpleButton3.Appearance.Options.UseFont = true;
+            this.simpleButton3.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.simpleButton3.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.addWhite;
+            this.simpleButton3.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.simpleButton3.Location = new System.Drawing.Point(281, 10);
+            this.simpleButton3.Name = "simpleButton3";
+            this.simpleButton3.Size = new System.Drawing.Size(72, 22);
+            this.simpleButton3.TabIndex = 112;
+            this.simpleButton3.Text = "Add";
             // 
             // edt_NumberOfInjured
             // 
-            this.edt_NumberOfInjured.Location = new System.Drawing.Point(143, 5);
-            this.edt_NumberOfInjured.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.edt_NumberOfInjured.Location = new System.Drawing.Point(177, 9);
             this.edt_NumberOfInjured.Name = "edt_NumberOfInjured";
-            this.edt_NumberOfInjured.Properties.BeepOnError = false;
-            this.edt_NumberOfInjured.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
-            this.edt_NumberOfInjured.Properties.MaskSettings.Set("mask", "d");
-            this.edt_NumberOfInjured.Size = new System.Drawing.Size(30, 24);
-            this.edt_NumberOfInjured.TabIndex = 103;
+            this.edt_NumberOfInjured.Size = new System.Drawing.Size(100, 24);
+            this.edt_NumberOfInjured.TabIndex = 54;
             // 
-            // ckedt_Injured
+            // labelControl28
             // 
-            this.ckedt_Injured.Location = new System.Drawing.Point(80, 72);
-            this.ckedt_Injured.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ckedt_Injured.Name = "ckedt_Injured";
-            this.ckedt_Injured.Properties.Appearance.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckedt_Injured.Properties.Appearance.Options.UseFont = true;
-            this.ckedt_Injured.Properties.Caption = "";
-            this.ckedt_Injured.Size = new System.Drawing.Size(48, 20);
-            this.ckedt_Injured.TabIndex = 127;
-            this.ckedt_Injured.CheckedChanged += new System.EventHandler(this.OnChangedCheckEdit);
+            this.labelControl28.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelControl28.Location = new System.Drawing.Point(7, 13);
+            this.labelControl28.Name = "labelControl28";
+            this.labelControl28.Size = new System.Drawing.Size(166, 17);
+            this.labelControl28.TabIndex = 52;
+            this.labelControl28.Text = "Number of persons injured";
             // 
-            // ckedt_PoliceReport
+            // checkEdit1
             // 
-            this.ckedt_PoliceReport.Location = new System.Drawing.Point(474, 21);
-            this.ckedt_PoliceReport.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ckedt_PoliceReport.Name = "ckedt_PoliceReport";
-            this.ckedt_PoliceReport.Properties.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckedt_PoliceReport.Properties.Appearance.Options.UseFont = true;
-            this.ckedt_PoliceReport.Properties.Caption = "";
-            this.ckedt_PoliceReport.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
-            this.ckedt_PoliceReport.Size = new System.Drawing.Size(48, 20);
-            this.ckedt_PoliceReport.TabIndex = 126;
-            this.ckedt_PoliceReport.CheckedChanged += new System.EventHandler(this.OnChangedCheckEdit);
+            this.checkEdit1.Location = new System.Drawing.Point(14, 279);
+            this.checkEdit1.Name = "checkEdit1";
+            this.checkEdit1.Properties.Caption = "Injuries?";
+            this.checkEdit1.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.checkEdit1.Size = new System.Drawing.Size(80, 21);
+            this.checkEdit1.TabIndex = 53;
             // 
-            // labelControl17
+            // pnl_PoliceReport
             // 
-            this.labelControl17.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl17.Appearance.Options.UseFont = true;
-            this.labelControl17.Location = new System.Drawing.Point(196, 25);
-            this.labelControl17.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.labelControl17.Name = "labelControl17";
-            this.labelControl17.Size = new System.Drawing.Size(28, 17);
-            this.labelControl17.TabIndex = 124;
-            this.labelControl17.Text = "Time";
+            this.pnl_PoliceReport.Appearance.BackColor = System.Drawing.Color.White;
+            this.pnl_PoliceReport.Appearance.Options.UseBackColor = true;
+            this.pnl_PoliceReport.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pnl_PoliceReport.Controls.Add(this.edt_PoliceReport);
+            this.pnl_PoliceReport.Controls.Add(this.labelControl22);
+            this.pnl_PoliceReport.Location = new System.Drawing.Point(122, 49);
+            this.pnl_PoliceReport.Name = "pnl_PoliceReport";
+            this.pnl_PoliceReport.Size = new System.Drawing.Size(369, 38);
+            this.pnl_PoliceReport.TabIndex = 51;
+            // 
+            // edt_PoliceReport
+            // 
+            this.edt_PoliceReport.Location = new System.Drawing.Point(110, 5);
+            this.edt_PoliceReport.Name = "edt_PoliceReport";
+            this.edt_PoliceReport.Size = new System.Drawing.Size(249, 24);
+            this.edt_PoliceReport.TabIndex = 7;
+            // 
+            // labelControl22
+            // 
+            this.labelControl22.Location = new System.Drawing.Point(6, 10);
+            this.labelControl22.Name = "labelControl22";
+            this.labelControl22.Size = new System.Drawing.Size(95, 17);
+            this.labelControl22.TabIndex = 3;
+            this.labelControl22.Text = "Citation/report#";
+            // 
+            // edt_Longitude
+            // 
+            this.edt_Longitude.Location = new System.Drawing.Point(316, 113);
+            this.edt_Longitude.Name = "edt_Longitude";
+            this.edt_Longitude.Size = new System.Drawing.Size(165, 24);
+            this.edt_Longitude.TabIndex = 44;
+            // 
+            // panelControl4
+            // 
+            this.panelControl4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panelControl4.Location = new System.Drawing.Point(512, 17);
+            this.panelControl4.Name = "panelControl4";
+            this.panelControl4.Size = new System.Drawing.Size(281, 236);
+            this.panelControl4.TabIndex = 50;
+            // 
+            // edt_Broker
+            // 
+            this.edt_Broker.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.edt_Broker.Location = new System.Drawing.Point(60, 238);
+            this.edt_Broker.Name = "edt_Broker";
+            this.edt_Broker.Size = new System.Drawing.Size(421, 24);
+            this.edt_Broker.TabIndex = 49;
+            this.edt_Broker.EditValueChanged += new System.EventHandler(this.edt_Broker_EditValueChanged);
             // 
             // labelControl16
             // 
-            this.labelControl16.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl16.Appearance.Options.UseFont = true;
-            this.labelControl16.Location = new System.Drawing.Point(17, 26);
-            this.labelControl16.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.labelControl16.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelControl16.Location = new System.Drawing.Point(14, 242);
             this.labelControl16.Name = "labelControl16";
-            this.labelControl16.Size = new System.Drawing.Size(27, 17);
-            this.labelControl16.TabIndex = 123;
-            this.labelControl16.Text = "Date";
+            this.labelControl16.Size = new System.Drawing.Size(40, 17);
+            this.labelControl16.TabIndex = 48;
+            this.labelControl16.Text = "Broker";
             // 
-            // labelControl10
+            // edt_Highway
             // 
-            this.labelControl10.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl10.Appearance.Options.UseFont = true;
-            this.labelControl10.Location = new System.Drawing.Point(17, 75);
-            this.labelControl10.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(55, 17);
-            this.labelControl10.TabIndex = 120;
-            this.labelControl10.Text = "Injuries ?";
+            this.edt_Highway.Location = new System.Drawing.Point(128, 195);
+            this.edt_Highway.Name = "edt_Highway";
+            this.edt_Highway.Size = new System.Drawing.Size(353, 24);
+            this.edt_Highway.TabIndex = 47;
             // 
-            // labelControl9
+            // lue_Cities
             // 
-            this.labelControl9.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl9.Appearance.Options.UseFont = true;
-            this.labelControl9.Location = new System.Drawing.Point(373, 25);
-            this.labelControl9.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(85, 17);
-            this.labelControl9.TabIndex = 119;
-            this.labelControl9.Text = "Police Report?";
+            this.lue_Cities.Location = new System.Drawing.Point(219, 154);
+            this.lue_Cities.Name = "lue_Cities";
+            this.lue_Cities.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lue_Cities.Size = new System.Drawing.Size(116, 24);
+            this.lue_Cities.TabIndex = 46;
+            // 
+            // lue_StateExp
+            // 
+            this.lue_StateExp.Location = new System.Drawing.Point(50, 154);
+            this.lue_StateExp.Name = "lue_StateExp";
+            this.lue_StateExp.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lue_StateExp.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("pk_id", "id", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("state", "Name9")});
+            this.lue_StateExp.Properties.DisplayMember = "state";
+            this.lue_StateExp.Properties.ShowHeader = false;
+            this.lue_StateExp.Properties.ValueMember = "pk_id";
+            this.lue_StateExp.Size = new System.Drawing.Size(123, 24);
+            this.lue_StateExp.TabIndex = 45;
+            // 
+            // edt_Latitude
+            // 
+            this.edt_Latitude.Location = new System.Drawing.Point(69, 113);
+            this.edt_Latitude.Name = "edt_Latitude";
+            this.edt_Latitude.Size = new System.Drawing.Size(165, 24);
+            this.edt_Latitude.TabIndex = 43;
+            // 
+            // labelControl17
+            // 
+            this.labelControl17.Location = new System.Drawing.Point(14, 199);
+            this.labelControl17.Name = "labelControl17";
+            this.labelControl17.Size = new System.Drawing.Size(107, 17);
+            this.labelControl17.TabIndex = 42;
+            this.labelControl17.Text = "Street or highway";
+            // 
+            // labelControl18
+            // 
+            this.labelControl18.Location = new System.Drawing.Point(192, 158);
+            this.labelControl18.Name = "labelControl18";
+            this.labelControl18.Size = new System.Drawing.Size(21, 17);
+            this.labelControl18.TabIndex = 41;
+            this.labelControl18.Text = "City";
+            // 
+            // labelControl19
+            // 
+            this.labelControl19.Location = new System.Drawing.Point(14, 158);
+            this.labelControl19.Name = "labelControl19";
+            this.labelControl19.Size = new System.Drawing.Size(29, 17);
+            this.labelControl19.TabIndex = 40;
+            this.labelControl19.Text = "State";
+            // 
+            // labelControl20
+            // 
+            this.labelControl20.Location = new System.Drawing.Point(250, 117);
+            this.labelControl20.Name = "labelControl20";
+            this.labelControl20.Size = new System.Drawing.Size(60, 17);
+            this.labelControl20.TabIndex = 39;
+            this.labelControl20.Text = "Longitude";
+            // 
+            // labelControl21
+            // 
+            this.labelControl21.Location = new System.Drawing.Point(14, 117);
+            this.labelControl21.Name = "labelControl21";
+            this.labelControl21.Size = new System.Drawing.Size(47, 17);
+            this.labelControl21.TabIndex = 38;
+            this.labelControl21.Text = "Latitude";
+            // 
+            // labelControl23
+            // 
+            this.labelControl23.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl23.Appearance.Options.UseFont = true;
+            this.labelControl23.Location = new System.Drawing.Point(14, 87);
+            this.labelControl23.Name = "labelControl23";
+            this.labelControl23.Size = new System.Drawing.Size(53, 17);
+            this.labelControl23.TabIndex = 37;
+            this.labelControl23.Text = "Location";
+            // 
+            // ckedt_PoliceReport
+            // 
+            this.ckedt_PoliceReport.Location = new System.Drawing.Point(14, 57);
+            this.ckedt_PoliceReport.Name = "ckedt_PoliceReport";
+            this.ckedt_PoliceReport.Properties.Caption = "Police report?";
+            this.ckedt_PoliceReport.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.ckedt_PoliceReport.Size = new System.Drawing.Size(104, 21);
+            this.ckedt_PoliceReport.TabIndex = 34;
+            // 
+            // labelControl24
+            // 
+            this.labelControl24.Location = new System.Drawing.Point(272, 20);
+            this.labelControl24.Name = "labelControl24";
+            this.labelControl24.Size = new System.Drawing.Size(28, 17);
+            this.labelControl24.TabIndex = 33;
+            this.labelControl24.Text = "Time";
+            // 
+            // labelControl25
+            // 
+            this.labelControl25.Location = new System.Drawing.Point(14, 19);
+            this.labelControl25.Name = "labelControl25";
+            this.labelControl25.Size = new System.Drawing.Size(27, 17);
+            this.labelControl25.TabIndex = 32;
+            this.labelControl25.Text = "Date";
             // 
             // dte_IncidentDate
             // 
             this.dte_IncidentDate.EditValue = null;
-            this.dte_IncidentDate.Location = new System.Drawing.Point(56, 21);
-            this.dte_IncidentDate.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.dte_IncidentDate.Location = new System.Drawing.Point(52, 17);
             this.dte_IncidentDate.Name = "dte_IncidentDate";
-            this.dte_IncidentDate.Properties.BeepOnError = false;
             this.dte_IncidentDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dte_IncidentDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dte_IncidentDate.Properties.MaskSettings.Set("mask", "d");
-            this.dte_IncidentDate.Size = new System.Drawing.Size(106, 24);
-            this.dte_IncidentDate.TabIndex = 117;
+            this.dte_IncidentDate.Properties.DisplayFormat.FormatString = "";
+            this.dte_IncidentDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dte_IncidentDate.Properties.EditFormat.FormatString = "";
+            this.dte_IncidentDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dte_IncidentDate.Properties.MaskSettings.Set("mask", "");
+            this.dte_IncidentDate.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.dte_IncidentDate.Size = new System.Drawing.Size(196, 24);
+            this.dte_IncidentDate.TabIndex = 35;
             // 
             // tme_IncidentTime
             // 
-            this.tme_IncidentTime.EditValue = new System.DateTime(2021, 3, 26, 0, 0, 0, 0);
-            this.tme_IncidentTime.Location = new System.Drawing.Point(233, 21);
-            this.tme_IncidentTime.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.tme_IncidentTime.EditValue = null;
+            this.tme_IncidentTime.Location = new System.Drawing.Point(306, 16);
             this.tme_IncidentTime.Name = "tme_IncidentTime";
             this.tme_IncidentTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.tme_IncidentTime.Size = new System.Drawing.Size(101, 24);
-            this.tme_IncidentTime.TabIndex = 116;
+            this.tme_IncidentTime.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
+            this.tme_IncidentTime.Properties.MaskSettings.Set("mask", "");
+            this.tme_IncidentTime.Size = new System.Drawing.Size(175, 24);
+            this.tme_IncidentTime.TabIndex = 36;
             // 
-            // textEdit1
+            // labelControl3
             // 
-            this.textEdit1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textEdit1.Location = new System.Drawing.Point(437, 69);
-            this.textEdit1.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(338, 24);
-            this.textEdit1.TabIndex = 104;
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl3.Appearance.Options.UseFont = true;
+            this.labelControl3.Location = new System.Drawing.Point(12, 365);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(112, 20);
+            this.labelControl3.StyleController = this.layoutControl1;
+            this.labelControl3.TabIndex = 8;
+            this.labelControl3.Text = "Accident details";
             // 
-            // edt_Number
+            // panelControl2
             // 
-            this.edt_Number.Location = new System.Drawing.Point(0, 0);
-            this.edt_Number.Name = "edt_Number";
-            this.edt_Number.Size = new System.Drawing.Size(100, 20);
-            this.edt_Number.TabIndex = 0;
+            this.panelControl2.Appearance.BackColor = System.Drawing.Color.White;
+            this.panelControl2.Appearance.Options.UseBackColor = true;
+            this.panelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl2.Controls.Add(this.labelControl27);
+            this.panelControl2.Controls.Add(this.labelControl26);
+            this.panelControl2.Controls.Add(this.lbl_TrailerExists);
+            this.panelControl2.Controls.Add(this.lbl_TruckExists);
+            this.panelControl2.Controls.Add(this.pnl_BOL);
+            this.panelControl2.Controls.Add(this.ckedt_Spill);
+            this.panelControl2.Controls.Add(this.edt_Cargo);
+            this.panelControl2.Controls.Add(this.labelControl11);
+            this.panelControl2.Controls.Add(this.ckedt_TrailerCanMove);
+            this.panelControl2.Controls.Add(this.ckedt_TrailerNeedCrane);
+            this.panelControl2.Controls.Add(this.checkEdit4);
+            this.panelControl2.Controls.Add(this.ckedt_TrailerDamages);
+            this.panelControl2.Controls.Add(this.edt_TrailerNumber);
+            this.panelControl2.Controls.Add(this.labelControl12);
+            this.panelControl2.Controls.Add(this.labelControl13);
+            this.panelControl2.Controls.Add(this.labelControl14);
+            this.panelControl2.Controls.Add(this.ckedt_TruckCanMove);
+            this.panelControl2.Controls.Add(this.ckedt_TruckNeedCrane);
+            this.panelControl2.Controls.Add(this.checkEdit8);
+            this.panelControl2.Controls.Add(this.ckedt_truckDamages);
+            this.panelControl2.Controls.Add(this.edt_TruckNumber);
+            this.panelControl2.Controls.Add(this.labelControl15);
+            this.panelControl2.Location = new System.Drawing.Point(12, 175);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(817, 186);
+            this.panelControl2.TabIndex = 7;
             // 
-            // panelControl4
+            // labelControl27
             // 
-            this.panelControl4.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl4.Controls.Add(this.btn_AddComments);
-            this.panelControl4.Controls.Add(this.simpleButton1);
-            this.panelControl4.Controls.Add(this.btn_Cancel);
-            this.panelControl4.Controls.Add(this.btn_AddIncident);
-            this.panelControl4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl4.Location = new System.Drawing.Point(0, 883);
-            this.panelControl4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(841, 131);
-            this.panelControl4.TabIndex = 85;
+            this.labelControl27.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl27.Appearance.ForeColor = System.Drawing.Color.Maroon;
+            this.labelControl27.Appearance.Options.UseFont = true;
+            this.labelControl27.Appearance.Options.UseForeColor = true;
+            this.labelControl27.Location = new System.Drawing.Point(85, 60);
+            this.labelControl27.Name = "labelControl27";
+            this.labelControl27.Size = new System.Drawing.Size(125, 17);
+            this.labelControl27.TabIndex = 130;
+            this.labelControl27.Text = "Truck doesn\'t exists";
             // 
-            // btn_AddComments
+            // labelControl26
             // 
-            this.btn_AddComments.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_AddComments.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
-            this.btn_AddComments.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
-            this.btn_AddComments.Appearance.BorderColor = System.Drawing.SystemColors.Control;
-            this.btn_AddComments.Appearance.ForeColor = System.Drawing.Color.Transparent;
-            this.btn_AddComments.Appearance.Options.UseBackColor = true;
-            this.btn_AddComments.Appearance.Options.UseBorderColor = true;
-            this.btn_AddComments.Appearance.Options.UseForeColor = true;
-            this.btn_AddComments.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.chatboxWhite;
-            this.btn_AddComments.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
-            this.btn_AddComments.Location = new System.Drawing.Point(369, 22);
-            this.btn_AddComments.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-            this.btn_AddComments.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.btn_AddComments.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.btn_AddComments.Name = "btn_AddComments";
-            this.btn_AddComments.Size = new System.Drawing.Size(154, 32);
-            this.btn_AddComments.TabIndex = 110;
-            this.btn_AddComments.Text = "Add Comments";
-            this.btn_AddComments.Click += new System.EventHandler(this.btn_AddComments_Click);
+            this.labelControl26.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl26.Appearance.ForeColor = System.Drawing.Color.Maroon;
+            this.labelControl26.Appearance.Options.UseFont = true;
+            this.labelControl26.Appearance.Options.UseForeColor = true;
+            this.labelControl26.Location = new System.Drawing.Point(86, 115);
+            this.labelControl26.Name = "labelControl26";
+            this.labelControl26.Size = new System.Drawing.Size(131, 17);
+            this.labelControl26.TabIndex = 129;
+            this.labelControl26.Text = "Trailer doesn\'t exists";
             // 
-            // simpleButton1
+            // lbl_TrailerExists
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(562, 26);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(75, 23);
-            this.simpleButton1.TabIndex = 123;
-            this.simpleButton1.Text = "simpleButton1";
-            this.simpleButton1.Visible = false;
+            this.lbl_TrailerExists.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.cancel_16x161;
+            this.lbl_TrailerExists.Location = new System.Drawing.Point(217, 88);
+            this.lbl_TrailerExists.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.lbl_TrailerExists.Name = "lbl_TrailerExists";
+            this.lbl_TrailerExists.Size = new System.Drawing.Size(16, 17);
+            this.lbl_TrailerExists.TabIndex = 128;
+            this.lbl_TrailerExists.Visible = false;
             // 
-            // btn_Cancel
+            // lbl_TruckExists
             // 
-            this.btn_Cancel.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
-            this.btn_Cancel.Appearance.ForeColor = System.Drawing.Color.White;
-            this.btn_Cancel.Appearance.Options.UseBackColor = true;
-            this.btn_Cancel.Appearance.Options.UseForeColor = true;
-            this.btn_Cancel.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.closeWhite;
-            this.btn_Cancel.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
-            this.btn_Cancel.Location = new System.Drawing.Point(10, 14);
-            this.btn_Cancel.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-            this.btn_Cancel.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.btn_Cancel.Name = "btn_Cancel";
-            this.btn_Cancel.Size = new System.Drawing.Size(113, 44);
-            this.btn_Cancel.TabIndex = 122;
-            this.btn_Cancel.Text = "Cancel";
+            this.lbl_TruckExists.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.apply_16x162;
+            this.lbl_TruckExists.Location = new System.Drawing.Point(217, 33);
+            this.lbl_TruckExists.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.lbl_TruckExists.Name = "lbl_TruckExists";
+            this.lbl_TruckExists.Size = new System.Drawing.Size(16, 17);
+            this.lbl_TruckExists.TabIndex = 127;
+            this.lbl_TruckExists.Visible = false;
             // 
-            // btn_AddIncident
+            // pnl_BOL
             // 
-            this.btn_AddIncident.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
-            this.btn_AddIncident.Appearance.ForeColor = System.Drawing.Color.White;
-            this.btn_AddIncident.Appearance.Options.UseBackColor = true;
-            this.btn_AddIncident.Appearance.Options.UseForeColor = true;
-            this.btn_AddIncident.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.saveWhite;
-            this.btn_AddIncident.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
-            this.btn_AddIncident.Location = new System.Drawing.Point(720, 17);
-            this.btn_AddIncident.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-            this.btn_AddIncident.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.btn_AddIncident.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.btn_AddIncident.Name = "btn_AddIncident";
-            this.btn_AddIncident.Size = new System.Drawing.Size(113, 41);
-            this.btn_AddIncident.TabIndex = 8;
-            this.btn_AddIncident.Text = "Save";
-            this.btn_AddIncident.Click += new System.EventHandler(this.btn_AddIncident_Click);
+            this.pnl_BOL.Appearance.BackColor = System.Drawing.Color.White;
+            this.pnl_BOL.Appearance.Options.UseBackColor = true;
+            this.pnl_BOL.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pnl_BOL.Controls.Add(this.edt_manifest);
+            this.pnl_BOL.Controls.Add(this.labelControl10);
+            this.pnl_BOL.Location = new System.Drawing.Point(505, 138);
+            this.pnl_BOL.Name = "pnl_BOL";
+            this.pnl_BOL.Size = new System.Drawing.Size(277, 43);
+            this.pnl_BOL.TabIndex = 126;
             // 
-            // splashScreenManager1
+            // edt_manifest
             // 
-            this.splashScreenManager1.ClosingDelay = 500;
+            this.edt_manifest.Location = new System.Drawing.Point(104, 8);
+            this.edt_manifest.Name = "edt_manifest";
+            this.edt_manifest.Size = new System.Drawing.Size(158, 24);
+            this.edt_manifest.TabIndex = 27;
+            // 
+            // labelControl10
+            // 
+            this.labelControl10.Location = new System.Drawing.Point(10, 12);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(88, 17);
+            this.labelControl10.TabIndex = 26;
+            this.labelControl10.Text = "Manifest/BOL#";
+            // 
+            // ckedt_Spill
+            // 
+            this.ckedt_Spill.Location = new System.Drawing.Point(250, 149);
+            this.ckedt_Spill.Name = "ckedt_Spill";
+            this.ckedt_Spill.Properties.Caption = "Cargo spill?";
+            this.ckedt_Spill.Properties.ContentAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.ckedt_Spill.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.ckedt_Spill.Size = new System.Drawing.Size(102, 21);
+            this.ckedt_Spill.TabIndex = 125;
+            // 
+            // edt_Cargo
+            // 
+            this.edt_Cargo.Location = new System.Drawing.Point(90, 147);
+            this.edt_Cargo.Name = "edt_Cargo";
+            this.edt_Cargo.Size = new System.Drawing.Size(119, 24);
+            this.edt_Cargo.TabIndex = 124;
+            // 
+            // labelControl11
+            // 
+            this.labelControl11.Location = new System.Drawing.Point(15, 151);
+            this.labelControl11.Name = "labelControl11";
+            this.labelControl11.Size = new System.Drawing.Size(66, 17);
+            this.labelControl11.TabIndex = 123;
+            this.labelControl11.Text = "Cargo type";
+            // 
+            // ckedt_TrailerCanMove
+            // 
+            this.ckedt_TrailerCanMove.Location = new System.Drawing.Point(697, 88);
+            this.ckedt_TrailerCanMove.Name = "ckedt_TrailerCanMove";
+            this.ckedt_TrailerCanMove.Properties.Caption = "Can move?";
+            this.ckedt_TrailerCanMove.Properties.ContentAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.ckedt_TrailerCanMove.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.ckedt_TrailerCanMove.Size = new System.Drawing.Size(96, 21);
+            this.ckedt_TrailerCanMove.TabIndex = 122;
+            // 
+            // ckedt_TrailerNeedCrane
+            // 
+            this.ckedt_TrailerNeedCrane.Location = new System.Drawing.Point(558, 90);
+            this.ckedt_TrailerNeedCrane.Name = "ckedt_TrailerNeedCrane";
+            this.ckedt_TrailerNeedCrane.Properties.Caption = "Need crane?";
+            this.ckedt_TrailerNeedCrane.Properties.ContentAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.ckedt_TrailerNeedCrane.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.ckedt_TrailerNeedCrane.Size = new System.Drawing.Size(106, 21);
+            this.ckedt_TrailerNeedCrane.TabIndex = 121;
+            // 
+            // checkEdit4
+            // 
+            this.checkEdit4.Location = new System.Drawing.Point(371, 88);
+            this.checkEdit4.Name = "checkEdit4";
+            this.checkEdit4.Properties.Caption = "Photos of damages?";
+            this.checkEdit4.Properties.ContentAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.checkEdit4.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.checkEdit4.Size = new System.Drawing.Size(152, 21);
+            this.checkEdit4.TabIndex = 120;
+            // 
+            // ckedt_TrailerDamages
+            // 
+            this.ckedt_TrailerDamages.Location = new System.Drawing.Point(250, 88);
+            this.ckedt_TrailerDamages.Name = "ckedt_TrailerDamages";
+            this.ckedt_TrailerDamages.Properties.Caption = "Damages?";
+            this.ckedt_TrailerDamages.Properties.ContentAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.ckedt_TrailerDamages.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.ckedt_TrailerDamages.Size = new System.Drawing.Size(86, 21);
+            this.ckedt_TrailerDamages.TabIndex = 117;
+            // 
+            // edt_TrailerNumber
+            // 
+            this.edt_TrailerNumber.Location = new System.Drawing.Point(90, 85);
+            this.edt_TrailerNumber.Name = "edt_TrailerNumber";
+            this.edt_TrailerNumber.Size = new System.Drawing.Size(119, 24);
+            this.edt_TrailerNumber.TabIndex = 119;
+            // 
+            // labelControl12
+            // 
+            this.labelControl12.Location = new System.Drawing.Point(17, 90);
+            this.labelControl12.Name = "labelControl12";
+            this.labelControl12.Size = new System.Drawing.Size(64, 17);
+            this.labelControl12.TabIndex = 118;
+            this.labelControl12.Text = "Company#";
+            // 
+            // labelControl13
+            // 
+            this.labelControl13.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl13.Appearance.Options.UseFont = true;
+            this.labelControl13.Location = new System.Drawing.Point(17, 66);
+            this.labelControl13.Name = "labelControl13";
+            this.labelControl13.Size = new System.Drawing.Size(40, 17);
+            this.labelControl13.TabIndex = 116;
+            this.labelControl13.Text = "Trailer";
+            // 
+            // labelControl14
+            // 
+            this.labelControl14.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl14.Appearance.Options.UseFont = true;
+            this.labelControl14.Location = new System.Drawing.Point(17, 10);
+            this.labelControl14.Name = "labelControl14";
+            this.labelControl14.Size = new System.Drawing.Size(35, 17);
+            this.labelControl14.TabIndex = 115;
+            this.labelControl14.Text = "Truck";
+            // 
+            // ckedt_TruckCanMove
+            // 
+            this.ckedt_TruckCanMove.Location = new System.Drawing.Point(697, 31);
+            this.ckedt_TruckCanMove.Name = "ckedt_TruckCanMove";
+            this.ckedt_TruckCanMove.Properties.Caption = "Can move?";
+            this.ckedt_TruckCanMove.Properties.ContentAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.ckedt_TruckCanMove.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.ckedt_TruckCanMove.Size = new System.Drawing.Size(96, 21);
+            this.ckedt_TruckCanMove.TabIndex = 114;
+            // 
+            // ckedt_TruckNeedCrane
+            // 
+            this.ckedt_TruckNeedCrane.Location = new System.Drawing.Point(558, 31);
+            this.ckedt_TruckNeedCrane.Name = "ckedt_TruckNeedCrane";
+            this.ckedt_TruckNeedCrane.Properties.Caption = "Need crane?";
+            this.ckedt_TruckNeedCrane.Properties.ContentAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.ckedt_TruckNeedCrane.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.ckedt_TruckNeedCrane.Size = new System.Drawing.Size(106, 21);
+            this.ckedt_TruckNeedCrane.TabIndex = 113;
+            // 
+            // checkEdit8
+            // 
+            this.checkEdit8.Location = new System.Drawing.Point(371, 31);
+            this.checkEdit8.Name = "checkEdit8";
+            this.checkEdit8.Properties.Caption = "Photos of damages?";
+            this.checkEdit8.Properties.ContentAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.checkEdit8.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.checkEdit8.Size = new System.Drawing.Size(152, 21);
+            this.checkEdit8.TabIndex = 112;
+            // 
+            // ckedt_truckDamages
+            // 
+            this.ckedt_truckDamages.Location = new System.Drawing.Point(250, 31);
+            this.ckedt_truckDamages.Name = "ckedt_truckDamages";
+            this.ckedt_truckDamages.Properties.Caption = "Damages?";
+            this.ckedt_truckDamages.Properties.ContentAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.ckedt_truckDamages.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.ckedt_truckDamages.Size = new System.Drawing.Size(86, 21);
+            this.ckedt_truckDamages.TabIndex = 109;
+            // 
+            // edt_TruckNumber
+            // 
+            this.edt_TruckNumber.Location = new System.Drawing.Point(90, 30);
+            this.edt_TruckNumber.Name = "edt_TruckNumber";
+            this.edt_TruckNumber.Size = new System.Drawing.Size(119, 24);
+            this.edt_TruckNumber.TabIndex = 111;
+            // 
+            // labelControl15
+            // 
+            this.labelControl15.Location = new System.Drawing.Point(17, 33);
+            this.labelControl15.Name = "labelControl15";
+            this.labelControl15.Size = new System.Drawing.Size(64, 17);
+            this.labelControl15.TabIndex = 110;
+            this.labelControl15.Text = "Company#";
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl2.Appearance.Options.UseFont = true;
+            this.labelControl2.Location = new System.Drawing.Point(12, 151);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(44, 20);
+            this.labelControl2.StyleController = this.layoutControl1;
+            this.labelControl2.TabIndex = 6;
+            this.labelControl2.Text = "Status";
+            // 
+            // panelControl1
+            // 
+            this.panelControl1.Appearance.BackColor = System.Drawing.Color.White;
+            this.panelControl1.Appearance.Options.UseBackColor = true;
+            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl1.Controls.Add(this.textEdit13);
+            this.panelControl1.Controls.Add(this.btn_LookUpLicense);
+            this.panelControl1.Controls.Add(this.lue_DriverLicenseState);
+            this.panelControl1.Controls.Add(this.labelControl5);
+            this.panelControl1.Controls.Add(this.labelControl6);
+            this.panelControl1.Controls.Add(this.edt_License);
+            this.panelControl1.Controls.Add(this.edt_PhoneNumber);
+            this.panelControl1.Controls.Add(this.edt_FullName);
+            this.panelControl1.Controls.Add(this.labelControl7);
+            this.panelControl1.Controls.Add(this.labelControl8);
+            this.panelControl1.Controls.Add(this.labelControl9);
+            this.panelControl1.Controls.Add(this.dte_ExpirationDate);
+            this.panelControl1.Location = new System.Drawing.Point(12, 36);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(817, 111);
+            this.panelControl1.TabIndex = 5;
+            // 
+            // textEdit13
+            // 
+            this.textEdit13.Location = new System.Drawing.Point(17, 11);
+            this.textEdit13.Name = "textEdit13";
+            this.textEdit13.Size = new System.Drawing.Size(298, 24);
+            this.textEdit13.TabIndex = 23;
+            // 
+            // btn_LookUpLicense
+            // 
+            this.btn_LookUpLicense.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.btn_LookUpLicense.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.btn_LookUpLicense.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_LookUpLicense.Appearance.Options.UseBackColor = true;
+            this.btn_LookUpLicense.Appearance.Options.UseBorderColor = true;
+            this.btn_LookUpLicense.Appearance.Options.UseFont = true;
+            this.btn_LookUpLicense.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btn_LookUpLicense.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.searchWhite1;
+            this.btn_LookUpLicense.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
+            this.btn_LookUpLicense.Location = new System.Drawing.Point(323, 11);
+            this.btn_LookUpLicense.Name = "btn_LookUpLicense";
+            this.btn_LookUpLicense.Size = new System.Drawing.Size(106, 24);
+            this.btn_LookUpLicense.TabIndex = 22;
+            this.btn_LookUpLicense.Text = "Find driver";
+            // 
+            // lue_DriverLicenseState
+            // 
+            this.lue_DriverLicenseState.Location = new System.Drawing.Point(460, 81);
+            this.lue_DriverLicenseState.Name = "lue_DriverLicenseState";
+            this.lue_DriverLicenseState.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lue_DriverLicenseState.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("pk_id", "id", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("state", "state")});
+            this.lue_DriverLicenseState.Properties.DisplayMember = "state";
+            this.lue_DriverLicenseState.Properties.ShowHeader = false;
+            this.lue_DriverLicenseState.Properties.ValueMember = "pk_id";
+            this.lue_DriverLicenseState.Size = new System.Drawing.Size(119, 24);
+            this.lue_DriverLicenseState.TabIndex = 21;
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Location = new System.Drawing.Point(339, 83);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(113, 17);
+            this.labelControl5.TabIndex = 20;
+            this.labelControl5.Text = "State of expedition";
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Location = new System.Drawing.Point(17, 83);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(90, 17);
+            this.labelControl6.TabIndex = 18;
+            this.labelControl6.Text = "Expiration date";
+            // 
+            // edt_License
+            // 
+            this.edt_License.Location = new System.Drawing.Point(671, 43);
+            this.edt_License.Name = "edt_License";
+            this.edt_License.Size = new System.Drawing.Size(129, 24);
+            this.edt_License.TabIndex = 17;
+            // 
+            // edt_PhoneNumber
+            // 
+            this.edt_PhoneNumber.Location = new System.Drawing.Point(437, 43);
+            this.edt_PhoneNumber.Name = "edt_PhoneNumber";
+            this.edt_PhoneNumber.Size = new System.Drawing.Size(142, 24);
+            this.edt_PhoneNumber.TabIndex = 16;
+            // 
+            // edt_FullName
+            // 
+            this.edt_FullName.Location = new System.Drawing.Point(60, 43);
+            this.edt_FullName.Name = "edt_FullName";
+            this.edt_FullName.Size = new System.Drawing.Size(257, 24);
+            this.edt_FullName.TabIndex = 15;
+            // 
+            // labelControl7
+            // 
+            this.labelControl7.Location = new System.Drawing.Point(612, 45);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(51, 17);
+            this.labelControl7.TabIndex = 14;
+            this.labelControl7.Text = "License#";
+            // 
+            // labelControl8
+            // 
+            this.labelControl8.Location = new System.Drawing.Point(339, 45);
+            this.labelControl8.Name = "labelControl8";
+            this.labelControl8.Size = new System.Drawing.Size(90, 17);
+            this.labelControl8.TabIndex = 13;
+            this.labelControl8.Text = "Phone number";
+            // 
+            // labelControl9
+            // 
+            this.labelControl9.Location = new System.Drawing.Point(17, 45);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(35, 17);
+            this.labelControl9.TabIndex = 12;
+            this.labelControl9.Text = "Name";
+            // 
+            // dte_ExpirationDate
+            // 
+            this.dte_ExpirationDate.EditValue = null;
+            this.dte_ExpirationDate.Location = new System.Drawing.Point(116, 81);
+            this.dte_ExpirationDate.Name = "dte_ExpirationDate";
+            this.dte_ExpirationDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dte_ExpirationDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dte_ExpirationDate.Properties.DisplayFormat.FormatString = "";
+            this.dte_ExpirationDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dte_ExpirationDate.Properties.EditFormat.FormatString = "";
+            this.dte_ExpirationDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dte_ExpirationDate.Properties.MaskSettings.Set("mask", "");
+            this.dte_ExpirationDate.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.dte_ExpirationDate.Size = new System.Drawing.Size(201, 24);
+            this.dte_ExpirationDate.TabIndex = 19;
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.Location = new System.Drawing.Point(12, 12);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(132, 20);
+            this.labelControl1.StyleController = this.layoutControl1;
+            this.labelControl1.TabIndex = 4;
+            this.labelControl1.Text = "Driver information";
+            // 
+            // Root
+            // 
+            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.Root.GroupBordersVisible = false;
+            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1,
+            this.layoutControlItem2,
+            this.layoutControlItem3,
+            this.layoutControlItem4,
+            this.layoutControlItem5,
+            this.layoutControlItem6,
+            this.layoutControlItem8,
+            this.layoutControlItem7,
+            this.layoutControlItem10,
+            this.layoutControlItem9});
+            this.Root.Name = "Root";
+            this.Root.Size = new System.Drawing.Size(841, 947);
+            this.Root.TextVisible = false;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.labelControl1;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(821, 24);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.panelControl1;
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(821, 115);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextVisible = false;
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.labelControl2;
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 139);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(821, 24);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem3.TextVisible = false;
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.panelControl2;
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 163);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(821, 190);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextVisible = false;
+            // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.Control = this.labelControl3;
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 353);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(821, 24);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem5.TextVisible = false;
+            // 
+            // layoutControlItem6
+            // 
+            this.layoutControlItem6.Control = this.panelControl3;
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 377);
+            this.layoutControlItem6.Name = "layoutControlItem6";
+            this.layoutControlItem6.Size = new System.Drawing.Size(821, 351);
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem6.TextVisible = false;
+            // 
+            // layoutControlItem8
+            // 
+            this.layoutControlItem8.Control = this.stackPanel1;
+            this.layoutControlItem8.Location = new System.Drawing.Point(0, 878);
+            this.layoutControlItem8.Name = "layoutControlItem8";
+            this.layoutControlItem8.Size = new System.Drawing.Size(410, 49);
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem8.TextVisible = false;
+            // 
+            // layoutControlItem7
+            // 
+            this.layoutControlItem7.Control = this.labelControl4;
+            this.layoutControlItem7.Location = new System.Drawing.Point(0, 728);
+            this.layoutControlItem7.Name = "layoutControlItem7";
+            this.layoutControlItem7.Size = new System.Drawing.Size(821, 24);
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem7.TextVisible = false;
+            // 
+            // layoutControlItem10
+            // 
+            this.layoutControlItem10.Control = this.gc_InjuredPersons;
+            this.layoutControlItem10.Location = new System.Drawing.Point(0, 752);
+            this.layoutControlItem10.Name = "layoutControlItem10";
+            this.layoutControlItem10.Size = new System.Drawing.Size(821, 126);
+            this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem10.TextVisible = false;
+            // 
+            // layoutControlItem9
+            // 
+            this.layoutControlItem9.Control = this.stackPanel2;
+            this.layoutControlItem9.Location = new System.Drawing.Point(410, 878);
+            this.layoutControlItem9.Name = "layoutControlItem9";
+            this.layoutControlItem9.Size = new System.Drawing.Size(411, 49);
+            this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem9.TextVisible = false;
             // 
             // AddIncidentDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(841, 947);
-            this.Controls.Add(this.panelControl4);
-            this.Controls.Add(this.groupControl3);
-            this.Controls.Add(this.groupControl2);
-            this.Controls.Add(this.groupControl1);
+            this.Controls.Add(this.layoutControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.MaximizeBox = false;
             this.Name = "AddIncidentDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Incident Details";
+            this.Text = "Add Incident Details";
             this.Load += new System.EventHandler(this.IncidentCapture_Load);
             this.Shown += new System.EventHandler(this.AddIncidentDetails_Shown);
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
-            this.groupControl2.ResumeLayout(false);
-            this.groupControl2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.edt_Cargo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_DeleteRow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_Number.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
+            this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.stackPanel2)).EndInit();
+            this.stackPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gc_InjuredPersons)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gv_InjuredPersons)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_DeleteInjuredRow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stackPanel1)).EndInit();
+            this.stackPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
+            this.panelControl3.ResumeLayout(false);
+            this.panelControl3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pnl_AddInjuredFields)).EndInit();
+            this.pnl_AddInjuredFields.ResumeLayout(false);
+            this.pnl_AddInjuredFields.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_NumberOfInjured.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pnl_PoliceReport)).EndInit();
+            this.pnl_PoliceReport.ResumeLayout(false);
+            this.pnl_PoliceReport.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_PoliceReport.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_Longitude.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_Broker.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_Highway.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lue_Cities.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lue_StateExp.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_Latitude.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckedt_PoliceReport.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dte_IncidentDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dte_IncidentDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tme_IncidentTime.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
+            this.panelControl2.ResumeLayout(false);
+            this.panelControl2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnl_BOL)).EndInit();
             this.pnl_BOL.ResumeLayout(false);
             this.pnl_BOL.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.edt_manifest.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckedt_Spill.Properties)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ckedt_TruckCanMove.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ckedt_TruckNeedCrane.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ckedt_truckDamages.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.edt_TruckNumber.Properties)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_Cargo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckedt_TrailerCanMove.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckedt_TrailerNeedCrane.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit6.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit4.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckedt_TrailerDamages.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_TrailerNumber.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
-            this.groupControl1.ResumeLayout(false);
-            this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lue_StateExp.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dte_ExpirationDate.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dte_ExpirationDate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.edt_FullName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.edt_License.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.edt_PhoneNumber.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_DeleteRow)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
-            this.groupControl3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ckedt_TruckCanMove.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckedt_TruckNeedCrane.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit8.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckedt_truckDamages.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_TruckNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
-            this.panelControl3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gc_InjuredPersons)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gv_InjuredPersons)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_DeleteInjuredRow)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.edt_Longitude.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.edt_Latitude.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lue_states.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lue_Cities.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.edt_Highway.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
-            this.panelControl2.ResumeLayout(false);
-            this.panelControl2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.edt_Broker.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pnl_PoliceReport)).EndInit();
-            this.pnl_PoliceReport.ResumeLayout(false);
-            this.pnl_PoliceReport.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.edt_PoliceReport.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pnl_AddInjuredFields)).EndInit();
-            this.pnl_AddInjuredFields.ResumeLayout(false);
-            this.pnl_AddInjuredFields.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.edt_NumberOfInjured.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ckedt_Injured.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ckedt_PoliceReport.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dte_IncidentDate.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dte_IncidentDate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tme_IncidentTime.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.edt_Number.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
-            this.panelControl4.ResumeLayout(false);
+            this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit13.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lue_DriverLicenseState.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_License.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_PhoneNumber.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_FullName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dte_ExpirationDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dte_ExpirationDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private DevExpress.XtraEditors.GroupControl groupControl2;
-        private DevExpress.XtraEditors.GroupControl groupControl1;
-        private DevExpress.XtraEditors.SimpleButton btn_LookUpLicence;
-        private DevExpress.XtraEditors.DateEdit dte_ExpirationDate;
-        private DevExpress.XtraEditors.LabelControl labelControl20;
-        private DevExpress.XtraEditors.TextEdit edt_FullName;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.TextEdit edt_License;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.LabelControl labelControl3;
-        private DevExpress.XtraEditors.TextEdit edt_PhoneNumber;
-        private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btn_DeleteRow;
-        private DevExpress.XtraEditors.PanelControl pnl_BOL;
-        private DevExpress.XtraEditors.LabelControl lbl_Bol;
-        private DevExpress.XtraEditors.TextEdit edt_manifest;
-        private DevExpress.XtraEditors.CheckEdit ckedt_Spill;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private DevExpress.XtraEditors.CheckEdit ckedt_TruckCanMove;
-        private DevExpress.XtraEditors.CheckEdit ckedt_TruckNeedCrane;
-        private DevExpress.XtraEditors.LabelControl labelControl25;
-        private DevExpress.XtraEditors.LabelControl labelControl24;
-        private DevExpress.XtraEditors.CheckEdit checkEdit2;
-        private DevExpress.XtraEditors.CheckEdit ckedt_truckDamages;
+        private DevExpress.XtraEditors.TextEdit edt_Number;
+        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
+        private DevExpress.XtraLayout.LayoutControl layoutControl1;
+        private DevExpress.Utils.Layout.StackPanel stackPanel1;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.PanelControl panelControl3;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.PanelControl panelControl2;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraLayout.LayoutControlGroup Root;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
+        private DevExpress.XtraEditors.TextEdit textEdit13;
+        private DevExpress.XtraEditors.SimpleButton btn_LookUpLicense;
+        private DevExpress.XtraEditors.LookUpEdit lue_DriverLicenseState;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraEditors.TextEdit edt_License;
+        private DevExpress.XtraEditors.TextEdit edt_PhoneNumber;
+        private DevExpress.XtraEditors.TextEdit edt_FullName;
+        private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.LabelControl labelControl8;
-        private DevExpress.XtraEditors.LabelControl labelControl18;
-        private DevExpress.XtraEditors.TextEdit edt_TruckNumber;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private DevExpress.XtraEditors.LabelControl labelControl9;
+        private DevExpress.XtraEditors.DateEdit dte_ExpirationDate;
+        private DevExpress.XtraEditors.LabelControl labelControl27;
+        private DevExpress.XtraEditors.LabelControl labelControl26;
+        private DevExpress.XtraEditors.LabelControl lbl_TrailerExists;
+        private DevExpress.XtraEditors.LabelControl lbl_TruckExists;
+        private DevExpress.XtraEditors.PanelControl pnl_BOL;
+        private DevExpress.XtraEditors.TextEdit edt_manifest;
+        private DevExpress.XtraEditors.LabelControl labelControl10;
+        private DevExpress.XtraEditors.CheckEdit ckedt_Spill;
+        private DevExpress.XtraEditors.TextEdit edt_Cargo;
+        private DevExpress.XtraEditors.LabelControl labelControl11;
         private DevExpress.XtraEditors.CheckEdit ckedt_TrailerCanMove;
         private DevExpress.XtraEditors.CheckEdit ckedt_TrailerNeedCrane;
-        private DevExpress.XtraEditors.LabelControl labelControl21;
-        private DevExpress.XtraEditors.LabelControl labelControl22;
-        private DevExpress.XtraEditors.CheckEdit checkEdit6;
+        private DevExpress.XtraEditors.CheckEdit checkEdit4;
         private DevExpress.XtraEditors.CheckEdit ckedt_TrailerDamages;
-        private DevExpress.XtraEditors.LabelControl labelControl26;
-        private DevExpress.XtraEditors.LabelControl labelControl27;
-        private DevExpress.XtraEditors.LabelControl labelControl23;
         private DevExpress.XtraEditors.TextEdit edt_TrailerNumber;
-        private DevExpress.XtraEditors.LabelControl labelControl19;
-        private DevExpress.XtraEditors.LabelControl labelControl5;
-        private DevExpress.XtraEditors.GroupControl groupControl3;
-        private DevExpress.XtraEditors.PanelControl panelControl1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private DevExpress.XtraEditors.LabelControl labelControl28;
-        private DevExpress.XtraEditors.LookUpEdit lue_states;
-        private DevExpress.XtraEditors.LabelControl labelControl15;
-        private DevExpress.XtraEditors.LookUpEdit lue_Cities;
-        private DevExpress.XtraEditors.LabelControl labelControl13;
-        private DevExpress.XtraEditors.TextEdit edt_Highway;
-        private DevExpress.XtraEditors.PanelControl panelControl2;
-        private DevExpress.XtraEditors.PanelControl pnl_AddInjuredFields;
-        private DevExpress.XtraEditors.SimpleButton btn_AddInjuredPersonsControls;
-        private DevExpress.XtraEditors.LabelControl labelControl7;
-        private DevExpress.XtraEditors.TextEdit edt_NumberOfInjured;
-        private DevExpress.XtraEditors.CheckEdit ckedt_Injured;
-        private DevExpress.XtraEditors.CheckEdit ckedt_PoliceReport;
-        private DevExpress.XtraEditors.TextEdit edt_PoliceReport;
-        private DevExpress.XtraEditors.LabelControl labelControl17;
-        private DevExpress.XtraEditors.LabelControl labelControl16;
-        private DevExpress.XtraEditors.TextEdit edt_Number;
         private DevExpress.XtraEditors.LabelControl labelControl12;
-        private DevExpress.XtraEditors.LabelControl labelControl10;
-        private DevExpress.XtraEditors.LabelControl labelControl9;
+        private DevExpress.XtraEditors.LabelControl labelControl13;
+        private DevExpress.XtraEditors.LabelControl labelControl14;
+        private DevExpress.XtraEditors.CheckEdit ckedt_TruckCanMove;
+        private DevExpress.XtraEditors.CheckEdit ckedt_TruckNeedCrane;
+        private DevExpress.XtraEditors.CheckEdit checkEdit8;
+        private DevExpress.XtraEditors.CheckEdit ckedt_truckDamages;
+        private DevExpress.XtraEditors.TextEdit edt_TruckNumber;
+        private DevExpress.XtraEditors.LabelControl labelControl15;
+        private DevExpress.XtraEditors.PanelControl pnl_PoliceReport;
+        private DevExpress.XtraEditors.TextEdit edt_PoliceReport;
+        private DevExpress.XtraEditors.LabelControl labelControl22;
+        private DevExpress.XtraEditors.TextEdit edt_Longitude;
+        private DevExpress.XtraEditors.PanelControl panelControl4;
+        private DevExpress.XtraEditors.TextEdit edt_Broker;
+        private DevExpress.XtraEditors.LabelControl labelControl16;
+        private DevExpress.XtraEditors.TextEdit edt_Highway;
+        private DevExpress.XtraEditors.LookUpEdit lue_Cities;
+        private DevExpress.XtraEditors.LookUpEdit lue_StateExp;
+        private DevExpress.XtraEditors.TextEdit edt_Latitude;
+        private DevExpress.XtraEditors.LabelControl labelControl17;
+        private DevExpress.XtraEditors.LabelControl labelControl18;
+        private DevExpress.XtraEditors.LabelControl labelControl19;
+        private DevExpress.XtraEditors.LabelControl labelControl20;
+        private DevExpress.XtraEditors.LabelControl labelControl21;
+        private DevExpress.XtraEditors.LabelControl labelControl23;
+        private DevExpress.XtraEditors.CheckEdit ckedt_PoliceReport;
+        private DevExpress.XtraEditors.LabelControl labelControl24;
+        private DevExpress.XtraEditors.LabelControl labelControl25;
         private DevExpress.XtraEditors.DateEdit dte_IncidentDate;
         private DevExpress.XtraEditors.TimeEdit tme_IncidentTime;
-        private DevExpress.XtraEditors.PanelControl panelControl3;
-        private DevExpress.XtraGrid.GridControl gc_InjuredPersons;
         private DevExpress.XtraGrid.Views.Grid.GridView gv_InjuredPersons;
         private DevExpress.XtraGrid.Columns.GridColumn col_FullName;
         private DevExpress.XtraGrid.Columns.GridColumn col_LastName1;
@@ -1569,25 +1420,16 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraGrid.Columns.GridColumn col_PhoneNumber;
         private DevExpress.XtraGrid.Columns.GridColumn col_Delete;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btn_DeleteInjuredRow;
-        private DevExpress.XtraEditors.PanelControl pnl_PoliceReport;
-        private DevExpress.XtraEditors.PanelControl panelControl4;
-        private DevExpress.XtraEditors.SimpleButton btn_AddIncident;
-        private DevExpress.XtraEditors.LookUpEdit lue_StateExp;
-        private DevExpress.XtraEditors.LabelControl labelControl29;
-        private DevExpress.XtraEditors.LabelControl lbl_TruckExists;
-        private DevExpress.XtraEditors.LabelControl lbl_TrailerExists;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
-        private DevExpress.XtraEditors.SimpleButton btn_Cancel;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.SimpleButton btn_SelectBroker;
-        private DevExpress.XtraEditors.TextEdit edt_Broker;
-        private DevExpress.XtraEditors.TextEdit edt_Cargo;
-        private DevExpress.XtraEditors.LabelControl labelControl14;
-        private DevExpress.XtraEditors.TextEdit edt_Longitude;
-        private DevExpress.XtraEditors.LabelControl labelControl11;
-        private DevExpress.XtraEditors.TextEdit edt_Latitude;
+        private DevExpress.XtraGrid.GridControl gc_InjuredPersons;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
+        private DevExpress.Utils.Layout.StackPanel stackPanel2;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
-        private DevExpress.XtraEditors.SimpleButton btn_AddComments;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.TextEdit edt_NumberOfInjured;
+        private DevExpress.XtraEditors.CheckEdit checkEdit1;
+        private DevExpress.XtraEditors.LabelControl labelControl28;
+        private DevExpress.XtraEditors.PanelControl pnl_AddInjuredFields;
+        private DevExpress.XtraEditors.SimpleButton simpleButton3;
     }
 }
