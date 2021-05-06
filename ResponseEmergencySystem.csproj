@@ -417,6 +417,12 @@
     <Compile Include="Forms\Modals\AddMoreCaptures.Designer.cs">
       <DependentUpon>AddMoreCaptures.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Modals\AppConfiguration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Modals\AppConfiguration.Designer.cs">
+      <DependentUpon>AppConfiguration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Modals\EditComments.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -542,6 +548,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Modals\AddMoreCaptures.resx">
       <DependentUpon>AddMoreCaptures.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Modals\AppConfiguration.resx">
+      <DependentUpon>AppConfiguration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Modals\EditComments.resx">
       <DependentUpon>EditComments.cs</DependentUpon>
@@ -714,6 +723,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\clearWhite.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\open1.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\Grpc.Core.2.31.0\build\net45\Grpc.Core.targets" Condition="Exists('packages\Grpc.Core.2.31.0\build\net45\Grpc.Core.targets')" />
