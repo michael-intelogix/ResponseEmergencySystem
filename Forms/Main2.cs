@@ -219,10 +219,10 @@ namespace ResponseEmergencySystem.Forms
 
         private void simpleButton2_Click_1(object sender, EventArgs e)
         {
-            xtraFolderBrowserDialog1.ShowDialog();
+            //xtraFolderBrowserDialog1.ShowDialog();
 
 
-            Settings.Default.AppFolder = xtraFolderBrowserDialog1.SelectedPath;
+            //Settings.Default.AppFolder = xtraFolderBrowserDialog1.SelectedPath;
             Settings.Default.Save();
         }
 
