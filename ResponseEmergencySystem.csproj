@@ -397,6 +397,12 @@
     <Compile Include="Forms\Main2.Designer.cs">
       <DependentUpon>Main2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\miwntras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\miwntras.Designer.cs">
+      <DependentUpon>miwntras.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Modals\AddComments.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -525,6 +531,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Main2.resx">
       <DependentUpon>Main2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\miwntras.resx">
+      <DependentUpon>miwntras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Modals\AddComments.resx">
       <DependentUpon>AddComments.cs</DependentUpon>

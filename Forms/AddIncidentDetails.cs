@@ -101,7 +101,7 @@ namespace ResponseEmergencySystem.Forms
 
         private void lue_States_Properties_EditValueChanged(object sender, EventArgs e)
         {
-            lue_Cities.Properties.DataSource = Functions.getCities(Guid.Parse(lue_states.EditValue.ToString()), "");
+            lue_Cities.Properties.DataSource = Functions.getCities(Guid.Parse(lue_StateExp.EditValue.ToString()), "");
         }
 
         private void btn_LookUpLicence_Click(object sender, EventArgs e)
@@ -237,7 +237,7 @@ namespace ResponseEmergencySystem.Forms
         public void LoadStates(DataTable dt_States)
         {
             lue_StateExp.Properties.DataSource = dt_States;
-            lue_states.Properties.DataSource = dt_States;
+            lue_StateExp.Properties.DataSource = dt_States;
         }
 
         public void LoadCities(DataTable dt_Cities)
@@ -388,8 +388,8 @@ namespace ResponseEmergencySystem.Forms
 
         public string ID_State
         {
-            get { return lue_states.EditValue.ToString(); }
-            set { lue_states.EditValue = value; }
+            get { return lue_StateExp.EditValue.ToString(); }
+            set { lue_StateExp.EditValue = value; }
         }
 
         public string ID_City
@@ -407,6 +407,11 @@ namespace ResponseEmergencySystem.Forms
         private void btn_AddComments_Click(object sender, EventArgs e)
         {
             _controller.SetComments();
+        }
+
+        private void edt_Broker_EditValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 
