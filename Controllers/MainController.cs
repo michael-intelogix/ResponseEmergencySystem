@@ -45,9 +45,11 @@ namespace ResponseEmergencySystem.Controllers
         //    get { return _selectedIncident; }
         //}
 
-        public List<Incident> IncidentsFilter()
+        public void IncidentsFilter()
         {
-            return _incidents;
+            _incidents = IncidentService.list_Incidents(_view.Folio, "", _view.DriverName, _view.TruckNumber, "", date1: _view.Date1, date2: _view.Date1 == "" ? "" : _view.Date2 );
+            if (_incidents.Count > 0)
+                _view.LoadIncidents(_incidents);   
         }
 
         public void Login()

@@ -18,7 +18,7 @@ namespace ResponseEmergencySystem.Services
         public static Response response;
         public static DataTable result;
 
-        public static Driver GetDriver(string driver)
+        public static Driver GetDriver(string search)
         {
             opSuccess = false;
             List<Driver> result = new List<Driver>();
@@ -38,9 +38,7 @@ namespace ResponseEmergencySystem.Services
                     }
                     cmd.Connection.Open();
 
-                    cmd.Parameters.AddWithValue("@driver", "garcia");
-                    //cmd.Parameters.AddWithValue("@Phone_Number", phone);
-                    //cmd.Parameters.AddWithValue("@Name", name);
+                    cmd.Parameters.AddWithValue("@driver", search);
 
                     using (SqlDataReader sdr = cmd.ExecuteReader())
                     {

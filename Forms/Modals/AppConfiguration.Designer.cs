@@ -55,7 +55,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             // 
             // textEdit1
             // 
-            this.textEdit1.EditValue = "\\\\\\\\";
+            this.textEdit1.EditValue = "";
             this.textEdit1.Location = new System.Drawing.Point(42, 48);
             this.textEdit1.Name = "textEdit1";
             this.textEdit1.Size = new System.Drawing.Size(437, 24);
@@ -80,6 +80,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.simpleButton1.Size = new System.Drawing.Size(94, 35);
             this.simpleButton1.TabIndex = 12;
             this.simpleButton1.Text = "Save";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // xtraFolderBrowserDialog1
             // 
@@ -95,6 +96,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.Controls.Add(this.simpleButton3);
             this.Name = "AppConfiguration";
             this.Text = "AppConfiguration";
+            this.Load += new System.EventHandler(this.AppConfiguration_Load);
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
 

@@ -84,11 +84,11 @@ namespace ResponseEmergencySystem.Forms
             this.xtraScrollableControl2 = new DevExpress.XtraEditors.XtraScrollableControl();
             this.xtraScrollableControl1 = new DevExpress.XtraEditors.XtraScrollableControl();
             this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
-            this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
+            this.edt_TruckNum = new DevExpress.XtraEditors.TextEdit();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
+            this.edt_Name = new DevExpress.XtraEditors.TextEdit();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.edt_Folio = new DevExpress.XtraEditors.TextEdit();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.dateEdit2 = new DevExpress.XtraEditors.DateEdit();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
@@ -185,9 +185,9 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
             this.layoutControl3.SuspendLayout();
             this.xtraScrollableControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_TruckNum.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_Name.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_Folio.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
@@ -471,11 +471,11 @@ namespace ResponseEmergencySystem.Forms
             // xtraScrollableControl1
             // 
             this.xtraScrollableControl1.Controls.Add(this.simpleButton5);
-            this.xtraScrollableControl1.Controls.Add(this.textEdit3);
+            this.xtraScrollableControl1.Controls.Add(this.edt_TruckNum);
             this.xtraScrollableControl1.Controls.Add(this.labelControl10);
-            this.xtraScrollableControl1.Controls.Add(this.textEdit2);
+            this.xtraScrollableControl1.Controls.Add(this.edt_Name);
             this.xtraScrollableControl1.Controls.Add(this.labelControl9);
-            this.xtraScrollableControl1.Controls.Add(this.textEdit1);
+            this.xtraScrollableControl1.Controls.Add(this.edt_Folio);
             this.xtraScrollableControl1.Controls.Add(this.labelControl8);
             this.xtraScrollableControl1.Controls.Add(this.dateEdit2);
             this.xtraScrollableControl1.Controls.Add(this.labelControl7);
@@ -502,12 +502,13 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton5.Text = "Clear";
             this.simpleButton5.Click += new System.EventHandler(this.simpleButton5_Click);
             // 
-            // textEdit3
+            // edt_TruckNum
             // 
-            this.textEdit3.Location = new System.Drawing.Point(704, 12);
-            this.textEdit3.Name = "textEdit3";
-            this.textEdit3.Size = new System.Drawing.Size(45, 24);
-            this.textEdit3.TabIndex = 9;
+            this.edt_TruckNum.Location = new System.Drawing.Point(704, 12);
+            this.edt_TruckNum.Name = "edt_TruckNum";
+            this.edt_TruckNum.Size = new System.Drawing.Size(45, 24);
+            this.edt_TruckNum.TabIndex = 9;
+            this.edt_TruckNum.EditValueChanged += new System.EventHandler(this.FilterEditValueChanged);
             // 
             // labelControl10
             // 
@@ -517,12 +518,13 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl10.TabIndex = 8;
             this.labelControl10.Text = "Truck number";
             // 
-            // textEdit2
+            // edt_Name
             // 
-            this.textEdit2.Location = new System.Drawing.Point(462, 11);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Size = new System.Drawing.Size(145, 24);
-            this.textEdit2.TabIndex = 7;
+            this.edt_Name.Location = new System.Drawing.Point(462, 11);
+            this.edt_Name.Name = "edt_Name";
+            this.edt_Name.Size = new System.Drawing.Size(145, 24);
+            this.edt_Name.TabIndex = 7;
+            this.edt_Name.EditValueChanged += new System.EventHandler(this.FilterEditValueChanged);
             // 
             // labelControl9
             // 
@@ -532,12 +534,13 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl9.TabIndex = 6;
             this.labelControl9.Text = "Name";
             // 
-            // textEdit1
+            // edt_Folio
             // 
-            this.textEdit1.Location = new System.Drawing.Point(346, 12);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(69, 24);
-            this.textEdit1.TabIndex = 5;
+            this.edt_Folio.Location = new System.Drawing.Point(346, 12);
+            this.edt_Folio.Name = "edt_Folio";
+            this.edt_Folio.Size = new System.Drawing.Size(69, 24);
+            this.edt_Folio.TabIndex = 5;
+            this.edt_Folio.EditValueChanged += new System.EventHandler(this.FilterEditValueChanged);
             // 
             // labelControl8
             // 
@@ -558,6 +561,7 @@ namespace ResponseEmergencySystem.Forms
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEdit2.Size = new System.Drawing.Size(90, 24);
             this.dateEdit2.TabIndex = 3;
+            this.dateEdit2.EditValueChanged += new System.EventHandler(this.FilterEditValueChanged);
             // 
             // labelControl7
             // 
@@ -578,8 +582,7 @@ namespace ResponseEmergencySystem.Forms
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEdit1.Size = new System.Drawing.Size(90, 24);
             this.dateEdit1.TabIndex = 1;
-            this.dateEdit1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dateEdit1_KeyPress);
-            this.dateEdit1.Leave += new System.EventHandler(this.dateEdit1_Leave);
+            this.dateEdit1.EditValueChanged += new System.EventHandler(this.FilterEditValueChanged);
             // 
             // labelControl6
             // 
@@ -666,7 +669,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             // gridColumn7
             // 
-            this.gridColumn7.FieldName = "Truck number";
+            this.gridColumn7.FieldName = "truckNumber";
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.OptionsColumn.AllowEdit = false;
             this.gridColumn7.Visible = true;
@@ -1352,9 +1355,9 @@ namespace ResponseEmergencySystem.Forms
             this.layoutControl3.ResumeLayout(false);
             this.xtraScrollableControl1.ResumeLayout(false);
             this.xtraScrollableControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_TruckNum.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_Name.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_Folio.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
@@ -1503,11 +1506,11 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraEditors.XtraScrollableControl xtraScrollableControl2;
         private DevExpress.XtraEditors.XtraScrollableControl xtraScrollableControl1;
         private DevExpress.XtraEditors.SimpleButton simpleButton5;
-        private DevExpress.XtraEditors.TextEdit textEdit3;
+        private DevExpress.XtraEditors.TextEdit edt_TruckNum;
         private DevExpress.XtraEditors.LabelControl labelControl10;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
+        private DevExpress.XtraEditors.TextEdit edt_Name;
         private DevExpress.XtraEditors.LabelControl labelControl9;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit edt_Folio;
         private DevExpress.XtraEditors.LabelControl labelControl8;
         private DevExpress.XtraEditors.DateEdit dateEdit2;
         private DevExpress.XtraEditors.LabelControl labelControl7;

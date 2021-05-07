@@ -162,6 +162,7 @@ namespace ResponseEmergencySystem.Forms
             }
 
         }
+    
 
         public string ChatText
         {
@@ -178,6 +179,38 @@ namespace ResponseEmergencySystem.Forms
         public string ID_Incident
         {   
             get { return gv_Incidents.GetFocusedRowCellValue("ID_Capture").ToString(); }
+        }
+
+        public string Date1 
+        {
+            get {
+                string date1 = dateEdit1.DateTime.Date.ToString("MM/dd/yyyy");
+                return date1 == "01/01/0001" ? "" : date1; 
+            }
+            set { dateEdit1.EditValue = value; }
+        }
+        public string Date2 
+        {
+            get {
+                string date2 = dateEdit2.DateTime.Date.ToString("MM/dd/yyyy");
+                return date2 == "01/01/0001" ? "" : date2;
+            } 
+            set { dateEdit2.EditValue = value; }
+        }
+        public string Folio 
+        {
+            get { return Utils.GetEdtValue(edt_Folio); } 
+            set { edt_Folio.EditValue = value; }
+        }
+        public string DriverName 
+        { 
+            get { return Utils.GetEdtValue(edt_Name); } 
+            set { edt_Name.EditValue = value; }
+        }
+        public string TruckNumber 
+        { 
+            get { return Utils.GetEdtValue(edt_TruckNum); }
+            set { edt_TruckNum.EditValue = value; }
         }
         #endregion
 
@@ -222,19 +255,16 @@ namespace ResponseEmergencySystem.Forms
         private void simpleButton5_Click(object sender, EventArgs e)
         {
             dateEdit1.EditValue = null;
+            dateEdit2.EditValue = null;
+            edt_Folio.EditValue = "";
+            edt_Name.EditValue = "";
+            edt_TruckNum.EditValue = "";
+            _controller.IncidentsFilter();
         }
 
-        private void dateEdit1_Leave(object sender, EventArgs e)
+        private void FilterEditValueChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void dateEdit1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)13)
-            {
-                
-            }
+            _controller.IncidentsFilter();
         }
     }
 }

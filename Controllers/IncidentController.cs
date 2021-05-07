@@ -148,8 +148,8 @@ namespace ResponseEmergencySystem.Controllers
             DevExpress.XtraPrinting.PdfExportOptions MyPdfOptions = new DevExpress.XtraPrinting.PdfExportOptions();
             try
             {
-                report1.ExportToPdf(ReportPath + $"{Folio}.pdf");
-                MessageBox.Show("PDF saved!");
+                report1.ExportToPdf(ReportPath + $"\\{Folio}.pdf");
+                MessageBox.Show("Report " + $"{Folio}.pdf");
             }
             catch
             {

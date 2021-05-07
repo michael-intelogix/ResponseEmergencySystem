@@ -250,6 +250,11 @@ namespace ResponseEmergencySystem.Forms
             gc_InjuredPersons.DataSource = dt_InjuredPersons;
         }
 
+        public string DriverInfoSearch
+        {
+            get { return Utils.GetEdtValue(edt_SearchDriver); }
+        }
+
         public string FullName
         {
             get { return Utils.GetEdtValue(edt_FullName); }
@@ -412,6 +417,11 @@ namespace ResponseEmergencySystem.Forms
         private void edt_Broker_EditValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_FindDriver_Click(object sender, EventArgs e)
+        {
+            _controller.GetDriver();
         }
     }
 

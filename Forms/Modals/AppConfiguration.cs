@@ -13,6 +13,8 @@ namespace ResponseEmergencySystem.Forms.Modals
 {
     public partial class AppConfiguration : DevExpress.XtraEditors.XtraForm
     {
+        private string AppPath = "";
+
         public AppConfiguration()
         {
             InitializeComponent();
@@ -21,8 +23,20 @@ namespace ResponseEmergencySystem.Forms.Modals
         private void simpleButton3_Click(object sender, EventArgs e)
         {
             xtraFolderBrowserDialog1.ShowDialog();
-            textEdit1.Text = xtraFolderBrowserDialog1.SelectedPath;
-            MessageBox.Show(textEdit1.Text);
+            AppPath = xtraFolderBrowserDialog1.SelectedPath;
+            textEdit1.Text = AppPath.Replace("\\", "/");
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.AppFolder = AppPath;
+            Properties.Settings.Default.Save();
+        }
+
+        private void AppConfiguration_Load(object sender, EventArgs e)
+        {
+            AppPath = Properties.Settings.Default.AppFolder;
+            textEdit1.Text = AppPath.Replace("\\", "/");
         }
     }
 }
