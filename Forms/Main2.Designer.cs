@@ -105,6 +105,7 @@ namespace ResponseEmergencySystem.Forms
             this.btn_View2 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btn_Edit2 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.col_ID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -632,7 +633,8 @@ namespace ResponseEmergencySystem.Forms
             this.gridColumn6,
             this.gridColumn7,
             this.gridColumn8,
-            this.gridColumn9});
+            this.gridColumn9,
+            this.col_ID});
             this.gv_Incidents.GridControl = this.gc_Incidents;
             this.gv_Incidents.Name = "gv_Incidents";
             this.gv_Incidents.OptionsSelection.EnableAppearanceFocusedCell = false;
@@ -647,7 +649,7 @@ namespace ResponseEmergencySystem.Forms
             this.Date.OptionsColumn.AllowEdit = false;
             this.Date.Visible = true;
             this.Date.VisibleIndex = 0;
-            this.Date.Width = 267;
+            this.Date.Width = 146;
             // 
             // gridColumn5
             // 
@@ -656,7 +658,7 @@ namespace ResponseEmergencySystem.Forms
             this.gridColumn5.OptionsColumn.AllowEdit = false;
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 1;
-            this.gridColumn5.Width = 267;
+            this.gridColumn5.Width = 146;
             // 
             // gridColumn6
             // 
@@ -665,7 +667,7 @@ namespace ResponseEmergencySystem.Forms
             this.gridColumn6.OptionsColumn.AllowEdit = false;
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 2;
-            this.gridColumn6.Width = 686;
+            this.gridColumn6.Width = 341;
             // 
             // gridColumn7
             // 
@@ -674,16 +676,18 @@ namespace ResponseEmergencySystem.Forms
             this.gridColumn7.OptionsColumn.AllowEdit = false;
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 3;
-            this.gridColumn7.Width = 212;
+            this.gridColumn7.Width = 104;
             // 
             // gridColumn8
             // 
+            this.gridColumn8.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn8.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn8.ColumnEdit = this.btn_View2;
             this.gridColumn8.FieldName = "View";
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
             this.gridColumn8.VisibleIndex = 4;
-            this.gridColumn8.Width = 92;
+            this.gridColumn8.Width = 41;
             // 
             // btn_View2
             // 
@@ -698,12 +702,15 @@ namespace ResponseEmergencySystem.Forms
             // 
             // gridColumn9
             // 
+            this.gridColumn9.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn9.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn9.Caption = "Edit";
             this.gridColumn9.ColumnEdit = this.btn_Edit2;
             this.gridColumn9.FieldName = "Edit";
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.Visible = true;
             this.gridColumn9.VisibleIndex = 5;
-            this.gridColumn9.Width = 81;
+            this.gridColumn9.Width = 38;
             // 
             // btn_Edit2
             // 
@@ -715,6 +722,13 @@ namespace ResponseEmergencySystem.Forms
             this.btn_Edit2.Name = "btn_Edit2";
             this.btn_Edit2.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btn_Edit2.Click += new System.EventHandler(this.btn_Edit2_Click);
+            // 
+            // col_ID
+            // 
+            this.col_ID.Caption = "ID_Incident";
+            this.col_ID.FieldName = "ID_Incident";
+            this.col_ID.Name = "col_ID";
+            this.col_ID.Width = 115;
             // 
             // labelControl3
             // 
@@ -1520,5 +1534,6 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem9;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem12;
+        private DevExpress.XtraGrid.Columns.GridColumn col_ID;
     }
 }

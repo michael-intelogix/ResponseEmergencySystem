@@ -19,6 +19,7 @@ namespace ResponseEmergencySystem.Controllers.Captures
         IAddCapturesView _view;
         public List<Capture> _captures;
         private Capture _selectedCaptureType;
+        private string ID_Incident;
         private List<ImageCapture> _images;
         private bool img = false;
 
@@ -28,6 +29,11 @@ namespace ResponseEmergencySystem.Controllers.Captures
             _captures = captures;
             _images = new List<ImageCapture>();
             view.SetController(this);
+        }
+
+        public void SetIncidentId(string id)
+        {
+            ID_Incident = id;
         }
 
         public void LoadCaptures()
@@ -102,6 +108,8 @@ namespace ResponseEmergencySystem.Controllers.Captures
                     var urlTest = _images[i].ImageFireBaseUrl.Split(new string[] { "%2F" }, StringSplitOptions.None)[2].Split('=')[2];
                     //var urlTest2 = urlTest[2].Split('=');
                     //var token = urlTest2[2];
+
+                    CaptureService.AddCapture(_selectedCaptureType.ID_CaptureType, ID_Incident, "test service", "");
 
                     _view.PbrArray[id].Visible = false;
                     _view.BtnArray[id].Text = "Uploaded";

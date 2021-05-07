@@ -178,7 +178,7 @@ namespace ResponseEmergencySystem.Forms
 
         public string ID_Incident
         {   
-            get { return gv_Incidents.GetFocusedRowCellValue("ID_Capture").ToString(); }
+            get { return gv_Incidents.GetFocusedRowCellValue("ID_Incident").ToString(); }
         }
 
         public string Date1 

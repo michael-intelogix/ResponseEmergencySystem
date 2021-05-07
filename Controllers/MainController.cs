@@ -173,7 +173,7 @@ namespace ResponseEmergencySystem.Controllers
         {
             EditIncidentDetails viewEditIncident = new EditIncidentDetails();
 
-            Controllers.Incidents.EditIncidentController incidentCtrl = new Controllers.Incidents.EditIncidentController(viewEditIncident, incidentId);
+            Incidents.EditIncidentController incidentCtrl = new Incidents.EditIncidentController(viewEditIncident, incidentId);
             incidentCtrl.LoadIncident();
 
             viewEditIncident.Show();
@@ -208,6 +208,7 @@ namespace ResponseEmergencySystem.Controllers
             AddMoreCaptures AddMoreCaptures = new AddMoreCaptures();
             Captures.AddCapturesController addCapturesCtrl = new Captures.AddCapturesController(AddMoreCaptures, CaptureService.list_CaptureTypes());
             addCapturesCtrl.LoadCaptures();
+            addCapturesCtrl.SetIncidentId(_view.ID_Incident);
             AddMoreCaptures.ShowDialog();
         }
     }

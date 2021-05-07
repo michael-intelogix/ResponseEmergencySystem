@@ -9,6 +9,7 @@ namespace ResponseEmergencySystem.Models
     public class Capture
     {
         public Guid ID_Capture { get; }
+        public Guid ID_Incident { get; set; }
         public string ID_CaptureType { get; set; }
         public string ID_StatusDetail { get; set; }
         public string ImagePath { get; set; }
@@ -50,6 +51,7 @@ namespace ResponseEmergencySystem.Models
             }
         }
 
+
         public Capture(string id, string statusId, string captureTypeId, string type, string imgPath, string comments, string Description, string NamesOfImages)
         {
             var localID = "FDD0C17C7-2D9C-4A84-8851-5647A8373669";
@@ -84,6 +86,37 @@ namespace ResponseEmergencySystem.Models
             } 
             
         }
+
+        public Capture(string id, string statusId, string captureTypeId, string type, string comments, string description)
+        {
+            ID_Capture = Guid.Parse(id);
+            ID_StatusDetail = statusId;
+            ID_CaptureType = captureTypeId;
+            captureType = type;
+
+            this.comments = comments;
+            this.Description = description;
+
+            ImagePath = "";
+            ImageName = "";
+        }
+
+        public Capture(string id, string incidentId, string statusId, string captureTypeId, string type, string comments, string description)
+        {
+            ID_Incident = Guid.Parse(incidentId);
+
+            ID_Capture = Guid.Parse(id);
+            ID_StatusDetail = statusId;
+            ID_CaptureType = captureTypeId;
+            captureType = type;
+
+            this.comments = comments;
+            this.Description = description;
+
+            ImagePath = "";
+            ImageName = "";
+        }
+
 
     }
 }
