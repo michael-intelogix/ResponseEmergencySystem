@@ -423,6 +423,19 @@ namespace ResponseEmergencySystem.Forms
         {
             _controller.GetDriver();
         }
+
+        private void simpleButton4_Click(object sender, EventArgs e)
+        {
+            _controller.SetBroker();
+        }
+
+        private void edt_SearchDriver_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                _controller.GetDriver();
+            }
+        }
     }
 
 }

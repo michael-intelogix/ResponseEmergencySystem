@@ -113,6 +113,11 @@ namespace ResponseEmergencySystem.Forms
             gc_InjuredPersons.DataSource = dt_InjuredPersons;
         }
 
+        public string DriverSearch
+        {
+            get { return Utils.GetEdtValue(edt_DriverInfoSearch); }
+        }
+
         public string FullName
         {
             get { return Utils.GetEdtValue(edt_FullName); }
@@ -279,14 +284,22 @@ namespace ResponseEmergencySystem.Forms
 
         }
 
-        private void labelControl25_Click(object sender, EventArgs e)
+        private void lue_DriverLicenseState_EditValueChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void lue_DriverLicenseState_EditValueChanged(object sender, EventArgs e)
+        private void btn_FindDriver_Click(object sender, EventArgs e)
         {
+            _controller.GetDriver();
+        }
 
+        private void edt_DriverInfoSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                _controller.GetDriver();
+            }
         }
     }
 }
