@@ -69,9 +69,20 @@ namespace ResponseEmergencySystem.Code
 
         public static string GetRowID(DevExpress.XtraGrid.Views.Grid.GridView gv, string ID_Name)
         {
-            Int32 index = gv.FocusedRowHandle;
-            string ID = gv.GetRowCellValue(index, ID_Name).ToString();
-            return ID;
+            try
+            {
+                Int32 index = gv.FocusedRowHandle;
+                string ID = gv.GetRowCellValue(index, ID_Name).ToString();
+                return ID;
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message);
+                return "";
+            }
+
+
         }
 
         // this only works if the name of the label is like the button and they are sibilings (lbl_text1 - btn_text1 both childs of pnl_1)

@@ -24,5 +24,14 @@ namespace ResponseEmergencySystem.Views
         string Message { get; set; }
         
         string ID_Incident { get; }
+
+        //dateEdit1.DateTime.Date.ToString("MM/dd/yyyy")
+        string Date1 { get; set;  }
+        //dateEdit2.DateTime.Date.ToString("MM/dd/yyyy")
+        string Date2 { get; set;  }
+        string Folio { get; set;  }
+        string DriverName { get; set;  }
+        string TruckNumber { get; set; }
+
     }
 }
