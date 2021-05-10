@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ResponseEmergencySystem.Views
 {
@@ -16,6 +17,13 @@ namespace ResponseEmergencySystem.Views
         void LoadStates(DataTable dt_States);
         void LoadCities(DataTable dt_Cities);
         void LoadInjuredPersons(DataTable dt_InjuredPersons);
+
+        // Controls Events Needed
+        void checkNumber_OnEdtKeyPress(object sender, KeyPressEventArgs e);
+        void checkNumber_OnEdtLeave(object sender, EventArgs e);
+        void FindTruckSamsara_Click(object sender, EventArgs e);
+        void Ckedt_OnValueChanged(object sender, EventArgs e);
+        void lue_OnEditValueChanged(object sender, EventArgs e);
 
         string DriverInfoSearch { get; }
 

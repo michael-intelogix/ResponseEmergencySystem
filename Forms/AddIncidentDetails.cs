@@ -74,57 +74,11 @@ namespace ResponseEmergencySystem.Forms
         {
             _controller.AddIncident();
         }
-
-        private void lue_States_Properties_EditValueChanged(object sender, EventArgs e)
-        {
-            lue_Cities.Properties.DataSource = Functions.getCities(Guid.Parse(lue_StateExp.EditValue.ToString()), "");
-        }
-
-        private void btn_LookUpLicence_Click(object sender, EventArgs e)
-        {
-            _controller.GetDriver();
-        }
-
-        private void btn_LookUpPhoneNumber_Click(object sender, EventArgs e)
-        {
-            _controller.GetDriver();
-        }
-
-        private void btn_LookUpName_Click(object sender, EventArgs e)
-        {
-            _controller.GetDriver();
-        }
-
-        private void OnChangedCheckEdit(object sender, EventArgs e)
-        {
-            CheckEdit cb = (CheckEdit)sender;
-
-            _controller.CheckEditChanged(cb.Name, (bool)cb.EditValue);
-        }
-
+       
         private void AddIncidentDetails_Shown(object sender, EventArgs e)
         { 
         }
         
-        private void checkNumber_OnEdtLeave (object sender, EventArgs e)
-        {
-            TextEdit edt_Number =  (TextEdit) sender;
-            _controller.CheckNumber(edt_Number.Name);
-        }
-
-        private void checkNumber_OnEdtKeyPress(object sender, KeyPressEventArgs e)
-        {
-            TextEdit edt_Number = (TextEdit)sender;
-            _controller.CheckNumber(edt_Number.Name);
-        }
-
-        private void FindTruckSamsara_Click(object sender, EventArgs e)
-        {
-            splashScreenManager1.ShowWaitForm();
-            _controller.GetTruckSamsara();
-            splashScreenManager1.CloseWaitForm();
-        }
-
         private void simpleButton2_Click_1(object sender, EventArgs e)
         {
             _controller.SetBroker();
@@ -155,6 +109,41 @@ namespace ResponseEmergencySystem.Forms
         public void LoadInjuredPersons(DataTable dt_InjuredPersons)
         {
             gc_InjuredPersons.DataSource = dt_InjuredPersons;
+        }
+
+        // events needed
+        public void checkNumber_OnEdtKeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                TextEdit edt_Number = (TextEdit)sender;
+                _controller.CheckNumber(edt_Number.Name);
+            }
+        }
+
+        public void checkNumber_OnEdtLeave(object sender, EventArgs e)
+        {
+            TextEdit edt_Number = (TextEdit)sender;
+            _controller.CheckNumber(edt_Number.Name);
+        }
+
+        public void FindTruckSamsara_Click(object sender, EventArgs e)
+        {
+            splashScreenManager1.ShowWaitForm();
+            _controller.GetTruckSamsara();
+            splashScreenManager1.CloseWaitForm();
+        }
+
+        public void Ckedt_OnValueChanged(object sender, EventArgs e)
+        {
+            CheckEdit cb = (CheckEdit)sender;
+
+            _controller.CheckEditChanged(cb.Name, (bool)cb.EditValue);
+        }
+
+        public void lue_OnEditValueChanged(object sender, EventArgs e)
+        {
+            lue_Cities.Properties.DataSource = Functions.getCities(Guid.Parse(lue_StateExp.EditValue.ToString()), "");
         }
 
         public string DriverInfoSearch
