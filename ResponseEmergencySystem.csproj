@@ -435,6 +435,12 @@
     <Compile Include="Forms\Modals\frm_BrokerList.Designer.cs">
       <DependentUpon>frm_BrokerList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Modals\Modals.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Modals\Modals.Designer.cs">
+      <DependentUpon>Modals.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Modals\Testing.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -557,6 +563,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Modals\frm_BrokerList.resx">
       <DependentUpon>frm_BrokerList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Modals\Modals.resx">
+      <DependentUpon>Modals.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Modals\Testing.resx">
       <DependentUpon>Testing.cs</DependentUpon>
