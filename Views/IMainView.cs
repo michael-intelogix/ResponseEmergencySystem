@@ -23,6 +23,7 @@ namespace ResponseEmergencySystem.Views
         string Message { get; set; }
         
         string ID_Incident { get; }
+        string ID_Capture { get; }
 
         //dateEdit1.DateTime.Date.ToString("MM/dd/yyyy")
         string Date1 { get; set;  }

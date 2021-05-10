@@ -142,6 +142,11 @@ namespace ResponseEmergencySystem.Forms
             get { return gv_Incidents.GetFocusedRowCellValue("ID_Incident").ToString(); }
         }
 
+        public string ID_Capture
+        {
+            get { return gv_Captures.GetFocusedRowCellValue("ID_Capture").ToString(); }
+        }
+
         public string Date1
         {
             get {
@@ -224,6 +229,11 @@ namespace ResponseEmergencySystem.Forms
         private void FilterEditValueChanged(object sender, EventArgs e)
         {
             _controller.IncidentsFilter();
+        }
+
+        private void gv_Captures_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            _controller.SetImages();
         }
     }
 }

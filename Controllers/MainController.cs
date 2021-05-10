@@ -19,7 +19,8 @@ namespace ResponseEmergencySystem.Controllers
         IMainView _view;
         public List<Capture> _captures;
         List<Incident> _incidents;
-        public string ID_Incident;
+        private string ID_Incident;
+        private string ID_Capture;
         public bool loaded = false;
 
         DataTable access = new DataTable();
@@ -123,6 +124,11 @@ namespace ResponseEmergencySystem.Controllers
                 _view.ImagesDatasSource = new List<ImageCapture>();
         }
 
+        public void SetImages()
+        {
+            _view.ImagesDatasSource = CaptureService.list_Images(_view.ID_Capture);
+        }
+
         private void GetImage()
         {
             //https://firebasestorage.googleapis.com/v0/b/dcmanagement-3d402.appspot.com/o/SIREM%2FCaptures%2F0B121804-EF9C-497D-816F-39B3BF3FF92A%2FFront%20of%20the%20Truck?alt=media&token=a2b4133a-affa-4234-8b62-bf5790fdfba4
@@ -153,7 +159,7 @@ namespace ResponseEmergencySystem.Controllers
 
         public void Send()
         {
-            ITXFramework.ITXFramework itx = new ITXFramework.ITXFramework();
+            //ITXFramework.ITXFramework itx = new ITXFramework.ITXFramework();
 
             // itx.cfrm_InsertForm
             string now = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
