@@ -78,7 +78,7 @@ namespace ResponseEmergencySystem.Controllers
             }
 
             //btn_Send.Enabled = true;
-            CollectionReference messagesRef = dataBase.Collection("SIREM-Chats").Document("75329DD7-BD87-4D65-BF84-1B7EBF3C8DD6").Collection("messages");
+            CollectionReference messagesRef = dataBase.Collection("SIREM-Chats").Document(_view.ID_Incident).Collection("messages");
             Query query = messagesRef;
 
             listener = query.Listen(snapshot =>
@@ -153,7 +153,7 @@ namespace ResponseEmergencySystem.Controllers
             string now = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             now = now.Replace("/", "-");
 
-            DocumentReference docRef = dataBase.Collection("SIREM-Chats").Document("75329DD7-BD87-4D65-BF84-1B7EBF3C8DD6").Collection("messages").Document(now);
+            DocumentReference docRef = dataBase.Collection("SIREM-Chats").Document(_view.ID_Incident).Collection("messages").Document(now);
             Dictionary<string, object> data1 = new Dictionary<string, object>()
             {
                 { "from", constants.userName },

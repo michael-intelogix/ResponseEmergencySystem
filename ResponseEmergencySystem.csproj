@@ -461,7 +461,7 @@
     </Compile>
     <Compile Include="Models\Broker.cs" />
     <Compile Include="Models\City.cs" />
-    <Compile Include="Models\Injured.cs" />
+    <Compile Include="Models\PersonsInvolved.cs" />
     <Compile Include="Models\Response.cs" />
     <Compile Include="Models\State.cs" />
     <Compile Include="Models\Samsara\Vehicle.cs" />
