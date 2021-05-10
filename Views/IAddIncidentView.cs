@@ -45,5 +45,11 @@ namespace ResponseEmergencySystem.Views
         string ID_City { get; set; }
         //this value can be highway street and other kind of references like that 
         string LocationReferences { get; set; }
+
+        // form elements properties (change properties of especific elements in the form)
+        bool PnlBolVisibility { set; }
+        bool PnlPoliceReportVisibility { set; }
+        bool LblTruckExistsVisibility { set; }
+        bool LblTrailerExistsVisibility { set; }
     }
 }

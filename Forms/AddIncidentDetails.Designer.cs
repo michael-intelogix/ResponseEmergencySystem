@@ -88,10 +88,10 @@ namespace ResponseEmergencySystem.Forms
             this.tme_IncidentTime = new DevExpress.XtraEditors.TimeEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.labelControl27 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl26 = new DevExpress.XtraEditors.LabelControl();
-            this.lbl_TrailerExists = new DevExpress.XtraEditors.LabelControl();
             this.lbl_TruckExists = new DevExpress.XtraEditors.LabelControl();
+            this.lbl_TrailerExists = new DevExpress.XtraEditors.LabelControl();
+            this.lbl_TrailerExistsIcon = new DevExpress.XtraEditors.LabelControl();
+            this.lbl_TruckExistsIcon = new DevExpress.XtraEditors.LabelControl();
             this.pnl_BOL = new DevExpress.XtraEditors.PanelControl();
             this.edt_manifest = new DevExpress.XtraEditors.TextEdit();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
@@ -405,10 +405,10 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl4.Appearance.Options.UseFont = true;
             this.labelControl4.Location = new System.Drawing.Point(12, 707);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(118, 20);
+            this.labelControl4.Size = new System.Drawing.Size(10, 20);
             this.labelControl4.StyleController = this.layoutControl1;
             this.labelControl4.TabIndex = 10;
-            this.labelControl4.Text = "Injuered persons";
+            this.labelControl4.Text = "  ";
             // 
             // panelControl3
             // 
@@ -730,10 +730,10 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl2.Appearance.BackColor = System.Drawing.Color.White;
             this.panelControl2.Appearance.Options.UseBackColor = true;
             this.panelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl2.Controls.Add(this.labelControl27);
-            this.panelControl2.Controls.Add(this.labelControl26);
-            this.panelControl2.Controls.Add(this.lbl_TrailerExists);
             this.panelControl2.Controls.Add(this.lbl_TruckExists);
+            this.panelControl2.Controls.Add(this.lbl_TrailerExists);
+            this.panelControl2.Controls.Add(this.lbl_TrailerExistsIcon);
+            this.panelControl2.Controls.Add(this.lbl_TruckExistsIcon);
             this.panelControl2.Controls.Add(this.pnl_BOL);
             this.panelControl2.Controls.Add(this.ckedt_Spill);
             this.panelControl2.Controls.Add(this.edt_Cargo);
@@ -757,49 +757,51 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl2.Size = new System.Drawing.Size(817, 186);
             this.panelControl2.TabIndex = 7;
             // 
-            // labelControl27
+            // lbl_TruckExists
             // 
-            this.labelControl27.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl27.Appearance.ForeColor = System.Drawing.Color.Maroon;
-            this.labelControl27.Appearance.Options.UseFont = true;
-            this.labelControl27.Appearance.Options.UseForeColor = true;
-            this.labelControl27.Location = new System.Drawing.Point(85, 60);
-            this.labelControl27.Name = "labelControl27";
-            this.labelControl27.Size = new System.Drawing.Size(125, 17);
-            this.labelControl27.TabIndex = 130;
-            this.labelControl27.Text = "Truck doesn\'t exists";
-            // 
-            // labelControl26
-            // 
-            this.labelControl26.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl26.Appearance.ForeColor = System.Drawing.Color.Maroon;
-            this.labelControl26.Appearance.Options.UseFont = true;
-            this.labelControl26.Appearance.Options.UseForeColor = true;
-            this.labelControl26.Location = new System.Drawing.Point(86, 115);
-            this.labelControl26.Name = "labelControl26";
-            this.labelControl26.Size = new System.Drawing.Size(131, 17);
-            this.labelControl26.TabIndex = 129;
-            this.labelControl26.Text = "Trailer doesn\'t exists";
+            this.lbl_TruckExists.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_TruckExists.Appearance.ForeColor = System.Drawing.Color.Maroon;
+            this.lbl_TruckExists.Appearance.Options.UseFont = true;
+            this.lbl_TruckExists.Appearance.Options.UseForeColor = true;
+            this.lbl_TruckExists.Location = new System.Drawing.Point(85, 60);
+            this.lbl_TruckExists.Name = "lbl_TruckExists";
+            this.lbl_TruckExists.Size = new System.Drawing.Size(125, 17);
+            this.lbl_TruckExists.TabIndex = 130;
+            this.lbl_TruckExists.Text = "Truck doesn\'t exists";
+            this.lbl_TruckExists.Visible = false;
             // 
             // lbl_TrailerExists
             // 
-            this.lbl_TrailerExists.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.cancel_16x161;
-            this.lbl_TrailerExists.Location = new System.Drawing.Point(217, 88);
-            this.lbl_TrailerExists.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.lbl_TrailerExists.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_TrailerExists.Appearance.ForeColor = System.Drawing.Color.Maroon;
+            this.lbl_TrailerExists.Appearance.Options.UseFont = true;
+            this.lbl_TrailerExists.Appearance.Options.UseForeColor = true;
+            this.lbl_TrailerExists.Location = new System.Drawing.Point(86, 115);
             this.lbl_TrailerExists.Name = "lbl_TrailerExists";
-            this.lbl_TrailerExists.Size = new System.Drawing.Size(16, 17);
-            this.lbl_TrailerExists.TabIndex = 128;
+            this.lbl_TrailerExists.Size = new System.Drawing.Size(131, 17);
+            this.lbl_TrailerExists.TabIndex = 129;
+            this.lbl_TrailerExists.Text = "Trailer doesn\'t exists";
             this.lbl_TrailerExists.Visible = false;
             // 
-            // lbl_TruckExists
+            // lbl_TrailerExistsIcon
             // 
-            this.lbl_TruckExists.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.apply_16x162;
-            this.lbl_TruckExists.Location = new System.Drawing.Point(217, 33);
-            this.lbl_TruckExists.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.lbl_TruckExists.Name = "lbl_TruckExists";
-            this.lbl_TruckExists.Size = new System.Drawing.Size(16, 17);
-            this.lbl_TruckExists.TabIndex = 127;
-            this.lbl_TruckExists.Visible = false;
+            this.lbl_TrailerExistsIcon.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.cancel_16x161;
+            this.lbl_TrailerExistsIcon.Location = new System.Drawing.Point(217, 88);
+            this.lbl_TrailerExistsIcon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.lbl_TrailerExistsIcon.Name = "lbl_TrailerExistsIcon";
+            this.lbl_TrailerExistsIcon.Size = new System.Drawing.Size(16, 17);
+            this.lbl_TrailerExistsIcon.TabIndex = 128;
+            this.lbl_TrailerExistsIcon.Visible = false;
+            // 
+            // lbl_TruckExistsIcon
+            // 
+            this.lbl_TruckExistsIcon.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.apply_16x162;
+            this.lbl_TruckExistsIcon.Location = new System.Drawing.Point(217, 33);
+            this.lbl_TruckExistsIcon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.lbl_TruckExistsIcon.Name = "lbl_TruckExistsIcon";
+            this.lbl_TruckExistsIcon.Size = new System.Drawing.Size(16, 17);
+            this.lbl_TruckExistsIcon.TabIndex = 127;
+            this.lbl_TruckExistsIcon.Visible = false;
             // 
             // pnl_BOL
             // 
@@ -1384,8 +1386,6 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraEditors.LabelControl labelControl8;
         private DevExpress.XtraEditors.LabelControl labelControl9;
         private DevExpress.XtraEditors.DateEdit dte_ExpirationDate;
-        private DevExpress.XtraEditors.LabelControl labelControl27;
-        private DevExpress.XtraEditors.LabelControl labelControl26;
         private DevExpress.XtraEditors.LabelControl lbl_TrailerExists;
         private DevExpress.XtraEditors.LabelControl lbl_TruckExists;
         private DevExpress.XtraEditors.PanelControl pnl_BOL;
@@ -1449,5 +1449,7 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraEditors.PanelControl pnl_AddInjuredFields;
         private DevExpress.XtraEditors.SimpleButton simpleButton3;
         private DevExpress.XtraEditors.SimpleButton simpleButton4;
+        private DevExpress.XtraEditors.LabelControl lbl_TrailerExistsIcon;
+        private DevExpress.XtraEditors.LabelControl lbl_TruckExistsIcon;
     }
 }

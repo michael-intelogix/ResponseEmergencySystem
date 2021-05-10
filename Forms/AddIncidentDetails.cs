@@ -39,29 +39,6 @@ namespace ResponseEmergencySystem.Forms
 
         Controllers.Incidents.AddIncidentController _controller;
 
-        private void numberExists(LabelControl lbl_Exists, DataRow response, string type = "")
-        {
-
-            if (response.ItemArray[0].ToString() == "0")
-            {
-                lbl_Exists.ImageOptions.Image = Resources.cancel_16x161;
-                lbl_Exists.Visible = true;
-                if (type == "Trailer") { edt_Cargo.Visible = false; }
-            }
-            else
-            {
-                lbl_Exists.ImageOptions.Image = Resources.apply_16x161;
-                lbl_Exists.Visible = true;
-
-                if (type == "Trailer")
-                {
-                    edt_Cargo.Visible = true;
-                    edt_Cargo.EditValue = response.ItemArray[3].ToString();
-                }
-                
-            }
-        }
-
         private void btn_AddRowsClick(object sender, EventArgs e)
         {
             Int16 currentRow = 0;
@@ -121,27 +98,8 @@ namespace ResponseEmergencySystem.Forms
         private void OnChangedCheckEdit(object sender, EventArgs e)
         {
             CheckEdit cb = (CheckEdit)sender;
-            bool ckedtValue = (bool)cb.EditValue;
 
-            switch (cb.Name)
-            {
-                case "ckedt_Spill":
-                    pnl_BOL.Visible = ckedtValue;
-                    break;
-                case "ckedt_PoliceReport":
-                    pnl_PoliceReport.Visible = ckedtValue;
-                    break;
-                case "ckedt_Injured":
-                    panelControl3.Visible = ckedtValue;
-                    pnl_AddInjuredFields.Visible = ckedtValue;
-                    gc_InjuredPersons.Enabled = ckedtValue;
-
-                    if (_controller.dt_InjuredPersons.Rows.Count == 0)
-                        _controller.addEmptyRow();
-
-                    break;
-            }
-
+            _controller.CheckEditChanged(cb.Name, (bool)cb.EditValue);
         }
 
         private void AddIncidentDetails_Shown(object sender, EventArgs e)
@@ -151,63 +109,14 @@ namespace ResponseEmergencySystem.Forms
         private void checkNumber_OnEdtLeave (object sender, EventArgs e)
         {
             TextEdit edt_Number =  (TextEdit) sender;
-            DataTable dt_Response = new DataTable();
-            string number = Utils.GetEdtValue(edt_Number);
-
-
-            switch (edt_Number.Name)
-            {
-                case "edt_TruckNumber":
-                    dt_Response = Functions.Get_Truck(number);
-                    DataRow truckResponse = dt_Response.Select().First();
-                    _controller.SetTruck(truckResponse.ItemArray[0].ToString());
-                    numberExists(lbl_TruckExists, truckResponse);
-                    break;
-                case "edt_TrailerNumber":
-                    dt_Response = Functions.Get_Trailer(number);
-                    DataRow trailerResponse = dt_Response.Select().First();
-                    _controller.SetTrailer(trailerResponse.ItemArray[0].ToString());
-                    numberExists(
-                        lbl_TrailerExists, 
-                        trailerResponse,
-                        "Trailer"
-                    );
-                    break;
-            }
+            _controller.CheckNumber(edt_Number.Name);
         }
 
         private void checkNumber_OnEdtKeyPress(object sender, KeyPressEventArgs e)
         {
             TextEdit edt_Number = (TextEdit)sender;
-            DataTable dt_Response = new DataTable();
-            string number = Utils.GetEdtValue(edt_Number);
-
-            if (e.KeyChar == (char)13)
-            { 
-                switch (edt_Number.Name)
-                {
-                    case "edt_TruckNumber":
-                        dt_Response = Functions.Get_Truck(number);
-                        DataRow truckResponse = dt_Response.Select().First();
-                        _controller.SetTruck(truckResponse.ItemArray[0].ToString());
-                        numberExists(lbl_TruckExists, truckResponse);
-                        break;
-                    case "edt_TrailerNumber":
-                        dt_Response = Functions.Get_Trailer(number);
-                        DataRow trailerResponse = dt_Response.Select().First();
-                        _controller.SetTrailer(trailerResponse.ItemArray[0].ToString());
-                        numberExists(
-                            lbl_TrailerExists, 
-                            trailerResponse,
-                            "Trailer"
-                        );
-                        break;
-                }
-            }
-
-
+            _controller.CheckNumber(edt_Number.Name);
         }
-
 
         private void FindTruckSamsara_Click(object sender, EventArgs e)
         {
@@ -215,7 +124,6 @@ namespace ResponseEmergencySystem.Forms
             _controller.GetTruckSamsara();
             splashScreenManager1.CloseWaitForm();
         }
-
 
         private void simpleButton2_Click_1(object sender, EventArgs e)
         {
@@ -402,11 +310,33 @@ namespace ResponseEmergencySystem.Forms
             set { lue_Cities.EditValue = value; }
         }
 
+
+        // Form properties
+        public bool PnlBolVisibility
+        {
+            set { pnl_BOL.Visible = value; }
+        }
+
+        public bool PnlPoliceReportVisibility
+        {
+            set { pnl_PoliceReport.Visible = value; }
+        }
+
+        public bool LblTruckExistsVisibility
+        {
+            set { lbl_TruckExists.Visible = value; }
+        }
+
+        public bool LblTrailerExistsVisibility
+        {
+            set { lbl_TrailerExists.Visible = value; }
+        }
+
+        #endregion
         private void ViewIncidentDetails_Load(object sender, EventArgs e)
         {
             lue_StateExp.Properties.DataSource = Functions.getStates();
         }
-        #endregion
 
         private void btn_AddComments_Click(object sender, EventArgs e)
         {
