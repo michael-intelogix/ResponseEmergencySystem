@@ -37,6 +37,9 @@ namespace ResponseEmergencySystem.Controllers
             _captures = captures;
             _incidents = incidents;
             _view = view;
+
+            if (incidents.Count > 0)
+                ID_Incident = incidents[0].ID_Incident.ToString();
             view.SetController(this);
         }
 
@@ -49,7 +52,7 @@ namespace ResponseEmergencySystem.Controllers
         {
             _incidents = IncidentService.list_Incidents(_view.Folio, "", _view.DriverName, _view.TruckNumber, "", date1: _view.Date1, date2: _view.Date1 == "" ? "" : _view.Date2 );
             if (_incidents.Count > 0)
-                _view.LoadIncidents(_incidents);   
+                _view.Incidents = _incidents;   
         }
 
         public void Login()
@@ -97,24 +100,27 @@ namespace ResponseEmergencySystem.Controllers
 
         public void LoadData()
         {
-            //Login();
-            _view.LoadIncidents(_incidents);
-            _view.LoadCaptures(_captures);
-
+            Login();
+            _view.Incidents = _incidents.Select(i => new { i.ID_Incident, i.Name, i.Folio, i.IncidentDate, i.truck.truckNumber, i.ID_StatusDetail });
+            _view.CapturesDataSource = _captures.Select(i => new { i.captureType, i.comments, i.ID_Capture });
         }
 
         public void LoadChat(string ID_incident = "")
         {
-            string document = ID_Incident != "" ? ID_Incident : _view.ID_Incident;
             ///** Firestore Database Connection **/
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", constants.path);
             dataBase = FirestoreDb.Create("dcmanagement-3d402");
             ChatListener();
         }
 
-        public void SetCaptures(string ID_Incident)
+        public void SetCaptures()
         {
-            _captures = CaptureService.list_Captures(ID_Incident);
+            _captures = CaptureService.list_Captures(_view.ID_Incident);
+            _view.CapturesDataSource = _captures;
+            if (_captures.Count > 0)
+                _view.ImagesDatasSource = CaptureService.list_Images(_captures[0].ID_Capture.ToString());
+            else
+                _view.ImagesDatasSource = new List<ImageCapture>();
         }
 
         private void GetImage()

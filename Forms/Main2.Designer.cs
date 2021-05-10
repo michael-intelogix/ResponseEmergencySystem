@@ -640,7 +640,6 @@ namespace ResponseEmergencySystem.Forms
             this.gv_Incidents.Name = "gv_Incidents";
             this.gv_Incidents.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gv_Incidents.OptionsView.ShowGroupPanel = false;
-            this.gv_Incidents.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gv_Incidents_RowClick);
             this.gv_Incidents.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gv_Incidents_FocusedRowChanged);
             // 
             // Date
@@ -937,6 +936,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             // gv_Images
             // 
+            this.gv_Images.ActiveFilterEnabled = false;
             this.gv_Images.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.col_ImagePath,
             this.gridColumn13,
@@ -947,7 +947,9 @@ namespace ResponseEmergencySystem.Forms
             this.gridColumn18});
             this.gv_Images.GridControl = this.gc_Images;
             this.gv_Images.Name = "gv_Images";
+            this.gv_Images.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gv_Images.OptionsView.ShowGroupPanel = false;
+            this.gv_Images.OptionsView.ShowIndicator = false;
             // 
             // col_ImagePath
             // 
@@ -958,6 +960,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.gridColumn13.FieldName = "Date";
             this.gridColumn13.Name = "gridColumn13";
+            this.gridColumn13.OptionsColumn.AllowEdit = false;
             this.gridColumn13.Visible = true;
             this.gridColumn13.VisibleIndex = 0;
             this.gridColumn13.Width = 140;
@@ -967,6 +970,7 @@ namespace ResponseEmergencySystem.Forms
             this.gridColumn14.Caption = "Name";
             this.gridColumn14.FieldName = "ImageName";
             this.gridColumn14.Name = "gridColumn14";
+            this.gridColumn14.OptionsColumn.AllowEdit = false;
             this.gridColumn14.Visible = true;
             this.gridColumn14.VisibleIndex = 1;
             this.gridColumn14.Width = 140;
@@ -976,6 +980,7 @@ namespace ResponseEmergencySystem.Forms
             this.gridColumn15.Caption = "Comments";
             this.gridColumn15.FieldName = "comments";
             this.gridColumn15.Name = "gridColumn15";
+            this.gridColumn15.OptionsColumn.AllowEdit = false;
             this.gridColumn15.Visible = true;
             this.gridColumn15.VisibleIndex = 2;
             this.gridColumn15.Width = 340;
@@ -984,6 +989,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.gridColumn16.FieldName = "Status";
             this.gridColumn16.Name = "gridColumn16";
+            this.gridColumn16.OptionsColumn.AllowEdit = false;
             this.gridColumn16.Visible = true;
             this.gridColumn16.VisibleIndex = 3;
             this.gridColumn16.Width = 102;
@@ -1038,7 +1044,6 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl5.StyleController = this.layoutControl4;
             this.labelControl5.TabIndex = 7;
             this.labelControl5.Text = "List of images";
-            this.labelControl5.Click += new System.EventHandler(this.labelControl5_Click);
             // 
             // gc_Captures
             // 
@@ -1054,6 +1059,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             // gv_Captures
             // 
+            this.gv_Captures.ActiveFilterEnabled = false;
             this.gv_Captures.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn4,
             this.gridColumn11,
@@ -1061,13 +1067,16 @@ namespace ResponseEmergencySystem.Forms
             this.col_CaptureId});
             this.gv_Captures.GridControl = this.gc_Captures;
             this.gv_Captures.Name = "gv_Captures";
+            this.gv_Captures.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gv_Captures.OptionsView.ShowGroupPanel = false;
+            this.gv_Captures.OptionsView.ShowIndicator = false;
             // 
             // gridColumn4
             // 
             this.gridColumn4.Caption = "Capture Type";
             this.gridColumn4.FieldName = "captureType";
             this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.OptionsColumn.AllowEdit = false;
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 0;
             this.gridColumn4.Width = 100;
@@ -1077,6 +1086,7 @@ namespace ResponseEmergencySystem.Forms
             this.gridColumn11.Caption = "Comments";
             this.gridColumn11.FieldName = "comments";
             this.gridColumn11.Name = "gridColumn11";
+            this.gridColumn11.OptionsColumn.AllowEdit = false;
             this.gridColumn11.Visible = true;
             this.gridColumn11.VisibleIndex = 1;
             this.gridColumn11.Width = 468;
@@ -1117,7 +1127,6 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl4.StyleController = this.layoutControl4;
             this.labelControl4.TabIndex = 5;
             this.labelControl4.Text = "List of captures";
-            this.labelControl4.Click += new System.EventHandler(this.labelControl4_Click);
             // 
             // edt_Message
             // 
@@ -1355,7 +1364,6 @@ namespace ResponseEmergencySystem.Forms
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main2";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.Main2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
