@@ -211,6 +211,14 @@ namespace ResponseEmergencySystem.Controllers
             addCapturesCtrl.SetIncidentId(_view.ID_Incident);
             AddMoreCaptures.ShowDialog();
         }
+
+        public List<ImageCapture> GetImages(string captureId)
+        {
+            if (_captures.Count > 0)
+                return CaptureService.list_Images(captureId);
+            else
+                return new List<ImageCapture>();
+        }
     }
 
     #region firestore properties

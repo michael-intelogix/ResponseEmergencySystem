@@ -140,6 +140,7 @@ namespace ResponseEmergencySystem.Forms
             this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btn_Comments = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.col_CaptureId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.edt_Message = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -1056,7 +1057,8 @@ namespace ResponseEmergencySystem.Forms
             this.gv_Captures.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn4,
             this.gridColumn11,
-            this.gridColumn12});
+            this.gridColumn12,
+            this.col_CaptureId});
             this.gv_Captures.GridControl = this.gc_Captures;
             this.gv_Captures.Name = "gv_Captures";
             this.gv_Captures.OptionsView.ShowGroupPanel = false;
@@ -1098,6 +1100,12 @@ namespace ResponseEmergencySystem.Forms
             this.btn_Comments.Name = "btn_Comments";
             this.btn_Comments.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btn_Comments.Click += new System.EventHandler(this.btn_Comments_Click);
+            // 
+            // col_CaptureId
+            // 
+            this.col_CaptureId.Caption = "ID_Capture";
+            this.col_CaptureId.FieldName = "ID_Capture";
+            this.col_CaptureId.Name = "col_CaptureId";
             // 
             // labelControl4
             // 
@@ -1535,5 +1543,6 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem9;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem12;
         private DevExpress.XtraGrid.Columns.GridColumn col_ID;
+        private DevExpress.XtraGrid.Columns.GridColumn col_CaptureId;
     }
 }

@@ -129,6 +129,57 @@ namespace ResponseEmergencySystem.Services
             return result;
         }
 
+        public static List<ImageCapture> list_Images(string ID_Capture)
+        {
+            opSuccess = false;
+            List<ImageCapture> result = new List<ImageCapture>();
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand
+                {
+                    Connection = constants.SIREMConnection,
+                    CommandText = $"List_Images",
+                    CommandType = CommandType.StoredProcedure
+                })
+                {
+                    if (cmd.Connection.State == ConnectionState.Open)
+                    {
+                        cmd.Connection.Close();
+                    }
+
+                    cmd.Parameters.AddWithValue("@ID_Capture", Guid.Parse(ID_Capture));
+
+                    cmd.Connection.Open();
+                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    {
+                        if (sdr == null)
+                        {
+                            throw new NullReferenceException("No Information Available.");
+                        }
+                        while (sdr.Read())
+                        {
+                            result.Add(
+                                new ImageCapture(
+                                    (string)sdr["Description"],
+                                    (string)sdr["ImageUrl"],
+                                    1
+                                )
+                            );
+                        }
+                    }
+                    cmd.Connection.Close();
+                    opSuccess = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Image couldn't be found due: {ex.Message}");
+            }
+
+            return result;
+        }
+
         public static Response AddCapture(string captureTypeId, string incidentId, string description, string comments, string statusDetailId = "")
         {
             opSuccess = false;
@@ -222,7 +273,6 @@ namespace ResponseEmergencySystem.Services
                         }
                         while (sdr.Read())
                         {
-                            Debug.WriteLine((string)sdr["CapturesNames"]);
 
                             Debug.WriteLine(sdr["Validacion"]);
                             Debug.WriteLine(sdr["msg"]);

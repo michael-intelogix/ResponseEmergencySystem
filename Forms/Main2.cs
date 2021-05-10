@@ -37,18 +37,21 @@ namespace ResponseEmergencySystem.Forms
         {
             string incidentId = Utils.GetRowID(gv_Incidents, "ID_Incident");
             _controller.SetCaptures(incidentId);
-            gc_Captures.DataSource = _controller._captures.Select(i => new { i.captureType, i.comments });
+            gc_Captures.DataSource = _controller._captures.Select(i => new { i.captureType, i.comments, i.ID_Capture });
 
-            gc_Images.DataSource = _controller._captures.Where(c => c.captureType == gv_Captures.GetRowCellValue(0, "captureType").ToString());
+            //gc_Images.DataSource = _controller._captures.Where(c => c.captureType == gv_Captures.GetRowCellValue(0, "captureType").ToString());
         }
 
         private void gv_Incidents_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             string incidentId = Utils.GetRowID(gv_Incidents, "ID_Incident");
             _controller.SetCaptures(incidentId);
-            gc_Captures.DataSource = _controller._captures.Select(i => new { i.captureType, i.comments });
 
-            gc_Images.DataSource = _controller._captures.Where(c => c.captureType == gv_Captures.GetRowCellValue(0, "captureType").ToString());
+            var captures = _controller._captures.Select(i => new { i.captureType, i.comments, i.ID_Capture });
+            gc_Captures.DataSource = captures;
+
+            if (_controller._captures.Count > 0)
+                gc_Images.DataSource = _controller.GetImages(Utils.GetRowID(gv_Captures, "ID_Capture"));
         }
 
         #endregion
@@ -140,7 +143,8 @@ namespace ResponseEmergencySystem.Forms
         public void LoadCaptures(List<Capture> captures)
         {
             gc_Captures.DataSource = captures;
-            gc_Images.DataSource = captures.Where(c => c.captureType == gv_Captures.GetRowCellValue(0, "captureType").ToString());
+            if (captures.Count > 0)
+                gc_Images.DataSource = _controller.GetImages(captures[0].ID_Capture.ToString());
         }
 
         public void Refresh_Chat(DocumentSnapshot docsnap)

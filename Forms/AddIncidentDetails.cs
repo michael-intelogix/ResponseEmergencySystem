@@ -88,7 +88,6 @@ namespace ResponseEmergencySystem.Forms
             }
         }
 
-
         private void IncidentCapture_Load(object sender, EventArgs e)
         {
             _controller.CreateInjuredPersonsTable();

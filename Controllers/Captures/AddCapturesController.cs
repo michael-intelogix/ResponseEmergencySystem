@@ -20,6 +20,7 @@ namespace ResponseEmergencySystem.Controllers.Captures
         public List<Capture> _captures;
         private Capture _selectedCaptureType;
         private string ID_Incident;
+        private string ID_Capture;
         private List<ImageCapture> _images;
         private bool img = false;
 
@@ -88,6 +89,10 @@ namespace ResponseEmergencySystem.Controllers.Captures
 
                 //Thread.Sleep(5000);
 
+                var t = new Task(() => SaveCapture());
+                t.Start();
+                t.Wait();
+
                 for (var i = 0; i < _images.Count(); i++)
                 {
                     var id = _images[i].ID;
@@ -109,7 +114,10 @@ namespace ResponseEmergencySystem.Controllers.Captures
                     //var urlTest2 = urlTest[2].Split('=');
                     //var token = urlTest2[2];
 
-                    CaptureService.AddCapture(_selectedCaptureType.ID_CaptureType, ID_Incident, "test service", "");
+                    Response imgResponse = CaptureService.AddImage(Guid.NewGuid().ToString(), ID_Capture, _images[i].ImageFireBaseUrl, _images[i].ImageName, "");
+                    _images[i].ID_Image = imgResponse.ID;
+                    MessageBox.Show(imgResponse.Message + ", ID: " + imgResponse.ID);
+                    //CaptureService.AddCapture(_selectedCaptureType.ID_CaptureType, ID_Incident, "test service", "");
 
                     _view.PbrArray[id].Visible = false;
                     _view.BtnArray[id].Text = "Uploaded";
@@ -163,7 +171,7 @@ namespace ResponseEmergencySystem.Controllers.Captures
                 // Construct FirebaseStorage with path to where you want to upload the file and put it there
                 var task = new FirebaseStorage("dcmanagement-3d402.appspot.com")
                 .Child("SIREM")
-                .Child("DD0C17C7-2D9C-4A84-8851-5647A8373669")
+                .Child(ID_Capture)
                 .Child(name)
                 .PutAsync(stream);
 
@@ -188,6 +196,12 @@ namespace ResponseEmergencySystem.Controllers.Captures
             _images.Clear();
             _view.LueTypeBlock = false;
             //_view.SaveButtonEnable = true;
+        }
+
+        private void SaveCapture()
+        {
+            var response = CaptureService.AddCapture(_selectedCaptureType.ID_CaptureType, ID_Incident, "testing", "");
+            ID_Capture = response.ID;
         }
     }
 

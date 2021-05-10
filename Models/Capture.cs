@@ -81,7 +81,7 @@ namespace ResponseEmergencySystem.Models
             {
                 foreach (var n in NamesOfImages.Split(','))
                 {
-                    imagesListOfNames.Add(new ImageCapture(comments, statusId, captureTypeId, n.Trim(), captureType));
+                    //imagesListOfNames.Add(new ImageCapture(comments, statusId, captureTypeId, n.Trim(), captureType));
                 }
             } 
             
