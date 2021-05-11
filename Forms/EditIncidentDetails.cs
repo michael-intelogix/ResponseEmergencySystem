@@ -301,5 +301,40 @@ namespace ResponseEmergencySystem.Forms
                 _controller.GetDriver();
             }
         }
+
+        private void ckedt_Spill_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelControl4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void labelControl13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void edt_TruckNumber_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelControl14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelControl27_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_TruckExists_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
