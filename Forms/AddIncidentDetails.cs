@@ -64,28 +64,28 @@ namespace ResponseEmergencySystem.Forms
 
         private void btn_AddRowsClick(object sender, EventArgs e)
         {
-            Int16 currentRow = 0;
-            while (currentRow < Convert.ToInt16(edt_NumberOfInjured.EditValue))
-            {
-                _controller.addEmptyRow();
-                currentRow++;
-            }
+            //Int16 currentRow = 0;
+            //while (currentRow < Convert.ToInt16(edt_NumberOfInjured.EditValue))
+            //{
+            //    _controller.addEmptyRow();
+            //    currentRow++;
+            //}
 
         }
 
         private void btn_DeleteRowClick(object sender, EventArgs e)
         {
-            Int32 index = gv_InjuredPersons.FocusedRowHandle;
+            //Int32 index = gv_InjuredPersons.FocusedRowHandle;
 
-            DialogResult result = MessageBox.Show(
-                "Are you sure you want to delete this row?", 
-                "Delete injured person row", 
-                MessageBoxButtons.OKCancel, 
-                MessageBoxIcon.Information);
-            if (result.Equals(DialogResult.OK))
-            {
-                gv_InjuredPersons.DeleteRow(index);
-            }
+            //DialogResult result = MessageBox.Show(
+            //    "Are you sure you want to delete this row?", 
+            //    "Delete injured person row", 
+            //    MessageBoxButtons.OKCancel, 
+            //    MessageBoxIcon.Information);
+            //if (result.Equals(DialogResult.OK))
+            //{
+            //    gv_InjuredPersons.DeleteRow(index);
+            //}
         }
 
 
@@ -134,8 +134,8 @@ namespace ResponseEmergencySystem.Forms
                     break;
                 case "ckedt_Injured":
                     panelControl3.Visible = ckedtValue;
-                    pnl_AddInjuredFields.Visible = ckedtValue;
-                    gc_InjuredPersons.Enabled = ckedtValue;
+                    //pnl_AddInjuredFields.Visible = ckedtValue;
+                    //gc_InjuredPersons.Enabled = ckedtValue;
 
                     if (_controller.dt_InjuredPersons.Rows.Count == 0)
                         _controller.addEmptyRow();
@@ -247,7 +247,7 @@ namespace ResponseEmergencySystem.Forms
 
         public void LoadInjuredPersons(DataTable dt_InjuredPersons)
         {
-            gc_InjuredPersons.DataSource = dt_InjuredPersons;
+            //gc_InjuredPersons.DataSource = dt_InjuredPersons;
         }
 
         public string DriverInfoSearch
@@ -422,6 +422,61 @@ namespace ResponseEmergencySystem.Forms
         private void btn_FindDriver_Click(object sender, EventArgs e)
         {
             _controller.GetDriver();
+        }
+
+        private void labelControl4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void simpleButton3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelControl28_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelControl29_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelControl30_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkEdit1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelControl31_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkEdit3_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void simpleButton5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelControl3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void labelControl31_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 
