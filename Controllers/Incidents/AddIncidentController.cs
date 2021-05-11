@@ -21,7 +21,6 @@ namespace ResponseEmergencySystem.Controllers.Incidents
     public class AddIncidentController
     {
         IAddIncidentView _view;
-        Incident _selectedIncident;
         public DataTable dt_InjuredPersons = new DataTable();
 
         private string ID_Driver;
@@ -36,11 +35,6 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             view.SetController(this);
         }
 
-        public Incident Incident
-        {
-            get { return _selectedIncident; }
-        }
-
         public void LoadIncident()
         {
 
@@ -49,6 +43,12 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         public void LoadStates()
         {
             _view.LoadStates(Functions.getStates());
+        }
+
+        public void GetCitiesByState()
+        {
+            var cities = Functions.getCities(Guid.Parse(_view.ID_State));
+            _view.LueCitiesDataSource = cities;
         }
 
         public void GetTruckSamsara()
@@ -168,7 +168,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             
             //check location refreces
 
-            IncidentService.AdddIncident(
+            IncidentService.AddIncident(
                 ID_Driver.ToUpper(),
                 _view.ID_State,
                 _view.ID_City,
@@ -191,7 +191,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                 _view.TrailerCanMove,
                 _view.TrailerNeedCrane,
                 constants.userIDTest.ToString(),
-                comments
+                _view.Comments
             );
 
             //foreach (DataRow row in dt_InjuredPersons.Rows)

@@ -72,7 +72,11 @@ namespace ResponseEmergencySystem.Forms
 
         private void btn_AddIncident_Click(object sender, EventArgs e)
         {
-            _controller.AddIncident();
+            if (dxValidationProvider1.Validate())
+                MessageBox.Show("Incorrect Data");
+            else
+                _controller.AddIncident();
+            
         }
        
         private void AddIncidentDetails_Shown(object sender, EventArgs e)
@@ -98,20 +102,20 @@ namespace ResponseEmergencySystem.Forms
         public void LoadStates(DataTable dt_States)
         {
             lue_StateExp.Properties.DataSource = dt_States;
-            lue_StateExp.Properties.DataSource = dt_States;
+            lue_DriverLicenseState.Properties.DataSource = dt_States;
         }
 
 
         public void LoadCities(DataTable dt_Cities)
         {
-
+            lue_Cities.Properties.DataSource = dt_Cities;
         }
 
         public void LoadInjuredPersons(DataTable dt_InjuredPersons)
         {
         }
 
-        // events needed
+        #region events needed
         public void checkNumber_OnEdtKeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)13)
@@ -141,11 +145,14 @@ namespace ResponseEmergencySystem.Forms
             _controller.CheckEditChanged(cb.Name, (bool)cb.EditValue);
         }
 
-        public void lue_OnEditValueChanged(object sender, EventArgs e)
+        public void OnStateEditValueChanged(object sender, EventArgs e)
         {
-            //gc_InjuredPersons.DataSource = dt_InjuredPersons;
+            _controller.GetCitiesByState();
         }
 
+        #endregion
+
+        #region form inputs
         public string DriverInfoSearch
         {
             get { return Utils.GetEdtValue(edt_SearchDriver); }
@@ -177,8 +184,8 @@ namespace ResponseEmergencySystem.Forms
 
         public string LicenseState
         {
-            get { return lue_StateExp.EditValue.ToString(); }
-            set { lue_StateExp.EditValue = value; }
+            get { return lue_DriverLicenseState.EditValue.ToString(); }
+            set { lue_DriverLicenseState.EditValue = value; }
         }
 
         public string LocationReferences
@@ -299,8 +306,13 @@ namespace ResponseEmergencySystem.Forms
             set { lue_Cities.EditValue = value; }
         }
 
+        public string Comments
+        {
+            get { return memoEdit1.EditValue.ToString() == null ? "" : memoEdit1.EditValue.ToString(); }
+        }
+        #endregion
 
-        // Form properties
+        #region Form properties
         public bool PnlBolVisibility
         {
             set { pnl_BOL.Visible = value; }
@@ -320,6 +332,12 @@ namespace ResponseEmergencySystem.Forms
         {
             set { lbl_TrailerExists.Visible = value; }
         }
+
+        public object LueCitiesDataSource
+        {
+            set { lue_Cities.Properties.DataSource = value; }
+        }
+        #endregion
 
         #endregion
         private void ViewIncidentDetails_Load(object sender, EventArgs e)

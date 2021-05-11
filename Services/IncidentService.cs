@@ -131,7 +131,7 @@ namespace ResponseEmergencySystem.Services
             return result;
         }
 
-        public static void AdddIncident(
+        public static void AddIncident(
             string ID_Driver,
             string ID_State,
             string ID_City,

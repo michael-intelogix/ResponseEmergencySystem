@@ -23,7 +23,7 @@ namespace ResponseEmergencySystem.Views
         void checkNumber_OnEdtLeave(object sender, EventArgs e);
         void FindTruckSamsara_Click(object sender, EventArgs e);
         void Ckedt_OnValueChanged(object sender, EventArgs e);
-        void lue_OnEditValueChanged(object sender, EventArgs e);
+        void OnStateEditValueChanged(object sender, EventArgs e);
 
         string DriverInfoSearch { get; }
 
@@ -54,10 +54,13 @@ namespace ResponseEmergencySystem.Views
         //this value can be highway street and other kind of references like that 
         string LocationReferences { get; set; }
 
+        string Comments { get; } 
+
         // form elements properties (change properties of especific elements in the form)
         bool PnlBolVisibility { set; }
         bool PnlPoliceReportVisibility { set; }
         bool LblTruckExistsVisibility { set; }
         bool LblTrailerExistsVisibility { set; }
+        object LueCitiesDataSource { set; }
     }
 }

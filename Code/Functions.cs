@@ -60,7 +60,7 @@ namespace ResponseEmergencySystem.Code
             return result;
         }
 
-        public static DataTable getCities(Guid ID_State, string state)
+        public static DataTable getCities(Guid ID_State, string state = "")
         {
             opSuccess = false;
             try

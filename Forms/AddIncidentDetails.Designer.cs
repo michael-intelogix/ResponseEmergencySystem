@@ -29,11 +29,13 @@ namespace ResponseEmergencySystem.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.btn_DeleteRow = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.edt_Number = new DevExpress.XtraEditors.TextEdit();
@@ -86,8 +88,8 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.tme_IncidentTime = new DevExpress.XtraEditors.TimeEdit();
+            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.dte_IncidentDate = new DevExpress.XtraEditors.DateEdit();
             this.labelControl25 = new DevExpress.XtraEditors.LabelControl();
@@ -153,6 +155,7 @@ namespace ResponseEmergencySystem.Forms
             this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.btn_DeleteRow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_Number.Properties)).BeginInit();
@@ -239,6 +242,7 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_DeleteRow
@@ -640,6 +644,8 @@ namespace ResponseEmergencySystem.Forms
             this.edt_TrailerNumber.Name = "edt_TrailerNumber";
             this.edt_TrailerNumber.Size = new System.Drawing.Size(119, 24);
             this.edt_TrailerNumber.TabIndex = 119;
+            this.edt_TrailerNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumber_OnEdtKeyPress);
+            this.edt_TrailerNumber.Leave += new System.EventHandler(this.checkNumber_OnEdtLeave);
             // 
             // ckedt_TrailerDamages
             // 
@@ -698,6 +704,7 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton1.Size = new System.Drawing.Size(94, 35);
             this.simpleButton1.TabIndex = 1;
             this.simpleButton1.Text = "Save";
+            this.simpleButton1.Click += new System.EventHandler(this.btn_AddIncident_Click);
             // 
             // panelControl4
             // 
@@ -752,8 +759,8 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl3.Appearance.BackColor = System.Drawing.Color.White;
             this.panelControl3.Appearance.Options.UseBackColor = true;
             this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl3.Controls.Add(this.simpleButton3);
             this.panelControl3.Controls.Add(this.tme_IncidentTime);
+            this.panelControl3.Controls.Add(this.simpleButton3);
             this.panelControl3.Controls.Add(this.simpleButton4);
             this.panelControl3.Controls.Add(this.dte_IncidentDate);
             this.panelControl3.Controls.Add(this.labelControl25);
@@ -778,6 +785,16 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl3.Size = new System.Drawing.Size(914, 201);
             this.panelControl3.TabIndex = 9;
             // 
+            // tme_IncidentTime
+            // 
+            this.tme_IncidentTime.EditValue = new System.DateTime(2021, 5, 11, 0, 0, 0, 0);
+            this.tme_IncidentTime.Location = new System.Drawing.Point(304, 19);
+            this.tme_IncidentTime.Name = "tme_IncidentTime";
+            this.tme_IncidentTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.tme_IncidentTime.Size = new System.Drawing.Size(175, 24);
+            this.tme_IncidentTime.TabIndex = 116;
+            // 
             // simpleButton3
             // 
             this.simpleButton3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
@@ -792,18 +809,7 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton3.Size = new System.Drawing.Size(162, 23);
             this.simpleButton3.TabIndex = 115;
             this.simpleButton3.Text = "Find with Samsara";
-            // 
-            // tme_IncidentTime
-            // 
-            this.tme_IncidentTime.EditValue = null;
-            this.tme_IncidentTime.Location = new System.Drawing.Point(303, 19);
-            this.tme_IncidentTime.Name = "tme_IncidentTime";
-            this.tme_IncidentTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.tme_IncidentTime.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
-            this.tme_IncidentTime.Properties.MaskSettings.Set("mask", "");
-            this.tme_IncidentTime.Size = new System.Drawing.Size(175, 24);
-            this.tme_IncidentTime.TabIndex = 36;
+            this.simpleButton3.Click += new System.EventHandler(this.FindTruckSamsara_Click);
             // 
             // simpleButton4
             // 
@@ -926,6 +932,14 @@ namespace ResponseEmergencySystem.Forms
             this.lue_Cities.Name = "lue_Cities";
             this.lue_Cities.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lue_Cities.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("pk_id", "ID_City", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("state", "State", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("city", "City")});
+            this.lue_Cities.Properties.DisplayMember = "city";
+            this.lue_Cities.Properties.NullText = "";
+            this.lue_Cities.Properties.ShowHeader = false;
+            this.lue_Cities.Properties.ValueMember = "pk_id";
             this.lue_Cities.Size = new System.Drawing.Size(116, 24);
             this.lue_Cities.TabIndex = 46;
             // 
@@ -939,10 +953,12 @@ namespace ResponseEmergencySystem.Forms
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("pk_id", "id", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("state", "Name9")});
             this.lue_StateExp.Properties.DisplayMember = "state";
+            this.lue_StateExp.Properties.NullText = "";
             this.lue_StateExp.Properties.ShowHeader = false;
             this.lue_StateExp.Properties.ValueMember = "pk_id";
             this.lue_StateExp.Size = new System.Drawing.Size(123, 24);
             this.lue_StateExp.TabIndex = 45;
+            this.lue_StateExp.EditValueChanged += new System.EventHandler(this.OnStateEditValueChanged);
             // 
             // edt_Latitude
             // 
@@ -1168,6 +1184,7 @@ namespace ResponseEmergencySystem.Forms
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("pk_id", "id", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("state", "state")});
             this.lue_DriverLicenseState.Properties.DisplayMember = "state";
+            this.lue_DriverLicenseState.Properties.NullText = "";
             this.lue_DriverLicenseState.Properties.ShowHeader = false;
             this.lue_DriverLicenseState.Properties.ValueMember = "pk_id";
             this.lue_DriverLicenseState.Size = new System.Drawing.Size(119, 24);
@@ -1209,6 +1226,10 @@ namespace ResponseEmergencySystem.Forms
             this.edt_FullName.Name = "edt_FullName";
             this.edt_FullName.Size = new System.Drawing.Size(257, 24);
             this.edt_FullName.TabIndex = 15;
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.NotEquals;
+            conditionValidationRule1.ErrorText = "This value is not valid";
+            conditionValidationRule1.Value1 = "\"\"";
+            this.dxValidationProvider1.SetValidationRule(this.edt_FullName, conditionValidationRule1);
             // 
             // labelControl7
             // 
@@ -1566,6 +1587,7 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1631,7 +1653,6 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraEditors.TextEdit edt_Broker;
         private DevExpress.XtraEditors.LabelControl labelControl16;
         private DevExpress.XtraEditors.TextEdit edt_Highway;
-        private DevExpress.XtraEditors.LookUpEdit lue_Cities;
         private DevExpress.XtraEditors.LookUpEdit lue_StateExp;
         private DevExpress.XtraEditors.TextEdit edt_Latitude;
         private DevExpress.XtraEditors.LabelControl labelControl17;
@@ -1644,7 +1665,6 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraEditors.LabelControl labelControl24;
         private DevExpress.XtraEditors.LabelControl labelControl25;
         private DevExpress.XtraEditors.DateEdit dte_IncidentDate;
-        private DevExpress.XtraEditors.TimeEdit tme_IncidentTime;
         private DevExpress.Utils.Layout.StackPanel stackPanel2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
@@ -1690,5 +1710,8 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraEditors.LabelControl labelControl31;
         private DevExpress.XtraEditors.LabelControl lbl_TrailerExists;
         private DevExpress.XtraEditors.LabelControl lbl_TruckExists;
+        private DevExpress.XtraEditors.TimeEdit tme_IncidentTime;
+        private DevExpress.XtraEditors.LookUpEdit lue_Cities;
+        private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProvider1;
     }
 }
