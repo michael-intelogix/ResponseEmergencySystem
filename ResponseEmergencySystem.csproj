@@ -180,7 +180,7 @@
       <HintPath>packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="SecurePassword">
-      <HintPath>..\..\..\Documents\SecurePassword.dll</HintPath>
+      <HintPath>.\SecurePassword.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.AppContext, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -461,7 +461,7 @@
     </Compile>
     <Compile Include="Models\Broker.cs" />
     <Compile Include="Models\City.cs" />
-    <Compile Include="Models\Injured.cs" />
+    <Compile Include="Models\PersonsInvolved.cs" />
     <Compile Include="Models\Response.cs" />
     <Compile Include="Models\State.cs" />
     <Compile Include="Models\Samsara\Vehicle.cs" />

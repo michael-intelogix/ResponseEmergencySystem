@@ -29,11 +29,11 @@ namespace ResponseEmergencySystem.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ResponseEmergencySystem.Forms.WaitForm1), true, true);
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
@@ -100,8 +100,8 @@ namespace ResponseEmergencySystem.Forms
             this.edt_TruckNumber = new DevExpress.XtraEditors.TextEdit();
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.textEdit13 = new DevExpress.XtraEditors.TextEdit();
-            this.btn_LookUpLicense = new DevExpress.XtraEditors.SimpleButton();
+            this.edt_DriverInfoSearch = new DevExpress.XtraEditors.TextEdit();
+            this.btn_FindDriver = new DevExpress.XtraEditors.SimpleButton();
             this.lue_DriverLicenseState = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
@@ -174,7 +174,7 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.edt_TruckNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit13.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_DriverInfoSearch.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_DriverLicenseState.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_License.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_PhoneNumber.Properties)).BeginInit();
@@ -617,10 +617,10 @@ namespace ResponseEmergencySystem.Forms
             // btn_DeleteInjuredRow
             // 
             this.btn_DeleteInjuredRow.AutoHeight = false;
-            editorButtonImageOptions1.SvgImage = global::ResponseEmergencySystem.Properties.Resources.cancelRed;
-            editorButtonImageOptions1.SvgImageSize = new System.Drawing.Size(20, 25);
+            editorButtonImageOptions2.SvgImage = global::ResponseEmergencySystem.Properties.Resources.cancelRed;
+            editorButtonImageOptions2.SvgImageSize = new System.Drawing.Size(20, 25);
             this.btn_DeleteInjuredRow.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btn_DeleteInjuredRow.Name = "btn_DeleteInjuredRow";
             this.btn_DeleteInjuredRow.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
@@ -887,8 +887,8 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl1.Appearance.BackColor = System.Drawing.Color.White;
             this.panelControl1.Appearance.Options.UseBackColor = true;
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl1.Controls.Add(this.textEdit13);
-            this.panelControl1.Controls.Add(this.btn_LookUpLicense);
+            this.panelControl1.Controls.Add(this.edt_DriverInfoSearch);
+            this.panelControl1.Controls.Add(this.btn_FindDriver);
             this.panelControl1.Controls.Add(this.lue_DriverLicenseState);
             this.panelControl1.Controls.Add(this.labelControl4);
             this.panelControl1.Controls.Add(this.labelControl5);
@@ -904,29 +904,31 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl1.Size = new System.Drawing.Size(832, 115);
             this.panelControl1.TabIndex = 7;
             // 
-            // textEdit13
+            // edt_DriverInfoSearch
             // 
-            this.textEdit13.Location = new System.Drawing.Point(15, 11);
-            this.textEdit13.Name = "textEdit13";
-            this.textEdit13.Size = new System.Drawing.Size(298, 24);
-            this.textEdit13.TabIndex = 11;
+            this.edt_DriverInfoSearch.Location = new System.Drawing.Point(15, 11);
+            this.edt_DriverInfoSearch.Name = "edt_DriverInfoSearch";
+            this.edt_DriverInfoSearch.Size = new System.Drawing.Size(298, 24);
+            this.edt_DriverInfoSearch.TabIndex = 11;
+            this.edt_DriverInfoSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.edt_DriverInfoSearch_KeyPress);
             // 
-            // btn_LookUpLicense
+            // btn_FindDriver
             // 
-            this.btn_LookUpLicense.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
-            this.btn_LookUpLicense.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
-            this.btn_LookUpLicense.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_LookUpLicense.Appearance.Options.UseBackColor = true;
-            this.btn_LookUpLicense.Appearance.Options.UseBorderColor = true;
-            this.btn_LookUpLicense.Appearance.Options.UseFont = true;
-            this.btn_LookUpLicense.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btn_LookUpLicense.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.searchWhite1;
-            this.btn_LookUpLicense.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.btn_LookUpLicense.Location = new System.Drawing.Point(319, 14);
-            this.btn_LookUpLicense.Name = "btn_LookUpLicense";
-            this.btn_LookUpLicense.Size = new System.Drawing.Size(106, 21);
-            this.btn_LookUpLicense.TabIndex = 10;
-            this.btn_LookUpLicense.Text = "Find driver";
+            this.btn_FindDriver.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.btn_FindDriver.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.btn_FindDriver.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_FindDriver.Appearance.Options.UseBackColor = true;
+            this.btn_FindDriver.Appearance.Options.UseBorderColor = true;
+            this.btn_FindDriver.Appearance.Options.UseFont = true;
+            this.btn_FindDriver.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btn_FindDriver.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.searchWhite1;
+            this.btn_FindDriver.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
+            this.btn_FindDriver.Location = new System.Drawing.Point(319, 14);
+            this.btn_FindDriver.Name = "btn_FindDriver";
+            this.btn_FindDriver.Size = new System.Drawing.Size(106, 21);
+            this.btn_FindDriver.TabIndex = 10;
+            this.btn_FindDriver.Text = "Find driver";
+            this.btn_FindDriver.Click += new System.EventHandler(this.btn_FindDriver_Click);
             // 
             // lue_DriverLicenseState
             // 
@@ -1284,7 +1286,7 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit13.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_DriverInfoSearch.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_DriverLicenseState.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_License.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_PhoneNumber.Properties)).EndInit();
@@ -1368,8 +1370,8 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btn_DeleteInjuredRow;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
-        private DevExpress.XtraEditors.TextEdit textEdit13;
-        private DevExpress.XtraEditors.SimpleButton btn_LookUpLicense;
+        private DevExpress.XtraEditors.TextEdit edt_DriverInfoSearch;
+        private DevExpress.XtraEditors.SimpleButton btn_FindDriver;
         private DevExpress.XtraEditors.PanelControl pnl_BOL;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;

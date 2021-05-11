@@ -39,29 +39,6 @@ namespace ResponseEmergencySystem.Forms
 
         Controllers.Incidents.AddIncidentController _controller;
 
-        private void numberExists(LabelControl lbl_Exists, DataRow response, string type = "")
-        {
-
-            if (response.ItemArray[0].ToString() == "0")
-            {
-                lbl_Exists.ImageOptions.Image = Resources.cancel_16x161;
-                lbl_Exists.Visible = true;
-                if (type == "Trailer") { edt_Cargo.Visible = false; }
-            }
-            else
-            {
-                lbl_Exists.ImageOptions.Image = Resources.apply_16x161;
-                lbl_Exists.Visible = true;
-
-                if (type == "Trailer")
-                {
-                    edt_Cargo.Visible = true;
-                    edt_Cargo.EditValue = response.ItemArray[3].ToString();
-                }
-                
-            }
-        }
-
         private void btn_AddRowsClick(object sender, EventArgs e)
         {
             //Int16 currentRow = 0;
@@ -88,7 +65,6 @@ namespace ResponseEmergencySystem.Forms
             //}
         }
 
-
         private void IncidentCapture_Load(object sender, EventArgs e)
         {
             _controller.CreateInjuredPersonsTable();
@@ -98,126 +74,11 @@ namespace ResponseEmergencySystem.Forms
         {
             _controller.AddIncident();
         }
-
-        private void lue_States_Properties_EditValueChanged(object sender, EventArgs e)
-        {
-            lue_Cities.Properties.DataSource = Functions.getCities(Guid.Parse(lue_StateExp.EditValue.ToString()), "");
-        }
-
-        private void btn_LookUpLicence_Click(object sender, EventArgs e)
-        {
-            _controller.GetDriver();
-        }
-
-        private void btn_LookUpPhoneNumber_Click(object sender, EventArgs e)
-        {
-            _controller.GetDriver();
-        }
-
-        private void btn_LookUpName_Click(object sender, EventArgs e)
-        {
-            _controller.GetDriver();
-        }
-
-        private void OnChangedCheckEdit(object sender, EventArgs e)
-        {
-            CheckEdit cb = (CheckEdit)sender;
-            bool ckedtValue = (bool)cb.EditValue;
-
-            switch (cb.Name)
-            {
-                case "ckedt_Spill":
-                    pnl_BOL.Visible = ckedtValue;
-                    break;
-                case "ckedt_PoliceReport":
-                    pnl_PoliceReport.Visible = ckedtValue;
-                    break;
-                case "ckedt_Injured":
-                    panelControl3.Visible = ckedtValue;
-                    //pnl_AddInjuredFields.Visible = ckedtValue;
-                    //gc_InjuredPersons.Enabled = ckedtValue;
-
-                    if (_controller.dt_InjuredPersons.Rows.Count == 0)
-                        _controller.addEmptyRow();
-
-                    break;
-            }
-
-        }
-
+       
         private void AddIncidentDetails_Shown(object sender, EventArgs e)
         { 
         }
         
-        private void checkNumber_OnEdtLeave (object sender, EventArgs e)
-        {
-            TextEdit edt_Number =  (TextEdit) sender;
-            DataTable dt_Response = new DataTable();
-            string number = Utils.GetEdtValue(edt_Number);
-
-
-            switch (edt_Number.Name)
-            {
-                case "edt_TruckNumber":
-                    dt_Response = Functions.Get_Truck(number);
-                    DataRow truckResponse = dt_Response.Select().First();
-                    _controller.SetTruck(truckResponse.ItemArray[0].ToString());
-                    numberExists(lbl_TruckExists, truckResponse);
-                    break;
-                case "edt_TrailerNumber":
-                    dt_Response = Functions.Get_Trailer(number);
-                    DataRow trailerResponse = dt_Response.Select().First();
-                    _controller.SetTrailer(trailerResponse.ItemArray[0].ToString());
-                    numberExists(
-                        lbl_TrailerExists, 
-                        trailerResponse,
-                        "Trailer"
-                    );
-                    break;
-            }
-        }
-
-        private void checkNumber_OnEdtKeyPress(object sender, KeyPressEventArgs e)
-        {
-            TextEdit edt_Number = (TextEdit)sender;
-            DataTable dt_Response = new DataTable();
-            string number = Utils.GetEdtValue(edt_Number);
-
-            if (e.KeyChar == (char)13)
-            { 
-                switch (edt_Number.Name)
-                {
-                    case "edt_TruckNumber":
-                        dt_Response = Functions.Get_Truck(number);
-                        DataRow truckResponse = dt_Response.Select().First();
-                        _controller.SetTruck(truckResponse.ItemArray[0].ToString());
-                        numberExists(lbl_TruckExists, truckResponse);
-                        break;
-                    case "edt_TrailerNumber":
-                        dt_Response = Functions.Get_Trailer(number);
-                        DataRow trailerResponse = dt_Response.Select().First();
-                        _controller.SetTrailer(trailerResponse.ItemArray[0].ToString());
-                        numberExists(
-                            lbl_TrailerExists, 
-                            trailerResponse,
-                            "Trailer"
-                        );
-                        break;
-                }
-            }
-
-
-        }
-
-
-        private void FindTruckSamsara_Click(object sender, EventArgs e)
-        {
-            splashScreenManager1.ShowWaitForm();
-            _controller.GetTruckSamsara();
-            splashScreenManager1.CloseWaitForm();
-        }
-
-
         private void simpleButton2_Click_1(object sender, EventArgs e)
         {
             _controller.SetBroker();
@@ -240,12 +101,57 @@ namespace ResponseEmergencySystem.Forms
             lue_StateExp.Properties.DataSource = dt_States;
         }
 
-        public void LoadCities(DataTable dt_Cities)
-        {
+            switch (cb.Name)
+            {
+                case "ckedt_Spill":
+                    pnl_BOL.Visible = ckedtValue;
+                    break;
+                case "ckedt_PoliceReport":
+                    pnl_PoliceReport.Visible = ckedtValue;
+                    break;
+                case "ckedt_Injured":
+                    panelControl3.Visible = ckedtValue;
+                    //pnl_AddInjuredFields.Visible = ckedtValue;
+                    //gc_InjuredPersons.Enabled = ckedtValue;
 
         }
 
         public void LoadInjuredPersons(DataTable dt_InjuredPersons)
+        {
+            gc_InjuredPersons.DataSource = dt_InjuredPersons;
+        }
+
+        // events needed
+        public void checkNumber_OnEdtKeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                TextEdit edt_Number = (TextEdit)sender;
+                _controller.CheckNumber(edt_Number.Name);
+            }
+        }
+
+        public void checkNumber_OnEdtLeave(object sender, EventArgs e)
+        {
+            TextEdit edt_Number = (TextEdit)sender;
+            _controller.CheckNumber(edt_Number.Name);
+        }
+
+        public void FindTruckSamsara_Click(object sender, EventArgs e)
+        {
+            splashScreenManager1.ShowWaitForm();
+            _controller.GetTruckSamsara();
+            splashScreenManager1.CloseWaitForm();
+        }
+
+        public void Ckedt_OnValueChanged(object sender, EventArgs e)
+        {
+            CheckEdit cb = (CheckEdit)sender;
+
+            _controller.CheckEditChanged(cb.Name, (bool)cb.EditValue);
+        }
+
+        public void lue_OnEditValueChanged(object sender, EventArgs e)
         {
             //gc_InjuredPersons.DataSource = dt_InjuredPersons;
         }
@@ -403,11 +309,33 @@ namespace ResponseEmergencySystem.Forms
             set { lue_Cities.EditValue = value; }
         }
 
+
+        // Form properties
+        public bool PnlBolVisibility
+        {
+            set { pnl_BOL.Visible = value; }
+        }
+
+        public bool PnlPoliceReportVisibility
+        {
+            set { pnl_PoliceReport.Visible = value; }
+        }
+
+        public bool LblTruckExistsVisibility
+        {
+            set { lbl_TruckExists.Visible = value; }
+        }
+
+        public bool LblTrailerExistsVisibility
+        {
+            set { lbl_TrailerExists.Visible = value; }
+        }
+
+        #endregion
         private void ViewIncidentDetails_Load(object sender, EventArgs e)
         {
             lue_StateExp.Properties.DataSource = Functions.getStates();
         }
-        #endregion
 
         private void btn_AddComments_Click(object sender, EventArgs e)
         {
@@ -424,59 +352,17 @@ namespace ResponseEmergencySystem.Forms
             _controller.GetDriver();
         }
 
-        private void labelControl4_Click(object sender, EventArgs e)
+        private void simpleButton4_Click(object sender, EventArgs e)
         {
-
+            _controller.SetBroker();
         }
 
-        private void simpleButton3_Click(object sender, EventArgs e)
+        private void edt_SearchDriver_KeyPress(object sender, KeyPressEventArgs e)
         {
-
-        }
-
-        private void labelControl28_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelControl29_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelControl30_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkEdit1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelControl31_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkEdit3_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void simpleButton5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panelControl3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void labelControl31_Click_1(object sender, EventArgs e)
-        {
-
+            if (e.KeyChar == (char)13)
+            {
+                _controller.GetDriver();
+            }
         }
     }
 

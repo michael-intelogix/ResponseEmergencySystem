@@ -239,6 +239,47 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             return (float)result;
         }
 
+        public void CheckEditChanged(string ckedtName, bool ckedtValue)
+        {
+            switch (ckedtName)
+            {
+                case "ckedt_Spill":
+                    _view.PnlBolVisibility = ckedtValue;
+                    break;
+                case "ckedt_PoliceReport":
+                    _view.PnlPoliceReportVisibility = ckedtValue;
+                    break;
+                //case "ckedt_Injured":
+                //    panelControl3.Visible = ckedtValue;
+                //    pnl_AddInjuredFields.Visible = ckedtValue;
+                //    //gc_InjuredPersons.Enabled = ckedtValue;
 
+                //    //if (_controller.dt_InjuredPersons.Rows.Count == 0)
+                //    //    _controller.addEmptyRow();
+
+                //    break;
+            }
+        }
+
+        public void CheckNumber(string edtName)
+        {
+            DataTable dt_Response = new DataTable();
+
+            switch (edtName)
+            {
+                case "edt_TruckNumber":
+                    dt_Response = Functions.Get_Truck(_view.TruckNumber);
+                    DataRow truckResponse = dt_Response.Select().First();
+                    SetTruck(truckResponse.ItemArray[0].ToString());
+                    _view.LblTruckExistsVisibility = truckResponse.ItemArray[0].ToString() == "0";
+                    break;
+                case "edt_TrailerNumber":
+                    dt_Response = Functions.Get_Trailer(_view.TrailerNumber);
+                    DataRow trailerResponse = dt_Response.Select().First();
+                    SetTrailer(trailerResponse.ItemArray[0].ToString());
+                    _view.LblTrailerExistsVisibility = trailerResponse.ItemArray[0].ToString() == "0";
+                    break;
+            }
+        }
     }
 }

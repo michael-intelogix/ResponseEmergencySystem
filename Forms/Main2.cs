@@ -33,22 +33,10 @@ namespace ResponseEmergencySystem.Forms
 
         #region Mike Functions
 
-        private void gv_Incidents_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
-        {
-            string incidentId = Utils.GetRowID(gv_Incidents, "ID_Incident");
-            _controller.SetCaptures(incidentId);
-            gc_Captures.DataSource = _controller._captures.Select(i => new { i.captureType, i.comments });
-
-            gc_Images.DataSource = _controller._captures.Where(c => c.captureType == gv_Captures.GetRowCellValue(0, "captureType").ToString());
-        }
-
         private void gv_Incidents_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            string incidentId = Utils.GetRowID(gv_Incidents, "ID_Incident");
-            _controller.SetCaptures(incidentId);
-            gc_Captures.DataSource = _controller._captures.Select(i => new { i.captureType, i.comments });
-
-            gc_Images.DataSource = _controller._captures.Where(c => c.captureType == gv_Captures.GetRowCellValue(0, "captureType").ToString());
+            _controller.SetCaptures();
+            _controller.LoadChat();
         }
 
         #endregion
@@ -71,20 +59,9 @@ namespace ResponseEmergencySystem.Forms
             }
         }
 
-        private void labelControl4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelControl5_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btn_Picture_Click(object sender, EventArgs e)
         {
             string imgPath = Utils.GetRowID(gv_Images, "ImagePath");
-
             _controller.EditImageView(imgPath);
         }
 
@@ -104,7 +81,7 @@ namespace ResponseEmergencySystem.Forms
 
         private void btn_Edit2_Click(object sender, EventArgs e)
         {
-            string incidentId =  Utils.GetRowID(gv_Incidents, "ID_Incident");
+            string incidentId = Utils.GetRowID(gv_Incidents, "ID_Incident");
 
             _controller.EditIncidentView(incidentId);
         }
@@ -121,26 +98,10 @@ namespace ResponseEmergencySystem.Forms
             editComments.ShowDialog();
         }
 
-        private void Main2_Load(object sender, EventArgs e)
-        {
-        }
-
         #region IMain 
         public void SetController(MainController controller)
         {
             _controller = controller;
-        }
-
-        public void LoadIncidents(List<Incident> incidents)
-        {
-            gc_Incidents.DataSource = incidents.Select(i => new { i.ID_Incident, i.Name, i.Folio, i.IncidentDate, i.truck.truckNumber, i.ID_StatusDetail });
-            _controller.LoadChat(incidents.FirstOrDefault().ID_Incident.ToString());
-        }
-
-        public void LoadCaptures(List<Capture> captures)
-        {
-            gc_Captures.DataSource = captures;
-            gc_Images.DataSource = captures.Where(c => c.captureType == gv_Captures.GetRowCellValue(0, "captureType").ToString());
         }
 
         public void Refresh_Chat(DocumentSnapshot docsnap)
@@ -162,13 +123,13 @@ namespace ResponseEmergencySystem.Forms
             }
 
         }
-    
+
 
         public string ChatText
         {
             get { return memoEdit_Chat.Text; }
             set { memoEdit_Chat.Text = value; }
-        } 
+        }
 
         public string Message
         {
@@ -177,51 +138,67 @@ namespace ResponseEmergencySystem.Forms
         }
 
         public string ID_Incident
-        {   
-            get { return gv_Incidents.GetFocusedRowCellValue("ID_Capture").ToString(); }
+        {
+            get { return gv_Incidents.GetFocusedRowCellValue("ID_Incident").ToString(); }
         }
 
-        public string Date1 
+        public string ID_Capture
+        {
+            get { return gv_Captures.GetFocusedRowCellValue("ID_Capture").ToString(); }
+        }
+
+        public string Date1
         {
             get {
                 string date1 = dateEdit1.DateTime.Date.ToString("MM/dd/yyyy");
-                return date1 == "01/01/0001" ? "" : date1; 
+                return date1 == "01/01/0001" ? "" : date1;
             }
             set { dateEdit1.EditValue = value; }
         }
-        public string Date2 
+        public string Date2
         {
             get {
                 string date2 = dateEdit2.DateTime.Date.ToString("MM/dd/yyyy");
                 return date2 == "01/01/0001" ? "" : date2;
-            } 
+            }
             set { dateEdit2.EditValue = value; }
         }
-        public string Folio 
+        public string Folio
         {
-            get { return Utils.GetEdtValue(edt_Folio); } 
+            get { return Utils.GetEdtValue(edt_Folio); }
             set { edt_Folio.EditValue = value; }
         }
-        public string DriverName 
-        { 
-            get { return Utils.GetEdtValue(edt_Name); } 
+        public string DriverName
+        {
+            get { return Utils.GetEdtValue(edt_Name); }
             set { edt_Name.EditValue = value; }
         }
-        public string TruckNumber 
-        { 
+        public string TruckNumber
+        {
             get { return Utils.GetEdtValue(edt_TruckNum); }
             set { edt_TruckNum.EditValue = value; }
         }
-        #endregion
 
-        private void simpleButton2_Click_1(object sender, EventArgs e)
+        public object Incidents
         {
-            //xtraFolderBrowserDialog1.ShowDialog();
-
-
-            //Settings.Default.AppFolder = xtraFolderBrowserDialog1.SelectedPath;
-            Settings.Default.Save();
+            set { gc_Incidents.DataSource = value; }
         }
+
+        public object CapturesDataSource
+        {
+            set { gc_Captures.DataSource = value; }
+        }
+
+        public object ImagesDatasSource
+        {
+            set { gc_Images.DataSource = value; }
+        }
+
+        public MemoEdit chat
+        {
+            get { return memoEdit_Chat; }
+        }
+        #endregion
 
         private void simpleButton3_Click_1(object sender, EventArgs e)
         {
@@ -239,19 +216,6 @@ namespace ResponseEmergencySystem.Forms
             _controller.AddMoreCaptures();
         }
 
-        private void textEdit1_Leave(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textEdit1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)13)
-            {
-
-            }
-        }
-
         private void simpleButton5_Click(object sender, EventArgs e)
         {
             dateEdit1.EditValue = null;
@@ -265,6 +229,11 @@ namespace ResponseEmergencySystem.Forms
         private void FilterEditValueChanged(object sender, EventArgs e)
         {
             _controller.IncidentsFilter();
+        }
+
+        private void gv_Captures_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            _controller.SetImages();
         }
     }
 }

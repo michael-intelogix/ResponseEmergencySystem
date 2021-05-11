@@ -19,7 +19,8 @@ namespace ResponseEmergencySystem.Controllers
         IMainView _view;
         public List<Capture> _captures;
         List<Incident> _incidents;
-        public string ID_Incident;
+        private string ID_Incident;
+        private string ID_Capture;
         public bool loaded = false;
 
         DataTable access = new DataTable();
@@ -37,6 +38,9 @@ namespace ResponseEmergencySystem.Controllers
             _captures = captures;
             _incidents = incidents;
             _view = view;
+
+            if (incidents.Count > 0)
+                ID_Incident = incidents[0].ID_Incident.ToString();
             view.SetController(this);
         }
 
@@ -49,7 +53,7 @@ namespace ResponseEmergencySystem.Controllers
         {
             _incidents = IncidentService.list_Incidents(_view.Folio, "", _view.DriverName, _view.TruckNumber, "", date1: _view.Date1, date2: _view.Date1 == "" ? "" : _view.Date2 );
             if (_incidents.Count > 0)
-                _view.LoadIncidents(_incidents);   
+                _view.Incidents = _incidents;   
         }
 
         public void Login()
@@ -78,7 +82,7 @@ namespace ResponseEmergencySystem.Controllers
             }
 
             //btn_Send.Enabled = true;
-            CollectionReference messagesRef = dataBase.Collection("SIREM-Chats").Document("75329DD7-BD87-4D65-BF84-1B7EBF3C8DD6").Collection("messages");
+            CollectionReference messagesRef = dataBase.Collection("SIREM-Chats").Document(_view.ID_Incident).Collection("messages");
             Query query = messagesRef;
 
             listener = query.Listen(snapshot =>
@@ -97,24 +101,32 @@ namespace ResponseEmergencySystem.Controllers
 
         public void LoadData()
         {
-            //Login();
-            _view.LoadIncidents(_incidents);
-            _view.LoadCaptures(_captures);
-
+            Login();
+            _view.Incidents = _incidents.Select(i => new { i.ID_Incident, i.Name, i.Folio, i.IncidentDate, i.truck.truckNumber, i.ID_StatusDetail });
+            _view.CapturesDataSource = _captures.Select(i => new { i.captureType, i.comments, i.ID_Capture });
         }
 
         public void LoadChat(string ID_incident = "")
         {
-            string document = ID_Incident != "" ? ID_Incident : _view.ID_Incident;
             ///** Firestore Database Connection **/
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", constants.path);
             dataBase = FirestoreDb.Create("dcmanagement-3d402");
             ChatListener();
         }
 
-        public void SetCaptures(string ID_Incident)
+        public void SetCaptures()
         {
-            _captures = CaptureService.list_Captures(ID_Incident);
+            _captures = CaptureService.list_Captures(_view.ID_Incident);
+            _view.CapturesDataSource = _captures;
+            if (_captures.Count > 0)
+                _view.ImagesDatasSource = CaptureService.list_Images(_captures[0].ID_Capture.ToString());
+            else
+                _view.ImagesDatasSource = new List<ImageCapture>();
+        }
+
+        public void SetImages()
+        {
+            _view.ImagesDatasSource = CaptureService.list_Images(_view.ID_Capture);
         }
 
         private void GetImage()
@@ -147,13 +159,13 @@ namespace ResponseEmergencySystem.Controllers
 
         public void Send()
         {
-            ITXFramework.ITXFramework itx = new ITXFramework.ITXFramework();
+            //ITXFramework.ITXFramework itx = new ITXFramework.ITXFramework();
 
             // itx.cfrm_InsertForm
             string now = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             now = now.Replace("/", "-");
 
-            DocumentReference docRef = dataBase.Collection("SIREM-Chats").Document("75329DD7-BD87-4D65-BF84-1B7EBF3C8DD6").Collection("messages").Document(now);
+            DocumentReference docRef = dataBase.Collection("SIREM-Chats").Document(_view.ID_Incident).Collection("messages").Document(now);
             Dictionary<string, object> data1 = new Dictionary<string, object>()
             {
                 { "from", constants.userName },
@@ -173,7 +185,7 @@ namespace ResponseEmergencySystem.Controllers
         {
             EditIncidentDetails viewEditIncident = new EditIncidentDetails();
 
-            Controllers.Incidents.EditIncidentController incidentCtrl = new Controllers.Incidents.EditIncidentController(viewEditIncident, incidentId);
+            Incidents.EditIncidentController incidentCtrl = new Incidents.EditIncidentController(viewEditIncident, incidentId);
             incidentCtrl.LoadIncident();
 
             viewEditIncident.Show();
@@ -208,7 +220,16 @@ namespace ResponseEmergencySystem.Controllers
             AddMoreCaptures AddMoreCaptures = new AddMoreCaptures();
             Captures.AddCapturesController addCapturesCtrl = new Captures.AddCapturesController(AddMoreCaptures, CaptureService.list_CaptureTypes());
             addCapturesCtrl.LoadCaptures();
+            addCapturesCtrl.SetIncidentId(_view.ID_Incident);
             AddMoreCaptures.ShowDialog();
+        }
+
+        public List<ImageCapture> GetImages(string captureId)
+        {
+            if (_captures.Count > 0)
+                return CaptureService.list_Images(captureId);
+            else
+                return new List<ImageCapture>();
         }
     }
 

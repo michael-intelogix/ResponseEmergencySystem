@@ -824,6 +824,7 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton4.Size = new System.Drawing.Size(108, 23);
             this.simpleButton4.TabIndex = 114;
             this.simpleButton4.Text = "Select broker";
+            this.simpleButton4.Click += new System.EventHandler(this.simpleButton4_Click);
             // 
             // dte_IncidentDate
             // 
@@ -1038,7 +1039,7 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl2.Size = new System.Drawing.Size(651, 112);
             this.panelControl2.TabIndex = 7;
             // 
-            // labelControl27
+            // lbl_TruckExists
             // 
             this.labelControl27.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl27.Appearance.ForeColor = System.Drawing.Color.Maroon;
@@ -1052,13 +1053,13 @@ namespace ResponseEmergencySystem.Forms
             // 
             // lbl_TruckExists
             // 
-            this.lbl_TruckExists.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.apply_16x162;
-            this.lbl_TruckExists.Location = new System.Drawing.Point(217, 33);
-            this.lbl_TruckExists.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.lbl_TruckExists.Name = "lbl_TruckExists";
-            this.lbl_TruckExists.Size = new System.Drawing.Size(16, 17);
-            this.lbl_TruckExists.TabIndex = 127;
-            this.lbl_TruckExists.Visible = false;
+            this.lbl_TruckExistsIcon.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.apply_16x162;
+            this.lbl_TruckExistsIcon.Location = new System.Drawing.Point(217, 33);
+            this.lbl_TruckExistsIcon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.lbl_TruckExistsIcon.Name = "lbl_TruckExistsIcon";
+            this.lbl_TruckExistsIcon.Size = new System.Drawing.Size(16, 17);
+            this.lbl_TruckExistsIcon.TabIndex = 127;
+            this.lbl_TruckExistsIcon.Visible = false;
             // 
             // labelControl14
             // 
@@ -1106,6 +1107,8 @@ namespace ResponseEmergencySystem.Forms
             this.edt_TruckNumber.Name = "edt_TruckNumber";
             this.edt_TruckNumber.Size = new System.Drawing.Size(119, 24);
             this.edt_TruckNumber.TabIndex = 111;
+            this.edt_TruckNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumber_OnEdtKeyPress);
+            this.edt_TruckNumber.Leave += new System.EventHandler(this.checkNumber_OnEdtLeave);
             // 
             // labelControl15
             // 
@@ -1154,6 +1157,7 @@ namespace ResponseEmergencySystem.Forms
             this.edt_SearchDriver.Name = "edt_SearchDriver";
             this.edt_SearchDriver.Size = new System.Drawing.Size(298, 24);
             this.edt_SearchDriver.TabIndex = 23;
+            this.edt_SearchDriver.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.edt_SearchDriver_KeyPress);
             // 
             // btn_FindDriver
             // 
@@ -1629,8 +1633,6 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraEditors.LabelControl labelControl8;
         private DevExpress.XtraEditors.LabelControl labelControl9;
         private DevExpress.XtraEditors.DateEdit dte_ExpirationDate;
-        private DevExpress.XtraEditors.LabelControl labelControl27;
-        private DevExpress.XtraEditors.LabelControl labelControl26;
         private DevExpress.XtraEditors.LabelControl lbl_TrailerExists;
         private DevExpress.XtraEditors.LabelControl lbl_TruckExists;
         private DevExpress.XtraEditors.PanelControl pnl_BOL;
