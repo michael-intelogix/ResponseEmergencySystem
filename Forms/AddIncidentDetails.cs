@@ -25,7 +25,7 @@ using ResponseEmergencySystem.Models;
 namespace ResponseEmergencySystem.Forms
 {
     
-    public partial class AddIncidentDetails : XtraForm, IAddIncidentView
+    public partial class AddIncidentDetails : XtraForm
     {
         // driver E2E7FBBB-6BF8-414A-B160-1A4EE294DC97
         // driver2 C7B06EF3-869B-4212-A1EC-7820B2D17CA4
@@ -67,7 +67,7 @@ namespace ResponseEmergencySystem.Forms
 
         private void IncidentCapture_Load(object sender, EventArgs e)
         {
-            _controller.CreateInjuredPersonsTable();
+            //_controller.CreateInjuredPersonsTable();
         }
 
         private void btn_AddIncident_Click(object sender, EventArgs e)
@@ -101,24 +101,9 @@ namespace ResponseEmergencySystem.Forms
             lue_StateExp.Properties.DataSource = dt_States;
         }
 
-            switch (cb.Name)
-            {
-                case "ckedt_Spill":
-                    pnl_BOL.Visible = ckedtValue;
-                    break;
-                case "ckedt_PoliceReport":
-                    pnl_PoliceReport.Visible = ckedtValue;
-                    break;
-                case "ckedt_Injured":
-                    panelControl3.Visible = ckedtValue;
-                    //pnl_AddInjuredFields.Visible = ckedtValue;
-                    //gc_InjuredPersons.Enabled = ckedtValue;
-
-        }
 
         public void LoadInjuredPersons(DataTable dt_InjuredPersons)
         {
-            gc_InjuredPersons.DataSource = dt_InjuredPersons;
         }
 
         // events needed

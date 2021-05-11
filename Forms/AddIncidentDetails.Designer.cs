@@ -66,7 +66,6 @@ namespace ResponseEmergencySystem.Forms
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl26 = new DevExpress.XtraEditors.LabelControl();
             this.ckedt_Spill = new DevExpress.XtraEditors.CheckEdit();
             this.edt_Cargo = new DevExpress.XtraEditors.TextEdit();
             this.pnl_BOL = new DevExpress.XtraEditors.PanelControl();
@@ -111,7 +110,6 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.labelControl27 = new DevExpress.XtraEditors.LabelControl();
             this.lbl_TruckExists = new DevExpress.XtraEditors.LabelControl();
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
             this.ckedt_TruckCanMove = new DevExpress.XtraEditors.CheckEdit();
@@ -531,7 +529,6 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl5.Appearance.Options.UseBackColor = true;
             this.panelControl5.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl5.Controls.Add(this.labelControl13);
-            this.panelControl5.Controls.Add(this.labelControl26);
             this.panelControl5.Controls.Add(this.ckedt_Spill);
             this.panelControl5.Controls.Add(this.edt_Cargo);
             this.panelControl5.Controls.Add(this.pnl_BOL);
@@ -556,18 +553,6 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl13.Size = new System.Drawing.Size(40, 17);
             this.labelControl13.TabIndex = 116;
             this.labelControl13.Text = "Trailer";
-            // 
-            // labelControl26
-            // 
-            this.labelControl26.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl26.Appearance.ForeColor = System.Drawing.Color.Maroon;
-            this.labelControl26.Appearance.Options.UseFont = true;
-            this.labelControl26.Appearance.Options.UseForeColor = true;
-            this.labelControl26.Location = new System.Drawing.Point(79, 60);
-            this.labelControl26.Name = "labelControl26";
-            this.labelControl26.Size = new System.Drawing.Size(131, 17);
-            this.labelControl26.TabIndex = 129;
-            this.labelControl26.Text = "Trailer doesn\'t exists";
             // 
             // ckedt_Spill
             // 
@@ -751,7 +736,6 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl4.StyleController = this.layoutControl1;
             this.labelControl4.TabIndex = 10;
             this.labelControl4.Text = "People involved";
-            this.labelControl4.Click += new System.EventHandler(this.labelControl4_Click);
             // 
             // panelControl3
             // 
@@ -783,7 +767,6 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl3.Name = "panelControl3";
             this.panelControl3.Size = new System.Drawing.Size(914, 201);
             this.panelControl3.TabIndex = 9;
-            this.panelControl3.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControl3_Paint);
             // 
             // simpleButton3
             // 
@@ -799,7 +782,6 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton3.Size = new System.Drawing.Size(162, 23);
             this.simpleButton3.TabIndex = 115;
             this.simpleButton3.Text = "Find with Samsara";
-            this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
             // 
             // tme_IncidentTime
             // 
@@ -1026,7 +1008,6 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl2.Appearance.BackColor = System.Drawing.Color.White;
             this.panelControl2.Appearance.Options.UseBackColor = true;
             this.panelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl2.Controls.Add(this.labelControl27);
             this.panelControl2.Controls.Add(this.lbl_TruckExists);
             this.panelControl2.Controls.Add(this.labelControl14);
             this.panelControl2.Controls.Add(this.ckedt_TruckCanMove);
@@ -1038,28 +1019,6 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(651, 112);
             this.panelControl2.TabIndex = 7;
-            // 
-            // lbl_TruckExists
-            // 
-            this.labelControl27.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl27.Appearance.ForeColor = System.Drawing.Color.Maroon;
-            this.labelControl27.Appearance.Options.UseFont = true;
-            this.labelControl27.Appearance.Options.UseForeColor = true;
-            this.labelControl27.Location = new System.Drawing.Point(85, 60);
-            this.labelControl27.Name = "labelControl27";
-            this.labelControl27.Size = new System.Drawing.Size(125, 17);
-            this.labelControl27.TabIndex = 130;
-            this.labelControl27.Text = "Truck doesn\'t exists";
-            // 
-            // lbl_TruckExists
-            // 
-            this.lbl_TruckExistsIcon.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.apply_16x162;
-            this.lbl_TruckExistsIcon.Location = new System.Drawing.Point(217, 33);
-            this.lbl_TruckExistsIcon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.lbl_TruckExistsIcon.Name = "lbl_TruckExistsIcon";
-            this.lbl_TruckExistsIcon.Size = new System.Drawing.Size(16, 17);
-            this.lbl_TruckExistsIcon.TabIndex = 127;
-            this.lbl_TruckExistsIcon.Visible = false;
             // 
             // labelControl14
             // 
@@ -1484,7 +1443,6 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl31.Size = new System.Drawing.Size(24, 17);
             this.labelControl31.TabIndex = 116;
             this.labelControl31.Text = "Age";
-            this.labelControl31.Click += new System.EventHandler(this.labelControl31_Click_1);
             // 
             // AddIncidentDetails
             // 

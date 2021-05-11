@@ -101,7 +101,7 @@ namespace ResponseEmergencySystem.Controllers
 
         public void LoadData()
         {
-            Login();
+            //Login();
             _view.Incidents = _incidents.Select(i => new { i.ID_Incident, i.Name, i.Folio, i.IncidentDate, i.truck.truckNumber, i.ID_StatusDetail });
             _view.CapturesDataSource = _captures.Select(i => new { i.captureType, i.comments, i.ID_Capture });
         }
@@ -204,9 +204,11 @@ namespace ResponseEmergencySystem.Controllers
         public void AddIncidentView()
         {
             AddIncidentDetails addIncidentView = new AddIncidentDetails();
-            Controllers.Incidents.AddIncidentController addIncidentCtrl = new Controllers.Incidents.AddIncidentController(addIncidentView);
-            addIncidentCtrl.LoadStates();
-            addIncidentView.ShowDialog();
+            //Controllers.Incidents.AddIncidentController addIncidentCtrl = new Controllers.Incidents.AddIncidentController(addIncidentView);
+            //addIncidentCtrl.LoadStates();
+            //addIncidentView.ShowDialog();
+
+            addIncidentView.Show();
         }
 
         public void EditImageView(string imgPath)
