@@ -1627,17 +1627,11 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
-        private DevExpress.XtraEditors.TextEdit edt_SearchDriver;
-        private DevExpress.XtraEditors.SimpleButton btn_FindDriver;
-        private DevExpress.XtraEditors.LookUpEdit lue_DriverLicenseState;
-        private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.TextEdit edt_License;
         private DevExpress.XtraEditors.TextEdit edt_PhoneNumber;
-        private DevExpress.XtraEditors.TextEdit edt_FullName;
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.LabelControl labelControl8;
-        private DevExpress.XtraEditors.LabelControl labelControl9;
         private DevExpress.XtraEditors.DateEdit dte_ExpirationDate;
         private DevExpress.XtraEditors.LabelControl lbl_TrailerExists;
         private DevExpress.XtraEditors.LabelControl lbl_TruckExists;
@@ -1727,5 +1721,11 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraEditors.LabelControl labelControl26;
         private DevExpress.XtraEditors.LabelControl labelControl27;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem5;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
+        private DevExpress.XtraEditors.TextEdit edt_FullName;
+        private DevExpress.XtraEditors.LabelControl labelControl9;
+        private DevExpress.XtraEditors.TextEdit edt_SearchDriver;
+        private DevExpress.XtraEditors.SimpleButton btn_FindDriver;
+        private DevExpress.XtraEditors.LookUpEdit lue_DriverLicenseState;
     }
 }
