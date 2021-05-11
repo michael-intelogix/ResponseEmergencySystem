@@ -13,9 +13,16 @@ namespace ResponseEmergencySystem.Forms.Modals
 {
     public partial class Modals : DevExpress.XtraEditors.XtraForm
     {
-        public Modals()
+        public Modals(String Message, string Title)
         {
             InitializeComponent();
+            labelControl1.Text = Title;
+            label1.Text = Message;
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

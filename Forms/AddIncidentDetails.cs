@@ -72,11 +72,11 @@ namespace ResponseEmergencySystem.Forms
 
         private void btn_AddIncident_Click(object sender, EventArgs e)
         {
-            if (dxValidationProvider1.Validate())
-                MessageBox.Show("Incorrect Data");
-            else
+            if(dxValidationProvider1.Validate())
                 _controller.AddIncident();
-            
+            else
+                Utils.ShowMessage("Please Check the information again", "Validation Error");
+
         }
        
         private void AddIncidentDetails_Shown(object sender, EventArgs e)

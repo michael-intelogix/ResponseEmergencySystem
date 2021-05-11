@@ -103,5 +103,11 @@ namespace ResponseEmergencySystem.Code
             btn.Text = t;
         }
 
+        public static void ShowMessage(string msg, string title = "")
+        {
+            Forms.Modals.Modals modalView = new Forms.Modals.Modals(msg, title);
+            modalView.ShowDialog();
+        }
+
     }
 }
