@@ -25,17 +25,18 @@ namespace ResponseEmergencySystem
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Main2());
 
-            constants.states = GeneralService.list_States();
+            //constants.states = GeneralService.list_States();
 
-            Main2 mainView = new Main2();
-            List<Incident> incidents = IncidentService.list_Incidents("", "", "", "", "");
-            List<Capture> captureByIncident = CaptureService.list_Captures(incidents[0].ID_Incident.ToString());
-            MainController mainCtrl = new MainController(mainView, captureByIncident, incidents);
+            //Main2 mainView = new Main2();
+            //List<Incident> incidents = IncidentService.list_Incidents("", "", "", "", "");
+            //List<Capture> captureByIncident = CaptureService.list_Captures(incidents[0].ID_Incident.ToString());
+            //MainController mainCtrl = new MainController(mainView, captureByIncident, incidents);
 
-            mainCtrl.LoadData();
+            //mainCtrl.LoadData();
+            Forms.Modals.Testing test = new Forms.Modals.Testing();
 
            
-            Application.Run(mainView);
+            Application.Run(test);
         }
     }
 }

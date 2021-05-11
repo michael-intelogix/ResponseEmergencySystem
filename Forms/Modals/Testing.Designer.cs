@@ -44,9 +44,20 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.lbl_Speed = new DevExpress.XtraEditors.LabelControl();
             this.tme_Date = new DevExpress.XtraEditors.TimeEdit();
             this.dte_Date = new DevExpress.XtraEditors.DateEdit();
+            this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.txtBox1 = new DevExpress.XtraEditors.TextEdit();
+            this.txtBox2 = new DevExpress.XtraEditors.TextEdit();
+            this.txtBox3 = new DevExpress.XtraEditors.TextEdit();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.tme_Date.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dte_Date.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dte_Date.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
+            this.panelControl4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBox1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBox2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBox3.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -58,6 +69,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.labelControl1.Size = new System.Drawing.Size(43, 15);
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Name: ";
+            this.labelControl1.Visible = false;
             // 
             // labelControl2
             // 
@@ -68,6 +80,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.labelControl2.Size = new System.Drawing.Size(35, 15);
             this.labelControl2.TabIndex = 1;
             this.labelControl2.Text = "Time:";
+            this.labelControl2.Visible = false;
             // 
             // labelControl3
             // 
@@ -78,6 +91,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.labelControl3.Size = new System.Drawing.Size(56, 15);
             this.labelControl3.TabIndex = 2;
             this.labelControl3.Text = "Latitude:";
+            this.labelControl3.Visible = false;
             // 
             // labelControl4
             // 
@@ -88,6 +102,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.labelControl4.Size = new System.Drawing.Size(67, 15);
             this.labelControl4.TabIndex = 3;
             this.labelControl4.Text = "Longitude:";
+            this.labelControl4.Visible = false;
             // 
             // labelControl5
             // 
@@ -98,6 +113,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.labelControl5.Size = new System.Drawing.Size(53, 15);
             this.labelControl5.TabIndex = 4;
             this.labelControl5.Text = "heading:";
+            this.labelControl5.Visible = false;
             // 
             // labelControl6
             // 
@@ -108,6 +124,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.labelControl6.Size = new System.Drawing.Size(40, 15);
             this.labelControl6.TabIndex = 5;
             this.labelControl6.Text = "speed:";
+            this.labelControl6.Visible = false;
             // 
             // lbl_Name
             // 
@@ -118,6 +135,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.lbl_Name.Name = "lbl_Name";
             this.lbl_Name.Size = new System.Drawing.Size(91, 17);
             this.lbl_Name.TabIndex = 6;
+            this.lbl_Name.Visible = false;
             // 
             // lbl_Latitude
             // 
@@ -128,6 +146,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.lbl_Latitude.Name = "lbl_Latitude";
             this.lbl_Latitude.Size = new System.Drawing.Size(157, 17);
             this.lbl_Latitude.TabIndex = 8;
+            this.lbl_Latitude.Visible = false;
             // 
             // lbl_Longitude
             // 
@@ -138,6 +157,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.lbl_Longitude.Name = "lbl_Longitude";
             this.lbl_Longitude.Size = new System.Drawing.Size(146, 17);
             this.lbl_Longitude.TabIndex = 9;
+            this.lbl_Longitude.Visible = false;
             // 
             // lbl_Heading
             // 
@@ -148,6 +168,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.lbl_Heading.Name = "lbl_Heading";
             this.lbl_Heading.Size = new System.Drawing.Size(162, 17);
             this.lbl_Heading.TabIndex = 10;
+            this.lbl_Heading.Visible = false;
             // 
             // lbl_FormattedLocation
             // 
@@ -158,6 +179,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.lbl_FormattedLocation.Name = "lbl_FormattedLocation";
             this.lbl_FormattedLocation.Size = new System.Drawing.Size(448, 17);
             this.lbl_FormattedLocation.TabIndex = 11;
+            this.lbl_FormattedLocation.Visible = false;
             // 
             // labelControl8
             // 
@@ -168,6 +190,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.labelControl8.Size = new System.Drawing.Size(121, 15);
             this.labelControl8.TabIndex = 13;
             this.labelControl8.Text = "formattedLocation:";
+            this.labelControl8.Visible = false;
             // 
             // lbl_Speed
             // 
@@ -178,6 +201,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.lbl_Speed.Name = "lbl_Speed";
             this.lbl_Speed.Size = new System.Drawing.Size(177, 17);
             this.lbl_Speed.TabIndex = 15;
+            this.lbl_Speed.Visible = false;
             // 
             // tme_Date
             // 
@@ -186,7 +210,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.tme_Date.Name = "tme_Date";
             this.tme_Date.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.tme_Date.Size = new System.Drawing.Size(117, 20);
+            this.tme_Date.Size = new System.Drawing.Size(117, 24);
             this.tme_Date.TabIndex = 16;
             this.tme_Date.Visible = false;
             // 
@@ -199,15 +223,75 @@ namespace ResponseEmergencySystem.Forms.Modals
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dte_Date.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dte_Date.Size = new System.Drawing.Size(119, 20);
+            this.dte_Date.Size = new System.Drawing.Size(119, 24);
             this.dte_Date.TabIndex = 12;
+            this.dte_Date.Visible = false;
+            // 
+            // panelControl4
+            // 
+            this.panelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelControl4.Controls.Add(this.webBrowser1);
+            this.panelControl4.Location = new System.Drawing.Point(395, 12);
+            this.panelControl4.Name = "panelControl4";
+            this.panelControl4.Size = new System.Drawing.Size(295, 284);
+            this.panelControl4.TabIndex = 51;
+            // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser1.Location = new System.Drawing.Point(2, 2);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(291, 280);
+            this.webBrowser1.TabIndex = 0;
+            // 
+            // txtBox1
+            // 
+            this.txtBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtBox1.Location = new System.Drawing.Point(83, 361);
+            this.txtBox1.Name = "txtBox1";
+            this.txtBox1.Size = new System.Drawing.Size(100, 24);
+            this.txtBox1.TabIndex = 52;
+            // 
+            // txtBox2
+            // 
+            this.txtBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtBox2.Location = new System.Drawing.Point(202, 361);
+            this.txtBox2.Name = "txtBox2";
+            this.txtBox2.Size = new System.Drawing.Size(100, 24);
+            this.txtBox2.TabIndex = 53;
+            // 
+            // txtBox3
+            // 
+            this.txtBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtBox3.Location = new System.Drawing.Point(324, 361);
+            this.txtBox3.Name = "txtBox3";
+            this.txtBox3.Size = new System.Drawing.Size(100, 24);
+            this.txtBox3.TabIndex = 54;
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.simpleButton1.Location = new System.Drawing.Point(461, 364);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(102, 23);
+            this.simpleButton1.TabIndex = 55;
+            this.simpleButton1.Text = "simpleButton1";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // Testing
             // 
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(687, 387);
+            this.ClientSize = new System.Drawing.Size(702, 420);
+            this.Controls.Add(this.simpleButton1);
+            this.Controls.Add(this.txtBox3);
+            this.Controls.Add(this.txtBox2);
+            this.Controls.Add(this.txtBox1);
+            this.Controls.Add(this.panelControl4);
             this.Controls.Add(this.tme_Date);
             this.Controls.Add(this.lbl_Speed);
             this.Controls.Add(this.labelControl8);
@@ -229,6 +313,11 @@ namespace ResponseEmergencySystem.Forms.Modals
             ((System.ComponentModel.ISupportInitialize)(this.tme_Date.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dte_Date.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dte_Date.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
+            this.panelControl4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtBox1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBox2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBox3.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -251,5 +340,11 @@ namespace ResponseEmergencySystem.Forms.Modals
         private DevExpress.XtraEditors.LabelControl labelControl8;
         private DevExpress.XtraEditors.LabelControl lbl_Speed;
         private DevExpress.XtraEditors.TimeEdit tme_Date;
+        private DevExpress.XtraEditors.PanelControl panelControl4;
+        private System.Windows.Forms.WebBrowser webBrowser1;
+        private DevExpress.XtraEditors.TextEdit txtBox1;
+        private DevExpress.XtraEditors.TextEdit txtBox2;
+        private DevExpress.XtraEditors.TextEdit txtBox3;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
     }
 }

@@ -53,7 +53,13 @@ namespace ResponseEmergencySystem.Controllers
         {
             _incidents = IncidentService.list_Incidents(_view.Folio, "", _view.DriverName, _view.TruckNumber, "", date1: _view.Date1, date2: _view.Date1 == "" ? "" : _view.Date2 );
             if (_incidents.Count > 0)
-                _view.Incidents = _incidents;   
+                _view.Incidents = _incidents.Select(i => new { i.ID_Incident, i.Name, i.Folio, i.IncidentDate, i.truck.truckNumber, i.ID_StatusDetail });
+        }
+
+        public void Test()
+        {
+            Forms.Modals.Testing test = new Forms.Modals.Testing();
+            test.Show();
         }
 
         public void Login()
@@ -101,7 +107,8 @@ namespace ResponseEmergencySystem.Controllers
 
         public void LoadData()
         {
-            Login();
+            //Login();
+            Test();
             _view.Incidents = _incidents.Select(i => new { i.ID_Incident, i.Name, i.Folio, i.IncidentDate, i.truck.truckNumber, i.ID_StatusDetail });
             _view.CapturesDataSource = _captures.Select(i => new { i.captureType, i.comments, i.ID_Capture });
         }
@@ -126,7 +133,8 @@ namespace ResponseEmergencySystem.Controllers
 
         public void SetImages()
         {
-            _view.ImagesDatasSource = CaptureService.list_Images(_view.ID_Capture);
+            if (_captures.Count > 0)
+                _view.ImagesDatasSource = CaptureService.list_Images(_view.ID_Capture);
         }
 
         private void GetImage()
