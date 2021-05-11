@@ -25,7 +25,7 @@ using ResponseEmergencySystem.Models;
 namespace ResponseEmergencySystem.Forms
 {
     
-    public partial class AddIncidentDetails : XtraForm
+    public partial class AddIncidentDetails : XtraForm, IAddIncidentView
     {
         // driver E2E7FBBB-6BF8-414A-B160-1A4EE294DC97
         // driver2 C7B06EF3-869B-4212-A1EC-7820B2D17CA4
@@ -101,6 +101,11 @@ namespace ResponseEmergencySystem.Forms
             lue_StateExp.Properties.DataSource = dt_States;
         }
 
+
+        public void LoadCities(DataTable dt_Cities)
+        {
+
+        }
 
         public void LoadInjuredPersons(DataTable dt_InjuredPersons)
         {
