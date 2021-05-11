@@ -351,6 +351,7 @@
     <Compile Include="Code\Location.cs" />
     <Compile Include="Code\Utils.cs" />
     <Compile Include="Connection\Connection.cs" />
+    <Compile Include="Controllers\AppConfigController.cs" />
     <Compile Include="Controllers\BrokerController.cs" />
     <Compile Include="Controllers\Captures\AddCapturesController.cs" />
     <Compile Include="Controllers\IncidentController.cs" />
@@ -512,6 +513,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\Captures\IAddCapturesView.cs" />
     <Compile Include="Views\IAddIncidentView.cs" />
+    <Compile Include="Views\IAppConfigView.cs" />
     <Compile Include="Views\IBrokerView.cs" />
     <Compile Include="Views\IEditIncidentView.cs" />
     <Compile Include="Views\IMainView.cs" />

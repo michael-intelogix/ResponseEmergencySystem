@@ -25,5 +25,37 @@ namespace ResponseEmergencySystem.Forms.Modals
             lbl_Speed.Text = speed.ToString();
             lbl_FormattedLocation.Text = formattedLocation;
         }
+
+        public Testing()
+        {
+            InitializeComponent();
+
+  
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            //            string district = txtBox1.Text;
+            //            string province = txtBox2.Text;
+            //            string country = txtBox3.Text;
+
+            //            StringBuilder location = new StringBuilder("http://maps.google.com/maps?q=&#8221");
+
+            //            if (district != " ") 
+            //{
+            //                location.Append(district + "," + "+");
+            //            }
+            //            if (province != " ")
+            //{
+            //                location.Append(province + "," + "+");
+            //            }
+            //            if (country != " ") 
+            //{
+            //                location.Append(country + "," + "+");
+            //            }
+
+            //webBrowser1.Navigate(location.ToString());
+            webBrowser1.Navigate("http://localhost/maps/");
+        }
     }
 }
