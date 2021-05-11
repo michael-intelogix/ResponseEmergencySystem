@@ -110,7 +110,7 @@ namespace ResponseEmergencySystem.Forms
         }
         public void LoadInjuredPersons(DataTable dt_InjuredPersons)
         {
-            gc_InjuredPersons.DataSource = dt_InjuredPersons;
+            gc_InvolvedPersons.DataSource = dt_InjuredPersons;
         }
 
         public string DriverSearch
@@ -333,6 +333,21 @@ namespace ResponseEmergencySystem.Forms
         }
 
         private void lbl_TruckExists_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void edt_SearchDriver_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelControl25_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelControl5_Paint(object sender, PaintEventArgs e)
         {
 
         }
