@@ -78,7 +78,11 @@ namespace ResponseEmergencySystem.Forms
                 edt_manifest.DoValidate();
 
             if (dxValidationProvider1.Validate())
-                Utils.ShowMessage("Good", "Validation Error");
+            {
+                splashScreenManager1.ShowWaitForm();
+                _controller.AddIncident();
+                splashScreenManager1.CloseWaitForm();
+            }
             else
                 Utils.ShowMessage("Please Check the information again", "Validation Error");
 
@@ -313,7 +317,7 @@ namespace ResponseEmergencySystem.Forms
 
         public string Comments
         {
-            get { return memoEdit1.EditValue.ToString() == null ? "" : memoEdit1.EditValue.ToString(); }
+            get { return memoEdit1.EditValue == null ? "" : memoEdit1.EditValue.ToString(); }
         }
         #endregion
 

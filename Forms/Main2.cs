@@ -235,5 +235,10 @@ namespace ResponseEmergencySystem.Forms
         {
             _controller.SetImages();
         }
+
+        private void Main2_Load(object sender, EventArgs e)
+        {
+            _controller.LoadData();
+        }
     }
 }

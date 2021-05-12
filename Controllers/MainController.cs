@@ -33,14 +33,10 @@ namespace ResponseEmergencySystem.Controllers
         //Incident _selectedIncident;
         //DataTable dt_InjuredPersons = new DataTable();
 
-        public MainController(IMainView view, List<Capture> captures, List<Incident> incidents)
+        public MainController(IMainView view)
         {
-            _captures = captures;
-            _incidents = incidents;
-            _view = view;
 
-            if (incidents.Count > 0)
-                ID_Incident = incidents[0].ID_Incident.ToString();
+            _view = view;
             view.SetController(this);
         }
 
@@ -65,17 +61,24 @@ namespace ResponseEmergencySystem.Controllers
         public void Login()
         {
             frm_Login login = new frm_Login();
-
-            if (login.ShowDialog() == DialogResult.OK)
+            try
             {
-                access = login.myData;
-                string idmysoftware = "2a5aa42b-2089-4fa8-b7cc-2cea2a017a8a";
-                DataRow[] accesos = access.Select($"ID_Software = '{idmysoftware}'");
-                if (accesos.Length > 0)
+                if (login.ShowDialog() == DialogResult.OK)
                 {
-                    constants.userName = accesos[0].ItemArray[13].ToString();
+                    access = login.myData;
+                    string idmysoftware = "2a5aa42b-2089-4fa8-b7cc-2cea2a017a8a";
+                    DataRow[] accesos = access.Select($"ID_Software = '{idmysoftware}'");
+                    if (accesos.Length > 0)
+                    {
+                        constants.userName = accesos[0].ItemArray[13].ToString();
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         public void ChatListener()
@@ -107,8 +110,14 @@ namespace ResponseEmergencySystem.Controllers
 
         public void LoadData()
         {
-            Login();
+            //Login();
             //Test();
+            _incidents = IncidentService.list_Incidents("", "", "", "", "");
+            if (_incidents.Count > 0)
+            {
+                ID_Incident = _incidents[0].ID_Incident.ToString();
+                _captures = CaptureService.list_Captures(_incidents[0].ID_Incident.ToString());
+            }
             _view.Incidents = _incidents.Select(i => new { i.ID_Incident, i.Name, i.Folio, i.IncidentDate, i.truck.truckNumber, i.ID_StatusDetail });
             _view.CapturesDataSource = _captures.Select(i => new { i.captureType, i.comments, i.ID_Capture });
         }

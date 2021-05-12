@@ -18,7 +18,8 @@ namespace ResponseEmergencySystem.Code
     {
         private static readonly ITXServerConection itx = new ITXServerConection();
 
-        public static readonly string path = AppDomain.CurrentDomain.BaseDirectory + @"dcmanagement.json";
+        //public static readonly string path = AppDomain.CurrentDomain.BaseDirectory + @"dcmanagement.json";
+        public static readonly string path = Environment.CurrentDirectory + @"\dcmanagement.json";
         public static SqlConnection GeneralConnection { get; }  = itx.DbCon("General");
         public static SqlConnection SIREMConnection { get; }  = itx.DbCon("SIREM");
         public static SqlConnection DCManagement { get; } = itx.DbCon("DCManagement");

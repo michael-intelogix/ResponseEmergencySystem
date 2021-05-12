@@ -27,7 +27,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>false</MapFileExtensions>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationRevision>16</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -112,9 +112,6 @@
     <Reference Include="FontAwesome.Sharp, Version=5.15.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\FontAwesome.Sharp.5.15.3\lib\net472\FontAwesome.Sharp.dll</HintPath>
     </Reference>
-    <Reference Include="GMap.NET.WindowsForms">
-      <HintPath>.\GMap.NET.WindowsForms.dll</HintPath>
-    </Reference>
     <Reference Include="Google.Api.CommonProtos, Version=2.2.0.0, Culture=neutral, PublicKeyToken=3ec5ea7f18953e47, processorArchitecture=MSIL">
       <HintPath>packages\Google.Api.CommonProtos.2.2.0\lib\net461\Google.Api.CommonProtos.dll</HintPath>
     </Reference>
@@ -163,13 +160,11 @@
     <Reference Include="Grpc.Core.Api, Version=2.0.0.0, Culture=neutral, PublicKeyToken=d754f35622e28bad, processorArchitecture=MSIL">
       <HintPath>packages\Grpc.Core.Api.2.31.0\lib\net45\Grpc.Core.Api.dll</HintPath>
     </Reference>
-    <Reference Include="ITXFramework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Documents\ITXFramework.dll</HintPath>
+    <Reference Include="ITXFramework">
+      <HintPath>.\ITXFramework.dll</HintPath>
     </Reference>
-    <Reference Include="Login, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Downloads\ResponseEmergencySystem-master\Login.dll</HintPath>
+    <Reference Include="Login">
+      <HintPath>.\Login.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.1.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
@@ -594,7 +589,9 @@
     <EmbeddedResource Include="Reports\XtraReport1.resx">
       <DependentUpon>XtraReport1.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="dcmanagement.json" />
+    <Content Include="dcmanagement.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\ResponseEmergencySystem.Entity_Framework.SIREMEntities.datasource" />
     <None Include="Properties\Settings.settings">

@@ -35,15 +35,15 @@ namespace ResponseEmergencySystem.Forms
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule8 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule15 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule5 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule6 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule7 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule8 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule9 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule10 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule11 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
@@ -732,10 +732,10 @@ namespace ResponseEmergencySystem.Forms
             this.edt_TrailerNumber.Properties.MaskSettings.Set("mask", "\\d+");
             this.edt_TrailerNumber.Size = new System.Drawing.Size(119, 24);
             this.edt_TrailerNumber.TabIndex = 119;
-            conditionValidationRule15.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule15.ErrorText = "This value is not valid";
-            conditionValidationRule15.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
-            this.dxValidationProvider1.SetValidationRule(this.edt_TrailerNumber, conditionValidationRule15);
+            conditionValidationRule8.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule8.ErrorText = "This value is not valid";
+            conditionValidationRule8.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
+            this.dxValidationProvider1.SetValidationRule(this.edt_TrailerNumber, conditionValidationRule8);
             this.edt_TrailerNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumber_OnEdtKeyPress);
             this.edt_TrailerNumber.Leave += new System.EventHandler(this.checkNumber_OnEdtLeave);
             // 
@@ -934,10 +934,10 @@ namespace ResponseEmergencySystem.Forms
             this.dte_IncidentDate.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.dte_IncidentDate.Size = new System.Drawing.Size(196, 24);
             this.dte_IncidentDate.TabIndex = 35;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "This value is not valid";
-            conditionValidationRule1.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
-            this.dxValidationProvider1.SetValidationRule(this.dte_IncidentDate, conditionValidationRule1);
+            conditionValidationRule15.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule15.ErrorText = "This value is not valid";
+            conditionValidationRule15.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
+            this.dxValidationProvider1.SetValidationRule(this.dte_IncidentDate, conditionValidationRule15);
             // 
             // labelControl25
             // 
@@ -969,6 +969,7 @@ namespace ResponseEmergencySystem.Forms
             this.pnl_PoliceReport.Name = "pnl_PoliceReport";
             this.pnl_PoliceReport.Size = new System.Drawing.Size(310, 36);
             this.pnl_PoliceReport.TabIndex = 51;
+            this.pnl_PoliceReport.Visible = false;
             // 
             // edt_PoliceReport
             // 
@@ -1014,6 +1015,7 @@ namespace ResponseEmergencySystem.Forms
             this.ckedt_PoliceReport.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.ckedt_PoliceReport.Size = new System.Drawing.Size(104, 21);
             this.ckedt_PoliceReport.TabIndex = 34;
+            this.ckedt_PoliceReport.CheckedChanged += new System.EventHandler(this.Ckedt_OnValueChanged);
             // 
             // labelControl16
             // 
@@ -1230,11 +1232,11 @@ namespace ResponseEmergencySystem.Forms
             this.edt_TruckNumber.Properties.MaskSettings.Set("mask", "\\d+");
             this.edt_TruckNumber.Size = new System.Drawing.Size(119, 24);
             this.edt_TruckNumber.TabIndex = 111;
-            conditionValidationRule8.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule8.ErrorText = "This value is not valid";
-            conditionValidationRule8.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
-            conditionValidationRule8.Value1 = "<Null>";
-            this.dxValidationProvider1.SetValidationRule(this.edt_TruckNumber, conditionValidationRule8);
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "This value is not valid";
+            conditionValidationRule1.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
+            conditionValidationRule1.Value1 = "<Null>";
+            this.dxValidationProvider1.SetValidationRule(this.edt_TruckNumber, conditionValidationRule1);
             this.edt_TruckNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumber_OnEdtKeyPress);
             this.edt_TruckNumber.Leave += new System.EventHandler(this.checkNumber_OnEdtLeave);
             // 

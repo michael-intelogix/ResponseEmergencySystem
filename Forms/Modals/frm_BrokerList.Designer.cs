@@ -29,21 +29,21 @@ namespace ResponseEmergencySystem.Forms.Modals
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions10 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject37 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject38 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject39 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject40 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions11 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject41 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject42 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject43 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject44 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions12 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject45 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject46 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject47 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject48 = new DevExpress.Utils.SerializableAppearanceObject();
             this.btn_Approved1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -101,10 +101,10 @@ namespace ResponseEmergencySystem.Forms.Modals
             // btn_Approved1
             // 
             this.btn_Approved1.AutoHeight = false;
-            editorButtonImageOptions1.SvgImage = global::ResponseEmergencySystem.Properties.Resources.checkGreen;
-            editorButtonImageOptions1.SvgImageSize = new System.Drawing.Size(20, 20);
+            editorButtonImageOptions10.SvgImage = global::ResponseEmergencySystem.Properties.Resources.checkGreen;
+            editorButtonImageOptions10.SvgImageSize = new System.Drawing.Size(20, 20);
             this.btn_Approved1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions10, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject37, serializableAppearanceObject38, serializableAppearanceObject39, serializableAppearanceObject40, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btn_Approved1.Name = "btn_Approved1";
             this.btn_Approved1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
@@ -215,10 +215,10 @@ namespace ResponseEmergencySystem.Forms.Modals
             // btn_approved
             // 
             this.btn_approved.AutoHeight = false;
-            editorButtonImageOptions2.SvgImage = global::ResponseEmergencySystem.Properties.Resources.checkGreen;
-            editorButtonImageOptions2.SvgImageSize = new System.Drawing.Size(20, 20);
+            editorButtonImageOptions11.SvgImage = global::ResponseEmergencySystem.Properties.Resources.checkGreen;
+            editorButtonImageOptions11.SvgImageSize = new System.Drawing.Size(20, 20);
             this.btn_approved.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions11, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject41, serializableAppearanceObject42, serializableAppearanceObject43, serializableAppearanceObject44, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btn_approved.Name = "btn_approved";
             this.btn_approved.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btn_approved.Click += new System.EventHandler(this.btn_ApprovedBroker);
@@ -253,6 +253,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Name")});
             this.lue_City.Properties.DisplayMember = "Name";
             this.lue_City.Properties.NullText = "";
+            this.lue_City.Properties.ShowHeader = false;
             this.lue_City.Properties.ValueMember = "ID_City";
             this.lue_City.Size = new System.Drawing.Size(137, 24);
             this.lue_City.TabIndex = 12;
@@ -268,6 +269,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Name")});
             this.lue_State.Properties.DisplayMember = "Name";
             this.lue_State.Properties.NullText = "";
+            this.lue_State.Properties.ShowHeader = false;
             this.lue_State.Properties.ValueMember = "ID_State";
             this.lue_State.Size = new System.Drawing.Size(124, 24);
             this.lue_State.TabIndex = 11;
@@ -397,6 +399,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.simpleButton2.Size = new System.Drawing.Size(109, 43);
             this.simpleButton2.TabIndex = 0;
             this.simpleButton2.Text = "Save";
+            this.simpleButton2.Click += new System.EventHandler(this.btn_SaveOnClick);
             // 
             // gc_Brokers
             // 
@@ -422,7 +425,9 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.col_BrokerAccepted});
             this.gridView1.GridControl = this.gc_Brokers;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.OptionsView.ShowIndicator = false;
             // 
             // col_ID
             // 
@@ -435,6 +440,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.col_BrokerName.Caption = "Broker";
             this.col_BrokerName.FieldName = "Name";
             this.col_BrokerName.Name = "col_BrokerName";
+            this.col_BrokerName.OptionsColumn.AllowEdit = false;
             this.col_BrokerName.Visible = true;
             this.col_BrokerName.VisibleIndex = 0;
             this.col_BrokerName.Width = 126;
@@ -444,6 +450,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.col_StateName.Caption = "State";
             this.col_StateName.FieldName = "State";
             this.col_StateName.Name = "col_StateName";
+            this.col_StateName.OptionsColumn.AllowEdit = false;
             this.col_StateName.Visible = true;
             this.col_StateName.VisibleIndex = 1;
             this.col_StateName.Width = 126;
@@ -453,6 +460,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.col_CityName.Caption = "City";
             this.col_CityName.FieldName = "City";
             this.col_CityName.Name = "col_CityName";
+            this.col_CityName.OptionsColumn.AllowEdit = false;
             this.col_CityName.Visible = true;
             this.col_CityName.VisibleIndex = 2;
             this.col_CityName.Width = 126;
@@ -462,6 +470,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.col_BrokerAddress.Caption = "Address";
             this.col_BrokerAddress.FieldName = "Address";
             this.col_BrokerAddress.Name = "col_BrokerAddress";
+            this.col_BrokerAddress.OptionsColumn.AllowEdit = false;
             this.col_BrokerAddress.Visible = true;
             this.col_BrokerAddress.VisibleIndex = 3;
             this.col_BrokerAddress.Width = 126;
@@ -470,17 +479,15 @@ namespace ResponseEmergencySystem.Forms.Modals
             // 
             this.col_BrokerAccepted.ColumnEdit = this.btn_Accpeted;
             this.col_BrokerAccepted.Name = "col_BrokerAccepted";
-            this.col_BrokerAccepted.Visible = true;
-            this.col_BrokerAccepted.VisibleIndex = 4;
             this.col_BrokerAccepted.Width = 30;
             // 
             // btn_Accpeted
             // 
             this.btn_Accpeted.AutoHeight = false;
-            editorButtonImageOptions3.SvgImage = global::ResponseEmergencySystem.Properties.Resources.checkGreen;
-            editorButtonImageOptions3.SvgImageSize = new System.Drawing.Size(20, 20);
+            editorButtonImageOptions12.SvgImage = global::ResponseEmergencySystem.Properties.Resources.checkGreen;
+            editorButtonImageOptions12.SvgImageSize = new System.Drawing.Size(20, 20);
             this.btn_Accpeted.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions12, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject45, serializableAppearanceObject46, serializableAppearanceObject47, serializableAppearanceObject48, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btn_Accpeted.Name = "btn_Accpeted";
             this.btn_Accpeted.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btn_Accpeted.Click += new System.EventHandler(this.btn_ApprovedBroker);
@@ -499,7 +506,6 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.Name = "frm_BrokerList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Broker List";
-            this.Load += new System.EventHandler(this.frm_BrokerList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.btn_Approved1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);

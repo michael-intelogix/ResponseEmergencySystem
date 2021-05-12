@@ -12,14 +12,20 @@ namespace ResponseEmergencySystem.Views
     {
         void SetController(BrokerController controller);
         void LoadBrokers(List<Broker> brokers);
-        void LoadStates(List<State> states);
-        void LoadCities(List<City> cities);
 
         string Broker { get; set; }
         string State { get; set; }
         string City { get; set; }
         string Address { get; set; }
         bool Private { get; set; }
+
+        string StateName { get; }
+        string CityName { get; }
+
+        #region
+        object CitiesDataSource { set; }
+        object StatesDataSource { set; }
+        #endregion
 
     }
 }

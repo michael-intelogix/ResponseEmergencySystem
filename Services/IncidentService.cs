@@ -352,8 +352,8 @@ namespace ResponseEmergencySystem.Services
                     cmd.Parameters.AddWithValue("@lastName2", involved.LastName2);
                     cmd.Parameters.AddWithValue("@phone", involved.PhoneNumber);
                     cmd.Parameters.AddWithValue("@age", involved.Age);
-                    cmd.Parameters.AddWithValue("@isDriver", involved.IsDriver);
-                    cmd.Parameters.AddWithValue("@isPassenger", involved.IsPassenger);
+                    cmd.Parameters.AddWithValue("@isDriver", involved.Driver);
+                    cmd.Parameters.AddWithValue("@isPassenger", !involved.Driver);
                     cmd.Parameters.AddWithValue("@driverLicense", involved.DriverLicense);
                     cmd.Parameters.AddWithValue("@privatepPerson", involved.PrivatePerson);
                     cmd.Parameters.AddWithValue("@injured", involved.Injured);
