@@ -131,7 +131,7 @@ namespace ResponseEmergencySystem.Services
             return result;
         }
 
-        public static void AddIncident(
+        public static Response AddIncident(
             string ID_Driver,
             string ID_State,
             string ID_City,
@@ -220,10 +220,13 @@ namespace ResponseEmergencySystem.Services
                     cmd.Connection.Close();
 
                 }
+
+                return response;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Incident couldn't be saved due: {ex.Message}");
+                //MessageBox.Show($"Incident couldn't be saved due: {ex.Message}");
+                return new Response(false, ex.Message, Guid.Empty.ToString());
             }
 
         }
@@ -321,6 +324,66 @@ namespace ResponseEmergencySystem.Services
             catch (Exception ex)
             {
                 MessageBox.Show($"Incident couldn't be saved due: {ex.Message}");
+            }
+
+        }
+
+        public static void AddPersonInvolved(PersonsInvolved involved)
+        {
+            opSuccess = false;
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand
+                {
+                    Connection = constants.SIREMConnection,
+                    CommandText = $"Update_InjuredPerson",
+                    CommandType = CommandType.StoredProcedure
+                })
+                {
+                    if (cmd.Connection.State == ConnectionState.Open)
+                    {
+                        cmd.Connection.Close();
+                    }
+
+                    cmd.Parameters.AddWithValue("@ID_InjuredPerson", Guid.Empty);
+                    cmd.Parameters.AddWithValue("@fullName", involved.FullName);
+                    cmd.Parameters.AddWithValue("@lastName1", involved.Lastname1);
+                    cmd.Parameters.AddWithValue("@lastName2", involved.LastName2);
+                    cmd.Parameters.AddWithValue("@phone", involved.PhoneNumber);
+                    cmd.Parameters.AddWithValue("@age", involved.Age);
+                    cmd.Parameters.AddWithValue("@isDriver", involved.IsDriver);
+                    cmd.Parameters.AddWithValue("@isPassenger", involved.IsPassenger);
+                    cmd.Parameters.AddWithValue("@driverLicense", involved.DriverLicense);
+                    cmd.Parameters.AddWithValue("@privatepPerson", involved.PrivatePerson);
+                    cmd.Parameters.AddWithValue("@injured", involved.Injured);
+                    cmd.Parameters.AddWithValue("@ID_Incident", involved.ID_Incident);
+
+                    cmd.Connection.Open();
+                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    {
+                        if (sdr == null)
+                        {
+                            throw new NullReferenceException("No Information Available.");
+                        }
+                        while (sdr.Read())
+                        {
+                            Debug.WriteLine(sdr["Validacion"]);
+                            Debug.WriteLine(sdr["msg"]);
+                            Debug.WriteLine(sdr["ID"]);
+
+                            MessageBox.Show((string)sdr["msg"]);
+
+                            response = new Response(Convert.ToBoolean(sdr["Validacion"]), sdr["msg"].ToString(), sdr["ID"].ToString());
+                        }
+                    }
+                    cmd.Connection.Close();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Involved person couldn't be saved due: {ex.Message}");
             }
 
         }

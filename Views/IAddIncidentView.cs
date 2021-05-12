@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.XtraEditors.Controls;
 
 namespace ResponseEmergencySystem.Views
 {
@@ -56,11 +57,28 @@ namespace ResponseEmergencySystem.Views
 
         string Comments { get; } 
 
+        string IPFullName { get; } 
+        string IPLastName1 { get; }
+        string IPLastName2 { get; }
+        string IPAge { get; }
+        string IPPhoneNumber { get; }
+        bool IPDriver { get; }
+        string IPDriverLicense { get; }
+        bool IPPrivate { get; }
+        bool IPInjured { get; }
+
         // form elements properties (change properties of especific elements in the form)
         bool PnlBolVisibility { set; }
         bool PnlPoliceReportVisibility { set; }
         bool LblTruckExistsVisibility { set; }
         bool LblTrailerExistsVisibility { set; }
         object LueCitiesDataSource { set; }
+        object InvolvedPersonsDataSorurce { set;  }
+        bool PnlDriverInvolvedVisibility { set; }
+
+        BorderStyles EdtFullNameBorder { get; set; }
+        BorderStyles EdtLastNameBorder { get; set; }
+        BorderStyles EdtPhoneNumberBorder { get; set; }
+        BorderStyles EdtAgeBorder { get; set; }
     }
 }

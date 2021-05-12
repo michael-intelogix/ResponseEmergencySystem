@@ -21,6 +21,7 @@ using System.Net.Http.Headers;
 using Newtonsoft.Json.Linq;
 using System.IO;
 using ResponseEmergencySystem.Models;
+using DevExpress.XtraEditors.Controls;
 
 namespace ResponseEmergencySystem.Forms
 {
@@ -316,6 +317,45 @@ namespace ResponseEmergencySystem.Forms
         }
         #endregion
 
+        #region involved persons 
+        public string IPFullName 
+        { 
+            get { return Utils.GetEdtValue(edt_IPFullName); } 
+        }
+        public string IPLastName1 
+        { 
+            get { return Utils.GetEdtValue(edt_IPLastName1); }
+        }
+        //not in use
+        public string IPLastName2 
+        {
+            get { return Utils.GetEdtValue(edt_IPLastName1); }
+        }
+        public string IPAge 
+        { 
+            get { return Utils.GetEdtValue(edt_IPAge); } 
+        }
+        public string IPPhoneNumber 
+        { 
+            get { return Utils.GetEdtValue(edt_IPPhoneNumber); } 
+        }
+        public bool IPDriver 
+        { 
+            get { return (bool)ckedt_IPDriver.EditValue; } 
+        }
+        public string IPDriverLicense { 
+            get { return Utils.GetEdtValue(edt_IPLicense); } 
+        }
+        public bool IPPrivate 
+        { 
+            get { return (bool)ckedt_IPPrivate.EditValue; } 
+        }
+        public bool IPInjured 
+        {
+            get { return (bool)ckedt_IPInjured.EditValue; } 
+        }
+        #endregion
+
         #region Form properties
         public bool PnlBolVisibility
         {
@@ -341,6 +381,42 @@ namespace ResponseEmergencySystem.Forms
         {
             set { lue_Cities.Properties.DataSource = value; }
         }
+
+        public object InvolvedPersonsDataSorurce
+        {
+            set { gc_InvolvedPersons.DataSource = value; }
+        }
+
+        public bool PnlDriverInvolvedVisibility
+        {
+            set { pnl_DriverInvolved.Visible = value; }
+        }
+
+        public BorderStyles EdtFullNameBorder
+        {
+            get { return edt_IPFullName.BorderStyle; }
+            set { edt_IPFullName.BorderStyle = value; }
+        }
+
+        public BorderStyles EdtLastNameBorder
+        {
+            get { return edt_IPLastName1.BorderStyle; }
+            set { edt_IPLastName1.BorderStyle = value; }
+        }
+
+        public BorderStyles EdtPhoneNumberBorder
+        {
+            get { return edt_IPPhoneNumber.BorderStyle; }
+            set { edt_IPPhoneNumber.BorderStyle = value; }
+        }
+
+        public BorderStyles EdtAgeBorder
+        {
+            get { return edt_IPAge.BorderStyle; }
+            set { edt_IPAge.BorderStyle = value; }
+        }
+
+
         #endregion
 
         #endregion
@@ -375,6 +451,18 @@ namespace ResponseEmergencySystem.Forms
             {
                 _controller.GetDriver();
             }
+        }
+
+        private void simpleButton5_Click(object sender, EventArgs e)
+        {
+            edt_IPFullName.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            _controller.AddPersonInvolved();
+        }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            //Utils.ShowMessage("Are you sure you want to close?", "Incident");
+            this.Close();
         }
     }
 

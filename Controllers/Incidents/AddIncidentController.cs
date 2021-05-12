@@ -15,6 +15,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.XtraEditors.Controls;
 
 namespace ResponseEmergencySystem.Controllers.Incidents
 {
@@ -22,6 +23,8 @@ namespace ResponseEmergencySystem.Controllers.Incidents
     {
         IAddIncidentView _view;
         public DataTable dt_InjuredPersons = new DataTable();
+
+        private List<PersonsInvolved> _PersonsInvolved = new List<PersonsInvolved>(); 
 
         private string ID_Driver;
         private string ID_Broker;
@@ -93,9 +96,10 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                     {
                         _view.Latitude = item.latitude.ToString();
                         _view.Longitude = item.longitude.ToString();
+                        _view.LocationReferences = item.formattedLocation;
 
-                        Testing samsara = new Testing(item.name, item.time, item.latitude, item.longitude, item.heading, item.speed, item.formattedLocation);
-                        samsara.Show();
+                        //Testing samsara = new Testing(item.name, item.time, item.latitude, item.longitude, item.heading, item.speed, item.formattedLocation);
+                        //samsara.Show();
 
                     }
 
@@ -165,10 +169,11 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         {
             DataRow folioReponse = Functions.Get_Folio().Select().First();
             string folio = folioReponse.ItemArray[2].ToString() + "-" + folioReponse.ItemArray[3].ToString();
-            
+
+            string ID_Incident = "";
             //check location refreces
 
-            IncidentService.AddIncident(
+            var t = new Task<Response>(() => IncidentService.AddIncident(
                 ID_Driver.ToUpper(),
                 _view.ID_State,
                 _view.ID_City,
@@ -192,7 +197,24 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                 _view.TrailerNeedCrane,
                 constants.userIDTest.ToString(),
                 _view.Comments
-            );
+            ));
+
+            t.Start();
+            t.Wait();
+
+            foreach (var person in _PersonsInvolved)
+            {
+                if (t.Result.validation)
+                {
+                    person.ID_Incident = t.Result.ID;
+                    IncidentService.AddPersonInvolved(person);
+                }
+                else
+                {
+                    Debug.WriteLine(t.Result.Message);
+                }
+
+            }
 
             //foreach (DataRow row in dt_InjuredPersons.Rows)
             //{
@@ -249,15 +271,18 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                 case "ckedt_PoliceReport":
                     _view.PnlPoliceReportVisibility = ckedtValue;
                     break;
+                case "ckedt_IPDriver":
+                    _view.PnlDriverInvolvedVisibility = ckedtValue;
+                    break;
                 //case "ckedt_Injured":
                 //    panelControl3.Visible = ckedtValue;
                 //    pnl_AddInjuredFields.Visible = ckedtValue;
                 //    //gc_InjuredPersons.Enabled = ckedtValue;
 
-                //    //if (_controller.dt_InjuredPersons.Rows.Count == 0)
-                //    //    _controller.addEmptyRow();
+                    //    //if (_controller.dt_InjuredPersons.Rows.Count == 0)
+                    //    //    _controller.addEmptyRow();
 
-                //    break;
+                    //    break;
             }
         }
 
@@ -289,6 +314,55 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
                     break;
             }
+        }
+
+        public void AddPersonInvolved()
+        {
+            int errors = 0;
+            if(_view.IPFullName.Length == 0)
+            {
+                _view.EdtFullNameBorder = BorderStyles.Simple;
+                errors += 1;
+            }
+            else
+                _view.EdtFullNameBorder = BorderStyles.Default;
+
+            if (_view.IPLastName1.Length == 0)
+            {
+                _view.EdtLastNameBorder = BorderStyles.Simple;
+                errors += 1;
+            }
+            else
+                _view.EdtLastNameBorder = BorderStyles.Default;
+
+            if (_view.IPPhoneNumber.Length == 0)
+            {
+                _view.EdtPhoneNumberBorder = BorderStyles.Simple;
+                errors += 1;
+            }
+            else
+                _view.EdtPhoneNumberBorder = BorderStyles.Default;
+
+            if (_view.IPAge.Length == 0)
+            {
+                _view.EdtAgeBorder = BorderStyles.Simple;
+                errors += 1;
+            }
+            else
+                _view.EdtAgeBorder = BorderStyles.Default;
+
+            if (errors == 0)
+            {
+                _PersonsInvolved.Add(new PersonsInvolved(_view.IPFullName, _view.IPLastName1, _view.IPPhoneNumber, _view.IPAge, _view.IPDriver, _view.IPDriverLicense, _view.IPPrivate, _view.IPInjured, Guid.Empty.ToString()));
+                _view.InvolvedPersonsDataSorurce = _PersonsInvolved;
+            }
+
+        }
+
+        private int validate(bool validation, ref BorderStyles border)
+        {
+            
+            return validation ? 1 : 0;
         }
     }
 }
