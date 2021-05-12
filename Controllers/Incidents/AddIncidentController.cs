@@ -277,7 +277,16 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                     dt_Response = Functions.Get_Trailer(_view.TrailerNumber);
                     DataRow trailerResponse = dt_Response.Select().First();
                     SetTrailer(trailerResponse.ItemArray[0].ToString());
-                    _view.LblTrailerExistsVisibility = trailerResponse.ItemArray[0].ToString() == "0";
+                    if (trailerResponse.ItemArray[0].ToString() != "0")
+                    {
+                        _view.LblTrailerExistsVisibility = false;
+                        _view.CargoType = trailerResponse.ItemArray[3].ToString();
+                    }
+                    else
+                    {
+                        _view.LblTrailerExistsVisibility = true;
+                    }
+
                     break;
             }
         }

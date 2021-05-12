@@ -39,6 +39,10 @@ namespace ResponseEmergencySystem.Forms
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule5 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule6 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule7 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule8 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.btn_DeleteRow = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.edt_Number = new DevExpress.XtraEditors.TextEdit();
@@ -572,6 +576,7 @@ namespace ResponseEmergencySystem.Forms
             this.lbl_TrailerExists.Size = new System.Drawing.Size(131, 17);
             this.lbl_TrailerExists.TabIndex = 129;
             this.lbl_TrailerExists.Text = "Trailer doesn\'t exists";
+            this.lbl_TrailerExists.Visible = false;
             // 
             // labelControl13
             // 
@@ -592,11 +597,13 @@ namespace ResponseEmergencySystem.Forms
             this.ckedt_Spill.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.ckedt_Spill.Size = new System.Drawing.Size(102, 21);
             this.ckedt_Spill.TabIndex = 125;
+            this.ckedt_Spill.CheckedChanged += new System.EventHandler(this.Ckedt_OnValueChanged);
             // 
             // edt_Cargo
             // 
             this.edt_Cargo.Location = new System.Drawing.Point(83, 80);
             this.edt_Cargo.Name = "edt_Cargo";
+            this.edt_Cargo.Properties.ReadOnly = true;
             this.edt_Cargo.Size = new System.Drawing.Size(119, 24);
             this.edt_Cargo.TabIndex = 124;
             // 
@@ -611,13 +618,19 @@ namespace ResponseEmergencySystem.Forms
             this.pnl_BOL.Name = "pnl_BOL";
             this.pnl_BOL.Size = new System.Drawing.Size(256, 30);
             this.pnl_BOL.TabIndex = 126;
+            this.pnl_BOL.Visible = false;
             // 
             // edt_manifest
             // 
+            this.edt_manifest.CausesValidation = false;
             this.edt_manifest.Location = new System.Drawing.Point(93, 3);
             this.edt_manifest.Name = "edt_manifest";
             this.edt_manifest.Size = new System.Drawing.Size(158, 24);
             this.edt_manifest.TabIndex = 27;
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "This value is not valid";
+            conditionValidationRule1.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
+            this.dxValidationProvider1.SetValidationRule(this.edt_manifest, conditionValidationRule1);
             // 
             // labelControl10
             // 
@@ -647,8 +660,16 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.edt_TrailerNumber.Location = new System.Drawing.Point(83, 30);
             this.edt_TrailerNumber.Name = "edt_TrailerNumber";
+            this.edt_TrailerNumber.Properties.BeepOnError = false;
+            this.edt_TrailerNumber.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.RegExpMaskManager));
+            this.edt_TrailerNumber.Properties.MaskSettings.Set("MaskManagerSignature", "isOptimistic=False");
+            this.edt_TrailerNumber.Properties.MaskSettings.Set("mask", "\\d+");
             this.edt_TrailerNumber.Size = new System.Drawing.Size(119, 24);
             this.edt_TrailerNumber.TabIndex = 119;
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "This value is not valid";
+            conditionValidationRule2.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
+            this.dxValidationProvider1.SetValidationRule(this.edt_TrailerNumber, conditionValidationRule2);
             this.edt_TrailerNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumber_OnEdtKeyPress);
             this.edt_TrailerNumber.Leave += new System.EventHandler(this.checkNumber_OnEdtLeave);
             // 
@@ -1062,6 +1083,7 @@ namespace ResponseEmergencySystem.Forms
             this.lbl_TruckExists.Size = new System.Drawing.Size(125, 17);
             this.lbl_TruckExists.TabIndex = 130;
             this.lbl_TruckExists.Text = "Truck doesn\'t exists";
+            this.lbl_TruckExists.Visible = false;
             // 
             // labelControl14
             // 
@@ -1107,8 +1129,17 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.edt_TruckNumber.Location = new System.Drawing.Point(90, 30);
             this.edt_TruckNumber.Name = "edt_TruckNumber";
+            this.edt_TruckNumber.Properties.BeepOnError = false;
+            this.edt_TruckNumber.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.RegExpMaskManager));
+            this.edt_TruckNumber.Properties.MaskSettings.Set("MaskManagerSignature", "isOptimistic=False");
+            this.edt_TruckNumber.Properties.MaskSettings.Set("mask", "\\d+");
             this.edt_TruckNumber.Size = new System.Drawing.Size(119, 24);
             this.edt_TruckNumber.TabIndex = 111;
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule3.ErrorText = "This value is not valid";
+            conditionValidationRule3.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
+            conditionValidationRule3.Value1 = "<Null>";
+            this.dxValidationProvider1.SetValidationRule(this.edt_TruckNumber, conditionValidationRule3);
             this.edt_TruckNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumber_OnEdtKeyPress);
             this.edt_TruckNumber.Leave += new System.EventHandler(this.checkNumber_OnEdtLeave);
             // 
@@ -1194,6 +1225,10 @@ namespace ResponseEmergencySystem.Forms
             this.lue_DriverLicenseState.Properties.ValueMember = "pk_id";
             this.lue_DriverLicenseState.Size = new System.Drawing.Size(119, 24);
             this.lue_DriverLicenseState.TabIndex = 21;
+            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule4.ErrorText = "This value is not valid";
+            conditionValidationRule4.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
+            this.dxValidationProvider1.SetValidationRule(this.lue_DriverLicenseState, conditionValidationRule4);
             // 
             // labelControl5
             // 
@@ -1217,10 +1252,10 @@ namespace ResponseEmergencySystem.Forms
             this.edt_License.Name = "edt_License";
             this.edt_License.Size = new System.Drawing.Size(111, 24);
             this.edt_License.TabIndex = 17;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "This value is not valid";
-            conditionValidationRule1.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
-            this.dxValidationProvider1.SetValidationRule(this.edt_License, conditionValidationRule1);
+            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule5.ErrorText = "This value is not valid";
+            conditionValidationRule5.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
+            this.dxValidationProvider1.SetValidationRule(this.edt_License, conditionValidationRule5);
             // 
             // edt_PhoneNumber
             // 
@@ -1228,11 +1263,11 @@ namespace ResponseEmergencySystem.Forms
             this.edt_PhoneNumber.Name = "edt_PhoneNumber";
             this.edt_PhoneNumber.Size = new System.Drawing.Size(142, 24);
             this.edt_PhoneNumber.TabIndex = 16;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule2.ErrorText = "This value is not valid";
-            conditionValidationRule2.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
-            conditionValidationRule2.Value1 = "\"\"";
-            this.dxValidationProvider1.SetValidationRule(this.edt_PhoneNumber, conditionValidationRule2);
+            conditionValidationRule6.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule6.ErrorText = "This value is not valid";
+            conditionValidationRule6.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
+            conditionValidationRule6.Value1 = "\"\"";
+            this.dxValidationProvider1.SetValidationRule(this.edt_PhoneNumber, conditionValidationRule6);
             // 
             // edt_FullName
             // 
@@ -1240,11 +1275,11 @@ namespace ResponseEmergencySystem.Forms
             this.edt_FullName.Name = "edt_FullName";
             this.edt_FullName.Size = new System.Drawing.Size(257, 24);
             this.edt_FullName.TabIndex = 15;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule3.ErrorText = "This value is not valid";
-            conditionValidationRule3.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
-            conditionValidationRule3.Value1 = "\"\"";
-            this.dxValidationProvider1.SetValidationRule(this.edt_FullName, conditionValidationRule3);
+            conditionValidationRule7.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule7.ErrorText = "This value is not valid";
+            conditionValidationRule7.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
+            conditionValidationRule7.Value1 = "\"\"";
+            this.dxValidationProvider1.SetValidationRule(this.edt_FullName, conditionValidationRule7);
             // 
             // labelControl7
             // 
@@ -1288,10 +1323,10 @@ namespace ResponseEmergencySystem.Forms
             this.dte_ExpirationDate.Properties.UseMaskAsDisplayFormat = true;
             this.dte_ExpirationDate.Size = new System.Drawing.Size(201, 24);
             this.dte_ExpirationDate.TabIndex = 19;
-            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule4.ErrorText = "This value is not valid";
-            conditionValidationRule4.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
-            this.dxValidationProvider1.SetValidationRule(this.dte_ExpirationDate, conditionValidationRule4);
+            conditionValidationRule8.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule8.ErrorText = "This value is not valid";
+            conditionValidationRule8.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
+            this.dxValidationProvider1.SetValidationRule(this.dte_ExpirationDate, conditionValidationRule8);
             // 
             // labelControl1
             // 
@@ -1518,6 +1553,7 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.edt_Number.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            this.layoutControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).EndInit();
             this.panelControl6.ResumeLayout(false);

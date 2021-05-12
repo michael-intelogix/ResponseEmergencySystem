@@ -72,8 +72,12 @@ namespace ResponseEmergencySystem.Forms
 
         private void btn_AddIncident_Click(object sender, EventArgs e)
         {
-            if(dxValidationProvider1.Validate())
-                _controller.AddIncident();
+            ////_controller.AddIncident(); 
+            if (pnl_BOL.Visible)
+                edt_manifest.DoValidate();
+
+            if (dxValidationProvider1.Validate())
+                Utils.ShowMessage("Good", "Validation Error");
             else
                 Utils.ShowMessage("Please Check the information again", "Validation Error");
 
