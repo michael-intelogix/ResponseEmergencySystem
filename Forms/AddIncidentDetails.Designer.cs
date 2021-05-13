@@ -57,20 +57,21 @@ namespace ResponseEmergencySystem.Forms
             this.label1 = new System.Windows.Forms.Label();
             this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
             this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl27 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl29 = new DevExpress.XtraEditors.LabelControl();
             this.edt_IPAge = new DevExpress.XtraEditors.TextEdit();
+            this.edt_IPPhoneNumber = new DevExpress.XtraEditors.TextEdit();
             this.edt_IPLastName1 = new DevExpress.XtraEditors.TextEdit();
             this.labelControl26 = new DevExpress.XtraEditors.LabelControl();
+            this.pnl_DriverInvolved = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl30 = new DevExpress.XtraEditors.LabelControl();
+            this.edt_IPLicense = new DevExpress.XtraEditors.TextEdit();
             this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl28 = new DevExpress.XtraEditors.LabelControl();
             this.ckedt_IPInjured = new DevExpress.XtraEditors.CheckEdit();
             this.edt_IPFullName = new DevExpress.XtraEditors.TextEdit();
             this.ckedt_IPPrivate = new DevExpress.XtraEditors.CheckEdit();
-            this.pnl_DriverInvolved = new DevExpress.XtraEditors.PanelControl();
-            this.edt_IPLicense = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl30 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl29 = new DevExpress.XtraEditors.LabelControl();
             this.checkEdit2 = new DevExpress.XtraEditors.CheckEdit();
-            this.edt_IPPhoneNumber = new DevExpress.XtraEditors.TextEdit();
             this.ckedt_IPDriver = new DevExpress.XtraEditors.CheckEdit();
             this.gc_InvolvedPersons = new DevExpress.XtraGrid.GridControl();
             this.gv_InvolvedPersons = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -174,7 +175,6 @@ namespace ResponseEmergencySystem.Forms
             this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
-            this.labelControl27 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.btn_DeleteRow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_Number.Properties)).BeginInit();
@@ -184,15 +184,15 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).BeginInit();
             this.panelControl6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.edt_IPAge.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_IPPhoneNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_IPLastName1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ckedt_IPInjured.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.edt_IPFullName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ckedt_IPPrivate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnl_DriverInvolved)).BeginInit();
             this.pnl_DriverInvolved.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.edt_IPLicense.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckedt_IPInjured.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_IPFullName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckedt_IPPrivate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.edt_IPPhoneNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckedt_IPDriver.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc_InvolvedPersons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_InvolvedPersons)).BeginInit();
@@ -363,6 +363,26 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl6.Size = new System.Drawing.Size(651, 115);
             this.panelControl6.TabIndex = 115;
             // 
+            // labelControl27
+            // 
+            this.labelControl27.Appearance.Options.UseTextOptions = true;
+            this.labelControl27.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.labelControl27.Location = new System.Drawing.Point(8, 49);
+            this.labelControl27.Name = "labelControl27";
+            this.labelControl27.Size = new System.Drawing.Size(24, 17);
+            this.labelControl27.TabIndex = 120;
+            this.labelControl27.Text = "Age";
+            // 
+            // labelControl29
+            // 
+            this.labelControl29.Appearance.Options.UseTextOptions = true;
+            this.labelControl29.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.labelControl29.Location = new System.Drawing.Point(404, 15);
+            this.labelControl29.Name = "labelControl29";
+            this.labelControl29.Size = new System.Drawing.Size(90, 17);
+            this.labelControl29.TabIndex = 4;
+            this.labelControl29.Text = "Phone number";
+            // 
             // edt_IPAge
             // 
             this.edt_IPAge.Location = new System.Drawing.Point(49, 46);
@@ -375,6 +395,18 @@ namespace ResponseEmergencySystem.Forms
             this.edt_IPAge.Properties.MaskSettings.Set("mask", "\\d+");
             this.edt_IPAge.Size = new System.Drawing.Size(34, 24);
             this.edt_IPAge.TabIndex = 119;
+            // 
+            // edt_IPPhoneNumber
+            // 
+            this.edt_IPPhoneNumber.Location = new System.Drawing.Point(500, 12);
+            this.edt_IPPhoneNumber.Name = "edt_IPPhoneNumber";
+            this.edt_IPPhoneNumber.Properties.Appearance.BorderColor = System.Drawing.Color.Maroon;
+            this.edt_IPPhoneNumber.Properties.Appearance.Options.UseBorderColor = true;
+            this.edt_IPPhoneNumber.Properties.BeepOnError = false;
+            this.edt_IPPhoneNumber.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.SimpleMaskManager));
+            this.edt_IPPhoneNumber.Properties.MaskSettings.Set("mask", "(999) 000-0000");
+            this.edt_IPPhoneNumber.Size = new System.Drawing.Size(133, 24);
+            this.edt_IPPhoneNumber.TabIndex = 5;
             // 
             // edt_IPLastName1
             // 
@@ -394,6 +426,36 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl26.Size = new System.Drawing.Size(63, 17);
             this.labelControl26.TabIndex = 117;
             this.labelControl26.Text = "Last Name";
+            // 
+            // pnl_DriverInvolved
+            // 
+            this.pnl_DriverInvolved.Appearance.BackColor = System.Drawing.Color.White;
+            this.pnl_DriverInvolved.Appearance.Options.UseBackColor = true;
+            this.pnl_DriverInvolved.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pnl_DriverInvolved.Controls.Add(this.labelControl30);
+            this.pnl_DriverInvolved.Controls.Add(this.edt_IPLicense);
+            this.pnl_DriverInvolved.Location = new System.Drawing.Point(465, 42);
+            this.pnl_DriverInvolved.Name = "pnl_DriverInvolved";
+            this.pnl_DriverInvolved.Size = new System.Drawing.Size(180, 39);
+            this.pnl_DriverInvolved.TabIndex = 8;
+            this.pnl_DriverInvolved.Visible = false;
+            // 
+            // labelControl30
+            // 
+            this.labelControl30.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.labelControl30.Location = new System.Drawing.Point(26, 9);
+            this.labelControl30.Name = "labelControl30";
+            this.labelControl30.Size = new System.Drawing.Size(51, 17);
+            this.labelControl30.TabIndex = 0;
+            this.labelControl30.Text = "License#";
+            // 
+            // edt_IPLicense
+            // 
+            this.edt_IPLicense.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.edt_IPLicense.Location = new System.Drawing.Point(83, 6);
+            this.edt_IPLicense.Name = "edt_IPLicense";
+            this.edt_IPLicense.Size = new System.Drawing.Size(85, 24);
+            this.edt_IPLicense.TabIndex = 1;
             // 
             // simpleButton5
             // 
@@ -446,46 +508,6 @@ namespace ResponseEmergencySystem.Forms
             this.ckedt_IPPrivate.Size = new System.Drawing.Size(63, 21);
             this.ckedt_IPPrivate.TabIndex = 9;
             // 
-            // pnl_DriverInvolved
-            // 
-            this.pnl_DriverInvolved.Appearance.BackColor = System.Drawing.Color.White;
-            this.pnl_DriverInvolved.Appearance.Options.UseBackColor = true;
-            this.pnl_DriverInvolved.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.pnl_DriverInvolved.Controls.Add(this.labelControl30);
-            this.pnl_DriverInvolved.Controls.Add(this.edt_IPLicense);
-            this.pnl_DriverInvolved.Location = new System.Drawing.Point(465, 42);
-            this.pnl_DriverInvolved.Name = "pnl_DriverInvolved";
-            this.pnl_DriverInvolved.Size = new System.Drawing.Size(180, 39);
-            this.pnl_DriverInvolved.TabIndex = 8;
-            this.pnl_DriverInvolved.Visible = false;
-            // 
-            // edt_IPLicense
-            // 
-            this.edt_IPLicense.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.edt_IPLicense.Location = new System.Drawing.Point(83, 6);
-            this.edt_IPLicense.Name = "edt_IPLicense";
-            this.edt_IPLicense.Size = new System.Drawing.Size(85, 24);
-            this.edt_IPLicense.TabIndex = 1;
-            // 
-            // labelControl30
-            // 
-            this.labelControl30.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl30.Location = new System.Drawing.Point(26, 9);
-            this.labelControl30.Name = "labelControl30";
-            this.labelControl30.Size = new System.Drawing.Size(51, 17);
-            this.labelControl30.TabIndex = 0;
-            this.labelControl30.Text = "License#";
-            // 
-            // labelControl29
-            // 
-            this.labelControl29.Appearance.Options.UseTextOptions = true;
-            this.labelControl29.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.labelControl29.Location = new System.Drawing.Point(404, 15);
-            this.labelControl29.Name = "labelControl29";
-            this.labelControl29.Size = new System.Drawing.Size(90, 17);
-            this.labelControl29.TabIndex = 4;
-            this.labelControl29.Text = "Phone number";
-            // 
             // checkEdit2
             // 
             this.checkEdit2.Location = new System.Drawing.Point(284, 49);
@@ -494,18 +516,6 @@ namespace ResponseEmergencySystem.Forms
             this.checkEdit2.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.checkEdit2.Size = new System.Drawing.Size(85, 21);
             this.checkEdit2.TabIndex = 7;
-            // 
-            // edt_IPPhoneNumber
-            // 
-            this.edt_IPPhoneNumber.Location = new System.Drawing.Point(500, 12);
-            this.edt_IPPhoneNumber.Name = "edt_IPPhoneNumber";
-            this.edt_IPPhoneNumber.Properties.Appearance.BorderColor = System.Drawing.Color.Maroon;
-            this.edt_IPPhoneNumber.Properties.Appearance.Options.UseBorderColor = true;
-            this.edt_IPPhoneNumber.Properties.BeepOnError = false;
-            this.edt_IPPhoneNumber.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.SimpleMaskManager));
-            this.edt_IPPhoneNumber.Properties.MaskSettings.Set("mask", "(999) 000-0000");
-            this.edt_IPPhoneNumber.Size = new System.Drawing.Size(133, 24);
-            this.edt_IPPhoneNumber.TabIndex = 5;
             // 
             // ckedt_IPDriver
             // 
@@ -801,9 +811,9 @@ namespace ResponseEmergencySystem.Forms
             // panelControl4
             // 
             this.panelControl4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panelControl4.Location = new System.Drawing.Point(940, 277);
+            this.panelControl4.Location = new System.Drawing.Point(875, 277);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(427, 209);
+            this.panelControl4.Size = new System.Drawing.Size(492, 209);
             this.panelControl4.TabIndex = 50;
             // 
             // stackPanel1
@@ -875,7 +885,7 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl3.Controls.Add(this.labelControl23);
             this.panelControl3.Location = new System.Drawing.Point(12, 277);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(914, 209);
+            this.panelControl3.Size = new System.Drawing.Size(849, 209);
             this.panelControl3.TabIndex = 9;
             // 
             // tme_IncidentTime
@@ -897,7 +907,7 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton3.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.simpleButton3.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.searchWhite;
             this.simpleButton3.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.simpleButton3.Location = new System.Drawing.Point(13, 91);
+            this.simpleButton3.Location = new System.Drawing.Point(13, 82);
             this.simpleButton3.Name = "simpleButton3";
             this.simpleButton3.Size = new System.Drawing.Size(162, 23);
             this.simpleButton3.TabIndex = 115;
@@ -910,9 +920,9 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton4.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton4.Appearance.Options.UseBackColor = true;
             this.simpleButton4.Appearance.Options.UseFont = true;
-            this.simpleButton4.Location = new System.Drawing.Point(787, 174);
+            this.simpleButton4.Location = new System.Drawing.Point(716, 169);
             this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(108, 23);
+            this.simpleButton4.Size = new System.Drawing.Size(108, 24);
             this.simpleButton4.TabIndex = 114;
             this.simpleButton4.Text = "Select broker";
             this.simpleButton4.Click += new System.EventHandler(this.simpleButton4_Click);
@@ -967,7 +977,7 @@ namespace ResponseEmergencySystem.Forms
             this.pnl_PoliceReport.Controls.Add(this.labelControl22);
             this.pnl_PoliceReport.Location = new System.Drawing.Point(601, 16);
             this.pnl_PoliceReport.Name = "pnl_PoliceReport";
-            this.pnl_PoliceReport.Size = new System.Drawing.Size(310, 36);
+            this.pnl_PoliceReport.Size = new System.Drawing.Size(235, 36);
             this.pnl_PoliceReport.TabIndex = 51;
             this.pnl_PoliceReport.Visible = false;
             // 
@@ -975,7 +985,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.edt_PoliceReport.Location = new System.Drawing.Point(107, 5);
             this.edt_PoliceReport.Name = "edt_PoliceReport";
-            this.edt_PoliceReport.Size = new System.Drawing.Size(198, 24);
+            this.edt_PoliceReport.Size = new System.Drawing.Size(116, 24);
             this.edt_PoliceReport.TabIndex = 7;
             // 
             // labelControl22
@@ -997,9 +1007,9 @@ namespace ResponseEmergencySystem.Forms
             // edt_Broker
             // 
             this.edt_Broker.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.edt_Broker.Location = new System.Drawing.Point(464, 170);
+            this.edt_Broker.Location = new System.Drawing.Point(464, 169);
             this.edt_Broker.Name = "edt_Broker";
-            this.edt_Broker.Size = new System.Drawing.Size(307, 24);
+            this.edt_Broker.Size = new System.Drawing.Size(238, 24);
             this.edt_Broker.TabIndex = 49;
             conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule4.ErrorText = "This value is not valid";
@@ -1020,7 +1030,7 @@ namespace ResponseEmergencySystem.Forms
             // labelControl16
             // 
             this.labelControl16.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelControl16.Location = new System.Drawing.Point(418, 173);
+            this.labelControl16.Location = new System.Drawing.Point(415, 173);
             this.labelControl16.Name = "labelControl16";
             this.labelControl16.Size = new System.Drawing.Size(40, 17);
             this.labelControl16.TabIndex = 48;
@@ -1028,9 +1038,9 @@ namespace ResponseEmergencySystem.Forms
             // 
             // edt_Highway
             // 
-            this.edt_Highway.Location = new System.Drawing.Point(126, 173);
+            this.edt_Highway.Location = new System.Drawing.Point(126, 168);
             this.edt_Highway.Name = "edt_Highway";
-            this.edt_Highway.Size = new System.Drawing.Size(260, 24);
+            this.edt_Highway.Size = new System.Drawing.Size(269, 24);
             this.edt_Highway.TabIndex = 47;
             conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule5.ErrorText = "This value is not valid";
@@ -1039,7 +1049,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             // lue_Cities
             // 
-            this.lue_Cities.Location = new System.Drawing.Point(708, 128);
+            this.lue_Cities.Location = new System.Drawing.Point(708, 129);
             this.lue_Cities.Name = "lue_Cities";
             this.lue_Cities.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1093,7 +1103,7 @@ namespace ResponseEmergencySystem.Forms
             // labelControl17
             // 
             this.labelControl17.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelControl17.Location = new System.Drawing.Point(13, 175);
+            this.labelControl17.Location = new System.Drawing.Point(14, 171);
             this.labelControl17.Name = "labelControl17";
             this.labelControl17.Size = new System.Drawing.Size(107, 17);
             this.labelControl17.TabIndex = 42;
@@ -1125,7 +1135,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             // labelControl21
             // 
-            this.labelControl21.Location = new System.Drawing.Point(13, 131);
+            this.labelControl21.Location = new System.Drawing.Point(13, 130);
             this.labelControl21.Name = "labelControl21";
             this.labelControl21.Size = new System.Drawing.Size(47, 17);
             this.labelControl21.TabIndex = 38;
@@ -1135,7 +1145,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.labelControl23.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl23.Appearance.Options.UseFont = true;
-            this.labelControl23.Location = new System.Drawing.Point(13, 58);
+            this.labelControl23.Location = new System.Drawing.Point(13, 59);
             this.labelControl23.Name = "labelControl23";
             this.labelControl23.Size = new System.Drawing.Size(53, 17);
             this.labelControl23.TabIndex = 37;
@@ -1515,7 +1525,7 @@ namespace ResponseEmergencySystem.Forms
             this.layoutControlItem6.Control = this.panelControl3;
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 265);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(918, 213);
+            this.layoutControlItem6.Size = new System.Drawing.Size(853, 213);
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
             // 
@@ -1566,9 +1576,9 @@ namespace ResponseEmergencySystem.Forms
             // layoutControlItem12
             // 
             this.layoutControlItem12.Control = this.panelControl4;
-            this.layoutControlItem12.Location = new System.Drawing.Point(928, 265);
+            this.layoutControlItem12.Location = new System.Drawing.Point(863, 265);
             this.layoutControlItem12.Name = "layoutControlItem12";
-            this.layoutControlItem12.Size = new System.Drawing.Size(431, 213);
+            this.layoutControlItem12.Size = new System.Drawing.Size(496, 213);
             this.layoutControlItem12.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem12.TextVisible = false;
             // 
@@ -1635,20 +1645,10 @@ namespace ResponseEmergencySystem.Forms
             // emptySpaceItem5
             // 
             this.emptySpaceItem5.AllowHotTrack = false;
-            this.emptySpaceItem5.Location = new System.Drawing.Point(918, 265);
+            this.emptySpaceItem5.Location = new System.Drawing.Point(853, 265);
             this.emptySpaceItem5.Name = "emptySpaceItem5";
             this.emptySpaceItem5.Size = new System.Drawing.Size(10, 213);
             this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // labelControl27
-            // 
-            this.labelControl27.Appearance.Options.UseTextOptions = true;
-            this.labelControl27.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.labelControl27.Location = new System.Drawing.Point(8, 49);
-            this.labelControl27.Name = "labelControl27";
-            this.labelControl27.Size = new System.Drawing.Size(24, 17);
-            this.labelControl27.TabIndex = 120;
-            this.labelControl27.Text = "Age";
             // 
             // AddIncidentDetails
             // 
@@ -1674,16 +1674,16 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl6.ResumeLayout(false);
             this.panelControl6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.edt_IPAge.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_IPPhoneNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_IPLastName1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ckedt_IPInjured.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.edt_IPFullName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ckedt_IPPrivate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnl_DriverInvolved)).EndInit();
             this.pnl_DriverInvolved.ResumeLayout(false);
             this.pnl_DriverInvolved.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.edt_IPLicense.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckedt_IPInjured.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_IPFullName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckedt_IPPrivate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.edt_IPPhoneNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckedt_IPDriver.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc_InvolvedPersons)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_InvolvedPersons)).EndInit();
