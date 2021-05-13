@@ -111,7 +111,7 @@ namespace ResponseEmergencySystem.Forms
         public void LoadStates(DataTable dt_States)
         {
             lue_StateExp.Properties.DataSource = dt_States;
-            lue_DriverLicenseState.Properties.DataSource = dt_States;
+            lue_StateExp.Properties.DataSource = dt_States;
         }
 
 
