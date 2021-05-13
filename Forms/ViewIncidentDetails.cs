@@ -53,7 +53,7 @@ namespace ResponseEmergencySystem.Forms
         }
         public void LoadInjuredPersons(DataTable dt_InjuredPersons)
         {
-            gc_InjuredPersons.DataSource = dt_InjuredPersons;
+            //gc_InjuredPersons.DataSource = dt_InjuredPersons;
         }
 
         public bool ShowMailButton { 
@@ -388,6 +388,11 @@ namespace ResponseEmergencySystem.Forms
         private void simpleButton2_Click_1(object sender, EventArgs e)
         {
             _controller.SendEmail();
+        }
+
+        private void labelControl11_Click(object sender, EventArgs e)
+        {
+
         }
     }
 
