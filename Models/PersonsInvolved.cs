@@ -10,7 +10,7 @@ namespace ResponseEmergencySystem.Models
     {
         public string ID_Injured { get; }
         public string FullName { get; set; }
-        public string Lastname1 { get; set; }
+        public string LastName1 { get; set; }
         public string LastName2 { get; set; }
         public string Age { get; set; }
         public string PhoneNumber { get; set; }
@@ -28,7 +28,7 @@ namespace ResponseEmergencySystem.Models
         public PersonsInvolved (string fullname, string lastname1, string phonenumber, string age, bool driver, string license, bool privatePerson, bool injured, string incidentId, string lastname2 = "")
         {
             FullName = fullname;
-            Lastname1 = lastname1;
+            LastName1 = lastname1;
             LastName2 = lastname2;
             PhoneNumber = phonenumber;
             Age = age;

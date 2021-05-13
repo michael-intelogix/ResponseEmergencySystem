@@ -224,6 +224,12 @@ namespace ResponseEmergencySystem.Controllers
             Controllers.Incidents.AddIncidentController addIncidentCtrl = new Controllers.Incidents.AddIncidentController(addIncidentView);
             addIncidentCtrl.LoadStates();
             addIncidentView.ShowDialog();
+            if (addIncidentView.ShowDialog() == DialogResult.OK)
+            {
+                Utils.ShowMessage("the Incident was added succesfully", "Incident");
+                _view.Incidents = IncidentService.list_Incidents("", "", "", "", "");
+            }
+              
         }
 
         public void EditImageView(string imgPath)

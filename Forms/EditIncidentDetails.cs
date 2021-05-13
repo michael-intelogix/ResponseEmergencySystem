@@ -16,6 +16,14 @@ using ResponseEmergencySystem.Services;
 using ResponseEmergencySystem.Views;
 using ResponseEmergencySystem.Models;
 
+using System.Data.SQLite;
+
+using GMap.NET;
+using GMap.NET.MapProviders;
+using GMap.NET.WindowsForms;
+using GMap.NET.WindowsForms.Markers;
+
+
 namespace ResponseEmergencySystem.Forms
 {
     public partial class EditIncidentDetails : DevExpress.XtraEditors.XtraForm, IEditIncidentView
@@ -111,6 +119,11 @@ namespace ResponseEmergencySystem.Forms
         public void LoadInjuredPersons(DataTable dt_InjuredPersons)
         {
             gc_InvolvedPersons.DataSource = dt_InjuredPersons;
+        }
+
+        public void LoadMap(double latitude, double longitude)
+        {
+            
         }
 
         public string DriverSearch
@@ -350,6 +363,14 @@ namespace ResponseEmergencySystem.Forms
         private void panelControl5_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void EditIncidentDetails_Load(object sender, EventArgs e)
+        {
+            gMapControl1.MapProvider = GMap.NET.MapProviders.BingMapProvider.Instance;
+            GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
+            gMapControl1.Position = new GMap.NET.PointLatLng(_controller.latitude, _controller.longitude);
+            gMapControl1.ShowCenter = false;
         }
     }
 }

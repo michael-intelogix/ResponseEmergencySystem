@@ -23,6 +23,13 @@ using System.IO;
 using ResponseEmergencySystem.Models;
 using DevExpress.XtraEditors.Controls;
 
+using System.Data.SQLite;
+
+using GMap.NET;
+using GMap.NET.MapProviders;
+using GMap.NET.WindowsForms;
+using GMap.NET.WindowsForms.Markers;
+
 namespace ResponseEmergencySystem.Forms
 {
     
@@ -68,7 +75,10 @@ namespace ResponseEmergencySystem.Forms
 
         private void IncidentCapture_Load(object sender, EventArgs e)
         {
-            //_controller.CreateInjuredPersonsTable();
+            gMapControl1.MapProvider = GMap.NET.MapProviders.BingMapProvider.Instance;
+            GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
+            gMapControl1.Position = new GMap.NET.PointLatLng(36.05948, -102.51325);
+            gMapControl1.ShowCenter = false;
         }
 
         private void btn_AddIncident_Click(object sender, EventArgs e)
@@ -82,6 +92,8 @@ namespace ResponseEmergencySystem.Forms
                 splashScreenManager1.ShowWaitForm();
                 _controller.AddIncident();
                 splashScreenManager1.CloseWaitForm();
+
+                this.DialogResult = DialogResult.OK;
             }
             else
                 Utils.ShowMessage("Please Check the information again", "Validation Error");
@@ -111,7 +123,7 @@ namespace ResponseEmergencySystem.Forms
         public void LoadStates(DataTable dt_States)
         {
             lue_StateExp.Properties.DataSource = dt_States;
-            lue_StateExp.Properties.DataSource = dt_States;
+            lue_DriverLicenseState.Properties.DataSource = dt_States;
         }
 
 
@@ -143,7 +155,8 @@ namespace ResponseEmergencySystem.Forms
         public void FindTruckSamsara_Click(object sender, EventArgs e)
         {
             splashScreenManager1.ShowWaitForm();
-            _controller.GetTruckSamsara();
+            var res = _controller.GetTruckSamsara();
+            gMapControl1.Position = new GMap.NET.PointLatLng(res[0], res[1]);
             splashScreenManager1.CloseWaitForm();
         }
 

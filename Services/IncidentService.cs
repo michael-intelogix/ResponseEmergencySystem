@@ -212,7 +212,7 @@ namespace ResponseEmergencySystem.Services
                             Debug.WriteLine(sdr["msg"]);
                             Debug.WriteLine(sdr["ID"]);
 
-                            MessageBox.Show((string)sdr["msg"]);
+                            //MessageBox.Show((string)sdr["msg"]);
 
                             response = new Response(Convert.ToBoolean(sdr["Validacion"]), sdr["msg"].ToString(), sdr["ID"].ToString());
                         }
@@ -348,7 +348,7 @@ namespace ResponseEmergencySystem.Services
 
                     cmd.Parameters.AddWithValue("@ID_InjuredPerson", Guid.Empty);
                     cmd.Parameters.AddWithValue("@fullName", involved.FullName);
-                    cmd.Parameters.AddWithValue("@lastName1", involved.Lastname1);
+                    cmd.Parameters.AddWithValue("@lastName1", involved.LastName1);
                     cmd.Parameters.AddWithValue("@lastName2", involved.LastName2);
                     cmd.Parameters.AddWithValue("@phone", involved.PhoneNumber);
                     cmd.Parameters.AddWithValue("@age", involved.Age);
@@ -372,7 +372,7 @@ namespace ResponseEmergencySystem.Services
                             Debug.WriteLine(sdr["msg"]);
                             Debug.WriteLine(sdr["ID"]);
 
-                            MessageBox.Show((string)sdr["msg"]);
+                            //MessageBox.Show((string)sdr["msg"]);
 
                             response = new Response(Convert.ToBoolean(sdr["Validacion"]), sdr["msg"].ToString(), sdr["ID"].ToString());
                         }

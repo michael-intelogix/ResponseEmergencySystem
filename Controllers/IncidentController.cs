@@ -31,6 +31,9 @@ namespace ResponseEmergencySystem.Controllers
         Incident _selectedIncident;
         DataTable dt_InjuredPersons = new DataTable();
 
+        public double latitude;
+        public double longitude;
+
         public IncidentController(IShowIncidentDetails view, string incidentId, string folio)
         {
             ID_Incident = incidentId;
@@ -93,6 +96,9 @@ namespace ResponseEmergencySystem.Controllers
             _view.Longitude = _selectedIncident.IncidentLongitude;
             _view.LocationReferences = _selectedIncident.LocationReferences;
             #endregion
+
+            latitude = Convert.ToDouble(_selectedIncident.IncidentLatitude);
+            longitude = Convert.ToDouble(_selectedIncident.IncidentLongitude);
 
             _view.LoadStates(Functions.getStates());
             if (dt_InjuredPersons.Rows.Count > 0)

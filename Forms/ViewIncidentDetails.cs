@@ -219,6 +219,11 @@ namespace ResponseEmergencySystem.Forms
         {
             lue_DriverLicenceState.Properties.DataSource = Functions.getStates();
             lue_LocationStates.Properties.DataSource = Functions.getStates();
+
+            gMapControl1.MapProvider = GMap.NET.MapProviders.BingMapProvider.Instance;
+            GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
+            gMapControl1.Position = new GMap.NET.PointLatLng(_controller.latitude, _controller.longitude);
+            gMapControl1.ShowCenter = false;
         }
 
         private void ckedt_TrailerNeedCrane_CheckedChanged(object sender, EventArgs e)

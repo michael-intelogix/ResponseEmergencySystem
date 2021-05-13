@@ -24,6 +24,9 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         Incident _selectedIncident;
         DataTable dt_InjuredPersons = new DataTable();
 
+        public double latitude;
+        public double longitude;
+
         private string ID_Driver;
         private string ID_Broker;
         private string ID_Truck;
@@ -74,7 +77,8 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             _view.LocationReferences = _selectedIncident.LocationReferences;
             #endregion
 
-
+            latitude = Convert.ToDouble(_selectedIncident.IncidentLatitude);
+            longitude = Convert.ToDouble(_selectedIncident.IncidentLongitude);
 
             _view.LoadIncident(_selectedIncident);
             _view.LoadStates(Functions.getStates());
@@ -95,9 +99,10 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             }
         }
 
-        public void GetTruckSamsara()
+        public double[] GetTruckSamsara()
         {
-
+            double latitude = 0;
+            double longitude = 0;
             const string url = "https://api.samsara.com/fleet/vehicles/locations";
             string number = _view.TruckNumber;
             try
@@ -135,6 +140,8 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
                     foreach (var item in filtered)
                     {
+                        latitude = (double)item.latitude;
+                        longitude = (double)item.longitude;
                         _view.Latitude = item.latitude.ToString();
                         _view.Longitude = item.longitude.ToString();
 
@@ -153,6 +160,8 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             {
                 MessageBox.Show(ex.Message);
             }
+
+            return new double[] { latitude, longitude };
         }
 
         public void GetDriver()

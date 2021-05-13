@@ -24,7 +24,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         IAddIncidentView _view;
         public DataTable dt_InjuredPersons = new DataTable();
 
-        private List<PersonsInvolved> _PersonsInvolved = new List<PersonsInvolved>(); 
+        private List<PersonsInvolved> _PersonsInvolved = new List<PersonsInvolved>();
 
         private string ID_Driver;
         private string ID_Broker;
@@ -54,9 +54,10 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             _view.LueCitiesDataSource = cities;
         }
 
-        public void GetTruckSamsara()
+        public double[] GetTruckSamsara()
         {
-
+            double latitude = 0;
+            double longitude = 0;
             const string url = "https://api.samsara.com/fleet/vehicles/locations";
             string number = _view.TruckNumber;
             try
@@ -94,6 +95,8 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
                     foreach (var item in filtered)
                     {
+                        latitude = (double) item.latitude;
+                        longitude = (double) item.longitude;
                         _view.Latitude = item.latitude.ToString();
                         _view.Longitude = item.longitude.ToString();
                         _view.LocationReferences = item.formattedLocation;
@@ -107,12 +110,16 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                     //Dispose once all HttpClient calls are complete.This is not necessary if the containing object will be disposed of; for example in this case the HttpClient instance will be disposed automatically when the application terminates so the following call is superfluous.
                     client.Dispose();
                 }
+                
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+
+            return new double[] { latitude, longitude };
+
         }
 
         public void GetDriver()

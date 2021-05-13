@@ -19,6 +19,8 @@ namespace ResponseEmergencySystem.Views
         void LoadCities(DataTable dt_Cities);
         void LoadInjuredPersons(DataTable dt_InjuredPersons);
 
+        void LoadMap(double latitude, double longitude);
+
         string FullName { get; set; }
         string PhoneNumber { get; set; }
         string License { get; set; }

@@ -639,6 +639,7 @@ namespace ResponseEmergencySystem.Forms
             this.gv_Incidents.Name = "gv_Incidents";
             this.gv_Incidents.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gv_Incidents.OptionsView.ShowGroupPanel = false;
+            this.gv_Incidents.OptionsView.ShowIndicator = false;
             this.gv_Incidents.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gv_Incidents_FocusedRowChanged);
             // 
             // Date
