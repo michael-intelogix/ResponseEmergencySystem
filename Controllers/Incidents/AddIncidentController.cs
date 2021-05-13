@@ -60,6 +60,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             double longitude = 0;
             const string url = "https://api.samsara.com/fleet/vehicles/locations";
             string number = _view.TruckNumber;
+
             try
             {
                 using (var client = new HttpClient())
@@ -110,15 +111,16 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                     //Dispose once all HttpClient calls are complete.This is not necessary if the containing object will be disposed of; for example in this case the HttpClient instance will be disposed automatically when the application terminates so the following call is superfluous.
                     client.Dispose();
                 }
-                
 
+                return new double[] { latitude, longitude };
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                return new double[] { 36.05948, -102.51325 };
             }
 
-            return new double[] { latitude, longitude };
+            
 
         }
 

@@ -117,9 +117,10 @@ namespace ResponseEmergencySystem.Controllers
             {
                 ID_Incident = _incidents[0].ID_Incident.ToString();
                 _captures = CaptureService.list_Captures(_incidents[0].ID_Incident.ToString());
+                _view.Incidents = _incidents.Select(i => new { i.ID_Incident, i.Name, i.Folio, i.IncidentDate, i.truck.truckNumber, i.ID_StatusDetail });
+                _view.CapturesDataSource = _captures.Select(i => new { i.captureType, i.comments, i.ID_Capture });
             }
-            _view.Incidents = _incidents.Select(i => new { i.ID_Incident, i.Name, i.Folio, i.IncidentDate, i.truck.truckNumber, i.ID_StatusDetail });
-            _view.CapturesDataSource = _captures.Select(i => new { i.captureType, i.comments, i.ID_Capture });
+            
         }
 
         public void LoadChat(string ID_incident = "")
@@ -223,11 +224,10 @@ namespace ResponseEmergencySystem.Controllers
             AddIncidentDetails addIncidentView = new AddIncidentDetails();
             Controllers.Incidents.AddIncidentController addIncidentCtrl = new Controllers.Incidents.AddIncidentController(addIncidentView);
             addIncidentCtrl.LoadStates();
-            addIncidentView.ShowDialog();
             if (addIncidentView.ShowDialog() == DialogResult.OK)
             {
                 Utils.ShowMessage("the Incident was added succesfully", "Incident");
-                _view.Incidents = IncidentService.list_Incidents("", "", "", "", "");
+                _view.Incidents = IncidentService.list_Incidents("", "", "", "", "").Select(i => new { i.ID_Incident, i.Name, i.Folio, i.IncidentDate, i.truck.truckNumber, i.ID_StatusDetail });
             }
               
         }

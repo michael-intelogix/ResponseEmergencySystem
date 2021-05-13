@@ -69,7 +69,7 @@ namespace ResponseEmergencySystem.Controllers
         public void LoadIncident()
         {
             _selectedIncident = IncidentService.list_Incidents("", "", "", "", "", incidentId: ID_Incident)[0];
-            dt_InjuredPersons = IncidentService.list_InjuredPerson(ID_Incident);
+            //dt_InjuredPersons = IncidentService.list_InjuredPerson(ID_Incident);
 
             _view.FullName = _selectedIncident.Name;
             _view.PhoneNumber = _selectedIncident.PhoneNumber;

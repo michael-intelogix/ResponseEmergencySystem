@@ -57,7 +57,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(389, 143);
+            this.layoutControl1.Size = new System.Drawing.Size(389, 190);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -65,9 +65,9 @@ namespace ResponseEmergencySystem.Forms.Modals
             // 
             this.stackPanel1.Controls.Add(this.simpleButton1);
             this.stackPanel1.LayoutDirection = DevExpress.Utils.Layout.StackPanelLayoutDirection.RightToLeft;
-            this.stackPanel1.Location = new System.Drawing.Point(12, 93);
+            this.stackPanel1.Location = new System.Drawing.Point(12, 145);
             this.stackPanel1.Name = "stackPanel1";
-            this.stackPanel1.Size = new System.Drawing.Size(365, 38);
+            this.stackPanel1.Size = new System.Drawing.Size(365, 33);
             this.stackPanel1.TabIndex = 6;
             // 
             // simpleButton1
@@ -78,7 +78,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.closeWhite;
             this.simpleButton1.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.simpleButton1.Location = new System.Drawing.Point(276, 2);
+            this.simpleButton1.Location = new System.Drawing.Point(276, 0);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(86, 34);
             this.simpleButton1.TabIndex = 0;
@@ -90,7 +90,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.label1.Font = new System.Drawing.Font("Malgun Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 46);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(365, 43);
+            this.label1.Size = new System.Drawing.Size(365, 95);
             this.label1.TabIndex = 5;
             this.label1.Text = "Modal text";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -115,7 +115,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.layoutControlItem2,
             this.layoutControlItem3});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(389, 143);
+            this.Root.Size = new System.Drawing.Size(389, 190);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem1
@@ -132,16 +132,16 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.layoutControlItem2.Control = this.label1;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 34);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(369, 47);
+            this.layoutControlItem2.Size = new System.Drawing.Size(369, 99);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.stackPanel1;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 81);
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 133);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(369, 42);
+            this.layoutControlItem3.Size = new System.Drawing.Size(369, 37);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
@@ -149,14 +149,15 @@ namespace ResponseEmergencySystem.Forms.Modals
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(389, 143);
+            this.ClientSize = new System.Drawing.Size(389, 190);
             this.Controls.Add(this.layoutControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Modals";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            this.layoutControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stackPanel1)).EndInit();
             this.stackPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();

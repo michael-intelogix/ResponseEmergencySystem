@@ -154,10 +154,19 @@ namespace ResponseEmergencySystem.Forms
 
         public void FindTruckSamsara_Click(object sender, EventArgs e)
         {
-            splashScreenManager1.ShowWaitForm();
-            var res = _controller.GetTruckSamsara();
-            gMapControl1.Position = new GMap.NET.PointLatLng(res[0], res[1]);
-            splashScreenManager1.CloseWaitForm();
+            if(Utils.GetEdtValue(edt_TruckNumber) == "")
+            {
+                gMapControl1.Position = new GMap.NET.PointLatLng(36.05948, -102.51325);
+                Utils.ShowMessage("There is no truck to find, Please check\n the information again", "Samsara Error");
+            }
+            else
+            {
+                splashScreenManager1.ShowWaitForm();
+                var res = _controller.GetTruckSamsara();
+                gMapControl1.Position = new GMap.NET.PointLatLng(res[0], res[1]);
+                splashScreenManager1.CloseWaitForm();
+            }
+            
         }
 
         public void Ckedt_OnValueChanged(object sender, EventArgs e)

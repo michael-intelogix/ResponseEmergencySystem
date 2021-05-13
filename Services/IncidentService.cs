@@ -71,7 +71,7 @@ namespace ResponseEmergencySystem.Services
                                     (bool)sdr["TruckDamage"],
                                     (bool)sdr["TruckCanMove"],
                                     (bool)sdr["TruckNeedCrane"],
-                                    new Trailer(Guid.Parse((string)sdr["ID_Truck"]), (string)sdr["TruckNumber"], (string)sdr["commodity"], (bool)sdr["CargoSpill"]),
+                                    new Trailer(Guid.Parse((string)sdr["ID_Trailer"]), (string)sdr["TrailerNumber"], (string)sdr["commodity"], (bool)sdr["CargoSpill"]),
                                     (bool)sdr["TrailerDamage"],
                                     (bool)sdr["TrailerCanMove"],
                                     (bool)sdr["TrailerNeedCrane"],
@@ -99,10 +99,10 @@ namespace ResponseEmergencySystem.Services
             return result;
         }
 
-        public static DataTable list_InjuredPerson(string incidentId)
+        public static List<PersonsInvolved> list_PersonsInvolved(string incidentId)
         {
             opSuccess = false;
-            result = new DataTable();
+            List<PersonsInvolved> result = new List<PersonsInvolved>();
             try
             {
                 using (SqlCommand cmd = new SqlCommand
@@ -112,20 +112,45 @@ namespace ResponseEmergencySystem.Services
                     CommandType = CommandType.StoredProcedure
                 })
                 {
-
                     cmd.Parameters.AddWithValue("@ID_Incident", Guid.Parse(incidentId));
 
-                    
-                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    if (cmd.Connection.State == ConnectionState.Open)
                     {
-                        sda.Fill(result);
+                        cmd.Connection.Close();
                     }
-                    opSuccess = true;
+
+                    cmd.Connection.Open();
+
+                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    {
+                        if (sdr == null)
+                        {
+                            throw new NullReferenceException("No Information Available.");
+                        }
+                        while (sdr.Read())
+                        {
+                            //Debug.WriteLine(sdr["IncidentCloseDate"]);
+
+                            result.Add(
+                                new PersonsInvolved(
+                                    (string)sdr["FullName"],
+                                    (string)sdr["LastName1"],
+                                    (string)sdr["Phone"],
+                                    (string)sdr["Age"],
+                                    Convert.ToBoolean(sdr["IsDriver"]),
+                                    (string)sdr["DriverLicense"],
+                                    (bool)sdr["PrivatePerson"],
+                                    (bool)sdr["Injured"],
+                                    Convert.ToString(sdr["ID_Incident"])
+                                )
+                            );
+                        }
+                    }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Incident type couldn't be found due: {ex.Message}");
+                MessageBox.Show($"Person type couldn't be found due: {ex.Message}");
             }
 
             return result;

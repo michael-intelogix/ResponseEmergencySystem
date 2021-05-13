@@ -14,6 +14,7 @@ using System.Net.Http.Headers;
 using Newtonsoft.Json.Linq;
 using System.Windows.Forms;
 using ResponseEmergencySystem.Forms.Modals;
+using DevExpress.XtraEditors.Controls;
 
 namespace ResponseEmergencySystem.Controllers.Incidents
 {
@@ -23,6 +24,10 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         private string ID_Incident;
         Incident _selectedIncident;
         DataTable dt_InjuredPersons = new DataTable();
+
+        private Int32 _selectedPerson = 0;
+
+        private List<PersonsInvolved> _PersonsInvolved = new List<PersonsInvolved>();
 
         public double latitude;
         public double longitude;
@@ -48,7 +53,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         public void LoadIncident()
         {
             _selectedIncident = IncidentService.list_Incidents("", "", "", "", "", incidentId: ID_Incident)[0];
-            dt_InjuredPersons = IncidentService.list_InjuredPerson(ID_Incident);
+            _PersonsInvolved = IncidentService.list_PersonsInvolved(ID_Incident);
 
             _view.FullName = _selectedIncident.Name;
             _view.PhoneNumber = _selectedIncident.PhoneNumber;
@@ -82,8 +87,8 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
             _view.LoadIncident(_selectedIncident);
             _view.LoadStates(Functions.getStates());
-            if (dt_InjuredPersons.Rows.Count > 0)
-                _view.LoadInjuredPersons(dt_InjuredPersons);
+            if (_PersonsInvolved.Count > 0)
+                _view.InvolvedPersonsDataSorurce = _PersonsInvolved;
 
         }
 
@@ -196,6 +201,146 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             this.ID_Trailer = ID_Trailer;
         }
 
+        public void CheckNumber(string edtName)
+        {
+            DataTable dt_Response = new DataTable();
+
+            switch (edtName)
+            {
+                case "edt_TruckNumber":
+                    dt_Response = Functions.Get_Truck(_view.TruckNumber);
+                    DataRow truckResponse = dt_Response.Select().First();
+                    SetTruck(truckResponse.ItemArray[0].ToString());
+                    _view.LblTruckExistsVisibility = truckResponse.ItemArray[0].ToString() == "0";
+                    break;
+                case "edt_TrailerNumber":
+                    dt_Response = Functions.Get_Trailer(_view.TrailerNumber);
+                    DataRow trailerResponse = dt_Response.Select().First();
+                    SetTrailer(trailerResponse.ItemArray[0].ToString());
+                    if (trailerResponse.ItemArray[0].ToString() != "0")
+                    {
+                        _view.LblTrailerExistsVisibility = false;
+                        _view.CargoType = trailerResponse.ItemArray[3].ToString();
+                    }
+                    else
+                    {
+                        _view.LblTrailerExistsVisibility = true;
+                    }
+
+                    break;
+            }
+        }
+
+        public void GetCitiesByState()
+        {
+            var cities = GeneralService.list_Cities(_view.ID_State);
+            _view.LueCitiesDataSource = cities;
+        }
+
+        public void AddPersonInvolved()
+        {
+            int errors = 0;
+            if (_view.IPFullName.Length == 0)
+            {
+                _view.EdtFullNameBorder = BorderStyles.Simple;
+                errors += 1;
+            }
+            else
+                _view.EdtFullNameBorder = BorderStyles.Default;
+
+            if (_view.IPLastName1.Length == 0)
+            {
+                _view.EdtLastNameBorder = BorderStyles.Simple;
+                errors += 1;
+            }
+            else
+                _view.EdtLastNameBorder = BorderStyles.Default;
+
+            if (_view.IPPhoneNumber.Length == 0)
+            {
+                _view.EdtPhoneNumberBorder = BorderStyles.Simple;
+                errors += 1;
+            }
+            else
+                _view.EdtPhoneNumberBorder = BorderStyles.Default;
+
+            if (_view.IPAge.Length == 0)
+            {
+                _view.EdtAgeBorder = BorderStyles.Simple;
+                errors += 1;
+            }
+            else
+                _view.EdtAgeBorder = BorderStyles.Default;
+
+            if (errors == 0)
+            {
+                _PersonsInvolved.Add(new PersonsInvolved(_view.IPFullName, _view.IPLastName1, _view.IPPhoneNumber, _view.IPAge, _view.IPDriver, _view.IPLicense, _view.IPPrivate, _view.IPInjured, Guid.Empty.ToString()));
+                _view.InvolvedPersonsDataSorurce = _PersonsInvolved;
+            }
+
+        }
+
+        public void UpdatePersonInvolved()
+        {
+            int errors = 0;
+            if (_view.IPFullName.Length == 0)
+            {
+                _view.EdtFullNameBorder = BorderStyles.Simple;
+                errors += 1;
+            }
+            else
+                _view.EdtFullNameBorder = BorderStyles.Default;
+
+            if (_view.IPLastName1.Length == 0)
+            {
+                _view.EdtLastNameBorder = BorderStyles.Simple;
+                errors += 1;
+            }
+            else
+                _view.EdtLastNameBorder = BorderStyles.Default;
+
+            if (_view.IPPhoneNumber.Length == 0)
+            {
+                _view.EdtPhoneNumberBorder = BorderStyles.Simple;
+                errors += 1;
+            }
+            else
+                _view.EdtPhoneNumberBorder = BorderStyles.Default;
+
+            if (_view.IPAge.Length == 0)
+            {
+                _view.EdtAgeBorder = BorderStyles.Simple;
+                errors += 1;
+            }
+            else
+                _view.EdtAgeBorder = BorderStyles.Default;
+
+            if (errors == 0)
+            {
+                _PersonsInvolved[_selectedPerson] = new PersonsInvolved(_view.IPFullName, _view.IPLastName1, _view.IPPhoneNumber, _view.IPAge, _view.IPDriver, _view.IPLicense, _view.IPPrivate, _view.IPInjured, Guid.Empty.ToString());
+                _view.InvolvedPersonsDataSorurce = _PersonsInvolved;
+            }
+
+        }
+
+        public void EditInvolvedPersonByRow(Int32 index)
+        {
+            _selectedPerson = index;
+            var person = _PersonsInvolved[index];
+            _view.IPFullName = person.FullName;
+            _view.IPLastName1 = person.LastName1;
+            _view.IPPhoneNumber = person.PhoneNumber;
+            _view.IPAge = person.Age;
+            _view.IPPrivate = person.PrivatePerson;
+            _view.IPInjured = person.Injured;
+            _view.IPPassenger = !person.Driver;
+            _view.IPDriver = person.Driver;
+            _view.IPLicense = person.DriverLicense;
+
+            _view.BtnAddInvolvedPersonText = "Update person";
+            _view.BtnAddInvolvedPersonLocation = new System.Drawing.Point(494, 85);
+            _view.BtnAddInvolvedPersonSize = new System.Drawing.Size(135, 23);
+        }
 
         public void Update()
         {

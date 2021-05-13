@@ -1,27 +1,12 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
+using ResponseEmergencySystem.Code;
+using ResponseEmergencySystem.Models;
+using ResponseEmergencySystem.Views;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using ResponseEmergencySystem.Code;
-using ResponseEmergencySystem.Properties;
-using ResponseEmergencySystem.Controllers;
-using ResponseEmergencySystem.Forms.Modals;
-using ResponseEmergencySystem.Services;
-using ResponseEmergencySystem.Views;
-using ResponseEmergencySystem.Models;
-
-using System.Data.SQLite;
-
-using GMap.NET;
-using GMap.NET.MapProviders;
-using GMap.NET.WindowsForms;
-using GMap.NET.WindowsForms.Markers;
 
 
 namespace ResponseEmergencySystem.Forms
@@ -35,9 +20,9 @@ namespace ResponseEmergencySystem.Forms
 
         Controllers.Incidents.EditIncidentController _controller;
 
-        private void lue_States_Properties_EditValueChanged(object sender, EventArgs e)
+        public void OnStateEditValueChanged(object sender, EventArgs e)
         {
-            
+            _controller.GetCitiesByState();
         }
 
         private void OnChangedCheckEdit(object sender, EventArgs e)
@@ -76,21 +61,6 @@ namespace ResponseEmergencySystem.Forms
             _controller.Update();
         }
 
-        private void btn_LookUpLicence_Click(object sender, EventArgs e)
-        {
-            _controller.GetDriver();
-        }
-
-        private void btn_LookUpPhoneNumber_Click(object sender, EventArgs e)
-        {
-            _controller.GetDriver();
-        }
-
-        private void btn_LookUpName_Click(object sender, EventArgs e)
-        {
-            _controller.GetDriver();
-        }
-
         public void SetController(Controllers.Incidents.EditIncidentController controller)
         {
             _controller = controller;
@@ -107,25 +77,19 @@ namespace ResponseEmergencySystem.Forms
         {
 
         }
+
         public void LoadStates(DataTable dt_States)
         {
             lue_states.Properties.DataSource = dt_States;
             lue_DriverLicenseState.Properties.DataSource = dt_States;
         }
-        public void LoadCities(DataTable dt_Cities)
-        {
 
-        }
         public void LoadInjuredPersons(DataTable dt_InjuredPersons)
         {
             gc_InvolvedPersons.DataSource = dt_InjuredPersons;
         }
 
-        public void LoadMap(double latitude, double longitude)
-        {
-            
-        }
-
+        #region view fields
         public string DriverSearch
         {
             get { return Utils.GetEdtValue(edt_DriverInfoSearch); }
@@ -286,21 +250,138 @@ namespace ResponseEmergencySystem.Forms
             set { lue_Cities.EditValue = value; }
         }
 
+        #endregion
 
-        private void ViewIncidentDetails_Load(object sender, EventArgs e)
+        #region view involved persons
+
+        public string IPFullName 
         {
-            lue_DriverLicenseState.Properties.DataSource = Functions.getStates();
+            get { return Utils.GetEdtValue(edt_IPFullName); } 
+            set { edt_IPFullName.EditValue = value; }
+        }
+        public string IPLastName1 
+        { 
+            get { return Utils.GetEdtValue(edt_IPLastName1); }
+            set { edt_IPLastName1.EditValue = value; }
+        }
+        public string IPPhoneNumber 
+        {
+            get { return Utils.GetEdtValue(edt_IPPhoneNumber); } 
+            set { edt_IPPhoneNumber.EditValue = value; }
+        }
+        public string IPAge         
+        {
+            get { return Utils.GetEdtValue(edt_IPAge); }
+            set { edt_IPAge.EditValue = value; }
+        }
+        public bool IPPrivate 
+        {
+            get { return (bool)ckedt_IPPrivate.EditValue; }
+            set { ckedt_IPPrivate.EditValue = value; }
+        }
+        public bool IPInjured 
+        {
+            get { return (bool)ckedt_IPInjured.EditValue; }
+            set { ckedt_IPInjured.EditValue = value; }
+        }
+        public bool IPPassenger 
+        {
+            get { return (bool)ckedt_IPPassenger.EditValue; }
+            set { ckedt_IPPassenger.EditValue = value; }
+        }
+        public bool IPDriver 
+        {
+            get { return (bool)ckedt_IPDriver.EditValue; }
+            set { ckedt_IPDriver.EditValue = value; }
+        }
+        public string IPLicense 
+        {
+            get { return Utils.GetEdtValue(edt_IPLicense); }
+            set { edt_IPLicense.EditValue = value; }
         }
 
-        private void textEdit3_EditValueChanged(object sender, EventArgs e)
-        {
+        #endregion
 
+        #region view properties
+        public bool LblTruckExistsVisibility 
+        { 
+            set { lbl_TruckExists.Visible = value; } 
         }
 
-        private void lue_DriverLicenseState_EditValueChanged(object sender, EventArgs e)
-        {
-
+        public bool LblTrailerExistsVisibility { 
+            set { lbl_TrailerExists.Visible = value; }
         }
+
+        public object LueCitiesDataSource
+        {
+            set { lue_Cities.Properties.DataSource = value; }
+        }
+
+        public object InvolvedPersonsDataSorurce
+        {
+            set { gc_InvolvedPersons.DataSource = value; }
+        }
+
+        public bool PnlDriverInvolvedVisibility
+        {
+            set { pnl_DriverInvolved.Visible = value; }
+        }
+
+        public string BtnAddInvolvedPersonText 
+        {
+            set { simpleButton5.Text = value; } 
+        }
+
+        public Point BtnAddInvolvedPersonLocation 
+        {
+            set { simpleButton5.Location = value; }
+        }
+        public Size BtnAddInvolvedPersonSize 
+        { 
+            set { simpleButton5.Size = value; } 
+        }
+
+        public BorderStyles EdtFullNameBorder
+        {
+            get { return edt_IPFullName.BorderStyle; }
+            set { edt_IPFullName.BorderStyle = value; }
+        }
+
+        public BorderStyles EdtLastNameBorder
+        {
+            get { return edt_IPLastName1.BorderStyle; }
+            set { edt_IPLastName1.BorderStyle = value; }
+        }
+
+        public BorderStyles EdtPhoneNumberBorder
+        {
+            get { return edt_IPPhoneNumber.BorderStyle; }
+            set { edt_IPPhoneNumber.BorderStyle = value; }
+        }
+
+        public BorderStyles EdtAgeBorder
+        {
+            get { return edt_IPAge.BorderStyle; }
+            set { edt_IPAge.BorderStyle = value; }
+        }
+        #endregion
+
+        #region events needed
+        public void checkNumber_OnEdtKeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                TextEdit edt_Number = (TextEdit)sender;
+                _controller.CheckNumber(edt_Number.Name);
+            }
+        }
+
+        public void checkNumber_OnEdtLeave(object sender, EventArgs e)
+        {
+            TextEdit edt_Number = (TextEdit)sender;
+            _controller.CheckNumber(edt_Number.Name);
+        }
+        #endregion
 
         private void btn_FindDriver_Click(object sender, EventArgs e)
         {
@@ -315,62 +396,53 @@ namespace ResponseEmergencySystem.Forms
             }
         }
 
-        private void ckedt_Spill_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panelControl4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void labelControl13_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void edt_TruckNumber_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelControl14_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelControl27_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbl_TruckExists_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void edt_SearchDriver_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelControl25_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panelControl5_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void EditIncidentDetails_Load(object sender, EventArgs e)
         {
-            gMapControl1.MapProvider = GMap.NET.MapProviders.BingMapProvider.Instance;
-            GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
-            gMapControl1.Position = new GMap.NET.PointLatLng(_controller.latitude, _controller.longitude);
-            gMapControl1.ShowCenter = false;
+            try
+            {
+                gMapControl1.MapProvider = GMap.NET.MapProviders.BingMapProvider.Instance;
+                GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
+                gMapControl1.Position = new GMap.NET.PointLatLng(_controller.latitude, _controller.longitude);
+                gMapControl1.ShowCenter = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
+        }
+
+
+        private void btn_ApprovedBroker(object sender, EventArgs e)
+        {
+            _controller.EditInvolvedPersonByRow(gv_InvolvedPersons.FocusedRowHandle);
+        }
+
+        private void btn_EditPersonOnClick(object sender, EventArgs e)
+        {
+            _controller.EditInvolvedPersonByRow(gv_InvolvedPersons.FocusedRowHandle);
+        }
+
+        private void ckedt_IPPrivate_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void simpleButton5_Click(object sender, EventArgs e)
+        {
+            _controller.AddPersonInvolved();
+            gv_InvolvedPersons.BestFitColumns();
+        }
+
+        private void simpleButton6_Click(object sender, EventArgs e)
+        {
+            _controller.UpdatePersonInvolved();
+            gv_InvolvedPersons.BestFitColumns();
+        }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

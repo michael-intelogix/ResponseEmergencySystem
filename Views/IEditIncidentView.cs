@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DevExpress.XtraEditors.Controls;
 using ResponseEmergencySystem.Controllers;
 using ResponseEmergencySystem.Controllers.Incidents;
 using ResponseEmergencySystem.Models;
@@ -16,10 +18,7 @@ namespace ResponseEmergencySystem.Views
         void SetController(EditIncidentController controller);
         void LoadIncident(Incident incident);
         void LoadStates(DataTable dt_States);
-        void LoadCities(DataTable dt_Cities);
         void LoadInjuredPersons(DataTable dt_InjuredPersons);
-
-        void LoadMap(double latitude, double longitude);
 
         string FullName { get; set; }
         string PhoneNumber { get; set; }
@@ -50,5 +49,38 @@ namespace ResponseEmergencySystem.Views
         string ID_City { get; set; }
         //this value can be highway street and other kind of references like that 
         string LocationReferences { get; set; }
+
+        string IPFullName { get; set; }
+        string IPLastName1 { get; set; }
+        string IPPhoneNumber { get; set; }
+        string IPAge { get; set; }
+        bool IPPrivate { get; set; }
+        bool IPInjured { get; set; }
+        bool IPPassenger { get; set; }
+        bool IPDriver { get; set; }
+        string IPLicense { get; set; }
+
+        bool LblTruckExistsVisibility { set; }
+        bool LblTrailerExistsVisibility { set; }
+        
+        object LueCitiesDataSource { set; }
+
+        object InvolvedPersonsDataSorurce { set; }
+        bool PnlDriverInvolvedVisibility { set; }
+        string BtnAddInvolvedPersonText { set; }
+
+        Point BtnAddInvolvedPersonLocation { set; }
+        Size BtnAddInvolvedPersonSize { set; }
+        //521, 85
+        //n 494,85
+
+        //108, 23
+        //n 135, 23
+
+        BorderStyles EdtFullNameBorder { get; set; }
+        BorderStyles EdtLastNameBorder { get; set; }
+        BorderStyles EdtPhoneNumberBorder { get; set; }
+        BorderStyles EdtAgeBorder { get; set; }
+
     }
 }
