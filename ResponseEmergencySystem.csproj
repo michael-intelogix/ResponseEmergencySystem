@@ -455,6 +455,12 @@
     <Compile Include="Forms\Modals\AppConfiguration.Designer.cs">
       <DependentUpon>AppConfiguration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Modals\DirectoryError.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Modals\DirectoryError.Designer.cs">
+      <DependentUpon>DirectoryError.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Modals\EditComments.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -601,6 +607,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Modals\AppConfiguration.resx">
       <DependentUpon>AppConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Modals\DirectoryError.resx">
+      <DependentUpon>DirectoryError.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Modals\EditComments.resx">
       <DependentUpon>EditComments.cs</DependentUpon>
