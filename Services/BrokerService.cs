@@ -31,6 +31,12 @@ namespace ResponseEmergencySystem.Services
                     CommandType = CommandType.StoredProcedure
                 })
                 {
+
+                    if (cmd.Connection.State == ConnectionState.Open)
+                    {
+                        cmd.Connection.Close();
+                    }
+
                     cmd.Parameters.AddWithValue("@ID_State", "");
                     cmd.Parameters.AddWithValue("@ID_City", "");
                     cmd.Parameters.AddWithValue("@Broker", "");
@@ -70,7 +76,7 @@ namespace ResponseEmergencySystem.Services
             return result;
         }
 
-        public static void update_Broker(string ID_State, string ID_City, string Name, string address, string ID = "00000000-0000-0000-0000-000000000000")
+        public static void update_Broker(string ID_State, string ID_City, string Name, string address, string ID = "00000000-0000-0000-0000-000000000000") 
         {
             opSuccess = false;
             List<Broker> result = new List<Broker>();

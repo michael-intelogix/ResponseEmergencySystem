@@ -157,9 +157,9 @@ namespace ResponseEmergencySystem.Controllers
                 report1.ExportToPdf(ReportPath + $"\\{Folio}.pdf");
                 MessageBox.Show("Report " + $"{Folio}.pdf");
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Problem with the pdf");
+                MessageBox.Show(ex.Message);
                 return;
             }
         }

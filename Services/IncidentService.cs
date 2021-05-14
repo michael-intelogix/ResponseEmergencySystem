@@ -32,6 +32,10 @@ namespace ResponseEmergencySystem.Services
                     CommandType = CommandType.StoredProcedure
                 })
                 {
+                    if (cmd.Connection.State == ConnectionState.Open)
+                    {
+                        cmd.Connection.Close();
+                    }
 
                     cmd.Parameters.AddWithValue("@ID_Incident", Guid.Parse(incidentId));
                     cmd.Parameters.AddWithValue("@Folio", folio);
@@ -112,6 +116,11 @@ namespace ResponseEmergencySystem.Services
                     CommandType = CommandType.StoredProcedure
                 })
                 {
+                    if (cmd.Connection.State == ConnectionState.Open)
+                    {
+                        cmd.Connection.Close();
+                    }
+
                     cmd.Parameters.AddWithValue("@ID_Incident", Guid.Parse(incidentId));
 
                     if (cmd.Connection.State == ConnectionState.Open)
