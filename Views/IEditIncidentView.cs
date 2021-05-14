@@ -40,7 +40,7 @@ namespace ResponseEmergencySystem.Views
         bool CargoSpill { get; set; }
         string ManifestNumber { get; set; }
         string Broker { get; set; }
-        DateTime IncidentDate { get; }
+        DateTime IncidentDate { get; set; }
         bool PoliceReport { get; set; }
         string CitationReportNumber { get; set; }
         string Latitude { get; set; }

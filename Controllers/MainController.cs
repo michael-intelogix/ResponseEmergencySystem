@@ -11,6 +11,8 @@ using ResponseEmergencySystem.Code;
 using System.Windows.Forms;
 using ResponseEmergencySystem.Forms;
 using System.Data;
+using System.IO;
+using ResponseEmergencySystem.Properties;
 
 namespace ResponseEmergencySystem.Controllers
 {
@@ -120,7 +122,13 @@ namespace ResponseEmergencySystem.Controllers
                 _view.Incidents = _incidents.Select(i => new { i.ID_Incident, i.Name, i.Folio, i.IncidentDate, i.truck.truckNumber, i.ID_StatusDetail });
                 _view.CapturesDataSource = _captures.Select(i => new { i.captureType, i.comments, i.ID_Capture });
             }
-            
+
+            if (!Directory.Exists(Settings.Default.AppFolder))
+            {
+                Utils.ShowMessage("The directory doesn't exist please update the route where the reports will be saved and extracted", "Directory Error");
+            }
+
+
         }
 
         public void LoadChat(string ID_incident = "")

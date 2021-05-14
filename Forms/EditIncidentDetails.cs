@@ -68,9 +68,18 @@ namespace ResponseEmergencySystem.Forms
 
         private void FindTruckSamsara_Click(object sender, EventArgs e)
         {
-            splashScreenManager1.ShowWaitForm();
-            _controller.GetTruckSamsara();
-            splashScreenManager1.CloseWaitForm();
+            if (Utils.GetEdtValue(edt_TruckNumber) == "" || lbl_TruckExists.Visible)
+            {
+                gMapControl1.Position = new GMap.NET.PointLatLng(36.05948, -102.51325);
+                Utils.ShowMessage("There is no truck to find, Please check\n the information again", "Samsara Error");
+            }
+            else
+            {
+                splashScreenManager1.ShowWaitForm();
+                var res = _controller.GetTruckSamsara();
+                gMapControl1.Position = new GMap.NET.PointLatLng(res[0], res[1]);
+                splashScreenManager1.CloseWaitForm();
+            }
         }
 
         public void LoadIncident(Incident incident)
@@ -206,6 +215,11 @@ namespace ResponseEmergencySystem.Forms
         public DateTime IncidentDate
         {
             get { return new DateTime(dte_IncidentDate.DateTime.Ticks); }
+            set
+            {
+                dte_IncidentDate.DateTime = value;
+                tme_IncidentTime.Time = value;
+            }
         }
 
         //public DateTime IncidentTime

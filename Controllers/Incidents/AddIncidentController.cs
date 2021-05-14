@@ -352,7 +352,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             else
                 _view.EdtPhoneNumberBorder = BorderStyles.Default;
 
-            if (_view.IPAge.Length == 0)
+            if (_view.IPAge.Length == 0 || Convert.ToInt32(_view.IPAge) > 80)
             {
                 _view.EdtAgeBorder = BorderStyles.Simple;
                 errors += 1;

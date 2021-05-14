@@ -72,6 +72,12 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             _view.CargoType = _selectedIncident.trailer.Commodity;
             _view.ManifestNumber = _selectedIncident.ManifestNumber;
 
+            _view.IncidentDate = _selectedIncident.IncidentDate;
+            _view.ID_State = _selectedIncident.ID_State;
+            _view.ID_City = _selectedIncident.ID_City;
+
+            _view.Broker = _selectedIncident.broker.Name;
+
             #region Accident Details
             //_view.IncidentDate = _selectedIncident.IncidentDate.Date;
             //_view.IncidentDate = _selectedIncident.IncidentDate.ToString("hh:mm:ss tt");
@@ -150,8 +156,8 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                         _view.Latitude = item.latitude.ToString();
                         _view.Longitude = item.longitude.ToString();
 
-                        Testing samsara = new Testing(item.name, item.time, item.latitude, item.longitude, item.heading, item.speed, item.formattedLocation);
-                        samsara.Show();
+                        //Testing samsara = new Testing(item.name, item.time, item.latitude, item.longitude, item.heading, item.speed, item.formattedLocation);
+                        //samsara.Show();
 
                     }
 

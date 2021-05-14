@@ -83,6 +83,7 @@ namespace ResponseEmergencySystem.Services
                                     (string)sdr["ID_City"],
                                     (string)sdr["ID_State"],
                                     (string)sdr["ID_Broker"],
+                                    new Broker((string)sdr["ID_Broker"], (string)sdr["Broker"]),
                                     (string)sdr["ID_StatusDetail"],
                                     (string)sdr["Description"],
                                     (string)sdr["Name"],
@@ -245,8 +246,6 @@ namespace ResponseEmergencySystem.Services
                             Debug.WriteLine(sdr["Validacion"]);
                             Debug.WriteLine(sdr["msg"]);
                             Debug.WriteLine(sdr["ID"]);
-
-                            //MessageBox.Show((string)sdr["msg"]);
 
                             response = new Response(Convert.ToBoolean(sdr["Validacion"]), sdr["msg"].ToString(), sdr["ID"].ToString());
                         }

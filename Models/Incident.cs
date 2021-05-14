@@ -31,6 +31,7 @@ namespace ResponseEmergencySystem.Models
         public string ID_City { get; set; }
         public string ID_State { get; set; }
         public string ID_Broker { get; set; }
+        public Broker broker { get; set; }
         public string ID_StatusDetail { get; set; }
         public string Description { get; set; }
         public string Name { get; set; }
@@ -60,6 +61,7 @@ namespace ResponseEmergencySystem.Models
             string ID_City,
             string ID_State,
             string ID_Broker,
+            Broker broker,
             string ID_StatusDetail,
             string Description,
             string Name,
@@ -89,6 +91,7 @@ namespace ResponseEmergencySystem.Models
             this.ID_City = ID_City;
             this.ID_State = ID_State;
             this.ID_Broker = ID_Broker;
+            this.broker = broker;
             this.ID_StatusDetail = ID_StatusDetail;
             this.Description = Description;
             this.Name = Name;

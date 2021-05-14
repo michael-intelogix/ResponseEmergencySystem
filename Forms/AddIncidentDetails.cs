@@ -83,9 +83,6 @@ namespace ResponseEmergencySystem.Forms
 
         private void btn_AddIncident_Click(object sender, EventArgs e)
         {
-            ////_controller.AddIncident(); 
-            if (pnl_BOL.Visible)
-                edt_manifest.DoValidate();
 
             if (dxValidationProvider1.Validate())
             {
@@ -110,7 +107,7 @@ namespace ResponseEmergencySystem.Forms
         }
 
 
-        #region view interface
+        #region view interface methods
         public void SetController(Controllers.Incidents.AddIncidentController controller)
         {
             _controller = controller;
@@ -135,6 +132,7 @@ namespace ResponseEmergencySystem.Forms
         public void LoadInjuredPersons(DataTable dt_InjuredPersons)
         {
         }
+        #endregion
 
         #region events needed
         public void checkNumber_OnEdtKeyPress(object sender, KeyPressEventArgs e)
@@ -154,7 +152,7 @@ namespace ResponseEmergencySystem.Forms
 
         public void FindTruckSamsara_Click(object sender, EventArgs e)
         {
-            if(Utils.GetEdtValue(edt_TruckNumber) == "")
+            if(Utils.GetEdtValue(edt_TruckNumber) == "" || lbl_TruckExists.Visible)
             {
                 gMapControl1.Position = new GMap.NET.PointLatLng(36.05948, -102.51325);
                 Utils.ShowMessage("There is no truck to find, Please check\n the information again", "Samsara Error");
@@ -298,7 +296,11 @@ namespace ResponseEmergencySystem.Forms
         }
 
         public DateTime IncidentDate {
-            get { return new DateTime(dte_IncidentDate.DateTime.Ticks + tme_IncidentTime.Time.Ticks); } 
+            get 
+            {
+                DateTime date = Utils.GetDateTime(dte_IncidentDate.DateTime.Date, tme_IncidentTime.Time.Hour, tme_IncidentTime.Time.Minute);
+                return date;
+            } 
         }
 
         public bool PoliceReport
@@ -445,7 +447,7 @@ namespace ResponseEmergencySystem.Forms
 
         #endregion
 
-        #endregion
+        
         private void ViewIncidentDetails_Load(object sender, EventArgs e)
         {
             lue_StateExp.Properties.DataSource = Functions.getStates();

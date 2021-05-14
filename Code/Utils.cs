@@ -109,5 +109,12 @@ namespace ResponseEmergencySystem.Code
             modalView.ShowDialog();
         }
 
+        public static DateTime GetDateTime(DateTime date, int hours, int minutes)
+        {
+            date = date.AddHours(hours);
+            date = date.AddMinutes(minutes);
+            return date;
+        }
+
     }
 }
