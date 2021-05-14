@@ -240,5 +240,10 @@ namespace ResponseEmergencySystem.Forms
         {
             _controller.LoadData();
         }
+
+        private void pictureEdit1_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

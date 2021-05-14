@@ -169,6 +169,7 @@ namespace ResponseEmergencySystem.Forms
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.lbl_EmptyFields = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).BeginInit();
@@ -314,6 +315,7 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl5.Appearance.BackColor = System.Drawing.Color.White;
             this.panelControl5.Appearance.Options.UseBackColor = true;
             this.panelControl5.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl5.Controls.Add(this.lbl_EmptyFields);
             this.panelControl5.Controls.Add(this.simpleButton6);
             this.panelControl5.Controls.Add(this.labelControl27);
             this.panelControl5.Controls.Add(this.labelControl29);
@@ -507,7 +509,7 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton5.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.simpleButton5.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.addWhite;
             this.simpleButton5.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.simpleButton5.Location = new System.Drawing.Point(521, 85);
+            this.simpleButton5.Location = new System.Drawing.Point(521, 86);
             this.simpleButton5.Name = "simpleButton5";
             this.simpleButton5.Size = new System.Drawing.Size(108, 23);
             this.simpleButton5.TabIndex = 127;
@@ -1684,6 +1686,19 @@ namespace ResponseEmergencySystem.Forms
             this.emptySpaceItem6.Size = new System.Drawing.Size(10, 199);
             this.emptySpaceItem6.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // lbl_EmptyFields
+            // 
+            this.lbl_EmptyFields.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_EmptyFields.Appearance.ForeColor = System.Drawing.Color.Maroon;
+            this.lbl_EmptyFields.Appearance.Options.UseFont = true;
+            this.lbl_EmptyFields.Appearance.Options.UseForeColor = true;
+            this.lbl_EmptyFields.Location = new System.Drawing.Point(324, 89);
+            this.lbl_EmptyFields.Name = "lbl_EmptyFields";
+            this.lbl_EmptyFields.Size = new System.Drawing.Size(191, 17);
+            this.lbl_EmptyFields.TabIndex = 143;
+            this.lbl_EmptyFields.Text = "You cannot leave empty fields";
+            this.lbl_EmptyFields.Visible = false;
+            // 
             // EditIncidentDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -1927,5 +1942,6 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraGrid.Columns.GridColumn col_LastName1;
         private DevExpress.XtraGrid.Columns.GridColumn col_Passenger;
         private DevExpress.XtraEditors.SimpleButton simpleButton6;
+        private DevExpress.XtraEditors.LabelControl lbl_EmptyFields;
     }
 }
