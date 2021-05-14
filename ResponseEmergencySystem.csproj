@@ -549,12 +549,9 @@
     <Compile Include="Views\IEditIncidentView.cs" />
     <Compile Include="Views\IMainView.cs" />
     <Compile Include="Views\IShowIncidentDetails.cs" />
-    <Content Include="x64\SQLite.Interop.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="x86\SQLite.Interop.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <None Include="Resources\SIREMlogo.svg" />
+    <Content Include="x64\SQLite.Interop.dll" />
+    <Content Include="x86\SQLite.Interop.dll" />
     <EmbeddedResource Include="Forms\EditIncidentDetails.resx">
       <DependentUpon>EditIncidentDetails.cs</DependentUpon>
     </EmbeddedResource>

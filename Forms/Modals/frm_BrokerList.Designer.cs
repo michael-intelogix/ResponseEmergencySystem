@@ -29,21 +29,21 @@ namespace ResponseEmergencySystem.Forms.Modals
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions10 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject37 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject38 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject39 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject40 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions11 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject41 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject42 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject43 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject44 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions12 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject45 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject46 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject47 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject48 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             this.btn_Approved1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -67,8 +67,6 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.edt_Broker = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.gc_Brokers = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -79,6 +77,15 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.col_BrokerAddress = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_BrokerAccepted = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btn_Accpeted = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.stackPanel2 = new DevExpress.Utils.Layout.StackPanel();
+            this.btn_Cancel2 = new DevExpress.XtraEditors.SimpleButton();
+            this.stackPanel1 = new DevExpress.Utils.Layout.StackPanel();
+            this.simpleButton9 = new DevExpress.XtraEditors.SimpleButton();
+            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Approved1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -91,20 +98,29 @@ namespace ResponseEmergencySystem.Forms.Modals
             ((System.ComponentModel.ISupportInitialize)(this.ckedt_Private.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_Address.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_Broker.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
-            this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gc_Brokers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Accpeted)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
+            this.panelControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
+            this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stackPanel2)).BeginInit();
+            this.stackPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stackPanel1)).BeginInit();
+            this.stackPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_Approved1
             // 
             this.btn_Approved1.AutoHeight = false;
-            editorButtonImageOptions10.SvgImage = global::ResponseEmergencySystem.Properties.Resources.checkGreen;
-            editorButtonImageOptions10.SvgImageSize = new System.Drawing.Size(20, 20);
+            editorButtonImageOptions1.SvgImage = global::ResponseEmergencySystem.Properties.Resources.checkGreen;
+            editorButtonImageOptions1.SvgImageSize = new System.Drawing.Size(20, 20);
             this.btn_Approved1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions10, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject37, serializableAppearanceObject38, serializableAppearanceObject39, serializableAppearanceObject40, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btn_Approved1.Name = "btn_Approved1";
             this.btn_Approved1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
@@ -130,13 +146,13 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.labelControl1.Appearance.Options.UseTextOptions = true;
             this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.labelControl1.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.labelControl1.Location = new System.Drawing.Point(70, 6);
+            this.labelControl1.Location = new System.Drawing.Point(89, 6);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(520, 15);
+            this.labelControl1.Size = new System.Drawing.Size(451, 15);
             this.labelControl1.TabIndex = 2;
-            this.labelControl1.Text = "More than one broker has appeared in the search, Please select one from the list " +
-    "with button";
+            this.labelControl1.Text = "More than one broker has appeared in the search, Please select one from the list." +
+    "";
             // 
             // gv_Brokers
             // 
@@ -215,10 +231,10 @@ namespace ResponseEmergencySystem.Forms.Modals
             // btn_approved
             // 
             this.btn_approved.AutoHeight = false;
-            editorButtonImageOptions11.SvgImage = global::ResponseEmergencySystem.Properties.Resources.checkGreen;
-            editorButtonImageOptions11.SvgImageSize = new System.Drawing.Size(20, 20);
+            editorButtonImageOptions2.SvgImage = global::ResponseEmergencySystem.Properties.Resources.checkGreen;
+            editorButtonImageOptions2.SvgImageSize = new System.Drawing.Size(20, 20);
             this.btn_approved.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions11, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject41, serializableAppearanceObject42, serializableAppearanceObject43, serializableAppearanceObject44, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btn_approved.Name = "btn_approved";
             this.btn_approved.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btn_approved.Click += new System.EventHandler(this.btn_ApprovedBroker);
@@ -239,12 +255,12 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(0, 28);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(658, 101);
+            this.panelControl2.Size = new System.Drawing.Size(658, 116);
             this.panelControl2.TabIndex = 3;
             // 
             // lue_City
             // 
-            this.lue_City.Location = new System.Drawing.Point(496, 29);
+            this.lue_City.Location = new System.Drawing.Point(496, 34);
             this.lue_City.Name = "lue_City";
             this.lue_City.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -260,7 +276,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             // 
             // lue_State
             // 
-            this.lue_State.Location = new System.Drawing.Point(316, 32);
+            this.lue_State.Location = new System.Drawing.Point(316, 37);
             this.lue_State.Name = "lue_State";
             this.lue_State.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -278,12 +294,15 @@ namespace ResponseEmergencySystem.Forms.Modals
             // btn_Add
             // 
             this.btn_Add.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(138)))), ((int)(((byte)(50)))));
+            this.btn_Add.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Add.Appearance.ForeColor = System.Drawing.Color.White;
             this.btn_Add.Appearance.Options.UseBackColor = true;
+            this.btn_Add.Appearance.Options.UseFont = true;
             this.btn_Add.Appearance.Options.UseForeColor = true;
+            this.btn_Add.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btn_Add.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.addWhite;
             this.btn_Add.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btn_Add.Location = new System.Drawing.Point(558, 65);
+            this.btn_Add.Location = new System.Drawing.Point(558, 70);
             this.btn_Add.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.btn_Add.LookAndFeel.UseDefaultLookAndFeel = false;
             this.btn_Add.Name = "btn_Add";
@@ -294,7 +313,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             // 
             // ckedt_Private
             // 
-            this.ckedt_Private.Location = new System.Drawing.Point(460, 69);
+            this.ckedt_Private.Location = new System.Drawing.Point(460, 74);
             this.ckedt_Private.Name = "ckedt_Private";
             this.ckedt_Private.Properties.Caption = "Private";
             this.ckedt_Private.Size = new System.Drawing.Size(65, 21);
@@ -302,14 +321,14 @@ namespace ResponseEmergencySystem.Forms.Modals
             // 
             // edt_Address
             // 
-            this.edt_Address.Location = new System.Drawing.Point(80, 68);
+            this.edt_Address.Location = new System.Drawing.Point(80, 73);
             this.edt_Address.Name = "edt_Address";
             this.edt_Address.Size = new System.Drawing.Size(360, 24);
             this.edt_Address.TabIndex = 8;
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(15, 71);
+            this.labelControl6.Location = new System.Drawing.Point(15, 76);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(49, 17);
             this.labelControl6.TabIndex = 5;
@@ -317,7 +336,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(460, 32);
+            this.labelControl5.Location = new System.Drawing.Point(460, 37);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(21, 17);
             this.labelControl5.TabIndex = 4;
@@ -325,7 +344,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(272, 35);
+            this.labelControl4.Location = new System.Drawing.Point(272, 40);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(29, 17);
             this.labelControl4.TabIndex = 3;
@@ -333,14 +352,14 @@ namespace ResponseEmergencySystem.Forms.Modals
             // 
             // edt_Broker
             // 
-            this.edt_Broker.Location = new System.Drawing.Point(68, 32);
+            this.edt_Broker.Location = new System.Drawing.Point(68, 37);
             this.edt_Broker.Name = "edt_Broker";
             this.edt_Broker.Size = new System.Drawing.Size(188, 24);
             this.edt_Broker.TabIndex = 2;
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(15, 32);
+            this.labelControl3.Location = new System.Drawing.Point(15, 37);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(40, 17);
             this.labelControl3.TabIndex = 1;
@@ -348,39 +367,13 @@ namespace ResponseEmergencySystem.Forms.Modals
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(5, 7);
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl2.Appearance.Options.UseFont = true;
+            this.labelControl2.Location = new System.Drawing.Point(12, 8);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(100, 17);
+            this.labelControl2.Size = new System.Drawing.Size(114, 20);
             this.labelControl2.TabIndex = 0;
             this.labelControl2.Text = "Add new broker";
-            // 
-            // panelControl3
-            // 
-            this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl3.Controls.Add(this.simpleButton3);
-            this.panelControl3.Controls.Add(this.simpleButton2);
-            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl3.Location = new System.Drawing.Point(0, 550);
-            this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(658, 49);
-            this.panelControl3.TabIndex = 4;
-            // 
-            // simpleButton3
-            // 
-            this.simpleButton3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(27)))), ((int)(((byte)(27)))));
-            this.simpleButton3.Appearance.ForeColor = System.Drawing.Color.White;
-            this.simpleButton3.Appearance.Options.UseBackColor = true;
-            this.simpleButton3.Appearance.Options.UseForeColor = true;
-            this.simpleButton3.ImageOptions.ImageToTextIndent = 0;
-            this.simpleButton3.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.closeWhite;
-            this.simpleButton3.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.simpleButton3.Location = new System.Drawing.Point(5, 3);
-            this.simpleButton3.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-            this.simpleButton3.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(109, 43);
-            this.simpleButton3.TabIndex = 1;
-            this.simpleButton3.Text = "Cancel";
             // 
             // simpleButton2
             // 
@@ -392,7 +385,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.simpleButton2.ImageOptions.ImageToTextIndent = 0;
             this.simpleButton2.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.saveWhite;
             this.simpleButton2.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.simpleButton2.Location = new System.Drawing.Point(537, 3);
+            this.simpleButton2.Location = new System.Drawing.Point(537, 473);
             this.simpleButton2.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.simpleButton2.LookAndFeel.UseDefaultLookAndFeel = false;
             this.simpleButton2.Name = "simpleButton2";
@@ -404,12 +397,12 @@ namespace ResponseEmergencySystem.Forms.Modals
             // gc_Brokers
             // 
             this.gc_Brokers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gc_Brokers.Location = new System.Drawing.Point(0, 129);
+            this.gc_Brokers.Location = new System.Drawing.Point(0, 144);
             this.gc_Brokers.MainView = this.gridView1;
             this.gc_Brokers.Name = "gc_Brokers";
             this.gc_Brokers.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btn_Accpeted});
-            this.gc_Brokers.Size = new System.Drawing.Size(658, 421);
+            this.gc_Brokers.Size = new System.Drawing.Size(658, 378);
             this.gc_Brokers.TabIndex = 5;
             this.gc_Brokers.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -484,13 +477,119 @@ namespace ResponseEmergencySystem.Forms.Modals
             // btn_Accpeted
             // 
             this.btn_Accpeted.AutoHeight = false;
-            editorButtonImageOptions12.SvgImage = global::ResponseEmergencySystem.Properties.Resources.checkGreen;
-            editorButtonImageOptions12.SvgImageSize = new System.Drawing.Size(20, 20);
+            editorButtonImageOptions3.SvgImage = global::ResponseEmergencySystem.Properties.Resources.checkGreen;
+            editorButtonImageOptions3.SvgImageSize = new System.Drawing.Size(20, 20);
             this.btn_Accpeted.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions12, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject45, serializableAppearanceObject46, serializableAppearanceObject47, serializableAppearanceObject48, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btn_Accpeted.Name = "btn_Accpeted";
             this.btn_Accpeted.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btn_Accpeted.Click += new System.EventHandler(this.btn_ApprovedBroker);
+            // 
+            // panelControl3
+            // 
+            this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl3.Controls.Add(this.layoutControl1);
+            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelControl3.Location = new System.Drawing.Point(0, 522);
+            this.panelControl3.Name = "panelControl3";
+            this.panelControl3.Size = new System.Drawing.Size(658, 77);
+            this.panelControl3.TabIndex = 4;
+            // 
+            // layoutControl1
+            // 
+            this.layoutControl1.Controls.Add(this.stackPanel2);
+            this.layoutControl1.Controls.Add(this.stackPanel1);
+            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl1.Name = "layoutControl1";
+            this.layoutControl1.Root = this.Root;
+            this.layoutControl1.Size = new System.Drawing.Size(658, 77);
+            this.layoutControl1.TabIndex = 0;
+            this.layoutControl1.Text = "layoutControl1";
+            // 
+            // stackPanel2
+            // 
+            this.stackPanel2.Controls.Add(this.btn_Cancel2);
+            this.stackPanel2.LayoutDirection = DevExpress.Utils.Layout.StackPanelLayoutDirection.RightToLeft;
+            this.stackPanel2.Location = new System.Drawing.Point(12, 12);
+            this.stackPanel2.Name = "stackPanel2";
+            this.stackPanel2.Size = new System.Drawing.Size(315, 53);
+            this.stackPanel2.TabIndex = 5;
+            // 
+            // btn_Cancel2
+            // 
+            this.btn_Cancel2.Appearance.BackColor = System.Drawing.Color.Maroon;
+            this.btn_Cancel2.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Cancel2.Appearance.ForeColor = System.Drawing.Color.White;
+            this.btn_Cancel2.Appearance.Options.UseBackColor = true;
+            this.btn_Cancel2.Appearance.Options.UseFont = true;
+            this.btn_Cancel2.Appearance.Options.UseForeColor = true;
+            this.btn_Cancel2.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btn_Cancel2.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.closeWhite;
+            this.btn_Cancel2.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.btn_Cancel2.Location = new System.Drawing.Point(210, 5);
+            this.btn_Cancel2.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            this.btn_Cancel2.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.btn_Cancel2.Name = "btn_Cancel2";
+            this.btn_Cancel2.Size = new System.Drawing.Size(102, 42);
+            this.btn_Cancel2.TabIndex = 3;
+            this.btn_Cancel2.Text = "Cancel";
+            // 
+            // stackPanel1
+            // 
+            this.stackPanel1.Controls.Add(this.simpleButton9);
+            this.stackPanel1.Location = new System.Drawing.Point(331, 12);
+            this.stackPanel1.Name = "stackPanel1";
+            this.stackPanel1.Size = new System.Drawing.Size(315, 53);
+            this.stackPanel1.TabIndex = 4;
+            // 
+            // simpleButton9
+            // 
+            this.simpleButton9.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.simpleButton9.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton9.Appearance.ForeColor = System.Drawing.Color.White;
+            this.simpleButton9.Appearance.Options.UseBackColor = true;
+            this.simpleButton9.Appearance.Options.UseFont = true;
+            this.simpleButton9.Appearance.Options.UseForeColor = true;
+            this.simpleButton9.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.simpleButton9.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.saveWhite;
+            this.simpleButton9.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.simpleButton9.Location = new System.Drawing.Point(3, 5);
+            this.simpleButton9.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            this.simpleButton9.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.simpleButton9.Name = "simpleButton9";
+            this.simpleButton9.Size = new System.Drawing.Size(102, 42);
+            this.simpleButton9.TabIndex = 2;
+            this.simpleButton9.Text = "Save";
+            // 
+            // Root
+            // 
+            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.Root.GroupBordersVisible = false;
+            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1,
+            this.layoutControlItem2});
+            this.Root.Name = "Root";
+            this.Root.Size = new System.Drawing.Size(658, 77);
+            this.Root.TextVisible = false;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.stackPanel1;
+            this.layoutControlItem1.Location = new System.Drawing.Point(319, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(319, 57);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.stackPanel2;
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(319, 57);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextVisible = false;
             // 
             // frm_BrokerList
             // 
@@ -498,6 +597,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(658, 599);
             this.Controls.Add(this.gc_Brokers);
+            this.Controls.Add(this.simpleButton2);
             this.Controls.Add(this.panelControl3);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
@@ -520,11 +620,20 @@ namespace ResponseEmergencySystem.Forms.Modals
             ((System.ComponentModel.ISupportInitialize)(this.ckedt_Private.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_Address.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_Broker.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
-            this.panelControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gc_Brokers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Accpeted)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
+            this.panelControl3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
+            this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.stackPanel2)).EndInit();
+            this.stackPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.stackPanel1)).EndInit();
+            this.stackPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -542,7 +651,6 @@ namespace ResponseEmergencySystem.Forms.Modals
         private DevExpress.XtraGrid.Columns.GridColumn col_Approved;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btn_approved;
         private DevExpress.XtraEditors.PanelControl panelControl2;
-        private DevExpress.XtraEditors.PanelControl panelControl3;
         private DevExpress.XtraEditors.SimpleButton btn_Add;
         private DevExpress.XtraEditors.CheckEdit ckedt_Private;
         private DevExpress.XtraEditors.TextEdit edt_Address;
@@ -552,7 +660,6 @@ namespace ResponseEmergencySystem.Forms.Modals
         private DevExpress.XtraEditors.TextEdit edt_Broker;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton3;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.XtraEditors.LookUpEdit lue_City;
         private DevExpress.XtraEditors.LookUpEdit lue_State;
@@ -566,5 +673,14 @@ namespace ResponseEmergencySystem.Forms.Modals
         private DevExpress.XtraGrid.Columns.GridColumn col_BrokerAddress;
         private DevExpress.XtraGrid.Columns.GridColumn col_BrokerAccepted;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btn_Accpeted;
+        private DevExpress.XtraEditors.PanelControl panelControl3;
+        private DevExpress.XtraLayout.LayoutControl layoutControl1;
+        private DevExpress.Utils.Layout.StackPanel stackPanel2;
+        private DevExpress.Utils.Layout.StackPanel stackPanel1;
+        private DevExpress.XtraLayout.LayoutControlGroup Root;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraEditors.SimpleButton btn_Cancel2;
+        private DevExpress.XtraEditors.SimpleButton simpleButton9;
     }
 }
