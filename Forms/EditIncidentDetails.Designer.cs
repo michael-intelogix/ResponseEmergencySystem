@@ -44,6 +44,7 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl32 = new DevExpress.XtraEditors.LabelControl();
             this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
             this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
+            this.lbl_EmptyFields = new DevExpress.XtraEditors.LabelControl();
             this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl27 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl29 = new DevExpress.XtraEditors.LabelControl();
@@ -169,7 +170,6 @@ namespace ResponseEmergencySystem.Forms
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.lbl_EmptyFields = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).BeginInit();
@@ -336,6 +336,19 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl5.Size = new System.Drawing.Size(645, 119);
             this.panelControl5.TabIndex = 113;
             // 
+            // lbl_EmptyFields
+            // 
+            this.lbl_EmptyFields.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_EmptyFields.Appearance.ForeColor = System.Drawing.Color.Maroon;
+            this.lbl_EmptyFields.Appearance.Options.UseFont = true;
+            this.lbl_EmptyFields.Appearance.Options.UseForeColor = true;
+            this.lbl_EmptyFields.Location = new System.Drawing.Point(218, 91);
+            this.lbl_EmptyFields.Name = "lbl_EmptyFields";
+            this.lbl_EmptyFields.Size = new System.Drawing.Size(191, 17);
+            this.lbl_EmptyFields.TabIndex = 143;
+            this.lbl_EmptyFields.Text = "You cannot leave empty fields";
+            this.lbl_EmptyFields.Visible = false;
+            // 
             // simpleButton6
             // 
             this.simpleButton6.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
@@ -343,13 +356,13 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton6.Appearance.Options.UseBackColor = true;
             this.simpleButton6.Appearance.Options.UseFont = true;
             this.simpleButton6.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.simpleButton6.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.addWhite;
+            this.simpleButton6.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.updateWhite;
             this.simpleButton6.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
             this.simpleButton6.Location = new System.Drawing.Point(13, 85);
             this.simpleButton6.Name = "simpleButton6";
-            this.simpleButton6.Size = new System.Drawing.Size(108, 23);
+            this.simpleButton6.Size = new System.Drawing.Size(142, 23);
             this.simpleButton6.TabIndex = 142;
-            this.simpleButton6.Text = "Add person";
+            this.simpleButton6.Text = "Update person";
             this.simpleButton6.Click += new System.EventHandler(this.simpleButton6_Click);
             // 
             // labelControl27
@@ -1685,19 +1698,6 @@ namespace ResponseEmergencySystem.Forms
             this.emptySpaceItem6.Name = "emptySpaceItem6";
             this.emptySpaceItem6.Size = new System.Drawing.Size(10, 199);
             this.emptySpaceItem6.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // lbl_EmptyFields
-            // 
-            this.lbl_EmptyFields.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_EmptyFields.Appearance.ForeColor = System.Drawing.Color.Maroon;
-            this.lbl_EmptyFields.Appearance.Options.UseFont = true;
-            this.lbl_EmptyFields.Appearance.Options.UseForeColor = true;
-            this.lbl_EmptyFields.Location = new System.Drawing.Point(324, 89);
-            this.lbl_EmptyFields.Name = "lbl_EmptyFields";
-            this.lbl_EmptyFields.Size = new System.Drawing.Size(191, 17);
-            this.lbl_EmptyFields.TabIndex = 143;
-            this.lbl_EmptyFields.Text = "You cannot leave empty fields";
-            this.lbl_EmptyFields.Visible = false;
             // 
             // EditIncidentDetails
             // 

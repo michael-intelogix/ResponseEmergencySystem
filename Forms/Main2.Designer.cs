@@ -75,12 +75,10 @@ namespace ResponseEmergencySystem.Forms
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
-            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.stackPanel1 = new DevExpress.Utils.Layout.StackPanel();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
             this.xtraScrollableControl2 = new DevExpress.XtraEditors.XtraScrollableControl();
@@ -168,6 +166,9 @@ namespace ResponseEmergencySystem.Forms
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ResponseEmergencySystem.Forms.WaitForm1), true, true);
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
+            this.stackPanel2 = new DevExpress.Utils.Layout.StackPanel();
+            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
@@ -180,12 +181,10 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             this.layoutControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stackPanel1)).BeginInit();
             this.stackPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
             this.layoutControl3.SuspendLayout();
             this.xtraScrollableControl1.SuspendLayout();
@@ -247,6 +246,10 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.btn_Edit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stackPanel2)).BeginInit();
+            this.stackPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -369,7 +372,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             // layoutControl2
             // 
-            this.layoutControl2.Controls.Add(this.pictureEdit1);
+            this.layoutControl2.Controls.Add(this.stackPanel2);
             this.layoutControl2.Controls.Add(this.stackPanel1);
             this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl2.Location = new System.Drawing.Point(2, 2);
@@ -379,28 +382,13 @@ namespace ResponseEmergencySystem.Forms
             this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "layoutControl2";
             // 
-            // pictureEdit1
-            // 
-            this.pictureEdit1.EditValue = global::ResponseEmergencySystem.Properties.Resources.SIREMlogo;
-            this.pictureEdit1.Location = new System.Drawing.Point(12, 12);
-            this.pictureEdit1.Name = "pictureEdit1";
-            this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.pictureEdit1.Properties.Appearance.Options.UseBackColor = true;
-            this.pictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pictureEdit1.Properties.SvgImageSize = new System.Drawing.Size(250, 200);
-            this.pictureEdit1.Size = new System.Drawing.Size(164, 38);
-            this.pictureEdit1.StyleController = this.layoutControl2;
-            this.pictureEdit1.TabIndex = 5;
-            this.pictureEdit1.EditValueChanged += new System.EventHandler(this.pictureEdit1_EditValueChanged);
-            // 
             // stackPanel1
             // 
             this.stackPanel1.Controls.Add(this.simpleButton2);
             this.stackPanel1.LayoutDirection = DevExpress.Utils.Layout.StackPanelLayoutDirection.RightToLeft;
-            this.stackPanel1.Location = new System.Drawing.Point(180, 12);
+            this.stackPanel1.Location = new System.Drawing.Point(291, 12);
             this.stackPanel1.Name = "stackPanel1";
-            this.stackPanel1.Size = new System.Drawing.Size(1416, 38);
+            this.stackPanel1.Size = new System.Drawing.Size(1305, 38);
             this.stackPanel1.TabIndex = 4;
             // 
             // simpleButton2
@@ -413,7 +401,7 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton2.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.settingsBlue;
             this.simpleButton2.ImageOptions.SvgImageColorizationMode = DevExpress.Utils.SvgImageColorizationMode.Full;
             this.simpleButton2.ImageOptions.SvgImageSize = new System.Drawing.Size(35, 35);
-            this.simpleButton2.Location = new System.Drawing.Point(1368, 1);
+            this.simpleButton2.Location = new System.Drawing.Point(1257, 1);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.simpleButton2.Size = new System.Drawing.Size(45, 35);
@@ -435,20 +423,11 @@ namespace ResponseEmergencySystem.Forms
             // layoutControlItem18
             // 
             this.layoutControlItem18.Control = this.stackPanel1;
-            this.layoutControlItem18.Location = new System.Drawing.Point(168, 0);
+            this.layoutControlItem18.Location = new System.Drawing.Point(279, 0);
             this.layoutControlItem18.Name = "layoutControlItem18";
-            this.layoutControlItem18.Size = new System.Drawing.Size(1420, 42);
+            this.layoutControlItem18.Size = new System.Drawing.Size(1309, 42);
             this.layoutControlItem18.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem18.TextVisible = false;
-            // 
-            // layoutControlItem9
-            // 
-            this.layoutControlItem9.Control = this.pictureEdit1;
-            this.layoutControlItem9.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(168, 42);
-            this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem9.TextVisible = false;
             // 
             // labelControl2
             // 
@@ -1358,6 +1337,37 @@ namespace ResponseEmergencySystem.Forms
             this.emptySpaceItem4.Size = new System.Drawing.Size(847, 10);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // pictureEdit1
+            // 
+            this.pictureEdit1.EditValue = global::ResponseEmergencySystem.Properties.Resources.SIREMlogo;
+            this.pictureEdit1.Location = new System.Drawing.Point(3, 0);
+            this.pictureEdit1.Name = "pictureEdit1";
+            this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.pictureEdit1.Properties.Appearance.Options.UseBackColor = true;
+            this.pictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pictureEdit1.Properties.SvgImageSize = new System.Drawing.Size(250, 200);
+            this.pictureEdit1.Size = new System.Drawing.Size(164, 38);
+            this.pictureEdit1.TabIndex = 5;
+            this.pictureEdit1.EditValueChanged += new System.EventHandler(this.pictureEdit1_EditValueChanged);
+            // 
+            // stackPanel2
+            // 
+            this.stackPanel2.Controls.Add(this.pictureEdit1);
+            this.stackPanel2.Location = new System.Drawing.Point(12, 12);
+            this.stackPanel2.Name = "stackPanel2";
+            this.stackPanel2.Size = new System.Drawing.Size(275, 38);
+            this.stackPanel2.TabIndex = 5;
+            // 
+            // layoutControlItem9
+            // 
+            this.layoutControlItem9.Control = this.stackPanel2;
+            this.layoutControlItem9.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem9.Name = "layoutControlItem9";
+            this.layoutControlItem9.Size = new System.Drawing.Size(279, 42);
+            this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem9.TextVisible = false;
+            // 
             // Main2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -1384,12 +1394,10 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
             this.layoutControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stackPanel1)).EndInit();
             this.stackPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).EndInit();
             this.layoutControl3.ResumeLayout(false);
             this.xtraScrollableControl1.ResumeLayout(false);
@@ -1452,6 +1460,10 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.btn_Edit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stackPanel2)).EndInit();
+            this.stackPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1559,6 +1571,7 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem12;
         private DevExpress.XtraGrid.Columns.GridColumn col_ID;
         private DevExpress.XtraGrid.Columns.GridColumn col_CaptureId;
+        private DevExpress.Utils.Layout.StackPanel stackPanel2;
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
     }

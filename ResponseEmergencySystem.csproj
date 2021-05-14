@@ -550,6 +550,14 @@
     <Compile Include="Views\IMainView.cs" />
     <Compile Include="Views\IShowIncidentDetails.cs" />
     <None Include="Resources\SIREMlogo.svg" />
+    <None Include="Resources\updateWhite.svg" />
+    <None Include="Resources\chatboxWhite1.svg" />
+    <None Include="Resources\warnigColors1.svg" />
+    <None Include="Resources\folder1.svg" />
+    <None Include="Resources\emailSent1.svg" />
+    <None Include="Resources\checkGreen1.svg" />
+    <None Include="Resources\checked.svg" />
+    <None Include="Resources\checked %281%29.svg" />
     <Content Include="x64\SQLite.Interop.dll" />
     <Content Include="x86\SQLite.Interop.dll" />
     <EmbeddedResource Include="Forms\EditIncidentDetails.resx">
