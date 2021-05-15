@@ -375,7 +375,7 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton6.Appearance.Options.UseBackColor = true;
             this.simpleButton6.Appearance.Options.UseFont = true;
             this.simpleButton6.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.simpleButton6.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.addWhite;
+            this.simpleButton6.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.updateWhite;
             this.simpleButton6.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
             this.simpleButton6.Location = new System.Drawing.Point(13, 85);
             this.simpleButton6.Name = "simpleButton6";
