@@ -209,12 +209,16 @@ namespace ResponseEmergencySystem.Controllers
 
         public void EditIncidentView(string incidentId)
         {
-            EditIncidentDetails viewEditIncident = new EditIncidentDetails();
+            EditIncidentDetails editIncidentView = new EditIncidentDetails();
 
-            Incidents.EditIncidentController incidentCtrl = new Incidents.EditIncidentController(viewEditIncident, incidentId);
+            Incidents.EditIncidentController incidentCtrl = new Incidents.EditIncidentController(editIncidentView, incidentId);
             incidentCtrl.LoadIncident();
+            if (editIncidentView.ShowDialog() == DialogResult.OK)
+            {
+                Utils.ShowMessage("the Incident was updated succesfully", "Incident");
+                _view.Incidents = IncidentService.list_Incidents("", "", "", "", "").Select(i => new { i.ID_Incident, i.Name, i.Folio, i.IncidentDate, i.truck.truckNumber, i.ID_StatusDetail });
+            }
 
-            viewEditIncident.Show();
         }
 
         public void ShowIncident(string incidentId, string folio)

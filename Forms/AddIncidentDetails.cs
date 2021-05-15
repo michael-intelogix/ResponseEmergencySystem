@@ -349,10 +349,12 @@ namespace ResponseEmergencySystem.Forms
         public string IPFullName 
         { 
             get { return Utils.GetEdtValue(edt_IPFullName); } 
+            set { edt_IPFullName.EditValue = value; }
         }
         public string IPLastName1 
         { 
             get { return Utils.GetEdtValue(edt_IPLastName1); }
+            set { edt_IPLastName1.EditValue = value; }
         }
         //not in use
         public string IPLastName2 
@@ -361,26 +363,37 @@ namespace ResponseEmergencySystem.Forms
         }
         public string IPAge 
         { 
-            get { return Utils.GetEdtValue(edt_IPAge); } 
+            get { return Utils.GetEdtValue(edt_IPAge); }
+            set { edt_IPAge.EditValue = value; }
         }
         public string IPPhoneNumber 
         { 
-            get { return Utils.GetEdtValue(edt_IPPhoneNumber); } 
+            get { return Utils.GetEdtValue(edt_IPPhoneNumber); }
+            set { edt_IPPhoneNumber.EditValue = value; }
+        }
+        public bool IPPassenger
+        {
+            get { return (bool)ckedt_IPPassenger.EditValue; }
+            set { ckedt_IPPassenger.EditValue = value; }
         }
         public bool IPDriver 
         { 
-            get { return (bool)ckedt_IPDriver.EditValue; } 
+            get { return (bool)ckedt_IPDriver.EditValue; }
+            set { ckedt_IPDriver.EditValue = value; }
         }
         public string IPDriverLicense { 
-            get { return Utils.GetEdtValue(edt_IPLicense); } 
+            get { return Utils.GetEdtValue(edt_IPLicense); }
+            set { edt_IPLicense.EditValue = value; }
         }
         public bool IPPrivate 
         { 
-            get { return (bool)ckedt_IPPrivate.EditValue; } 
+            get { return (bool)ckedt_IPPrivate.EditValue; }
+            set { ckedt_IPPrivate.EditValue = value; }
         }
         public bool IPInjured 
         {
-            get { return (bool)ckedt_IPInjured.EditValue; } 
+            get { return (bool)ckedt_IPInjured.EditValue; }
+            set { ckedt_IPInjured.EditValue = value; }
         }
         #endregion
 
@@ -418,6 +431,37 @@ namespace ResponseEmergencySystem.Forms
         public bool PnlDriverInvolvedVisibility
         {
             set { pnl_DriverInvolved.Visible = value; }
+        }
+
+        public bool BtnAddInvolvedPersonVisibility
+        {
+            set { simpleButton5.Visible = value; }
+        }
+
+        public Point BtnAddInvolvedPersonLocation
+        {
+            set { simpleButton5.Location = value; }
+        }
+
+        public Size BtnAddInvolvedPersonSize
+        {
+            set { simpleButton5.Size = value; }
+        }
+
+        public bool BtnEditInvolvedPersonVisibility
+        {
+            set { simpleButton6.Visible = value; }
+        }
+
+        public Point BtnEditInvolvedPersonLocation
+        {
+            set { simpleButton6.Location = value; }
+            get { return simpleButton6.Location; }
+        }
+
+        public bool LblEmptyFieldsVisibility
+        {
+            set { lbl_EmptyFields.Visible = value; }
         }
 
         public BorderStyles EdtFullNameBorder
@@ -483,14 +527,31 @@ namespace ResponseEmergencySystem.Forms
 
         private void simpleButton5_Click(object sender, EventArgs e)
         {
-            edt_IPFullName.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             _controller.AddPersonInvolved();
+            gv_InvolvedPersons.BestFitColumns();
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
             //Utils.ShowMessage("Are you sure you want to close?", "Incident");
             this.Close();
+        }
+
+        private void simpleButton6_Click(object sender, EventArgs e)
+        {
+            _controller.UpdatePersonInvolved();
+            gv_InvolvedPersons.BestFitColumns();
+        }
+
+        private void btn_EditPersonOnClick(object sender, EventArgs e)
+        {
+            _controller.EditInvolvedPersonByRow(gv_InvolvedPersons.FocusedRowHandle);
+        }
+
+        private void btn_RemovePersonOnClick(object sender, EventArgs e)
+        {
+            _controller.RemoveInvolvedPersonByRow(gv_InvolvedPersons.FocusedRowHandle);
+            gv_InvolvedPersons.BestFitColumns();
         }
     }
 

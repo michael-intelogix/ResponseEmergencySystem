@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors.Controls;
+using System.Drawing;
 
 namespace ResponseEmergencySystem.Views
 {
@@ -57,15 +58,16 @@ namespace ResponseEmergencySystem.Views
 
         string Comments { get; } 
 
-        string IPFullName { get; } 
-        string IPLastName1 { get; }
+        string IPFullName { get; set; } 
+        string IPLastName1 { get; set; }
         string IPLastName2 { get; }
-        string IPAge { get; }
-        string IPPhoneNumber { get; }
-        bool IPDriver { get; }
-        string IPDriverLicense { get; }
-        bool IPPrivate { get; }
-        bool IPInjured { get; }
+        string IPAge { get; set; }
+        string IPPhoneNumber { get; set; }
+        bool IPPassenger { get; set; }
+        bool IPDriver { get; set; }
+        string IPDriverLicense { get; set; }
+        bool IPPrivate { get; set; }
+        bool IPInjured { get; set; }
 
         // form elements properties (change properties of especific elements in the form)
         bool PnlBolVisibility { set; }
@@ -75,6 +77,15 @@ namespace ResponseEmergencySystem.Views
         object LueCitiesDataSource { set; }
         object InvolvedPersonsDataSorurce { set;  }
         bool PnlDriverInvolvedVisibility { set; }
+
+        bool BtnAddInvolvedPersonVisibility { set; }
+        Point BtnAddInvolvedPersonLocation { set; }
+        Size BtnAddInvolvedPersonSize { set; }
+
+        bool BtnEditInvolvedPersonVisibility { set; }
+        Point BtnEditInvolvedPersonLocation { set; get; }
+
+        bool LblEmptyFieldsVisibility { set; }
 
         BorderStyles EdtFullNameBorder { get; set; }
         BorderStyles EdtLastNameBorder { get; set; }

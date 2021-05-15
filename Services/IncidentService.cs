@@ -143,6 +143,7 @@ namespace ResponseEmergencySystem.Services
 
                             result.Add(
                                 new PersonsInvolved(
+                                    Convert.ToString(sdr["ID_InjuredPerson"]),
                                     (string)sdr["FullName"],
                                     (string)sdr["LastName1"],
                                     (string)sdr["Phone"],
@@ -264,7 +265,7 @@ namespace ResponseEmergencySystem.Services
 
         }
 
-        public static void UpdateIncident(
+        public static Response UpdateIncident(
             string ID_Incident,
             string ID_Driver,
             string ID_State,
@@ -345,7 +346,7 @@ namespace ResponseEmergencySystem.Services
                             Debug.WriteLine(sdr["msg"]);
                             Debug.WriteLine(sdr["ID"]);
 
-                            MessageBox.Show((string)sdr["msg"]);
+                            //MessageBox.Show((string)sdr["msg"]);
 
                             response = new Response(Convert.ToBoolean(sdr["Validacion"]), sdr["msg"].ToString(), sdr["ID"].ToString());
                         }
@@ -353,10 +354,14 @@ namespace ResponseEmergencySystem.Services
                     cmd.Connection.Close();
 
                 }
+
+                return response;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Incident couldn't be saved due: {ex.Message}");
+                //MessageBox.Show($"Incident couldn't be saved due: {ex.Message}");
+                Debug.WriteLine(ex.Message);
+                return new Response(false, ex.Message, Guid.Empty.ToString());
             }
 
         }
@@ -379,7 +384,7 @@ namespace ResponseEmergencySystem.Services
                         cmd.Connection.Close();
                     }
 
-                    cmd.Parameters.AddWithValue("@ID_InjuredPerson", Guid.Empty);
+                    cmd.Parameters.AddWithValue("@ID_InjuredPerson", involved.ID_Injured);
                     cmd.Parameters.AddWithValue("@fullName", involved.FullName);
                     cmd.Parameters.AddWithValue("@lastName1", involved.LastName1);
                     cmd.Parameters.AddWithValue("@lastName2", involved.LastName2);

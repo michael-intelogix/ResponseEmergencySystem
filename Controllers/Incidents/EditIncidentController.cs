@@ -15,6 +15,7 @@ using Newtonsoft.Json.Linq;
 using System.Windows.Forms;
 using ResponseEmergencySystem.Forms.Modals;
 using DevExpress.XtraEditors.Controls;
+using System.Diagnostics;
 
 namespace ResponseEmergencySystem.Controllers.Incidents
 {
@@ -27,7 +28,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
         private Int32 _selectedPerson = 0;
 
-        private List<PersonsInvolved> _PersonsInvolved = new List<PersonsInvolved>();
+        private List<PersonsInvolved> _PersonsInvolved;
 
         public double latitude;
         public double longitude;
@@ -55,6 +56,11 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             _selectedIncident = IncidentService.list_Incidents("", "", "", "", "", incidentId: ID_Incident)[0];
             _PersonsInvolved = IncidentService.list_PersonsInvolved(ID_Incident);
 
+            ID_Driver = _selectedIncident.driver.ID_Driver.ToString(); ;
+            ID_Broker = _selectedIncident.broker.ID_Broker;
+            ID_Truck = _selectedIncident.truck.ID_Truck.ToString();
+            ID_Trailer = _selectedIncident.trailer.ID_Trailer.ToString();
+
             _view.FullName = _selectedIncident.Name;
             _view.PhoneNumber = _selectedIncident.PhoneNumber;
             _view.License = _selectedIncident.driver.License;
@@ -77,6 +83,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             _view.ID_City = _selectedIncident.ID_City;
 
             _view.Broker = _selectedIncident.broker.Name;
+            _view.Comments = _selectedIncident.Comments;
 
             #region Accident Details
             //_view.IncidentDate = _selectedIncident.IncidentDate.Date;
@@ -280,9 +287,18 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
             if (errors == 0)
             {
+                _view.LblEmptyFieldsVisibility = false;
                 _PersonsInvolved.Add(new PersonsInvolved(_view.IPFullName, _view.IPLastName1, _view.IPPhoneNumber, _view.IPAge, _view.IPDriver, _view.IPLicense, _view.IPPrivate, _view.IPInjured, Guid.Empty.ToString()));
                 _view.InvolvedPersonsDataSorurce = _PersonsInvolved;
+
+                CleanPersonInvolvedCapture();
             }
+            else
+            {
+                _view.LblEmptyFieldsVisibility = true;
+            }
+
+            
 
         }
 
@@ -323,8 +339,26 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
             if (errors == 0)
             {
-                _PersonsInvolved[_selectedPerson] = new PersonsInvolved(_view.IPFullName, _view.IPLastName1, _view.IPPhoneNumber, _view.IPAge, _view.IPDriver, _view.IPLicense, _view.IPPrivate, _view.IPInjured, Guid.Empty.ToString());
+                _view.LblEmptyFieldsVisibility = false;
+                _PersonsInvolved[_selectedPerson].FullName = _view.IPFullName; 
+                _PersonsInvolved[_selectedPerson].LastName1 = _view.IPLastName1; 
+                _PersonsInvolved[_selectedPerson].PhoneNumber = _view.IPPhoneNumber; 
+                _PersonsInvolved[_selectedPerson].Age = _view.IPAge; 
+                _PersonsInvolved[_selectedPerson].Driver = _view.IPDriver; 
+                _PersonsInvolved[_selectedPerson].DriverLicense = _view.IPLicense;
+                _PersonsInvolved[_selectedPerson].PrivatePerson = _view.IPPrivate;
+                _PersonsInvolved[_selectedPerson].Injured = _view.IPInjured;
+
                 _view.InvolvedPersonsDataSorurce = _PersonsInvolved;
+
+                CleanPersonInvolvedCapture();
+
+                _view.BtnAddInvolvedPersonVisibility = true;
+                _view.BtnEditInvolvedPersonVisibility = false;
+            } 
+            else
+            {
+                _view.LblEmptyFieldsVisibility = true;
             }
 
         }
@@ -343,9 +377,20 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             _view.IPDriver = person.Driver;
             _view.IPLicense = person.DriverLicense;
 
-            _view.BtnAddInvolvedPersonText = "Update person";
-            _view.BtnAddInvolvedPersonLocation = new System.Drawing.Point(494, 85);
-            _view.BtnAddInvolvedPersonSize = new System.Drawing.Size(135, 23);
+            _view.BtnAddInvolvedPersonVisibility = false;
+            _view.BtnEditInvolvedPersonVisibility = true;
+
+            //_view.BtnEditInvolvedPersonText = "Update person";
+            if (_view.BtnEditInvolvedPersonLocation.X == 13)
+                _view.BtnEditInvolvedPersonLocation = new System.Drawing.Point(494, 85);
+            //_view.BtnAddInvolvedPersonSize = new System.Drawing.Size(135, 23);
+            
+        }
+
+        public void RemoveInvolvedPersonByRow(int idx)
+        {
+            _PersonsInvolved.RemoveAt(idx);
+            _view.InvolvedPersonsDataSorurce = _PersonsInvolved;
         }
 
         public void Update()
@@ -356,7 +401,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             //check location refreces
             try
             {
-                IncidentService.UpdateIncident(
+                var t = new Task<Response>(() => IncidentService.UpdateIncident(
                     ID_Incident,
                     ID_Driver.ToUpper(),
                     _view.ID_State,
@@ -379,8 +424,24 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                     _view.TrailerCanMove,
                     _view.TrailerNeedCrane,
                     constants.userIDTest.ToString(),
-                    comments
-                );
+                    _view.Comments
+                ));
+
+                t.Start();
+                t.Wait();
+
+                foreach(var person in _PersonsInvolved)
+                {
+                    if (t.Result.validation)
+                    {
+                        person.ID_Incident = t.Result.ID;
+                        IncidentService.AddPersonInvolved(person);
+                    }
+                    else
+                    {
+                        Debug.WriteLine(t.Result.Message);
+                    }
+                }
             } 
             catch (Exception e)
             {
@@ -389,6 +450,19 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
 
             /*MessageBox.Show(IncidentService.response.Message);*/
+        }
+        
+        private void CleanPersonInvolvedCapture()
+        {
+            _view.IPFullName = "";
+            _view.IPLastName1 = "";
+            _view.IPPhoneNumber = "";
+            _view.IPAge = "";
+            _view.IPPrivate = false;
+            _view.IPInjured = false;
+            _view.IPPassenger = false;
+            _view.IPDriver = false;
+            _view.IPLicense = "";
         }
     }
 }

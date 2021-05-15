@@ -67,7 +67,6 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.edt_Broker = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.gc_Brokers = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.col_ID = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -375,25 +374,6 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.labelControl2.TabIndex = 0;
             this.labelControl2.Text = "Add new broker";
             // 
-            // simpleButton2
-            // 
-            this.simpleButton2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
-            this.simpleButton2.Appearance.ForeColor = System.Drawing.Color.White;
-            this.simpleButton2.Appearance.Options.UseBackColor = true;
-            this.simpleButton2.Appearance.Options.UseForeColor = true;
-            this.simpleButton2.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.save_32x32;
-            this.simpleButton2.ImageOptions.ImageToTextIndent = 0;
-            this.simpleButton2.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.saveWhite;
-            this.simpleButton2.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.simpleButton2.Location = new System.Drawing.Point(537, 473);
-            this.simpleButton2.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-            this.simpleButton2.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(109, 43);
-            this.simpleButton2.TabIndex = 0;
-            this.simpleButton2.Text = "Save";
-            this.simpleButton2.Click += new System.EventHandler(this.btn_SaveOnClick);
-            // 
             // gc_Brokers
             // 
             this.gc_Brokers.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -534,6 +514,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.btn_Cancel2.Size = new System.Drawing.Size(102, 42);
             this.btn_Cancel2.TabIndex = 3;
             this.btn_Cancel2.Text = "Cancel";
+            this.btn_Cancel2.Click += new System.EventHandler(this.CloseOnClick);
             // 
             // stackPanel1
             // 
@@ -561,6 +542,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.simpleButton9.Size = new System.Drawing.Size(102, 42);
             this.simpleButton9.TabIndex = 2;
             this.simpleButton9.Text = "Save";
+            this.simpleButton9.Click += new System.EventHandler(this.btn_SaveOnClick);
             // 
             // Root
             // 
@@ -597,7 +579,6 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(658, 599);
             this.Controls.Add(this.gc_Brokers);
-            this.Controls.Add(this.simpleButton2);
             this.Controls.Add(this.panelControl3);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
@@ -660,7 +641,6 @@ namespace ResponseEmergencySystem.Forms.Modals
         private DevExpress.XtraEditors.TextEdit edt_Broker;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.XtraEditors.LookUpEdit lue_City;
         private DevExpress.XtraEditors.LookUpEdit lue_State;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btn_Approved1;

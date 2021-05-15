@@ -49,6 +49,7 @@ namespace ResponseEmergencySystem.Views
         string ID_City { get; set; }
         //this value can be highway street and other kind of references like that 
         string LocationReferences { get; set; }
+        string Comments { get; set; }
 
         string IPFullName { get; set; }
         string IPLastName1 { get; set; }
@@ -69,6 +70,7 @@ namespace ResponseEmergencySystem.Views
         bool PnlDriverInvolvedVisibility { set; }
         string BtnAddInvolvedPersonText { set; }
 
+        bool BtnAddInvolvedPersonVisibility { set; }
         Point BtnAddInvolvedPersonLocation { set; }
         Size BtnAddInvolvedPersonSize { set; }
         //521, 85
@@ -76,6 +78,11 @@ namespace ResponseEmergencySystem.Views
 
         //108, 23
         //n 135, 23
+
+        bool BtnEditInvolvedPersonVisibility { set; }
+        Point BtnEditInvolvedPersonLocation { set; get; }
+
+        bool LblEmptyFieldsVisibility { set; }
 
         BorderStyles EdtFullNameBorder { get; set; }
         BorderStyles EdtLastNameBorder { get; set; }

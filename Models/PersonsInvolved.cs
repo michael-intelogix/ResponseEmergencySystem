@@ -25,8 +25,29 @@ namespace ResponseEmergencySystem.Models
         public string IsInjured { get; }
         public string IsPrivate { get; }
 
+        public PersonsInvolved(string ID, string fullname, string lastname1, string phonenumber, string age, bool driver, string license, bool privatePerson, bool injured, string incidentId, string lastname2 = "")
+        {
+            ID_Injured = ID;
+            FullName = fullname;
+            LastName1 = lastname1;
+            LastName2 = lastname2;
+            PhoneNumber = phonenumber;
+            Age = age;
+            Driver = driver;
+            DriverLicense = license;
+            PrivatePerson = privatePerson;
+            Injured = injured;
+            ID_Incident = incidentId;
+
+            IsDriver = driver ? "yes" : "no";
+            IsPassenger = !driver ? "yes" : "no";
+            IsInjured = injured ? "yes" : "no";
+            IsPrivate = privatePerson ? "yes" : "no";
+        }
+
         public PersonsInvolved (string fullname, string lastname1, string phonenumber, string age, bool driver, string license, bool privatePerson, bool injured, string incidentId, string lastname2 = "")
         {
+            ID_Injured = Guid.Empty.ToString();
             FullName = fullname;
             LastName1 = lastname1;
             LastName2 = lastname2;

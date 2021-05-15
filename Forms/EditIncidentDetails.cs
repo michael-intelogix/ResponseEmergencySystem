@@ -38,15 +38,18 @@ namespace ResponseEmergencySystem.Forms
                 case "ckedt_PoliceReport":
                     pnl_PoliceReport.Visible = ckedtValue;
                     break;
+                case "ckedt_IPDriver":
+                    pnl_DriverInvolved.Visible = ckedtValue;
+                    break;
                 //case "ckedt_Injured":
                 //    panelControl3.Visible = ckedtValue;
                 //    pnl_AddInjuredFields.Visible = ckedtValue;
                 //    gc_InjuredPersons.Enabled = ckedtValue;
 
-                //    if (dt_InjuredPersons.Rows.Count == 0)
-                //        addEmptyRow();
+                    //    if (dt_InjuredPersons.Rows.Count == 0)
+                    //        addEmptyRow();
 
-                //    break;
+                    //    break;
             }
 
         }
@@ -264,7 +267,14 @@ namespace ResponseEmergencySystem.Forms
             set { lue_Cities.EditValue = value; }
         }
 
-        #endregion
+        public string Comments
+        {
+            get { return memoEdit1.EditValue == null ? "" : memoEdit1.EditValue.ToString(); }
+            set { memoEdit1.EditValue = value; }
+        }
+        
+
+    #endregion
 
         #region view involved persons
 
@@ -350,9 +360,31 @@ namespace ResponseEmergencySystem.Forms
         {
             set { simpleButton5.Location = value; }
         }
+
         public Size BtnAddInvolvedPersonSize 
         { 
             set { simpleButton5.Size = value; } 
+        }
+
+        public bool BtnAddInvolvedPersonVisibility
+        {
+            set { simpleButton5.Visible = value; }
+        }
+
+        public Point BtnEditInvolvedPersonLocation
+        {
+            set { simpleButton6.Location = value; }
+            get { return simpleButton6.Location; }
+        }
+
+        public bool BtnEditInvolvedPersonVisibility
+        {
+            set { simpleButton6.Visible = value; }
+        }
+
+        public bool LblEmptyFieldsVisibility
+        {
+            set { lbl_EmptyFields.Visible = value; }
         }
 
         public BorderStyles EdtFullNameBorder
@@ -426,15 +458,15 @@ namespace ResponseEmergencySystem.Forms
             
         }
 
-
-        private void btn_ApprovedBroker(object sender, EventArgs e)
+        private void btn_EditPersonOnClick(object sender, EventArgs e)
         {
             _controller.EditInvolvedPersonByRow(gv_InvolvedPersons.FocusedRowHandle);
         }
 
-        private void btn_EditPersonOnClick(object sender, EventArgs e)
+        private void btn_RemovePersonOnClick(object sender, EventArgs e)
         {
-            _controller.EditInvolvedPersonByRow(gv_InvolvedPersons.FocusedRowHandle);
+            _controller.RemoveInvolvedPersonByRow(gv_InvolvedPersons.FocusedRowHandle);
+            gv_InvolvedPersons.BestFitColumns();
         }
 
         private void ckedt_IPPrivate_CheckedChanged(object sender, EventArgs e)
@@ -457,6 +489,20 @@ namespace ResponseEmergencySystem.Forms
         private void simpleButton2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btn_UpdateIncident_Click(object sender, EventArgs e)
+        {
+            if (dxValidationProvider1.Validate())
+            {
+                splashScreenManager1.ShowWaitForm();
+                _controller.Update();
+                splashScreenManager1.CloseWaitForm();
+
+                this.DialogResult = DialogResult.OK;
+            }
+            else
+                Utils.ShowMessage("Please Check the information again", "Validation Error");
         }
     }
 }

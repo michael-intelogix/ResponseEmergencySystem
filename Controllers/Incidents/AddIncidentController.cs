@@ -26,6 +26,8 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
         private List<PersonsInvolved> _PersonsInvolved = new List<PersonsInvolved>();
 
+        private Int32 _selectedPerson = 0;
+
         private string ID_Driver;
         private string ID_Broker;
         private string ID_Truck;
@@ -362,16 +364,119 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
             if (errors == 0)
             {
+                _view.LblEmptyFieldsVisibility = false;
                 _PersonsInvolved.Add(new PersonsInvolved(_view.IPFullName, _view.IPLastName1, _view.IPPhoneNumber, _view.IPAge, _view.IPDriver, _view.IPDriverLicense, _view.IPPrivate, _view.IPInjured, Guid.Empty.ToString()));
                 _view.InvolvedPersonsDataSorurce = _PersonsInvolved;
+
+                CleanPersonInvolvedCapture();
+            }
+            else
+            {
+                _view.LblEmptyFieldsVisibility = true;
             }
 
+        }
+
+        public void UpdatePersonInvolved()
+        {
+            int errors = 0;
+            if (_view.IPFullName.Length == 0)
+            {
+                _view.EdtFullNameBorder = BorderStyles.Simple;
+                errors += 1;
+            }
+            else
+                _view.EdtFullNameBorder = BorderStyles.Default;
+
+            if (_view.IPLastName1.Length == 0)
+            {
+                _view.EdtLastNameBorder = BorderStyles.Simple;
+                errors += 1;
+            }
+            else
+                _view.EdtLastNameBorder = BorderStyles.Default;
+
+            if (_view.IPPhoneNumber.Length == 0)
+            {
+                _view.EdtPhoneNumberBorder = BorderStyles.Simple;
+                errors += 1;
+            }
+            else
+                _view.EdtPhoneNumberBorder = BorderStyles.Default;
+
+            if (_view.IPAge.Length == 0)
+            {
+                _view.EdtAgeBorder = BorderStyles.Simple;
+                errors += 1;
+            }
+            else
+                _view.EdtAgeBorder = BorderStyles.Default;
+
+            if (errors == 0)
+            {
+                _view.LblEmptyFieldsVisibility = false;
+                _PersonsInvolved[_selectedPerson] = new PersonsInvolved(_view.IPFullName, _view.IPLastName1, _view.IPPhoneNumber, _view.IPAge, _view.IPDriver, _view.IPDriverLicense, _view.IPPrivate, _view.IPInjured, Guid.Empty.ToString());
+                _view.InvolvedPersonsDataSorurce = _PersonsInvolved;
+
+                CleanPersonInvolvedCapture();
+
+                _view.BtnAddInvolvedPersonVisibility = true;
+                _view.BtnEditInvolvedPersonVisibility = false;
+            }
+            else
+            {
+                _view.LblEmptyFieldsVisibility = true;
+            }
+
+        }
+
+        public void EditInvolvedPersonByRow(Int32 index)
+        {
+            _selectedPerson = index;
+            var person = _PersonsInvolved[index];
+            _view.IPFullName = person.FullName;
+            _view.IPLastName1 = person.LastName1;
+            _view.IPPhoneNumber = person.PhoneNumber;
+            _view.IPAge = person.Age;
+            _view.IPPrivate = person.PrivatePerson;
+            _view.IPInjured = person.Injured;
+            _view.IPPassenger = !person.Driver;
+            _view.IPDriver = person.Driver;
+            _view.IPDriverLicense = person.DriverLicense;
+
+            _view.BtnAddInvolvedPersonVisibility = false;
+            _view.BtnEditInvolvedPersonVisibility = true;
+
+            //_view.BtnEditInvolvedPersonText = "Update person";
+            if (_view.BtnEditInvolvedPersonLocation.X == 8)
+                _view.BtnEditInvolvedPersonLocation = new System.Drawing.Point(494, 85);
+            //_view.BtnAddInvolvedPersonSize = new System.Drawing.Size(135, 23);
+
+        }
+
+        public void RemoveInvolvedPersonByRow(int idx)
+        {
+            _PersonsInvolved.RemoveAt(idx);
+            _view.InvolvedPersonsDataSorurce = _PersonsInvolved;
         }
 
         private int validate(bool validation, ref BorderStyles border)
         {
             
             return validation ? 1 : 0;
+        }
+
+        private void CleanPersonInvolvedCapture()
+        {
+            _view.IPFullName = "";
+            _view.IPLastName1 = "";
+            _view.IPPhoneNumber = "";
+            _view.IPAge = "";
+            _view.IPPrivate = false;
+            _view.IPInjured = false;
+            _view.IPPassenger = false;
+            _view.IPDriver = false;
+            _view.IPDriverLicense = "";
         }
     }
 }

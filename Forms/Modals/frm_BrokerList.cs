@@ -61,6 +61,11 @@ namespace ResponseEmergencySystem.Forms.Modals
             gridView1.BestFitColumns();
         }
 
+        private void CloseOnClick(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         #region interface
         public void SetController(BrokerController controller)
         {
