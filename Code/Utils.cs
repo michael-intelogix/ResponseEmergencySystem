@@ -103,9 +103,19 @@ namespace ResponseEmergencySystem.Code
             btn.Text = t;
         }
 
-        public static void ShowMessage(string msg, string title = "")
+        public static void ShowMessage(string msg, string title = "", bool confirmation = false)
         {
             Forms.Modals.Modals modalView = new Forms.Modals.Modals(msg, title);
+            //if(!confirmation)
+            //{
+            //    using (var control = G) 
+            //    { 
+            //        spnl_1.Visible = false; 
+            //    }
+
+            //    using (var spnl2 = (DevExpress.Utils.Layout.StackPanel) modalView.Controls["stackPanel2"]) { spnl2.LayoutDirection = DevExpress.Utils.Layout.StackPanelLayoutDirection.RightToLeft; };
+            //}
+           
             modalView.ShowDialog();
         }
 
@@ -115,6 +125,18 @@ namespace ResponseEmergencySystem.Code
             date = date.AddMinutes(minutes);
             return date;
         }
+
+
+
+        private Control GetControlByName(string Name)
+        {
+            //foreach (Control c in this.Controls)
+            //    if (c.Name == Name)
+            //        return c;
+
+            return null;
+        }
+
 
     }
 }

@@ -220,7 +220,7 @@ namespace ResponseEmergencySystem.Services
                             Debug.WriteLine(sdr["msg"]);
                             Debug.WriteLine(sdr["ID"]);
 
-                            MessageBox.Show((string)sdr["msg"]);
+                            //MessageBox.Show((string)sdr["msg"]);
 
                             return new Response(Convert.ToBoolean(sdr["Validacion"]), sdr["msg"].ToString(), sdr["ID"].ToString());
                         }
@@ -278,7 +278,7 @@ namespace ResponseEmergencySystem.Services
                             Debug.WriteLine(sdr["msg"]);
                             Debug.WriteLine(sdr["ID"]);
 
-                            MessageBox.Show((string)sdr["msg"]);
+                            //MessageBox.Show((string)sdr["msg"]);
 
                             return new Response(Convert.ToBoolean(sdr["Validacion"]), sdr["msg"].ToString(), sdr["ID"].ToString());
                         }

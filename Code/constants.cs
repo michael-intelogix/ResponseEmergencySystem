@@ -39,7 +39,7 @@ namespace ResponseEmergencySystem.Code
 
         public static string userName { get; set; }
 
-        public static string folioCode { get; } = "T-SIREM";
+        public static string folioCode { get; } = "SIREM";
 
         public static string system { get; } = "SIREM";
 

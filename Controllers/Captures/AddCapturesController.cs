@@ -116,7 +116,7 @@ namespace ResponseEmergencySystem.Controllers.Captures
 
                     Response imgResponse = CaptureService.AddImage(Guid.NewGuid().ToString(), ID_Capture, _images[i].ImageFireBaseUrl, _images[i].ImageName, "");
                     _images[i].ID_Image = imgResponse.ID;
-                    MessageBox.Show(imgResponse.Message + ", ID: " + imgResponse.ID);
+                    //MessageBox.Show(imgResponse.Message + ", ID: " + imgResponse.ID);
                     //CaptureService.AddCapture(_selectedCaptureType.ID_CaptureType, ID_Incident, "test service", "");
 
                     _view.PbrArray[id].Visible = false;

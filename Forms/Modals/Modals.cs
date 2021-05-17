@@ -29,5 +29,10 @@ namespace ResponseEmergencySystem.Forms.Modals
         {
 
         }
+
+        private void stackPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
