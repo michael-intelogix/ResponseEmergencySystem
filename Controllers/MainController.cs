@@ -13,6 +13,7 @@ using ResponseEmergencySystem.Forms;
 using System.Data;
 using System.IO;
 using ResponseEmergencySystem.Properties;
+using ResponseEmergencySystem.Forms ;
 
 namespace ResponseEmergencySystem.Controllers
 {
@@ -58,6 +59,45 @@ namespace ResponseEmergencySystem.Controllers
         {
             Forms.Modals.Testing test = new Forms.Modals.Testing();
             test.Show();
+            
+        }
+
+        public void EditImageData()
+        {
+            Forms.Modals.EditComments editCommentsView = new Forms.Modals.EditComments();
+            EditImageDataController editImageDataCtrl = new EditImageDataController(editCommentsView, _view.ID_Image);
+            editImageDataCtrl.LoadStatusDetail();
+            if (editCommentsView.ShowDialog() == DialogResult.OK)
+            {
+                Utils.ShowMessage("Image information has been updated");
+            }
+        }
+
+        public void AppSettings()
+        {
+            Forms.Modals.AppConfiguration appConfigView = new Forms.Modals.AppConfiguration();
+            AppConfigController appConfigCtrl = new AppConfigController(appConfigView);
+            appConfigCtrl.LoadCategories();
+            appConfigCtrl.LoadMailDirectory();
+            if (appConfigView.ShowDialog() == DialogResult.OK)
+            {
+                Utils.ShowMessage("Aplication settings has been updated");
+            }
+        }
+
+        public void SetComments()
+        {
+            AddComments addComments = new AddComments();
+            if (addComments.ShowDialog() == DialogResult.OK)
+            {
+                var t = new Task<Response>(() => CaptureService.UpdateCapture(_view.ID_Capture, "", "", "", addComments.comments));
+                t.Start();
+                t.Wait();
+                Utils.ShowMessage(t.Result.Message, "Capture");
+                _captures = CaptureService.list_Captures(_view.ID_Incident);
+                _view.CapturesDataSource = _captures;
+                //addComments.comments;
+            }
         }
 
         public void Login()
@@ -246,8 +286,12 @@ namespace ResponseEmergencySystem.Controllers
 
         public void EditImageView(string imgPath)
         {
-            frm_Image frm_Image = new frm_Image("", "", imgPath);
-            frm_Image.ShowDialog();
+            frm_Image imageView = new frm_Image("", "", imgPath);
+            ImageController appConfigCtrl = new ImageController(imageView, _view.ID_Capture, _view.ImageName);
+            if (imageView.ShowDialog() == DialogResult.OK)
+            {
+                Utils.ShowMessage("Image has been updated");
+            }
         }
 
         public void AddMoreCaptures()
@@ -256,7 +300,16 @@ namespace ResponseEmergencySystem.Controllers
             Captures.AddCapturesController addCapturesCtrl = new Captures.AddCapturesController(AddMoreCaptures, CaptureService.list_CaptureTypes());
             addCapturesCtrl.LoadCaptures();
             addCapturesCtrl.SetIncidentId(_view.ID_Incident);
-            AddMoreCaptures.ShowDialog();
+            if (AddMoreCaptures.ShowDialog() == DialogResult.OK)
+            {
+                Utils.ShowMessage("the capture was added succesfully", "Capture");
+                _captures = CaptureService.list_Captures(_view.ID_Incident);
+                _view.CapturesDataSource = _captures;
+                if (_captures.Count > 0)
+                    _view.ImagesDatasSource = CaptureService.list_Images(_captures[0].ID_Capture.ToString());
+                else
+                    _view.ImagesDatasSource = new List<ImageCapture>();
+            }
         }
 
         public List<ImageCapture> GetImages(string captureId)

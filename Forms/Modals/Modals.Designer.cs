@@ -78,6 +78,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             // stackPanel2
             // 
             this.stackPanel2.Controls.Add(this.simpleButton2);
+            this.stackPanel2.LayoutDirection = DevExpress.Utils.Layout.StackPanelLayoutDirection.RightToLeft;
             this.stackPanel2.Location = new System.Drawing.Point(196, 143);
             this.stackPanel2.Name = "stackPanel2";
             this.stackPanel2.Size = new System.Drawing.Size(181, 35);
@@ -96,11 +97,12 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.simpleButton2.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
             this.simpleButton2.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.checked__1_;
             this.simpleButton2.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.simpleButton2.Location = new System.Drawing.Point(3, 0);
+            this.simpleButton2.Location = new System.Drawing.Point(82, 0);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(96, 34);
             this.simpleButton2.TabIndex = 1;
             this.simpleButton2.Text = "Accept";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
             // pictureEdit2
             // 
@@ -124,6 +126,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.stackPanel1.Name = "stackPanel1";
             this.stackPanel1.Size = new System.Drawing.Size(180, 35);
             this.stackPanel1.TabIndex = 6;
+            this.stackPanel1.Visible = false;
             // 
             // simpleButton1
             // 
@@ -139,6 +142,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.simpleButton1.Size = new System.Drawing.Size(86, 34);
             this.simpleButton1.TabIndex = 0;
             this.simpleButton1.Text = "Close";
+            this.simpleButton1.Visible = false;
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // label1
@@ -243,7 +247,6 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            this.layoutControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stackPanel2)).EndInit();
             this.stackPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit2.Properties)).EndInit();

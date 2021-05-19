@@ -161,9 +161,12 @@ namespace ResponseEmergencySystem.Services
                         {
                             result.Add(
                                 new ImageCapture(
+                                    sdr["ID_Image"].ToString(),
                                     (string)sdr["Description"],
                                     (string)sdr["ImageUrl"],
-                                    1
+                                    (string)sdr["ID_StatusDetail"].ToString(),
+                                    (string)sdr["Status"],
+                                    (string)sdr["Comments"]
                                 )
                             );
                         }
@@ -296,5 +299,124 @@ namespace ResponseEmergencySystem.Services
 
             return new Response(false, "", Guid.Empty.ToString());
         }
+
+        public static Response UpdateCapture(string ID_Capture, string captureTypeId, string incidentId, string description, string comments, string statusDetailId = "")
+        {
+            opSuccess = false;
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand
+                {
+                    Connection = constants.SIREMConnection,
+                    CommandText = $"Update_Capture",
+                    CommandType = CommandType.StoredProcedure
+                })
+                {
+                    if (cmd.Connection.State == ConnectionState.Open)
+                    {
+                        cmd.Connection.Close();
+                    }
+
+                    cmd.Parameters.AddWithValue("@ID_Capture", Guid.Parse(ID_Capture));
+                    cmd.Parameters.AddWithValue("@ID_CaptureType", Guid.Empty);
+                    cmd.Parameters.AddWithValue("@ID_Incident", Guid.Empty);
+                    cmd.Parameters.AddWithValue("@ID_StatusDetail", statusDetailId);
+                    cmd.Parameters.AddWithValue("@Description", description);
+                    cmd.Parameters.AddWithValue("@Comments", comments);
+
+                    cmd.Connection.Open();
+                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    {
+                        if (sdr == null)
+                        {
+                            throw new NullReferenceException("No Information Available.");
+                        }
+
+                        while (sdr.Read())
+                        {
+
+                            Debug.WriteLine(sdr["Validacion"]);
+                            Debug.WriteLine(sdr["msg"]);
+                            Debug.WriteLine(sdr["ID"]);
+
+                            //MessageBox.Show((string)sdr["msg"]);
+
+                            return new Response(Convert.ToBoolean(sdr["Validacion"]), sdr["msg"].ToString(), sdr["ID"].ToString());
+                        }
+                    }
+                    cmd.Connection.Close();
+                    opSuccess = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Capture couldn't be saved due: {ex.Message}");
+
+                return new Response(false, ex.Message, Guid.Empty.ToString());
+            }
+
+            return new Response(false, "", Guid.Empty.ToString());
+        }
+
+        public static Response UpdateImageData(string ID_Image, string ID_StatusDetail, string comments)
+        {
+            opSuccess = false;
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand
+                {
+                    Connection = constants.SIREMConnection,
+                    CommandText = $"Update_Image",
+                    CommandType = CommandType.StoredProcedure
+                })
+                {
+                    if (cmd.Connection.State == ConnectionState.Open)
+                    {
+                        cmd.Connection.Close();
+                    }
+
+                    cmd.Parameters.AddWithValue("@ID_Image", Guid.Parse(ID_Image));
+                    cmd.Parameters.AddWithValue("@ID_Capture", Guid.Empty);
+                    cmd.Parameters.AddWithValue("@ID_StatusDetail", ID_StatusDetail);
+                    cmd.Parameters.AddWithValue("@ImageUrl", "");
+                    cmd.Parameters.AddWithValue("@Description", "");
+                    cmd.Parameters.AddWithValue("@Comments", comments);
+
+                    cmd.Connection.Open();
+                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    {
+                        if (sdr == null)
+                        {
+                            throw new NullReferenceException("No Information Available.");
+                        }
+
+                        while (sdr.Read())
+                        {
+
+                            Debug.WriteLine(sdr["Validacion"]);
+                            Debug.WriteLine(sdr["msg"]);
+                            Debug.WriteLine(sdr["ID"]);
+
+                            //MessageBox.Show((string)sdr["msg"]);
+
+                            return new Response(Convert.ToBoolean(sdr["Validacion"]), sdr["msg"].ToString(), sdr["ID"].ToString());
+                        }
+                    }
+                    cmd.Connection.Close();
+                    opSuccess = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Capture couldn't be saved due: {ex.Message}");
+
+                return new Response(false, ex.Message, Guid.Empty.ToString());
+            }
+
+            return new Response(false, "", Guid.Empty.ToString());
+        }
+
     }
 }

@@ -30,6 +30,7 @@ namespace ResponseEmergencySystem.Forms.Modals
         private void InitializeComponent()
         {
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.label1 = new System.Windows.Forms.Label();
             this.stackPanel2 = new DevExpress.Utils.Layout.StackPanel();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
@@ -45,10 +46,10 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stackPanel2)).BeginInit();
             this.stackPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stackPanel1)).BeginInit();
@@ -62,7 +63,6 @@ namespace ResponseEmergencySystem.Forms.Modals
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,6 +82,20 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // pictureEdit1
+            // 
+            this.pictureEdit1.EditValue = global::ResponseEmergencySystem.Properties.Resources.folder;
+            this.pictureEdit1.Location = new System.Drawing.Point(12, 41);
+            this.pictureEdit1.Name = "pictureEdit1";
+            this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.pictureEdit1.Properties.Appearance.Options.UseBackColor = true;
+            this.pictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pictureEdit1.Properties.SvgImageSize = new System.Drawing.Size(50, 50);
+            this.pictureEdit1.Size = new System.Drawing.Size(582, 43);
+            this.pictureEdit1.StyleController = this.layoutControl1;
+            this.pictureEdit1.TabIndex = 15;
+            // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -89,7 +103,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(582, 70);
             this.label1.TabIndex = 14;
-            this.label1.Text = "Modal text";
+            this.label1.Text = "Please select a folder where the reports willl be saved and extracted";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // stackPanel2
@@ -180,10 +194,10 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.Location = new System.Drawing.Point(12, 12);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(98, 25);
+            this.labelControl1.Size = new System.Drawing.Size(107, 25);
             this.labelControl1.StyleController = this.layoutControl1;
             this.labelControl1.TabIndex = 4;
-            this.labelControl1.Text = "Modal title";
+            this.labelControl1.Text = "Folder Error";
             // 
             // Root
             // 
@@ -245,20 +259,6 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
             // 
-            // pictureEdit1
-            // 
-            this.pictureEdit1.EditValue = global::ResponseEmergencySystem.Properties.Resources.folder;
-            this.pictureEdit1.Location = new System.Drawing.Point(12, 41);
-            this.pictureEdit1.Name = "pictureEdit1";
-            this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.pictureEdit1.Properties.Appearance.Options.UseBackColor = true;
-            this.pictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pictureEdit1.Properties.SvgImageSize = new System.Drawing.Size(50, 50);
-            this.pictureEdit1.Size = new System.Drawing.Size(582, 43);
-            this.pictureEdit1.StyleController = this.layoutControl1;
-            this.pictureEdit1.TabIndex = 15;
-            // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.pictureEdit1;
@@ -279,6 +279,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.Text = "Directory Error";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stackPanel2)).EndInit();
             this.stackPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.stackPanel1)).EndInit();
@@ -292,7 +293,6 @@ namespace ResponseEmergencySystem.Forms.Modals
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             this.ResumeLayout(false);
 

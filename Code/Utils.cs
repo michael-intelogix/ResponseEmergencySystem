@@ -1,8 +1,12 @@
 ﻿using DevExpress.XtraEditors;
+using ResponseEmergencySystem.Controllers;
+using ResponseEmergencySystem.Models;
 using ResponseEmergencySystem.Properties;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net.Mail;
 using System.Text;
@@ -13,22 +17,24 @@ namespace ResponseEmergencySystem.Code
 {
     class Utils
     {
-        private static string Employee_Email = "michael.reyes.intelogix@gmail.com";
-        private static string PasswordEmail = "Int3logix2";
+        private static string Employee_Email = "noreply@intelogix.mx";
+        private static string PasswordEmail = "Intelogix1";
         private static string EmailDestination = "michaelreyesfernandez@hotmail.com";
 
-        public static bool email_send(string filePath, bool resend)
+        public static bool email_send(string filePath, bool resend, string[] mails)
         {
             //jgonzalez@intelogix.mx Ingeniero en Sistemas
             bool MailSent = false;
             MailMessage mail = new MailMessage();
             SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
             mail.From = new MailAddress(Employee_Email);
-            string[] Emails = EmailDestination.Split(';');
-            foreach (string email in Emails)
-            {
-                mail.To.Add(email);
-            }
+
+            if (mails.Length > 1)
+                foreach (var m in mails)
+                {
+                    mail.To.Add(m);
+                }
+
             //mail.To.Add("jjind@citlogistics.us");
             mail.Subject = "Información del reporte registrado";
             mail.Body = "Buen día,\n\rEnvío información el reporte sobre el accidente que se registro hoy";
@@ -103,9 +109,26 @@ namespace ResponseEmergencySystem.Code
             btn.Text = t;
         }
 
-        public static void ShowMessage(string msg, string title = "", bool confirmation = false)
+        public static void ShowMessage(string msg, string title = "", bool confirmation = false, string type = "approved")
         {
             Forms.Modals.Modals modalView = new Forms.Modals.Modals(msg, title);
+            ModalController modalCtrl = new ModalController(modalView);
+
+            switch(type)
+            {
+                case "approved":
+                    modalView.SetApprovedIcon();
+                    break;
+                case "Error":
+                    modalView.SetErrorIcon();
+                    break;
+                case "Warning":
+                    modalView.SetWarningIcon();
+                    break;
+                case "MailSent":
+                    modalView.SetMailSentIcon();
+                    break;
+            }
             //if(!confirmation)
             //{
             //    using (var control = G) 
@@ -135,6 +158,17 @@ namespace ResponseEmergencySystem.Code
             //        return c;
 
             return null;
+        }
+
+        public static bool CheckIfColumnExistInDataReader(SqlDataReader sdr, string columnName)
+        {
+            for (int i = 0; i < sdr.FieldCount; i++)
+            {
+
+                if (sdr.GetName(i).Equals(columnName, StringComparison.InvariantCultureIgnoreCase))
+                    return true;
+            }
+            return false;
         }
 
 

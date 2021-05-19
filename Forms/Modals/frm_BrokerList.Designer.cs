@@ -148,10 +148,10 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.labelControl1.Location = new System.Drawing.Point(89, 6);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(451, 15);
+            this.labelControl1.Size = new System.Drawing.Size(465, 15);
             this.labelControl1.TabIndex = 2;
-            this.labelControl1.Text = "More than one broker has appeared in the search, Please select one from the list." +
-    "";
+            this.labelControl1.Text = "More than one company has appeared in the search, Please select one from the list" +
+    ".";
             // 
             // gv_Brokers
             // 
@@ -259,7 +259,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             // 
             // lue_City
             // 
-            this.lue_City.Location = new System.Drawing.Point(496, 34);
+            this.lue_City.Location = new System.Drawing.Point(496, 37);
             this.lue_City.Name = "lue_City";
             this.lue_City.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -335,7 +335,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(460, 37);
+            this.labelControl5.Location = new System.Drawing.Point(460, 40);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(21, 17);
             this.labelControl5.TabIndex = 4;
@@ -351,18 +351,18 @@ namespace ResponseEmergencySystem.Forms.Modals
             // 
             // edt_Broker
             // 
-            this.edt_Broker.Location = new System.Drawing.Point(68, 37);
+            this.edt_Broker.Location = new System.Drawing.Point(117, 37);
             this.edt_Broker.Name = "edt_Broker";
-            this.edt_Broker.Size = new System.Drawing.Size(188, 24);
+            this.edt_Broker.Size = new System.Drawing.Size(139, 24);
             this.edt_Broker.TabIndex = 2;
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(15, 37);
+            this.labelControl3.Location = new System.Drawing.Point(15, 41);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(40, 17);
+            this.labelControl3.Size = new System.Drawing.Size(96, 17);
             this.labelControl3.TabIndex = 1;
-            this.labelControl3.Text = "Broker";
+            this.labelControl3.Text = "Company Name";
             // 
             // labelControl2
             // 
@@ -370,9 +370,9 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.labelControl2.Appearance.Options.UseFont = true;
             this.labelControl2.Location = new System.Drawing.Point(12, 8);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(114, 20);
+            this.labelControl2.Size = new System.Drawing.Size(200, 20);
             this.labelControl2.TabIndex = 0;
-            this.labelControl2.Text = "Add new broker";
+            this.labelControl2.Text = "Add a new towing company";
             // 
             // gc_Brokers
             // 
@@ -410,7 +410,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             // 
             // col_BrokerName
             // 
-            this.col_BrokerName.Caption = "Broker";
+            this.col_BrokerName.Caption = "Company Name";
             this.col_BrokerName.FieldName = "Name";
             this.col_BrokerName.Name = "col_BrokerName";
             this.col_BrokerName.OptionsColumn.AllowEdit = false;
@@ -586,7 +586,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frm_BrokerList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Broker List";
+            this.Text = "Towing Company Listing";
             ((System.ComponentModel.ISupportInitialize)(this.btn_Approved1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);

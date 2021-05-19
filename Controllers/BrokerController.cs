@@ -55,6 +55,7 @@ namespace ResponseEmergencySystem.Controllers
             if (BrokerService.response.validation)
             {
                 _brokers.Add(new Broker("", _view.State, _view.City, _view.StateName, _view.CityName, _view.Broker, _view.Address));
+                Utils.ShowMessage("The towing company was added succesfully", "Towing company listing");
                 return _brokers;
             }
             return _brokers;

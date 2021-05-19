@@ -269,21 +269,21 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             else
                 _view.EdtLastNameBorder = BorderStyles.Default;
 
-            if (_view.IPPhoneNumber.Length == 0)
-            {
-                _view.EdtPhoneNumberBorder = BorderStyles.Simple;
-                errors += 1;
-            }
-            else
-                _view.EdtPhoneNumberBorder = BorderStyles.Default;
+            //if (_view.IPPhoneNumber.Length == 0)
+            //{
+            //    _view.EdtPhoneNumberBorder = BorderStyles.Simple;
+            //    errors += 1;
+            //}
+            //else
+            //    _view.EdtPhoneNumberBorder = BorderStyles.Default;
 
-            if (_view.IPAge.Length == 0)
-            {
-                _view.EdtAgeBorder = BorderStyles.Simple;
-                errors += 1;
-            }
-            else
-                _view.EdtAgeBorder = BorderStyles.Default;
+            //if (_view.IPAge.Length == 0)
+            //{
+            //    _view.EdtAgeBorder = BorderStyles.Simple;
+            //    errors += 1;
+            //}
+            //else
+            //    _view.EdtAgeBorder = BorderStyles.Default;
 
             if (errors == 0)
             {
@@ -321,20 +321,20 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             else
                 _view.EdtLastNameBorder = BorderStyles.Default;
 
-            if (_view.IPPhoneNumber.Length == 0)
-            {
-                _view.EdtPhoneNumberBorder = BorderStyles.Simple;
-                errors += 1;
-            }
-            else
-                _view.EdtPhoneNumberBorder = BorderStyles.Default;
+            //if (_view.IPPhoneNumber.Length == 0)
+            //{
+            //    _view.EdtPhoneNumberBorder = BorderStyles.Simple;
+            //    errors += 1;
+            //}
+            //else
+            //    _view.EdtPhoneNumberBorder = BorderStyles.Default;
 
-            if (_view.IPAge.Length == 0)
-            {
-                _view.EdtAgeBorder = BorderStyles.Simple;
-                errors += 1;
-            }
-            else
+            //if (_view.IPAge.Length == 0)
+            //{
+            //    _view.EdtAgeBorder = BorderStyles.Simple;
+            //    errors += 1;
+            //}
+            //else
                 _view.EdtAgeBorder = BorderStyles.Default;
 
             if (errors == 0)

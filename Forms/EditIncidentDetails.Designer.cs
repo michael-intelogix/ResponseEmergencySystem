@@ -30,32 +30,32 @@ namespace ResponseEmergencySystem.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule14 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule15 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule16 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule17 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule5 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule6 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions9 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject33 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject34 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject35 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject36 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions10 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject37 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject38 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject39 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject40 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule7 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule8 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule9 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule10 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule11 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule12 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions11 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject41 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject42 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject43 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject44 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions12 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject45 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject46 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject47 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject48 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule13 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule14 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule15 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule16 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ResponseEmergencySystem.Forms.WaitForm1), true, true);
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.labelControl32 = new DevExpress.XtraEditors.LabelControl();
@@ -188,6 +188,11 @@ namespace ResponseEmergencySystem.Forms
             this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.pic_PhoneNumberWarning = new DevExpress.XtraEditors.PictureEdit();
+            this.pic_LicenseWarning = new DevExpress.XtraEditors.PictureEdit();
+            this.pic_AgeWarning = new DevExpress.XtraEditors.PictureEdit();
+            this.pic_FullNameWarning = new DevExpress.XtraEditors.PictureEdit();
+            this.pic_LastName1Warning = new DevExpress.XtraEditors.PictureEdit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).BeginInit();
@@ -278,6 +283,11 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_PhoneNumberWarning.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_LicenseWarning.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_AgeWarning.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_FullNameWarning.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_LastName1Warning.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // splashScreenManager1
@@ -313,7 +323,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.labelControl32.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl32.Appearance.Options.UseFont = true;
-            this.labelControl32.Location = new System.Drawing.Point(671, 481);
+            this.labelControl32.Location = new System.Drawing.Point(703, 481);
             this.labelControl32.Name = "labelControl32";
             this.labelControl32.Size = new System.Drawing.Size(77, 20);
             this.labelControl32.StyleController = this.layoutControl1;
@@ -322,10 +332,10 @@ namespace ResponseEmergencySystem.Forms
             // 
             // memoEdit1
             // 
-            this.memoEdit1.Location = new System.Drawing.Point(671, 505);
+            this.memoEdit1.Location = new System.Drawing.Point(703, 505);
             this.memoEdit1.Name = "memoEdit1";
             this.memoEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.memoEdit1.Size = new System.Drawing.Size(696, 119);
+            this.memoEdit1.Size = new System.Drawing.Size(664, 119);
             this.memoEdit1.StyleController = this.layoutControl1;
             this.memoEdit1.TabIndex = 114;
             // 
@@ -334,6 +344,10 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl5.Appearance.BackColor = System.Drawing.Color.White;
             this.panelControl5.Appearance.Options.UseBackColor = true;
             this.panelControl5.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl5.Controls.Add(this.pic_LastName1Warning);
+            this.panelControl5.Controls.Add(this.pic_FullNameWarning);
+            this.panelControl5.Controls.Add(this.pic_AgeWarning);
+            this.panelControl5.Controls.Add(this.pic_PhoneNumberWarning);
             this.panelControl5.Controls.Add(this.lbl_EmptyFields);
             this.panelControl5.Controls.Add(this.simpleButton6);
             this.panelControl5.Controls.Add(this.labelControl27);
@@ -352,7 +366,7 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl5.Controls.Add(this.simpleButton5);
             this.panelControl5.Location = new System.Drawing.Point(12, 505);
             this.panelControl5.Name = "panelControl5";
-            this.panelControl5.Size = new System.Drawing.Size(645, 119);
+            this.panelControl5.Size = new System.Drawing.Size(677, 119);
             this.panelControl5.TabIndex = 113;
             // 
             // lbl_EmptyFields
@@ -399,7 +413,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.labelControl29.Appearance.Options.UseTextOptions = true;
             this.labelControl29.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.labelControl29.Location = new System.Drawing.Point(400, 13);
+            this.labelControl29.Location = new System.Drawing.Point(413, 13);
             this.labelControl29.Name = "labelControl29";
             this.labelControl29.Size = new System.Drawing.Size(90, 17);
             this.labelControl29.TabIndex = 130;
@@ -420,19 +434,19 @@ namespace ResponseEmergencySystem.Forms
             // 
             // edt_IPPhoneNumber
             // 
-            this.edt_IPPhoneNumber.Location = new System.Drawing.Point(496, 10);
+            this.edt_IPPhoneNumber.Location = new System.Drawing.Point(509, 10);
             this.edt_IPPhoneNumber.Name = "edt_IPPhoneNumber";
             this.edt_IPPhoneNumber.Properties.Appearance.BorderColor = System.Drawing.Color.Maroon;
             this.edt_IPPhoneNumber.Properties.Appearance.Options.UseBorderColor = true;
             this.edt_IPPhoneNumber.Properties.BeepOnError = false;
             this.edt_IPPhoneNumber.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.SimpleMaskManager));
             this.edt_IPPhoneNumber.Properties.MaskSettings.Set("mask", "(999) 000-0000");
-            this.edt_IPPhoneNumber.Size = new System.Drawing.Size(133, 24);
+            this.edt_IPPhoneNumber.Size = new System.Drawing.Size(119, 24);
             this.edt_IPPhoneNumber.TabIndex = 131;
             // 
             // edt_IPLastName1
             // 
-            this.edt_IPLastName1.Location = new System.Drawing.Point(255, 10);
+            this.edt_IPLastName1.Location = new System.Drawing.Point(259, 10);
             this.edt_IPLastName1.Name = "edt_IPLastName1";
             this.edt_IPLastName1.Properties.Appearance.BorderColor = System.Drawing.Color.Maroon;
             this.edt_IPLastName1.Properties.Appearance.Options.UseBorderColor = true;
@@ -443,7 +457,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.labelControl26.Appearance.Options.UseTextOptions = true;
             this.labelControl26.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.labelControl26.Location = new System.Drawing.Point(186, 13);
+            this.labelControl26.Location = new System.Drawing.Point(190, 13);
             this.labelControl26.Name = "labelControl26";
             this.labelControl26.Size = new System.Drawing.Size(63, 17);
             this.labelControl26.TabIndex = 138;
@@ -454,18 +468,19 @@ namespace ResponseEmergencySystem.Forms
             this.pnl_DriverInvolved.Appearance.BackColor = System.Drawing.Color.White;
             this.pnl_DriverInvolved.Appearance.Options.UseBackColor = true;
             this.pnl_DriverInvolved.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pnl_DriverInvolved.Controls.Add(this.pic_LicenseWarning);
             this.pnl_DriverInvolved.Controls.Add(this.labelControl30);
             this.pnl_DriverInvolved.Controls.Add(this.edt_IPLicense);
             this.pnl_DriverInvolved.Location = new System.Drawing.Point(461, 40);
             this.pnl_DriverInvolved.Name = "pnl_DriverInvolved";
-            this.pnl_DriverInvolved.Size = new System.Drawing.Size(180, 39);
+            this.pnl_DriverInvolved.Size = new System.Drawing.Size(209, 39);
             this.pnl_DriverInvolved.TabIndex = 134;
             this.pnl_DriverInvolved.Visible = false;
             // 
             // labelControl30
             // 
             this.labelControl30.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl30.Location = new System.Drawing.Point(26, 9);
+            this.labelControl30.Location = new System.Drawing.Point(10, 9);
             this.labelControl30.Name = "labelControl30";
             this.labelControl30.Size = new System.Drawing.Size(51, 17);
             this.labelControl30.TabIndex = 0;
@@ -474,9 +489,9 @@ namespace ResponseEmergencySystem.Forms
             // edt_IPLicense
             // 
             this.edt_IPLicense.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.edt_IPLicense.Location = new System.Drawing.Point(83, 6);
+            this.edt_IPLicense.Location = new System.Drawing.Point(68, 4);
             this.edt_IPLicense.Name = "edt_IPLicense";
-            this.edt_IPLicense.Size = new System.Drawing.Size(85, 24);
+            this.edt_IPLicense.Size = new System.Drawing.Size(100, 24);
             this.edt_IPLicense.TabIndex = 1;
             // 
             // labelControl28
@@ -489,7 +504,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             // ckedt_IPInjured
             // 
-            this.ckedt_IPInjured.Location = new System.Drawing.Point(184, 47);
+            this.ckedt_IPInjured.Location = new System.Drawing.Point(197, 47);
             this.ckedt_IPInjured.Name = "ckedt_IPInjured";
             this.ckedt_IPInjured.Properties.Caption = "Injured";
             this.ckedt_IPInjured.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
@@ -502,12 +517,12 @@ namespace ResponseEmergencySystem.Forms
             this.edt_IPFullName.Name = "edt_IPFullName";
             this.edt_IPFullName.Properties.Appearance.BorderColor = System.Drawing.Color.Maroon;
             this.edt_IPFullName.Properties.Appearance.Options.UseBorderColor = true;
-            this.edt_IPFullName.Size = new System.Drawing.Size(110, 24);
+            this.edt_IPFullName.Size = new System.Drawing.Size(103, 24);
             this.edt_IPFullName.TabIndex = 128;
             // 
             // ckedt_IPPrivate
             // 
-            this.ckedt_IPPrivate.Location = new System.Drawing.Point(93, 47);
+            this.ckedt_IPPrivate.Location = new System.Drawing.Point(120, 47);
             this.ckedt_IPPrivate.Name = "ckedt_IPPrivate";
             this.ckedt_IPPrivate.Properties.Caption = "Private";
             this.ckedt_IPPrivate.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
@@ -517,7 +532,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             // ckedt_IPPassenger
             // 
-            this.ckedt_IPPassenger.Location = new System.Drawing.Point(280, 47);
+            this.ckedt_IPPassenger.Location = new System.Drawing.Point(282, 45);
             this.ckedt_IPPassenger.Name = "ckedt_IPPassenger";
             this.ckedt_IPPassenger.Properties.Caption = "Passenger";
             this.ckedt_IPPassenger.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
@@ -543,7 +558,7 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton5.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.simpleButton5.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.addWhite;
             this.simpleButton5.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.simpleButton5.Location = new System.Drawing.Point(521, 86);
+            this.simpleButton5.Location = new System.Drawing.Point(556, 85);
             this.simpleButton5.Name = "simpleButton5";
             this.simpleButton5.Size = new System.Drawing.Size(108, 23);
             this.simpleButton5.TabIndex = 127;
@@ -646,9 +661,9 @@ namespace ResponseEmergencySystem.Forms
             this.edt_Cargo.Name = "edt_Cargo";
             this.edt_Cargo.Size = new System.Drawing.Size(119, 24);
             this.edt_Cargo.TabIndex = 137;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "This value is not valid";
-            this.dxValidationProvider1.SetValidationRule(this.edt_Cargo, conditionValidationRule1);
+            conditionValidationRule14.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule14.ErrorText = "This value is not valid";
+            this.dxValidationProvider1.SetValidationRule(this.edt_Cargo, conditionValidationRule14);
             // 
             // pnl_BOL
             // 
@@ -709,9 +724,9 @@ namespace ResponseEmergencySystem.Forms
             this.edt_TrailerNumber.Name = "edt_TrailerNumber";
             this.edt_TrailerNumber.Size = new System.Drawing.Size(119, 24);
             this.edt_TrailerNumber.TabIndex = 133;
-            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule4.ErrorText = "This value is not valid";
-            this.dxValidationProvider1.SetValidationRule(this.edt_TrailerNumber, conditionValidationRule4);
+            conditionValidationRule15.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule15.ErrorText = "This value is not valid";
+            this.dxValidationProvider1.SetValidationRule(this.edt_TrailerNumber, conditionValidationRule15);
             this.edt_TrailerNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumber_OnEdtKeyPress);
             this.edt_TrailerNumber.Leave += new System.EventHandler(this.checkNumber_OnEdtLeave);
             // 
@@ -786,9 +801,9 @@ namespace ResponseEmergencySystem.Forms
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.tme_IncidentTime.Size = new System.Drawing.Size(103, 24);
             this.tme_IncidentTime.TabIndex = 137;
-            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule5.ErrorText = "This value is not valid";
-            this.dxValidationProvider1.SetValidationRule(this.tme_IncidentTime, conditionValidationRule5);
+            conditionValidationRule16.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule16.ErrorText = "This value is not valid";
+            this.dxValidationProvider1.SetValidationRule(this.tme_IncidentTime, conditionValidationRule16);
             // 
             // simpleButton3
             // 
@@ -812,11 +827,11 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton4.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton4.Appearance.Options.UseBackColor = true;
             this.simpleButton4.Appearance.Options.UseFont = true;
-            this.simpleButton4.Location = new System.Drawing.Point(710, 161);
+            this.simpleButton4.Location = new System.Drawing.Point(702, 161);
             this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(108, 23);
+            this.simpleButton4.Size = new System.Drawing.Size(116, 23);
             this.simpleButton4.TabIndex = 135;
-            this.simpleButton4.Text = "Select broker";
+            this.simpleButton4.Text = "Select company";
             this.simpleButton4.Click += new System.EventHandler(this.btn_SelectBroker_Click);
             // 
             // dte_IncidentDate
@@ -837,9 +852,9 @@ namespace ResponseEmergencySystem.Forms
             this.dte_IncidentDate.Properties.UseMaskAsDisplayFormat = true;
             this.dte_IncidentDate.Size = new System.Drawing.Size(127, 24);
             this.dte_IncidentDate.TabIndex = 119;
-            conditionValidationRule6.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule6.ErrorText = "This value is not valid";
-            this.dxValidationProvider1.SetValidationRule(this.dte_IncidentDate, conditionValidationRule6);
+            conditionValidationRule17.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule17.ErrorText = "This value is not valid";
+            this.dxValidationProvider1.SetValidationRule(this.dte_IncidentDate, conditionValidationRule17);
             // 
             // labelControl15
             // 
@@ -855,9 +870,9 @@ namespace ResponseEmergencySystem.Forms
             this.edt_Longitude.Name = "edt_Longitude";
             this.edt_Longitude.Size = new System.Drawing.Size(165, 24);
             this.edt_Longitude.TabIndex = 128;
-            conditionValidationRule7.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule7.ErrorText = "This value is not valid";
-            this.dxValidationProvider1.SetValidationRule(this.edt_Longitude, conditionValidationRule7);
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "This value is not valid";
+            this.dxValidationProvider1.SetValidationRule(this.edt_Longitude, conditionValidationRule1);
             // 
             // pnl_PoliceReport
             // 
@@ -897,13 +912,13 @@ namespace ResponseEmergencySystem.Forms
             // edt_Broker
             // 
             this.edt_Broker.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.edt_Broker.Location = new System.Drawing.Point(421, 161);
+            this.edt_Broker.Location = new System.Drawing.Point(487, 161);
             this.edt_Broker.Name = "edt_Broker";
-            this.edt_Broker.Size = new System.Drawing.Size(275, 24);
+            this.edt_Broker.Size = new System.Drawing.Size(195, 24);
             this.edt_Broker.TabIndex = 133;
-            conditionValidationRule8.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule8.ErrorText = "This value is not valid";
-            this.dxValidationProvider1.SetValidationRule(this.edt_Broker, conditionValidationRule8);
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "This value is not valid";
+            this.dxValidationProvider1.SetValidationRule(this.edt_Broker, conditionValidationRule2);
             // 
             // ckedt_PoliceReport
             // 
@@ -919,9 +934,9 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl16.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelControl16.Location = new System.Drawing.Point(375, 163);
             this.labelControl16.Name = "labelControl16";
-            this.labelControl16.Size = new System.Drawing.Size(40, 17);
+            this.labelControl16.Size = new System.Drawing.Size(103, 17);
             this.labelControl16.TabIndex = 132;
-            this.labelControl16.Text = "Broker";
+            this.labelControl16.Text = "Towing company";
             // 
             // edt_Highway
             // 
@@ -929,9 +944,9 @@ namespace ResponseEmergencySystem.Forms
             this.edt_Highway.Name = "edt_Highway";
             this.edt_Highway.Size = new System.Drawing.Size(243, 24);
             this.edt_Highway.TabIndex = 131;
-            conditionValidationRule9.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule9.ErrorText = "This value is not valid";
-            this.dxValidationProvider1.SetValidationRule(this.edt_Highway, conditionValidationRule9);
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule3.ErrorText = "This value is not valid";
+            this.dxValidationProvider1.SetValidationRule(this.edt_Highway, conditionValidationRule3);
             // 
             // lue_Cities
             // 
@@ -949,9 +964,9 @@ namespace ResponseEmergencySystem.Forms
             this.lue_Cities.Properties.ValueMember = "ID_City";
             this.lue_Cities.Size = new System.Drawing.Size(116, 24);
             this.lue_Cities.TabIndex = 130;
-            conditionValidationRule10.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule10.ErrorText = "This value is not valid";
-            this.dxValidationProvider1.SetValidationRule(this.lue_Cities, conditionValidationRule10);
+            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule4.ErrorText = "This value is not valid";
+            this.dxValidationProvider1.SetValidationRule(this.lue_Cities, conditionValidationRule4);
             // 
             // lue_states
             // 
@@ -968,9 +983,9 @@ namespace ResponseEmergencySystem.Forms
             this.lue_states.Properties.ValueMember = "pk_id";
             this.lue_states.Size = new System.Drawing.Size(123, 24);
             this.lue_states.TabIndex = 129;
-            conditionValidationRule11.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule11.ErrorText = "This value is not valid";
-            this.dxValidationProvider1.SetValidationRule(this.lue_states, conditionValidationRule11);
+            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule5.ErrorText = "This value is not valid";
+            this.dxValidationProvider1.SetValidationRule(this.lue_states, conditionValidationRule5);
             this.lue_states.EditValueChanged += new System.EventHandler(this.OnStateEditValueChanged);
             // 
             // edt_Latitude
@@ -979,9 +994,9 @@ namespace ResponseEmergencySystem.Forms
             this.edt_Latitude.Name = "edt_Latitude";
             this.edt_Latitude.Size = new System.Drawing.Size(165, 24);
             this.edt_Latitude.TabIndex = 127;
-            conditionValidationRule12.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule12.ErrorText = "This value is not valid";
-            this.dxValidationProvider1.SetValidationRule(this.edt_Latitude, conditionValidationRule12);
+            conditionValidationRule6.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule6.ErrorText = "This value is not valid";
+            this.dxValidationProvider1.SetValidationRule(this.edt_Latitude, conditionValidationRule6);
             // 
             // labelControl17
             // 
@@ -1179,10 +1194,10 @@ namespace ResponseEmergencySystem.Forms
             // btn_DeleteInjuredRow
             // 
             this.btn_DeleteInjuredRow.AutoHeight = false;
-            editorButtonImageOptions11.SvgImage = global::ResponseEmergencySystem.Properties.Resources.cancelRed;
-            editorButtonImageOptions11.SvgImageSize = new System.Drawing.Size(20, 25);
+            editorButtonImageOptions9.SvgImage = global::ResponseEmergencySystem.Properties.Resources.cancelRed;
+            editorButtonImageOptions9.SvgImageSize = new System.Drawing.Size(20, 25);
             this.btn_DeleteInjuredRow.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions11, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject41, serializableAppearanceObject42, serializableAppearanceObject43, serializableAppearanceObject44, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions9, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject33, serializableAppearanceObject34, serializableAppearanceObject35, serializableAppearanceObject36, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btn_DeleteInjuredRow.Name = "btn_DeleteInjuredRow";
             this.btn_DeleteInjuredRow.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btn_DeleteInjuredRow.Click += new System.EventHandler(this.btn_RemovePersonOnClick);
@@ -1199,10 +1214,10 @@ namespace ResponseEmergencySystem.Forms
             // btn_EditPersonRow
             // 
             this.btn_EditPersonRow.AutoHeight = false;
-            editorButtonImageOptions12.SvgImage = global::ResponseEmergencySystem.Properties.Resources.editBlue;
-            editorButtonImageOptions12.SvgImageSize = new System.Drawing.Size(20, 25);
+            editorButtonImageOptions10.SvgImage = global::ResponseEmergencySystem.Properties.Resources.editBlue;
+            editorButtonImageOptions10.SvgImageSize = new System.Drawing.Size(20, 25);
             this.btn_EditPersonRow.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions12, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject45, serializableAppearanceObject46, serializableAppearanceObject47, serializableAppearanceObject48, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions10, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject37, serializableAppearanceObject38, serializableAppearanceObject39, serializableAppearanceObject40, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btn_EditPersonRow.Name = "btn_EditPersonRow";
             this.btn_EditPersonRow.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btn_EditPersonRow.Click += new System.EventHandler(this.btn_EditPersonOnClick);
@@ -1271,9 +1286,9 @@ namespace ResponseEmergencySystem.Forms
             this.edt_TruckNumber.Name = "edt_TruckNumber";
             this.edt_TruckNumber.Size = new System.Drawing.Size(119, 24);
             this.edt_TruckNumber.TabIndex = 118;
-            conditionValidationRule13.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule13.ErrorText = "This value is not valid";
-            this.dxValidationProvider1.SetValidationRule(this.edt_TruckNumber, conditionValidationRule13);
+            conditionValidationRule7.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule7.ErrorText = "This value is not valid";
+            this.dxValidationProvider1.SetValidationRule(this.edt_TruckNumber, conditionValidationRule7);
             this.edt_TruckNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkNumber_OnEdtKeyPress);
             this.edt_TruckNumber.Leave += new System.EventHandler(this.checkNumber_OnEdtLeave);
             // 
@@ -1371,9 +1386,9 @@ namespace ResponseEmergencySystem.Forms
             this.lue_DriverLicenseState.Properties.ValueMember = "pk_id";
             this.lue_DriverLicenseState.Size = new System.Drawing.Size(119, 24);
             this.lue_DriverLicenseState.TabIndex = 33;
-            conditionValidationRule14.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule14.ErrorText = "This value is not valid";
-            this.dxValidationProvider1.SetValidationRule(this.lue_DriverLicenseState, conditionValidationRule14);
+            conditionValidationRule8.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule8.ErrorText = "This value is not valid";
+            this.dxValidationProvider1.SetValidationRule(this.lue_DriverLicenseState, conditionValidationRule8);
             // 
             // labelControl5
             // 
@@ -1397,9 +1412,9 @@ namespace ResponseEmergencySystem.Forms
             this.edt_License.Name = "edt_License";
             this.edt_License.Size = new System.Drawing.Size(111, 24);
             this.edt_License.TabIndex = 29;
-            conditionValidationRule15.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule15.ErrorText = "This value is not valid";
-            this.dxValidationProvider1.SetValidationRule(this.edt_License, conditionValidationRule15);
+            conditionValidationRule9.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule9.ErrorText = "This value is not valid";
+            this.dxValidationProvider1.SetValidationRule(this.edt_License, conditionValidationRule9);
             // 
             // edt_PhoneNumber
             // 
@@ -1407,9 +1422,9 @@ namespace ResponseEmergencySystem.Forms
             this.edt_PhoneNumber.Name = "edt_PhoneNumber";
             this.edt_PhoneNumber.Size = new System.Drawing.Size(142, 24);
             this.edt_PhoneNumber.TabIndex = 28;
-            conditionValidationRule16.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule16.ErrorText = "This value is not valid";
-            this.dxValidationProvider1.SetValidationRule(this.edt_PhoneNumber, conditionValidationRule16);
+            conditionValidationRule10.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule10.ErrorText = "This value is not valid";
+            this.dxValidationProvider1.SetValidationRule(this.edt_PhoneNumber, conditionValidationRule10);
             // 
             // edt_FullName
             // 
@@ -1417,9 +1432,9 @@ namespace ResponseEmergencySystem.Forms
             this.edt_FullName.Name = "edt_FullName";
             this.edt_FullName.Size = new System.Drawing.Size(257, 24);
             this.edt_FullName.TabIndex = 27;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule2.ErrorText = "This value is not valid";
-            this.dxValidationProvider1.SetValidationRule(this.edt_FullName, conditionValidationRule2);
+            conditionValidationRule11.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule11.ErrorText = "This value is not valid";
+            this.dxValidationProvider1.SetValidationRule(this.edt_FullName, conditionValidationRule11);
             // 
             // labelControl7
             // 
@@ -1463,9 +1478,9 @@ namespace ResponseEmergencySystem.Forms
             this.dte_ExpirationDate.Properties.UseMaskAsDisplayFormat = true;
             this.dte_ExpirationDate.Size = new System.Drawing.Size(201, 24);
             this.dte_ExpirationDate.TabIndex = 31;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule3.ErrorText = "This value is not valid";
-            this.dxValidationProvider1.SetValidationRule(this.dte_ExpirationDate, conditionValidationRule3);
+            conditionValidationRule12.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule12.ErrorText = "This value is not valid";
+            this.dxValidationProvider1.SetValidationRule(this.dte_ExpirationDate, conditionValidationRule12);
             // 
             // stackPanel2
             // 
@@ -1711,14 +1726,14 @@ namespace ResponseEmergencySystem.Forms
             this.layoutControlItem13.Control = this.panelControl5;
             this.layoutControlItem13.Location = new System.Drawing.Point(0, 493);
             this.layoutControlItem13.Name = "layoutControlItem13";
-            this.layoutControlItem13.Size = new System.Drawing.Size(649, 123);
+            this.layoutControlItem13.Size = new System.Drawing.Size(681, 123);
             this.layoutControlItem13.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem13.TextVisible = false;
             // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(649, 493);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(681, 493);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
             this.emptySpaceItem2.Size = new System.Drawing.Size(10, 123);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
@@ -1726,16 +1741,16 @@ namespace ResponseEmergencySystem.Forms
             // layoutControlItem14
             // 
             this.layoutControlItem14.Control = this.memoEdit1;
-            this.layoutControlItem14.Location = new System.Drawing.Point(659, 493);
+            this.layoutControlItem14.Location = new System.Drawing.Point(691, 493);
             this.layoutControlItem14.Name = "layoutControlItem14";
-            this.layoutControlItem14.Size = new System.Drawing.Size(700, 123);
+            this.layoutControlItem14.Size = new System.Drawing.Size(668, 123);
             this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem14.TextVisible = false;
             // 
             // layoutControlItem15
             // 
             this.layoutControlItem15.Control = this.labelControl32;
-            this.layoutControlItem15.Location = new System.Drawing.Point(659, 469);
+            this.layoutControlItem15.Location = new System.Drawing.Point(691, 469);
             this.layoutControlItem15.Name = "layoutControlItem15";
             this.layoutControlItem15.Size = new System.Drawing.Size(81, 24);
             this.layoutControlItem15.TextSize = new System.Drawing.Size(0, 0);
@@ -1746,15 +1761,15 @@ namespace ResponseEmergencySystem.Forms
             this.emptySpaceItem3.AllowHotTrack = false;
             this.emptySpaceItem3.Location = new System.Drawing.Point(107, 469);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(552, 24);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(584, 24);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem4
             // 
             this.emptySpaceItem4.AllowHotTrack = false;
-            this.emptySpaceItem4.Location = new System.Drawing.Point(740, 469);
+            this.emptySpaceItem4.Location = new System.Drawing.Point(772, 469);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(619, 24);
+            this.emptySpaceItem4.Size = new System.Drawing.Size(587, 24);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem5
@@ -1772,6 +1787,86 @@ namespace ResponseEmergencySystem.Forms
             this.emptySpaceItem6.Name = "emptySpaceItem6";
             this.emptySpaceItem6.Size = new System.Drawing.Size(10, 199);
             this.emptySpaceItem6.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // pic_PhoneNumberWarning
+            // 
+            this.pic_PhoneNumberWarning.EditValue = global::ResponseEmergencySystem.Properties.Resources.warnigColors;
+            this.pic_PhoneNumberWarning.Location = new System.Drawing.Point(634, 12);
+            this.pic_PhoneNumberWarning.Name = "pic_PhoneNumberWarning";
+            this.pic_PhoneNumberWarning.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.pic_PhoneNumberWarning.Properties.Appearance.BorderColor = System.Drawing.Color.Transparent;
+            this.pic_PhoneNumberWarning.Properties.Appearance.Options.UseBackColor = true;
+            this.pic_PhoneNumberWarning.Properties.Appearance.Options.UseBorderColor = true;
+            this.pic_PhoneNumberWarning.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pic_PhoneNumberWarning.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pic_PhoneNumberWarning.Properties.SvgImageSize = new System.Drawing.Size(30, 30);
+            this.pic_PhoneNumberWarning.Size = new System.Drawing.Size(30, 22);
+            this.pic_PhoneNumberWarning.TabIndex = 147;
+            this.pic_PhoneNumberWarning.Visible = false;
+            // 
+            // pic_LicenseWarning
+            // 
+            this.pic_LicenseWarning.EditValue = global::ResponseEmergencySystem.Properties.Resources.warnigColors;
+            this.pic_LicenseWarning.Location = new System.Drawing.Point(173, 6);
+            this.pic_LicenseWarning.Name = "pic_LicenseWarning";
+            this.pic_LicenseWarning.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.pic_LicenseWarning.Properties.Appearance.BorderColor = System.Drawing.Color.Transparent;
+            this.pic_LicenseWarning.Properties.Appearance.Options.UseBackColor = true;
+            this.pic_LicenseWarning.Properties.Appearance.Options.UseBorderColor = true;
+            this.pic_LicenseWarning.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pic_LicenseWarning.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pic_LicenseWarning.Properties.SvgImageSize = new System.Drawing.Size(30, 30);
+            this.pic_LicenseWarning.Size = new System.Drawing.Size(30, 22);
+            this.pic_LicenseWarning.TabIndex = 151;
+            this.pic_LicenseWarning.Visible = false;
+            // 
+            // pic_AgeWarning
+            // 
+            this.pic_AgeWarning.EditValue = global::ResponseEmergencySystem.Properties.Resources.warnigColors;
+            this.pic_AgeWarning.Location = new System.Drawing.Point(82, 46);
+            this.pic_AgeWarning.Name = "pic_AgeWarning";
+            this.pic_AgeWarning.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.pic_AgeWarning.Properties.Appearance.BorderColor = System.Drawing.Color.Transparent;
+            this.pic_AgeWarning.Properties.Appearance.Options.UseBackColor = true;
+            this.pic_AgeWarning.Properties.Appearance.Options.UseBorderColor = true;
+            this.pic_AgeWarning.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pic_AgeWarning.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pic_AgeWarning.Properties.SvgImageSize = new System.Drawing.Size(30, 30);
+            this.pic_AgeWarning.Size = new System.Drawing.Size(30, 22);
+            this.pic_AgeWarning.TabIndex = 148;
+            this.pic_AgeWarning.Visible = false;
+            // 
+            // pic_FullNameWarning
+            // 
+            this.pic_FullNameWarning.EditValue = global::ResponseEmergencySystem.Properties.Resources.warnigColors;
+            this.pic_FullNameWarning.Location = new System.Drawing.Point(154, 12);
+            this.pic_FullNameWarning.Name = "pic_FullNameWarning";
+            this.pic_FullNameWarning.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.pic_FullNameWarning.Properties.Appearance.BorderColor = System.Drawing.Color.Transparent;
+            this.pic_FullNameWarning.Properties.Appearance.Options.UseBackColor = true;
+            this.pic_FullNameWarning.Properties.Appearance.Options.UseBorderColor = true;
+            this.pic_FullNameWarning.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pic_FullNameWarning.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pic_FullNameWarning.Properties.SvgImageSize = new System.Drawing.Size(30, 30);
+            this.pic_FullNameWarning.Size = new System.Drawing.Size(30, 22);
+            this.pic_FullNameWarning.TabIndex = 149;
+            this.pic_FullNameWarning.Visible = false;
+            // 
+            // pic_LastName1Warning
+            // 
+            this.pic_LastName1Warning.EditValue = global::ResponseEmergencySystem.Properties.Resources.warnigColors;
+            this.pic_LastName1Warning.Location = new System.Drawing.Point(371, 12);
+            this.pic_LastName1Warning.Name = "pic_LastName1Warning";
+            this.pic_LastName1Warning.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.pic_LastName1Warning.Properties.Appearance.BorderColor = System.Drawing.Color.Transparent;
+            this.pic_LastName1Warning.Properties.Appearance.Options.UseBackColor = true;
+            this.pic_LastName1Warning.Properties.Appearance.Options.UseBorderColor = true;
+            this.pic_LastName1Warning.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pic_LastName1Warning.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pic_LastName1Warning.Properties.SvgImageSize = new System.Drawing.Size(30, 30);
+            this.pic_LastName1Warning.Size = new System.Drawing.Size(30, 22);
+            this.pic_LastName1Warning.TabIndex = 150;
+            this.pic_LastName1Warning.Visible = false;
             // 
             // EditIncidentDetails
             // 
@@ -1882,6 +1977,11 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_PhoneNumberWarning.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_LicenseWarning.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_AgeWarning.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_FullNameWarning.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_LastName1Warning.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2019,5 +2119,10 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraEditors.SimpleButton simpleButton6;
         private DevExpress.XtraEditors.LabelControl lbl_EmptyFields;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProvider1;
+        private DevExpress.XtraEditors.PictureEdit pic_PhoneNumberWarning;
+        private DevExpress.XtraEditors.PictureEdit pic_LicenseWarning;
+        private DevExpress.XtraEditors.PictureEdit pic_AgeWarning;
+        private DevExpress.XtraEditors.PictureEdit pic_FullNameWarning;
+        private DevExpress.XtraEditors.PictureEdit pic_LastName1Warning;
     }
 }

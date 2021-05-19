@@ -64,6 +64,11 @@ namespace ResponseEmergencySystem.Forms
         {
             _controller.SetType(lue_Type.EditValue.ToString());
         }
+
+        public string Comments
+        {
+            get { return memoEdit1.Text; }
+        }
     
         public bool LueTypeBlock
         {
@@ -133,6 +138,7 @@ namespace ResponseEmergencySystem.Forms
             splashScreenManager1.ShowWaitForm();
             _controller.SaveAsync();
             splashScreenManager1.CloseWaitForm();
+            this.DialogResult = DialogResult.OK;
         }
     }
 }

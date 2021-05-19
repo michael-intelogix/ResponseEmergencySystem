@@ -66,8 +66,6 @@ namespace ResponseEmergencySystem.Forms
             //}
 
 
-            Debug.WriteLine(Utils.email_send(ReportPath, false));
-
             //DialogResult = DialogResult.Yes;
 
             //form_driver_report tuventana = new form_driver_report();

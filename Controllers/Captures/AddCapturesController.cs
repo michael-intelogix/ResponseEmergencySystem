@@ -200,7 +200,7 @@ namespace ResponseEmergencySystem.Controllers.Captures
 
         private void SaveCapture()
         {
-            var response = CaptureService.AddCapture(_selectedCaptureType.ID_CaptureType, ID_Incident, "testing", "");
+            var response = CaptureService.AddCapture(_selectedCaptureType.ID_CaptureType, ID_Incident, "testing", _view.Comments);
             ID_Capture = response.ID;
         }
     }

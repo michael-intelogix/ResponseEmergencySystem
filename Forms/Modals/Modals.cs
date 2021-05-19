@@ -1,4 +1,7 @@
 ﻿using DevExpress.XtraEditors;
+using ResponseEmergencySystem.Controllers;
+using ResponseEmergencySystem.Properties;
+using ResponseEmergencySystem.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +14,7 @@ using System.Windows.Forms;
 
 namespace ResponseEmergencySystem.Forms.Modals
 {
-    public partial class Modals : DevExpress.XtraEditors.XtraForm
+    public partial class Modals : DevExpress.XtraEditors.XtraForm, IModalView
     {
         public Modals(String Message, string Title)
         {
@@ -19,6 +22,8 @@ namespace ResponseEmergencySystem.Forms.Modals
             labelControl1.Text = Title;
             label1.Text = Message;
         }
+
+        ModalController _controller;
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
@@ -32,7 +37,53 @@ namespace ResponseEmergencySystem.Forms.Modals
 
         private void stackPanel2_Paint(object sender, PaintEventArgs e)
         {
-
+            
         }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        #region view interface methods
+        public void SetController(ModalController controller)
+        {
+            _controller = controller;
+        }
+        #endregion
+
+        #region view inputs
+        public string Category
+        {
+            get { return ""; }
+        }
+
+        #region set status icons
+        public void SetErrorIcon()
+        {
+            pictureEdit2.SvgImage = Resources.cancelRed;
+        }
+
+        public void SetApprovedIcon()
+        {
+            pictureEdit2.SvgImage = Resources.checkGreen;
+        }
+
+        public void SetWarningIcon()
+        {
+            pictureEdit2.SvgImage = Resources.warnigColors;
+        }
+
+        public void SetMailSentIcon()
+        {
+            pictureEdit2.SvgImage = Resources.emailSent;
+        }
+        #endregion
+
+        //public object MailDirectoryDataSource
+        //{
+        //    set { gc_MailDirectory.DataSource = value; }
+        //}
+        #endregion
     }
 }

@@ -18,10 +18,12 @@ using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Collections;
 using Firebase.Storage;
+using ResponseEmergencySystem.Views;
+using ResponseEmergencySystem.Controllers;
 
 namespace ResponseEmergencySystem.Forms
 {
-    public partial class frm_Image : DevExpress.XtraEditors.XtraForm
+    public partial class frm_Image : DevExpress.XtraEditors.XtraForm, IImageView
     {
         OpenFileDialog ofd = new OpenFileDialog();
         string filepath = "";
@@ -40,6 +42,8 @@ namespace ResponseEmergencySystem.Forms
             Debug.WriteLine(imgPath);
             //var value = section["url"];
         }
+
+        ImageController _controller;
 
         public void LoadImage(string imgPath)
         {
@@ -104,15 +108,16 @@ namespace ResponseEmergencySystem.Forms
             Settings.Default.Reset();
         }
 
+        private void img_Test_DoubleClick(object sender, MouseEventArgs e)
+        {
+            img_Test.Properties.ZoomPercent += 20;
+        }
+
         private void img_Test_Click(object sender, MouseEventArgs e)
         {
 
-            
-            if (e.Button == MouseButtons.Left)
-            {
-                img_Test.Properties.ZoomPercent += 20;
-            }
-            else
+
+            if (e.Button == MouseButtons.Right)
             {
                 img_Test.Properties.ZoomPercent -= 20;
             }
@@ -150,40 +155,43 @@ namespace ResponseEmergencySystem.Forms
 
         private async void btn_SaveImage_Click(object sender, EventArgs e)
         {
-            btn_SaveImage.Visible = false;
-            pnl_Uploading.BackColor = Color.FromArgb(17, 0, 0, 0);
-            pnl_Uploading.Visible = true;
+            //btn_SaveImage.Visible = false;
+            //pnl_Uploading.BackColor = Color.FromArgb(17, 0, 0, 0);
+            //pnl_Uploading.Visible = true;
             //MessageBox.Show(filepath);
 
-            try
-            {
-                // Get any Stream — it can be FileStream, MemoryStream or any other type of Stream
-                var stream = File.Open(filepath, FileMode.Open);
+            _controller.SaveImage(filepath);
+            
 
-                // Construct FirebaseStorage with path to where you want to upload the file and put it there
-                var task = new FirebaseStorage("dcmanagement-3d402.appspot.com")
-                .Child("SIREM")
-                .Child("DD0C17C7-2D9C-4A84-8851-5647A8373669")
-                .Child("test")
-                .PutAsync(stream);
+            //try
+            //{
+            //    // Get any Stream — it can be FileStream, MemoryStream or any other type of Stream
+            //    var stream = File.Open(filepath, FileMode.Open);
 
-                // Track progress of the upload
-                task.Progress.ProgressChanged += (s, ev) =>
-                {
-                    progressBarControl1.EditValue = ev.Percentage;
-                    progressBarControl1.CreateGraphics().DrawString(ev.Percentage.ToString() + "%", new Font("Arial", (float)8.25, FontStyle.Regular), Brushes.Black, new PointF(progressBarControl1.Width / 2 - 10, progressBarControl1.Height / 2 - 7));
-                    //Console.WriteLine($"Progress: {ev.Percentage} %");
-                };
+            //    // Construct FirebaseStorage with path to where you want to upload the file and put it there
+            //    var task = new FirebaseStorage("dcmanagement-3d402.appspot.com")
+            //    .Child("SIREM")
+            //    .Child("DD0C17C7-2D9C-4A84-8851-5647A8373669")
+            //    .Child("test")
+            //    .PutAsync(stream);
 
-                // Await the task to wait until upload is completed and get the download url
-                var downloadUrl = await task;
-                Debug.WriteLine(downloadUrl);
-                pnl_Uploading.Visible = false;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            //    // Track progress of the upload
+            //    task.Progress.ProgressChanged += (s, ev) =>
+            //    {
+            //        progressBarControl1.EditValue = ev.Percentage;
+            //        progressBarControl1.CreateGraphics().DrawString(ev.Percentage.ToString() + "%", new Font("Arial", (float)8.25, FontStyle.Regular), Brushes.Black, new PointF(progressBarControl1.Width / 2 - 10, progressBarControl1.Height / 2 - 7));
+            //        //Console.WriteLine($"Progress: {ev.Percentage} %");
+            //    };
+
+            //    // Await the task to wait until upload is completed and get the download url
+            //    var downloadUrl = await task;
+            //    Debug.WriteLine(downloadUrl);
+            //    pnl_Uploading.Visible = false;
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
             
 
         }
@@ -192,5 +200,40 @@ namespace ResponseEmergencySystem.Forms
         {
             DialogResult = DialogResult.Cancel;
         }
+
+        #region view interface methods
+        public void SetController(ImageController controller)
+        {
+            _controller = controller;
+        }
+
+        public void CloseForm()
+        {
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+        #endregion
+
+        #region form inputs
+        public ProgressBarControl PbImage
+        {
+            get { return progressBarControl1; }
+        }
+
+        public Color PnlUploadingBackColor
+        {
+            set { pnl_Uploading.BackColor = value; }
+        }
+
+        public bool PnlUploadingVisibility
+        {
+            set { pnl_Uploading.Visible = value; }
+        }
+
+        public bool BtnSaveEnable 
+        { 
+            set { btn_SaveImage.Enabled = value; }
+        }
+        #endregion
     }
 }

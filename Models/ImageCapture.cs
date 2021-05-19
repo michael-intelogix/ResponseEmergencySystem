@@ -17,6 +17,7 @@ namespace ResponseEmergencySystem.Models
         public string ImageName { get; set; }
         public string ImageFireBaseUrl { get; set; }
         public bool Uploaded { get; set; }
+        public string Status { get; }
 
         public ImageCapture(string n)
         {
@@ -45,6 +46,19 @@ namespace ResponseEmergencySystem.Models
             this.ID = id - 1;
         }
 
+        public ImageCapture(string imageID, string imgName, string imgPath, string statusID, string status, string comments)
+        {
+            this.ID_Image = imageID;
+            this.name = "";
+            this.comments = comments;
+            this.ID_StatusDetail = statusID;
+            this.ImagePath = imgPath;
+            this.ImageName = imgName;
+            this.Status = status;
+            this.Uploaded = false;
+            this.ID = 0;
+        }
+
         //public ImageCapture(string imgName, string imgPath, string )
         //{
         //    this.name = "";
@@ -56,13 +70,13 @@ namespace ResponseEmergencySystem.Models
         //    this.ID = id - 1;
         //}
 
-        public ImageCapture(string n, string c, string id, string imgPath)
-        {
-            name = n;
-            comments = c;
-            ID_StatusDetail = id;
-            ImageName = imgPath.Split(new string[] { "%2F" }, StringSplitOptions.None)[3].Split('?')[0].Replace("%20", " ");
-        }
+        //public ImageCapture(string n, string c, string id, string imgPath)
+        //{
+        //    name = n;
+        //    comments = c;
+        //    ID_StatusDetail = id;
+        //    ImageName = imgPath.Split(new string[] { "%2F" }, StringSplitOptions.None)[3].Split('?')[0].Replace("%20", " ");
+        //}
         public ImageCapture(string c, string id, string captureId, string imgSubType, string imgType)
         {
             name = imgSubType + " of the " + imgType;

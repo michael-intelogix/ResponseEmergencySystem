@@ -71,9 +71,9 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.simpleButton1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(133, 34);
+            this.simpleButton1.Size = new System.Drawing.Size(139, 34);
             this.simpleButton1.TabIndex = 1;
-            this.simpleButton1.Text = "Load Image";
+            this.simpleButton1.Text = "Upload Image";
             this.simpleButton1.Click += new System.EventHandler(this.onClickLoadImage);
             // 
             // pnl_Zoom
@@ -164,7 +164,7 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(40, 40);
             this.labelControl3.TabIndex = 11;
-            this.labelControl3.ToolTip = "Zoom Out (Left Click) ";
+            this.labelControl3.ToolTip = "Zoom Out (Double Click) ";
             this.labelControl3.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Information;
             this.labelControl3.Click += new System.EventHandler(this.labelControl3_Click);
             // 
@@ -212,7 +212,7 @@ namespace ResponseEmergencySystem.Forms
             this.btn_SaveImage.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btn_SaveImage.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.saveWhite;
             this.btn_SaveImage.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
-            this.btn_SaveImage.Location = new System.Drawing.Point(508, 684);
+            this.btn_SaveImage.Location = new System.Drawing.Point(514, 684);
             this.btn_SaveImage.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.btn_SaveImage.LookAndFeel.UseDefaultLookAndFeel = false;
             this.btn_SaveImage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -259,8 +259,8 @@ namespace ResponseEmergencySystem.Forms
             this.img_Test.Properties.ShowZoomSubMenu = DevExpress.Utils.DefaultBoolean.False;
             this.img_Test.Size = new System.Drawing.Size(874, 660);
             this.img_Test.TabIndex = 0;
-            this.img_Test.ToolTip = "Click Ctrl and Use the mouse wheel";
             this.img_Test.EditValueChanged += new System.EventHandler(this.img_Test_EditValueChanged);
+            this.img_Test.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.img_Test_DoubleClick);
             this.img_Test.MouseDown += new System.Windows.Forms.MouseEventHandler(this.img_Test_Click);
             // 
             // splashScreenManager1

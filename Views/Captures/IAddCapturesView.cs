@@ -15,6 +15,8 @@ namespace ResponseEmergencySystem.Views.Captures
         void SetController(AddCapturesController controller);
         void LoadCapturesTypes(List<Capture> captures);
 
+        string Comments { get; }
+
         bool LueTypeBlock { set; }
         bool PnlCapture1Visbility { set; }
         bool PnlCapture2Visbility { set; }

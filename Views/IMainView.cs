@@ -24,6 +24,9 @@ namespace ResponseEmergencySystem.Views
         
         string ID_Incident { get; }
         string ID_Capture { get; }
+        string ID_Image { get; }
+
+        string ImageName { get; }
 
         //dateEdit1.DateTime.Date.ToString("MM/dd/yyyy")
         string Date1 { get; set;  }
@@ -39,5 +42,7 @@ namespace ResponseEmergencySystem.Views
         object ImagesDatasSource { set; }
 
         MemoEdit chat { get; }
+
+        
     }
 }

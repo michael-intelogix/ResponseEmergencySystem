@@ -123,7 +123,9 @@ namespace ResponseEmergencySystem.Forms
             this.gv_Drivers.DetailHeight = 458;
             this.gv_Drivers.GridControl = this.gc_Drivers;
             this.gv_Drivers.Name = "gv_Drivers";
+            this.gv_Drivers.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gv_Drivers.OptionsView.ShowGroupPanel = false;
+            this.gv_Drivers.OptionsView.ShowIndicator = false;
             // 
             // col_DriverName
             // 
@@ -232,7 +234,7 @@ namespace ResponseEmergencySystem.Forms
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frm_DriverSearchList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frm_DriverSearchList";
+            this.Text = "Driver Catalog";
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();

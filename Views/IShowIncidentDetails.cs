@@ -47,6 +47,16 @@ namespace ResponseEmergencySystem.Views
         //this value can be highway street and other kind of references like that 
         string LocationReferences { get; set; }
 
+        string Comments { set; }
+
+        string MailDirectoryCategory { get; }
+        string SelectedMail { get; }
+
+        object LueCitiesDataSource { set; }
+        object InvolvedPersonsDataSorurce { set; }
+        object MailDirectoryDataSource { set; }
+        object MailDirectoryCategoriesDataSource { set; }
+
         #region References (not in use)
         //Incident.SexOfPerson Sex { get; set; }
         //bool CanModifyID { set; }

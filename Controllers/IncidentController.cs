@@ -31,6 +31,9 @@ namespace ResponseEmergencySystem.Controllers
         Incident _selectedIncident;
         DataTable dt_InjuredPersons = new DataTable();
 
+        private List<PersonsInvolved> _PersonsInvolved;
+        private List<MailDirectory> _MailDIrectory;
+
         public double latitude;
         public double longitude;
 
@@ -69,7 +72,8 @@ namespace ResponseEmergencySystem.Controllers
         public void LoadIncident()
         {
             _selectedIncident = IncidentService.list_Incidents("", "", "", "", "", incidentId: ID_Incident)[0];
-            //dt_InjuredPersons = IncidentService.list_InjuredPerson(ID_Incident);
+            _PersonsInvolved = IncidentService.list_PersonsInvolved(ID_Incident);
+            _view.MailDirectoryCategoriesDataSource = MailDirectoryService.GetCategories();
 
             _view.FullName = _selectedIncident.Name;
             _view.PhoneNumber = _selectedIncident.PhoneNumber;
@@ -85,7 +89,14 @@ namespace ResponseEmergencySystem.Controllers
             _view.TrailerCanMove = _selectedIncident.TrailerCanMove;
             _view.TrailerNeedCrane = _selectedIncident.TrailerNeedCrane;
             _view.CargoSpill = _selectedIncident.trailer.CargoSpill;
+            _view.ManifestNumber = _selectedIncident.ManifestNumber;
             _view.CargoType = _selectedIncident.trailer.Commodity;
+
+            _view.ID_State = _selectedIncident.ID_State;
+            _view.ID_City = _selectedIncident.ID_City;
+
+            _view.Broker = _selectedIncident.broker.Name;
+            _view.Comments = _selectedIncident.Comments;
 
             #region Accident Details
             _view.IncidentDate = _selectedIncident.IncidentDate.ToString("MM/dd/yyyy");
@@ -101,12 +112,12 @@ namespace ResponseEmergencySystem.Controllers
             longitude = Convert.ToDouble(_selectedIncident.IncidentLongitude);
 
             _view.LoadStates(Functions.getStates());
-            if (dt_InjuredPersons.Rows.Count > 0)
-                _view.LoadInjuredPersons(dt_InjuredPersons);
+            if (_PersonsInvolved.Count > 0)
+                _view.InvolvedPersonsDataSorurce = _PersonsInvolved;
 
         }
 
-        public bool SendEmail()
+        public void SendEmail()
         {
             //var namefile = Utils.GetRowID(gv_Incidents, "Folio");
 
@@ -115,7 +126,11 @@ namespace ResponseEmergencySystem.Controllers
                 PDF();
             }
 
-            return Utils.email_send(ReportPath + $"{Folio}.pdf", false);
+            if (_view.SelectedMail != "")
+            {
+                Utils.email_send(ReportPath + $"\\{Folio}.pdf", false, new string[] { _view.SelectedMail });
+            }
+            
 
             //using (var ofd = new OpenFileDialog())
             //{
@@ -163,6 +178,18 @@ namespace ResponseEmergencySystem.Controllers
                 MessageBox.Show(ex.Message);
                 return;
             }
+        }
+
+        public void GetCitiesByState()
+        {
+            var cities = GeneralService.list_Cities(_view.ID_State);
+            _view.LueCitiesDataSource = cities;
+        }
+
+        public void GetMailsByCategory()
+        {
+            _MailDIrectory = MailDirectoryService.GetMailDirectory(_view.MailDirectoryCategory);
+            _view.MailDirectoryDataSource = _MailDIrectory;
         }
 
     }

@@ -88,14 +88,13 @@ namespace ResponseEmergencySystem.Forms
 
         private void btn_Comments_Click(object sender, EventArgs e)
         {
-            AddComments addComments = new AddComments();
-            addComments.ShowDialog();
+            _controller.SetComments();
+            //gv_Captures.BestFitColumns();
         }
 
         private void btn_Edit4_Click(object sender, EventArgs e)
         {
-            Modals.EditComments editComments = new Modals.EditComments();
-            editComments.ShowDialog();
+            _controller.EditImageData();
         }
 
         #region IMain 
@@ -125,6 +124,16 @@ namespace ResponseEmergencySystem.Forms
         }
 
 
+        public string ID_Capture
+        {
+            get { return gv_Captures.GetFocusedRowCellValue("ID_Capture").ToString(); }
+        }
+
+        public string ID_Image
+        {
+            get { return gv_Images.GetFocusedRowCellValue("ID_Image").ToString(); }
+        }
+
         public string ChatText
         {
             get { return memoEdit_Chat.Text; }
@@ -142,9 +151,9 @@ namespace ResponseEmergencySystem.Forms
             get { return gv_Incidents.GetFocusedRowCellValue("ID_Incident").ToString(); }
         }
 
-        public string ID_Capture
+        public string ImageName
         {
-            get { return gv_Captures.GetFocusedRowCellValue("ID_Capture").ToString(); }
+            get { return gv_Images.GetFocusedRowCellValue("ImageName").ToString(); }
         }
 
         public string Date1
@@ -207,13 +216,13 @@ namespace ResponseEmergencySystem.Forms
 
         private void simpleButton2_Click_2(object sender, EventArgs e)
         {
-            Modals.AppConfiguration appConfig = new Modals.AppConfiguration();
-            appConfig.ShowDialog();
+            _controller.AppSettings();
         }
 
         private void simpleButton4_Click_1(object sender, EventArgs e)
         {
             _controller.AddMoreCaptures();
+            gv_Images.BestFitColumns();
         }
 
         private void simpleButton5_Click(object sender, EventArgs e)

@@ -385,10 +385,13 @@
     <Compile Include="Controllers\AppConfigController.cs" />
     <Compile Include="Controllers\BrokerController.cs" />
     <Compile Include="Controllers\Captures\AddCapturesController.cs" />
+    <Compile Include="Controllers\EditImageDataController.cs" />
+    <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\IncidentController.cs" />
     <Compile Include="Controllers\Incidents\AddIncidentController.cs" />
     <Compile Include="Controllers\Incidents\EditIncidentController.cs" />
     <Compile Include="Controllers\MainController.cs" />
+    <Compile Include="Controllers\ModalController.cs" />
     <Compile Include="Forms\EditIncidentDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -499,6 +502,8 @@
     </Compile>
     <Compile Include="Models\Broker.cs" />
     <Compile Include="Models\City.cs" />
+    <Compile Include="Models\MailCategory.cs" />
+    <Compile Include="Models\MailDirectory.cs" />
     <Compile Include="Models\PersonsInvolved.cs" />
     <Compile Include="Models\Response.cs" />
     <Compile Include="Models\State.cs" />
@@ -514,6 +519,7 @@
     <Compile Include="Services\DriverService.cs" />
     <Compile Include="Services\IncidentService.cs" />
     <Compile Include="Services\GeneralService.cs" />
+    <Compile Include="Services\MailDirectoryService.cs" />
     <Compile Include="Services\StatusDetailService.cs" />
     <Compile Include="Forms\Main.cs">
       <SubType>Form</SubType>
@@ -552,8 +558,11 @@
     <Compile Include="Views\IAddIncidentView.cs" />
     <Compile Include="Views\IAppConfigView.cs" />
     <Compile Include="Views\IBrokerView.cs" />
+    <Compile Include="Views\IEditImageData.cs" />
     <Compile Include="Views\IEditIncidentView.cs" />
+    <Compile Include="Views\IImageView.cs" />
     <Compile Include="Views\IMainView.cs" />
+    <Compile Include="Views\IModalView.cs" />
     <Compile Include="Views\IShowIncidentDetails.cs" />
     <None Include="Resources\SIREMlogo.svg" />
     <None Include="Resources\updateWhite.svg" />

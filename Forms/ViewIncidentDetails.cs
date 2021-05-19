@@ -57,8 +57,42 @@ namespace ResponseEmergencySystem.Forms
             //gc_InjuredPersons.DataSource = dt_InjuredPersons;
         }
 
+        #region Form Properties
         public bool ShowMailButton { 
             set { simpleButton2.Visible = value;  }
+        }
+
+        public object LueCitiesDataSource
+        {
+            set { lue_LocationCities.Properties.DataSource = value; }
+        }
+
+        public object InvolvedPersonsDataSorurce
+        {
+            set { gc_InvolvedPersons.DataSource = value; }
+        }
+
+        public object MailDirectoryCategoriesDataSource
+        {
+            set { lue_MailDirectoryCategories.Properties.DataSource = value; }
+        }
+
+        public object MailDirectoryDataSource
+        {
+            set { lue_MailDirectory.Properties.DataSource = value; }
+        }
+
+        #endregion
+
+        #region view inputs
+        public string SelectedMail
+        {
+            get { return lue_MailDirectory.EditValue == null ? "" : lue_MailDirectory.EditValue.ToString(); }
+        }
+
+        public string MailDirectoryCategory
+        {
+            get { return lue_MailDirectoryCategories.EditValue == null ? "" : lue_MailDirectoryCategories.EditValue.ToString(); }
         }
 
         public string FullName
@@ -216,6 +250,12 @@ namespace ResponseEmergencySystem.Forms
             set { lue_LocationCities.EditValue = value; }
         }
 
+        public string Comments
+        {
+            set { memoEdit1.Text = value; }
+        }
+        #endregion
+
         private void ViewIncidentDetails_Load(object sender, EventArgs e)
         {
             lue_DriverLicenceState.Properties.DataSource = Functions.getStates();
@@ -227,159 +267,6 @@ namespace ResponseEmergencySystem.Forms
             gMapControl1.ShowCenter = false;
         }
 
-        private void ckedt_TrailerNeedCrane_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void simpleButton2_Click(object sender, EventArgs e)
-        {
-            //splashScreenManager1.ShowWaitForm();
-            
-            //if (_controller.SendEmail())
-            //{
-            //    splashScreenManager1.CloseWaitForm();
-            //    //MessageBox.Show("Mail Sent");
-            //}
-            //else
-            //{
-            //    splashScreenManager1.CloseWaitForm();
-            //    MessageBox.Show("Mail Error");
-            //}
-
-            
-
-        }
-
-        private void labelControl2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelControl4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelControl5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelControl6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelControl7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelControl8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupControl1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void groupControl2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void labelControl9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelControl10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelControl12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelControl14_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkEdit9_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelControl17_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelControl18_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelControl19_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelControl20_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelControl21_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelControl23_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textEdit4_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textEdit13_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelControl24_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkEdit2_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void gc_InjuredPersons_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panelControl2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void textEdit1_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
@@ -399,6 +286,16 @@ namespace ResponseEmergencySystem.Forms
         private void labelControl11_Click(object sender, EventArgs e)
         {
 
+        }
+
+        public void OnStateEditValueChanged(object sender, EventArgs e)
+        {
+            _controller.GetCitiesByState();
+        }
+
+        private void lue_MailDirectoryCategories_EditValueChanged(object sender, EventArgs e)
+        {
+            _controller.GetMailsByCategory();
         }
     }
 

@@ -33,10 +33,10 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.btn_Cancel2 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton9 = new DevExpress.XtraEditors.SimpleButton();
-            this.textEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.lue_StatusDetail = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lue_StatusDetail.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // memoEdit1
@@ -91,15 +91,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.simpleButton9.Size = new System.Drawing.Size(102, 42);
             this.simpleButton9.TabIndex = 6;
             this.simpleButton9.Text = "Save";
-            // 
-            // textEdit1
-            // 
-            this.textEdit1.Location = new System.Drawing.Point(103, 34);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.textEdit1.Size = new System.Drawing.Size(140, 24);
-            this.textEdit1.TabIndex = 10;
+            this.simpleButton9.Click += new System.EventHandler(this.simpleButton9_Click);
             // 
             // labelControl1
             // 
@@ -109,23 +101,40 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.labelControl1.TabIndex = 11;
             this.labelControl1.Text = "Status";
             // 
+            // lue_StatusDetail
+            // 
+            this.lue_StatusDetail.Location = new System.Drawing.Point(103, 34);
+            this.lue_StatusDetail.Name = "lue_StatusDetail";
+            this.lue_StatusDetail.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lue_StatusDetail.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID_StatusDetail", "ID_StatusDetail", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Description", "Description")});
+            this.lue_StatusDetail.Properties.DisplayMember = "Description";
+            this.lue_StatusDetail.Properties.NullText = "";
+            this.lue_StatusDetail.Properties.ShowHeader = false;
+            this.lue_StatusDetail.Properties.ValueMember = "ID_StatusDetail";
+            this.lue_StatusDetail.Size = new System.Drawing.Size(134, 24);
+            this.lue_StatusDetail.TabIndex = 12;
+            // 
             // EditComments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(449, 325);
+            this.Controls.Add(this.lue_StatusDetail);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.memoEdit1);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.btn_Cancel2);
             this.Controls.Add(this.simpleButton9);
-            this.Controls.Add(this.textEdit1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "EditComments";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit";
+            this.Load += new System.EventHandler(this.EditComments_Load);
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lue_StatusDetail.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -137,7 +146,7 @@ namespace ResponseEmergencySystem.Forms.Modals
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.SimpleButton btn_Cancel2;
         private DevExpress.XtraEditors.SimpleButton simpleButton9;
-        private DevExpress.XtraEditors.ComboBoxEdit textEdit1;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.LookUpEdit lue_StatusDetail;
     }
 }

@@ -93,7 +93,7 @@ namespace ResponseEmergencySystem.Forms
                 this.DialogResult = DialogResult.OK;
             }
             else
-                Utils.ShowMessage("Please Check the information again", "Validation Error");
+                Utils.ShowMessage("Please Check the information again", "Validation Error", type: "Error");
 
         }
        
@@ -488,10 +488,41 @@ namespace ResponseEmergencySystem.Forms
             set { edt_IPAge.BorderStyle = value; }
         }
 
+        public BorderStyles EdtLicenseBorder
+        {
+            get { return edt_IPLicense.BorderStyle; }
+            set { edt_IPLicense.BorderStyle = value; }
+        }
+
+        public bool EdtFullNameShowWarningIcon
+        {
+            set { pic_FullNameWarning.Visible = value; }
+        }
+
+        public bool EdtLastName1ShowWarningIcon
+        {
+            set { pic_LastName1Warning.Visible = value; }
+        }
+
+        public bool EdtPhoneNumberShowWarningIcon
+        {
+            set { pic_PhoneNumberWarning.Visible = value; }
+        }
+
+        public bool EdtAgeShowWarningIcon
+        {
+            set { pic_AgeWarning.Visible = value; }
+        }
+
+
+        public bool EdtLicenseShowWarningIcon
+        {
+            set { pic_LicenseWarning.Visible = value; }
+        }
 
         #endregion
 
-        
+
         private void ViewIncidentDetails_Load(object sender, EventArgs e)
         {
             lue_StateExp.Properties.DataSource = Functions.getStates();
