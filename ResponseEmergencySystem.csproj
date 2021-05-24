@@ -456,6 +456,12 @@
     <Compile Include="Forms\Modals\AppConfiguration.Designer.cs">
       <DependentUpon>AppConfiguration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Modals\attachedFiles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Modals\attachedFiles.Designer.cs">
+      <DependentUpon>attachedFiles.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Modals\DirectoryError.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -565,6 +571,7 @@
     <None Include="Resources\checkGreen1.svg" />
     <None Include="Resources\checked.svg" />
     <None Include="Resources\checked %281%29.svg" />
+    <None Include="Resources\attachWhite.svg" />
     <Content Include="x64\SQLite.Interop.dll" />
     <Content Include="x86\SQLite.Interop.dll" />
     <EmbeddedResource Include="Forms\EditIncidentDetails.resx">
@@ -608,6 +615,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Modals\AppConfiguration.resx">
       <DependentUpon>AppConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Modals\attachedFiles.resx">
+      <DependentUpon>attachedFiles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Modals\DirectoryError.resx">
       <DependentUpon>DirectoryError.cs</DependentUpon>

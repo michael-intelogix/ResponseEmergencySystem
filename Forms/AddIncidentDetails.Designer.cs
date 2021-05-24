@@ -57,6 +57,7 @@ namespace ResponseEmergencySystem.Forms
             this.label1 = new System.Windows.Forms.Label();
             this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
             this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
+            this.btn_AttachFiles = new DevExpress.XtraEditors.SimpleButton();
             this.lbl_EmptyFields = new DevExpress.XtraEditors.LabelControl();
             this.labelControl27 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl29 = new DevExpress.XtraEditors.LabelControl();
@@ -347,6 +348,7 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl6.Appearance.BackColor = System.Drawing.Color.White;
             this.panelControl6.Appearance.Options.UseBackColor = true;
             this.panelControl6.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl6.Controls.Add(this.btn_AttachFiles);
             this.panelControl6.Controls.Add(this.lbl_EmptyFields);
             this.panelControl6.Controls.Add(this.labelControl27);
             this.panelControl6.Controls.Add(this.labelControl29);
@@ -366,6 +368,21 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl6.Name = "panelControl6";
             this.panelControl6.Size = new System.Drawing.Size(651, 121);
             this.panelControl6.TabIndex = 115;
+            // 
+            // btn_AttachFiles
+            // 
+            this.btn_AttachFiles.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.btn_AttachFiles.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_AttachFiles.Appearance.Options.UseBackColor = true;
+            this.btn_AttachFiles.Appearance.Options.UseFont = true;
+            this.btn_AttachFiles.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btn_AttachFiles.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.attachWhite;
+            this.btn_AttachFiles.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.btn_AttachFiles.Location = new System.Drawing.Point(13, 89);
+            this.btn_AttachFiles.Name = "btn_AttachFiles";
+            this.btn_AttachFiles.Size = new System.Drawing.Size(115, 24);
+            this.btn_AttachFiles.TabIndex = 132;
+            this.btn_AttachFiles.Text = "Attach files";
             // 
             // lbl_EmptyFields
             // 
@@ -1942,5 +1959,6 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraEditors.LabelControl labelControl27;
         private GMap.NET.WindowsForms.GMapControl gMapControl1;
         private DevExpress.XtraEditors.LabelControl lbl_EmptyFields;
+        private DevExpress.XtraEditors.SimpleButton btn_AttachFiles;
     }
 }

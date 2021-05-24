@@ -47,7 +47,6 @@ namespace ResponseEmergencySystem.Forms
             this.col_ExpirationDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_Approved = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btn_approved = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
@@ -55,28 +54,31 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.gc_Drivers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_Drivers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_approved)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
             // 
+            this.panelControl1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.panelControl1.Appearance.Options.UseBackColor = true;
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl1.Controls.Add(this.labelControl1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(734, 58);
+            this.panelControl1.Size = new System.Drawing.Size(734, 37);
             this.panelControl1.TabIndex = 1;
             // 
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.White;
             this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.Appearance.Options.UseForeColor = true;
             this.labelControl1.Appearance.Options.UseTextOptions = true;
             this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.labelControl1.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.labelControl1.Location = new System.Drawing.Point(71, 16);
+            this.labelControl1.Location = new System.Drawing.Point(97, 13);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(516, 15);
@@ -89,7 +91,7 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl2.Controls.Add(this.gc_Drivers);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl2.Location = new System.Drawing.Point(0, 58);
+            this.panelControl2.Location = new System.Drawing.Point(0, 37);
             this.panelControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(734, 320);
@@ -211,28 +213,18 @@ namespace ResponseEmergencySystem.Forms
             this.btn_approved.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btn_approved.Click += new System.EventHandler(this.btn_ApprovedDriver);
             // 
-            // panelControl3
-            // 
-            this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl3.Location = new System.Drawing.Point(0, 378);
-            this.panelControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(734, 92);
-            this.panelControl3.TabIndex = 3;
-            // 
             // frm_DriverSearchList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(734, 469);
-            this.Controls.Add(this.panelControl3);
+            this.ClientSize = new System.Drawing.Size(734, 355);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frm_DriverSearchList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frm_DriverSearchList";
+            this.Text = "Driver search list";
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
@@ -241,7 +233,6 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.gc_Drivers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_Drivers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_approved)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -253,7 +244,6 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraGrid.GridControl gc_Drivers;
         private DevExpress.XtraGrid.Views.Grid.GridView gv_Drivers;
         private DevExpress.XtraGrid.Columns.GridColumn col_DriverName;
-        private DevExpress.XtraEditors.PanelControl panelControl3;
         private DevExpress.XtraGrid.Columns.GridColumn col_LastName;
         private DevExpress.XtraGrid.Columns.GridColumn col_PhoneNumber;
         private DevExpress.XtraGrid.Columns.GridColumn col_ExpeditionState;

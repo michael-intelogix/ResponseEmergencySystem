@@ -328,7 +328,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.MinimizeBox = false;
             this.Name = "AppConfiguration";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Configuration";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.AppConfiguration_Load);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
