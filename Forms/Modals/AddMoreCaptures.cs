@@ -34,10 +34,24 @@ namespace ResponseEmergencySystem.Forms
             DialogResult = DialogResult.Cancel;
         }
 
+        #region view methods
         public void SetController(AddCapturesController controller)
         {
             _controller = controller;
         }
+        #endregion
+
+        #region form methods
+
+        private void PreloadImage(SimpleButton btn)
+        {
+            var name = btn.Name.Split('_')[1];
+            var status = btn.Parent.Controls["status_" + name];
+            _controller.UploadImage(Utils.GetTextOfLabelInCaptures(btn), Convert.ToInt32(name.Replace("Capture", "")));
+            status.Text = "Preloaded";
+            status.Visible = true;
+        }
+        #endregion
 
         public void LoadCapturesTypes(List<Capture> captures)
         {
@@ -52,17 +66,16 @@ namespace ResponseEmergencySystem.Forms
         private void UploadImageOnClick(object sender, EventArgs e)
         {
             var btn = (SimpleButton)sender;
-            var name = btn.Name.Split('_')[1];
-            var status = btn.Parent.Controls["status_" + name];
-            _controller.UploadImage(Utils.GetTextOfLabelInCaptures(btn), Convert.ToInt32(name.Replace("Capture",  "")));
-            status.Text = "Preloaded";
-            status.Visible = true;
+            bool preloaded = _controller.CheckImage();
+            if (preloaded) PreloadImage(btn);
+            
         }
 
 
         private void lue_Type_EditValueChanged(object sender, EventArgs e)
         {
             _controller.SetType(lue_Type.EditValue.ToString());
+
         }
 
         public string Comments

@@ -251,5 +251,55 @@ namespace ResponseEmergencySystem.Services
                 return categories;
             }
         }
+
+        public static Response DeleteMailInDirectory(string ID_Mail)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand
+                {
+                    Connection = constants.SIREMConnection,
+                    CommandText = $"Delete_Mail",
+                    CommandType = CommandType.StoredProcedure
+                })
+                {
+                    if (cmd.Connection.State == ConnectionState.Open)
+                    {
+                        cmd.Connection.Close();
+                    }
+
+                    cmd.Parameters.AddWithValue("@ID_Mail", ID_Mail);
+
+                    cmd.Connection.Open();
+                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    {
+                        if (sdr == null)
+                        {
+                            throw new NullReferenceException("No Information Available.");
+                        }
+
+                        while (sdr.Read())
+                        {
+                            Debug.WriteLine(sdr["Validacion"]);
+                            Debug.WriteLine(sdr["msg"]);
+                            Debug.WriteLine(sdr["ID"]);
+
+                            //MessageBox.Show((string)sdr["msg"]);
+
+                            response = new Response(Convert.ToBoolean(sdr["Validacion"]), sdr["msg"].ToString(), sdr["ID"].ToString());
+                        }
+                    }
+                    cmd.Connection.Close();
+
+                }
+
+                return response;
+
+            }
+            catch (Exception ex)
+            {
+                return new Response(false, ex.Message, Guid.Empty.ToString());
+            }
+        }
     }
 }

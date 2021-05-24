@@ -37,7 +37,7 @@ namespace ResponseEmergencySystem.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Reports")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Reports2")]
         public string AppFolder {
             get {
                 return ((string)(this["AppFolder"]));

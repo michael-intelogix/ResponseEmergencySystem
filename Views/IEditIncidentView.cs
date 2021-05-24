@@ -88,6 +88,12 @@ namespace ResponseEmergencySystem.Views
         BorderStyles EdtLastNameBorder { get; set; }
         BorderStyles EdtPhoneNumberBorder { get; set; }
         BorderStyles EdtAgeBorder { get; set; }
+        BorderStyles EdtLicenseBorder { get; set; }
 
+        bool EdtFullNameShowWarningIcon { set; }
+        bool EdtLastName1ShowWarningIcon { set; }
+        bool EdtPhoneNumberShowWarningIcon { set; }
+        bool EdtAgeShowWarningIcon { set; }
+        bool EdtLicenseShowWarningIcon { set; }
     }
 }

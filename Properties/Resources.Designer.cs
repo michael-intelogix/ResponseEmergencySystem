@@ -343,6 +343,16 @@ namespace ResponseEmergencySystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap índice {
+            get {
+                object obj = ResourceManager.GetObject("índice", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Intelogix_White {
             get {
                 object obj = ResourceManager.GetObject("Intelogix White", resourceCulture);
@@ -457,6 +467,16 @@ namespace ResponseEmergencySystem.Properties {
             get {
                 object obj = ResourceManager.GetObject("picturesBlue", resourceCulture);
                 return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap placeholder {
+            get {
+                object obj = ResourceManager.GetObject("placeholder", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

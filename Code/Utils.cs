@@ -2,6 +2,7 @@
 using ResponseEmergencySystem.Controllers;
 using ResponseEmergencySystem.Models;
 using ResponseEmergencySystem.Properties;
+using ResponseEmergencySystem.Services;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -21,7 +22,7 @@ namespace ResponseEmergencySystem.Code
         private static string PasswordEmail = "Intelogix1";
         private static string EmailDestination = "michaelreyesfernandez@hotmail.com";
 
-        public static bool email_send(string filePath, bool resend, string[] mails)
+        public static bool email_send(string filePath, bool resend, string mailAddress = "", string categoryID = "")
         {
             //jgonzalez@intelogix.mx Ingeniero en Sistemas
             bool MailSent = false;
@@ -29,11 +30,23 @@ namespace ResponseEmergencySystem.Code
             SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
             mail.From = new MailAddress(Employee_Email);
 
-            if (mails.Length > 1)
-                foreach (var m in mails)
+            if (mailAddress != "")
+                mail.To.Add(mailAddress);
+
+            if (categoryID != "")
+            {
+                var mailDirectory = MailDirectoryService.GetMailDirectory(categoryID);
+                foreach (var m in mailDirectory)
                 {
-                    mail.To.Add(m);
+                    mail.To.Add(m.Mail);
                 }
+            }
+
+            //if (mails.Length > 1)
+            //    foreach (var m in mails)
+            //    {
+            //        mail.To.Add(m);
+            //    }
 
             //mail.To.Add("jjind@citlogistics.us");
             mail.Subject = "Información del reporte registrado";
@@ -140,6 +153,37 @@ namespace ResponseEmergencySystem.Code
             //}
            
             modalView.ShowDialog();
+        }
+
+        public static bool ShowConfirmationMessage(string msg, string title = "", bool confirmation = false, string type = "approved")
+        {
+            Forms.Modals.ConfirmationModal confirmationModalView = new Forms.Modals.ConfirmationModal(msg, title);
+            ConfirmationModalController confirmationModalCtrl = new ConfirmationModalController(confirmationModalView);
+
+            switch (type)
+            {
+                case "approved":
+                    confirmationModalView.SetApprovedIcon();
+                    break;
+                case "Error":
+                    confirmationModalView.SetErrorIcon();
+                    break;
+                case "Warning":
+                    confirmationModalView.SetWarningIcon();
+                    break;
+                case "MailSent":
+                    confirmationModalView.SetMailSentIcon();
+                    break;
+            }
+
+            if (confirmationModalView.ShowDialog() == DialogResult.OK)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public static DateTime GetDateTime(DateTime date, int hours, int minutes)

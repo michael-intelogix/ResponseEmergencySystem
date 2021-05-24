@@ -126,11 +126,15 @@ namespace ResponseEmergencySystem.Controllers
                 PDF();
             }
 
-            if (_view.SelectedMail != "")
+            if (!_view.SendToAllRecipientsInTheCategory)
             {
-                Utils.email_send(ReportPath + $"\\{Folio}.pdf", false, new string[] { _view.SelectedMail });
+                Utils.email_send(ReportPath + $"\\{Folio}.pdf", false, mailAddress: _view.SelectedMail);
             }
             
+            if (_view.SendToAllRecipientsInTheCategory)
+            {
+                Utils.email_send(ReportPath + $"\\{Folio}.pdf", false, categoryID: _view.MailDirectoryCategory);
+            }
 
             //using (var ofd = new OpenFileDialog())
             //{

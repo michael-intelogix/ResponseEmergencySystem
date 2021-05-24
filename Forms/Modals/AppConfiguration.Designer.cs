@@ -30,11 +30,11 @@ namespace ResponseEmergencySystem.Forms.Modals
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.xtraFolderBrowserDialog1 = new DevExpress.XtraEditors.XtraFolderBrowserDialog(this.components);
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
@@ -52,6 +52,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.lue_Categories2 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btn_Delete = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.edt_Mail = new DevExpress.XtraEditors.TextEdit();
@@ -219,7 +220,8 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.gv_MailDirectory.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn1,
             this.gridColumn2,
-            this.gridColumn3});
+            this.gridColumn3,
+            this.gridColumn4});
             this.gv_MailDirectory.GridControl = this.gc_MailDirectory;
             this.gv_MailDirectory.Name = "gv_MailDirectory";
             this.gv_MailDirectory.OptionsSelection.EnableAppearanceFocusedCell = false;
@@ -269,12 +271,19 @@ namespace ResponseEmergencySystem.Forms.Modals
             // btn_Delete
             // 
             this.btn_Delete.AutoHeight = false;
-            editorButtonImageOptions2.SvgImage = global::ResponseEmergencySystem.Properties.Resources.cancelRed;
-            editorButtonImageOptions2.SvgImageSize = new System.Drawing.Size(30, 30);
+            editorButtonImageOptions1.SvgImage = global::ResponseEmergencySystem.Properties.Resources.cancelRed;
+            editorButtonImageOptions1.SvgImageSize = new System.Drawing.Size(30, 30);
             this.btn_Delete.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btn_Delete.Name = "btn_Delete";
             this.btn_Delete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.btn_Delete.Click += new System.EventHandler(this.delete_Click);
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "ID_Mail";
+            this.gridColumn4.FieldName = "ID_Mail";
+            this.gridColumn4.Name = "gridColumn4";
             // 
             // simpleButton4
             // 
@@ -361,6 +370,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.simpleButton6.Size = new System.Drawing.Size(86, 34);
             this.simpleButton6.TabIndex = 21;
             this.simpleButton6.Text = "Close";
+            this.simpleButton6.Click += new System.EventHandler(this.simpleButton5_Click);
             // 
             // simpleButton7
             // 
@@ -381,6 +391,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.simpleButton7.Size = new System.Drawing.Size(94, 35);
             this.simpleButton7.TabIndex = 20;
             this.simpleButton7.Text = "Save";
+            this.simpleButton7.Click += new System.EventHandler(this.simpleButton7_Click);
             // 
             // labelControl3
             // 
@@ -414,6 +425,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.simpleButton3.Size = new System.Drawing.Size(185, 24);
             this.simpleButton3.TabIndex = 14;
             this.simpleButton3.Text = "Files Folder";
+            this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click_1);
             // 
             // AppConfiguration
             // 
@@ -476,5 +488,6 @@ namespace ResponseEmergencySystem.Forms.Modals
         private DevExpress.XtraEditors.SimpleButton btn_AddCategory;
         private DevExpress.XtraEditors.LookUpEdit lue_Categories;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit lue_Categories2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
     }
 }

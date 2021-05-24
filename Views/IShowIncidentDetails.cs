@@ -19,6 +19,8 @@ namespace ResponseEmergencySystem.Views
 
         bool ShowMailButton { set; }
 
+        bool SendToAllRecipientsInTheCategory { get; }
+
         string FullName { get; set; }
         string PhoneNumber { get; set; }
         string License { get; set; }

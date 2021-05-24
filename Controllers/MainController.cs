@@ -69,6 +69,7 @@ namespace ResponseEmergencySystem.Controllers
             editImageDataCtrl.LoadStatusDetail();
             if (editCommentsView.ShowDialog() == DialogResult.OK)
             {
+                _view.ImagesDatasSource = CaptureService.list_Images(_view.ID_Capture);
                 Utils.ShowMessage("Image information has been updated");
             }
         }
@@ -165,7 +166,8 @@ namespace ResponseEmergencySystem.Controllers
 
             if (!Directory.Exists(Settings.Default.AppFolder))
             {
-                Utils.ShowMessage("The directory doesn't exist please update the route where the reports will be saved and extracted", "Directory Error");
+                Forms.Modals.DirectoryError directoryErrorModal = new Forms.Modals.DirectoryError();
+                directoryErrorModal.ShowDialog();
             }
 
 
@@ -276,6 +278,11 @@ namespace ResponseEmergencySystem.Controllers
             AddIncidentDetails addIncidentView = new AddIncidentDetails();
             Controllers.Incidents.AddIncidentController addIncidentCtrl = new Controllers.Incidents.AddIncidentController(addIncidentView);
             addIncidentCtrl.LoadStates();
+            addIncidentView.Load += new System.EventHandler((object sender, EventArgs e) =>
+            {
+                _view.CloseSpinner();
+            });
+
             if (addIncidentView.ShowDialog() == DialogResult.OK)
             {
                 Utils.ShowMessage("the Incident was added succesfully", "Incident");

@@ -85,6 +85,12 @@ namespace ResponseEmergencySystem.Forms
         #endregion
 
         #region view inputs
+
+        public bool SendToAllRecipientsInTheCategory
+        {
+            get { return (bool)ckedt_MailByCategory.EditValue; }
+        }
+
         public string SelectedMail
         {
             get { return lue_MailDirectory.EditValue == null ? "" : lue_MailDirectory.EditValue.ToString(); }
@@ -265,6 +271,13 @@ namespace ResponseEmergencySystem.Forms
             GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
             gMapControl1.Position = new GMap.NET.PointLatLng(_controller.latitude, _controller.longitude);
             gMapControl1.ShowCenter = false;
+
+            GMap.NET.WindowsForms.GMapOverlay markers = new GMap.NET.WindowsForms.GMapOverlay("markers");
+            GMap.NET.WindowsForms.GMapMarker marker = new GMap.NET.WindowsForms.Markers.GMarkerGoogle(
+                                                            new GMap.NET.PointLatLng(_controller.latitude, _controller.longitude),
+            GMap.NET.WindowsForms.Markers.GMarkerGoogleType.red_dot);
+            markers.Markers.Add(marker);
+            gMapControl1.Overlays.Add(markers);
         }
 
 
@@ -296,6 +309,11 @@ namespace ResponseEmergencySystem.Forms
         private void lue_MailDirectoryCategories_EditValueChanged(object sender, EventArgs e)
         {
             _controller.GetMailsByCategory();
+        }
+
+        private void simpleButton3_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 

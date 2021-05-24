@@ -11,6 +11,7 @@ using System.IO;
 using System.Threading;
 using Firebase.Storage;
 using System.Drawing;
+using ResponseEmergencySystem.Code;
 
 namespace ResponseEmergencySystem.Controllers.Captures
 {
@@ -23,6 +24,8 @@ namespace ResponseEmergencySystem.Controllers.Captures
         private string ID_Capture;
         private List<ImageCapture> _images;
         private bool img = false;
+
+        private string _imgUrl = "";
 
         public AddCapturesController(IAddCapturesView view, List<Capture> captures)
         {
@@ -44,39 +47,77 @@ namespace ResponseEmergencySystem.Controllers.Captures
 
         public void UploadImage(string imgName, int idx)
         {
+
+            if (idx > _images.Count())
+                _images.Add(new ImageCapture(imgName, _imgUrl, idx));
+            else
+                _images[idx].ImagePath = _imgUrl;
+            _view.LueTypeBlock = true;
+            _view.SaveButtonEnable = true;
+            img = true;
+            //MessageBox.Show(ofd.FileName);
+        }
+
+        public bool CheckImage()
+        {
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
                 ofd.Filter = "Image Files(*.PNG;*.JPG;*.GIF;*.BMP)|*.PNG;*.JPG;*.GIF;*.BMP|PDF Files (*.PDF)|*.PDF|All Files (*.*)|*.*";
-                ofd.ShowDialog();
-
-                string ext = Path.GetExtension(ofd.FileName).ToUpper();
-                try
+                if (ofd.ShowDialog() == DialogResult.OK)
                 {
-                    if (_selectedCaptureType != null)
+                    string ext = Path.GetExtension(ofd.FileName).ToUpper();
+                    try
                     {
-                        if (ext == ".GIF" || ext == ".JPG" || ext == ".PNG" || ext == ".BMP")
+                        if (_selectedCaptureType != null)
                         {
-                            if (idx > _images.Count())
-                                _images.Add(new ImageCapture(imgName, ofd.FileName, idx));
+                            if (ext == ".GIF" || ext == ".JPG" || ext == ".PNG" || ext == ".BMP")
+                            {
+                                _imgUrl = ofd.FileName;
+                                return true;
+                            }
                             else
-                                _images[idx].ImagePath = ofd.FileName;
-                            _view.LueTypeBlock = true;
-                            _view.SaveButtonEnable = true;
-                            img = true;
-                            //MessageBox.Show(ofd.FileName);
+                            {
+                                Utils.ShowMessage("The file submitted is not an Image", title: "Image upload error", type: "Warning");
+                                return false;
+                            }
+                            
                         }
+                        else
+                        {
+                            return false;
+                        }
+                        //if (_selectedCaptureType != null)
+                        //{
+                        //    if (ext == ".GIF" || ext == ".JPG" || ext == ".PNG" || ext == ".BMP")
+                        //    {
+                        //        if (idx > _images.Count())
+                        //            _images.Add(new ImageCapture(imgName, ofd.FileName, idx));
+                        //        else
+                        //            _images[idx].ImagePath = ofd.FileName;
+                        //        _view.LueTypeBlock = true;
+                        //        _view.SaveButtonEnable = true;
+                        //        img = true;
+                        //        //MessageBox.Show(ofd.FileName);
+                        //    }
+                        //}
+                        //else
+                        //{
+                        //    MessageBox.Show("NULL");
+                        //}
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        MessageBox.Show("NULL");
+                        //MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Utils.ShowMessage(ex.Message, title: "Image upload error", type: "Error");
+                        return false;
                     }
-                    
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    return false;
                 }
+
+                
 
             }
         }

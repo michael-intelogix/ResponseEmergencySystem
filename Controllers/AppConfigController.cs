@@ -6,12 +6,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ResponseEmergencySystem.Controllers
 {
     public class AppConfigController
     {
         IAppConfigView _view;
+        private List<Models.MailDirectory> _mailDirectory;
 
         public AppConfigController(IAppConfigView view)
         {
@@ -55,7 +57,8 @@ namespace ResponseEmergencySystem.Controllers
         public void AddMailToDirectory()
         {
             var response = MailDirectoryService.AddMailToDirectory(_view.Mail, _view.Category);
-            _view.MailDirectoryDataSource = MailDirectoryService.GetMailDirectory();
+            _mailDirectory = MailDirectoryService.GetMailDirectory();
+            _view.MailDirectoryDataSource = _mailDirectory;
             _view.Mail = "";
             _view.Category = null;
             Utils.ShowMessage(response.Message, "Mail Response");
@@ -70,11 +73,31 @@ namespace ResponseEmergencySystem.Controllers
 
         public void LoadMailDirectory()
         {
-            var directory = MailDirectoryService.GetMailDirectory();
-            if (directory.Count > 0)
+            _mailDirectory = MailDirectoryService.GetMailDirectory();
+            if (_mailDirectory.Count > 0)
             {
-                _view.MailDirectoryDataSource = directory;
+                _view.MailDirectoryDataSource = _mailDirectory;
             }
+        }
+
+        public void DeleteMailFromDirectory(Int32 index)
+        {
+            if (Utils.ShowConfirmationMessage("Are you sure you want delete this mail?", title: "Delete Mail", type: "Warning"))
+            {
+                _mailDirectory.RemoveAt(index);
+                _view.MailDirectoryDataSource = _mailDirectory;
+
+                var response = MailDirectoryService.DeleteMailInDirectory(_mailDirectory[index].ID_Mail);
+                Utils.ShowMessage(response.Message, "Mail Response");
+ 
+                //var response = MailDirectoryService.DeleteMailInDirectory(_view.);
+                //_mailDirectory = MailDirectoryService.GetMailDirectory();
+                //_view.MailDirectoryDataSource = _mailDirectory;
+                //_view.Mail = "";
+                //_view.Category = null;
+                //Utils.ShowMessage(response.Message, "Mail Response");
+            }
+            
         }
     }
 }

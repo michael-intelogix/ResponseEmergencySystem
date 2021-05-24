@@ -35,14 +35,14 @@ namespace ResponseEmergencySystem
             //List<Capture> captureByIncident = CaptureService.list_Captures(incidents[0].ID_Incident.ToString());
             new MainController(mainView);
 
-    
+
             ////Forms.Modals.Testing test = new Forms.Modals.Testing();
 
 
-            //Application.Run(mainView);
-
-            
             Application.Run(mainView);
+
+
+            //Application.Run(new miwntras());
         }
     }
 }

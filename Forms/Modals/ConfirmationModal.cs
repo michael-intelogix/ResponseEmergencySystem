@@ -14,39 +14,25 @@ using System.Windows.Forms;
 
 namespace ResponseEmergencySystem.Forms.Modals
 {
-    public partial class Modals : DevExpress.XtraEditors.XtraForm, IModalView
+    public partial class ConfirmationModal : DevExpress.XtraEditors.XtraForm, IConfirmationModalView
     {
-        public Modals(String Message, string Title)
+        public ConfirmationModal(String Message, string Title)
         {
             InitializeComponent();
             labelControl1.Text = Title;
             label1.Text = Message;
         }
 
-        ModalController _controller;
+        ConfirmationModalController _controller;
 
-        private void simpleButton1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
+        private void ConfirmationModal_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void stackPanel2_Paint(object sender, PaintEventArgs e)
-        {
-            
-        }
-
-        private void simpleButton2_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
         #region view interface methods
-        public void SetController(ModalController controller)
+        public void SetController(ConfirmationModalController controller)
         {
             _controller = controller;
         }
@@ -57,13 +43,6 @@ namespace ResponseEmergencySystem.Forms.Modals
         {
             get { return ""; }
         }
-
-
-
-        //public object MailDirectoryDataSource
-        //{
-        //    set { gc_MailDirectory.DataSource = value; }
-        //}
         #endregion
 
         #region set status icons
@@ -87,5 +66,17 @@ namespace ResponseEmergencySystem.Forms.Modals
             pictureEdit2.SvgImage = Resources.emailSent;
         }
         #endregion
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
     }
 }

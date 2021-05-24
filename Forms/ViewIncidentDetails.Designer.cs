@@ -109,6 +109,7 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl26 = new DevExpress.XtraEditors.LabelControl();
             this.lue_MailDirectory = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl27 = new DevExpress.XtraEditors.LabelControl();
+            this.ckedt_MailByCategory = new DevExpress.XtraEditors.CheckEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -176,6 +177,7 @@ namespace ResponseEmergencySystem.Forms
             this.stackPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lue_MailDirectoryCategories.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_MailDirectory.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckedt_MailByCategory.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
@@ -595,6 +597,7 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton3.Size = new System.Drawing.Size(94, 35);
             this.simpleButton3.TabIndex = 2;
             this.simpleButton3.Text = "Cancel";
+            this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
             // 
             // labelControl23
             // 
@@ -983,6 +986,7 @@ namespace ResponseEmergencySystem.Forms
             this.stackPanel1.Controls.Add(this.labelControl26);
             this.stackPanel1.Controls.Add(this.lue_MailDirectory);
             this.stackPanel1.Controls.Add(this.labelControl27);
+            this.stackPanel1.Controls.Add(this.ckedt_MailByCategory);
             this.stackPanel1.LayoutDirection = DevExpress.Utils.Layout.StackPanelLayoutDirection.RightToLeft;
             this.stackPanel1.Location = new System.Drawing.Point(22, 22);
             this.stackPanel1.Name = "stackPanel1";
@@ -1074,6 +1078,16 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl27.Size = new System.Drawing.Size(47, 17);
             this.labelControl27.TabIndex = 7;
             this.labelControl27.Text = "Send to";
+            // 
+            // ckedt_MailByCategory
+            // 
+            this.ckedt_MailByCategory.Location = new System.Drawing.Point(194, 2);
+            this.ckedt_MailByCategory.Name = "ckedt_MailByCategory";
+            this.ckedt_MailByCategory.Properties.Caption = "Send to all the recipients in the selected category?";
+            this.ckedt_MailByCategory.Properties.ContentAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.ckedt_MailByCategory.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.ckedt_MailByCategory.Size = new System.Drawing.Size(335, 21);
+            this.ckedt_MailByCategory.TabIndex = 122;
             // 
             // Root
             // 
@@ -1319,6 +1333,7 @@ namespace ResponseEmergencySystem.Forms
             this.stackPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lue_MailDirectoryCategories.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_MailDirectory.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckedt_MailByCategory.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
@@ -1441,5 +1456,6 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem14;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
+        private DevExpress.XtraEditors.CheckEdit ckedt_MailByCategory;
     }
 }

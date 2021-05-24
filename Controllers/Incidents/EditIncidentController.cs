@@ -256,19 +256,26 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             if (_view.IPFullName.Length == 0)
             {
                 _view.EdtFullNameBorder = BorderStyles.Simple;
+                _view.EdtFullNameShowWarningIcon = true;
                 errors += 1;
             }
             else
+            {
                 _view.EdtFullNameBorder = BorderStyles.Default;
+                _view.EdtFullNameShowWarningIcon = false;
+            }
 
             if (_view.IPLastName1.Length == 0)
             {
                 _view.EdtLastNameBorder = BorderStyles.Simple;
+                _view.EdtLastName1ShowWarningIcon = true;
                 errors += 1;
             }
             else
+            {
                 _view.EdtLastNameBorder = BorderStyles.Default;
-
+                _view.EdtLastName1ShowWarningIcon = false;
+            }
             //if (_view.IPPhoneNumber.Length == 0)
             //{
             //    _view.EdtPhoneNumberBorder = BorderStyles.Simple;
@@ -285,6 +292,25 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             //else
             //    _view.EdtAgeBorder = BorderStyles.Default;
 
+            if (_view.IPDriver)
+            {
+                if (_view.IPLicense.Length == 0)
+                {
+                    _view.EdtLicenseBorder = BorderStyles.Simple;
+                    _view.EdtLicenseShowWarningIcon = true;
+                    errors += 1;
+                }
+                else
+                {
+                    _view.EdtLicenseBorder = BorderStyles.Default;
+                    _view.EdtLicenseShowWarningIcon = false;
+                }
+            }
+            else
+            {
+                if (errors > 5) { errors -= 1; }
+            }
+
             if (errors == 0)
             {
                 _view.LblEmptyFieldsVisibility = false;
@@ -298,7 +324,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                 _view.LblEmptyFieldsVisibility = true;
             }
 
-            
+
 
         }
 
@@ -308,18 +334,26 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             if (_view.IPFullName.Length == 0)
             {
                 _view.EdtFullNameBorder = BorderStyles.Simple;
+                _view.EdtFullNameShowWarningIcon = true;
                 errors += 1;
             }
             else
+            {
                 _view.EdtFullNameBorder = BorderStyles.Default;
+                _view.EdtFullNameShowWarningIcon = false;
+            }
 
             if (_view.IPLastName1.Length == 0)
             {
                 _view.EdtLastNameBorder = BorderStyles.Simple;
+                _view.EdtLastName1ShowWarningIcon = true;
                 errors += 1;
             }
             else
+            {
                 _view.EdtLastNameBorder = BorderStyles.Default;
+                _view.EdtLastName1ShowWarningIcon = false;
+            }
 
             //if (_view.IPPhoneNumber.Length == 0)
             //{
@@ -335,7 +369,28 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             //    errors += 1;
             //}
             //else
-                _view.EdtAgeBorder = BorderStyles.Default;
+            //_view.EdtAgeBorder = BorderStyles.Default;
+
+
+
+            if (_view.IPDriver)
+            {
+                if (_view.IPLicense.Length == 0)
+                {
+                    _view.EdtLicenseBorder = BorderStyles.Simple;
+                    _view.EdtLicenseShowWarningIcon = true;
+                    errors += 1;
+                }
+                else
+                {
+                    _view.EdtLicenseBorder = BorderStyles.Default;
+                    _view.EdtLicenseShowWarningIcon = false;
+                }
+            }
+            else
+            {
+                if (errors > 5) { errors -= 1; }
+            }
 
             if (errors == 0)
             {

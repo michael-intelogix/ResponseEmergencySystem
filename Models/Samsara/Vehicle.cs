@@ -8,6 +8,7 @@ namespace ResponseEmergencySystem.Samsara_Models
 {
     class Vehicle
     {
+        public string ID { get; set; } = "";
         public string name { get; set; }
         public DateTime time { get; set; }
         public float latitude { get; set; }

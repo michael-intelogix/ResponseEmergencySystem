@@ -28,7 +28,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>false</MapFileExtensions>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>38</ApplicationRevision>
+    <ApplicationRevision>41</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -385,6 +385,7 @@
     <Compile Include="Controllers\AppConfigController.cs" />
     <Compile Include="Controllers\BrokerController.cs" />
     <Compile Include="Controllers\Captures\AddCapturesController.cs" />
+    <Compile Include="Controllers\ConfirmationModalController.cs" />
     <Compile Include="Controllers\EditImageDataController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\IncidentController.cs" />
@@ -458,6 +459,12 @@
     <Compile Include="Forms\Modals\AppConfiguration.Designer.cs">
       <DependentUpon>AppConfiguration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Modals\ConfirmationModal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Modals\ConfirmationModal.Designer.cs">
+      <DependentUpon>ConfirmationModal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Modals\DirectoryError.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -506,8 +513,11 @@
     <Compile Include="Models\MailDirectory.cs" />
     <Compile Include="Models\PersonsInvolved.cs" />
     <Compile Include="Models\Response.cs" />
+    <Compile Include="Models\Samsara\Driver.cs" />
+    <Compile Include="Models\Samsara\Trailer.cs" />
     <Compile Include="Models\State.cs" />
     <Compile Include="Models\Samsara\Vehicle.cs" />
+    <Compile Include="Models\Testing\DriverData.cs" />
     <Compile Include="Reports\XtraReport1.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -558,6 +568,7 @@
     <Compile Include="Views\IAddIncidentView.cs" />
     <Compile Include="Views\IAppConfigView.cs" />
     <Compile Include="Views\IBrokerView.cs" />
+    <Compile Include="Views\IConfirmationModalView.cs" />
     <Compile Include="Views\IEditImageData.cs" />
     <Compile Include="Views\IEditIncidentView.cs" />
     <Compile Include="Views\IImageView.cs" />
@@ -573,6 +584,8 @@
     <None Include="Resources\checkGreen1.svg" />
     <None Include="Resources\checked.svg" />
     <None Include="Resources\checked %281%29.svg" />
+    <None Include="Resources\índice.jpg" />
+    <None Include="Resources\placeholder.jpg" />
     <Content Include="x64\SQLite.Interop.dll" />
     <Content Include="x86\SQLite.Interop.dll" />
     <EmbeddedResource Include="Forms\EditIncidentDetails.resx">
@@ -616,6 +629,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Modals\AppConfiguration.resx">
       <DependentUpon>AppConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Modals\ConfirmationModal.resx">
+      <DependentUpon>ConfirmationModal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Modals\DirectoryError.resx">
       <DependentUpon>DirectoryError.cs</DependentUpon>

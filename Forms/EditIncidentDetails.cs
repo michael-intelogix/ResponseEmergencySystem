@@ -81,6 +81,11 @@ namespace ResponseEmergencySystem.Forms
                 splashScreenManager1.ShowWaitForm();
                 var res = _controller.GetTruckSamsara();
                 gMapControl1.Position = new GMap.NET.PointLatLng(res[0], res[1]);
+                GMap.NET.WindowsForms.GMapOverlay markers = new GMap.NET.WindowsForms.GMapOverlay("markers");
+                GMap.NET.WindowsForms.GMapMarker marker = new GMap.NET.WindowsForms.Markers.GMarkerGoogle(new GMap.NET.PointLatLng(res[0], res[1]), GMap.NET.WindowsForms.Markers.GMarkerGoogleType.red_dot);
+                gMapControl1.Overlays.Clear();
+                markers.Markers.Add(marker);
+                gMapControl1.Overlays.Add(markers);
                 splashScreenManager1.CloseWaitForm();
             }
         }
@@ -410,6 +415,38 @@ namespace ResponseEmergencySystem.Forms
             get { return edt_IPAge.BorderStyle; }
             set { edt_IPAge.BorderStyle = value; }
         }
+
+        public BorderStyles EdtLicenseBorder
+        {
+            get { return edt_IPLicense.BorderStyle; }
+            set { edt_IPLicense.BorderStyle = value; }
+        }
+
+        public bool EdtFullNameShowWarningIcon
+        {
+            set { pic_FullNameWarning.Visible = value; }
+        }
+
+        public bool EdtLastName1ShowWarningIcon
+        {
+            set { pic_LastName1Warning.Visible = value; }
+        }
+
+        public bool EdtPhoneNumberShowWarningIcon
+        {
+            set { pic_PhoneNumberWarning.Visible = value; }
+        }
+
+        public bool EdtAgeShowWarningIcon
+        {
+            set { pic_AgeWarning.Visible = value; }
+        }
+
+
+        public bool EdtLicenseShowWarningIcon
+        {
+            set { pic_LicenseWarning.Visible = value; }
+        }
         #endregion
 
         #region events needed
@@ -450,6 +487,14 @@ namespace ResponseEmergencySystem.Forms
                 GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
                 gMapControl1.Position = new GMap.NET.PointLatLng(_controller.latitude, _controller.longitude);
                 gMapControl1.ShowCenter = false;
+
+                GMap.NET.WindowsForms.GMapOverlay markers = new GMap.NET.WindowsForms.GMapOverlay("markers");
+                GMap.NET.WindowsForms.GMapMarker marker = new GMap.NET.WindowsForms.Markers.GMarkerGoogle(
+                                                                new GMap.NET.PointLatLng(_controller.latitude, _controller.longitude),
+                GMap.NET.WindowsForms.Markers.GMarkerGoogleType.red_dot);
+                gMapControl1.Overlays.Clear();
+                markers.Markers.Add(marker);  
+                gMapControl1.Overlays.Add(markers);
             }
             catch (Exception ex)
             {

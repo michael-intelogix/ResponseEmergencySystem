@@ -122,5 +122,35 @@ namespace ResponseEmergencySystem.Forms.Modals
         {
 
         }
+
+        private void simpleButton3_Click_1(object sender, EventArgs e)
+        {
+            xtraFolderBrowserDialog1.ShowDialog();
+            AppPath = xtraFolderBrowserDialog1.SelectedPath;
+            textEdit1.Text = AppPath.Replace("\\", "/");
+        }
+
+        private void simpleButton7_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.AppFolder = AppPath;
+            Properties.Settings.Default.Save();
+        }
+
+        private void delete_Click(object sender, EventArgs e)
+        {
+            Int32 index = gv_MailDirectory.FocusedRowHandle;
+
+            _controller.DeleteMailFromDirectory(index);
+            gv_MailDirectory.BestFitColumns();
+            //DialogResult result = MessageBox.Show(
+            //    "Are you sure you want to delete this row?",
+            //    "Delete injured person row",
+            //    MessageBoxButtons.OKCancel,
+            //    MessageBoxIcon.Information);
+            //if (result.Equals(DialogResult.OK))
+            //{
+            //    gv_InjuredPersons.DeleteRow(index);
+            //}
+        }
     }
 }

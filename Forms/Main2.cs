@@ -67,7 +67,7 @@ namespace ResponseEmergencySystem.Forms
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
-
+            splashScreenManager1.ShowWaitForm();
             _controller.AddIncidentView();
         }
 
@@ -101,6 +101,11 @@ namespace ResponseEmergencySystem.Forms
         public void SetController(MainController controller)
         {
             _controller = controller;
+        }
+
+        public void CloseSpinner()
+        {
+            splashScreenManager1.CloseWaitForm();
         }
 
         public void Refresh_Chat(DocumentSnapshot docsnap)
@@ -211,7 +216,9 @@ namespace ResponseEmergencySystem.Forms
 
         private void simpleButton3_Click_1(object sender, EventArgs e)
         {
+            splashScreenManager1.ShowWaitForm();
             _controller.AddIncidentView();
+            
         }
 
         private void simpleButton2_Click_2(object sender, EventArgs e)

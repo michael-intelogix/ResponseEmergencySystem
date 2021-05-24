@@ -29,6 +29,7 @@ namespace ResponseEmergencySystem.Forms.Modals
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.label1 = new System.Windows.Forms.Label();
@@ -47,6 +48,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.xtraFolderBrowserDialog1 = new DevExpress.XtraEditors.XtraFolderBrowserDialog(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
@@ -111,6 +113,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.stackPanel2.Controls.Add(this.simpleButton2);
             this.stackPanel2.Location = new System.Drawing.Point(305, 220);
             this.stackPanel2.Name = "stackPanel2";
+            this.stackPanel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.stackPanel2.Size = new System.Drawing.Size(289, 56);
             this.stackPanel2.TabIndex = 8;
             // 
@@ -124,7 +127,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.simpleButton2.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
             this.simpleButton2.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.checked__1_;
             this.simpleButton2.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.simpleButton2.Location = new System.Drawing.Point(3, 11);
+            this.simpleButton2.Location = new System.Drawing.Point(190, 11);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(96, 34);
             this.simpleButton2.TabIndex = 2;
@@ -153,6 +156,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.simpleButton1.Size = new System.Drawing.Size(86, 34);
             this.simpleButton1.TabIndex = 1;
             this.simpleButton1.Text = "Close";
+            this.simpleButton1.Visible = false;
             // 
             // panelControl1
             // 
@@ -179,6 +183,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.simpleButton3.Size = new System.Drawing.Size(115, 31);
             this.simpleButton3.TabIndex = 13;
             this.simpleButton3.Text = "Files Folder";
+            this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
             // 
             // textEdit1
             // 
@@ -268,6 +273,10 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
+            // xtraFolderBrowserDialog1
+            // 
+            this.xtraFolderBrowserDialog1.SelectedPath = "xtraFolderBrowserDialog1";
+            // 
             // DirectoryError
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -318,5 +327,6 @@ namespace ResponseEmergencySystem.Forms.Modals
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraEditors.XtraFolderBrowserDialog xtraFolderBrowserDialog1;
     }
 }

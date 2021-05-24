@@ -14,6 +14,7 @@ namespace ResponseEmergencySystem.Views
     {
         void SetController(MainController controller);
         void Refresh_Chat(DocumentSnapshot docsnap);
+        void CloseSpinner();
         //void LoadStates(DataTable dt_States);
         //void LoadCities(DataTable dt_Cities);
         //void LoadInjuredPersons(DataTable dt_InjuredPersons);

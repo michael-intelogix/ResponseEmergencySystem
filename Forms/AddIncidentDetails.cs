@@ -162,6 +162,14 @@ namespace ResponseEmergencySystem.Forms
                 splashScreenManager1.ShowWaitForm();
                 var res = _controller.GetTruckSamsara();
                 gMapControl1.Position = new GMap.NET.PointLatLng(res[0], res[1]);
+
+                GMap.NET.WindowsForms.GMapOverlay markers = new GMap.NET.WindowsForms.GMapOverlay("markers");
+                GMap.NET.WindowsForms.GMapMarker marker = new GMap.NET.WindowsForms.Markers.GMarkerGoogle(
+                                                                new GMap.NET.PointLatLng(res[0], res[1]),
+                GMap.NET.WindowsForms.Markers.GMarkerGoogleType.red_dot);
+                gMapControl1.Overlays.Clear();
+                markers.Markers.Add(marker);
+                gMapControl1.Overlays.Add(markers);
                 splashScreenManager1.CloseWaitForm();
             }
             

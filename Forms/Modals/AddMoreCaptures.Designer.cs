@@ -30,7 +30,7 @@ namespace ResponseEmergencySystem.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
@@ -134,6 +134,7 @@ namespace ResponseEmergencySystem.Forms
             this.btn_Save.Appearance.Options.UseBackColor = true;
             this.btn_Save.Appearance.Options.UseFont = true;
             this.btn_Save.Appearance.Options.UseForeColor = true;
+            this.btn_Save.Enabled = false;
             this.btn_Save.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btn_Save.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.saveWhite;
             this.btn_Save.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
@@ -183,10 +184,10 @@ namespace ResponseEmergencySystem.Forms
             this.lue_Type.Properties.ValueMember = "ID_CaptureType";
             this.lue_Type.Size = new System.Drawing.Size(315, 24);
             this.lue_Type.TabIndex = 18;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "This value is not valid";
-            conditionValidationRule1.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
-            this.dxValidationProvider1.SetValidationRule(this.lue_Type, conditionValidationRule1);
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "This value is not valid";
+            conditionValidationRule2.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
+            this.dxValidationProvider1.SetValidationRule(this.lue_Type, conditionValidationRule2);
             this.lue_Type.EditValueChanged += new System.EventHandler(this.lue_Type_EditValueChanged);
             // 
             // pnl_Capture1

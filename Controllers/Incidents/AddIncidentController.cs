@@ -25,6 +25,8 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         public DataTable dt_InjuredPersons = new DataTable();
 
         private List<PersonsInvolved> _PersonsInvolved = new List<PersonsInvolved>();
+        private List<State> _States = new List<State>();
+        private List<Models.Samsara.Driver> _Drivers = new List<Models.Samsara.Driver>();
 
         private Int32 _selectedPerson = 0;
 
@@ -37,6 +39,8 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         public AddIncidentController(IAddIncidentView view)
         {
             _view = view;
+            _Drivers = GetDriversSamsara();
+            _States = GeneralService.list_States();
             view.SetController(this);
         }
 
@@ -47,6 +51,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
         public void LoadStates()
         {
+           
             _view.LoadStates(Functions.getStates());
         }
 
@@ -54,6 +59,57 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         {
             var cities = Functions.getCities(Guid.Parse(_view.ID_State));
             _view.LueCitiesDataSource = cities;
+        }
+
+        public List<Models.Samsara.Driver> GetDriversSamsara()
+        {
+            const string url = "https://api.samsara.com/fleet/drivers";
+
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri(url);
+
+                    // Add an Accept header for JSON format.
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "samsara_api_XwURzQhn0F9rijd0vqXwDgWir2zLWc");
+
+                    // List data response.
+                    HttpResponseMessage response = client.GetAsync(url).Result;  // Blocking call! Program will wait here until a response is received or a timeout occurs.}
+
+                    var data = JArray.Parse(
+                        JObject.Parse(
+                            response.Content.ReadAsStringAsync().Result
+                        )["data"].ToString()
+                    );
+
+                    List<Models.Samsara.Driver> drivers = data.Select(p => new Models.Samsara.Driver
+                    {
+                        ID = (string)p["id"],
+                        Name = (string)p["name"],
+                        Phone = (string)p["phone"],
+                        LicenseNumber = (string)p["licenseNumber"],
+                        LicenseState = (string)p["licenseState"]
+                    }).ToList();
+
+                    //Dispose once all HttpClient calls are complete.This is not necessary if the containing object will be disposed of; for example in this case the HttpClient instance will be disposed automatically when the application terminates so the following call is superfluous.
+                    client.Dispose();
+
+                    return drivers;
+                }
+
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return new List<Models.Samsara.Driver>();
+            }
+
+
+
         }
 
         public double[] GetTruckSamsara()
@@ -138,7 +194,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                 _view.FullName = Driver_Response.Name + " " + Driver_Response.LastName1;
                 _view.PhoneNumber = Driver_Response.PhoneNumber;
                 _view.License = Driver_Response.License;
-                _view.ExpirationDate = ((DateTime)Driver_Response.ExpirationDate).Date;
+                _view.ExpirationDate = (DateTime)Driver_Response.ExpirationDate;
                 _view.LicenseState = Driver_Response.ID_StateOfExpedition;
             }
             

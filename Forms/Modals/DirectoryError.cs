@@ -13,9 +13,21 @@ namespace ResponseEmergencySystem.Forms.Modals
 {
     public partial class DirectoryError : DevExpress.XtraEditors.XtraForm
     {
+        private string AppPath = "";
+
         public DirectoryError()
         {
             InitializeComponent();
+        }
+
+        private void simpleButton3_Click(object sender, EventArgs e)
+        {
+            xtraFolderBrowserDialog1.ShowDialog();
+            AppPath = xtraFolderBrowserDialog1.SelectedPath;
+            textEdit1.Text = AppPath.Replace("\\", "/");
+
+            Properties.Settings.Default.AppFolder = AppPath;
+            Properties.Settings.Default.Save();
         }
     }
 }

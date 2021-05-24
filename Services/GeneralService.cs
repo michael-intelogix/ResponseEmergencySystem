@@ -118,5 +118,58 @@ namespace ResponseEmergencySystem.Services
 
             return result;
         }
+
+        public static List<Truck> list_Trucks()
+        {
+            opSuccess = false;
+            List<Truck> result = new List<Truck>();
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand
+                {
+                    Connection = constants.GeneralConnection,
+                    CommandText = $"List_Trucks",
+                    CommandType = CommandType.StoredProcedure
+                })
+                {
+                    if (cmd.Connection.State == ConnectionState.Open)
+                    {
+                        cmd.Connection.Close();
+                    }
+                    cmd.Connection.Open();
+
+                    cmd.Parameters.AddWithValue("@ID_Capture", "");
+
+                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    {
+                        if (sdr == null)
+                        {
+                            throw new NullReferenceException("No Information Available.");
+                        }
+                        while (sdr.Read())
+                        {
+                            result.Add(
+                                new Truck(
+                                    sdr["pk_id"].ToString(),
+                                    (string)sdr["truck"]
+                                )
+                            );
+                        }
+                    }
+                    cmd.Connection.Close();
+                    opSuccess = true;
+
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Driver couldn't be found due: {ex.Message}");
+
+                return new List<Truck>();
+            }
+            //return result;
+        }
     }
 }
