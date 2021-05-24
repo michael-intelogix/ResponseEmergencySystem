@@ -30,7 +30,6 @@ namespace ResponseEmergencySystem.Forms
         private void InitializeComponent()
         {
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -38,6 +37,7 @@ namespace ResponseEmergencySystem.Forms
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             this.SuspendLayout();
@@ -52,16 +52,6 @@ namespace ResponseEmergencySystem.Forms
             this.gridColumn5,
             this.gridColumn6,
             this.gridColumn7});
-            // 
-            // gridControl1
-            // 
-            this.gridControl1.Location = new System.Drawing.Point(22, 531);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1335, 348);
-            this.gridControl1.TabIndex = 115;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowGroupPanel = false;
@@ -115,6 +105,16 @@ namespace ResponseEmergencySystem.Forms
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 6;
             // 
+            // gridControl1
+            // 
+            this.gridControl1.Location = new System.Drawing.Point(22, 531);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(1335, 348);
+            this.gridControl1.TabIndex = 115;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
             // miwntras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -122,8 +122,8 @@ namespace ResponseEmergencySystem.Forms
             this.ClientSize = new System.Drawing.Size(1142, 632);
             this.Name = "miwntras";
             this.Text = "miwntras";
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             this.ResumeLayout(false);
 
         }
