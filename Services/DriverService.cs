@@ -128,16 +128,22 @@ namespace ResponseEmergencySystem.Services
                             result.Add(
                                 new Driver(
                                     Guid.Parse(sdr["pk_id"].ToString()),
+                                    (string)sdr["ID_Samsara"],
                                     (string)sdr["driverName"],
                                     (string)sdr["pat_surname"],
                                     (string)sdr["mat_surname"],
                                     "",
                                     "",
                                     "",
+                                    "",
                                     ""
                                 //Convert.ToDateTime(sdr["Expiration_Date"]).Date.ToString()
+                                
                                 )
+
                             );
+
+                            Console.WriteLine(sdr["ID_Samsara"]);
                         }
                     }
                     cmd.Connection.Close();

@@ -171,5 +171,122 @@ namespace ResponseEmergencySystem.Services
             }
             //return result;
         }
+
+        public static List<Trailer> list_Trailers()
+        {
+            opSuccess = false;
+            List<Trailer> result = new List<Trailer>();
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand
+                {
+                    Connection = constants.GeneralConnection,
+                    CommandText = $"List_Trailers",
+                    CommandType = CommandType.StoredProcedure
+                })
+                {
+                    if (cmd.Connection.State == ConnectionState.Open)
+                    {
+                        cmd.Connection.Close();
+                    }
+                    cmd.Connection.Open();
+
+                    cmd.Parameters.AddWithValue("@ID_Capture", "");
+
+                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    {
+                        if (sdr == null)
+                        {
+                            throw new NullReferenceException("No Information Available.");
+                        }
+                        while (sdr.Read())
+                        {
+                            result.Add(
+                                new Trailer(
+                                    Guid.Parse((string)sdr["pk_id"]),
+                                    (string)sdr["trailer"],
+                                    (string)sdr["commodity"],
+                                    false
+                                )
+                            );
+                        }
+                    }
+                    cmd.Connection.Close();
+                    opSuccess = true;
+
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Driver couldn't be found due: {ex.Message}");
+
+                return new List<Trailer>();
+            }
+            //return result;
+        }
+
+        public static Response UpdateTrailer(string Trailer, string commodity)
+        {
+            var response = new Response();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand
+                {
+                    Connection = constants.SIREMConnection,
+                    CommandText = $"UpdateTrailers",
+                    CommandType = CommandType.StoredProcedure
+                })
+                {
+                    if (cmd.Connection.State == ConnectionState.Open)
+                    {
+                        cmd.Connection.Close();
+                    }
+
+                    cmd.Parameters.AddWithValue("@sID", "");
+                    cmd.Parameters.AddWithValue("@sTrailer", Trailer);
+                    cmd.Parameters.AddWithValue("@sVIN", "");
+                    cmd.Parameters.AddWithValue("@sPlate", "");
+                    cmd.Parameters.AddWithValue("@sMake", "");
+                    cmd.Parameters.AddWithValue("@sModel", "");
+                    cmd.Parameters.AddWithValue("@sType", "");
+                    cmd.Parameters.AddWithValue("@sYear", "");
+                    cmd.Parameters.AddWithValue("@sCommodity", commodity);
+                    cmd.Parameters.AddWithValue("@sStatus", "1");
+                    cmd.Parameters.AddWithValue("@sLienholder", "");
+                    cmd.Parameters.AddWithValue("@sLienholderType", "");
+
+                    cmd.Connection.Open();
+                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    {
+                        if (sdr == null)
+                        {
+                            throw new NullReferenceException("No Information Available.");
+                        }
+
+                        while (sdr.Read())
+                        {
+                            Debug.WriteLine(sdr["Validacion"]);
+                            Debug.WriteLine(sdr["msg"]);
+                            Debug.WriteLine(sdr["ID"]);
+
+                            //MessageBox.Show((string)sdr["msg"]);
+
+                            response = new Response(Convert.ToBoolean(sdr["Validacion"]), sdr["msg"].ToString(), sdr["ID"].ToString());
+                        }
+                    }
+                    cmd.Connection.Close();
+
+                }
+
+                return response;
+
+            }
+            catch (Exception ex)
+            {
+                return new Response(false, ex.Message, Guid.Empty.ToString());
+            }
+        }
     }
 }

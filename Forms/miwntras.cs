@@ -29,6 +29,8 @@ namespace ResponseEmergencySystem.Forms
         List<Models.Truck> _trucks = new List<Truck>();
         List<Samsara_Models.Vehicle> _TrucksSamsara = new List<Samsara_Models.Vehicle>();
 
+        private List<State> _states = new List<State>();
+
         public miwntras()
         {
             InitializeComponent();
@@ -38,8 +40,9 @@ namespace ResponseEmergencySystem.Forms
         {
             CreatePanel(4);
 
-            //_DriversSamsara = GetDriversSamsara();
-            //_Drivers = GetDrivers();
+            _DriversSamsara = GetDriversSamsara();
+            _Drivers = GetDrivers();
+            _states = GeneralService.list_States();
 
             //gridControl4.DataSource = _Drivers;
 
@@ -48,6 +51,9 @@ namespace ResponseEmergencySystem.Forms
             //gridControl5.DataSource = GetTrucksSamsara();
 
             //gridControl6.DataSource = GeneralService.list_Trucks();
+
+            //var _trailers = GeneralService.list_Trailers();
+            //gridControl8.DataSource = _trailers;
 
             //string path = $"{Settings.Default.AppFolder}\\Drivers Samsara.xlsx";
             //gridControl3.ExportToXlsx(path);
@@ -60,87 +66,71 @@ namespace ResponseEmergencySystem.Forms
 
             //string path4 = $"{Settings.Default.AppFolder}\\Trucks Interno.xlsx";
             //gridControl6.ExportToXlsx(path4);
+
+            //string path5 = $"{Settings.Default.AppFolder}\\Trailers Interno.xlsx";
+            //gridControl8.ExportToXlsx(path5);
             //// Open the created XLSX file with the default application.
             //Process.Start(path);
             //Process.Start(path2);
             //Process.Start(path3);
             //Process.Start(path4);
+            //Process.Start(path5);
 
-            //foreach (var driver in _Drivers)
-            //{
-            //    var obj = new DriverData();
-            //    obj.DriverName = driver.Name;
-            //    obj.PatSurname = driver.LastName1;
-            //    obj.MatSurname = driver.LastName2;
-            //    if (driver.LastName2 == "")
-            //    {
-            //        var result = _DriversSamsara.Where(ds => ds.Name.Contains(driver.Name) && ds.Name.Contains(driver.LastName1)).ToList<Models.Samsara.Driver>();
+            foreach (var driver in _Drivers)
+            {
+                var obj = new DriverData();
 
-            //        if (result.Count > 0)
-            //        {
-            //            for (int i = 0; i < result.Count; i++)
-            //            {
-            //                string fullname = string.Join(" ", new string[] { driver.Name.Trim(), driver.LastName1.Trim(), driver.LastName2.Trim() });
+                var result = _DriversSamsara.Where(ds => ds.ID == driver.ID_Samsara.ToString()).ToList<Models.Samsara.Driver>();
 
-            //                obj.Name2 = result[i].Name;
-            //                obj.License = result[i].LicenseNumber;
-            //                obj.PhoneNumber = result[i].Phone;
-            //                obj.LicenseState = result[i].LicenseState;
-            //                obj.Repeated = (i > 0);
-            //                obj.NotFound = false;
-            //                obj.FullNameMatched = result[i].Name == fullname.Trim();
+                obj.ID = driver.ID_Driver.ToString();
+                obj.ID_Samsara = driver.ID_Samsara;
+                obj.DriverName = driver.Name;
+                obj.PatSurname = driver.LastName1;
+                obj.MatSurname = driver.LastName2;
 
-            //                _DriverData.Add(obj);
-            //            }
-            //        }
-            //        else
-            //        {
-            //            obj.Name2 = "";
-            //            obj.License = "";
-            //            obj.PhoneNumber = "";
-            //            obj.LicenseState = "";
-            //            obj.Repeated = false;
-            //            obj.NotFound = true;
+                if (result.Count > 0)
+                {
+                    for (int i = 0; i < result.Count; i++)
+                    {
+                        string fullname = string.Join(" ", new string[] { driver.Name.Trim(), driver.LastName1.Trim(), driver.LastName2.Trim() });
 
-            //            _DriverData.Add(obj);
-            //        }
-            //    }
-            //    else
-            //    {
-    
-            //        var result = _DriversSamsara.Where(ds => ds.Name.Contains(driver.Name) && ds.Name.Contains(driver.LastName1) && ds.Name.Contains(driver.LastName2)).ToList<Models.Samsara.Driver>();
+                        obj.Name2 = result[i].Name;
+                        obj.License = result[i].LicenseNumber;
+                        obj.PhoneNumber = result[i].Phone;
+                        obj.LicenseState = result[i].LicenseState;
+                        obj.Repeated = (i > 0);
+                        obj.NotFound = false;
+                        obj.FullNameMatched = result[i].Name == fullname.Trim();
 
-            //        if (result.Count > 0)
-            //        {
-            //            for (int i = 0; i < result.Count; i++)
-            //            {
-            //                string fullname = string.Join(" ", new string[] { driver.Name.Trim(), driver.LastName1.Trim(), driver.LastName2.Trim() });
+                        var result2 = _states.Where(s => s.Name == result[i].LicenseState).ToList<State>();
 
-            //                obj.Name2 = result[i].Name;
-            //                obj.License = result[i].LicenseNumber;
-            //                obj.PhoneNumber = result[i].Phone;
-            //                obj.LicenseState = result[i].LicenseState;
-            //                obj.Repeated = (i > 0);
-            //                obj.NotFound = false;
-            //                obj.FullNameMatched = result[i].Name == fullname.Trim();
+                        if (result2.Count > 0 && result2.Count < 2)
+                            obj.LicenseState = result2[0].ID_State;
 
-            //                _DriverData.Add(obj);
-            //            }
-            //        }
-            //        else
-            //        {
-            //            obj.Name2 = "";
-            //            obj.License = "";
-            //            obj.PhoneNumber = "";
-            //            obj.LicenseState = "";
-            //            obj.Repeated = false;
-            //            obj.NotFound = true;
+                        _DriverData.Add(obj);
+                    }
+                }
+                else
+                {
+                    obj.Name2 = "";
+                    obj.License = "";
+                    obj.PhoneNumber = "";
+                    obj.LicenseState = "";
+                    obj.Repeated = false;
+                    obj.NotFound = true;
 
-            //            _DriverData.Add(obj);
-            //        }
+                    _DriverData.Add(obj);
+                }
 
-            //    }
-            //}
+                
+            }
+
+            gridControl3.DataSource = _DriverData;
+
+            string path = $"{Settings.Default.AppFolder}\\Driver Data.xlsx";
+            gridControl3.ExportToXlsx(path);
+
+            Process.Start(path);
 
             //lbl_DriversCount.Text = $"Drivers Count: {_Drivers.Count}";
             //lbl_SamsaraCount.Text = $"Drivers Samsara Count: {_DriversSamsara.Count}";

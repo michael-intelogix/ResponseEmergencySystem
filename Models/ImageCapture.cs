@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,9 @@ namespace ResponseEmergencySystem.Models
         public string ImageFireBaseUrl { get; set; }
         public bool Uploaded { get; set; }
         public string Status { get; }
+
+        public Image Img { get; }
+        public Image Image { get; }
 
         public ImageCapture(string n)
         {
@@ -57,6 +61,8 @@ namespace ResponseEmergencySystem.Models
             this.Status = status;
             this.Uploaded = false;
             this.ID = 0;
+
+            this.Image = GetImage();
         }
 
         //public ImageCapture(string imgName, string imgPath, string )
@@ -83,6 +89,32 @@ namespace ResponseEmergencySystem.Models
             comments = c;
             ID_StatusDetail = id;
             ImagePath = $"https://firebasestorage.googleapis.com/v0/b/dcmanagement-3d402.appspot.com/o/SIREM%2FCaptures%2F{captureId}%2F{imgSubType}%20of%20the%20{imgType}?alt=media&token=a2b4133a-affa-4234-8b62-bf5790fdfba4";
+        }
+
+
+        private Image GetImage()
+        {
+            Image newImg;
+            try
+            {
+                System.Net.WebRequest request =
+                System.Net.WebRequest.Create(this.ImagePath);
+                System.Net.WebResponse response = request.GetResponse();
+                System.IO.Stream responseStream = response.GetResponseStream();
+
+                using (var bmpTemp = new Bitmap(responseStream))
+                {
+                    newImg = new Bitmap(bmpTemp);
+                }
+
+                return newImg;
+            }
+            catch (System.Net.WebException ex)
+            {
+                //MessageBox.Show("There was an error opening the image file.");
+                Console.WriteLine(ex.Message);
+                return null;
+            }
         }
     }
 }

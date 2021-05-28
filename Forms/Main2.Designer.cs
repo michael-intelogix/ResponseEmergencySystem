@@ -132,10 +132,13 @@ namespace ResponseEmergencySystem.Forms
             this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.rpic_Image = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
             this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btn_Picture = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btn_Edit4 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.repositoryItemImageEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemImageEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.gc_Captures = new DevExpress.XtraGrid.GridControl();
             this.gv_Captures = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -225,8 +228,10 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit_Chat.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc_Images)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_Images)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rpic_Image)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Picture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Edit4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc_Captures)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_Captures)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Comments)).BeginInit();
@@ -954,7 +959,9 @@ namespace ResponseEmergencySystem.Forms
             this.gc_Images.Name = "gc_Images";
             this.gc_Images.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btn_Picture,
-            this.btn_Edit4});
+            this.btn_Edit4,
+            this.repositoryItemImageEdit1,
+            this.rpic_Image});
             this.gc_Images.Size = new System.Drawing.Size(707, 201);
             this.gc_Images.TabIndex = 8;
             this.gc_Images.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -969,6 +976,7 @@ namespace ResponseEmergencySystem.Forms
             this.gridColumn14,
             this.gridColumn15,
             this.gridColumn16,
+            this.gridColumn13,
             this.gridColumn17,
             this.gridColumn18});
             this.gv_Images.GridControl = this.gc_Images;
@@ -976,6 +984,7 @@ namespace ResponseEmergencySystem.Forms
             this.gv_Images.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gv_Images.OptionsView.ShowGroupPanel = false;
             this.gv_Images.OptionsView.ShowIndicator = false;
+            this.gv_Images.RowHeight = 150;
             // 
             // gridColumn10
             // 
@@ -996,7 +1005,7 @@ namespace ResponseEmergencySystem.Forms
             this.gridColumn14.OptionsColumn.AllowEdit = false;
             this.gridColumn14.Visible = true;
             this.gridColumn14.VisibleIndex = 0;
-            this.gridColumn14.Width = 140;
+            this.gridColumn14.Width = 127;
             // 
             // gridColumn15
             // 
@@ -1006,7 +1015,7 @@ namespace ResponseEmergencySystem.Forms
             this.gridColumn15.OptionsColumn.AllowEdit = false;
             this.gridColumn15.Visible = true;
             this.gridColumn15.VisibleIndex = 1;
-            this.gridColumn15.Width = 340;
+            this.gridColumn15.Width = 309;
             // 
             // gridColumn16
             // 
@@ -1016,7 +1025,22 @@ namespace ResponseEmergencySystem.Forms
             this.gridColumn16.OptionsColumn.AllowEdit = false;
             this.gridColumn16.Visible = true;
             this.gridColumn16.VisibleIndex = 2;
-            this.gridColumn16.Width = 102;
+            this.gridColumn16.Width = 92;
+            // 
+            // gridColumn13
+            // 
+            this.gridColumn13.Caption = "show";
+            this.gridColumn13.ColumnEdit = this.rpic_Image;
+            this.gridColumn13.FieldName = "Image";
+            this.gridColumn13.Name = "gridColumn13";
+            this.gridColumn13.Visible = true;
+            this.gridColumn13.VisibleIndex = 5;
+            this.gridColumn13.Width = 150;
+            // 
+            // rpic_Image
+            // 
+            this.rpic_Image.Name = "rpic_Image";
+            this.rpic_Image.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
             // 
             // gridColumn17
             // 
@@ -1025,7 +1049,7 @@ namespace ResponseEmergencySystem.Forms
             this.gridColumn17.Name = "gridColumn17";
             this.gridColumn17.Visible = true;
             this.gridColumn17.VisibleIndex = 3;
-            this.gridColumn17.Width = 62;
+            this.gridColumn17.Width = 56;
             // 
             // btn_Picture
             // 
@@ -1045,7 +1069,7 @@ namespace ResponseEmergencySystem.Forms
             this.gridColumn18.Name = "gridColumn18";
             this.gridColumn18.Visible = true;
             this.gridColumn18.VisibleIndex = 4;
-            this.gridColumn18.Width = 56;
+            this.gridColumn18.Width = 50;
             // 
             // btn_Edit4
             // 
@@ -1057,6 +1081,15 @@ namespace ResponseEmergencySystem.Forms
             this.btn_Edit4.Name = "btn_Edit4";
             this.btn_Edit4.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btn_Edit4.Click += new System.EventHandler(this.btn_Edit4_Click);
+            // 
+            // repositoryItemImageEdit1
+            // 
+            this.repositoryItemImageEdit1.AutoHeight = false;
+            this.repositoryItemImageEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemImageEdit1.Name = "repositoryItemImageEdit1";
+            this.repositoryItemImageEdit1.ShowIcon = false;
+            this.repositoryItemImageEdit1.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
             // 
             // labelControl5
             // 
@@ -1447,8 +1480,10 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit_Chat.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc_Images)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_Images)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rpic_Image)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Picture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Edit4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc_Captures)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_Captures)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Comments)).EndInit();
@@ -1584,5 +1619,8 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn13;
+        private DevExpress.XtraEditors.Repository.RepositoryItemImageEdit repositoryItemImageEdit1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit rpic_Image;
     }
 }

@@ -8,6 +8,8 @@ namespace ResponseEmergencySystem.Models.Testing
 {
     public class DriverData
     {
+        public string ID_Samsara { get; set; }
+        public string ID { get; set; }
         public string DriverName { get; set; }
         public string PatSurname { get; set; }
         public string MatSurname { get; set; }

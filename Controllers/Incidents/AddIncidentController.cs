@@ -372,11 +372,16 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                     if (trailerResponse.ItemArray[0].ToString() != "0")
                     {
                         _view.LblTrailerExistsVisibility = false;
+                        _view.BtnAddTrailerVisibility = false;
+                        _view.EdtCommodityReadOnly = true;
                         _view.CargoType = trailerResponse.ItemArray[3].ToString();
                     }
                     else
                     {
                         _view.LblTrailerExistsVisibility = true;
+                        _view.BtnAddTrailerVisibility = true;
+                        _view.EdtCommodityReadOnly = false;
+                        _view.CargoType = "";
                     }
 
                     break;

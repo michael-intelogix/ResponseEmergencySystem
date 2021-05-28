@@ -59,7 +59,10 @@ namespace ResponseEmergencySystem.Forms
             this.lbl_DriversNameNotMatch = new DevExpress.XtraEditors.LabelControl();
             this.gridControl3 = new DevExpress.XtraGrid.GridControl();
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn36 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn38 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn37 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn21 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -91,6 +94,7 @@ namespace ResponseEmergencySystem.Forms
             this.gridView8 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn32 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn33 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn35 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
@@ -371,16 +375,18 @@ namespace ResponseEmergencySystem.Forms
             this.gridControl3.Location = new System.Drawing.Point(31, 291);
             this.gridControl3.MainView = this.gridView3;
             this.gridControl3.Name = "gridControl3";
-            this.gridControl3.Size = new System.Drawing.Size(660, 157);
+            this.gridControl3.Size = new System.Drawing.Size(1301, 451);
             this.gridControl3.TabIndex = 7;
             this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
-            this.gridControl3.Visible = false;
             // 
             // gridView3
             // 
             this.gridView3.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn36,
             this.gridColumn18,
+            this.gridColumn38,
+            this.gridColumn37,
             this.gridColumn19,
             this.gridColumn20,
             this.gridColumn21,
@@ -388,37 +394,61 @@ namespace ResponseEmergencySystem.Forms
             this.gridView3.GridControl = this.gridControl3;
             this.gridView3.Name = "gridView3";
             // 
+            // gridColumn36
+            // 
+            this.gridColumn36.Caption = "ID";
+            this.gridColumn36.FieldName = "ID";
+            this.gridColumn36.Name = "gridColumn36";
+            this.gridColumn36.Visible = true;
+            this.gridColumn36.VisibleIndex = 0;
+            // 
             // gridColumn18
             // 
-            this.gridColumn18.Caption = "ID";
-            this.gridColumn18.FieldName = "ID";
+            this.gridColumn18.Caption = "ID_Samsara";
+            this.gridColumn18.FieldName = "ID_Samsara";
             this.gridColumn18.Name = "gridColumn18";
             this.gridColumn18.Visible = true;
-            this.gridColumn18.VisibleIndex = 0;
+            this.gridColumn18.VisibleIndex = 1;
+            // 
+            // gridColumn38
+            // 
+            this.gridColumn38.Caption = "Name";
+            this.gridColumn38.FieldName = "DriverName";
+            this.gridColumn38.Name = "gridColumn38";
+            this.gridColumn38.Visible = true;
+            this.gridColumn38.VisibleIndex = 2;
+            // 
+            // gridColumn37
+            // 
+            this.gridColumn37.Caption = "Pat Surname";
+            this.gridColumn37.FieldName = "PatSurname";
+            this.gridColumn37.Name = "gridColumn37";
+            this.gridColumn37.Visible = true;
+            this.gridColumn37.VisibleIndex = 3;
             // 
             // gridColumn19
             // 
-            this.gridColumn19.Caption = "Name";
-            this.gridColumn19.FieldName = "Name";
+            this.gridColumn19.Caption = "Mat Surname";
+            this.gridColumn19.FieldName = "MatSurname";
             this.gridColumn19.Name = "gridColumn19";
             this.gridColumn19.Visible = true;
-            this.gridColumn19.VisibleIndex = 1;
+            this.gridColumn19.VisibleIndex = 4;
             // 
             // gridColumn20
             // 
             this.gridColumn20.Caption = "Phone Number";
-            this.gridColumn20.FieldName = "Phone";
+            this.gridColumn20.FieldName = "PhoneNumber";
             this.gridColumn20.Name = "gridColumn20";
             this.gridColumn20.Visible = true;
-            this.gridColumn20.VisibleIndex = 2;
+            this.gridColumn20.VisibleIndex = 5;
             // 
             // gridColumn21
             // 
             this.gridColumn21.Caption = "License";
-            this.gridColumn21.FieldName = "LicenseNumber";
+            this.gridColumn21.FieldName = "License";
             this.gridColumn21.Name = "gridColumn21";
             this.gridColumn21.Visible = true;
-            this.gridColumn21.VisibleIndex = 3;
+            this.gridColumn21.VisibleIndex = 6;
             // 
             // gridColumn22
             // 
@@ -426,7 +456,7 @@ namespace ResponseEmergencySystem.Forms
             this.gridColumn22.FieldName = "LicenseState";
             this.gridColumn22.Name = "gridColumn22";
             this.gridColumn22.Visible = true;
-            this.gridColumn22.VisibleIndex = 4;
+            this.gridColumn22.VisibleIndex = 7;
             // 
             // gridControl4
             // 
@@ -650,7 +680,8 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.gridView8.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn32,
-            this.gridColumn33});
+            this.gridColumn33,
+            this.gridColumn35});
             this.gridView8.GridControl = this.gridControl8;
             this.gridView8.Name = "gridView8";
             this.gridView8.OptionsView.ShowGroupPanel = false;
@@ -658,18 +689,26 @@ namespace ResponseEmergencySystem.Forms
             // gridColumn32
             // 
             this.gridColumn32.Caption = "ID";
-            this.gridColumn32.FieldName = "ID_Truck";
+            this.gridColumn32.FieldName = "ID_Trailer";
             this.gridColumn32.Name = "gridColumn32";
             this.gridColumn32.Visible = true;
             this.gridColumn32.VisibleIndex = 0;
             // 
             // gridColumn33
             // 
-            this.gridColumn33.Caption = "Truck Number";
-            this.gridColumn33.FieldName = "truckNumber";
+            this.gridColumn33.Caption = "TrailerNumber";
+            this.gridColumn33.FieldName = "TrailerNumber";
             this.gridColumn33.Name = "gridColumn33";
             this.gridColumn33.Visible = true;
             this.gridColumn33.VisibleIndex = 1;
+            // 
+            // gridColumn35
+            // 
+            this.gridColumn35.Caption = "Commodity";
+            this.gridColumn35.FieldName = "Commodity";
+            this.gridColumn35.Name = "gridColumn35";
+            this.gridColumn35.Visible = true;
+            this.gridColumn35.VisibleIndex = 2;
             // 
             // labelControl6
             // 
@@ -700,7 +739,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1026, 837);
+            this.ClientSize = new System.Drawing.Size(1344, 837);
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.textEdit1);
             this.Controls.Add(this.labelControl6);
@@ -816,5 +855,9 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.TextEdit textEdit1;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn35;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn36;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn38;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn37;
     }
 }

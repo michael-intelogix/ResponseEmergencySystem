@@ -128,6 +128,27 @@ namespace ResponseEmergencySystem.Forms
 
         }
 
+        public void LoadImageInTable(string imgUrl)
+        {
+            //Image newImg;
+            //try
+            //{
+            //    System.Net.WebRequest request =
+            //    System.Net.WebRequest.Create(imgUrl);
+            //    System.Net.WebResponse response = request.GetResponse();
+            //    System.IO.Stream responseStream = response.GetResponseStream();
+
+            //    using (var bmpTemp = new Bitmap(responseStream))
+            //    {
+            //        newImg = new Bitmap(bmpTemp);
+            //        (ImageEdit) gv_Images.GetRowCellValue(0, "show")
+            //    }
+            //}
+            //catch (System.Net.WebException)
+            //{
+            //    MessageBox.Show("There was an error opening the image file.");
+            //}
+        }
 
         public string ID_Capture
         {

@@ -79,6 +79,8 @@ namespace ResponseEmergencySystem.Forms
             GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
             gMapControl1.Position = new GMap.NET.PointLatLng(36.05948, -102.51325);
             gMapControl1.ShowCenter = false;
+
+            //toolTipController1.ShowHint("HIIII");
         }
 
         private void btn_AddIncident_Click(object sender, EventArgs e)
@@ -134,7 +136,7 @@ namespace ResponseEmergencySystem.Forms
         }
         #endregion
 
-        #region events needed
+         #region events needed
         public void checkNumber_OnEdtKeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)13)
@@ -155,7 +157,7 @@ namespace ResponseEmergencySystem.Forms
             if(Utils.GetEdtValue(edt_TruckNumber) == "" || lbl_TruckExists.Visible)
             {
                 gMapControl1.Position = new GMap.NET.PointLatLng(36.05948, -102.51325);
-                Utils.ShowMessage("There is no truck to find, Please check\n the information again", "Samsara Error");
+                Utils.ShowMessage("There is no truck to find, Please check\n the information again", "Samsara Error", type: "Error");
             }
             else
             {
@@ -421,11 +423,6 @@ namespace ResponseEmergencySystem.Forms
             set { lbl_TruckExists.Visible = value; }
         }
 
-        public bool LblTrailerExistsVisibility
-        {
-            set { lbl_TrailerExists.Visible = value; }
-        }
-
         public object LueCitiesDataSource
         {
             set { lue_Cities.Properties.DataSource = value; }
@@ -530,6 +527,23 @@ namespace ResponseEmergencySystem.Forms
 
         #endregion
 
+        #region truck exists
+        public bool LblTrailerExistsVisibility
+        {
+            set { lbl_TrailerExists.Visible = value; }
+        }
+
+        public bool BtnAddTrailerVisibility
+        {
+            set { btn_AddTrailer.Visible = value; }
+        }
+
+        public bool EdtCommodityReadOnly
+        {
+            set { edt_Cargo.ReadOnly = value; }
+        }
+        #endregion
+
 
         private void ViewIncidentDetails_Load(object sender, EventArgs e)
         {
@@ -591,6 +605,11 @@ namespace ResponseEmergencySystem.Forms
         {
             _controller.RemoveInvolvedPersonByRow(gv_InvolvedPersons.FocusedRowHandle);
             gv_InvolvedPersons.BestFitColumns();
+        }
+
+        private void simpleButton7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

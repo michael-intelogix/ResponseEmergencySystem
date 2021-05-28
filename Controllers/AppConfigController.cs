@@ -84,10 +84,10 @@ namespace ResponseEmergencySystem.Controllers
         {
             if (Utils.ShowConfirmationMessage("Are you sure you want delete this mail?", title: "Delete Mail", type: "Warning"))
             {
+                var response = MailDirectoryService.DeleteMailInDirectory(_mailDirectory[index].ID_Mail);
                 _mailDirectory.RemoveAt(index);
                 _view.MailDirectoryDataSource = _mailDirectory;
 
-                var response = MailDirectoryService.DeleteMailInDirectory(_mailDirectory[index].ID_Mail);
                 Utils.ShowMessage(response.Message, "Mail Response");
  
                 //var response = MailDirectoryService.DeleteMailInDirectory(_view.);

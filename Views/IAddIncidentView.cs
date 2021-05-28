@@ -56,9 +56,9 @@ namespace ResponseEmergencySystem.Views
         //this value can be highway street and other kind of references like that 
         string LocationReferences { get; set; }
 
-        string Comments { get; } 
+        string Comments { get; }
 
-        string IPFullName { get; set; } 
+        string IPFullName { get; set; }
         string IPLastName1 { get; set; }
         string IPLastName2 { get; }
         string IPAge { get; set; }
@@ -73,9 +73,8 @@ namespace ResponseEmergencySystem.Views
         bool PnlBolVisibility { set; }
         bool PnlPoliceReportVisibility { set; }
         bool LblTruckExistsVisibility { set; }
-        bool LblTrailerExistsVisibility { set; }
         object LueCitiesDataSource { set; }
-        object InvolvedPersonsDataSorurce { set;  }
+        object InvolvedPersonsDataSorurce { set; }
         bool PnlDriverInvolvedVisibility { set; }
 
         bool BtnAddInvolvedPersonVisibility { set; }
@@ -98,5 +97,12 @@ namespace ResponseEmergencySystem.Views
         bool EdtPhoneNumberShowWarningIcon { set; }
         bool EdtAgeShowWarningIcon { set; }
         bool EdtLicenseShowWarningIcon { set; }
+
+        #region truck exists
+        bool LblTrailerExistsVisibility { set; }
+        bool BtnAddTrailerVisibility { set; }
+        bool EdtCommodityReadOnly { set; }
+        #endregion
+
     }
 }
