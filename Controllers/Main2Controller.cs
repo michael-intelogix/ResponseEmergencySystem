@@ -1,8 +1,10 @@
 ﻿using ResponseEmergencySystem.Code;
+using ResponseEmergencySystem.Forms;
 using ResponseEmergencySystem.Services;
 using ResponseEmergencySystem.Views;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,10 +16,12 @@ namespace ResponseEmergencySystem.Controllers
     {
         IMain2View _view;
         MainController _mainController;
+        DataTable _access;
 
         public Main2Controller(IMain2View view)
         {
             _view = view;
+            _access = new DataTable();
             view.SetController(this);
         }
 
@@ -38,6 +42,9 @@ namespace ResponseEmergencySystem.Controllers
 
         public void ClearFilters()
         {
+            _view.Date1 = null;
+            _view.Date2 = null;
+            _view.Status = "423E82C9-EE3F-4D83-9066-01E6927FE14D";
             _view.Folio = "";
             _view.DriverName = "";
             _view.TruckNumber = "";
@@ -70,6 +77,29 @@ namespace ResponseEmergencySystem.Controllers
             {
                 Utils.ShowMessage("Aplication settings has been updated");
             }
+        }
+
+        public void Login()
+        {
+            frm_Login login = new frm_Login();
+            try
+            {
+                if (login.ShowDialog() == DialogResult.OK)
+                {
+                    _access = login.myData;
+                    string idmysoftware = "2a5aa42b-2089-4fa8-b7cc-2cea2a017a8a";
+                    DataRow[] accesos = _access.Select($"ID_Software = '{idmysoftware}'");
+                    if (accesos.Length > 0)
+                    {
+                        constants.userName = accesos[0].ItemArray[13].ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
     }
 }

@@ -352,6 +352,7 @@ namespace ResponseEmergencySystem.Controllers
 
         public void ClearFilters()
         {
+            IncidentsFilter("", "", "", "", databaseFilter: true);
             _view.ClearFilters();
         }
     }

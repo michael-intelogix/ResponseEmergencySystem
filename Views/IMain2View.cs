@@ -26,7 +26,7 @@ namespace ResponseEmergencySystem.Views
         string DriverName { get; set; }
         string TruckNumber { get; set; }
 
-        string Status { get; }
+        string Status { get; set; }
 
         object IncidentsDataSource { get; set; }
     }

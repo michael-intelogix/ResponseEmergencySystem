@@ -61,6 +61,7 @@ namespace ResponseEmergencySystem.Forms
         string IMain2View.Status
         {
             get => bar_StatusDetail.EditValue == null ? "" : bar_StatusDetail.EditValue.ToString();
+            set => bar_StatusDetail.EditValue = value;
         }
 
         object IMain2View.IncidentsDataSource { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
