@@ -162,6 +162,9 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.simpleButton8 = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl31 = new DevExpress.XtraEditors.LabelControl();
+            this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
             this.edt_SearchDriver = new DevExpress.XtraEditors.TextEdit();
             this.btn_FindDriver = new DevExpress.XtraEditors.SimpleButton();
             this.lue_DriverLicenseState = new DevExpress.XtraEditors.LookUpEdit();
@@ -557,6 +560,7 @@ namespace ResponseEmergencySystem.Forms
             this.edt_IPLastName1.Properties.Appearance.Options.UseBorderColor = true;
             this.edt_IPLastName1.Size = new System.Drawing.Size(100, 24);
             this.edt_IPLastName1.TabIndex = 122;
+            this.edt_IPLastName1.Leave += new System.EventHandler(this.edt_Leave);
             // 
             // labelControl26
             // 
@@ -658,6 +662,7 @@ namespace ResponseEmergencySystem.Forms
             this.edt_IPFullName.Properties.Appearance.Options.UseBorderColor = true;
             this.edt_IPFullName.Size = new System.Drawing.Size(110, 24);
             this.edt_IPFullName.TabIndex = 121;
+            this.edt_IPFullName.Leave += new System.EventHandler(this.edt_Leave);
             // 
             // ckedt_IPPrivate
             // 
@@ -676,6 +681,7 @@ namespace ResponseEmergencySystem.Forms
             this.ckedt_IPPassenger.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.ckedt_IPPassenger.Size = new System.Drawing.Size(85, 21);
             this.ckedt_IPPassenger.TabIndex = 128;
+            this.ckedt_IPPassenger.CheckedChanged += new System.EventHandler(this.Ckedt_OnValueChanged);
             // 
             // ckedt_IPDriver
             // 
@@ -1528,6 +1534,9 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl1.Appearance.BackColor = System.Drawing.Color.White;
             this.panelControl1.Appearance.Options.UseBackColor = true;
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl1.Controls.Add(this.simpleButton8);
+            this.panelControl1.Controls.Add(this.labelControl31);
+            this.panelControl1.Controls.Add(this.simpleButton7);
             this.panelControl1.Controls.Add(this.edt_SearchDriver);
             this.panelControl1.Controls.Add(this.btn_FindDriver);
             this.panelControl1.Controls.Add(this.lue_DriverLicenseState);
@@ -1545,6 +1554,58 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl1.Size = new System.Drawing.Size(1355, 76);
             this.panelControl1.TabIndex = 1;
             this.panelControl1.TabStop = true;
+            // 
+            // simpleButton8
+            // 
+            this.simpleButton8.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.simpleButton8.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.simpleButton8.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton8.Appearance.Options.UseBackColor = true;
+            this.simpleButton8.Appearance.Options.UseBorderColor = true;
+            this.simpleButton8.Appearance.Options.UseFont = true;
+            this.simpleButton8.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.simpleButton8.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.searchWhite1;
+            this.simpleButton8.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
+            this.simpleButton8.Location = new System.Drawing.Point(507, 11);
+            this.simpleButton8.Name = "simpleButton8";
+            this.simpleButton8.Size = new System.Drawing.Size(208, 24);
+            this.simpleButton8.TabIndex = 131;
+            this.simpleButton8.TabStop = false;
+            this.simpleButton8.Text = "Find driver in samsara";
+            this.simpleButton8.Visible = false;
+            this.simpleButton8.Click += new System.EventHandler(this.simpleButton8_Click);
+            // 
+            // labelControl31
+            // 
+            this.labelControl31.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl31.Appearance.ForeColor = System.Drawing.Color.Maroon;
+            this.labelControl31.Appearance.Options.UseFont = true;
+            this.labelControl31.Appearance.Options.UseForeColor = true;
+            this.labelControl31.Location = new System.Drawing.Point(726, 14);
+            this.labelControl31.Name = "labelControl31";
+            this.labelControl31.Size = new System.Drawing.Size(477, 17);
+            this.labelControl31.TabIndex = 130;
+            this.labelControl31.Text = "Please fill the driver information then click the button to find it in samsara";
+            this.labelControl31.Visible = false;
+            // 
+            // simpleButton7
+            // 
+            this.simpleButton7.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.simpleButton7.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.simpleButton7.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton7.Appearance.Options.UseBackColor = true;
+            this.simpleButton7.Appearance.Options.UseBorderColor = true;
+            this.simpleButton7.Appearance.Options.UseFont = true;
+            this.simpleButton7.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.simpleButton7.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.addWhite;
+            this.simpleButton7.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.simpleButton7.Location = new System.Drawing.Point(1211, 43);
+            this.simpleButton7.Name = "simpleButton7";
+            this.simpleButton7.Size = new System.Drawing.Size(136, 24);
+            this.simpleButton7.TabIndex = 12;
+            this.simpleButton7.TabStop = false;
+            this.simpleButton7.Text = "Update Driver";
+            this.simpleButton7.Visible = false;
             // 
             // edt_SearchDriver
             // 
@@ -1576,7 +1637,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             // lue_DriverLicenseState
             // 
-            this.lue_DriverLicenseState.Location = new System.Drawing.Point(1228, 43);
+            this.lue_DriverLicenseState.Location = new System.Drawing.Point(1137, 43);
             this.lue_DriverLicenseState.Name = "lue_DriverLicenseState";
             this.lue_DriverLicenseState.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1587,7 +1648,7 @@ namespace ResponseEmergencySystem.Forms
             this.lue_DriverLicenseState.Properties.NullText = "";
             this.lue_DriverLicenseState.Properties.ShowHeader = false;
             this.lue_DriverLicenseState.Properties.ValueMember = "pk_id";
-            this.lue_DriverLicenseState.Size = new System.Drawing.Size(119, 24);
+            this.lue_DriverLicenseState.Size = new System.Drawing.Size(57, 24);
             this.lue_DriverLicenseState.TabIndex = 11;
             conditionValidationRule10.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule10.ErrorText = "This value is not valid";
@@ -1596,7 +1657,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(1109, 45);
+            this.labelControl5.Location = new System.Drawing.Point(1018, 45);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(113, 17);
             this.labelControl5.TabIndex = 10;
@@ -1685,7 +1746,7 @@ namespace ResponseEmergencySystem.Forms
             this.dte_ExpirationDate.Properties.MaskSettings.Set("mask", "MM/dd/yyyy");
             this.dte_ExpirationDate.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.dte_ExpirationDate.Properties.UseMaskAsDisplayFormat = true;
-            this.dte_ExpirationDate.Size = new System.Drawing.Size(201, 24);
+            this.dte_ExpirationDate.Size = new System.Drawing.Size(112, 24);
             this.dte_ExpirationDate.TabIndex = 9;
             conditionValidationRule14.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule14.ErrorText = "This value is not valid";
@@ -2131,7 +2192,6 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraEditors.TextEdit edt_IPLicense;
         private DevExpress.XtraEditors.LabelControl labelControl30;
         private DevExpress.XtraEditors.LabelControl labelControl29;
-        private DevExpress.XtraEditors.CheckEdit ckedt_IPPassenger;
         private DevExpress.XtraEditors.TextEdit edt_IPPhoneNumber;
         private DevExpress.XtraEditors.CheckEdit ckedt_IPDriver;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem15;
@@ -2172,5 +2232,9 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.Utils.ToolTipController toolTipController1;
         private DevExpress.XtraEditors.SimpleButton btn_AddTrailer;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraEditors.CheckEdit ckedt_IPPassenger;
+        private DevExpress.XtraEditors.SimpleButton simpleButton7;
+        private DevExpress.XtraEditors.LabelControl labelControl31;
+        private DevExpress.XtraEditors.SimpleButton simpleButton8;
     }
 }

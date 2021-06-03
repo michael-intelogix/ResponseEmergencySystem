@@ -136,7 +136,7 @@ namespace ResponseEmergencySystem.Forms
         }
         #endregion
 
-         #region events needed
+        #region events needed
         public void checkNumber_OnEdtKeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)13)
@@ -218,7 +218,13 @@ namespace ResponseEmergencySystem.Forms
         public DateTime ExpirationDate
         {
             get { return dte_ExpirationDate.DateTime; }
-            set { dte_ExpirationDate.EditValue = value; }
+            set 
+            {
+                if (value == DateTime.Now)
+                    dte_ExpirationDate.EditValue = null;
+                else
+                    dte_ExpirationDate.EditValue = value; 
+            }
         }
 
         public string LicenseState
@@ -502,11 +508,13 @@ namespace ResponseEmergencySystem.Forms
         public bool EdtFullNameShowWarningIcon
         {
             set { pic_FullNameWarning.Visible = value; }
+            get { return pic_FullNameWarning.Visible; }
         }
 
         public bool EdtLastName1ShowWarningIcon
         {
             set { pic_LastName1Warning.Visible = value; }
+            get { return pic_LastName1Warning.Visible; }
         }
 
         public bool EdtPhoneNumberShowWarningIcon
@@ -610,6 +618,19 @@ namespace ResponseEmergencySystem.Forms
         private void simpleButton7_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void edt_Leave(object sender, EventArgs e)
+        {
+            TextEdit edt = (TextEdit)sender;
+
+            _controller.validate(edt.Name);
+        }
+
+        private void simpleButton8_Click(object sender, EventArgs e)
+        {
+            //_controller.FindDriverInSamsara();
+            SamsaraService.UpdateSamsaraDrivers();
         }
     }
 

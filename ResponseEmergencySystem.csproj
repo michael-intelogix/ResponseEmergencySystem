@@ -28,7 +28,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>false</MapFileExtensions>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>41</ApplicationRevision>
+    <ApplicationRevision>42</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -84,6 +84,7 @@
     <Reference Include="DevExpress.Sparkline.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v20.2.UI, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraBars.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraCharts.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraDialogs.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -352,6 +353,7 @@
     <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
     </Reference>
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Text.RegularExpressions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Text.RegularExpressions.4.3.0\lib\net463\System.Text.RegularExpressions.dll</HintPath>
       <Private>True</Private>
@@ -360,7 +362,9 @@
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -391,6 +395,7 @@
     <Compile Include="Controllers\IncidentController.cs" />
     <Compile Include="Controllers\Incidents\AddIncidentController.cs" />
     <Compile Include="Controllers\Incidents\EditIncidentController.cs" />
+    <Compile Include="Controllers\Main2Controller.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\ModalController.cs" />
     <Compile Include="Forms\EditIncidentDetails.cs">
@@ -417,6 +422,12 @@
     <Compile Include="Forms\frm_Login.Designer.cs">
       <DependentUpon>frm_Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frm_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm_Main.Designer.cs">
+      <DependentUpon>frm_Main.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Helpers\frm_Zoom.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -434,6 +445,12 @@
     </Compile>
     <Compile Include="Forms\Main2.Designer.cs">
       <DependentUpon>Main2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Main3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Main3.Designer.cs">
+      <DependentUpon>Main3.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\miwntras.cs">
       <SubType>Form</SubType>
@@ -530,6 +547,7 @@
     <Compile Include="Services\IncidentService.cs" />
     <Compile Include="Services\GeneralService.cs" />
     <Compile Include="Services\MailDirectoryService.cs" />
+    <Compile Include="Services\SamsaraService.cs" />
     <Compile Include="Services\StatusDetailService.cs" />
     <Compile Include="Forms\Main.cs">
       <SubType>Form</SubType>
@@ -572,6 +590,7 @@
     <Compile Include="Views\IEditImageData.cs" />
     <Compile Include="Views\IEditIncidentView.cs" />
     <Compile Include="Views\IImageView.cs" />
+    <Compile Include="Views\IMain2View.cs" />
     <Compile Include="Views\IMainView.cs" />
     <Compile Include="Views\IModalView.cs" />
     <Compile Include="Views\IShowIncidentDetails.cs" />
@@ -586,6 +605,36 @@
     <None Include="Resources\checked %281%29.svg" />
     <None Include="Resources\índice.jpg" />
     <None Include="Resources\placeholder.jpg" />
+    <None Include="Resources\clearfilter_16x16.png" />
+    <None Include="Resources\properties_16x16.png" />
+    <None Include="Resources\properties_32x32.png" />
+    <None Include="Resources\add_16x161.png" />
+    <None Include="Resources\clearfilter_16x161.png" />
+    <None Include="Resources\preview_32x32.png" />
+    <None Include="Resources\edit_32x32.png" />
+    <None Include="Resources\preview_32x321.png" />
+    <None Include="Resources\preview_16x161.png" />
+    <None Include="Resources\edit_16x16.png" />
+    <None Include="Resources\clearfilter_32x32.png" />
+    <None Include="Resources\clearfilter_16x162.png" />
+    <None Include="Resources\today_32x32.png" />
+    <None Include="Resources\today_16x16.png" />
+    <None Include="Resources\today_32x321.png" />
+    <None Include="Resources\today_16x161.png" />
+    <None Include="Resources\status_32x32.png" />
+    <None Include="Resources\status_16x16.png" />
+    <None Include="Resources\refresh_32x32.png" />
+    <None Include="Resources\refresh_16x16.png" />
+    <None Include="Resources\insert_32x32.png" />
+    <None Include="Resources\insert_16x16.png" />
+    <None Include="Resources\properties_32x321.png" />
+    <None Include="Resources\properties_32x322.png" />
+    <None Include="Resources\properties_16x161.png" />
+    <None Include="Resources\editcomment_32x32.png" />
+    <None Include="Resources\comment_32x32.png" />
+    <None Include="Resources\save_16x16.png" />
+    <None Include="Resources\botask_16x16.png" />
+    <None Include="Resources\comment_16x16.png" />
     <Content Include="x64\SQLite.Interop.dll" />
     <Content Include="x86\SQLite.Interop.dll" />
     <EmbeddedResource Include="Forms\EditIncidentDetails.resx">
@@ -599,6 +648,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frm_Login.resx">
       <DependentUpon>frm_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm_Main.resx">
+      <DependentUpon>frm_Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Helpers\frm_Zoom.resx">
       <DependentUpon>frm_Zoom.cs</DependentUpon>
@@ -617,6 +669,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Main2.resx">
       <DependentUpon>Main2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Main3.resx">
+      <DependentUpon>Main3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\miwntras.resx">
       <DependentUpon>miwntras.cs</DependentUpon>

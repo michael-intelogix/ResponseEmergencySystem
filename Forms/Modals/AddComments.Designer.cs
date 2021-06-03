@@ -74,6 +74,7 @@ namespace ResponseEmergencySystem.Forms
             this.btn_Cancel2.Size = new System.Drawing.Size(102, 42);
             this.btn_Cancel2.TabIndex = 2;
             this.btn_Cancel2.Text = "Cancel";
+            this.btn_Cancel2.Click += new System.EventHandler(this.btn_Cancel2_Click);
             // 
             // labelControl2
             // 
@@ -100,9 +101,11 @@ namespace ResponseEmergencySystem.Forms
             this.Controls.Add(this.btn_Cancel2);
             this.Controls.Add(this.simpleButton9);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AddComments";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Add Comments";
+            this.Text = "Edit Capture Comments";
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

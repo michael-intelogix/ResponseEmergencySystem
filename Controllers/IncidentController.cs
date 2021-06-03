@@ -78,7 +78,7 @@ namespace ResponseEmergencySystem.Controllers
             _view.FullName = _selectedIncident.Name;
             _view.PhoneNumber = _selectedIncident.PhoneNumber;
             _view.License = _selectedIncident.driver.License;
-            _view.ExpirationDate = _selectedIncident.driver.ExpirationDate.ToString();
+            _view.ExpirationDate = Convert.ToDateTime(_selectedIncident.driver.ExpirationDate).Date;
             _view.LicenseState = _selectedIncident.driver.ID_StateOfExpedition;
             _view.TruckNumber = _selectedIncident.truck.truckNumber;
             _view.TrailerNumber = _selectedIncident.trailer.TrailerNumber;

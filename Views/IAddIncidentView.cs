@@ -92,8 +92,8 @@ namespace ResponseEmergencySystem.Views
         BorderStyles EdtAgeBorder { get; set; }
         BorderStyles EdtLicenseBorder { get; set; }
 
-        bool EdtFullNameShowWarningIcon { set; }
-        bool EdtLastName1ShowWarningIcon { set; }
+        bool EdtFullNameShowWarningIcon { get; set; }
+        bool EdtLastName1ShowWarningIcon { get; set; }
         bool EdtPhoneNumberShowWarningIcon { set; }
         bool EdtAgeShowWarningIcon { set; }
         bool EdtLicenseShowWarningIcon { set; }

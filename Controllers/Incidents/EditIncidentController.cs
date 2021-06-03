@@ -39,6 +39,8 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         private string ID_Trailer;
         private string comments = "";
 
+        private bool _errors = false;
+
         public EditIncidentController(IEditIncidentView view, string incidentId)
         {
             ID_Incident = incidentId;
@@ -85,6 +87,8 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             _view.Broker = _selectedIncident.broker.Name;
             _view.Comments = _selectedIncident.Comments;
 
+            _view.ID_StatusDetail = _selectedIncident.ID_StatusDetail;
+
             #region Accident Details
             //_view.IncidentDate = _selectedIncident.IncidentDate.Date;
             //_view.IncidentDate = _selectedIncident.IncidentDate.ToString("hh:mm:ss tt");
@@ -100,6 +104,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
             _view.LoadIncident(_selectedIncident);
             _view.LoadStates(Functions.getStates());
+            _view.LueStatusDetailDataSource = StatusDetailService.list_StatusDetail();
             if (_PersonsInvolved.Count > 0)
                 _view.InvolvedPersonsDataSorurce = _PersonsInvolved;
 
@@ -194,7 +199,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                 _view.FullName = Driver_Response.Name + " " + Driver_Response.LastName1;
                 _view.PhoneNumber = Driver_Response.PhoneNumber;
                 _view.License = Driver_Response.License;
-                _view.ExpirationDate = ((DateTime)Driver_Response.ExpirationDate).Date;
+                _view.ExpirationDate = Convert.ToDateTime(Driver_Response.ExpirationDate).Date;
                 _view.LicenseState = Driver_Response.ID_StateOfExpedition;
             }
         }
@@ -253,44 +258,6 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         public void AddPersonInvolved()
         {
             int errors = 0;
-            if (_view.IPFullName.Length == 0)
-            {
-                _view.EdtFullNameBorder = BorderStyles.Simple;
-                _view.EdtFullNameShowWarningIcon = true;
-                errors += 1;
-            }
-            else
-            {
-                _view.EdtFullNameBorder = BorderStyles.Default;
-                _view.EdtFullNameShowWarningIcon = false;
-            }
-
-            if (_view.IPLastName1.Length == 0)
-            {
-                _view.EdtLastNameBorder = BorderStyles.Simple;
-                _view.EdtLastName1ShowWarningIcon = true;
-                errors += 1;
-            }
-            else
-            {
-                _view.EdtLastNameBorder = BorderStyles.Default;
-                _view.EdtLastName1ShowWarningIcon = false;
-            }
-            //if (_view.IPPhoneNumber.Length == 0)
-            //{
-            //    _view.EdtPhoneNumberBorder = BorderStyles.Simple;
-            //    errors += 1;
-            //}
-            //else
-            //    _view.EdtPhoneNumberBorder = BorderStyles.Default;
-
-            //if (_view.IPAge.Length == 0)
-            //{
-            //    _view.EdtAgeBorder = BorderStyles.Simple;
-            //    errors += 1;
-            //}
-            //else
-            //    _view.EdtAgeBorder = BorderStyles.Default;
 
             if (_view.IPDriver)
             {
@@ -331,47 +298,6 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         public void UpdatePersonInvolved()
         {
             int errors = 0;
-            if (_view.IPFullName.Length == 0)
-            {
-                _view.EdtFullNameBorder = BorderStyles.Simple;
-                _view.EdtFullNameShowWarningIcon = true;
-                errors += 1;
-            }
-            else
-            {
-                _view.EdtFullNameBorder = BorderStyles.Default;
-                _view.EdtFullNameShowWarningIcon = false;
-            }
-
-            if (_view.IPLastName1.Length == 0)
-            {
-                _view.EdtLastNameBorder = BorderStyles.Simple;
-                _view.EdtLastName1ShowWarningIcon = true;
-                errors += 1;
-            }
-            else
-            {
-                _view.EdtLastNameBorder = BorderStyles.Default;
-                _view.EdtLastName1ShowWarningIcon = false;
-            }
-
-            //if (_view.IPPhoneNumber.Length == 0)
-            //{
-            //    _view.EdtPhoneNumberBorder = BorderStyles.Simple;
-            //    errors += 1;
-            //}
-            //else
-            //    _view.EdtPhoneNumberBorder = BorderStyles.Default;
-
-            //if (_view.IPAge.Length == 0)
-            //{
-            //    _view.EdtAgeBorder = BorderStyles.Simple;
-            //    errors += 1;
-            //}
-            //else
-            //_view.EdtAgeBorder = BorderStyles.Default;
-
-
 
             if (_view.IPDriver)
             {
@@ -389,10 +315,10 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             }
             else
             {
-                if (errors > 5) { errors -= 1; }
+                if (errors > 0) { errors -= 1; }
             }
 
-            if (errors == 0)
+            if (!_errors)
             {
                 _view.LblEmptyFieldsVisibility = false;
                 _PersonsInvolved[_selectedPerson].FullName = _view.IPFullName; 
@@ -435,11 +361,8 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             _view.BtnAddInvolvedPersonVisibility = false;
             _view.BtnEditInvolvedPersonVisibility = true;
 
-            //_view.BtnEditInvolvedPersonText = "Update person";
             if (_view.BtnEditInvolvedPersonLocation.X == 13)
                 _view.BtnEditInvolvedPersonLocation = new System.Drawing.Point(494, 85);
-            //_view.BtnAddInvolvedPersonSize = new System.Drawing.Size(135, 23);
-            
         }
 
         public void RemoveInvolvedPersonByRow(int idx)
@@ -450,9 +373,6 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
         public void Update()
         {
-            //DataRow folioReponse = Functions.Get_Folio().Select().First();
-            //string folio = folioReponse.ItemArray[2].ToString() + "-" + folioReponse.ItemArray[3].ToString();
-
             //check location refreces
             try
             {
@@ -464,6 +384,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                     ID_Broker.ToUpper(),
                     ID_Truck,
                     ID_Trailer,
+                    _view.ID_StatusDetail,
                     _view.IncidentDate,
                     _view.PoliceReport,
                     _view.CitationReportNumber,
@@ -502,11 +423,70 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             {
                 MessageBox.Show(e.Message);
             }
-
-
-            /*MessageBox.Show(IncidentService.response.Message);*/
         }
-        
+
+        public void CheckEditChanged(string ckedtName, bool ckedtValue)
+        {
+            switch (ckedtName)
+            {
+                case "ckedt_IPPassenger":
+                    if (_view.IPDriver && ckedtValue)
+                    {
+                        _view.IPDriver = false;
+                        _view.PnlDriverInvolvedVisibility = false;
+                        _view.IPLicense = "";
+                    }
+                    break;
+                case "ckedt_IPDriver":
+                    if (_view.IPPassenger && ckedtValue)
+                        _view.IPPassenger = false;
+                    _view.PnlDriverInvolvedVisibility = ckedtValue;
+                    break;
+            }
+        }
+
+        public void validate(string edtName)
+        {
+            switch (edtName)
+            {
+                case "edt_IPFullName":
+                    if (_view.IPFullName.Length == 0)
+                    {
+                        _view.EdtFullNameBorder = BorderStyles.Simple;
+                        _view.EdtFullNameShowWarningIcon = true;
+                    }
+                    else
+                    {
+                        _view.EdtFullNameBorder = BorderStyles.Default;
+                        _view.EdtFullNameShowWarningIcon = false;
+                    }
+                    break;
+                case "edt_IPLastName1":
+                    if (_view.IPLastName1.Length == 0)
+                    {
+                        _view.EdtLastNameBorder = BorderStyles.Simple;
+                        _view.EdtLastName1ShowWarningIcon = true;
+                    }
+                    else
+                    {
+                        _view.EdtLastNameBorder = BorderStyles.Default;
+                        _view.EdtLastName1ShowWarningIcon = false;
+                    }
+                    break;
+            }
+
+            if (_view.EdtFullNameShowWarningIcon || _view.EdtLastName1ShowWarningIcon)
+            {
+                _view.LblEmptyFieldsVisibility = true;
+                _errors = true;
+            }
+            else 
+            { 
+                _view.LblEmptyFieldsVisibility = false;
+                _errors = false;
+            }
+        }
+
         private void CleanPersonInvolvedCapture()
         {
             _view.IPFullName = "";

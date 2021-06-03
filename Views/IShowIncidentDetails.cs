@@ -24,7 +24,7 @@ namespace ResponseEmergencySystem.Views
         string FullName { get; set; }
         string PhoneNumber { get; set; }
         string License { get; set; }
-        string ExpirationDate { get; set; }
+        DateTime ExpirationDate { get; set; }
         string LicenseState { get; set; }
         string TruckNumber { get; set; }
         bool TruckDamages { get; set; }

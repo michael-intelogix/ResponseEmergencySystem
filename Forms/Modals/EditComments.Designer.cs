@@ -41,18 +41,18 @@ namespace ResponseEmergencySystem.Forms.Modals
             // 
             // memoEdit1
             // 
-            this.memoEdit1.Location = new System.Drawing.Point(103, 83);
+            this.memoEdit1.Location = new System.Drawing.Point(24, 44);
             this.memoEdit1.Name = "memoEdit1";
-            this.memoEdit1.Size = new System.Drawing.Size(321, 161);
+            this.memoEdit1.Size = new System.Drawing.Size(400, 197);
             this.memoEdit1.TabIndex = 9;
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(24, 84);
+            this.labelControl2.Location = new System.Drawing.Point(105, 12);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(63, 17);
+            this.labelControl2.Size = new System.Drawing.Size(249, 17);
             this.labelControl2.TabIndex = 8;
-            this.labelControl2.Text = "Comments";
+            this.labelControl2.Text = "Write the comments you want to update.";
             // 
             // btn_Cancel2
             // 
@@ -72,6 +72,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.btn_Cancel2.Size = new System.Drawing.Size(102, 42);
             this.btn_Cancel2.TabIndex = 7;
             this.btn_Cancel2.Text = "Cancel";
+            this.btn_Cancel2.Click += new System.EventHandler(this.btn_Cancel2_Click);
             // 
             // simpleButton9
             // 
@@ -95,15 +96,16 @@ namespace ResponseEmergencySystem.Forms.Modals
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(24, 37);
+            this.labelControl1.Location = new System.Drawing.Point(51, 282);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(36, 17);
             this.labelControl1.TabIndex = 11;
             this.labelControl1.Text = "Status";
+            this.labelControl1.Visible = false;
             // 
             // lue_StatusDetail
             // 
-            this.lue_StatusDetail.Location = new System.Drawing.Point(103, 34);
+            this.lue_StatusDetail.Location = new System.Drawing.Point(351, 279);
             this.lue_StatusDetail.Name = "lue_StatusDetail";
             this.lue_StatusDetail.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -114,8 +116,9 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.lue_StatusDetail.Properties.NullText = "";
             this.lue_StatusDetail.Properties.ShowHeader = false;
             this.lue_StatusDetail.Properties.ValueMember = "ID_StatusDetail";
-            this.lue_StatusDetail.Size = new System.Drawing.Size(134, 24);
+            this.lue_StatusDetail.Size = new System.Drawing.Size(73, 24);
             this.lue_StatusDetail.TabIndex = 12;
+            this.lue_StatusDetail.Visible = false;
             // 
             // EditComments
             // 
@@ -129,9 +132,11 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.Controls.Add(this.btn_Cancel2);
             this.Controls.Add(this.simpleButton9);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "EditComments";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Edit";
+            this.Text = "Edit Comments";
             this.Load += new System.EventHandler(this.EditComments_Load);
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_StatusDetail.Properties)).EndInit();

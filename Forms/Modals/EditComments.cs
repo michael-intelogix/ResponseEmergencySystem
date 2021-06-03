@@ -62,5 +62,11 @@ namespace ResponseEmergencySystem.Forms.Modals
         {
             _controller.UpdateData();
         }
+
+        private void btn_Cancel2_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
     }
 }

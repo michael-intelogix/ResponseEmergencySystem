@@ -22,12 +22,16 @@ namespace ResponseEmergencySystem.Forms.Modals
 
         private void simpleButton3_Click(object sender, EventArgs e)
         {
-            xtraFolderBrowserDialog1.ShowDialog();
-            AppPath = xtraFolderBrowserDialog1.SelectedPath;
-            textEdit1.Text = AppPath.Replace("\\", "/");
+            
+            if (xtraFolderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            {
+                AppPath = xtraFolderBrowserDialog1.SelectedPath;
+                textEdit1.Text = AppPath.Replace("\\", "/");
 
-            Properties.Settings.Default.AppFolder = AppPath;
-            Properties.Settings.Default.Save();
+                Properties.Settings.Default.AppFolder = AppPath;
+                Properties.Settings.Default.Save();
+            }
+                
         }
     }
 }

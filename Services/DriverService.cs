@@ -55,10 +55,11 @@ namespace ResponseEmergencySystem.Services
                                     (string)sdr["pat_surname"],
                                     (string)sdr["mat_surname"],
                                     (string)sdr["phone_number"],
-                                    (string)sdr["License"],
+                                    sdr["License"] == DBNull.Value ? "" : (string)sdr["License"],
                                     (string)sdr["ID_State"],
                                     (string)sdr["state_name"],
-                                    DateTime.Now.Date.ToString()
+                                    sdr["Expiration_Date"] == DBNull.Value ? "" : Convert.ToDateTime(sdr["Expiration_Date"]).Date.ToString()
+                                //DateTime.Now.Date.ToString()
                                 //Convert.ToDateTime(sdr["Expiration_Date"]).Date.ToString()
                                 )
                             ) ;
@@ -161,5 +162,57 @@ namespace ResponseEmergencySystem.Services
             //return result;
         }
 
+        //public static Response UpdateDriver(Driver d)
+        //{
+        //    try
+        //    {
+        //        using (SqlCommand cmd = new SqlCommand
+        //        {
+        //            Connection = constants.GeneralConnection,
+        //            CommandText = $"Update_Driver",
+        //            CommandType = CommandType.StoredProcedure
+        //        })
+        //        {
+        //            if (cmd.Connection.State == ConnectionState.Open)
+        //            {
+        //                cmd.Connection.Close();
+        //            }
+
+        //            cmd.Parameters.AddWithValue("@ID_Category", Guid.Empty);
+        //            cmd.Parameters.AddWithValue("@Category", category);
+        //            cmd.Parameters.AddWithValue("@Status", true);
+
+        //            cmd.Connection.Open();
+        //            using (SqlDataReader sdr = cmd.ExecuteReader())
+        //            {
+        //                if (sdr == null)
+        //                {
+        //                    throw new NullReferenceException("No Information Available.");
+        //                }
+
+        //                while (sdr.Read())
+        //                {
+        //                    Debug.WriteLine(sdr["Validacion"]);
+        //                    Debug.WriteLine(sdr["msg"]);
+        //                    Debug.WriteLine(sdr["ID"]);
+
+        //                    //MessageBox.Show((string)sdr["msg"]);
+
+        //                    response = new Response(Convert.ToBoolean(sdr["Validacion"]), sdr["msg"].ToString(), sdr["ID"].ToString());
+        //                }
+        //            }
+        //            cmd.Connection.Close();
+
+        //        }
+
+        //        return response;
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return new Response(false, ex.Message, Guid.Empty.ToString());
+        //    }
+
+        //}
     }
 }

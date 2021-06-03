@@ -9,6 +9,8 @@ namespace ResponseEmergencySystem.Models.Samsara
     public class Driver
     {
         public string ID { get; set; }
+        public string ID_Samsara { get; set; }
+        public string ID_State { get; set; }
         public string Name { get; set; }
         public string Phone { get; set; }
         public string LicenseNumber { get; set; }

@@ -11,12 +11,12 @@ namespace ResponseEmergencySystem.Views
     public interface IBrokerView
     {
         void SetController(BrokerController controller);
-        void LoadBrokers(List<Broker> brokers);
 
         string Broker { get; set; }
         string State { get; set; }
         string City { get; set; }
         string Address { get; set; }
+        string PhoneNumber { get; set; }
         bool Private { get; set; }
 
         string StateName { get; }
@@ -25,6 +25,7 @@ namespace ResponseEmergencySystem.Views
         #region
         object CitiesDataSource { set; }
         object StatesDataSource { set; }
+        object BrokersDataSource { set; }
         #endregion
 
     }

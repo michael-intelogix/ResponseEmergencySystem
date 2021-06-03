@@ -56,7 +56,8 @@ namespace ResponseEmergencySystem.Forms.Modals
 
         private void add_Click(object sender, EventArgs e)
         {
-            gc_Brokers.DataSource = _controller.Save();
+
+            _controller.Save();
             //gc_Brokers.Update();
             gridView1.BestFitColumns();
         }
@@ -70,11 +71,6 @@ namespace ResponseEmergencySystem.Forms.Modals
         public void SetController(BrokerController controller)
         {
             _controller = controller;
-        }
-
-        public void LoadBrokers(List<Broker> brokers)
-        {
-            gc_Brokers.DataSource = brokers;
         }
 
         public string Broker
@@ -101,6 +97,12 @@ namespace ResponseEmergencySystem.Forms.Modals
             set { edt_Address.EditValue = value; }
         }
 
+        public string PhoneNumber
+        {
+            get { return Utils.GetEdtValue(edt_PhoneNumber); }
+            set { edt_PhoneNumber.EditValue = value; }
+        }
+
         public bool Private
         {
             get { return (bool)ckedt_Private.EditValue; }
@@ -109,12 +111,12 @@ namespace ResponseEmergencySystem.Forms.Modals
 
         public string StateName
         {
-            get { return lue_State.Properties.DisplayMember; }
+            get { return lue_State.Text; }
         }
 
         public string CityName
         {
-            get { return lue_City.Properties.DisplayMember; }
+            get { return lue_City.Text; }
         }
         #endregion
 
@@ -128,6 +130,11 @@ namespace ResponseEmergencySystem.Forms.Modals
         public object StatesDataSource
         {
             set { lue_State.Properties.DataSource = value; }
+        }
+
+        public object BrokersDataSource
+        {
+            set { gc_Brokers.DataSource = value; }
         }
         #endregion
     }

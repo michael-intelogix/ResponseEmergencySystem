@@ -85,6 +85,8 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.edt_PhoneNumber = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Approved1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -111,6 +113,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_PhoneNumber.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_Approved1
@@ -240,6 +243,8 @@ namespace ResponseEmergencySystem.Forms.Modals
             // 
             // panelControl2
             // 
+            this.panelControl2.Controls.Add(this.edt_PhoneNumber);
+            this.panelControl2.Controls.Add(this.labelControl7);
             this.panelControl2.Controls.Add(this.lue_City);
             this.panelControl2.Controls.Add(this.lue_State);
             this.panelControl2.Controls.Add(this.btn_Add);
@@ -312,7 +317,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             // 
             // ckedt_Private
             // 
-            this.ckedt_Private.Location = new System.Drawing.Point(460, 74);
+            this.ckedt_Private.Location = new System.Drawing.Point(487, 74);
             this.ckedt_Private.Name = "ckedt_Private";
             this.ckedt_Private.Properties.Caption = "Private";
             this.ckedt_Private.Size = new System.Drawing.Size(65, 21);
@@ -322,7 +327,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             // 
             this.edt_Address.Location = new System.Drawing.Point(80, 73);
             this.edt_Address.Name = "edt_Address";
-            this.edt_Address.Size = new System.Drawing.Size(360, 24);
+            this.edt_Address.Size = new System.Drawing.Size(221, 24);
             this.edt_Address.TabIndex = 8;
             // 
             // labelControl6
@@ -573,6 +578,21 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
+            // edt_PhoneNumber
+            // 
+            this.edt_PhoneNumber.Location = new System.Drawing.Point(405, 73);
+            this.edt_PhoneNumber.Name = "edt_PhoneNumber";
+            this.edt_PhoneNumber.Size = new System.Drawing.Size(76, 24);
+            this.edt_PhoneNumber.TabIndex = 14;
+            // 
+            // labelControl7
+            // 
+            this.labelControl7.Location = new System.Drawing.Point(307, 76);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(92, 17);
+            this.labelControl7.TabIndex = 13;
+            this.labelControl7.Text = "Phone Number";
+            // 
             // frm_BrokerList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -615,6 +635,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_PhoneNumber.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -662,5 +683,7 @@ namespace ResponseEmergencySystem.Forms.Modals
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraEditors.SimpleButton btn_Cancel2;
         private DevExpress.XtraEditors.SimpleButton simpleButton9;
+        private DevExpress.XtraEditors.TextEdit edt_PhoneNumber;
+        private DevExpress.XtraEditors.LabelControl labelControl7;
     }
 }

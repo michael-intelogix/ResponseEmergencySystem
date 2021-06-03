@@ -14,7 +14,6 @@ namespace ResponseEmergencySystem.Controllers
     {
         IBrokerView _view;
         public List<Broker> _brokers;
-        List<Incident> _incidents;
         public string ID_Incident;
         //Incident _selectedIncident;
         //DataTable dt_InjuredPersons = new DataTable();
@@ -33,15 +32,14 @@ namespace ResponseEmergencySystem.Controllers
 
         public void SaveBroker()
         {
-            BrokerService.update_Broker(_view.State, _view.City, _view.Broker, _view.Address);
+            BrokerService.update_Broker(_view.State, _view.City, _view.Broker, _view.Address, _view.PhoneNumber,  _view.Private);
         }
 
         public void LoadBrokers()
         {
-            _view.LoadBrokers(_brokers);
             var states = GeneralService.list_States();
             _view.StatesDataSource = states;
-            
+            _view.BrokersDataSource = _brokers;
             //_view.LoadCaptures(_captures);
         }
 
@@ -49,16 +47,21 @@ namespace ResponseEmergencySystem.Controllers
         {
             _view.CitiesDataSource = GeneralService.list_Cities(ID_State);
         }
-        public List<Broker> Save()
+        public void Save()
         {
-            BrokerService.update_Broker(_view.State, _view.City, _view.Broker, _view.Address);
+            BrokerService.update_Broker(_view.State, _view.City, _view.Broker, _view.Address, _view.PhoneNumber, _view.Private);
             if (BrokerService.response.validation)
             {
                 _brokers.Add(new Broker("", _view.State, _view.City, _view.StateName, _view.CityName, _view.Broker, _view.Address));
                 Utils.ShowMessage("The towing company was added succesfully", "Towing company listing");
-                return _brokers;
-            }
-            return _brokers;
+                _view.BrokersDataSource = _brokers;
+            } 
+            else
+            {
+                Utils.ShowMessage(BrokerService.response.Message, "Towing company listing", type: "Error");
+                _view.BrokersDataSource = _brokers;
+            } 
+            
         }
 
         public Broker GetBrokerByIndex(Int32 idx)

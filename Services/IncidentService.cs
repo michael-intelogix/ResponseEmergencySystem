@@ -40,7 +40,7 @@ namespace ResponseEmergencySystem.Services
                     cmd.Parameters.AddWithValue("@ID_Incident", Guid.Parse(incidentId));
                     cmd.Parameters.AddWithValue("@Folio", folio);
                     cmd.Parameters.AddWithValue("@ID_Driver", driverId);
-                    cmd.Parameters.AddWithValue("@ID_StatusDetail", statusDetailId);
+                    cmd.Parameters.AddWithValue("@ID_StatusDetail", statusDetailId == "" ? "423E82C9-EE3F-4D83-9066-01E6927FE14D" : statusDetailId);
                     cmd.Parameters.AddWithValue("@DriverName", driverName);
                     cmd.Parameters.AddWithValue("@Truck_No", truckNum);
                     cmd.Parameters.AddWithValue("@Trailer_No", "");
@@ -79,7 +79,7 @@ namespace ResponseEmergencySystem.Services
                                     (bool)sdr["TrailerDamage"],
                                     (bool)sdr["TrailerCanMove"],
                                     (bool)sdr["TrailerNeedCrane"],
-                                    new Driver(Guid.Parse((string)sdr["ID_Driver"]), (string)sdr["License"], (string)sdr["Expedition_State"], sdr["Expiration_Date"].ToString()),
+                                    new Driver(Guid.Parse((string)sdr["ID_Driver"]), (string)sdr["License"], (string)sdr["Expedition_State"], ExpirationDate: sdr["Expiration_Date"] == DBNull.Value ? "" : Convert.ToDateTime(sdr["Expiration_Date"]).Date.ToString()),
                                     (string)sdr["ID_City"],
                                     (string)sdr["ID_State"],
                                     (string)sdr["ID_Broker"],
@@ -216,6 +216,7 @@ namespace ResponseEmergencySystem.Services
                     cmd.Parameters.AddWithValue("@ID_Broker", ID_Broker);
                     cmd.Parameters.AddWithValue("@ID_Truck", ID_Truck);
                     cmd.Parameters.AddWithValue("@ID_Trailer", ID_Trailer);
+                    cmd.Parameters.AddWithValue("@ID_StatusDetail", "");
                     cmd.Parameters.AddWithValue("@Folio", folio);
                     cmd.Parameters.AddWithValue("@IncidentDate", incidentDate);
                     cmd.Parameters.AddWithValue("@IncidentCloseDate", "");
@@ -273,6 +274,7 @@ namespace ResponseEmergencySystem.Services
             string ID_Broker,
             string ID_Truck,
             string ID_Trailer,
+            string ID_StatusDetail,
             DateTime incidentDate,
             bool policeReport,
             string citationReport,
@@ -314,6 +316,7 @@ namespace ResponseEmergencySystem.Services
                     cmd.Parameters.AddWithValue("@ID_Broker", ID_Broker);
                     cmd.Parameters.AddWithValue("@ID_Truck", ID_Truck);
                     cmd.Parameters.AddWithValue("@ID_Trailer", ID_Trailer);
+                    cmd.Parameters.AddWithValue("@ID_StatusDetail", ID_StatusDetail);
                     cmd.Parameters.AddWithValue("@Folio", "");
                     cmd.Parameters.AddWithValue("@IncidentDate", incidentDate);
                     cmd.Parameters.AddWithValue("@IncidentCloseDate", "");

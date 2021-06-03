@@ -26,23 +26,28 @@ namespace ResponseEmergencySystem
             Application.SetCompatibleTextRenderingDefault(false);
             //constants.states = GeneralService.list_States();
 
-            Main2 mainView = new Main2();
+            //Main3 mainView = new Main3();
             //List<Incident> incidents = IncidentService.list_Incidents("", "", "", "", "");
             //var incidents = new Task<List<Incident>>(() => IncidentService.list_Incidents("", "", "", "", ""));
             //incidents.Wait();
             //var captures = new Task<List<Capture>>(() => CaptureService.list_Captures(incidents.Result[0].ID_Incident.ToString()));
             //captures.Wait();
             //List<Capture> captureByIncident = CaptureService.list_Captures(incidents[0].ID_Incident.ToString());
-            new MainController(mainView);
+            //mainCtrl.LoadData();
+            //new MainController(mainView);
 
 
             ////Forms.Modals.Testing test = new Forms.Modals.Testing();
 
-
-            Application.Run(mainView);
+            frm_Main frmMainView = new frm_Main();
+            Main2Controller frmMainCtrl = new Main2Controller(frmMainView);
+            frmMainCtrl.ShowSpinner();
+            Application.Run(frmMainView);
 
 
             //Application.Run(new miwntras());
         }
+
+
     }
 }

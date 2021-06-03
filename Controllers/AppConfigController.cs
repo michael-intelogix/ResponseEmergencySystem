@@ -21,31 +21,6 @@ namespace ResponseEmergencySystem.Controllers
             view.SetController(this);
         }
 
-        //public void CheckEditChanged(string ckedtName, bool ckedtValue)
-        //{
-        //    switch (ckedtName)
-        //    {
-        //        case "ckedt_Spill":
-        //            _view.PnlBolVisibility = ckedtValue;
-        //            break;
-        //        case "ckedt_PoliceReport":
-        //            _view.PnlPoliceReportVisibility = ckedtValue;
-        //            break;
-        //        case "ckedt_IPDriver":
-        //            _view.PnlDriverInvolvedVisibility = ckedtValue;
-        //            break;
-        //            //case "ckedt_Injured":
-        //            //    panelControl3.Visible = ckedtValue;
-        //            //    pnl_AddInjuredFields.Visible = ckedtValue;
-        //            //    //gc_InjuredPersons.Enabled = ckedtValue;
-
-        //            //    //if (_controller.dt_InjuredPersons.Rows.Count == 0)
-        //            //    //    _controller.addEmptyRow();
-
-        //            //    break;
-        //    }
-        //}
-
         public void AddCategory()
         {
             var response = MailDirectoryService.Add_Category(_view.NewCategory);
@@ -89,13 +64,6 @@ namespace ResponseEmergencySystem.Controllers
                 _view.MailDirectoryDataSource = _mailDirectory;
 
                 Utils.ShowMessage(response.Message, "Mail Response");
- 
-                //var response = MailDirectoryService.DeleteMailInDirectory(_view.);
-                //_mailDirectory = MailDirectoryService.GetMailDirectory();
-                //_view.MailDirectoryDataSource = _mailDirectory;
-                //_view.Mail = "";
-                //_view.Category = null;
-                //Utils.ShowMessage(response.Message, "Mail Response");
             }
             
         }

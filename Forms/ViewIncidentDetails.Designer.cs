@@ -226,6 +226,8 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.memoEdit1.Location = new System.Drawing.Point(22, 519);
             this.memoEdit1.Name = "memoEdit1";
+            this.memoEdit1.Properties.ReadOnly = true;
+            this.memoEdit1.Properties.UseReadOnlyAppearance = false;
             this.memoEdit1.Size = new System.Drawing.Size(1335, 128);
             this.memoEdit1.StyleController = this.layoutControl1;
             this.memoEdit1.TabIndex = 118;
@@ -274,6 +276,7 @@ namespace ResponseEmergencySystem.Forms
             this.ckedt_TruckCanMove.Properties.Caption = "Can move?";
             this.ckedt_TruckCanMove.Properties.ContentAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.ckedt_TruckCanMove.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.ckedt_TruckCanMove.Properties.ReadOnly = true;
             this.ckedt_TruckCanMove.Size = new System.Drawing.Size(96, 21);
             this.ckedt_TruckCanMove.TabIndex = 120;
             // 
@@ -292,6 +295,7 @@ namespace ResponseEmergencySystem.Forms
             this.ckedt_TruckNeedCrane.Properties.Caption = "Need crane?";
             this.ckedt_TruckNeedCrane.Properties.ContentAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.ckedt_TruckNeedCrane.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.ckedt_TruckNeedCrane.Properties.ReadOnly = true;
             this.ckedt_TruckNeedCrane.Size = new System.Drawing.Size(106, 21);
             this.ckedt_TruckNeedCrane.TabIndex = 119;
             // 
@@ -299,6 +303,8 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.edt_TruckNumber.Location = new System.Drawing.Point(82, 29);
             this.edt_TruckNumber.Name = "edt_TruckNumber";
+            this.edt_TruckNumber.Properties.ReadOnly = true;
+            this.edt_TruckNumber.Properties.UseReadOnlyAppearance = false;
             this.edt_TruckNumber.Size = new System.Drawing.Size(119, 24);
             this.edt_TruckNumber.TabIndex = 118;
             // 
@@ -309,6 +315,7 @@ namespace ResponseEmergencySystem.Forms
             this.ckedt_truckDamages.Properties.Caption = "Damages?";
             this.ckedt_truckDamages.Properties.ContentAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.ckedt_truckDamages.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.ckedt_truckDamages.Properties.ReadOnly = true;
             this.ckedt_truckDamages.Size = new System.Drawing.Size(86, 21);
             this.ckedt_truckDamages.TabIndex = 116;
             // 
@@ -491,6 +498,7 @@ namespace ResponseEmergencySystem.Forms
             this.ckedt_Spill.Properties.Caption = "Cargo spill?";
             this.ckedt_Spill.Properties.ContentAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.ckedt_Spill.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.ckedt_Spill.Properties.ReadOnly = true;
             this.ckedt_Spill.Size = new System.Drawing.Size(102, 21);
             this.ckedt_Spill.TabIndex = 136;
             // 
@@ -498,6 +506,8 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.edt_Cargo.Location = new System.Drawing.Point(93, 78);
             this.edt_Cargo.Name = "edt_Cargo";
+            this.edt_Cargo.Properties.ReadOnly = true;
+            this.edt_Cargo.Properties.UseReadOnlyAppearance = false;
             this.edt_Cargo.Size = new System.Drawing.Size(119, 24);
             this.edt_Cargo.TabIndex = 135;
             // 
@@ -521,6 +531,8 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.edt_TrailerNumber.Location = new System.Drawing.Point(93, 28);
             this.edt_TrailerNumber.Name = "edt_TrailerNumber";
+            this.edt_TrailerNumber.Properties.ReadOnly = true;
+            this.edt_TrailerNumber.Properties.UseReadOnlyAppearance = false;
             this.edt_TrailerNumber.Size = new System.Drawing.Size(119, 24);
             this.edt_TrailerNumber.TabIndex = 131;
             // 
@@ -531,6 +543,7 @@ namespace ResponseEmergencySystem.Forms
             this.ckedt_TrailerDamages.Properties.Caption = "Damages?";
             this.ckedt_TrailerDamages.Properties.ContentAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.ckedt_TrailerDamages.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.ckedt_TrailerDamages.Properties.ReadOnly = true;
             this.ckedt_TrailerDamages.Size = new System.Drawing.Size(86, 21);
             this.ckedt_TrailerDamages.TabIndex = 129;
             // 
@@ -541,6 +554,7 @@ namespace ResponseEmergencySystem.Forms
             this.ckedt_TrailerCanMove.Properties.Caption = "Can move?";
             this.ckedt_TrailerCanMove.Properties.ContentAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.ckedt_TrailerCanMove.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.ckedt_TrailerCanMove.Properties.ReadOnly = true;
             this.ckedt_TrailerCanMove.Size = new System.Drawing.Size(96, 21);
             this.ckedt_TrailerCanMove.TabIndex = 133;
             // 
@@ -551,6 +565,7 @@ namespace ResponseEmergencySystem.Forms
             this.ckedt_TrailerNeedCrane.Properties.Caption = "Need crane?";
             this.ckedt_TrailerNeedCrane.Properties.ContentAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.ckedt_TrailerNeedCrane.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.ckedt_TrailerNeedCrane.Properties.ReadOnly = true;
             this.ckedt_TrailerNeedCrane.Size = new System.Drawing.Size(106, 21);
             this.ckedt_TrailerNeedCrane.TabIndex = 132;
             // 
@@ -558,6 +573,8 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.edt_manifest.Location = new System.Drawing.Point(481, 77);
             this.edt_manifest.Name = "edt_manifest";
+            this.edt_manifest.Properties.ReadOnly = true;
+            this.edt_manifest.Properties.UseReadOnlyAppearance = false;
             this.edt_manifest.Size = new System.Drawing.Size(158, 24);
             this.edt_manifest.TabIndex = 127;
             // 
@@ -644,6 +661,8 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.edt_Longitude.Location = new System.Drawing.Point(310, 120);
             this.edt_Longitude.Name = "edt_Longitude";
+            this.edt_Longitude.Properties.ReadOnly = true;
+            this.edt_Longitude.Properties.UseReadOnlyAppearance = false;
             this.edt_Longitude.Size = new System.Drawing.Size(165, 24);
             this.edt_Longitude.TabIndex = 57;
             // 
@@ -652,6 +671,8 @@ namespace ResponseEmergencySystem.Forms
             this.edt_Broker.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.edt_Broker.Location = new System.Drawing.Point(557, 161);
             this.edt_Broker.Name = "edt_Broker";
+            this.edt_Broker.Properties.ReadOnly = true;
+            this.edt_Broker.Properties.UseReadOnlyAppearance = false;
             this.edt_Broker.Size = new System.Drawing.Size(267, 24);
             this.edt_Broker.TabIndex = 62;
             // 
@@ -668,6 +689,8 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.edt_Highway.Location = new System.Drawing.Point(122, 165);
             this.edt_Highway.Name = "edt_Highway";
+            this.edt_Highway.Properties.ReadOnly = true;
+            this.edt_Highway.Properties.UseReadOnlyAppearance = false;
             this.edt_Highway.Size = new System.Drawing.Size(304, 24);
             this.edt_Highway.TabIndex = 60;
             // 
@@ -682,6 +705,8 @@ namespace ResponseEmergencySystem.Forms
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("State", "State", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Name")});
             this.lue_LocationCities.Properties.DisplayMember = "Name";
+            this.lue_LocationCities.Properties.ReadOnly = true;
+            this.lue_LocationCities.Properties.UseReadOnlyAppearance = false;
             this.lue_LocationCities.Properties.ValueMember = "ID_City";
             this.lue_LocationCities.Size = new System.Drawing.Size(116, 24);
             this.lue_LocationCities.TabIndex = 59;
@@ -696,7 +721,9 @@ namespace ResponseEmergencySystem.Forms
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("pk_id", "id", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("state", "Name9")});
             this.lue_LocationStates.Properties.DisplayMember = "state";
+            this.lue_LocationStates.Properties.ReadOnly = true;
             this.lue_LocationStates.Properties.ShowHeader = false;
+            this.lue_LocationStates.Properties.UseReadOnlyAppearance = false;
             this.lue_LocationStates.Properties.ValueMember = "pk_id";
             this.lue_LocationStates.Size = new System.Drawing.Size(123, 24);
             this.lue_LocationStates.TabIndex = 58;
@@ -706,6 +733,8 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.edt_Latitude.Location = new System.Drawing.Point(62, 119);
             this.edt_Latitude.Name = "edt_Latitude";
+            this.edt_Latitude.Properties.ReadOnly = true;
+            this.edt_Latitude.Properties.UseReadOnlyAppearance = false;
             this.edt_Latitude.Size = new System.Drawing.Size(165, 24);
             this.edt_Latitude.TabIndex = 56;
             // 
@@ -769,6 +798,8 @@ namespace ResponseEmergencySystem.Forms
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.tme_Incident.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
             this.tme_Incident.Properties.MaskSettings.Set("mask", "");
+            this.tme_Incident.Properties.ReadOnly = true;
+            this.tme_Incident.Properties.UseReadOnlyAppearance = false;
             this.tme_Incident.Size = new System.Drawing.Size(175, 24);
             this.tme_Incident.TabIndex = 43;
             // 
@@ -786,7 +817,9 @@ namespace ResponseEmergencySystem.Forms
             this.dte_IncidentDate.Properties.EditFormat.FormatString = "";
             this.dte_IncidentDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dte_IncidentDate.Properties.MaskSettings.Set("mask", "");
+            this.dte_IncidentDate.Properties.ReadOnly = true;
             this.dte_IncidentDate.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.dte_IncidentDate.Properties.UseReadOnlyAppearance = false;
             this.dte_IncidentDate.Size = new System.Drawing.Size(196, 24);
             this.dte_IncidentDate.TabIndex = 42;
             // 
@@ -812,6 +845,7 @@ namespace ResponseEmergencySystem.Forms
             this.ckedt_PoliceReport.Name = "ckedt_PoliceReport";
             this.ckedt_PoliceReport.Properties.Caption = "Police report?";
             this.ckedt_PoliceReport.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.ckedt_PoliceReport.Properties.ReadOnly = true;
             this.ckedt_PoliceReport.Size = new System.Drawing.Size(104, 21);
             this.ckedt_PoliceReport.TabIndex = 41;
             // 
@@ -819,6 +853,8 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.edt_PoliceReport.Location = new System.Drawing.Point(702, 27);
             this.edt_PoliceReport.Name = "edt_PoliceReport";
+            this.edt_PoliceReport.Properties.ReadOnly = true;
+            this.edt_PoliceReport.Properties.UseReadOnlyAppearance = false;
             this.edt_PoliceReport.Size = new System.Drawing.Size(198, 24);
             this.edt_PoliceReport.TabIndex = 38;
             // 
@@ -882,7 +918,10 @@ namespace ResponseEmergencySystem.Forms
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("pk_id", "id", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("state", "state")});
             this.lue_DriverLicenceState.Properties.DisplayMember = "state";
+            this.lue_DriverLicenceState.Properties.ReadOnly = true;
             this.lue_DriverLicenceState.Properties.ShowHeader = false;
+            this.lue_DriverLicenceState.Properties.SuppressMouseEventOnOuterMouseClick = true;
+            this.lue_DriverLicenceState.Properties.UseReadOnlyAppearance = false;
             this.lue_DriverLicenceState.Properties.ValueMember = "pk_id";
             this.lue_DriverLicenceState.Size = new System.Drawing.Size(119, 24);
             this.lue_DriverLicenceState.TabIndex = 31;
@@ -907,6 +946,8 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.edt_License.Location = new System.Drawing.Point(629, 13);
             this.edt_License.Name = "edt_License";
+            this.edt_License.Properties.ReadOnly = true;
+            this.edt_License.Properties.UseReadOnlyAppearance = false;
             this.edt_License.Size = new System.Drawing.Size(111, 24);
             this.edt_License.TabIndex = 27;
             // 
@@ -914,6 +955,8 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.edt_PhoneNumber.Location = new System.Drawing.Point(411, 14);
             this.edt_PhoneNumber.Name = "edt_PhoneNumber";
+            this.edt_PhoneNumber.Properties.ReadOnly = true;
+            this.edt_PhoneNumber.Properties.UseReadOnlyAppearance = false;
             this.edt_PhoneNumber.Size = new System.Drawing.Size(142, 24);
             this.edt_PhoneNumber.TabIndex = 26;
             // 
@@ -921,6 +964,8 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.edt_FullName.Location = new System.Drawing.Point(49, 14);
             this.edt_FullName.Name = "edt_FullName";
+            this.edt_FullName.Properties.ReadOnly = true;
+            this.edt_FullName.Properties.UseReadOnlyAppearance = false;
             this.edt_FullName.Size = new System.Drawing.Size(257, 24);
             this.edt_FullName.TabIndex = 25;
             // 
@@ -962,8 +1007,10 @@ namespace ResponseEmergencySystem.Forms
             this.dte_ExpirationDate.Properties.EditFormat.FormatString = "";
             this.dte_ExpirationDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dte_ExpirationDate.Properties.MaskSettings.Set("mask", "dd/mm/yyyy");
+            this.dte_ExpirationDate.Properties.ReadOnly = true;
             this.dte_ExpirationDate.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.dte_ExpirationDate.Properties.UseMaskAsDisplayFormat = true;
+            this.dte_ExpirationDate.Properties.UseReadOnlyAppearance = false;
             this.dte_ExpirationDate.Size = new System.Drawing.Size(201, 24);
             this.dte_ExpirationDate.TabIndex = 29;
             // 

@@ -35,6 +35,9 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         private string ID_Truck;
         private string ID_Trailer;
         private string comments = "";
+        private int _errors = 0;
+
+        private bool _DriverUpdateRequired = false;
 
         public AddIncidentController(IAddIncidentView view)
         {
@@ -187,14 +190,24 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             var Driver_Response = DriverService.GetDriver(_view.DriverInfoSearch);
 
             if (Driver_Response == null)
-                MessageBox.Show("There is no driver with that search information");
+            {
+                Utils.ShowMessage("There is no driver with that search information", title: "Driver Not Found", type: "Warning");
+            }
             else
             {
                 ID_Driver = Driver_Response.ID_Driver.ToString();
                 _view.FullName = Driver_Response.Name + " " + Driver_Response.LastName1;
                 _view.PhoneNumber = Driver_Response.PhoneNumber;
                 _view.License = Driver_Response.License;
-                _view.ExpirationDate = (DateTime)Driver_Response.ExpirationDate;
+
+                if (Driver_Response.ExpirationDate != null)
+                    _view.ExpirationDate = (DateTime)Driver_Response.ExpirationDate;
+                else
+                {
+                    _view.ExpirationDate = DateTime.Now;
+                    _DriverUpdateRequired = true;
+                }
+                
                 _view.LicenseState = Driver_Response.ID_StateOfExpedition;
             }
             
@@ -240,6 +253,12 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             string ID_Incident = "";
             //check location refreces
 
+            if (_DriverUpdateRequired)
+            {
+                //var t2 = new Task<Response>(() =>);
+            }
+            
+
             var t = new Task<Response>(() => IncidentService.AddIncident(
                 ID_Driver.ToUpper(),
                 _view.ID_State,
@@ -282,23 +301,6 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                 }
 
             }
-
-            //foreach (DataRow row in dt_InjuredPersons.Rows)
-            //{
-            //    string fullName = row["FullName"].ToString();
-            //    string lastName1 = row["LastName1"].ToString();
-            //    string lastName2 = row["LastName2"].ToString();
-            //    string phoneNumber = row["Phone"].ToString();
-            //    dt_Injured = Functions.updateInjuredPerson(Guid.Empty, fullName, lastName1, lastName2, phoneNumber, Guid.Parse(incidentResponse.ItemArray[2].ToString()));
-
-            //}
-
-            //if (dt_Injured.Rows.Count > 0)
-            //{
-            //    MessageBox.Show(dt_Injured.Select().First().ItemArray[1].ToString());
-            //}
-
-            /*MessageBox.Show(IncidentService.response.Message);*/
         }
 
         public void CreateInjuredPersonsTable()
@@ -338,19 +340,56 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                 case "ckedt_PoliceReport":
                     _view.PnlPoliceReportVisibility = ckedtValue;
                     break;
+                case "ckedt_IPPassenger":
+                    if (_view.IPDriver && ckedtValue) 
+                    {
+                        _view.IPDriver = false;
+                        _view.PnlDriverInvolvedVisibility = false;
+                        _view.IPDriverLicense = "";
+                    }   
+                    break;
                 case "ckedt_IPDriver":
+                    if (_view.IPPassenger && ckedtValue)
+                        _view.IPPassenger = false;
                     _view.PnlDriverInvolvedVisibility = ckedtValue;
                     break;
-                //case "ckedt_Injured":
-                //    panelControl3.Visible = ckedtValue;
-                //    pnl_AddInjuredFields.Visible = ckedtValue;
-                //    //gc_InjuredPersons.Enabled = ckedtValue;
-
-                    //    //if (_controller.dt_InjuredPersons.Rows.Count == 0)
-                    //    //    _controller.addEmptyRow();
-
-                    //    break;
             }
+        }
+
+        public void validate(string edtName)
+        {
+            switch(edtName)
+            {
+                case "edt_IPFullName":
+                    if (_view.IPFullName.Length == 0)
+                    {
+                        _view.EdtFullNameBorder = BorderStyles.Simple;
+                        _view.EdtFullNameShowWarningIcon = true;
+                    }
+                    else
+                    {
+                        _view.EdtFullNameBorder = BorderStyles.Default;
+                        _view.EdtFullNameShowWarningIcon = false;
+                    }
+                    break;
+                case "edt_IPLastName1":
+                    if (_view.IPLastName1.Length == 0)
+                    {
+                        _view.EdtLastNameBorder = BorderStyles.Simple;
+                        _view.EdtLastName1ShowWarningIcon = true;
+                    }
+                    else
+                    {
+                        _view.EdtLastNameBorder = BorderStyles.Default;
+                        _view.EdtLastName1ShowWarningIcon = false;
+                    }
+                    break;
+            }
+
+            if (_view.EdtFullNameShowWarningIcon || _view.EdtLastName1ShowWarningIcon)
+                _view.LblEmptyFieldsVisibility = true;
+            else
+                _view.LblEmptyFieldsVisibility = false;
         }
 
         public void CheckNumber(string edtName)
@@ -391,53 +430,6 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         public void AddPersonInvolved()
         {
             int errors = 0;
-            if(_view.IPFullName.Length == 0)
-            {
-                _view.EdtFullNameBorder = BorderStyles.Simple;
-                _view.EdtFullNameShowWarningIcon = true;
-                errors += 1;
-            }
-            else
-            {
-                _view.EdtFullNameBorder = BorderStyles.Default;
-                _view.EdtFullNameShowWarningIcon = false;
-            }
-
-            if (_view.IPLastName1.Length == 0)
-            {
-                _view.EdtLastNameBorder = BorderStyles.Simple;
-                _view.EdtLastName1ShowWarningIcon = true;
-                errors += 1;
-            }
-            else 
-            { 
-                _view.EdtLastNameBorder = BorderStyles.Default;
-                _view.EdtLastName1ShowWarningIcon = false;
-            }
-
-            //if (_view.IPPhoneNumber.Length == 0)
-            //{
-            //    _view.EdtPhoneNumberBorder = BorderStyles.Simple;
-            //    _view.EdtPhoneNumberShowWarningIcon = true;
-            //    errors += 1;
-            //}
-            //else 
-            //{ 
-            //    _view.EdtPhoneNumberBorder = BorderStyles.Default;
-            //    _view.EdtPhoneNumberShowWarningIcon = false;
-            //}
-
-            //if (_view.IPAge.Length == 0 || Convert.ToInt32(_view.IPAge) > 80)
-            //{
-            //    _view.EdtAgeBorder = BorderStyles.Simple;
-            //    _view.EdtAgeShowWarningIcon = true;
-            //    errors += 1;
-            //}
-            //else 
-            //{ 
-            //    _view.EdtAgeBorder = BorderStyles.Default;
-            //    _view.EdtAgeShowWarningIcon = false;
-            //}
 
             if (_view.IPDriver)
             {
@@ -476,53 +468,6 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         public void UpdatePersonInvolved()
         {
             int errors = 0;
-            if (_view.IPFullName.Length == 0)
-            {
-                _view.EdtFullNameBorder = BorderStyles.Simple;
-                _view.EdtFullNameShowWarningIcon = true;
-                errors += 1;
-            }
-            else
-            {
-                _view.EdtFullNameBorder = BorderStyles.Default;
-                _view.EdtFullNameShowWarningIcon = false;
-            }
-
-            if (_view.IPLastName1.Length == 0)
-            {
-                _view.EdtLastNameBorder = BorderStyles.Simple;
-                _view.EdtLastName1ShowWarningIcon = true;
-                errors += 1;
-            }
-            else
-            {
-                _view.EdtLastNameBorder = BorderStyles.Default;
-                _view.EdtLastName1ShowWarningIcon = false;
-            }
-
-            //if (_view.IPPhoneNumber.Length == 0)
-            //{
-            //    _view.EdtPhoneNumberBorder = BorderStyles.Simple;
-            //    _view.EdtPhoneNumberShowWarningIcon = true;
-            //    errors += 1;
-            //}
-            //else
-            //{
-            //    _view.EdtPhoneNumberBorder = BorderStyles.Default;
-            //    _view.EdtPhoneNumberShowWarningIcon = false;
-            //}
-
-            //if (_view.IPAge.Length == 0 || Convert.ToInt32(_view.IPAge) > 80)
-            //{
-            //    _view.EdtAgeBorder = BorderStyles.Simple;
-            //    _view.EdtAgeShowWarningIcon = true;
-            //    errors += 1;
-            //}
-            //else
-            //{
-            //    _view.EdtAgeBorder = BorderStyles.Default;
-            //    _view.EdtAgeShowWarningIcon = false;
-            //}
 
             if (_view.IPDriver)
             {
@@ -578,10 +523,8 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             _view.BtnAddInvolvedPersonVisibility = false;
             _view.BtnEditInvolvedPersonVisibility = true;
 
-            //_view.BtnEditInvolvedPersonText = "Update person";
             if (_view.BtnEditInvolvedPersonLocation.X == 8)
                 _view.BtnEditInvolvedPersonLocation = new System.Drawing.Point(494, 85);
-            //_view.BtnAddInvolvedPersonSize = new System.Drawing.Size(135, 23);
 
         }
 
@@ -589,6 +532,36 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         {
             _PersonsInvolved.RemoveAt(idx);
             _view.InvolvedPersonsDataSorurce = _PersonsInvolved;
+        }
+
+        public void FindDriverInSamsara()
+        {
+            Models.Samsara.Driver driver = new Models.Samsara.Driver { Name = _view.FullName, Phone = _view.PhoneNumber};
+            SamsaraService.FindDriver(driver);
+            //var Driver_Response = DriverService.GetDriver(_view.FullName);
+
+            //if (Driver_Response == null)
+            //{
+            //    Utils.ShowMessage("There is no driver with that search information", title: "Driver Error", type: "Warning");
+            //}
+            //else
+            //{
+            //    ID_Driver = Driver_Response.ID_Driver.ToString();
+            //    _view.FullName = Driver_Response.Name + " " + Driver_Response.LastName1;
+            //    _view.PhoneNumber = Driver_Response.PhoneNumber;
+            //    _view.License = Driver_Response.License;
+
+            //    if (Driver_Response.ExpirationDate != null)
+            //        _view.ExpirationDate = (DateTime)Driver_Response.ExpirationDate;
+            //    else
+            //    {
+            //        _view.ExpirationDate = DateTime.Now;
+            //        _DriverUpdateRequired = true;
+            //    }
+
+            //    _view.LicenseState = Driver_Response.ID_StateOfExpedition;
+            //}
+
         }
 
         private int validate(bool validation, ref BorderStyles border)

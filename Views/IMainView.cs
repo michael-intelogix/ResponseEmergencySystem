@@ -14,7 +14,11 @@ namespace ResponseEmergencySystem.Views
     {
         void SetController(MainController controller);
         void Refresh_Chat(DocumentSnapshot docsnap);
+        void OpenSpinner();
         void CloseSpinner();
+
+        void SetGridFilters(string driver, string truck, string folio);
+        void ClearFilters();
         //void LoadStates(DataTable dt_States);
         //void LoadCities(DataTable dt_Cities);
         //void LoadInjuredPersons(DataTable dt_InjuredPersons);
@@ -23,8 +27,8 @@ namespace ResponseEmergencySystem.Views
 
         string Message { get; set; }
         
-        string ID_Incident { get; }
-        string ID_Capture { get; }
+        object ID_Incident { get; }
+        object ID_Capture { get; }
         string ID_Image { get; }
 
         string ImageName { get; }
@@ -41,6 +45,7 @@ namespace ResponseEmergencySystem.Views
 
         object CapturesDataSource { set; }
         object ImagesDatasSource { set; }
+        object StatusDetailDataSource { set; }
 
         MemoEdit chat { get; }
 

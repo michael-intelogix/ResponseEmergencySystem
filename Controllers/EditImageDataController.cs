@@ -28,15 +28,13 @@ namespace ResponseEmergencySystem.Controllers
 
         public void UpdateData()
         {
-            if (_view.StatusDetail != null)
-            {
-                CaptureService.UpdateImageData(_ImageID, _view.StatusDetail.ToString(), _view.Comments);
-                _view.CloseForm();
-            }
-            else
-            {
-                Utils.ShowMessage("Please select an status detail", "Image information", type: "Warning");
-            }
+            CaptureService.UpdateImageData(_ImageID, "", _view.Comments); ;
+            _view.CloseForm();
+
+            //if (_view.StatusDetail == null)
+            //{
+            //    Utils.ShowMessage("Please select an status detail", "Image information", type: "Warning");
+            //}
 
         }
 

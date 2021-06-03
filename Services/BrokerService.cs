@@ -76,7 +76,7 @@ namespace ResponseEmergencySystem.Services
             return result;
         }
 
-        public static void update_Broker(string ID_State, string ID_City, string Name, string address, string ID = "00000000-0000-0000-0000-000000000000") 
+        public static void update_Broker(string ID_State, string ID_City, string Name, string address, string phoneNumber, bool privateBroker, string ID = "00000000-0000-0000-0000-000000000000") 
         {
             opSuccess = false;
             List<Broker> result = new List<Broker>();
@@ -100,6 +100,8 @@ namespace ResponseEmergencySystem.Services
                     cmd.Parameters.AddWithValue("@ID_City", ID_City);
                     cmd.Parameters.AddWithValue("@Broker", Name);
                     cmd.Parameters.AddWithValue("@Address", address);
+                    cmd.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
+                    cmd.Parameters.AddWithValue("@Private", privateBroker);
 
                     cmd.Connection.Open();
                     using (SqlDataReader sdr = cmd.ExecuteReader())
@@ -114,20 +116,7 @@ namespace ResponseEmergencySystem.Services
                             Debug.WriteLine(sdr["msg"]);
                             Debug.WriteLine(sdr["ID"]);
 
-                            //MessageBox.Show((string)sdr["msg"]);
-
                             response = new Response(Convert.ToBoolean(sdr["Validacion"]), sdr["msg"].ToString(), sdr["ID"].ToString());
-                            //result.Add(
-                            //    new Broker(
-                            //        (string)sdr["ID_Broker"].ToString(),
-                            //        (string)sdr["ID_State"],
-                            //        (string)sdr["ID_City"],
-                            //        (string)sdr["State"],
-                            //        (string)sdr["City"],
-                            //        (string)sdr["Broker"],
-                            //        (string)sdr["Address"]
-                            //    )
-                            //);
                         }
                     }
                     cmd.Connection.Close();

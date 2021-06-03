@@ -119,10 +119,10 @@ namespace ResponseEmergencySystem.Forms
             set { edt_License.EditValue = value; }
         }
 
-        public string ExpirationDate
+        public DateTime ExpirationDate
         {
-            get { return dte_ExpirationDate.DateTime.Date.ToString(); }
-            set { dte_ExpirationDate.DateTime = Convert.ToDateTime(value).Date; }
+            get { return dte_ExpirationDate.DateTime; }
+            set { dte_ExpirationDate.EditValue = value; }
         }
 
         public string LicenseState

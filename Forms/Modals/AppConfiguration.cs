@@ -26,9 +26,11 @@ namespace ResponseEmergencySystem.Forms.Modals
 
         private void simpleButton3_Click(object sender, EventArgs e)
         {
-            xtraFolderBrowserDialog1.ShowDialog();
-            AppPath = xtraFolderBrowserDialog1.SelectedPath;
-            textEdit1.Text = AppPath.Replace("\\", "/");
+            if (xtraFolderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            {
+                AppPath = xtraFolderBrowserDialog1.SelectedPath;
+                textEdit1.Text = AppPath.Replace("\\", "/");
+            }
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
@@ -125,9 +127,11 @@ namespace ResponseEmergencySystem.Forms.Modals
 
         private void simpleButton3_Click_1(object sender, EventArgs e)
         {
-            xtraFolderBrowserDialog1.ShowDialog();
-            AppPath = xtraFolderBrowserDialog1.SelectedPath;
-            textEdit1.Text = AppPath.Replace("\\", "/");
+            if (xtraFolderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            {
+                AppPath = xtraFolderBrowserDialog1.SelectedPath;
+                textEdit1.Text = AppPath.Replace("\\", "/");
+            }
         }
 
         private void simpleButton7_Click(object sender, EventArgs e)
@@ -142,15 +146,6 @@ namespace ResponseEmergencySystem.Forms.Modals
 
             _controller.DeleteMailFromDirectory(index);
             gv_MailDirectory.BestFitColumns();
-            //DialogResult result = MessageBox.Show(
-            //    "Are you sure you want to delete this row?",
-            //    "Delete injured person row",
-            //    MessageBoxButtons.OKCancel,
-            //    MessageBoxIcon.Information);
-            //if (result.Equals(DialogResult.OK))
-            //{
-            //    gv_InjuredPersons.DeleteRow(index);
-            //}
         }
     }
 }

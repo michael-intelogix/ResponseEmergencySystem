@@ -51,6 +51,8 @@ namespace ResponseEmergencySystem.Views
         string LocationReferences { get; set; }
         string Comments { get; set; }
 
+        string ID_StatusDetail { get; set; }
+
         string IPFullName { get; set; }
         string IPLastName1 { get; set; }
         string IPPhoneNumber { get; set; }
@@ -65,6 +67,7 @@ namespace ResponseEmergencySystem.Views
         bool LblTrailerExistsVisibility { set; }
         
         object LueCitiesDataSource { set; }
+        object LueStatusDetailDataSource { set; }
 
         object InvolvedPersonsDataSorurce { set; }
         bool PnlDriverInvolvedVisibility { set; }
@@ -90,8 +93,8 @@ namespace ResponseEmergencySystem.Views
         BorderStyles EdtAgeBorder { get; set; }
         BorderStyles EdtLicenseBorder { get; set; }
 
-        bool EdtFullNameShowWarningIcon { set; }
-        bool EdtLastName1ShowWarningIcon { set; }
+        bool EdtFullNameShowWarningIcon { get; set; }
+        bool EdtLastName1ShowWarningIcon { get; set; }
         bool EdtPhoneNumberShowWarningIcon { set; }
         bool EdtAgeShowWarningIcon { set; }
         bool EdtLicenseShowWarningIcon { set; }

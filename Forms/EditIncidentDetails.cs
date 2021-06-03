@@ -38,9 +38,6 @@ namespace ResponseEmergencySystem.Forms
                 case "ckedt_PoliceReport":
                     pnl_PoliceReport.Visible = ckedtValue;
                     break;
-                case "ckedt_IPDriver":
-                    pnl_DriverInvolved.Visible = ckedtValue;
-                    break;
                 //case "ckedt_Injured":
                 //    panelControl3.Visible = ckedtValue;
                 //    pnl_AddInjuredFields.Visible = ckedtValue;
@@ -277,9 +274,13 @@ namespace ResponseEmergencySystem.Forms
             get { return memoEdit1.EditValue == null ? "" : memoEdit1.EditValue.ToString(); }
             set { memoEdit1.EditValue = value; }
         }
-        
 
-    #endregion
+        public string ID_StatusDetail
+        {
+            get { return lue_StatusDetail.EditValue.ToString(); }
+            set { lue_StatusDetail.EditValue = value; }
+        }
+        #endregion
 
         #region view involved persons
 
@@ -424,11 +425,13 @@ namespace ResponseEmergencySystem.Forms
 
         public bool EdtFullNameShowWarningIcon
         {
+            get { return pic_FullNameWarning.Visible; }
             set { pic_FullNameWarning.Visible = value; }
         }
 
         public bool EdtLastName1ShowWarningIcon
         {
+            get { return pic_LastName1Warning.Visible; }
             set { pic_LastName1Warning.Visible = value; }
         }
 
@@ -442,10 +445,14 @@ namespace ResponseEmergencySystem.Forms
             set { pic_AgeWarning.Visible = value; }
         }
 
-
         public bool EdtLicenseShowWarningIcon
         {
             set { pic_LicenseWarning.Visible = value; }
+        }
+
+        public object LueStatusDetailDataSource
+        {
+            set { lue_StatusDetail.Properties.DataSource = value; }
         }
         #endregion
 
@@ -548,6 +555,20 @@ namespace ResponseEmergencySystem.Forms
             }
             else
                 Utils.ShowMessage("Please Check the information again", "Validation Error");
+        }
+
+        private void Ckedt_OnValueChanged(object sender, EventArgs e)
+        {
+            CheckEdit cb = (CheckEdit)sender;
+
+            _controller.CheckEditChanged(cb.Name, (bool)cb.EditValue);
+        }
+
+        private void edt_Leave(object sender, EventArgs e)
+        {
+            TextEdit edt = (TextEdit)sender;
+
+            _controller.validate(edt.Name);
         }
     }
 }
