@@ -101,5 +101,33 @@ namespace ResponseEmergencySystem.Controllers
             }
 
         }
+
+        public void AddCaptures()
+        {
+            _mainController.AddMoreCaptures();
+        }
+
+        public void ActionsMenu(string action)
+        {
+            switch(action)
+            {
+                case "show":
+                    _mainController.ShowIncident();
+                    break;
+                case "edit":
+                    _mainController.EditIncidentView();
+                    break;
+                case "status":
+                    _mainController.SaveStatus();
+                    break;
+                case "close":
+                    _mainController.CloseIncident();
+                    break;
+                case "delete":
+                    _mainController.DeleteIncident();
+                    break;
+
+            }
+        }
     }
 }

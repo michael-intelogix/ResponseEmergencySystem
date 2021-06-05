@@ -613,7 +613,7 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton3.Name = "simpleButton3";
             this.simpleButton3.Size = new System.Drawing.Size(94, 35);
             this.simpleButton3.TabIndex = 2;
-            this.simpleButton3.Text = "Cancel";
+            this.simpleButton3.Text = "Close";
             this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
             // 
             // labelControl23

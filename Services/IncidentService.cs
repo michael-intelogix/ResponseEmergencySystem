@@ -1,4 +1,5 @@
 ﻿using ResponseEmergencySystem.Code;
+using ResponseEmergencySystem.EF;
 using ResponseEmergencySystem.Models;
 using System;
 using System.Collections.Generic;
@@ -425,6 +426,49 @@ namespace ResponseEmergencySystem.Services
             catch (Exception ex)
             {
                 MessageBox.Show($"Involved person couldn't be saved due: {ex.Message}");
+            }
+
+        }
+
+        public static void CloseIncident(string incidentID)
+        {
+            Guid ID_Incident = Guid.Parse(incidentID);
+            using (var db = new SIREMEntities())
+            {
+                Incidents incident = (Incidents)db.Incidents.Where(i => i.ID_Incident == ID_Incident).FirstOrDefault();
+
+                incident.ID_StatusDetail = "AF034BC4-3F32-4174-B042-3178B2EC8199";
+                incident.IncidentCloseDate = DateTime.Now;
+
+                db.Entry(incident).State = System.Data.Entity.EntityState.Modified;
+
+                db.SaveChanges();
+
+                Console.WriteLine("Registro actualizado correctamente.");
+                Utils.ShowMessage("Incindent has been closed.", title: "Incident Closed", type: "Approved");
+                //return new Response()
+            }
+        }
+
+        public static void Delete(string incidentID, string folio)
+        {
+            if (Utils.ShowConfirmationMessage($"Are you sure you want to delete this incident with {folio}?", type: "warning"))
+            {
+                Guid ID_Incident = Guid.Parse(incidentID);
+                using (var db = new SIREMEntities())
+                {
+                    Incidents incident = (Incidents)db.Incidents.Where(i => i.ID_Incident == ID_Incident).FirstOrDefault();
+
+                    incident.Status = false;
+
+                    db.Entry(incident).State = System.Data.Entity.EntityState.Modified;
+
+                    db.SaveChanges();
+
+                    //Console.WriteLine("Registro actualizado correctamente.");
+                    Utils.ShowMessage($"Incident with folio: {folio} has been deleted", title: "Incident Deleted", type: "approved");
+                    //return new Response()
+                }
             }
 
         }

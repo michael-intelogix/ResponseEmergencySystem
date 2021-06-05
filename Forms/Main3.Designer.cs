@@ -86,6 +86,7 @@ namespace ResponseEmergencySystem.Forms
             this.rpic_Image = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btn_Edit = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.gv_Captures = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -95,6 +96,7 @@ namespace ResponseEmergencySystem.Forms
             this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gc_Captures = new DevExpress.XtraGrid.GridControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.lbl_Folio = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
@@ -158,6 +160,7 @@ namespace ResponseEmergencySystem.Forms
             this.gc_Incidents.TabIndex = 0;
             this.gc_Incidents.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_Incidents});
+            this.gc_Incidents.Click += new System.EventHandler(this.gc_Incidents_Click);
             // 
             // gv_Incidents
             // 
@@ -176,7 +179,8 @@ namespace ResponseEmergencySystem.Forms
             this.gv_Incidents.OptionsView.ShowAutoFilterRow = true;
             this.gv_Incidents.OptionsView.ShowFooter = true;
             this.gv_Incidents.OptionsView.ShowGroupPanel = false;
-            this.gv_Incidents.OptionsView.ShowIndicator = false;
+            this.gv_Incidents.Click += new System.EventHandler(this.gv_Incidents_Click);
+            this.gv_Incidents.DoubleClick += new System.EventHandler(this.gv_Incidents_DoubleClick);
             // 
             // col_Status
             // 
@@ -196,10 +200,11 @@ namespace ResponseEmergencySystem.Forms
             this.lue_StatusDetail.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lue_StatusDetail.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID_StatusDetail", "ID"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID_StatusDetail", "ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Description", "Description")});
             this.lue_StatusDetail.DisplayMember = "Description";
             this.lue_StatusDetail.Name = "lue_StatusDetail";
+            this.lue_StatusDetail.ShowHeader = false;
             this.lue_StatusDetail.ValueMember = "ID_StatusDetail";
             // 
             // col_DriverName
@@ -207,6 +212,7 @@ namespace ResponseEmergencySystem.Forms
             this.col_DriverName.Caption = "Driver Name";
             this.col_DriverName.FieldName = "Name";
             this.col_DriverName.Name = "col_DriverName";
+            this.col_DriverName.OptionsColumn.AllowEdit = false;
             this.col_DriverName.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "Name", "Incidents Registered = {0}")});
             this.col_DriverName.Visible = true;
@@ -220,6 +226,7 @@ namespace ResponseEmergencySystem.Forms
             this.col_Folio.MaxWidth = 100;
             this.col_Folio.MinWidth = 80;
             this.col_Folio.Name = "col_Folio";
+            this.col_Folio.OptionsColumn.AllowEdit = false;
             this.col_Folio.Visible = true;
             this.col_Folio.VisibleIndex = 1;
             this.col_Folio.Width = 94;
@@ -231,6 +238,7 @@ namespace ResponseEmergencySystem.Forms
             this.col_TruckNumber.MaxWidth = 70;
             this.col_TruckNumber.MinWidth = 50;
             this.col_TruckNumber.Name = "col_TruckNumber";
+            this.col_TruckNumber.OptionsColumn.AllowEdit = false;
             this.col_TruckNumber.Visible = true;
             this.col_TruckNumber.VisibleIndex = 2;
             this.col_TruckNumber.Width = 66;
@@ -242,6 +250,7 @@ namespace ResponseEmergencySystem.Forms
             this.col_Date.MaxWidth = 100;
             this.col_Date.MinWidth = 100;
             this.col_Date.Name = "col_Date";
+            this.col_Date.OptionsColumn.AllowEdit = false;
             this.col_Date.Visible = true;
             this.col_Date.VisibleIndex = 3;
             this.col_Date.Width = 100;
@@ -313,6 +322,7 @@ namespace ResponseEmergencySystem.Forms
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btn_SaveStatus.Name = "btn_SaveStatus";
             this.btn_SaveStatus.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.btn_SaveStatus.Click += new System.EventHandler(this.btn_SaveStatus_Click);
             // 
             // gridColumn11
             // 
@@ -334,6 +344,7 @@ namespace ResponseEmergencySystem.Forms
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btn_CloseIncident.Name = "btn_CloseIncident";
             this.btn_CloseIncident.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.btn_CloseIncident.Click += new System.EventHandler(this.btn_CloseIncident_Click);
             // 
             // gc_Images
             // 
@@ -358,7 +369,8 @@ namespace ResponseEmergencySystem.Forms
             this.gridColumn6,
             this.gridColumn7,
             this.gridColumn8,
-            this.gridColumn9});
+            this.gridColumn9,
+            this.gridColumn16});
             this.gv_Images.GridControl = this.gc_Images;
             this.gv_Images.Name = "gv_Images";
             this.gv_Images.OptionsView.ShowGroupPanel = false;
@@ -451,6 +463,12 @@ namespace ResponseEmergencySystem.Forms
             this.btn_Edit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btn_Edit.Click += new System.EventHandler(this.btn_Edit_Click);
             // 
+            // gridColumn16
+            // 
+            this.gridColumn16.Caption = "FileType";
+            this.gridColumn16.FieldName = "FileType";
+            this.gridColumn16.Name = "gridColumn16";
+            // 
             // pictureEdit1
             // 
             this.pictureEdit1.EditValue = global::ResponseEmergencySystem.Properties.Resources.SIREMlogo;
@@ -474,6 +492,7 @@ namespace ResponseEmergencySystem.Forms
             this.gv_Captures.GridControl = this.gc_Captures;
             this.gv_Captures.Name = "gv_Captures";
             this.gv_Captures.OptionsView.ShowGroupPanel = false;
+            this.gv_Captures.DoubleClick += new System.EventHandler(this.gv_Captures_DoubleClick);
             // 
             // gridColumn12
             // 
@@ -538,6 +557,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.lbl_Folio);
             this.panelControl1.Controls.Add(this.panelControl2);
             this.panelControl1.Controls.Add(this.pictureEdit1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -545,6 +565,16 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1557, 59);
             this.panelControl1.TabIndex = 23;
+            // 
+            // lbl_Folio
+            // 
+            this.lbl_Folio.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Folio.Appearance.Options.UseFont = true;
+            this.lbl_Folio.Location = new System.Drawing.Point(718, 12);
+            this.lbl_Folio.Name = "lbl_Folio";
+            this.lbl_Folio.Size = new System.Drawing.Size(84, 17);
+            this.lbl_Folio.TabIndex = 8;
+            this.lbl_Folio.Text = "labelControl1";
             // 
             // panelControl2
             // 
@@ -650,6 +680,7 @@ namespace ResponseEmergencySystem.Forms
             this.Name = "Main3";
             this.Text = "Main3";
             this.Load += new System.EventHandler(this.Main3_Load);
+            this.SizeChanged += new System.EventHandler(this.Main3_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.gc_Incidents)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_Incidents)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_StatusDetail)).EndInit();
@@ -667,6 +698,7 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.gc_Captures)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
+            this.panelControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).EndInit();
             this.splitContainerControl1.Panel1.ResumeLayout(false);
@@ -737,5 +769,7 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn14;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btn_Comments;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn15;
+        private DevExpress.XtraEditors.LabelControl lbl_Folio;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn16;
     }
 }

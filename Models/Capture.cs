@@ -14,7 +14,7 @@ namespace ResponseEmergencySystem.Models
         public string ID_StatusDetail { get; set; }
         public string ImagePath { get; set; }
         public string ImageName { get; set; }
-        public string comments { get; }
+        public string comments { get; set; }
         public string captureType { get; }
         public string Description { get; set; }
 

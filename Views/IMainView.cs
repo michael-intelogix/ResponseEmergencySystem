@@ -19,6 +19,8 @@ namespace ResponseEmergencySystem.Views
 
         void SetGridFilters(string driver, string truck, string folio);
         void ClearFilters();
+
+        void LblFolioPosition();
         //void LoadStates(DataTable dt_States);
         //void LoadCities(DataTable dt_Cities);
         //void LoadInjuredPersons(DataTable dt_InjuredPersons);
@@ -30,6 +32,7 @@ namespace ResponseEmergencySystem.Views
         object ID_Incident { get; }
         object ID_Capture { get; }
         string ID_Image { get; }
+        object ID_StatusDetail { get; set; }
 
         string ImageName { get; }
 
@@ -37,7 +40,7 @@ namespace ResponseEmergencySystem.Views
         string Date1 { get; set;  }
         //dateEdit2.DateTime.Date.ToString("MM/dd/yyyy")
         string Date2 { get; set;  }
-        string Folio { get; set;  }
+        object Folio { get; set;  }
         string DriverName { get; set;  }
         string TruckNumber { get; set; }
 
@@ -49,6 +52,6 @@ namespace ResponseEmergencySystem.Views
 
         MemoEdit chat { get; }
 
-        
+        string LblFolio { set; }
     }
 }

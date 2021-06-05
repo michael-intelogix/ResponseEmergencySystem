@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SIREMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Incidents">
+          <Key>
+            <PropertyRef Name="ID_Incident" />
+          </Key>
+          <Property Name="ID_Incident" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Folio" Type="nvarchar(max)" />
+          <Property Name="IncidentDate" Type="datetime" />
+          <Property Name="IncidentCloseDate" Type="datetime" />
+          <Property Name="PoliceReport" Type="bit" Nullable="false" />
+          <Property Name="CitationReportNumber" Type="nvarchar(max)" />
+          <Property Name="ManifestNumber" Type="nvarchar(max)" />
+          <Property Name="LocationReferences" Type="nvarchar(max)" />
+          <Property Name="IncidentLatitude" Type="nvarchar(max)" />
+          <Property Name="IncidentLongitude" Type="nvarchar(max)" />
+          <Property Name="Comments" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar(max)" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="nvarchar(max)" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="ID_Truck" Type="nvarchar(max)" />
+          <Property Name="TruckDamage" Type="bit" />
+          <Property Name="TruckCanMove" Type="bit" Nullable="false" />
+          <Property Name="TruckNeedCrane" Type="bit" Nullable="false" />
+          <Property Name="ID_Trailer" Type="nvarchar(max)" />
+          <Property Name="TrailerDamage" Type="bit" />
+          <Property Name="TrailerCanMove" Type="bit" Nullable="false" />
+          <Property Name="TrailerNeedCrane" Type="bit" Nullable="false" />
+          <Property Name="CargoSpill" Type="bit" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="ID_Driver" Type="nvarchar(max)" />
+          <Property Name="ID_City" Type="nvarchar(max)" />
+          <Property Name="ID_State" Type="nvarchar(max)" />
+          <Property Name="ID_Broker" Type="nvarchar(max)" />
+          <Property Name="ID_StatusDetail" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityContainer Name="SIREMModelStoreContainer">
+          <EntitySet Name="Incidents" EntityType="Self.Incidents" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SIREMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Incidents">
+          <Key>
+            <PropertyRef Name="ID_Incident" />
+          </Key>
+          <Property Name="ID_Incident" Type="Guid" Nullable="false" />
+          <Property Name="Folio" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IncidentDate" Type="DateTime" Precision="3" />
+          <Property Name="IncidentCloseDate" Type="DateTime" Precision="3" />
+          <Property Name="PoliceReport" Type="Boolean" Nullable="false" />
+          <Property Name="CitationReportNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ManifestNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LocationReferences" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IncidentLatitude" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IncidentLongitude" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="ID_Truck" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TruckDamage" Type="Boolean" />
+          <Property Name="TruckCanMove" Type="Boolean" Nullable="false" />
+          <Property Name="TruckNeedCrane" Type="Boolean" Nullable="false" />
+          <Property Name="ID_Trailer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TrailerDamage" Type="Boolean" />
+          <Property Name="TrailerCanMove" Type="Boolean" Nullable="false" />
+          <Property Name="TrailerNeedCrane" Type="Boolean" Nullable="false" />
+          <Property Name="CargoSpill" Type="Boolean" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="ID_Driver" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ID_City" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ID_State" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ID_Broker" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ID_StatusDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="SIREMEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Incidents" EntityType="Self.Incidents" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SIREMModelStoreContainer" CdmEntityContainer="SIREMEntities">
+          <EntitySetMapping Name="Incidents">
+            <EntityTypeMapping TypeName="SIREMModel.Incidents">
+              <MappingFragment StoreEntitySet="Incidents">
+                <ScalarProperty Name="ID_Incident" ColumnName="ID_Incident" />
+                <ScalarProperty Name="Folio" ColumnName="Folio" />
+                <ScalarProperty Name="IncidentDate" ColumnName="IncidentDate" />
+                <ScalarProperty Name="IncidentCloseDate" ColumnName="IncidentCloseDate" />
+                <ScalarProperty Name="PoliceReport" ColumnName="PoliceReport" />
+                <ScalarProperty Name="CitationReportNumber" ColumnName="CitationReportNumber" />
+                <ScalarProperty Name="ManifestNumber" ColumnName="ManifestNumber" />
+                <ScalarProperty Name="LocationReferences" ColumnName="LocationReferences" />
+                <ScalarProperty Name="IncidentLatitude" ColumnName="IncidentLatitude" />
+                <ScalarProperty Name="IncidentLongitude" ColumnName="IncidentLongitude" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="ID_Truck" ColumnName="ID_Truck" />
+                <ScalarProperty Name="TruckDamage" ColumnName="TruckDamage" />
+                <ScalarProperty Name="TruckCanMove" ColumnName="TruckCanMove" />
+                <ScalarProperty Name="TruckNeedCrane" ColumnName="TruckNeedCrane" />
+                <ScalarProperty Name="ID_Trailer" ColumnName="ID_Trailer" />
+                <ScalarProperty Name="TrailerDamage" ColumnName="TrailerDamage" />
+                <ScalarProperty Name="TrailerCanMove" ColumnName="TrailerCanMove" />
+                <ScalarProperty Name="TrailerNeedCrane" ColumnName="TrailerNeedCrane" />
+                <ScalarProperty Name="CargoSpill" ColumnName="CargoSpill" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ID_Driver" ColumnName="ID_Driver" />
+                <ScalarProperty Name="ID_City" ColumnName="ID_City" />
+                <ScalarProperty Name="ID_State" ColumnName="ID_State" />
+                <ScalarProperty Name="ID_Broker" ColumnName="ID_Broker" />
+                <ScalarProperty Name="ID_StatusDetail" ColumnName="ID_StatusDetail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

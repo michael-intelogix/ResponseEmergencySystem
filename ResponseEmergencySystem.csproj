@@ -77,6 +77,7 @@
     <Reference Include="DevExpress.Map.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Office.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Pdf.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v20.2.Drawing, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.PivotGrid.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.RichEdit.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -93,6 +94,7 @@
     <Reference Include="DevExpress.XtraGrid.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraLayout.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraMap.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPdfViewer.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraReports.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraReports.v20.2.Extensions, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -398,6 +400,24 @@
     <Compile Include="Controllers\Main2Controller.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\ModalController.cs" />
+    <Compile Include="EF\Incidents.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\EditIncidentDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -428,6 +448,12 @@
     <Compile Include="Forms\frm_Main.Designer.cs">
       <DependentUpon>frm_Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frm_PdfViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm_PdfViewer.Designer.cs">
+      <DependentUpon>frm_PdfViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Helpers\frm_Zoom.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -439,6 +465,12 @@
     </Compile>
     <Compile Include="Forms\IncidentCaptures.Designer.cs">
       <DependentUpon>IncidentCaptures.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Incidents\AddDriverIncident.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Incidents\AddDriverIncident.Designer.cs">
+      <DependentUpon>AddDriverIncident.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Main2.cs">
       <SubType>Form</SubType>
@@ -526,6 +558,7 @@
     </Compile>
     <Compile Include="Models\Broker.cs" />
     <Compile Include="Models\City.cs" />
+    <Compile Include="Models\DocumentCapture.cs" />
     <Compile Include="Models\MailCategory.cs" />
     <Compile Include="Models\MailDirectory.cs" />
     <Compile Include="Models\PersonsInvolved.cs" />
@@ -594,6 +627,13 @@
     <Compile Include="Views\IMainView.cs" />
     <Compile Include="Views\IModalView.cs" />
     <Compile Include="Views\IShowIncidentDetails.cs" />
+    <EntityDeploy Include="EF\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="EF\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
     <None Include="Resources\SIREMlogo.svg" />
     <None Include="Resources\updateWhite.svg" />
     <None Include="Resources\chatboxWhite1.svg" />
@@ -635,6 +675,30 @@
     <None Include="Resources\save_16x16.png" />
     <None Include="Resources\botask_16x16.png" />
     <None Include="Resources\comment_16x16.png" />
+    <Content Include="EF\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EF\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <None Include="Resources\image_32x32.png" />
+    <None Include="Resources\image_16x16.png" />
+    <None Include="Resources\preview_32x322.png" />
+    <None Include="Resources\preview_16x162.png" />
+    <None Include="Resources\edit_32x321.png" />
+    <None Include="Resources\edit_16x161.png" />
+    <None Include="Resources\save_32x322.png" />
+    <None Include="Resources\save_16x161.png" />
+    <None Include="Resources\botask_32x32.png" />
+    <None Include="Resources\botask_16x161.png" />
+    <None Include="Resources\deletelist_32x32.png" />
+    <None Include="Resources\deletelist_16x16.png" />
+    <Content Include="Resources\pdf.png" />
+    <None Include="Resources\pdf1.png" />
     <Content Include="x64\SQLite.Interop.dll" />
     <Content Include="x86\SQLite.Interop.dll" />
     <EmbeddedResource Include="Forms\EditIncidentDetails.resx">
@@ -652,6 +716,9 @@
     <EmbeddedResource Include="Forms\frm_Main.resx">
       <DependentUpon>frm_Main.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm_PdfViewer.resx">
+      <DependentUpon>frm_PdfViewer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Helpers\frm_Zoom.resx">
       <DependentUpon>frm_Zoom.cs</DependentUpon>
     </EmbeddedResource>
@@ -660,6 +727,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddIncidentDetails.resx">
       <DependentUpon>AddIncidentDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Incidents\AddDriverIncident.resx">
+      <DependentUpon>AddDriverIncident.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
@@ -745,7 +815,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Code\Captures\" />
-    <Folder Include="EF\" />
     <Folder Include="Views\Incidents\" />
   </ItemGroup>
   <ItemGroup>

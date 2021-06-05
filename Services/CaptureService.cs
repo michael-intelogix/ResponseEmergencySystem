@@ -166,7 +166,8 @@ namespace ResponseEmergencySystem.Services
                                     (string)sdr["ImageUrl"],
                                     (string)sdr["ID_StatusDetail"].ToString(),
                                     (string)sdr["Status"],
-                                    (string)sdr["Comments"]
+                                    (string)sdr["Comments"],
+                                    (string)sdr["FileType"]
                                 )
                             );
                         }
@@ -242,7 +243,7 @@ namespace ResponseEmergencySystem.Services
             return new Response(false, "", Guid.Empty.ToString());
         }
 
-        public static Response AddImage(string imageId, string captureId, string imageUrl, string description, string comments)
+        public static Response AddImage(string imageId, string captureId, string imageUrl, string description, string comments, string fileType)
         {
             opSuccess = false;
 
@@ -266,6 +267,7 @@ namespace ResponseEmergencySystem.Services
                     cmd.Parameters.AddWithValue("@ImageUrl", imageUrl);
                     cmd.Parameters.AddWithValue("@Description", description);
                     cmd.Parameters.AddWithValue("@Comments", comments);
+                    cmd.Parameters.AddWithValue("@FileType", fileType);
 
                     cmd.Connection.Open();
                     using (SqlDataReader sdr = cmd.ExecuteReader())

@@ -46,11 +46,18 @@ namespace ResponseEmergencySystem.Forms
             this.repositoryItemTextEdit5 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.repositoryItemDateEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
@@ -88,9 +95,15 @@ namespace ResponseEmergencySystem.Forms
             this.bar_TruckNumber,
             this.bar_Driver,
             this.barButtonItem4,
-            this.barButtonItem5});
+            this.barButtonItem5,
+            this.barButtonItem6,
+            this.barButtonItem7,
+            this.barButtonItem8,
+            this.barButtonItem9,
+            this.barButtonItem10,
+            this.barButtonItem11});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 14;
+            this.ribbonControl1.MaxItemId = 20;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -103,7 +116,7 @@ namespace ResponseEmergencySystem.Forms
             this.repositoryItemTextEdit3,
             this.repositoryItemTextEdit4,
             this.repositoryItemTextEdit5});
-            this.ribbonControl1.Size = new System.Drawing.Size(1316, 161);
+            this.ribbonControl1.Size = new System.Drawing.Size(1659, 161);
             this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
             // 
             // barButtonItem1
@@ -246,15 +259,79 @@ namespace ResponseEmergencySystem.Forms
             this.barButtonItem5.Name = "barButtonItem5";
             this.barButtonItem5.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem5_ItemClick);
             // 
+            // barButtonItem6
+            // 
+            this.barButtonItem6.Caption = "Add Captures";
+            this.barButtonItem6.Id = 14;
+            this.barButtonItem6.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.image_16x16;
+            this.barButtonItem6.ImageOptions.LargeImage = global::ResponseEmergencySystem.Properties.Resources.image_32x32;
+            this.barButtonItem6.Name = "barButtonItem6";
+            this.barButtonItem6.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem6_ItemClick);
+            // 
+            // barButtonItem7
+            // 
+            this.barButtonItem7.Caption = "Show Incident";
+            this.barButtonItem7.Id = 15;
+            this.barButtonItem7.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.preview_16x162;
+            this.barButtonItem7.ImageOptions.LargeImage = global::ResponseEmergencySystem.Properties.Resources.preview_32x322;
+            this.barButtonItem7.Name = "barButtonItem7";
+            this.barButtonItem7.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem7_ItemClick);
+            // 
+            // barButtonItem8
+            // 
+            this.barButtonItem8.Caption = "Edit Incident";
+            this.barButtonItem8.Id = 16;
+            this.barButtonItem8.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.edit_16x161;
+            this.barButtonItem8.ImageOptions.LargeImage = global::ResponseEmergencySystem.Properties.Resources.edit_32x321;
+            this.barButtonItem8.Name = "barButtonItem8";
+            this.barButtonItem8.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem8_ItemClick);
+            // 
+            // barButtonItem9
+            // 
+            this.barButtonItem9.Caption = "Save Status";
+            this.barButtonItem9.Id = 17;
+            this.barButtonItem9.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.save_16x161;
+            this.barButtonItem9.ImageOptions.LargeImage = global::ResponseEmergencySystem.Properties.Resources.save_32x322;
+            this.barButtonItem9.Name = "barButtonItem9";
+            this.barButtonItem9.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem9_ItemClick);
+            // 
+            // barButtonItem10
+            // 
+            this.barButtonItem10.Caption = "Close Incident";
+            this.barButtonItem10.Id = 18;
+            this.barButtonItem10.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.botask_16x161;
+            this.barButtonItem10.ImageOptions.LargeImage = global::ResponseEmergencySystem.Properties.Resources.botask_32x32;
+            this.barButtonItem10.Name = "barButtonItem10";
+            this.barButtonItem10.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem10_ItemClick);
+            // 
+            // barButtonItem11
+            // 
+            this.barButtonItem11.Caption = "Delete Incident";
+            this.barButtonItem11.Id = 19;
+            this.barButtonItem11.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.pdf;
+            this.barButtonItem11.ImageOptions.LargeImage = global::ResponseEmergencySystem.Properties.Resources.deletelist_32x32;
+            this.barButtonItem11.Name = "barButtonItem11";
+            this.barButtonItem11.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem11_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup3,
             this.ribbonPageGroup1,
             this.ribbonPageGroup2,
-            this.ribbonPageGroup3,
-            this.ribbonPageGroup4});
+            this.ribbonPageGroup4,
+            this.ribbonPageGroup5});
             this.ribbonPage1.Name = "ribbonPage1";
-            this.ribbonPage1.Text = "ribbonPage1";
+            this.ribbonPage1.Text = "Load Incidents";
+            // 
+            // ribbonPageGroup3
+            // 
+            this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem7);
+            this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem8);
+            this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem6);
+            this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem9);
+            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
+            this.ribbonPageGroup3.Text = "incident properties";
             // 
             // ribbonPageGroup1
             // 
@@ -264,7 +341,7 @@ namespace ResponseEmergencySystem.Forms
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem3);
             this.ribbonPageGroup1.ItemsLayout = DevExpress.XtraBars.Ribbon.RibbonPageGroupItemsLayout.ThreeRows;
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "ribbonPageGroup1";
+            this.ribbonPageGroup1.Text = "Data Load";
             // 
             // ribbonPageGroup2
             // 
@@ -273,20 +350,22 @@ namespace ResponseEmergencySystem.Forms
             this.ribbonPageGroup2.ItemLinks.Add(this.bar_Driver);
             this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem2, true);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-            this.ribbonPageGroup2.Text = "ribbonPageGroup2";
-            // 
-            // ribbonPageGroup3
-            // 
-            this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem4);
-            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
-            this.ribbonPageGroup3.Text = "ribbonPageGroup3";
+            this.ribbonPageGroup2.Text = "Filters";
             // 
             // ribbonPageGroup4
             // 
             this.ribbonPageGroup4.Alignment = DevExpress.XtraBars.Ribbon.RibbonPageGroupAlignment.Far;
             this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem5);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
-            this.ribbonPageGroup4.Text = "ribbonPageGroup4";
+            this.ribbonPageGroup4.Text = "Settings";
+            // 
+            // ribbonPageGroup5
+            // 
+            this.ribbonPageGroup5.ItemLinks.Add(this.barButtonItem4);
+            this.ribbonPageGroup5.ItemLinks.Add(this.barButtonItem10);
+            this.ribbonPageGroup5.ItemLinks.Add(this.barButtonItem11);
+            this.ribbonPageGroup5.Name = "ribbonPageGroup5";
+            this.ribbonPageGroup5.Text = "tools";
             // 
             // repositoryItemTextEdit1
             // 
@@ -312,7 +391,7 @@ namespace ResponseEmergencySystem.Forms
             this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 588);
             this.ribbonStatusBar1.Name = "ribbonStatusBar1";
             this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
-            this.ribbonStatusBar1.Size = new System.Drawing.Size(1316, 27);
+            this.ribbonStatusBar1.Size = new System.Drawing.Size(1659, 27);
             // 
             // ribbonPage2
             // 
@@ -325,7 +404,7 @@ namespace ResponseEmergencySystem.Forms
             this.pnl_Container.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_Container.Location = new System.Drawing.Point(0, 161);
             this.pnl_Container.Name = "pnl_Container";
-            this.pnl_Container.Size = new System.Drawing.Size(1316, 427);
+            this.pnl_Container.Size = new System.Drawing.Size(1659, 427);
             this.pnl_Container.TabIndex = 2;
             this.pnl_Container.SizeChanged += new System.EventHandler(this.pnl_Container_SizeChanged);
             // 
@@ -337,7 +416,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1316, 615);
+            this.ClientSize = new System.Drawing.Size(1659, 615);
             this.Controls.Add(this.pnl_Container);
             this.Controls.Add(this.ribbonStatusBar1);
             this.Controls.Add(this.ribbonControl1);
@@ -345,6 +424,7 @@ namespace ResponseEmergencySystem.Forms
             this.Ribbon = this.ribbonControl1;
             this.StatusBar = this.ribbonStatusBar1;
             this.Text = "frm_Main";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frm_Main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit2.CalendarTimeProperties)).EndInit();
@@ -394,5 +474,12 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem5;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem6;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem7;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem8;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem9;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem10;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem11;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
     }
 }

@@ -30,22 +30,22 @@ namespace ResponseEmergencySystem.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.lbl_Capture3 = new DevExpress.XtraEditors.LabelControl();
-            this.lbl_Capture4 = new DevExpress.XtraEditors.LabelControl();
             this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
             this.btn_Save = new DevExpress.XtraEditors.SimpleButton();
             this.btn_Cancel2 = new DevExpress.XtraEditors.SimpleButton();
             this.lue_Type = new DevExpress.XtraEditors.LookUpEdit();
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
-            this.pnl_Capture1 = new DevExpress.XtraEditors.PanelControl();
-            this.status_Capture1 = new DevExpress.XtraEditors.SimpleButton();
-            this.btn_Capture1 = new DevExpress.XtraEditors.SimpleButton();
-            this.lbl_Capture1 = new DevExpress.XtraEditors.LabelControl();
-            this.pbr_Cpature1 = new DevExpress.XtraEditors.ProgressBarControl();
+            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ResponseEmergencySystem.Forms.WaitForm1), true, true);
+            this.xtraScrollableControl1 = new DevExpress.XtraEditors.XtraScrollableControl();
+            this.pnl_Capture4 = new DevExpress.XtraEditors.PanelControl();
+            this.status_Capture4 = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_Capture4 = new DevExpress.XtraEditors.SimpleButton();
+            this.lbl_Capture4 = new DevExpress.XtraEditors.LabelControl();
+            this.pbr_Capture4 = new DevExpress.XtraEditors.ProgressBarControl();
             this.pnl_Capture2 = new DevExpress.XtraEditors.PanelControl();
             this.lbl_Capture2 = new DevExpress.XtraEditors.LabelControl();
             this.status_Capture2 = new DevExpress.XtraEditors.SimpleButton();
@@ -54,27 +54,29 @@ namespace ResponseEmergencySystem.Forms
             this.pnl_Capture3 = new DevExpress.XtraEditors.PanelControl();
             this.status_Capture3 = new DevExpress.XtraEditors.SimpleButton();
             this.btn_Capture3 = new DevExpress.XtraEditors.SimpleButton();
+            this.lbl_Capture3 = new DevExpress.XtraEditors.LabelControl();
             this.pbr_Capture3 = new DevExpress.XtraEditors.ProgressBarControl();
-            this.pnl_Capture4 = new DevExpress.XtraEditors.PanelControl();
-            this.status_Capture4 = new DevExpress.XtraEditors.SimpleButton();
-            this.btn_Capture4 = new DevExpress.XtraEditors.SimpleButton();
-            this.pbr_Capture4 = new DevExpress.XtraEditors.ProgressBarControl();
-            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ResponseEmergencySystem.Forms.WaitForm1), true, true);
+            this.pnl_Capture1 = new DevExpress.XtraEditors.PanelControl();
+            this.status_Capture1 = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_Capture1 = new DevExpress.XtraEditors.SimpleButton();
+            this.lbl_Capture1 = new DevExpress.XtraEditors.LabelControl();
+            this.pbr_Cpature1 = new DevExpress.XtraEditors.ProgressBarControl();
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_Type.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pnl_Capture1)).BeginInit();
-            this.pnl_Capture1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbr_Cpature1.Properties)).BeginInit();
+            this.xtraScrollableControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pnl_Capture4)).BeginInit();
+            this.pnl_Capture4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbr_Capture4.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnl_Capture2)).BeginInit();
             this.pnl_Capture2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbr_Capture2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnl_Capture3)).BeginInit();
             this.pnl_Capture3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbr_Capture3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pnl_Capture4)).BeginInit();
-            this.pnl_Capture4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbr_Capture4.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pnl_Capture1)).BeginInit();
+            this.pnl_Capture1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbr_Cpature1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -102,22 +104,6 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl3.Size = new System.Drawing.Size(67, 21);
             this.labelControl3.TabIndex = 5;
             this.labelControl3.Text = "Captures";
-            // 
-            // lbl_Capture3
-            // 
-            this.lbl_Capture3.Location = new System.Drawing.Point(8, 7);
-            this.lbl_Capture3.Name = "lbl_Capture3";
-            this.lbl_Capture3.Size = new System.Drawing.Size(146, 17);
-            this.lbl_Capture3.TabIndex = 8;
-            this.lbl_Capture3.Text = "Right side of the vehicle";
-            // 
-            // lbl_Capture4
-            // 
-            this.lbl_Capture4.Location = new System.Drawing.Point(8, 7);
-            this.lbl_Capture4.Name = "lbl_Capture4";
-            this.lbl_Capture4.Size = new System.Drawing.Size(136, 17);
-            this.lbl_Capture4.TabIndex = 9;
-            this.lbl_Capture4.Text = "Left side of the vehicle";
             // 
             // memoEdit1
             // 
@@ -184,76 +170,90 @@ namespace ResponseEmergencySystem.Forms
             this.lue_Type.Properties.ValueMember = "ID_CaptureType";
             this.lue_Type.Size = new System.Drawing.Size(315, 24);
             this.lue_Type.TabIndex = 18;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule2.ErrorText = "This value is not valid";
-            conditionValidationRule2.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
-            this.dxValidationProvider1.SetValidationRule(this.lue_Type, conditionValidationRule2);
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "This value is not valid";
+            conditionValidationRule1.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
+            this.dxValidationProvider1.SetValidationRule(this.lue_Type, conditionValidationRule1);
             this.lue_Type.EditValueChanged += new System.EventHandler(this.lue_Type_EditValueChanged);
             // 
-            // pnl_Capture1
+            // splashScreenManager1
             // 
-            this.pnl_Capture1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.pnl_Capture1.Controls.Add(this.status_Capture1);
-            this.pnl_Capture1.Controls.Add(this.btn_Capture1);
-            this.pnl_Capture1.Controls.Add(this.lbl_Capture1);
-            this.pnl_Capture1.Controls.Add(this.pbr_Cpature1);
-            this.pnl_Capture1.Location = new System.Drawing.Point(4, 198);
-            this.pnl_Capture1.Name = "pnl_Capture1";
-            this.pnl_Capture1.Size = new System.Drawing.Size(459, 31);
-            this.pnl_Capture1.TabIndex = 19;
-            this.pnl_Capture1.Visible = false;
+            this.splashScreenManager1.ClosingDelay = 500;
             // 
-            // status_Capture1
+            // xtraScrollableControl1
             // 
-            this.status_Capture1.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.status_Capture1.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(138)))), ((int)(((byte)(50)))));
-            this.status_Capture1.Appearance.Options.UseFont = true;
-            this.status_Capture1.Appearance.Options.UseForeColor = true;
-            this.status_Capture1.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.apply_16x161;
-            this.status_Capture1.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.status_Capture1.Location = new System.Drawing.Point(357, 4);
-            this.status_Capture1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-            this.status_Capture1.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.status_Capture1.Name = "status_Capture1";
-            this.status_Capture1.Size = new System.Drawing.Size(88, 23);
-            this.status_Capture1.TabIndex = 17;
-            this.status_Capture1.Text = "Upload";
-            this.status_Capture1.Visible = false;
+            this.xtraScrollableControl1.Controls.Add(this.pnl_Capture4);
+            this.xtraScrollableControl1.Controls.Add(this.pnl_Capture2);
+            this.xtraScrollableControl1.Controls.Add(this.pnl_Capture3);
+            this.xtraScrollableControl1.Controls.Add(this.pnl_Capture1);
+            this.xtraScrollableControl1.Location = new System.Drawing.Point(3, 185);
+            this.xtraScrollableControl1.Name = "xtraScrollableControl1";
+            this.xtraScrollableControl1.Size = new System.Drawing.Size(465, 186);
+            this.xtraScrollableControl1.TabIndex = 19;
             // 
-            // btn_Capture1
+            // pnl_Capture4
             // 
-            this.btn_Capture1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
-            this.btn_Capture1.Appearance.ForeColor = System.Drawing.Color.White;
-            this.btn_Capture1.Appearance.Options.UseBackColor = true;
-            this.btn_Capture1.Appearance.Options.UseForeColor = true;
-            this.btn_Capture1.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.uploadWhite;
-            this.btn_Capture1.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btn_Capture1.Location = new System.Drawing.Point(188, 3);
-            this.btn_Capture1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-            this.btn_Capture1.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.btn_Capture1.Name = "btn_Capture1";
-            this.btn_Capture1.Size = new System.Drawing.Size(135, 23);
-            this.btn_Capture1.TabIndex = 16;
-            this.btn_Capture1.Text = "Upload image";
-            this.btn_Capture1.Click += new System.EventHandler(this.UploadImageOnClick);
+            this.pnl_Capture4.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pnl_Capture4.Controls.Add(this.status_Capture4);
+            this.pnl_Capture4.Controls.Add(this.btn_Capture4);
+            this.pnl_Capture4.Controls.Add(this.lbl_Capture4);
+            this.pnl_Capture4.Controls.Add(this.pbr_Capture4);
+            this.pnl_Capture4.Location = new System.Drawing.Point(3, 114);
+            this.pnl_Capture4.Name = "pnl_Capture4";
+            this.pnl_Capture4.Size = new System.Drawing.Size(459, 31);
+            this.pnl_Capture4.TabIndex = 25;
+            this.pnl_Capture4.Visible = false;
             // 
-            // lbl_Capture1
+            // status_Capture4
             // 
-            this.lbl_Capture1.Location = new System.Drawing.Point(8, 7);
-            this.lbl_Capture1.Name = "lbl_Capture1";
-            this.lbl_Capture1.Size = new System.Drawing.Size(117, 17);
-            this.lbl_Capture1.TabIndex = 15;
-            this.lbl_Capture1.Text = "Front of the vehicle";
+            this.status_Capture4.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.status_Capture4.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(138)))), ((int)(((byte)(50)))));
+            this.status_Capture4.Appearance.Options.UseFont = true;
+            this.status_Capture4.Appearance.Options.UseForeColor = true;
+            this.status_Capture4.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.apply_16x161;
+            this.status_Capture4.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
+            this.status_Capture4.Location = new System.Drawing.Point(357, 4);
+            this.status_Capture4.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            this.status_Capture4.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.status_Capture4.Name = "status_Capture4";
+            this.status_Capture4.Size = new System.Drawing.Size(88, 23);
+            this.status_Capture4.TabIndex = 17;
+            this.status_Capture4.Text = "Upload";
+            this.status_Capture4.Visible = false;
             // 
-            // pbr_Cpature1
+            // btn_Capture4
             // 
-            this.pbr_Cpature1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbr_Cpature1.Location = new System.Drawing.Point(346, 7);
-            this.pbr_Cpature1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pbr_Cpature1.Name = "pbr_Cpature1";
-            this.pbr_Cpature1.Size = new System.Drawing.Size(110, 17);
-            this.pbr_Cpature1.TabIndex = 18;
-            this.pbr_Cpature1.Visible = false;
+            this.btn_Capture4.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.btn_Capture4.Appearance.ForeColor = System.Drawing.Color.White;
+            this.btn_Capture4.Appearance.Options.UseBackColor = true;
+            this.btn_Capture4.Appearance.Options.UseForeColor = true;
+            this.btn_Capture4.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.uploadWhite;
+            this.btn_Capture4.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.btn_Capture4.Location = new System.Drawing.Point(188, 3);
+            this.btn_Capture4.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            this.btn_Capture4.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.btn_Capture4.Name = "btn_Capture4";
+            this.btn_Capture4.Size = new System.Drawing.Size(135, 23);
+            this.btn_Capture4.TabIndex = 16;
+            this.btn_Capture4.Text = "Upload image";
+            // 
+            // lbl_Capture4
+            // 
+            this.lbl_Capture4.Location = new System.Drawing.Point(8, 7);
+            this.lbl_Capture4.Name = "lbl_Capture4";
+            this.lbl_Capture4.Size = new System.Drawing.Size(136, 17);
+            this.lbl_Capture4.TabIndex = 9;
+            this.lbl_Capture4.Text = "Left side of the vehicle";
+            // 
+            // pbr_Capture4
+            // 
+            this.pbr_Capture4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbr_Capture4.Location = new System.Drawing.Point(346, 7);
+            this.pbr_Capture4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pbr_Capture4.Name = "pbr_Capture4";
+            this.pbr_Capture4.Size = new System.Drawing.Size(110, 17);
+            this.pbr_Capture4.TabIndex = 21;
+            this.pbr_Capture4.Visible = false;
             // 
             // pnl_Capture2
             // 
@@ -262,10 +262,10 @@ namespace ResponseEmergencySystem.Forms
             this.pnl_Capture2.Controls.Add(this.status_Capture2);
             this.pnl_Capture2.Controls.Add(this.btn_Capture2);
             this.pnl_Capture2.Controls.Add(this.pbr_Capture2);
-            this.pnl_Capture2.Location = new System.Drawing.Point(4, 235);
+            this.pnl_Capture2.Location = new System.Drawing.Point(3, 40);
             this.pnl_Capture2.Name = "pnl_Capture2";
             this.pnl_Capture2.Size = new System.Drawing.Size(459, 31);
-            this.pnl_Capture2.TabIndex = 20;
+            this.pnl_Capture2.TabIndex = 23;
             this.pnl_Capture2.Visible = false;
             // 
             // lbl_Capture2
@@ -308,7 +308,6 @@ namespace ResponseEmergencySystem.Forms
             this.btn_Capture2.Size = new System.Drawing.Size(135, 23);
             this.btn_Capture2.TabIndex = 16;
             this.btn_Capture2.Text = "Upload image";
-            this.btn_Capture2.Click += new System.EventHandler(this.UploadImageOnClick);
             // 
             // pbr_Capture2
             // 
@@ -327,10 +326,10 @@ namespace ResponseEmergencySystem.Forms
             this.pnl_Capture3.Controls.Add(this.btn_Capture3);
             this.pnl_Capture3.Controls.Add(this.lbl_Capture3);
             this.pnl_Capture3.Controls.Add(this.pbr_Capture3);
-            this.pnl_Capture3.Location = new System.Drawing.Point(4, 272);
+            this.pnl_Capture3.Location = new System.Drawing.Point(3, 77);
             this.pnl_Capture3.Name = "pnl_Capture3";
             this.pnl_Capture3.Size = new System.Drawing.Size(459, 31);
-            this.pnl_Capture3.TabIndex = 20;
+            this.pnl_Capture3.TabIndex = 24;
             this.pnl_Capture3.Visible = false;
             // 
             // status_Capture3
@@ -365,7 +364,14 @@ namespace ResponseEmergencySystem.Forms
             this.btn_Capture3.Size = new System.Drawing.Size(135, 23);
             this.btn_Capture3.TabIndex = 16;
             this.btn_Capture3.Text = "Upload image";
-            this.btn_Capture3.Click += new System.EventHandler(this.UploadImageOnClick);
+            // 
+            // lbl_Capture3
+            // 
+            this.lbl_Capture3.Location = new System.Drawing.Point(8, 7);
+            this.lbl_Capture3.Name = "lbl_Capture3";
+            this.lbl_Capture3.Size = new System.Drawing.Size(146, 17);
+            this.lbl_Capture3.TabIndex = 8;
+            this.lbl_Capture3.Text = "Right side of the vehicle";
             // 
             // pbr_Capture3
             // 
@@ -377,76 +383,76 @@ namespace ResponseEmergencySystem.Forms
             this.pbr_Capture3.TabIndex = 20;
             this.pbr_Capture3.Visible = false;
             // 
-            // pnl_Capture4
+            // pnl_Capture1
             // 
-            this.pnl_Capture4.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.pnl_Capture4.Controls.Add(this.status_Capture4);
-            this.pnl_Capture4.Controls.Add(this.btn_Capture4);
-            this.pnl_Capture4.Controls.Add(this.lbl_Capture4);
-            this.pnl_Capture4.Controls.Add(this.pbr_Capture4);
-            this.pnl_Capture4.Location = new System.Drawing.Point(4, 309);
-            this.pnl_Capture4.Name = "pnl_Capture4";
-            this.pnl_Capture4.Size = new System.Drawing.Size(459, 31);
-            this.pnl_Capture4.TabIndex = 21;
-            this.pnl_Capture4.Visible = false;
+            this.pnl_Capture1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pnl_Capture1.Controls.Add(this.status_Capture1);
+            this.pnl_Capture1.Controls.Add(this.btn_Capture1);
+            this.pnl_Capture1.Controls.Add(this.lbl_Capture1);
+            this.pnl_Capture1.Controls.Add(this.pbr_Cpature1);
+            this.pnl_Capture1.Location = new System.Drawing.Point(3, 3);
+            this.pnl_Capture1.Name = "pnl_Capture1";
+            this.pnl_Capture1.Size = new System.Drawing.Size(459, 31);
+            this.pnl_Capture1.TabIndex = 22;
+            this.pnl_Capture1.Visible = false;
             // 
-            // status_Capture4
+            // status_Capture1
             // 
-            this.status_Capture4.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.status_Capture4.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(138)))), ((int)(((byte)(50)))));
-            this.status_Capture4.Appearance.Options.UseFont = true;
-            this.status_Capture4.Appearance.Options.UseForeColor = true;
-            this.status_Capture4.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.apply_16x161;
-            this.status_Capture4.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.status_Capture4.Location = new System.Drawing.Point(357, 4);
-            this.status_Capture4.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-            this.status_Capture4.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.status_Capture4.Name = "status_Capture4";
-            this.status_Capture4.Size = new System.Drawing.Size(88, 23);
-            this.status_Capture4.TabIndex = 17;
-            this.status_Capture4.Text = "Upload";
-            this.status_Capture4.Visible = false;
+            this.status_Capture1.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.status_Capture1.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(138)))), ((int)(((byte)(50)))));
+            this.status_Capture1.Appearance.Options.UseFont = true;
+            this.status_Capture1.Appearance.Options.UseForeColor = true;
+            this.status_Capture1.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.apply_16x161;
+            this.status_Capture1.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
+            this.status_Capture1.Location = new System.Drawing.Point(357, 4);
+            this.status_Capture1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            this.status_Capture1.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.status_Capture1.Name = "status_Capture1";
+            this.status_Capture1.Size = new System.Drawing.Size(88, 23);
+            this.status_Capture1.TabIndex = 17;
+            this.status_Capture1.Text = "Upload";
+            this.status_Capture1.Visible = false;
             // 
-            // btn_Capture4
+            // btn_Capture1
             // 
-            this.btn_Capture4.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
-            this.btn_Capture4.Appearance.ForeColor = System.Drawing.Color.White;
-            this.btn_Capture4.Appearance.Options.UseBackColor = true;
-            this.btn_Capture4.Appearance.Options.UseForeColor = true;
-            this.btn_Capture4.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.uploadWhite;
-            this.btn_Capture4.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btn_Capture4.Location = new System.Drawing.Point(188, 3);
-            this.btn_Capture4.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-            this.btn_Capture4.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.btn_Capture4.Name = "btn_Capture4";
-            this.btn_Capture4.Size = new System.Drawing.Size(135, 23);
-            this.btn_Capture4.TabIndex = 16;
-            this.btn_Capture4.Text = "Upload image";
-            this.btn_Capture4.Click += new System.EventHandler(this.UploadImageOnClick);
+            this.btn_Capture1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.btn_Capture1.Appearance.ForeColor = System.Drawing.Color.White;
+            this.btn_Capture1.Appearance.Options.UseBackColor = true;
+            this.btn_Capture1.Appearance.Options.UseForeColor = true;
+            this.btn_Capture1.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.uploadWhite;
+            this.btn_Capture1.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.btn_Capture1.Location = new System.Drawing.Point(188, 3);
+            this.btn_Capture1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            this.btn_Capture1.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.btn_Capture1.Name = "btn_Capture1";
+            this.btn_Capture1.Size = new System.Drawing.Size(135, 23);
+            this.btn_Capture1.TabIndex = 16;
+            this.btn_Capture1.Text = "Upload image";
             // 
-            // pbr_Capture4
+            // lbl_Capture1
             // 
-            this.pbr_Capture4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbr_Capture4.Location = new System.Drawing.Point(346, 7);
-            this.pbr_Capture4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pbr_Capture4.Name = "pbr_Capture4";
-            this.pbr_Capture4.Size = new System.Drawing.Size(110, 17);
-            this.pbr_Capture4.TabIndex = 21;
-            this.pbr_Capture4.Visible = false;
+            this.lbl_Capture1.Location = new System.Drawing.Point(8, 7);
+            this.lbl_Capture1.Name = "lbl_Capture1";
+            this.lbl_Capture1.Size = new System.Drawing.Size(117, 17);
+            this.lbl_Capture1.TabIndex = 15;
+            this.lbl_Capture1.Text = "Front of the vehicle";
             // 
-            // splashScreenManager1
+            // pbr_Cpature1
             // 
-            this.splashScreenManager1.ClosingDelay = 500;
+            this.pbr_Cpature1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbr_Cpature1.Location = new System.Drawing.Point(346, 7);
+            this.pbr_Cpature1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pbr_Cpature1.Name = "pbr_Cpature1";
+            this.pbr_Cpature1.Size = new System.Drawing.Size(110, 17);
+            this.pbr_Cpature1.TabIndex = 18;
+            this.pbr_Cpature1.Visible = false;
             // 
             // AddMoreCaptures
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(475, 440);
-            this.Controls.Add(this.pnl_Capture4);
-            this.Controls.Add(this.pnl_Capture2);
-            this.Controls.Add(this.pnl_Capture3);
-            this.Controls.Add(this.pnl_Capture1);
+            this.Controls.Add(this.xtraScrollableControl1);
             this.Controls.Add(this.lue_Type);
             this.Controls.Add(this.btn_Save);
             this.Controls.Add(this.btn_Cancel2);
@@ -465,10 +471,11 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_Type.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pnl_Capture1)).EndInit();
-            this.pnl_Capture1.ResumeLayout(false);
-            this.pnl_Capture1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbr_Cpature1.Properties)).EndInit();
+            this.xtraScrollableControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pnl_Capture4)).EndInit();
+            this.pnl_Capture4.ResumeLayout(false);
+            this.pnl_Capture4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbr_Capture4.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnl_Capture2)).EndInit();
             this.pnl_Capture2.ResumeLayout(false);
             this.pnl_Capture2.PerformLayout();
@@ -477,10 +484,10 @@ namespace ResponseEmergencySystem.Forms
             this.pnl_Capture3.ResumeLayout(false);
             this.pnl_Capture3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbr_Capture3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pnl_Capture4)).EndInit();
-            this.pnl_Capture4.ResumeLayout(false);
-            this.pnl_Capture4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbr_Capture4.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pnl_Capture1)).EndInit();
+            this.pnl_Capture1.ResumeLayout(false);
+            this.pnl_Capture1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbr_Cpature1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -491,30 +498,31 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.MemoEdit memoEdit1;
         private DevExpress.XtraEditors.LabelControl labelControl3;
-        private DevExpress.XtraEditors.LabelControl lbl_Capture3;
-        private DevExpress.XtraEditors.LabelControl lbl_Capture4;
         private DevExpress.XtraEditors.SimpleButton btn_Cancel2;
         private DevExpress.XtraEditors.SimpleButton btn_Save;
         private DevExpress.XtraEditors.LookUpEdit lue_Type;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProvider1;
-        private DevExpress.XtraEditors.PanelControl pnl_Capture1;
-        private DevExpress.XtraEditors.SimpleButton status_Capture1;
-        private DevExpress.XtraEditors.SimpleButton btn_Capture1;
-        private DevExpress.XtraEditors.LabelControl lbl_Capture1;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
+        private DevExpress.XtraEditors.XtraScrollableControl xtraScrollableControl1;
+        private DevExpress.XtraEditors.PanelControl pnl_Capture4;
+        private DevExpress.XtraEditors.SimpleButton status_Capture4;
+        private DevExpress.XtraEditors.SimpleButton btn_Capture4;
+        private DevExpress.XtraEditors.LabelControl lbl_Capture4;
+        private DevExpress.XtraEditors.ProgressBarControl pbr_Capture4;
         private DevExpress.XtraEditors.PanelControl pnl_Capture2;
         private DevExpress.XtraEditors.LabelControl lbl_Capture2;
         private DevExpress.XtraEditors.SimpleButton status_Capture2;
         private DevExpress.XtraEditors.SimpleButton btn_Capture2;
+        private DevExpress.XtraEditors.ProgressBarControl pbr_Capture2;
         private DevExpress.XtraEditors.PanelControl pnl_Capture3;
         private DevExpress.XtraEditors.SimpleButton status_Capture3;
         private DevExpress.XtraEditors.SimpleButton btn_Capture3;
-        private DevExpress.XtraEditors.PanelControl pnl_Capture4;
-        private DevExpress.XtraEditors.SimpleButton status_Capture4;
-        private DevExpress.XtraEditors.SimpleButton btn_Capture4;
-        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
-        private DevExpress.XtraEditors.ProgressBarControl pbr_Cpature1;
-        private DevExpress.XtraEditors.ProgressBarControl pbr_Capture2;
+        private DevExpress.XtraEditors.LabelControl lbl_Capture3;
         private DevExpress.XtraEditors.ProgressBarControl pbr_Capture3;
-        private DevExpress.XtraEditors.ProgressBarControl pbr_Capture4;
+        private DevExpress.XtraEditors.PanelControl pnl_Capture1;
+        private DevExpress.XtraEditors.SimpleButton status_Capture1;
+        private DevExpress.XtraEditors.SimpleButton btn_Capture1;
+        private DevExpress.XtraEditors.LabelControl lbl_Capture1;
+        private DevExpress.XtraEditors.ProgressBarControl pbr_Cpature1;
     }
 }

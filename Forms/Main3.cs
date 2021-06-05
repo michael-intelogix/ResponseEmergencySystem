@@ -25,16 +25,16 @@ namespace ResponseEmergencySystem.Forms
         MainController _controller;
 
         #region Chat
-        public string ChatText 
-        { 
-            get => throw new NotImplementedException(); 
-            set => throw new NotImplementedException(); 
+        public string ChatText
+        {
+            get => throw new NotImplementedException();
+            set => throw new NotImplementedException();
         }
 
-        public string Message 
-        { 
-            get => throw new NotImplementedException(); 
-            set => throw new NotImplementedException(); 
+        public string Message
+        {
+            get => throw new NotImplementedException();
+            set => throw new NotImplementedException();
         }
 
         public MemoEdit chat => throw new NotImplementedException();
@@ -48,11 +48,19 @@ namespace ResponseEmergencySystem.Forms
         #region Main Properties
         public object ID_Incident => gv_Incidents.GetFocusedRowCellValue("ID_Incident");
 
-        public object ID_Capture => gv_Captures;
+        public object ID_StatusDetail
+        {
+            get => gv_Incidents.GetFocusedRowCellValue("ID_StatusDetail");
+            set => gv_Incidents.SetFocusedRowCellValue("ID_StatusDetail", value);
+        }
+
+        public object ID_Capture => gv_Captures.GetFocusedRowCellValue("ID_Capture").ToString();
 
         public string ID_Image => gv_Images.GetFocusedRowCellValue("ID_Image").ToString();
 
         public string ImageName => gv_Images.GetFocusedRowCellValue("ImageName").ToString();
+
+        public string LblFolio { set => lbl_Folio.Text = value; }
 
         //ScaleData_Form.Scales_GridView.SetRowCellValue(ScaleData_Form.Scales_GridControl.AutoFilterRowHandle, ScaleData_Form.Scales_GridView.Columns("Ticket"), Me.Bar_Ticket.EditValue.ToString)
         // 049
@@ -68,9 +76,9 @@ namespace ResponseEmergencySystem.Forms
         { 
             get => throw new NotImplementedException(); 
             set => throw new NotImplementedException(); }
-        public string Folio 
+        public object Folio 
         { 
-            get => throw new NotImplementedException(); 
+            get => gv_Incidents.GetFocusedRowCellValue("Folio"); 
             set => throw new NotImplementedException(); 
         }
         public string DriverName 
@@ -114,6 +122,7 @@ namespace ResponseEmergencySystem.Forms
         { 
             set => lue_StatusDetail.DataSource = value; 
         }
+        
         #endregion
 
         #region Interface Methods
@@ -136,7 +145,11 @@ namespace ResponseEmergencySystem.Forms
         #region Form Methods
         private void Main3_Load(object sender, EventArgs e)
         {
-            //_controller.LoadData();
+        }
+
+        public void LblFolioPosition()
+        {
+            lbl_Folio.Location = new Point((panelControl1.Width - lbl_Folio.Width) / 2, (panelControl1.Height - lbl_Folio.Height) / 2);
         }
         #endregion
 
@@ -168,7 +181,47 @@ namespace ResponseEmergencySystem.Forms
         private void btn_Picture_Click(object sender, EventArgs e)
         {
             string imgPath = Utils.GetRowID(gv_Images, "ImagePath");
-            _controller.EditImageView(imgPath);
+            string fileType = Utils.GetRowID(gv_Images, "FileType");
+            _controller.EditImageView(imgPath, fileType);
+        }
+
+        private void btn_SaveStatus_Click(object sender, EventArgs e)
+        {
+            _controller.SaveStatus();
+        }
+
+        private void btn_CloseIncident_Click(object sender, EventArgs e)
+        {
+            _controller.CloseIncident();
+        }
+
+        private void gv_Incidents_DoubleClick(object sender, EventArgs e)
+        {
+            splashScreenManager1.ShowWaitForm();
+            _controller.SetCaptures();
+            splashScreenManager1.CloseWaitForm();
+        }
+
+        private void gv_Captures_DoubleClick(object sender, EventArgs e)
+        {
+            splashScreenManager1.ShowWaitForm();
+             _controller.SetImages();
+            splashScreenManager1.CloseWaitForm();
+        }
+
+        private void gc_Incidents_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gv_Incidents_Click(object sender, EventArgs e)
+        {
+            _controller.SetIncident();
+        }
+
+        private void Main3_SizeChanged(object sender, EventArgs e)
+        {
+            LblFolioPosition();
         }
     }
 }

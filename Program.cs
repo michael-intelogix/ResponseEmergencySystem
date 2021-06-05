@@ -36,36 +36,21 @@ namespace ResponseEmergencySystem
             //mainCtrl.LoadData();
             //new MainController(mainView);
 
+            frm_Login login = new frm_Login();
+            Application.Run(login);
 
-            ////Forms.Modals.Testing test = new Forms.Modals.Testing();
+            if (login.DialogResult == DialogResult.OK)
+            {
+                frm_Main frmMainView = new frm_Main();
+                Main2Controller frmMainCtrl = new Main2Controller(frmMainView);
+                frmMainCtrl.ShowSpinner();
 
-            //frm_Main frmMainView = new frm_Main();
-            //Main2Controller frmMainCtrl = new Main2Controller(frmMainView);
-            //frmMainCtrl.ShowSpinner();
-
-            Application.Run(new frm_Login());
-
-            //try
-            //{
-            //    if (login.ShowDialog() == DialogResult.OK)
-            //    {
-            //        _access = login.myData;
-            //        string idmysoftware = "2a5aa42b-2089-4fa8-b7cc-2cea2a017a8a";
-            //        DataRow[] accesos = _access.Select($"ID_Software = '{idmysoftware}'");
-            //        if (accesos.Length > 0)
-            //        {
-            //            constants.userName = accesos[0].ItemArray[13].ToString();
-                        
-            //        }
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
+                Application.Run(frmMainView);
+            }
 
 
-            //Application.Run(new miwntras());
+
+            //Application.Run(new Forms.Incidents.AddDriverIncident());
         }
 
 

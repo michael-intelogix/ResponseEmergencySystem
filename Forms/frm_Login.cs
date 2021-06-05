@@ -26,24 +26,25 @@ namespace ResponseEmergencySystem.Forms
         private void frm_Login_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.myData = loginCtrl1.Access;
-            DialogResult = DialogResult.OK;
+            
 
-            string idmysoftware = "2a5aa42b-2089-4fa8-b7cc-2cea2a017a8a";
-            DataRow[] accesos = myData.Select($"ID_Software = '{idmysoftware}'");
-            if (accesos.Length > 0)
+            if (myData != null)
             {
-                constants.userName = accesos[0].ItemArray[13].ToString();
-
-                frm_Main frmMainView = new frm_Main();
-                Main2Controller frmMainCtrl = new Main2Controller(frmMainView);
-
-                frmMainCtrl.ShowSpinner();
-                frmMainView.ShowDialog();
+                string idmysoftware = "2a5aa42b-2089-4fa8-b7cc-2cea2a017a8a";
+                DataRow[] accesos = myData.Select($"ID_Software = '{idmysoftware}'");
+                if (accesos.Length > 0)
+                {
+                    constants.userName = accesos[0].ItemArray[13].ToString();
+                    
+                    DialogResult = DialogResult.OK;
+                }
+                else
+                {
+                    DialogResult = DialogResult.Cancel;
+                    Utils.ShowMessage("You don't have access to this application, please talk to the administrator", title: "Access Denied", type: "Error");
+                }
             }
-            else
-            {
-                Utils.ShowMessage("You don't have access to this application, please talk to the administrator", title: "Access Denied", type: "Error");
-            }
+
         }
     }
 }

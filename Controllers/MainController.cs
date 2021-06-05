@@ -24,6 +24,7 @@ namespace ResponseEmergencySystem.Controllers
         List<Incident> _incidents;
         private string ID_Incident = "";
         private string ID_Capture = "";
+        private string ID_StatusDetail = "423E82C9-EE3F-4D83-9066-01E6927FE14D";
         public bool loaded = false;
 
         DataTable access = new DataTable();
@@ -90,29 +91,6 @@ namespace ResponseEmergencySystem.Controllers
             }
         }
 
-        public void Login()
-        {
-            frm_Login login = new frm_Login();
-            try
-            {
-                if (login.ShowDialog() == DialogResult.OK)
-                {
-                    access = login.myData;
-                    string idmysoftware = "2a5aa42b-2089-4fa8-b7cc-2cea2a017a8a";
-                    DataRow[] accesos = access.Select($"ID_Software = '{idmysoftware}'");
-                    if (accesos.Length > 0)
-                    {
-                        constants.userName = accesos[0].ItemArray[13].ToString();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            
-        }
-
         public void ChatListener()
         {
             if (listening == 1)
@@ -148,8 +126,8 @@ namespace ResponseEmergencySystem.Controllers
             _incidents = IncidentService.list_Incidents("", "", "", "", "");
             if (_incidents.Count > 0)
             {
-                ID_Incident = _incidents[0].ID_Incident.ToString();
                 _view.Incidents = _incidents;
+                SetIncident();
                 SetCaptures();            
             }
 
@@ -176,18 +154,31 @@ namespace ResponseEmergencySystem.Controllers
         public void SetCaptures()
         {
             _captures = CaptureService.list_Captures(GetID("incident").ToString());
-            ID_Capture = _captures[0].ID_Capture.ToString();
-            _view.CapturesDataSource = _captures;
             if (_captures.Count > 0)
-                _view.ImagesDatasSource = CaptureService.list_Images(ID_Capture);
+            {
+                ID_Capture = _captures[0].ID_Capture.ToString();
+                _view.CapturesDataSource = _captures;
+                if (_captures.Count > 0)
+                    _view.ImagesDatasSource = CaptureService.list_Images(ID_Capture);
+                else
+                    _view.ImagesDatasSource = new List<ImageCapture>();
+            }
             else
+            {
+                _view.CapturesDataSource = new List<Capture>();
                 _view.ImagesDatasSource = new List<ImageCapture>();
+            }
+
         }
 
         public void SetImages()
         {
             if (_captures.Count > 0)
-                _view.ImagesDatasSource = CaptureService.list_Images(GetID("capture"));
+            {
+                var images = CaptureService.list_Images(GetID("capture"));
+                _view.ImagesDatasSource = images;
+            }
+               
         }
 
         private void GetImage()
@@ -264,21 +255,25 @@ namespace ResponseEmergencySystem.Controllers
 
         }
 
-        public void ShowIncident(string incidentId, string folio)
+        public void ShowIncident(string incidentId = "", string folio = "")
         {
-            ViewIncidentDetails viewIncident = new ViewIncidentDetails();
-
-            _view.OpenSpinner();
-
-            IncidentController incidentCtrl = new IncidentController(viewIncident, incidentId, folio);
-            incidentCtrl.LoadIncident();
-
-            viewIncident.Load += new System.EventHandler((object sender, EventArgs e) =>
+            if (_view.Folio != null)
             {
-                _view.CloseSpinner();
-            });
+                ViewIncidentDetails viewIncident = new ViewIncidentDetails();
 
-            viewIncident.Show();
+                _view.OpenSpinner();
+
+                IncidentController incidentCtrl = new IncidentController(viewIncident, GetID("incident"), _view.Folio.ToString());
+                incidentCtrl.LoadIncident();
+
+                viewIncident.Load += new System.EventHandler((object sender, EventArgs e) =>
+                {
+                    _view.CloseSpinner();
+                });
+
+                viewIncident.Show();
+            }
+               
         }
 
         public void AddIncidentView()
@@ -300,14 +295,24 @@ namespace ResponseEmergencySystem.Controllers
               
         }
 
-        public void EditImageView(string imgPath)
+        public void EditImageView(string imgPath, string fileType)
         {
-            frm_Image imageView = new frm_Image("", "", imgPath);
-            ImageController appConfigCtrl = new ImageController(imageView, GetID("capture"), _view.ImageName);
-            if (imageView.ShowDialog() == DialogResult.OK)
+            if (fileType == "img")
             {
-                Utils.ShowMessage("Image has been updated");
+                frm_Image imageView = new frm_Image("", "", imgPath);
+                ImageController appConfigCtrl = new ImageController(imageView, GetID("capture"), _view.ImageName);
+                if (imageView.ShowDialog() == DialogResult.OK)
+                {
+                    Utils.ShowMessage("Image has been updated");
+                }
             }
+
+            if (fileType == "pdf")
+            {
+                frm_PdfViewer pdfViewer = new frm_PdfViewer(imgPath);
+                pdfViewer.ShowDialog();
+            }
+            
         }
 
         public void AddMoreCaptures()
@@ -319,12 +324,14 @@ namespace ResponseEmergencySystem.Controllers
             if (AddMoreCaptures.ShowDialog() == DialogResult.OK)
             {
                 Utils.ShowMessage("the capture was added succesfully", "Capture");
+                _view.OpenSpinner();
                 _captures = CaptureService.list_Captures(_view.ID_Incident.ToString());
                 _view.CapturesDataSource = _captures;
                 if (_captures.Count > 0)
                     _view.ImagesDatasSource = CaptureService.list_Images(_captures[0].ID_Capture.ToString());
                 else
                     _view.ImagesDatasSource = new List<ImageCapture>();
+                _view.CloseSpinner();
             }
         }
 
@@ -343,7 +350,9 @@ namespace ResponseEmergencySystem.Controllers
                 case "incident":
                     return _view.ID_Incident == null ? ID_Incident : _view.ID_Incident.ToString();
                 case "capture":
-                    return _view.ID_Capture == null ? ID_Capture : _view.ID_Incident.ToString();
+                    return _view.ID_Capture == null ? ID_Capture : _view.ID_Capture.ToString();
+                case "status":
+                    return _view.ID_StatusDetail == null ? ID_StatusDetail : _view.ID_StatusDetail.ToString();
                 default:
                     return "";
             }
@@ -354,6 +363,38 @@ namespace ResponseEmergencySystem.Controllers
         {
             IncidentsFilter("", "", "", "", databaseFilter: true);
             _view.ClearFilters();
+        }
+
+        public void SaveStatus()
+        {
+            StatusDetailService.UpdateStatus(GetID("incident"), GetID("status"));
+        }
+
+        public void CloseIncident()
+        {
+            IncidentService.CloseIncident(GetID("incident"));
+            _view.ID_StatusDetail = (object)"AF034BC4-3F32-4174-B042-3178B2EC8199";
+        }
+
+        public void SetIncident(string ID_Incident = "")
+        {
+            if (_view.Folio != null)
+            {
+                ID_Incident = GetID("incident");
+                _view.LblFolio = _view.Folio.ToString();
+                _view.LblFolioPosition();
+            }
+        }
+
+        public void DeleteIncident()
+        {
+            if (_view.Folio != null)
+            {
+                _view.OpenSpinner();
+                IncidentService.Delete(GetID("incident"), _view.Folio.ToString());
+                ClearFilters();
+                _view.CloseSpinner();
+            }
         }
     }
 

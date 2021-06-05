@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ResponseEmergencySystem.Properties;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -19,6 +20,8 @@ namespace ResponseEmergencySystem.Models
         public string ImageFireBaseUrl { get; set; }
         public bool Uploaded { get; set; }
         public string Status { get; }
+
+        public string FileType { get; }
 
         public Image Img { get; }
         public Image Image { get; }
@@ -50,7 +53,7 @@ namespace ResponseEmergencySystem.Models
             this.ID = id - 1;
         }
 
-        public ImageCapture(string imageID, string imgName, string imgPath, string statusID, string status, string comments)
+        public ImageCapture(string imageID, string imgName, string imgPath, string statusID, string status, string comments, string fileType)
         {
             this.ID_Image = imageID;
             this.name = "";
@@ -62,7 +65,8 @@ namespace ResponseEmergencySystem.Models
             this.Uploaded = false;
             this.ID = 0;
 
-            this.Image = GetImage();
+            this.FileType = fileType;
+            this.Image = fileType == "img" ? GetImage() : Resources.pdf;
         }
 
         //public ImageCapture(string imgName, string imgPath, string )

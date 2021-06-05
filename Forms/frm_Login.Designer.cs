@@ -55,10 +55,13 @@ namespace ResponseEmergencySystem.Forms
             this.ClientSize = new System.Drawing.Size(457, 721);
             this.ControlBox = false;
             this.Controls.Add(this.loginCtrl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frm_Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_Login";
+            this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frm_Login_FormClosing);
             this.ResumeLayout(false);
 

@@ -14,6 +14,11 @@ namespace ResponseEmergencySystem.Views.Captures
     {
         void SetController(AddCapturesController controller);
         void LoadCapturesTypes(List<Capture> captures);
+        void CloseView();
+        void SetPnlCapture(PanelControl pnlCapture); // add panels for captures
+        void ClearCapturesPanel();
+        void SetControlProperties(string parentName, string lblName, string status = "", bool visibility = true);
+        ProgressBarControl GetPbrControl(string parentName, string pbrName);
 
         string Comments { get; }
 

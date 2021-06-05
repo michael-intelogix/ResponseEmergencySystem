@@ -39,6 +39,32 @@ namespace ResponseEmergencySystem.Forms
         {
             _controller = controller;
         }
+
+        public void CloseView()
+        {
+            this.DialogResult = DialogResult.OK;
+        }
+
+        public void SetPnlCapture(PanelControl pnlCapture)
+        {
+            this.Controls["xtraScrollableControl1"].Controls.Add(pnlCapture); 
+        }
+
+        public void ClearCapturesPanel()
+        {
+            this.Controls["xtraScrollableControl1"].Controls.Clear();
+        }
+
+        public void SetControlProperties(string parentName, string lblName, string status = "", bool visibility = true)
+        {
+            this.Controls["xtraScrollableControl1"].Controls[parentName].Controls[lblName].Text = status;
+            this.Controls["xtraScrollableControl1"].Controls[parentName].Controls[lblName].Visible = visibility;
+        }
+
+        public ProgressBarControl GetPbrControl(string parentName, string pbrName)
+        {
+            return (ProgressBarControl)this.Controls["xtraScrollableControl1"].Controls[parentName].Controls[pbrName];
+        }
         #endregion
 
         #region form methods
@@ -66,8 +92,8 @@ namespace ResponseEmergencySystem.Forms
         private void UploadImageOnClick(object sender, EventArgs e)
         {
             var btn = (SimpleButton)sender;
-            bool preloaded = _controller.CheckImage();
-            if (preloaded) PreloadImage(btn);
+            //bool preloaded = _controller.CheckImage();
+            //if (preloaded) PreloadImage(btn);
             
         }
 
@@ -148,10 +174,9 @@ namespace ResponseEmergencySystem.Forms
 
         private void simpleButton9_Click(object sender, EventArgs e)
         {
-            splashScreenManager1.ShowWaitForm();
             _controller.SaveAsync();
-            splashScreenManager1.CloseWaitForm();
-            this.DialogResult = DialogResult.OK;
+
+            //this.DialogResult = DialogResult.OK;
         }
     }
 }
