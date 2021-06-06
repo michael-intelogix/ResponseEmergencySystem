@@ -16,6 +16,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors.Controls;
+using ResponseEmergencySystem.Forms;
+using System.IO;
 
 namespace ResponseEmergencySystem.Controllers.Incidents
 {
@@ -27,6 +29,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         private List<PersonsInvolved> _PersonsInvolved = new List<PersonsInvolved>();
         private List<State> _States = new List<State>();
         private List<Models.Samsara.Driver> _Drivers = new List<Models.Samsara.Driver>();
+        private List<Driver> _DriversLocal = new List<Driver>();
 
         private Int32 _selectedPerson = 0;
 
@@ -43,13 +46,14 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         {
             _view = view;
             _Drivers = GetDriversSamsara();
+            _DriversLocal = DriverService.GetDriver("");
             _States = GeneralService.list_States();
             view.SetController(this);
         }
 
-        public void LoadIncident()
+        public void LoadDrivers()
         {
-
+            _view.DriversDataSource = _DriversLocal;
         }
 
         public void LoadStates()
@@ -185,32 +189,49 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
         }
 
-        public void GetDriver()
+        public void GetDriver(string ID)
         {
-            var Driver_Response = DriverService.GetDriver(_view.DriverInfoSearch);
+            Driver selectedDriver = _DriversLocal.Where(d => d.ID_Driver == Guid.Parse(ID)).First();
 
-            if (Driver_Response == null)
-            {
-                Utils.ShowMessage("There is no driver with that search information", title: "Driver Not Found", type: "Warning");
-            }
+            ID_Driver = selectedDriver.ID_Driver.ToString();
+            _view.FullName = selectedDriver.Name + " " + selectedDriver.LastName1;
+            _view.PhoneNumber = selectedDriver.PhoneNumber;
+            _view.License = selectedDriver.License;
+
+            if (selectedDriver.ExpirationDate != null)
+                _view.ExpirationDate = (DateTime)selectedDriver.ExpirationDate;
             else
             {
-                ID_Driver = Driver_Response.ID_Driver.ToString();
-                _view.FullName = Driver_Response.Name + " " + Driver_Response.LastName1;
-                _view.PhoneNumber = Driver_Response.PhoneNumber;
-                _view.License = Driver_Response.License;
-
-                if (Driver_Response.ExpirationDate != null)
-                    _view.ExpirationDate = (DateTime)Driver_Response.ExpirationDate;
-                else
-                {
-                    _view.ExpirationDate = DateTime.Now;
-                    _DriverUpdateRequired = true;
-                }
-                
-                _view.LicenseState = Driver_Response.ID_StateOfExpedition;
+                _view.ExpirationDate = DateTime.Now;
+                _DriverUpdateRequired = true;
             }
-            
+
+            _view.LicenseState = selectedDriver.ID_StateOfExpedition;
+
+            //var Driver_Response = DriverService.GetDriver(_view.DriverInfoSearch);
+
+            //if (Driver_Response == null)
+            //{
+            //    Utils.ShowMessage("There is no driver with that search information", title: "Driver Not Found", type: "Warning");
+            //}
+            //else
+            //{
+            //    ID_Driver = Driver_Response.ID_Driver.ToString();
+            //    _view.FullName = Driver_Response.Name + " " + Driver_Response.LastName1;
+            //    _view.PhoneNumber = Driver_Response.PhoneNumber;
+            //    _view.License = Driver_Response.License;
+
+            //    if (Driver_Response.ExpirationDate != null)
+            //        _view.ExpirationDate = (DateTime)Driver_Response.ExpirationDate;
+            //    else
+            //    {
+            //        _view.ExpirationDate = DateTime.Now;
+            //        _DriverUpdateRequired = true;
+            //    }
+
+            //    _view.LicenseState = Driver_Response.ID_StateOfExpedition;
+            //}
+
         }
 
         public void SetBroker()
@@ -454,7 +475,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             {
                 _view.LblEmptyFieldsVisibility = false;
                 _PersonsInvolved.Add(new PersonsInvolved(_view.IPFullName, _view.IPLastName1, _view.IPPhoneNumber, _view.IPAge, _view.IPDriver, _view.IPDriverLicense, _view.IPPrivate, _view.IPInjured, Guid.Empty.ToString()));
-                _view.InvolvedPersonsDataSorurce = _PersonsInvolved;
+                _view.InvolvedPersonsDataSource = _PersonsInvolved;
 
                 CleanPersonInvolvedCapture();
             }
@@ -492,7 +513,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             {
                 _view.LblEmptyFieldsVisibility = false;
                 _PersonsInvolved[_selectedPerson] = new PersonsInvolved(_view.IPFullName, _view.IPLastName1, _view.IPPhoneNumber, _view.IPAge, _view.IPDriver, _view.IPDriverLicense, _view.IPPrivate, _view.IPInjured, Guid.Empty.ToString());
-                _view.InvolvedPersonsDataSorurce = _PersonsInvolved;
+                _view.InvolvedPersonsDataSource = _PersonsInvolved;
 
                 CleanPersonInvolvedCapture();
 
@@ -531,7 +552,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         public void RemoveInvolvedPersonByRow(int idx)
         {
             _PersonsInvolved.RemoveAt(idx);
-            _view.InvolvedPersonsDataSorurce = _PersonsInvolved;
+            _view.InvolvedPersonsDataSource = _PersonsInvolved;
         }
 
         public void FindDriverInSamsara()
@@ -581,6 +602,83 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             _view.IPPassenger = false;
             _view.IPDriver = false;
             _view.IPDriverLicense = "";
+        }
+
+        public string EditImageView(string imgPath, string fileType)
+        {
+            if (fileType == "img")
+            {
+                frm_Image imageView = new frm_Image("", "", imgPath);
+                ImageController appConfigCtrl = new ImageController(imageView);
+                if (imageView.ShowDialog() == DialogResult.OK)
+                {
+                    Utils.ShowMessage("Image has been updated");
+                    return imageView.filepath;
+                }
+            }
+
+            if (fileType == "pdf")
+            {
+                frm_PdfViewer pdfViewer = new frm_PdfViewer(imgPath);
+                pdfViewer.ShowDialog();
+            }
+
+            return "";
+
+        }
+
+        public (bool, string, string) CheckDocument()
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.Filter = "Image Files(*.PNG;*.JPG;*.GIF;*.BMP)|*.PNG;*.JPG;*.GIF;*.BMP|PDF Files (*.PDF)|*.PDF|All Files (*.*)|*.*";
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    (bool, string, string) d;
+
+                    string ext = Path.GetExtension(ofd.FileName).ToUpper();
+                    try
+                    {
+                        
+                        if (ext == ".GIF" || ext == ".JPG" || ext == ".PNG" || ext == ".BMP")
+                        {
+                            d.Item1 = true;
+                            d.Item2 = ofd.FileName;
+                            d.Item3 = "img";
+                        
+                            return d;
+                        }
+                        else if (ext == ".PDF")
+                        {
+                            d.Item1 = true;
+                            d.Item2 = ofd.FileName;
+                            d.Item3 = "pdf";
+
+                            return d;
+                        }
+                        else
+                        {
+                            Utils.ShowMessage("The file submitted is not an Image", title: "Image upload error", type: "Warning");
+                            return (false, "","");
+                        }
+
+
+                    }
+                    catch (Exception ex)
+                    {
+                        //MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Utils.ShowMessage(ex.Message, title: "Image upload error", type: "Error");
+                        return (false,"", "");
+                    }
+                }
+                else
+                {
+                    return (false,"", "");
+                }
+
+
+
+            }
         }
     }
 }

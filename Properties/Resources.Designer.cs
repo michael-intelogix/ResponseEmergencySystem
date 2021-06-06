@@ -543,6 +543,16 @@ namespace ResponseEmergencySystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap índice1 {
+            get {
+                object obj = ResourceManager.GetObject("índice1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap insert_16x16 {
             get {
                 object obj = ResourceManager.GetObject("insert_16x16", resourceCulture);
@@ -556,6 +566,36 @@ namespace ResponseEmergencySystem.Properties {
         internal static System.Drawing.Bitmap insert_32x32 {
             get {
                 object obj = ResourceManager.GetObject("insert_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap insertimage_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("insertimage_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap insertimage_32x321 {
+            get {
+                object obj = ResourceManager.GetObject("insertimage_32x321", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap insertimage_32x322 {
+            get {
+                object obj = ResourceManager.GetObject("insertimage_32x322", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -627,6 +667,16 @@ namespace ResponseEmergencySystem.Properties {
             get {
                 object obj = ResourceManager.GetObject("mailWhite", resourceCulture);
                 return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap no_photo {
+            get {
+                object obj = ResourceManager.GetObject("no_photo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

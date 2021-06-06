@@ -29,6 +29,12 @@ namespace ResponseEmergencySystem.Controllers
             view.SetController(this);
         }
 
+        public ImageController(IImageView view)
+        {
+            _view = view;
+            view.SetController(this);
+        }
+
         public void UpdateImage()
         {
 
@@ -64,6 +70,12 @@ namespace ResponseEmergencySystem.Controllers
         }
         public async void SaveImage(string filepath2)
         {
+
+            if (_CaptureID == null)
+            {
+                _view.CloseForm();
+                return;
+            }
 
             if (filepath2 == "")
             {

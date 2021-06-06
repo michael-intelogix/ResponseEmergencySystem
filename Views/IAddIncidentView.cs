@@ -74,7 +74,8 @@ namespace ResponseEmergencySystem.Views
         bool PnlPoliceReportVisibility { set; }
         bool LblTruckExistsVisibility { set; }
         object LueCitiesDataSource { set; }
-        object InvolvedPersonsDataSorurce { set; }
+        object InvolvedPersonsDataSource { set; }
+        object DriversDataSource { set; }
         bool PnlDriverInvolvedVisibility { set; }
 
         bool BtnAddInvolvedPersonVisibility { set; }
@@ -97,6 +98,8 @@ namespace ResponseEmergencySystem.Views
         bool EdtPhoneNumberShowWarningIcon { set; }
         bool EdtAgeShowWarningIcon { set; }
         bool EdtLicenseShowWarningIcon { set; }
+
+        object DocumentCapturesDataSource { set; }
 
         #region truck exists
         bool LblTrailerExistsVisibility { set; }

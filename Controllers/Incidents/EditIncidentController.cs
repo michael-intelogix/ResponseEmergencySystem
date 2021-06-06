@@ -189,19 +189,19 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
         public void GetDriver()
         {
-            var Driver_Response = DriverService.GetDriver(_view.DriverSearch);
+            //var Driver_Response = DriverService.GetDriver(_view.DriverSearch);
 
-            if (Driver_Response == null)
-                MessageBox.Show("There is no driver with that search information");
-            else
-            {
-                ID_Driver = Driver_Response.ID_Driver.ToString();
-                _view.FullName = Driver_Response.Name + " " + Driver_Response.LastName1;
-                _view.PhoneNumber = Driver_Response.PhoneNumber;
-                _view.License = Driver_Response.License;
-                _view.ExpirationDate = Convert.ToDateTime(Driver_Response.ExpirationDate).Date;
-                _view.LicenseState = Driver_Response.ID_StateOfExpedition;
-            }
+            //if (Driver_Response == null)
+            //    MessageBox.Show("There is no driver with that search information");
+            //else
+            //{
+            //    ID_Driver = Driver_Response.ID_Driver.ToString();
+            //    _view.FullName = Driver_Response.Name + " " + Driver_Response.LastName1;
+            //    _view.PhoneNumber = Driver_Response.PhoneNumber;
+            //    _view.License = Driver_Response.License;
+            //    _view.ExpirationDate = Convert.ToDateTime(Driver_Response.ExpirationDate).Date;
+            //    _view.LicenseState = Driver_Response.ID_StateOfExpedition;
+            //}
         }
 
         public void SetBroker(string ID_Broker)

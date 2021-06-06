@@ -26,7 +26,7 @@ namespace ResponseEmergencySystem.Forms
     public partial class frm_Image : DevExpress.XtraEditors.XtraForm, IImageView
     {
         OpenFileDialog ofd = new OpenFileDialog();
-        string filepath = "";
+        public string filepath = "";
         Image newImg = null;
         private string ID_Capture = "";
         private string fileName = "";
@@ -212,6 +212,7 @@ namespace ResponseEmergencySystem.Forms
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
+
         #endregion
 
         #region form inputs

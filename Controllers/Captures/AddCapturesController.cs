@@ -21,12 +21,17 @@ namespace ResponseEmergencySystem.Controllers.Captures
     {
         IAddCapturesView _view;
         public List<Capture> _captures;
+        
         private Capture _selectedCaptureType;
         private string ID_Incident;
         private string ID_Capture;
         private List<ImageCapture> _images;
         private List<DocumentCapture> _documents;
+        private Models.Documents.DocumentCapture _documentCapture;
+        private List<Models.Documents.Document> _documents2;
         private bool img = false;
+
+        private List<DocumentCapture> _docsLoaded;
 
         private string _imgUrl = "";
 
@@ -42,6 +47,8 @@ namespace ResponseEmergencySystem.Controllers.Captures
         public void SetIncidentId(string id)
         {
             ID_Incident = id;
+            if (id == Guid.Empty.ToString())
+                _documents2 = new List<Models.Documents.Document>();
         }
 
         public void LoadCaptures()
@@ -110,6 +117,12 @@ namespace ResponseEmergencySystem.Controllers.Captures
 
         public async void SaveAsync()
         {
+            if (ID_Incident == Guid.Empty.ToString())
+            {
+                SaveLocal();
+                return;
+            }
+
             _view.LueTypeBlock = true;
             _view.SaveButtonEnable = false;
             //Thread.Sleep(5000);
@@ -147,6 +160,53 @@ namespace ResponseEmergencySystem.Controllers.Captures
                 Response imgResponse = CaptureService.AddImage(Guid.NewGuid().ToString(), ID_Capture, document.FirebaseUrl, document.name, "", document.Type);
                 document.ID_Document = imgResponse.ID;
             }
+            Reset();
+        }
+
+        public void SaveLocal()
+        {
+            _view.LueTypeBlock = true;
+            _view.SaveButtonEnable = false;
+
+            //var t = new Task(() => SaveCapture());
+            //t.Start();
+            //t.Wait();
+
+            _documentCapture = new Models.Documents.DocumentCapture(_selectedCaptureType.ID_CaptureType, _selectedCaptureType.captureType, _view.Comments);
+            _documentCapture.documents = _documents2;
+
+            //_docsLoaded = _docsLoaded.Count > 0 ? _docsLoaded : new List<DocumentCapture>();
+            var tempDocs = _documentCapture.documents.Where(d => d.Path != null).ToList();
+            for (var i = 0; i < tempDocs.Count(); i++)
+            {
+                var document = tempDocs[i];
+                var id = tempDocs[i].ID;
+                document.comments = _view.Comments;
+                //var task = UploadImgFirebaseAsync(docsLoaded[i].Path, docsLoaded[i].name);
+
+                //ProgressBarControl pbr = _view.GetPbrControl(document.containerName, $"pbrDocument{document.ID}");
+
+                //_view.SetControlProperties(document.containerName, $"lblStatus{document.ID}", visibility: false);
+                //pbr.Visible = true;
+
+                // Track progress of the upload
+                //task.Progress.ProgressChanged += (s, ev) =>
+                //{
+                //    pbr.EditValue = ev.Percentage;
+                //    pbr.CreateGraphics().DrawString(ev.Percentage.ToString() + "%", new Font("Arial", (float)8.25, FontStyle.Regular), Brushes.Black, new PointF(pbr.Width / 2 - 10, pbr.Height / 2 - 7));
+                //    Console.WriteLine($"Progress: {ev.Percentage} %");
+                //};
+
+                //document.FirebaseUrl = await task;
+
+
+                //pbr.Visible = false;
+                //_view.SetControlProperties(document.containerName, $"lblStatus{document.ID}", "Uploaded", true);
+
+                //Response imgResponse = CaptureService.AddImage(Guid.NewGuid().ToString(), ID_Capture, document.FirebaseUrl, document.name, "", document.Type);
+                //document.ID_Document = imgResponse.ID;
+            }
+            
             Reset();
         }
 
@@ -280,7 +340,14 @@ namespace ResponseEmergencySystem.Controllers.Captures
             pnl.Controls.Add(lbl2);
             lbl2.BringToFront();
 
-            _documents.Add(new DocumentCapture(pnl.Name, lblText, i));
+            if (ID_Incident == Guid.Empty.ToString())
+            {
+                _documents2.Add(new Models.Documents.Document(pnl.Name, lblText, i));
+            }
+            else
+            {
+                _documents.Add(new DocumentCapture(pnl.Name, lblText, i));
+            }
 
             return pnl;
         }
@@ -303,28 +370,60 @@ namespace ResponseEmergencySystem.Controllers.Captures
                     string ext = Path.GetExtension(ofd.FileName).ToUpper();
                     try
                     {
-
-                        var document = _documents.Where(d => d.containerName == containerName).First();
-
-                        if (ext == ".GIF" || ext == ".JPG" || ext == ".PNG" || ext == ".BMP")
+                        if (ID_Incident != Guid.Empty.ToString())
                         {
-                            document.Path = ofd.FileName;
-                            document.Type = "img";
-                            _view.SetControlProperties(document.containerName, $"lblStatus{document.ID}", "Preloaded");
-                            return true;
-                        }
-                        else if (ext == ".PDF")
-                        {
-                            document.Path = ofd.FileName;
-                            document.Type = "pdf";
-                            _view.SetControlProperties(document.containerName, $"lblStatus{document.ID}", "Preloaded");
-                            return true;
+                            var document = _documents.Where(d => d.containerName == containerName).First();
+
+                            if (ext == ".GIF" || ext == ".JPG" || ext == ".PNG" || ext == ".BMP")
+                            {
+                                document.Path = ofd.FileName;
+                                document.Type = "img";
+                                _view.SetControlProperties(document.containerName, $"lblStatus{document.ID}", "Preloaded");
+
+                                return true;
+                            }
+                            else if (ext == ".PDF")
+                            {
+                                document.Path = ofd.FileName;
+                                document.Type = "pdf";
+                                _view.SetControlProperties(document.containerName, $"lblStatus{document.ID}", "Preloaded");
+                                return true;
+                            }
+                            else
+                            {
+                                Utils.ShowMessage("The file submitted is not an Image", title: "Image upload error", type: "Warning");
+                                return false;
+                            }
                         }
                         else
                         {
-                            Utils.ShowMessage("The file submitted is not an Image", title: "Image upload error", type: "Warning");
-                            return false;
+                            var document2 = _documents2.Where(d => d.containerName == containerName).First();
+
+                            if (ext == ".GIF" || ext == ".JPG" || ext == ".PNG" || ext == ".BMP")
+                            {
+                                document2.Path = ofd.FileName;
+                                document2.Type = "img";
+                                document2.SetImage();
+                                _view.SetControlProperties(document2.containerName, $"lblStatus{document2.ID}", "Preloaded");
+
+                                return true;
+                            }
+                            else if (ext == ".PDF")
+                            {
+                                document2.Path = ofd.FileName;
+                                document2.Type = "pdf";
+                                document2.SetImage();
+                                _view.SetControlProperties(document2.containerName, $"lblStatus{document2.ID}", "Preloaded");
+                                return true;
+                            }
+                            else
+                            {
+                                Utils.ShowMessage("The file submitted is not an Image", title: "Image upload error", type: "Warning");
+                                return false;
+                            }
                         }
+
+                       
                     }
                     catch (Exception ex)
                     {
@@ -341,6 +440,16 @@ namespace ResponseEmergencySystem.Controllers.Captures
 
 
             }
+        }
+
+        public Models.Documents.DocumentCapture GetDocuments()
+        {
+            return _documentCapture;
+        }
+
+        public void LoadDocuments(List<DocumentCapture> docs)
+        {
+            _docsLoaded = docs;
         }
     }
 

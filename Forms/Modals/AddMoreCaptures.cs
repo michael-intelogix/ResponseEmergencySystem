@@ -20,6 +20,7 @@ namespace ResponseEmergencySystem.Forms
 {
     public partial class AddMoreCaptures : DevExpress.XtraEditors.XtraForm, IAddCapturesView
     {
+
         public AddMoreCaptures()
         {
             InitializeComponent();
@@ -174,6 +175,7 @@ namespace ResponseEmergencySystem.Forms
 
         private void simpleButton9_Click(object sender, EventArgs e)
         {
+
             _controller.SaveAsync();
 
             //this.DialogResult = DialogResult.OK;

@@ -29,6 +29,7 @@ using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
+using DevExpress.Utils.Menu;
 
 namespace ResponseEmergencySystem.Forms
 {
@@ -39,6 +40,7 @@ namespace ResponseEmergencySystem.Forms
         // driver2 C7B06EF3-869B-4212-A1EC-7820B2D17CA4
         
         private DataTable dt_InjuredPersons;
+        private List<Models.Documents.DocumentCapture> _docs;
 
         public AddIncidentDetails()
         {
@@ -75,6 +77,8 @@ namespace ResponseEmergencySystem.Forms
 
         private void IncidentCapture_Load(object sender, EventArgs e)
         {
+            _docs = new List<Models.Documents.DocumentCapture>();
+
             gMapControl1.MapProvider = GMap.NET.MapProviders.BingMapProvider.Instance;
             GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
             gMapControl1.Position = new GMap.NET.PointLatLng(36.05948, -102.51325);
@@ -434,9 +438,14 @@ namespace ResponseEmergencySystem.Forms
             set { lue_Cities.Properties.DataSource = value; }
         }
 
-        public object InvolvedPersonsDataSorurce
+        public object InvolvedPersonsDataSource
         {
             set { gc_InvolvedPersons.DataSource = value; }
+        }
+
+        public object DriversDataSource
+        {
+            set { lue_Drivers.Properties.DataSource = value; }
         }
 
         public bool PnlDriverInvolvedVisibility
@@ -533,6 +542,11 @@ namespace ResponseEmergencySystem.Forms
             set { pic_LicenseWarning.Visible = value; }
         }
 
+
+        public object DocumentCapturesDataSource
+        {
+            set { gc_DocumentCaptures.DataSource = value; }
+        }
         #endregion
 
         #region truck exists
@@ -570,7 +584,7 @@ namespace ResponseEmergencySystem.Forms
 
         private void btn_FindDriver_Click(object sender, EventArgs e)
         {
-            _controller.GetDriver();
+            //_controller.GetDriver();
         }
 
         private void simpleButton4_Click(object sender, EventArgs e)
@@ -582,7 +596,7 @@ namespace ResponseEmergencySystem.Forms
         {
             if (e.KeyChar == (char)13)
             {
-                _controller.GetDriver();
+                //_controller.GetDriver();
             }
         }
 
@@ -631,6 +645,106 @@ namespace ResponseEmergencySystem.Forms
         {
             //_controller.FindDriverInSamsara();
             SamsaraService.UpdateSamsaraDrivers();
+        }
+
+        private void lue_Drivers_EditValueChanged(object sender, EventArgs e)
+        {
+            LookUpEdit lue = (LookUpEdit)sender;
+            _controller.GetDriver(lue.EditValue.ToString());
+        }
+
+        private void gridLookUpEdit1_Properties_EditValueChanged(object sender, EventArgs e)
+        {
+            GridLookUpEdit view = (GridLookUpEdit)sender;
+            _controller.GetDriver(view.EditValue.ToString());
+        }
+
+        private void simpleButton9_Click(object sender, EventArgs e)
+        {
+
+            AddMoreCaptures AddMoreCaptures = new AddMoreCaptures();
+            Controllers.Captures.AddCapturesController addCapturesCtrl = new Controllers.Captures.AddCapturesController(AddMoreCaptures, CaptureService.list_CaptureTypes());
+            addCapturesCtrl.LoadCaptures();
+            //addCapturesCtrl.LoadDocuments(_docs);
+            addCapturesCtrl.SetIncidentId(Guid.Empty.ToString());
+            if (AddMoreCaptures.ShowDialog() == DialogResult.OK)
+            {
+                _docs.Add(addCapturesCtrl.GetDocuments());
+                var docsType = _docs.Select(dc => new { dc.CaptureType, dc.ID_Capture });
+                gc_DocumentCaptures.DataSource = docsType;
+                gv_DocumentCaptures.BestFitColumns();
+                //Utils.ShowMessage("the capture was added succesfully", "Capture");
+                //_view.OpenSpinner();
+                //_captures = CaptureService.list_Captures(_view.ID_Incident.ToString());
+                //_view.CapturesDataSource = _captures;
+                //if (_captures.Count > 0)
+                //    _view.ImagesDatasSource = CaptureService.list_Images(_captures[0].ID_Capture.ToString());
+                //else
+                //    _view.ImagesDatasSource = new List<ImageCapture>();
+                //_view.CloseSpinner();
+            }
+        }
+
+        private void gc_DocumentCaptures_DoubleClick(object sender, EventArgs e)
+        {
+            int idx = gv_DocumentCaptures.GetFocusedDataSourceRowIndex();
+            gc_Documents.DataSource = _docs[idx].documents;
+        }
+
+        private void rpic_Image_Click(object sender, EventArgs e)
+        {
+            string imgPath = Utils.GetRowID(gv_Documents, "Path");
+            if (imgPath == "")
+            {
+                splashScreenManager1.ShowWaitForm();
+                var d = _controller.CheckDocument();
+                if (d.Item1)
+                {
+                    _docs[gv_DocumentCaptures.FocusedRowHandle].documents[gv_Documents.FocusedRowHandle].Path = d.Item2;
+                    _docs[gv_DocumentCaptures.FocusedRowHandle].documents[gv_Documents.FocusedRowHandle].Type = d.Item3;
+                    _docs[gv_DocumentCaptures.FocusedRowHandle].documents[gv_Documents.FocusedRowHandle].SetImage();
+                }
+                splashScreenManager1.CloseWaitForm();
+            }
+            else
+            {
+                string fileType = Utils.GetRowID(gv_Documents, "Type");
+                string path = _controller.EditImageView(imgPath, fileType);
+                if (path != "")
+                {
+                    _docs[gv_DocumentCaptures.FocusedRowHandle].documents[gv_Documents.FocusedRowHandle].Path = path;
+                    _docs[gv_DocumentCaptures.FocusedRowHandle].documents[gv_Documents.FocusedRowHandle].SetImage();
+                }
+
+            }
+ 
+            gc_Documents.DataSource = _docs[gv_DocumentCaptures.FocusedRowHandle].documents;
+            gv_Documents.BestFitColumns();
+        }
+
+        private void gv_Documents_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
+        {
+            if (e.MenuType == DevExpress.XtraGrid.Views.Grid.GridMenuType.Row)
+            {
+                DXMenuItem item = new DXMenuItem("Change Document");
+                item.Click += (o, args) => {
+                    int row = this.gv_Documents.FocusedRowHandle;
+                    splashScreenManager1.ShowWaitForm();
+                    var d = _controller.CheckDocument();
+                    if (d.Item1)
+                    {
+                        _docs[gv_DocumentCaptures.FocusedRowHandle].documents[row].Path = d.Item2;
+                        _docs[gv_DocumentCaptures.FocusedRowHandle].documents[row].Type = d.Item3;
+                        _docs[gv_DocumentCaptures.FocusedRowHandle].documents[row].SetImage();
+                    }
+
+                    gc_Documents.DataSource = _docs[gv_DocumentCaptures.FocusedRowHandle].documents;
+                    gv_Documents.BestFitColumns();
+                    splashScreenManager1.CloseWaitForm();
+
+                };
+                e.Menu.Items.Add(item);
+            }
         }
     }
 

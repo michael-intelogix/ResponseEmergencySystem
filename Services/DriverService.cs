@@ -18,7 +18,7 @@ namespace ResponseEmergencySystem.Services
         public static Response response;
         public static DataTable result;
 
-        public static Driver GetDriver(string search)
+        public static List<Driver> GetDriver(string search)
         {
             opSuccess = false;
             List<Driver> result = new List<Driver>();
@@ -56,8 +56,8 @@ namespace ResponseEmergencySystem.Services
                                     (string)sdr["mat_surname"],
                                     (string)sdr["phone_number"],
                                     sdr["License"] == DBNull.Value ? "" : (string)sdr["License"],
-                                    (string)sdr["ID_State"],
-                                    (string)sdr["state_name"],
+                                    sdr["ID_State"] == DBNull.Value ? "" : (string)sdr["ID_State"],
+                                    sdr["state_name"] == DBNull.Value ? "" : (string)sdr["state_name"],
                                     sdr["Expiration_Date"] == DBNull.Value ? "" : Convert.ToDateTime(sdr["Expiration_Date"]).Date.ToString()
                                 //DateTime.Now.Date.ToString()
                                 //Convert.ToDateTime(sdr["Expiration_Date"]).Date.ToString()
@@ -74,25 +74,27 @@ namespace ResponseEmergencySystem.Services
                 MessageBox.Show($"Driver couldn't be found due: {ex.Message}");
             }
 
-            if (result.Count > 1)
-            {
-                frm_DriverSearchList drivers = new frm_DriverSearchList(result);
-                if (drivers.ShowDialog() == DialogResult.OK)
-                {
-                    return result[drivers.dt_DriverRowSelected];
-                }
+            return result;
 
-                return result.FirstOrDefault();
-            }
-            else if (result.Count == 1)
-            {
-                return result.First();
-            }
-            else
-            {
-                return null;
-                MessageBox.Show("There is no driver with the information supplied");
-            }
+            //if (result.Count > 1)
+            //{
+            //    frm_DriverSearchList drivers = new frm_DriverSearchList(result);
+            //    if (drivers.ShowDialog() == DialogResult.OK)
+            //    {
+            //        return result[drivers.dt_DriverRowSelected];
+            //    }
+
+            //    return result.FirstOrDefault();
+            //}
+            //else if (result.Count == 1)
+            //{
+            //    return result.First();
+            //}
+            //else
+            //{
+            //    return null;
+            //    MessageBox.Show("There is no driver with the information supplied");
+            //}
             //return result;
         }
 

@@ -559,6 +559,8 @@
     <Compile Include="Models\Broker.cs" />
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\DocumentCapture.cs" />
+    <Compile Include="Models\Documents\Document.cs" />
+    <Compile Include="Models\Documents\DocumentCapture.cs" />
     <Compile Include="Models\MailCategory.cs" />
     <Compile Include="Models\MailDirectory.cs" />
     <Compile Include="Models\PersonsInvolved.cs" />
@@ -697,8 +699,13 @@
     <None Include="Resources\botask_16x161.png" />
     <None Include="Resources\deletelist_32x32.png" />
     <None Include="Resources\deletelist_16x16.png" />
+    <None Include="Resources\insertimage_32x32.png" />
+    <None Include="Resources\insertimage_32x321.png" />
+    <None Include="Resources\no_photo.jpg" />
+    <None Include="Resources\insertimage_32x322.png" />
     <Content Include="Resources\pdf.png" />
     <None Include="Resources\pdf1.png" />
+    <None Include="Resources\índice1.jpg" />
     <Content Include="x64\SQLite.Interop.dll" />
     <Content Include="x86\SQLite.Interop.dll" />
     <EmbeddedResource Include="Forms\EditIncidentDetails.resx">

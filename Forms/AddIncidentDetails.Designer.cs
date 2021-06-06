@@ -58,13 +58,27 @@ namespace ResponseEmergencySystem.Forms
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule11 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule12 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule13 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule14 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.btn_DeleteRow = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.edt_Number = new DevExpress.XtraEditors.TextEdit();
             this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ResponseEmergencySystem.Forms.WaitForm1), true, true);
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.label1 = new System.Windows.Forms.Label();
+            this.panelControl8 = new DevExpress.XtraEditors.PanelControl();
+            this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
+            this.gc_DocumentCaptures = new DevExpress.XtraGrid.GridControl();
+            this.gv_DocumentCaptures = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gc_Documents = new DevExpress.XtraGrid.GridControl();
+            this.gv_Documents = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.rpic_Image = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
+            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.panelControl9 = new DevExpress.XtraEditors.PanelControl();
+            this.simpleButton9 = new DevExpress.XtraEditors.SimpleButton();
+            this.panelControl7 = new DevExpress.XtraEditors.PanelControl();
             this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
+            this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
             this.pictureEdit6 = new DevExpress.XtraEditors.PictureEdit();
             this.pic_AgeWarning = new DevExpress.XtraEditors.PictureEdit();
@@ -126,7 +140,6 @@ namespace ResponseEmergencySystem.Forms
             this.gMapControl1 = new GMap.NET.WindowsForms.GMapControl();
             this.stackPanel1 = new DevExpress.Utils.Layout.StackPanel();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.tme_IncidentTime = new DevExpress.XtraEditors.TimeEdit();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
@@ -162,6 +175,14 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.lue_Drivers = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.simpleButton8 = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl31 = new DevExpress.XtraEditors.LabelControl();
             this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
@@ -186,27 +207,52 @@ namespace ResponseEmergencySystem.Forms
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.tabbedControlGroup1 = new DevExpress.XtraLayout.TabbedControlGroup();
+            this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
             this.toolTipController1 = new DevExpress.Utils.ToolTipController(this.components);
+            this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
             ((System.ComponentModel.ISupportInitialize)(this.btn_DeleteRow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_Number.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).BeginInit();
+            this.panelControl8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2.Panel1)).BeginInit();
+            this.splitContainerControl2.Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2.Panel2)).BeginInit();
+            this.splitContainerControl2.Panel2.SuspendLayout();
+            this.splitContainerControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gc_DocumentCaptures)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gv_DocumentCaptures)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gc_Documents)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gv_Documents)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rpic_Image)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl9)).BeginInit();
+            this.panelControl9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).BeginInit();
+            this.panelControl7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).BeginInit();
+            this.splitContainerControl1.Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel2)).BeginInit();
+            this.splitContainerControl1.Panel2.SuspendLayout();
+            this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).BeginInit();
             this.panelControl6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit6.Properties)).BeginInit();
@@ -270,6 +316,8 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.edt_TruckNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lue_Drivers.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_SearchDriver.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_DriverLicenseState.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_License.Properties)).BeginInit();
@@ -285,21 +333,23 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_DeleteRow
@@ -324,15 +374,13 @@ namespace ResponseEmergencySystem.Forms
             // 
             // layoutControl1
             // 
-            this.layoutControl1.Controls.Add(this.label1);
-            this.layoutControl1.Controls.Add(this.memoEdit1);
-            this.layoutControl1.Controls.Add(this.panelControl6);
-            this.layoutControl1.Controls.Add(this.gc_InvolvedPersons);
+            this.layoutControl1.Controls.Add(this.panelControl8);
+            this.layoutControl1.Controls.Add(this.panelControl7);
+            this.layoutControl1.Controls.Add(this.splitContainerControl1);
             this.layoutControl1.Controls.Add(this.panelControl5);
             this.layoutControl1.Controls.Add(this.stackPanel2);
             this.layoutControl1.Controls.Add(this.panelControl4);
             this.layoutControl1.Controls.Add(this.stackPanel1);
-            this.layoutControl1.Controls.Add(this.labelControl4);
             this.layoutControl1.Controls.Add(this.panelControl3);
             this.layoutControl1.Controls.Add(this.labelControl3);
             this.layoutControl1.Controls.Add(this.panelControl2);
@@ -343,27 +391,192 @@ namespace ResponseEmergencySystem.Forms
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(1379, 947);
+            this.layoutControl1.Size = new System.Drawing.Size(1379, 915);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
-            // label1
+            // panelControl8
             // 
-            this.label1.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(706, 490);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(661, 20);
-            this.label1.TabIndex = 117;
-            this.label1.Text = "Comments";
+            this.panelControl8.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl8.Controls.Add(this.splitContainerControl2);
+            this.panelControl8.Controls.Add(this.panelControl9);
+            this.panelControl8.Location = new System.Drawing.Point(24, 541);
+            this.panelControl8.Name = "panelControl8";
+            this.panelControl8.Size = new System.Drawing.Size(1331, 290);
+            this.panelControl8.TabIndex = 120;
+            // 
+            // splitContainerControl2
+            // 
+            this.splitContainerControl2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.splitContainerControl2.Location = new System.Drawing.Point(0, 55);
+            this.splitContainerControl2.Name = "splitContainerControl2";
+            // 
+            // splitContainerControl2.Panel1
+            // 
+            this.splitContainerControl2.Panel1.Controls.Add(this.gc_DocumentCaptures);
+            this.splitContainerControl2.Panel1.Text = "Panel1";
+            // 
+            // splitContainerControl2.Panel2
+            // 
+            this.splitContainerControl2.Panel2.Controls.Add(this.gc_Documents);
+            this.splitContainerControl2.Panel2.Text = "Panel2";
+            this.splitContainerControl2.Size = new System.Drawing.Size(1331, 235);
+            this.splitContainerControl2.SplitterPosition = 138;
+            this.splitContainerControl2.TabIndex = 1;
+            // 
+            // gc_DocumentCaptures
+            // 
+            this.gc_DocumentCaptures.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gc_DocumentCaptures.Location = new System.Drawing.Point(0, 0);
+            this.gc_DocumentCaptures.MainView = this.gv_DocumentCaptures;
+            this.gc_DocumentCaptures.Name = "gc_DocumentCaptures";
+            this.gc_DocumentCaptures.Size = new System.Drawing.Size(138, 235);
+            this.gc_DocumentCaptures.TabIndex = 0;
+            this.gc_DocumentCaptures.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gv_DocumentCaptures});
+            this.gc_DocumentCaptures.DoubleClick += new System.EventHandler(this.gc_DocumentCaptures_DoubleClick);
+            // 
+            // gv_DocumentCaptures
+            // 
+            this.gv_DocumentCaptures.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn7});
+            this.gv_DocumentCaptures.GridControl = this.gc_DocumentCaptures;
+            this.gv_DocumentCaptures.Name = "gv_DocumentCaptures";
+            this.gv_DocumentCaptures.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn7
+            // 
+            this.gridColumn7.Caption = "Capture Type";
+            this.gridColumn7.FieldName = "CaptureType";
+            this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.Visible = true;
+            this.gridColumn7.VisibleIndex = 0;
+            // 
+            // gc_Documents
+            // 
+            this.gc_Documents.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gc_Documents.Location = new System.Drawing.Point(0, 0);
+            this.gc_Documents.MainView = this.gv_Documents;
+            this.gc_Documents.Name = "gc_Documents";
+            this.gc_Documents.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.rpic_Image});
+            this.gc_Documents.Size = new System.Drawing.Size(1187, 235);
+            this.gc_Documents.TabIndex = 0;
+            this.gc_Documents.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gv_Documents});
+            // 
+            // gv_Documents
+            // 
+            this.gv_Documents.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn8,
+            this.gridColumn9,
+            this.gridColumn10,
+            this.gridColumn11});
+            this.gv_Documents.GridControl = this.gc_Documents;
+            this.gv_Documents.Name = "gv_Documents";
+            this.gv_Documents.OptionsView.ShowGroupPanel = false;
+            this.gv_Documents.RowHeight = 150;
+            this.gv_Documents.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.gv_Documents_PopupMenuShowing);
+            // 
+            // gridColumn8
+            // 
+            this.gridColumn8.Caption = "Show";
+            this.gridColumn8.ColumnEdit = this.rpic_Image;
+            this.gridColumn8.FieldName = "Image";
+            this.gridColumn8.MaxWidth = 200;
+            this.gridColumn8.MinWidth = 200;
+            this.gridColumn8.Name = "gridColumn8";
+            this.gridColumn8.OptionsColumn.FixedWidth = true;
+            this.gridColumn8.Visible = true;
+            this.gridColumn8.VisibleIndex = 0;
+            this.gridColumn8.Width = 200;
+            // 
+            // rpic_Image
+            // 
+            this.rpic_Image.Name = "rpic_Image";
+            this.rpic_Image.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
+            this.rpic_Image.Click += new System.EventHandler(this.rpic_Image_Click);
+            // 
+            // gridColumn9
+            // 
+            this.gridColumn9.Caption = "Name of the document";
+            this.gridColumn9.FieldName = "name";
+            this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.Visible = true;
+            this.gridColumn9.VisibleIndex = 1;
+            // 
+            // gridColumn10
+            // 
+            this.gridColumn10.Caption = "Path";
+            this.gridColumn10.FieldName = "Path";
+            this.gridColumn10.Name = "gridColumn10";
+            this.gridColumn10.Visible = true;
+            this.gridColumn10.VisibleIndex = 2;
+            // 
+            // gridColumn11
+            // 
+            this.gridColumn11.Caption = "Type";
+            this.gridColumn11.FieldName = "Type";
+            this.gridColumn11.Name = "gridColumn11";
+            this.gridColumn11.Visible = true;
+            this.gridColumn11.VisibleIndex = 3;
+            // 
+            // panelControl9
+            // 
+            this.panelControl9.Controls.Add(this.simpleButton9);
+            this.panelControl9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl9.Location = new System.Drawing.Point(0, 0);
+            this.panelControl9.Name = "panelControl9";
+            this.panelControl9.Size = new System.Drawing.Size(1331, 55);
+            this.panelControl9.TabIndex = 0;
+            // 
+            // simpleButton9
+            // 
+            this.simpleButton9.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.insertimage_32x322;
+            this.simpleButton9.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.simpleButton9.Location = new System.Drawing.Point(5, 5);
+            this.simpleButton9.Name = "simpleButton9";
+            this.simpleButton9.Size = new System.Drawing.Size(128, 43);
+            this.simpleButton9.TabIndex = 0;
+            this.simpleButton9.Text = "AddCapture";
+            this.simpleButton9.Click += new System.EventHandler(this.simpleButton9_Click);
+            // 
+            // panelControl7
+            // 
+            this.panelControl7.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl7.Controls.Add(this.memoEdit1);
+            this.panelControl7.Location = new System.Drawing.Point(24, 541);
+            this.panelControl7.Name = "panelControl7";
+            this.panelControl7.Size = new System.Drawing.Size(1331, 290);
+            this.panelControl7.TabIndex = 119;
             // 
             // memoEdit1
             // 
-            this.memoEdit1.Location = new System.Drawing.Point(706, 514);
+            this.memoEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.memoEdit1.Location = new System.Drawing.Point(0, 0);
             this.memoEdit1.Name = "memoEdit1";
-            this.memoEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.memoEdit1.Size = new System.Drawing.Size(661, 121);
-            this.memoEdit1.StyleController = this.layoutControl1;
-            this.memoEdit1.TabIndex = 5;
+            this.memoEdit1.Size = new System.Drawing.Size(1331, 290);
+            this.memoEdit1.TabIndex = 0;
+            // 
+            // splitContainerControl1
+            // 
+            this.splitContainerControl1.Horizontal = false;
+            this.splitContainerControl1.IsSplitterFixed = true;
+            this.splitContainerControl1.Location = new System.Drawing.Point(24, 541);
+            this.splitContainerControl1.Name = "splitContainerControl1";
+            // 
+            // splitContainerControl1.Panel1
+            // 
+            this.splitContainerControl1.Panel1.Controls.Add(this.panelControl6);
+            this.splitContainerControl1.Panel1.Text = "Panel1";
+            // 
+            // splitContainerControl1.Panel2
+            // 
+            this.splitContainerControl1.Panel2.Controls.Add(this.gc_InvolvedPersons);
+            this.splitContainerControl1.Panel2.Text = "Panel2";
+            this.splitContainerControl1.Size = new System.Drawing.Size(1331, 290);
+            this.splitContainerControl1.SplitterPosition = 76;
+            this.splitContainerControl1.TabIndex = 118;
             // 
             // panelControl6
             // 
@@ -391,16 +604,17 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl6.Controls.Add(this.ckedt_IPPrivate);
             this.panelControl6.Controls.Add(this.ckedt_IPPassenger);
             this.panelControl6.Controls.Add(this.ckedt_IPDriver);
-            this.panelControl6.Location = new System.Drawing.Point(12, 514);
+            this.panelControl6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl6.Location = new System.Drawing.Point(0, 0);
             this.panelControl6.Name = "panelControl6";
-            this.panelControl6.Size = new System.Drawing.Size(680, 121);
-            this.panelControl6.TabIndex = 4;
+            this.panelControl6.Size = new System.Drawing.Size(1331, 76);
+            this.panelControl6.TabIndex = 121;
             this.panelControl6.TabStop = true;
             // 
             // pictureEdit6
             // 
             this.pictureEdit6.EditValue = global::ResponseEmergencySystem.Properties.Resources.warnigColors;
-            this.pictureEdit6.Location = new System.Drawing.Point(411, 91);
+            this.pictureEdit6.Location = new System.Drawing.Point(403, 44);
             this.pictureEdit6.Name = "pictureEdit6";
             this.pictureEdit6.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.pictureEdit6.Properties.Appearance.BorderColor = System.Drawing.Color.Transparent;
@@ -416,7 +630,7 @@ namespace ResponseEmergencySystem.Forms
             // pic_AgeWarning
             // 
             this.pic_AgeWarning.EditValue = global::ResponseEmergencySystem.Properties.Resources.warnigColors;
-            this.pic_AgeWarning.Location = new System.Drawing.Point(87, 48);
+            this.pic_AgeWarning.Location = new System.Drawing.Point(752, 14);
             this.pic_AgeWarning.Name = "pic_AgeWarning";
             this.pic_AgeWarning.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.pic_AgeWarning.Properties.Appearance.BorderColor = System.Drawing.Color.Transparent;
@@ -486,13 +700,12 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton6.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.simpleButton6.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.addWhite;
             this.simpleButton6.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.simpleButton6.Location = new System.Drawing.Point(8, 90);
+            this.simpleButton6.Location = new System.Drawing.Point(8, 42);
             this.simpleButton6.Name = "simpleButton6";
             this.simpleButton6.Size = new System.Drawing.Size(135, 23);
             this.simpleButton6.TabIndex = 143;
             this.simpleButton6.Text = "Update person";
             this.simpleButton6.Visible = false;
-            this.simpleButton6.Click += new System.EventHandler(this.simpleButton6_Click);
             // 
             // lbl_EmptyFields
             // 
@@ -500,7 +713,7 @@ namespace ResponseEmergencySystem.Forms
             this.lbl_EmptyFields.Appearance.ForeColor = System.Drawing.Color.Maroon;
             this.lbl_EmptyFields.Appearance.Options.UseFont = true;
             this.lbl_EmptyFields.Appearance.Options.UseForeColor = true;
-            this.lbl_EmptyFields.Location = new System.Drawing.Point(204, 96);
+            this.lbl_EmptyFields.Location = new System.Drawing.Point(519, 49);
             this.lbl_EmptyFields.Name = "lbl_EmptyFields";
             this.lbl_EmptyFields.Size = new System.Drawing.Size(191, 17);
             this.lbl_EmptyFields.TabIndex = 131;
@@ -511,7 +724,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.labelControl27.Appearance.Options.UseTextOptions = true;
             this.labelControl27.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.labelControl27.Location = new System.Drawing.Point(8, 49);
+            this.labelControl27.Location = new System.Drawing.Point(673, 15);
             this.labelControl27.Name = "labelControl27";
             this.labelControl27.Size = new System.Drawing.Size(24, 17);
             this.labelControl27.TabIndex = 120;
@@ -529,7 +742,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             // edt_IPAge
             // 
-            this.edt_IPAge.Location = new System.Drawing.Point(49, 46);
+            this.edt_IPAge.Location = new System.Drawing.Point(714, 12);
             this.edt_IPAge.Name = "edt_IPAge";
             this.edt_IPAge.Properties.Appearance.BorderColor = System.Drawing.Color.Maroon;
             this.edt_IPAge.Properties.Appearance.Options.UseBorderColor = true;
@@ -560,7 +773,6 @@ namespace ResponseEmergencySystem.Forms
             this.edt_IPLastName1.Properties.Appearance.Options.UseBorderColor = true;
             this.edt_IPLastName1.Size = new System.Drawing.Size(100, 24);
             this.edt_IPLastName1.TabIndex = 122;
-            this.edt_IPLastName1.Leave += new System.EventHandler(this.edt_Leave);
             // 
             // labelControl26
             // 
@@ -580,16 +792,16 @@ namespace ResponseEmergencySystem.Forms
             this.pnl_DriverInvolved.Controls.Add(this.pic_LicenseWarning);
             this.pnl_DriverInvolved.Controls.Add(this.labelControl30);
             this.pnl_DriverInvolved.Controls.Add(this.edt_IPLicense);
-            this.pnl_DriverInvolved.Location = new System.Drawing.Point(491, 42);
+            this.pnl_DriverInvolved.Location = new System.Drawing.Point(1122, 3);
             this.pnl_DriverInvolved.Name = "pnl_DriverInvolved";
-            this.pnl_DriverInvolved.Size = new System.Drawing.Size(186, 39);
+            this.pnl_DriverInvolved.Size = new System.Drawing.Size(190, 39);
             this.pnl_DriverInvolved.TabIndex = 8;
             this.pnl_DriverInvolved.Visible = false;
             // 
             // pic_LicenseWarning
             // 
             this.pic_LicenseWarning.EditValue = global::ResponseEmergencySystem.Properties.Resources.warnigColors;
-            this.pic_LicenseWarning.Location = new System.Drawing.Point(146, 7);
+            this.pic_LicenseWarning.Location = new System.Drawing.Point(150, 10);
             this.pic_LicenseWarning.Name = "pic_LicenseWarning";
             this.pic_LicenseWarning.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.pic_LicenseWarning.Properties.Appearance.BorderColor = System.Drawing.Color.Transparent;
@@ -605,7 +817,7 @@ namespace ResponseEmergencySystem.Forms
             // labelControl30
             // 
             this.labelControl30.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl30.Location = new System.Drawing.Point(3, 9);
+            this.labelControl30.Location = new System.Drawing.Point(10, 12);
             this.labelControl30.Name = "labelControl30";
             this.labelControl30.Size = new System.Drawing.Size(51, 17);
             this.labelControl30.TabIndex = 0;
@@ -614,7 +826,7 @@ namespace ResponseEmergencySystem.Forms
             // edt_IPLicense
             // 
             this.edt_IPLicense.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.edt_IPLicense.Location = new System.Drawing.Point(63, 6);
+            this.edt_IPLicense.Location = new System.Drawing.Point(67, 9);
             this.edt_IPLicense.Name = "edt_IPLicense";
             this.edt_IPLicense.Properties.Appearance.BorderColor = System.Drawing.Color.Maroon;
             this.edt_IPLicense.Properties.Appearance.Options.UseBorderColor = true;
@@ -630,12 +842,11 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton5.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.simpleButton5.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.addWhite;
             this.simpleButton5.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.simpleButton5.Location = new System.Drawing.Point(559, 89);
+            this.simpleButton5.Location = new System.Drawing.Point(1204, 48);
             this.simpleButton5.Name = "simpleButton5";
             this.simpleButton5.Size = new System.Drawing.Size(108, 24);
             this.simpleButton5.TabIndex = 115;
             this.simpleButton5.Text = "Add person";
-            this.simpleButton5.Click += new System.EventHandler(this.simpleButton5_Click);
             // 
             // labelControl28
             // 
@@ -647,7 +858,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             // ckedt_IPInjured
             // 
-            this.ckedt_IPInjured.Location = new System.Drawing.Point(204, 49);
+            this.ckedt_IPInjured.Location = new System.Drawing.Point(864, 15);
             this.ckedt_IPInjured.Name = "ckedt_IPInjured";
             this.ckedt_IPInjured.Properties.Caption = "Injured";
             this.ckedt_IPInjured.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
@@ -662,11 +873,10 @@ namespace ResponseEmergencySystem.Forms
             this.edt_IPFullName.Properties.Appearance.Options.UseBorderColor = true;
             this.edt_IPFullName.Size = new System.Drawing.Size(110, 24);
             this.edt_IPFullName.TabIndex = 121;
-            this.edt_IPFullName.Leave += new System.EventHandler(this.edt_Leave);
             // 
             // ckedt_IPPrivate
             // 
-            this.ckedt_IPPrivate.Location = new System.Drawing.Point(120, 49);
+            this.ckedt_IPPrivate.Location = new System.Drawing.Point(785, 15);
             this.ckedt_IPPrivate.Name = "ckedt_IPPrivate";
             this.ckedt_IPPrivate.Properties.Caption = "Private";
             this.ckedt_IPPrivate.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
@@ -675,34 +885,33 @@ namespace ResponseEmergencySystem.Forms
             // 
             // ckedt_IPPassenger
             // 
-            this.ckedt_IPPassenger.Location = new System.Drawing.Point(303, 49);
+            this.ckedt_IPPassenger.Location = new System.Drawing.Point(946, 15);
             this.ckedt_IPPassenger.Name = "ckedt_IPPassenger";
             this.ckedt_IPPassenger.Properties.Caption = "Passenger";
             this.ckedt_IPPassenger.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.ckedt_IPPassenger.Size = new System.Drawing.Size(85, 21);
             this.ckedt_IPPassenger.TabIndex = 128;
-            this.ckedt_IPPassenger.CheckedChanged += new System.EventHandler(this.Ckedt_OnValueChanged);
             // 
             // ckedt_IPDriver
             // 
-            this.ckedt_IPDriver.Location = new System.Drawing.Point(413, 49);
+            this.ckedt_IPDriver.Location = new System.Drawing.Point(1046, 15);
             this.ckedt_IPDriver.Name = "ckedt_IPDriver";
             this.ckedt_IPDriver.Properties.Caption = "Driver";
             this.ckedt_IPDriver.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.ckedt_IPDriver.Size = new System.Drawing.Size(62, 21);
             this.ckedt_IPDriver.TabIndex = 129;
-            this.ckedt_IPDriver.CheckedChanged += new System.EventHandler(this.Ckedt_OnValueChanged);
             // 
             // gc_InvolvedPersons
             // 
-            this.gc_InvolvedPersons.Location = new System.Drawing.Point(12, 654);
+            this.gc_InvolvedPersons.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gc_InvolvedPersons.Location = new System.Drawing.Point(0, 0);
             this.gc_InvolvedPersons.MainView = this.gv_InvolvedPersons;
             this.gc_InvolvedPersons.Name = "gc_InvolvedPersons";
             this.gc_InvolvedPersons.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btn_DeletePerson,
             this.btn_EditPerson});
-            this.gc_InvolvedPersons.Size = new System.Drawing.Size(1355, 212);
-            this.gc_InvolvedPersons.TabIndex = 114;
+            this.gc_InvolvedPersons.Size = new System.Drawing.Size(1331, 208);
+            this.gc_InvolvedPersons.TabIndex = 115;
             this.gc_InvolvedPersons.TabStop = false;
             this.gc_InvolvedPersons.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_InvolvedPersons});
@@ -814,7 +1023,6 @@ namespace ResponseEmergencySystem.Forms
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btn_DeletePerson.Name = "btn_DeletePerson";
             this.btn_DeletePerson.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.btn_DeletePerson.Click += new System.EventHandler(this.btn_RemovePersonOnClick);
             // 
             // col_Edit
             // 
@@ -833,7 +1041,6 @@ namespace ResponseEmergencySystem.Forms
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btn_EditPerson.Name = "btn_EditPerson";
             this.btn_EditPerson.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.btn_EditPerson.Click += new System.EventHandler(this.btn_EditPersonOnClick);
             // 
             // panelControl5
             // 
@@ -852,9 +1059,9 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl5.Controls.Add(this.ckedt_TrailerDamages);
             this.panelControl5.Controls.Add(this.ckedt_TrailerCanMove);
             this.panelControl5.Controls.Add(this.ckedt_TrailerNeedCrane);
-            this.panelControl5.Location = new System.Drawing.Point(677, 140);
+            this.panelControl5.Location = new System.Drawing.Point(677, 149);
             this.panelControl5.Name = "panelControl5";
-            this.panelControl5.Size = new System.Drawing.Size(690, 109);
+            this.panelControl5.Size = new System.Drawing.Size(690, 126);
             this.panelControl5.TabIndex = 3;
             this.panelControl5.TabStop = true;
             // 
@@ -1012,9 +1219,9 @@ namespace ResponseEmergencySystem.Forms
             // stackPanel2
             // 
             this.stackPanel2.Controls.Add(this.simpleButton1);
-            this.stackPanel2.Location = new System.Drawing.Point(667, 870);
+            this.stackPanel2.Location = new System.Drawing.Point(667, 857);
             this.stackPanel2.Name = "stackPanel2";
-            this.stackPanel2.Size = new System.Drawing.Size(700, 65);
+            this.stackPanel2.Size = new System.Drawing.Size(700, 46);
             this.stackPanel2.TabIndex = 111;
             // 
             // simpleButton1
@@ -1031,7 +1238,7 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton1.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.simpleButton1.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.saveWhite;
             this.simpleButton1.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
-            this.simpleButton1.Location = new System.Drawing.Point(3, 15);
+            this.simpleButton1.Location = new System.Drawing.Point(3, 5);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(94, 35);
             this.simpleButton1.TabIndex = 1;
@@ -1042,9 +1249,9 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.panelControl4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelControl4.Controls.Add(this.gMapControl1);
-            this.panelControl4.Location = new System.Drawing.Point(875, 277);
+            this.panelControl4.Location = new System.Drawing.Point(875, 303);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(492, 209);
+            this.panelControl4.Size = new System.Drawing.Size(492, 186);
             this.panelControl4.TabIndex = 50;
             // 
             // gMapControl1
@@ -1070,7 +1277,7 @@ namespace ResponseEmergencySystem.Forms
             this.gMapControl1.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             this.gMapControl1.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.gMapControl1.ShowTileGridLines = false;
-            this.gMapControl1.Size = new System.Drawing.Size(488, 205);
+            this.gMapControl1.Size = new System.Drawing.Size(488, 182);
             this.gMapControl1.TabIndex = 0;
             this.gMapControl1.Zoom = 13D;
             // 
@@ -1078,9 +1285,9 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.stackPanel1.Controls.Add(this.simpleButton2);
             this.stackPanel1.LayoutDirection = DevExpress.Utils.Layout.StackPanelLayoutDirection.RightToLeft;
-            this.stackPanel1.Location = new System.Drawing.Point(12, 870);
+            this.stackPanel1.Location = new System.Drawing.Point(12, 857);
             this.stackPanel1.Name = "stackPanel1";
-            this.stackPanel1.Size = new System.Drawing.Size(651, 65);
+            this.stackPanel1.Size = new System.Drawing.Size(651, 46);
             this.stackPanel1.TabIndex = 11;
             // 
             // simpleButton2
@@ -1097,23 +1304,12 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton2.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.simpleButton2.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.closeWhite;
             this.simpleButton2.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
-            this.simpleButton2.Location = new System.Drawing.Point(554, 15);
+            this.simpleButton2.Location = new System.Drawing.Point(554, 5);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(94, 35);
             this.simpleButton2.TabIndex = 2;
             this.simpleButton2.Text = "Cancel";
             this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
-            // 
-            // labelControl4
-            // 
-            this.labelControl4.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Location = new System.Drawing.Point(12, 490);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(111, 20);
-            this.labelControl4.StyleController = this.layoutControl1;
-            this.labelControl4.TabIndex = 10;
-            this.labelControl4.Text = "People involved";
             // 
             // panelControl3
             // 
@@ -1141,9 +1337,9 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl3.Controls.Add(this.labelControl20);
             this.panelControl3.Controls.Add(this.labelControl21);
             this.panelControl3.Controls.Add(this.labelControl23);
-            this.panelControl3.Location = new System.Drawing.Point(12, 277);
+            this.panelControl3.Location = new System.Drawing.Point(12, 303);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(849, 209);
+            this.panelControl3.Size = new System.Drawing.Size(849, 186);
             this.panelControl3.TabIndex = 4;
             this.panelControl3.TabStop = true;
             // 
@@ -1166,7 +1362,7 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton3.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.simpleButton3.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.searchWhite;
             this.simpleButton3.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.simpleButton3.Location = new System.Drawing.Point(13, 82);
+            this.simpleButton3.Location = new System.Drawing.Point(12, 82);
             this.simpleButton3.Name = "simpleButton3";
             this.simpleButton3.Size = new System.Drawing.Size(162, 24);
             this.simpleButton3.TabIndex = 18;
@@ -1180,7 +1376,7 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton4.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton4.Appearance.Options.UseBackColor = true;
             this.simpleButton4.Appearance.Options.UseFont = true;
-            this.simpleButton4.Location = new System.Drawing.Point(698, 169);
+            this.simpleButton4.Location = new System.Drawing.Point(696, 128);
             this.simpleButton4.Name = "simpleButton4";
             this.simpleButton4.Size = new System.Drawing.Size(126, 24);
             this.simpleButton4.TabIndex = 24;
@@ -1220,9 +1416,9 @@ namespace ResponseEmergencySystem.Forms
             // 
             // edt_Longitude
             // 
-            this.edt_Longitude.Location = new System.Drawing.Point(303, 127);
+            this.edt_Longitude.Location = new System.Drawing.Point(435, 86);
             this.edt_Longitude.Name = "edt_Longitude";
-            this.edt_Longitude.Size = new System.Drawing.Size(122, 24);
+            this.edt_Longitude.Size = new System.Drawing.Size(103, 24);
             this.edt_Longitude.TabIndex = 19;
             conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule3.ErrorText = "This value is not valid";
@@ -1269,7 +1465,7 @@ namespace ResponseEmergencySystem.Forms
             // edt_Broker
             // 
             this.edt_Broker.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.edt_Broker.Location = new System.Drawing.Point(524, 169);
+            this.edt_Broker.Location = new System.Drawing.Point(522, 117);
             this.edt_Broker.Name = "edt_Broker";
             this.edt_Broker.Size = new System.Drawing.Size(156, 24);
             this.edt_Broker.TabIndex = 23;
@@ -1292,7 +1488,7 @@ namespace ResponseEmergencySystem.Forms
             // labelControl16
             // 
             this.labelControl16.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelControl16.Location = new System.Drawing.Point(415, 173);
+            this.labelControl16.Location = new System.Drawing.Point(413, 121);
             this.labelControl16.Name = "labelControl16";
             this.labelControl16.Size = new System.Drawing.Size(103, 17);
             this.labelControl16.TabIndex = 48;
@@ -1300,7 +1496,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             // edt_Highway
             // 
-            this.edt_Highway.Location = new System.Drawing.Point(126, 168);
+            this.edt_Highway.Location = new System.Drawing.Point(124, 127);
             this.edt_Highway.Name = "edt_Highway";
             this.edt_Highway.Size = new System.Drawing.Size(269, 24);
             this.edt_Highway.TabIndex = 22;
@@ -1311,7 +1507,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             // lue_Cities
             // 
-            this.lue_Cities.Location = new System.Drawing.Point(708, 127);
+            this.lue_Cities.Location = new System.Drawing.Point(706, 86);
             this.lue_Cities.Name = "lue_Cities";
             this.lue_Cities.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1332,7 +1528,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             // lue_StateExp
             // 
-            this.lue_StateExp.Location = new System.Drawing.Point(510, 127);
+            this.lue_StateExp.Location = new System.Drawing.Point(590, 86);
             this.lue_StateExp.Name = "lue_StateExp";
             this.lue_StateExp.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1343,7 +1539,7 @@ namespace ResponseEmergencySystem.Forms
             this.lue_StateExp.Properties.NullText = "";
             this.lue_StateExp.Properties.ShowHeader = false;
             this.lue_StateExp.Properties.ValueMember = "pk_id";
-            this.lue_StateExp.Size = new System.Drawing.Size(123, 24);
+            this.lue_StateExp.Size = new System.Drawing.Size(69, 24);
             this.lue_StateExp.TabIndex = 20;
             conditionValidationRule7.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule7.ErrorText = "This value is not valid";
@@ -1353,9 +1549,9 @@ namespace ResponseEmergencySystem.Forms
             // 
             // edt_Latitude
             // 
-            this.edt_Latitude.Location = new System.Drawing.Point(66, 127);
+            this.edt_Latitude.Location = new System.Drawing.Point(256, 86);
             this.edt_Latitude.Name = "edt_Latitude";
-            this.edt_Latitude.Size = new System.Drawing.Size(122, 24);
+            this.edt_Latitude.Size = new System.Drawing.Size(107, 24);
             this.edt_Latitude.TabIndex = 18;
             this.edt_Latitude.TabStop = false;
             conditionValidationRule8.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
@@ -1366,7 +1562,7 @@ namespace ResponseEmergencySystem.Forms
             // labelControl17
             // 
             this.labelControl17.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelControl17.Location = new System.Drawing.Point(14, 171);
+            this.labelControl17.Location = new System.Drawing.Point(12, 119);
             this.labelControl17.Name = "labelControl17";
             this.labelControl17.Size = new System.Drawing.Size(107, 17);
             this.labelControl17.TabIndex = 42;
@@ -1374,7 +1570,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             // labelControl18
             // 
-            this.labelControl18.Location = new System.Drawing.Point(675, 130);
+            this.labelControl18.Location = new System.Drawing.Point(673, 89);
             this.labelControl18.Name = "labelControl18";
             this.labelControl18.Size = new System.Drawing.Size(21, 17);
             this.labelControl18.TabIndex = 41;
@@ -1382,7 +1578,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             // labelControl19
             // 
-            this.labelControl19.Location = new System.Drawing.Point(475, 130);
+            this.labelControl19.Location = new System.Drawing.Point(548, 89);
             this.labelControl19.Name = "labelControl19";
             this.labelControl19.Size = new System.Drawing.Size(29, 17);
             this.labelControl19.TabIndex = 40;
@@ -1390,7 +1586,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             // labelControl20
             // 
-            this.labelControl20.Location = new System.Drawing.Point(237, 130);
+            this.labelControl20.Location = new System.Drawing.Point(369, 89);
             this.labelControl20.Name = "labelControl20";
             this.labelControl20.Size = new System.Drawing.Size(60, 17);
             this.labelControl20.TabIndex = 39;
@@ -1398,7 +1594,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             // labelControl21
             // 
-            this.labelControl21.Location = new System.Drawing.Point(13, 130);
+            this.labelControl21.Location = new System.Drawing.Point(203, 89);
             this.labelControl21.Name = "labelControl21";
             this.labelControl21.Size = new System.Drawing.Size(47, 17);
             this.labelControl21.TabIndex = 38;
@@ -1418,7 +1614,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl3.Appearance.Options.UseFont = true;
-            this.labelControl3.Location = new System.Drawing.Point(12, 253);
+            this.labelControl3.Location = new System.Drawing.Point(12, 279);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(112, 20);
             this.labelControl3.StyleController = this.layoutControl1;
@@ -1437,9 +1633,9 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl2.Controls.Add(this.ckedt_truckDamages);
             this.panelControl2.Controls.Add(this.edt_TruckNumber);
             this.panelControl2.Controls.Add(this.labelControl15);
-            this.panelControl2.Location = new System.Drawing.Point(12, 140);
+            this.panelControl2.Location = new System.Drawing.Point(12, 149);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(651, 109);
+            this.panelControl2.Size = new System.Drawing.Size(651, 126);
             this.panelControl2.TabIndex = 2;
             // 
             // lbl_TruckExists
@@ -1522,7 +1718,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(12, 116);
+            this.labelControl2.Location = new System.Drawing.Point(12, 125);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(44, 20);
             this.labelControl2.StyleController = this.layoutControl1;
@@ -1534,6 +1730,7 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl1.Appearance.BackColor = System.Drawing.Color.White;
             this.panelControl1.Appearance.Options.UseBackColor = true;
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl1.Controls.Add(this.lue_Drivers);
             this.panelControl1.Controls.Add(this.simpleButton8);
             this.panelControl1.Controls.Add(this.labelControl31);
             this.panelControl1.Controls.Add(this.simpleButton7);
@@ -1551,9 +1748,87 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl1.Controls.Add(this.dte_ExpirationDate);
             this.panelControl1.Location = new System.Drawing.Point(12, 36);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1355, 76);
+            this.panelControl1.Size = new System.Drawing.Size(1355, 85);
             this.panelControl1.TabIndex = 1;
             this.panelControl1.TabStop = true;
+            // 
+            // lue_Drivers
+            // 
+            this.lue_Drivers.EditValue = "";
+            this.lue_Drivers.Location = new System.Drawing.Point(17, 11);
+            this.lue_Drivers.Name = "lue_Drivers";
+            this.lue_Drivers.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lue_Drivers.Properties.DisplayMember = "Name";
+            this.lue_Drivers.Properties.NullText = "";
+            this.lue_Drivers.Properties.PopupFormSize = new System.Drawing.Size(1200, 0);
+            this.lue_Drivers.Properties.PopupView = this.gridLookUpEdit1View;
+            this.lue_Drivers.Properties.PopupWidthMode = DevExpress.XtraEditors.PopupWidthMode.UseEditorWidth;
+            this.lue_Drivers.Properties.ValueMember = "ID_Driver";
+            this.lue_Drivers.Properties.EditValueChanged += new System.EventHandler(this.gridLookUpEdit1_Properties_EditValueChanged);
+            this.lue_Drivers.Size = new System.Drawing.Size(300, 24);
+            this.lue_Drivers.TabIndex = 132;
+            // 
+            // gridLookUpEdit1View
+            // 
+            this.gridLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1,
+            this.gridColumn2,
+            this.gridColumn3,
+            this.gridColumn4,
+            this.gridColumn5,
+            this.gridColumn6});
+            this.gridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridLookUpEdit1View.Name = "gridLookUpEdit1View";
+            this.gridLookUpEdit1View.OptionsEditForm.PopupEditFormWidth = 1200;
+            this.gridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "ID_Driver";
+            this.gridColumn1.FieldName = "ID_Driver";
+            this.gridColumn1.Name = "gridColumn1";
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "Name";
+            this.gridColumn2.FieldName = "Name";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 0;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "LastName1";
+            this.gridColumn3.FieldName = "LastName1";
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 1;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "LastName2";
+            this.gridColumn4.FieldName = "LastName2";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 2;
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "PhoneNumber";
+            this.gridColumn5.FieldName = "PhoneNumber";
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 3;
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.Caption = "License";
+            this.gridColumn6.FieldName = "License";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 4;
             // 
             // simpleButton8
             // 
@@ -1609,11 +1884,12 @@ namespace ResponseEmergencySystem.Forms
             // 
             // edt_SearchDriver
             // 
-            this.edt_SearchDriver.Location = new System.Drawing.Point(17, 11);
+            this.edt_SearchDriver.Location = new System.Drawing.Point(435, 8);
             this.edt_SearchDriver.Name = "edt_SearchDriver";
-            this.edt_SearchDriver.Size = new System.Drawing.Size(298, 24);
+            this.edt_SearchDriver.Size = new System.Drawing.Size(66, 24);
             this.edt_SearchDriver.TabIndex = 1;
             this.edt_SearchDriver.TabStop = false;
+            this.edt_SearchDriver.Visible = false;
             this.edt_SearchDriver.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.edt_SearchDriver_KeyPress);
             // 
             // btn_FindDriver
@@ -1633,6 +1909,7 @@ namespace ResponseEmergencySystem.Forms
             this.btn_FindDriver.TabIndex = 1;
             this.btn_FindDriver.TabStop = false;
             this.btn_FindDriver.Text = "Find driver";
+            this.btn_FindDriver.Visible = false;
             this.btn_FindDriver.Click += new System.EventHandler(this.btn_FindDriver_Click);
             // 
             // lue_DriverLicenseState
@@ -1744,14 +2021,11 @@ namespace ResponseEmergencySystem.Forms
             this.dte_ExpirationDate.Properties.EditFormat.FormatString = "";
             this.dte_ExpirationDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dte_ExpirationDate.Properties.MaskSettings.Set("mask", "MM/dd/yyyy");
+            this.dte_ExpirationDate.Properties.ReadOnly = true;
             this.dte_ExpirationDate.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.dte_ExpirationDate.Properties.UseMaskAsDisplayFormat = true;
             this.dte_ExpirationDate.Size = new System.Drawing.Size(112, 24);
             this.dte_ExpirationDate.TabIndex = 9;
-            conditionValidationRule14.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule14.ErrorText = "This value is not valid";
-            conditionValidationRule14.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
-            this.dxValidationProvider1.SetValidationRule(this.dte_ExpirationDate, conditionValidationRule14);
             // 
             // labelControl1
             // 
@@ -1776,21 +2050,16 @@ namespace ResponseEmergencySystem.Forms
             this.layoutControlItem5,
             this.layoutControlItem6,
             this.layoutControlItem8,
-            this.layoutControlItem7,
             this.layoutControlItem9,
             this.layoutControlItem11,
             this.emptySpaceItem1,
             this.layoutControlItem12,
-            this.layoutControlItem13,
-            this.layoutControlItem10,
-            this.emptySpaceItem2,
-            this.layoutControlItem14,
-            this.layoutControlItem15,
             this.emptySpaceItem3,
             this.emptySpaceItem4,
-            this.emptySpaceItem5});
+            this.emptySpaceItem5,
+            this.tabbedControlGroup1});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(1379, 947);
+            this.Root.Size = new System.Drawing.Size(1379, 915);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem1
@@ -1807,14 +2076,14 @@ namespace ResponseEmergencySystem.Forms
             this.layoutControlItem2.Control = this.panelControl1;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(1359, 80);
+            this.layoutControlItem2.Size = new System.Drawing.Size(1359, 89);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.labelControl2;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 104);
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 113);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(1359, 24);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
@@ -1823,16 +2092,16 @@ namespace ResponseEmergencySystem.Forms
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.panelControl2;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 128);
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 137);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(655, 113);
+            this.layoutControlItem4.Size = new System.Drawing.Size(655, 130);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.labelControl3;
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 241);
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 267);
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.Size = new System.Drawing.Size(1359, 24);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
@@ -1841,138 +2110,153 @@ namespace ResponseEmergencySystem.Forms
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.panelControl3;
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 265);
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 291);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(853, 213);
+            this.layoutControlItem6.Size = new System.Drawing.Size(853, 190);
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
             // 
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.stackPanel1;
-            this.layoutControlItem8.Location = new System.Drawing.Point(0, 858);
+            this.layoutControlItem8.Location = new System.Drawing.Point(0, 845);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(655, 69);
+            this.layoutControlItem8.Size = new System.Drawing.Size(655, 50);
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
-            // 
-            // layoutControlItem7
-            // 
-            this.layoutControlItem7.Control = this.labelControl4;
-            this.layoutControlItem7.Location = new System.Drawing.Point(0, 478);
-            this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(115, 24);
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem7.TextVisible = false;
             // 
             // layoutControlItem9
             // 
             this.layoutControlItem9.Control = this.stackPanel2;
-            this.layoutControlItem9.Location = new System.Drawing.Point(655, 858);
+            this.layoutControlItem9.Location = new System.Drawing.Point(655, 845);
             this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(704, 69);
+            this.layoutControlItem9.Size = new System.Drawing.Size(704, 50);
             this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem9.TextVisible = false;
             // 
             // layoutControlItem11
             // 
             this.layoutControlItem11.Control = this.panelControl5;
-            this.layoutControlItem11.Location = new System.Drawing.Point(665, 128);
+            this.layoutControlItem11.Location = new System.Drawing.Point(665, 137);
             this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(694, 113);
+            this.layoutControlItem11.Size = new System.Drawing.Size(694, 130);
             this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem11.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(655, 128);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(655, 137);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(10, 113);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(10, 130);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem12
             // 
             this.layoutControlItem12.Control = this.panelControl4;
-            this.layoutControlItem12.Location = new System.Drawing.Point(863, 265);
+            this.layoutControlItem12.Location = new System.Drawing.Point(863, 291);
             this.layoutControlItem12.Name = "layoutControlItem12";
-            this.layoutControlItem12.Size = new System.Drawing.Size(496, 213);
+            this.layoutControlItem12.Size = new System.Drawing.Size(496, 190);
             this.layoutControlItem12.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem12.TextVisible = false;
-            // 
-            // layoutControlItem13
-            // 
-            this.layoutControlItem13.Control = this.gc_InvolvedPersons;
-            this.layoutControlItem13.Location = new System.Drawing.Point(0, 642);
-            this.layoutControlItem13.Name = "layoutControlItem13";
-            this.layoutControlItem13.Size = new System.Drawing.Size(1359, 216);
-            this.layoutControlItem13.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem13.TextVisible = false;
-            // 
-            // layoutControlItem10
-            // 
-            this.layoutControlItem10.Control = this.panelControl6;
-            this.layoutControlItem10.Location = new System.Drawing.Point(0, 502);
-            this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(684, 125);
-            this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem10.TextVisible = false;
-            // 
-            // emptySpaceItem2
-            // 
-            this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(684, 502);
-            this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(10, 125);
-            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // layoutControlItem14
-            // 
-            this.layoutControlItem14.Control = this.memoEdit1;
-            this.layoutControlItem14.Location = new System.Drawing.Point(694, 502);
-            this.layoutControlItem14.Name = "layoutControlItem14";
-            this.layoutControlItem14.Size = new System.Drawing.Size(665, 125);
-            this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem14.TextVisible = false;
-            // 
-            // layoutControlItem15
-            // 
-            this.layoutControlItem15.Control = this.label1;
-            this.layoutControlItem15.Location = new System.Drawing.Point(694, 478);
-            this.layoutControlItem15.Name = "layoutControlItem15";
-            this.layoutControlItem15.Size = new System.Drawing.Size(665, 24);
-            this.layoutControlItem15.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem15.TextVisible = false;
             // 
             // emptySpaceItem3
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.Location = new System.Drawing.Point(115, 478);
+            this.emptySpaceItem3.Location = new System.Drawing.Point(0, 481);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(579, 24);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(1359, 11);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem4
             // 
             this.emptySpaceItem4.AllowHotTrack = false;
-            this.emptySpaceItem4.Location = new System.Drawing.Point(0, 627);
+            this.emptySpaceItem4.Location = new System.Drawing.Point(0, 835);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(1359, 15);
+            this.emptySpaceItem4.Size = new System.Drawing.Size(1359, 10);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem5
             // 
             this.emptySpaceItem5.AllowHotTrack = false;
-            this.emptySpaceItem5.Location = new System.Drawing.Point(853, 265);
+            this.emptySpaceItem5.Location = new System.Drawing.Point(853, 291);
             this.emptySpaceItem5.Name = "emptySpaceItem5";
-            this.emptySpaceItem5.Size = new System.Drawing.Size(10, 213);
+            this.emptySpaceItem5.Size = new System.Drawing.Size(10, 190);
             this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // tabbedControlGroup1
+            // 
+            this.tabbedControlGroup1.Location = new System.Drawing.Point(0, 492);
+            this.tabbedControlGroup1.Name = "tabbedControlGroup1";
+            this.tabbedControlGroup1.SelectedTabPage = this.layoutControlGroup4;
+            this.tabbedControlGroup1.Size = new System.Drawing.Size(1359, 343);
+            this.tabbedControlGroup1.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlGroup1,
+            this.layoutControlGroup2,
+            this.layoutControlGroup4});
+            // 
+            // layoutControlGroup4
+            // 
+            this.layoutControlGroup4.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem7});
+            this.layoutControlGroup4.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup4.Name = "layoutControlGroup4";
+            this.layoutControlGroup4.Size = new System.Drawing.Size(1335, 294);
+            // 
+            // layoutControlItem7
+            // 
+            this.layoutControlItem7.Control = this.panelControl8;
+            this.layoutControlItem7.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem7.Name = "layoutControlItem7";
+            this.layoutControlItem7.Size = new System.Drawing.Size(1335, 294);
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem7.TextVisible = false;
+            // 
+            // layoutControlGroup1
+            // 
+            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem10});
+            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup1.Name = "layoutControlGroup1";
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1335, 294);
+            // 
+            // layoutControlItem10
+            // 
+            this.layoutControlItem10.Control = this.splitContainerControl1;
+            this.layoutControlItem10.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem10.Name = "layoutControlItem10";
+            this.layoutControlItem10.Size = new System.Drawing.Size(1335, 294);
+            this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem10.TextVisible = false;
+            // 
+            // layoutControlGroup2
+            // 
+            this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem14});
+            this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup2.Name = "layoutControlGroup2";
+            this.layoutControlGroup2.Size = new System.Drawing.Size(1335, 294);
+            // 
+            // layoutControlItem14
+            // 
+            this.layoutControlItem14.Control = this.panelControl7;
+            this.layoutControlItem14.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem14.Name = "layoutControlItem14";
+            this.layoutControlItem14.Size = new System.Drawing.Size(1335, 294);
+            this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem14.TextVisible = false;
+            // 
+            // layoutControlGroup3
+            // 
+            this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup3.Name = "layoutControlGroup3";
+            this.layoutControlGroup3.Size = new System.Drawing.Size(1335, 207);
             // 
             // AddIncidentDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1379, 947);
+            this.ClientSize = new System.Drawing.Size(1379, 915);
             this.Controls.Add(this.layoutControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
@@ -1986,7 +2270,30 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.edt_Number.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).EndInit();
+            this.panelControl8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2.Panel1)).EndInit();
+            this.splitContainerControl2.Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2.Panel2)).EndInit();
+            this.splitContainerControl2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).EndInit();
+            this.splitContainerControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gc_DocumentCaptures)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gv_DocumentCaptures)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gc_Documents)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gv_Documents)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rpic_Image)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl9)).EndInit();
+            this.panelControl9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).EndInit();
+            this.panelControl7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel1)).EndInit();
+            this.splitContainerControl1.Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1.Panel2)).EndInit();
+            this.splitContainerControl1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
+            this.splitContainerControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).EndInit();
             this.panelControl6.ResumeLayout(false);
             this.panelControl6.PerformLayout();
@@ -2058,6 +2365,8 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lue_Drivers.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_SearchDriver.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_DriverLicenseState.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_License.Properties)).EndInit();
@@ -2073,21 +2382,23 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2098,7 +2409,6 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private DevExpress.Utils.Layout.StackPanel stackPanel1;
-        private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.PanelControl panelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.PanelControl panelControl2;
@@ -2111,7 +2421,6 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.TextEdit edt_License;
@@ -2166,35 +2475,7 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem11;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem12;
-        private DevExpress.XtraGrid.GridControl gc_InvolvedPersons;
-        private DevExpress.XtraGrid.Views.Grid.GridView gv_InvolvedPersons;
-        private DevExpress.XtraGrid.Columns.GridColumn col_FullName;
-        private DevExpress.XtraGrid.Columns.GridColumn col_Age;
-        private DevExpress.XtraGrid.Columns.GridColumn col_PhoneNumber;
-        private DevExpress.XtraGrid.Columns.GridColumn col_Driver;
-        private DevExpress.XtraGrid.Columns.GridColumn col_License;
-        private DevExpress.XtraGrid.Columns.GridColumn col_Injured;
-        private DevExpress.XtraGrid.Columns.GridColumn col_PrivatePerson;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem13;
         private DevExpress.XtraEditors.SimpleButton simpleButton3;
-        private DevExpress.XtraEditors.MemoEdit memoEdit1;
-        private DevExpress.XtraEditors.PanelControl panelControl6;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem14;
-        private System.Windows.Forms.Label label1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton5;
-        private DevExpress.XtraEditors.LabelControl labelControl28;
-        private DevExpress.XtraEditors.CheckEdit ckedt_IPInjured;
-        private DevExpress.XtraEditors.TextEdit edt_IPFullName;
-        private DevExpress.XtraEditors.CheckEdit ckedt_IPPrivate;
-        private DevExpress.XtraEditors.PanelControl pnl_DriverInvolved;
-        private DevExpress.XtraEditors.TextEdit edt_IPLicense;
-        private DevExpress.XtraEditors.LabelControl labelControl30;
-        private DevExpress.XtraEditors.LabelControl labelControl29;
-        private DevExpress.XtraEditors.TextEdit edt_IPPhoneNumber;
-        private DevExpress.XtraEditors.CheckEdit ckedt_IPDriver;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem15;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
         private DevExpress.XtraEditors.LabelControl lbl_TrailerExists;
@@ -2203,10 +2484,6 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraEditors.LookUpEdit lue_Cities;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProvider1;
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
-        private DevExpress.XtraEditors.TextEdit edt_IPLastName1;
-        private DevExpress.XtraEditors.LabelControl labelControl26;
-        private DevExpress.XtraGrid.Columns.GridColumn col_LastName;
-        private DevExpress.XtraGrid.Columns.GridColumn col_Passenger;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem5;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.TextEdit edt_FullName;
@@ -2214,27 +2491,85 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraEditors.TextEdit edt_SearchDriver;
         private DevExpress.XtraEditors.SimpleButton btn_FindDriver;
         private DevExpress.XtraEditors.LookUpEdit lue_DriverLicenseState;
-        private DevExpress.XtraEditors.TextEdit edt_IPAge;
-        private DevExpress.XtraEditors.LabelControl labelControl27;
         private GMap.NET.WindowsForms.GMapControl gMapControl1;
-        private DevExpress.XtraEditors.LabelControl lbl_EmptyFields;
-        private DevExpress.XtraEditors.SimpleButton simpleButton6;
-        private DevExpress.XtraGrid.Columns.GridColumn col_Delete;
-        private DevExpress.XtraGrid.Columns.GridColumn col_Edit;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btn_DeletePerson;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btn_EditPerson;
-        private DevExpress.XtraEditors.PictureEdit pic_FullNameWarning;
-        private DevExpress.XtraEditors.PictureEdit pic_LastName1Warning;
-        private DevExpress.XtraEditors.PictureEdit pic_AgeWarning;
-        private DevExpress.XtraEditors.PictureEdit pic_PhoneNumberWarning;
-        private DevExpress.XtraEditors.PictureEdit pictureEdit6;
-        private DevExpress.XtraEditors.PictureEdit pic_LicenseWarning;
         private DevExpress.Utils.ToolTipController toolTipController1;
         private DevExpress.XtraEditors.SimpleButton btn_AddTrailer;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
-        private DevExpress.XtraEditors.CheckEdit ckedt_IPPassenger;
         private DevExpress.XtraEditors.SimpleButton simpleButton7;
         private DevExpress.XtraEditors.LabelControl labelControl31;
         private DevExpress.XtraEditors.SimpleButton simpleButton8;
+        private DevExpress.XtraEditors.GridLookUpEdit lue_Drivers;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridLookUpEdit1View;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
+        private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
+        private DevExpress.XtraEditors.PanelControl panelControl6;
+        private DevExpress.XtraEditors.PictureEdit pictureEdit6;
+        private DevExpress.XtraEditors.PictureEdit pic_AgeWarning;
+        private DevExpress.XtraEditors.PictureEdit pic_PhoneNumberWarning;
+        private DevExpress.XtraEditors.PictureEdit pic_LastName1Warning;
+        private DevExpress.XtraEditors.PictureEdit pic_FullNameWarning;
+        private DevExpress.XtraEditors.SimpleButton simpleButton6;
+        private DevExpress.XtraEditors.LabelControl lbl_EmptyFields;
+        private DevExpress.XtraEditors.LabelControl labelControl27;
+        private DevExpress.XtraEditors.LabelControl labelControl29;
+        private DevExpress.XtraEditors.TextEdit edt_IPAge;
+        private DevExpress.XtraEditors.TextEdit edt_IPPhoneNumber;
+        private DevExpress.XtraEditors.TextEdit edt_IPLastName1;
+        private DevExpress.XtraEditors.LabelControl labelControl26;
+        private DevExpress.XtraEditors.PanelControl pnl_DriverInvolved;
+        private DevExpress.XtraEditors.PictureEdit pic_LicenseWarning;
+        private DevExpress.XtraEditors.LabelControl labelControl30;
+        private DevExpress.XtraEditors.TextEdit edt_IPLicense;
+        private DevExpress.XtraEditors.SimpleButton simpleButton5;
+        private DevExpress.XtraEditors.LabelControl labelControl28;
+        private DevExpress.XtraEditors.CheckEdit ckedt_IPInjured;
+        private DevExpress.XtraEditors.TextEdit edt_IPFullName;
+        private DevExpress.XtraEditors.CheckEdit ckedt_IPPrivate;
+        private DevExpress.XtraEditors.CheckEdit ckedt_IPPassenger;
+        private DevExpress.XtraEditors.CheckEdit ckedt_IPDriver;
+        private DevExpress.XtraLayout.TabbedControlGroup tabbedControlGroup1;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
+        private DevExpress.XtraEditors.PanelControl panelControl7;
+        private DevExpress.XtraEditors.MemoEdit memoEdit1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem14;
+        private DevExpress.XtraGrid.GridControl gc_InvolvedPersons;
+        private DevExpress.XtraGrid.Views.Grid.GridView gv_InvolvedPersons;
+        private DevExpress.XtraGrid.Columns.GridColumn col_FullName;
+        private DevExpress.XtraGrid.Columns.GridColumn col_LastName;
+        private DevExpress.XtraGrid.Columns.GridColumn col_Age;
+        private DevExpress.XtraGrid.Columns.GridColumn col_PhoneNumber;
+        private DevExpress.XtraGrid.Columns.GridColumn col_Driver;
+        private DevExpress.XtraGrid.Columns.GridColumn col_Passenger;
+        private DevExpress.XtraGrid.Columns.GridColumn col_License;
+        private DevExpress.XtraGrid.Columns.GridColumn col_Injured;
+        private DevExpress.XtraGrid.Columns.GridColumn col_PrivatePerson;
+        private DevExpress.XtraGrid.Columns.GridColumn col_Delete;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btn_DeletePerson;
+        private DevExpress.XtraGrid.Columns.GridColumn col_Edit;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btn_EditPerson;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup3;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup4;
+        private DevExpress.XtraEditors.PanelControl panelControl8;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
+        private DevExpress.XtraEditors.PanelControl panelControl9;
+        private DevExpress.XtraEditors.SimpleButton simpleButton9;
+        private DevExpress.XtraEditors.SplitContainerControl splitContainerControl2;
+        private DevExpress.XtraGrid.GridControl gc_DocumentCaptures;
+        private DevExpress.XtraGrid.Views.Grid.GridView gv_DocumentCaptures;
+        private DevExpress.XtraGrid.GridControl gc_Documents;
+        private DevExpress.XtraGrid.Views.Grid.GridView gv_Documents;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
+        private DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit rpic_Image;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
     }
 }

@@ -282,6 +282,7 @@ namespace ResponseEmergencySystem.Controllers
             AddIncidentDetails addIncidentView = new AddIncidentDetails();
             Controllers.Incidents.AddIncidentController addIncidentCtrl = new Controllers.Incidents.AddIncidentController(addIncidentView);
             addIncidentCtrl.LoadStates();
+            addIncidentCtrl.LoadDrivers();
             addIncidentView.Load += new System.EventHandler((object sender, EventArgs e) =>
             {
                 _view.CloseSpinner();

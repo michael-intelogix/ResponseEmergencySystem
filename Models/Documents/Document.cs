@@ -1,46 +1,43 @@
-﻿using System;
+﻿using ResponseEmergencySystem.Properties;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ResponseEmergencySystem.Models
+namespace ResponseEmergencySystem.Models.Documents
 {
-    public class DocumentCapture
+    public class Document
     {
         public int ID { get; set; }
-        public string ID_Image { get; set; }
         public string ID_Document { get; set; }
-        public string ID_CaptureType { get; set; }
         public string name { get; set; }
         public string containerName { get; set; }
-        public string Path { get; set; }
+        public string Path { get; set; } = "";
         public string FirebaseUrl { get; set; }
-        public string CaptureType { get; set; }
-        public string Type { get; set; }
         public string comments { get; set; }
-        public string ID_StatusDetail { get; set; }
-        public string ImagePath { get; set; }
-        public string ImageName { get; set; }
-        public string ImageFireBaseUrl { get; set; }
-        public bool Uploaded { get; set; }
+        public string Type { get; set; }
         public string Status { get; }
 
-        public Image Img { get; }
-        public Image Image { get; }
+        public Image Image { get; private set; } = Resources.no_photo;
 
-        public DocumentCapture(string cName, int idx)
+        public Document(string cName, int idx)
         {
             containerName = cName;
             ID = idx;
         }
 
-        public DocumentCapture(string cName, string dName, int idx)
+        public Document(string cName, string dName, int idx)
         {
             containerName = cName;
             name = dName;
             ID = idx;
+        }
+
+        public void SetImage()
+        {
+            this.Image = this.Type == "img" ? GetImage() : Resources.pdf;
         }
 
         private Image GetImage()
@@ -49,7 +46,7 @@ namespace ResponseEmergencySystem.Models
             try
             {
                 System.Net.WebRequest request =
-                System.Net.WebRequest.Create(this.ImagePath);
+                System.Net.WebRequest.Create(this.Path);
                 System.Net.WebResponse response = request.GetResponse();
                 System.IO.Stream responseStream = response.GetResponseStream();
 
