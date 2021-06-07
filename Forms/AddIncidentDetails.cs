@@ -600,22 +600,10 @@ namespace ResponseEmergencySystem.Forms
             }
         }
 
-        private void simpleButton5_Click(object sender, EventArgs e)
-        {
-            _controller.AddPersonInvolved();
-            gv_InvolvedPersons.BestFitColumns();
-        }
-
         private void simpleButton2_Click(object sender, EventArgs e)
         {
             //Utils.ShowMessage("Are you sure you want to close?", "Incident");
             this.Close();
-        }
-
-        private void simpleButton6_Click(object sender, EventArgs e)
-        {
-            _controller.UpdatePersonInvolved();
-            gv_InvolvedPersons.BestFitColumns();
         }
 
         private void btn_EditPersonOnClick(object sender, EventArgs e)
@@ -745,6 +733,25 @@ namespace ResponseEmergencySystem.Forms
                 };
                 e.Menu.Items.Add(item);
             }
+        }
+
+        private void simpleButton5_Click_1(object sender, EventArgs e)
+        {
+            _controller.AddPersonInvolved();
+            gv_InvolvedPersons.BestFitColumns();
+        }
+
+        private void simpleButton6_Click(object sender, EventArgs e)
+        {
+            _controller.UpdatePersonInvolved();
+            gv_InvolvedPersons.BestFitColumns();
+        }
+
+        private void simpleButton10_Click(object sender, EventArgs e)
+        {
+            _docs[gv_DocumentCaptures.FocusedRowHandle].documents.Add(new Models.Documents.Document("", 0));
+            gc_Documents.DataSource = _docs[gv_DocumentCaptures.FocusedRowHandle].documents;
+            gv_Documents.BestFitColumns();
         }
     }
 

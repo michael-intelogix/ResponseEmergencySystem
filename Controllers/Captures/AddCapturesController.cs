@@ -181,7 +181,7 @@ namespace ResponseEmergencySystem.Controllers.Captures
             {
                 var document = tempDocs[i];
                 var id = tempDocs[i].ID;
-                document.comments = _view.Comments;
+                document.Comments = _view.Comments;
                 //var task = UploadImgFirebaseAsync(docsLoaded[i].Path, docsLoaded[i].name);
 
                 //ProgressBarControl pbr = _view.GetPbrControl(document.containerName, $"pbrDocument{document.ID}");
@@ -215,6 +215,11 @@ namespace ResponseEmergencySystem.Controllers.Captures
             _selectedCaptureType = _captures.Where(c => c.ID_CaptureType == captureTypeId).First();
             _view.ClearCapturesPanel();
             List<ImageCapture> documentNames = _selectedCaptureType.imagesListOfNames;
+
+            if (ID_Incident != Guid.Empty.ToString())
+                _documents2.Clear();
+            else
+                _documents.Clear();
 
             switch (_selectedCaptureType.captureType)
             {

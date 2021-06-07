@@ -16,7 +16,7 @@ namespace ResponseEmergencySystem.Models.Documents
         public string containerName { get; set; }
         public string Path { get; set; } = "";
         public string FirebaseUrl { get; set; }
-        public string comments { get; set; }
+        public string Comments { get; set; }
         public string Type { get; set; }
         public string Status { get; }
 

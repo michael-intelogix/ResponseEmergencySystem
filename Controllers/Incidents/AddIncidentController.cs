@@ -545,7 +545,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             _view.BtnEditInvolvedPersonVisibility = true;
 
             if (_view.BtnEditInvolvedPersonLocation.X == 8)
-                _view.BtnEditInvolvedPersonLocation = new System.Drawing.Point(494, 85);
+                _view.BtnEditInvolvedPersonLocation = new System.Drawing.Point(1177, 48);
 
         }
 

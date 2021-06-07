@@ -456,8 +456,8 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton6.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton6.Appearance.Options.UseBackColor = true;
             this.simpleButton6.Appearance.Options.UseFont = true;
+            this.simpleButton6.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.refresh_16x16;
             this.simpleButton6.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.simpleButton6.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.updateWhite;
             this.simpleButton6.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
             this.simpleButton6.Location = new System.Drawing.Point(13, 85);
             this.simpleButton6.Name = "simpleButton6";
