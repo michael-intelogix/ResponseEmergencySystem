@@ -217,9 +217,10 @@ namespace ResponseEmergencySystem.Controllers.Captures
             List<ImageCapture> documentNames = _selectedCaptureType.imagesListOfNames;
 
             if (ID_Incident != Guid.Empty.ToString())
-                _documents2.Clear();
-            else
                 _documents.Clear();
+            else
+                _documents2.Clear();
+
 
             switch (_selectedCaptureType.captureType)
             {

@@ -699,5 +699,11 @@ namespace ResponseEmergencySystem.Forms
             gc_Documents.DataSource = _docs[gv_DocumentCaptures.FocusedRowHandle].documents;
             gv_Documents.BestFitColumns();
         }
+
+        private void simpleButton6_Click(object sender, EventArgs e)
+        {
+            _controller.UpdatePersonInvolved();
+            gv_InvolvedPersons.BestFitColumns();
+        }
     }
 }

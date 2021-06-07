@@ -181,5 +181,10 @@ namespace ResponseEmergencySystem.Forms
         {
             _controller.ActionsMenu("delete");
         }
+
+        private void barButtonItem12_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            
+        }
     }
 }

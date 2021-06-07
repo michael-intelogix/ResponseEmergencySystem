@@ -405,7 +405,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             // gridColumn6
             // 
-            this.gridColumn6.Caption = "Commnets";
+            this.gridColumn6.Caption = "Comments";
             this.gridColumn6.FieldName = "comments";
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.Visible = true;
