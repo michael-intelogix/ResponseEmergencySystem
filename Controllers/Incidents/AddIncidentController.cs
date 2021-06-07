@@ -40,6 +40,8 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         private string comments = "";
         private int _errors = 0;
 
+        private bool _validation = false;
+
         private bool _DriverUpdateRequired = false;
 
         public AddIncidentController(IAddIncidentView view)
@@ -367,30 +369,46 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                         _view.IPDriver = false;
                         _view.PnlDriverInvolvedVisibility = false;
                         _view.IPDriverLicense = "";
-                    }   
+                    }
+
+                    if (_view.IPPassenger)
+                    {
+                        _view.CkedtPassengerBorder = BorderStyles.Default;
+                        _view.CkedtDriverBorder = BorderStyles.Default;
+                        _validation = true;
+                    }
                     break;
                 case "ckedt_IPDriver":
                     if (_view.IPPassenger && ckedtValue)
                         _view.IPPassenger = false;
+
+                    if (_view.IPDriver)
+                    {
+                        _view.CkedtPassengerBorder = BorderStyles.Default;
+                        _view.CkedtDriverBorder = BorderStyles.Default;
+                        _validation = true;
+                    }
                     _view.PnlDriverInvolvedVisibility = ckedtValue;
                     break;
             }
         }
 
-        public void validate(string edtName)
+        public void validate(string controlName)
         {
-            switch(edtName)
+            switch(controlName)
             {
                 case "edt_IPFullName":
                     if (_view.IPFullName.Length == 0)
                     {
                         _view.EdtFullNameBorder = BorderStyles.Simple;
                         _view.EdtFullNameShowWarningIcon = true;
+                        _validation = false;
                     }
                     else
                     {
                         _view.EdtFullNameBorder = BorderStyles.Default;
                         _view.EdtFullNameShowWarningIcon = false;
+                        _validation = true;
                     }
                     break;
                 case "edt_IPLastName1":
@@ -398,11 +416,83 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                     {
                         _view.EdtLastNameBorder = BorderStyles.Simple;
                         _view.EdtLastName1ShowWarningIcon = true;
+                        _validation = false;
                     }
                     else
                     {
                         _view.EdtLastNameBorder = BorderStyles.Default;
                         _view.EdtLastName1ShowWarningIcon = false;
+                        _validation = true;
+                    }
+                    break;
+                case "edt_IPPhoneNumber":
+                    if (_view.IPPhoneNumber.Length == 0)
+                    {
+                        _view.EdtPhoneNumberBorder = BorderStyles.Simple;
+                        _view.EdtPhoneNumberShowWarningIcon = true;
+                        _validation = false;
+                    }
+                    else
+                    {
+                        _view.EdtPhoneNumberBorder = BorderStyles.Default;
+                        _view.EdtPhoneNumberShowWarningIcon = false;
+                        _validation = true;
+                    }
+                    break;
+                case "edt_IPLicense":
+                    if (_view.IPDriver)
+                    { 
+                        if (_view.IPDriverLicense.Length == 0)
+                        {
+                            _view.EdtLicenseBorder = BorderStyles.Simple;
+                            _view.EdtLicenseShowWarningIcon = true;
+                            _validation = false;
+                        }
+                        else
+                        {
+                            _view.EdtLicenseBorder = BorderStyles.Default;
+                            _view.EdtLicenseShowWarningIcon = false;
+                            _validation = true;
+                        }
+                    }
+                    break;
+                case "validate":
+                    if (_view.IPFullName.Length == 0)
+                    {
+                        _view.EdtFullNameBorder = BorderStyles.Simple;
+                        _view.EdtFullNameShowWarningIcon = true;
+                        _validation = false;
+                    }
+
+                    if (_view.IPLastName1.Length == 0)
+                    {
+                        _view.EdtLastNameBorder = BorderStyles.Simple;
+                        _view.EdtLastName1ShowWarningIcon = true;
+                        _validation = false;
+                    }
+
+                    if (_view.IPPhoneNumber.Length == 0)
+                    {
+                        _view.EdtPhoneNumberBorder = BorderStyles.Simple;
+                        _view.EdtPhoneNumberShowWarningIcon = true;
+                        _validation = false;
+                    }
+
+                    if (!_view.IPPassenger && !_view.IPDriver)
+                    {
+                        _view.CkedtPassengerBorder = BorderStyles.Simple;
+                        _view.CkedtDriverBorder = BorderStyles.Simple;
+                        _validation = false;
+                    }
+
+                    if (_view.IPDriver)
+                    {
+                        if (_view.IPDriverLicense.Length == 0)
+                        {
+                            _view.EdtLicenseBorder = BorderStyles.Simple;
+                            _view.EdtLicenseShowWarningIcon = true;
+                            _validation = false;
+                        }
                     }
                     break;
             }
@@ -450,28 +540,28 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
         public void AddPersonInvolved()
         {
-            int errors = 0;
+            //int errors = 0;
 
-            if (_view.IPDriver)
-            {
-                if (_view.IPDriverLicense.Length == 0)
-                {
-                    _view.EdtLicenseBorder = BorderStyles.Simple;
-                    _view.EdtLicenseShowWarningIcon = true;
-                    errors += 1;
-                }
-                else
-                {
-                    _view.EdtLicenseBorder = BorderStyles.Default;
-                    _view.EdtLicenseShowWarningIcon = false;
-                }
-            }
-            else
-            {
-                if (errors > 5) { errors -= 1; }
-            }
-
-            if (errors == 0)
+            //if (_view.IPDriver)
+            //{
+            //    if (_view.IPDriverLicense.Length == 0)
+            //    {
+            //        _view.EdtLicenseBorder = BorderStyles.Simple;
+            //        _view.EdtLicenseShowWarningIcon = true;
+            //        errors += 1;
+            //    }
+            //    else
+            //    {
+            //        _view.EdtLicenseBorder = BorderStyles.Default;
+            //        _view.EdtLicenseShowWarningIcon = false;
+            //    }
+            //}
+            //else
+            //{
+            //    if (errors > 5) { errors -= 1; }
+            //}
+            validate("validate");
+            if (_validation)
             {
                 _view.LblEmptyFieldsVisibility = false;
                 _PersonsInvolved.Add(new PersonsInvolved(_view.IPFullName, _view.IPLastName1, _view.IPPhoneNumber, _view.IPAge, _view.IPDriver, _view.IPDriverLicense, _view.IPPrivate, _view.IPInjured, Guid.Empty.ToString()));

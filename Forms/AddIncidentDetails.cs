@@ -514,6 +514,18 @@ namespace ResponseEmergencySystem.Forms
             set { edt_IPLicense.BorderStyle = value; }
         }
 
+        public BorderStyles CkedtPassengerBorder
+        {
+            get { return ckedt_IPPassenger.BorderStyle; }
+            set { ckedt_IPPassenger.BorderStyle = value; }
+        }
+
+        public BorderStyles CkedtDriverBorder
+        {
+            get { return ckedt_IPDriver.BorderStyle; }
+            set { ckedt_IPDriver.BorderStyle = value; }
+        }
+
         public bool EdtFullNameShowWarningIcon
         {
             set { pic_FullNameWarning.Visible = value; }
@@ -752,6 +764,22 @@ namespace ResponseEmergencySystem.Forms
             _docs[gv_DocumentCaptures.FocusedRowHandle].documents.Add(new Models.Documents.Document("", 0));
             gc_Documents.DataSource = _docs[gv_DocumentCaptures.FocusedRowHandle].documents;
             gv_Documents.BestFitColumns();
+        }
+
+        private void edt_CheckForErrors_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                TextEdit edt = (TextEdit)sender;
+                _controller.validate(edt.Name);
+                //_controller.GetDriver();
+            }
+        }
+
+        private void edt_CheckForErrors_Leave(object sender, EventArgs e)
+        {
+            TextEdit edt = (TextEdit)sender;
+            _controller.validate(edt.Name);
         }
     }
 

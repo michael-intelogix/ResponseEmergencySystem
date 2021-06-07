@@ -92,6 +92,8 @@ namespace ResponseEmergencySystem.Views
         BorderStyles EdtPhoneNumberBorder { get; set; }
         BorderStyles EdtAgeBorder { get; set; }
         BorderStyles EdtLicenseBorder { get; set; }
+        BorderStyles CkedtPassengerBorder { get; set; }
+        BorderStyles CkedtDriverBorder { get; set; }
 
         bool EdtFullNameShowWarningIcon { get; set; }
         bool EdtLastName1ShowWarningIcon { get; set; }

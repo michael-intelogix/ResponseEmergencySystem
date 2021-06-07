@@ -81,6 +81,8 @@ namespace ResponseEmergencySystem.Forms
             this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
+            this.ckedt_IPDriver = new DevExpress.XtraEditors.CheckEdit();
+            this.ckedt_IPPassenger = new DevExpress.XtraEditors.CheckEdit();
             this.pictureEdit6 = new DevExpress.XtraEditors.PictureEdit();
             this.pic_AgeWarning = new DevExpress.XtraEditors.PictureEdit();
             this.pic_PhoneNumberWarning = new DevExpress.XtraEditors.PictureEdit();
@@ -103,8 +105,6 @@ namespace ResponseEmergencySystem.Forms
             this.ckedt_IPInjured = new DevExpress.XtraEditors.CheckEdit();
             this.edt_IPFullName = new DevExpress.XtraEditors.TextEdit();
             this.ckedt_IPPrivate = new DevExpress.XtraEditors.CheckEdit();
-            this.ckedt_IPPassenger = new DevExpress.XtraEditors.CheckEdit();
-            this.ckedt_IPDriver = new DevExpress.XtraEditors.CheckEdit();
             this.gc_InvolvedPersons = new DevExpress.XtraGrid.GridControl();
             this.gv_InvolvedPersons = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.col_FullName = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -216,12 +216,12 @@ namespace ResponseEmergencySystem.Forms
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.tabbedControlGroup1 = new DevExpress.XtraLayout.TabbedControlGroup();
-            this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
             this.toolTipController1 = new DevExpress.Utils.ToolTipController(this.components);
@@ -256,6 +256,8 @@ namespace ResponseEmergencySystem.Forms
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).BeginInit();
             this.panelControl6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ckedt_IPDriver.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckedt_IPPassenger.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit6.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_AgeWarning.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_PhoneNumberWarning.Properties)).BeginInit();
@@ -271,8 +273,6 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.ckedt_IPInjured.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_IPFullName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckedt_IPPrivate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ckedt_IPPassenger.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ckedt_IPDriver.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc_InvolvedPersons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_InvolvedPersons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_DeletePerson)).BeginInit();
@@ -342,12 +342,12 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
@@ -592,6 +592,8 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl6.Appearance.BackColor = System.Drawing.Color.White;
             this.panelControl6.Appearance.Options.UseBackColor = true;
             this.panelControl6.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl6.Controls.Add(this.ckedt_IPDriver);
+            this.panelControl6.Controls.Add(this.ckedt_IPPassenger);
             this.panelControl6.Controls.Add(this.pictureEdit6);
             this.panelControl6.Controls.Add(this.pic_AgeWarning);
             this.panelControl6.Controls.Add(this.pic_PhoneNumberWarning);
@@ -611,14 +613,36 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl6.Controls.Add(this.ckedt_IPInjured);
             this.panelControl6.Controls.Add(this.edt_IPFullName);
             this.panelControl6.Controls.Add(this.ckedt_IPPrivate);
-            this.panelControl6.Controls.Add(this.ckedt_IPPassenger);
-            this.panelControl6.Controls.Add(this.ckedt_IPDriver);
             this.panelControl6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl6.Location = new System.Drawing.Point(0, 0);
             this.panelControl6.Name = "panelControl6";
             this.panelControl6.Size = new System.Drawing.Size(1331, 76);
             this.panelControl6.TabIndex = 121;
             this.panelControl6.TabStop = true;
+            // 
+            // ckedt_IPDriver
+            // 
+            this.ckedt_IPDriver.Location = new System.Drawing.Point(1046, 15);
+            this.ckedt_IPDriver.Name = "ckedt_IPDriver";
+            this.ckedt_IPDriver.Properties.Appearance.BorderColor = System.Drawing.Color.Maroon;
+            this.ckedt_IPDriver.Properties.Appearance.Options.UseBorderColor = true;
+            this.ckedt_IPDriver.Properties.Caption = "Driver";
+            this.ckedt_IPDriver.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.ckedt_IPDriver.Properties.CheckedChanged += new System.EventHandler(this.Ckedt_OnValueChanged);
+            this.ckedt_IPDriver.Size = new System.Drawing.Size(62, 21);
+            this.ckedt_IPDriver.TabIndex = 131;
+            // 
+            // ckedt_IPPassenger
+            // 
+            this.ckedt_IPPassenger.Location = new System.Drawing.Point(948, 15);
+            this.ckedt_IPPassenger.Name = "ckedt_IPPassenger";
+            this.ckedt_IPPassenger.Properties.Appearance.BorderColor = System.Drawing.Color.Maroon;
+            this.ckedt_IPPassenger.Properties.Appearance.Options.UseBorderColor = true;
+            this.ckedt_IPPassenger.Properties.Caption = "Passenger";
+            this.ckedt_IPPassenger.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.ckedt_IPPassenger.Properties.CheckedChanged += new System.EventHandler(this.Ckedt_OnValueChanged);
+            this.ckedt_IPPassenger.Size = new System.Drawing.Size(85, 21);
+            this.ckedt_IPPassenger.TabIndex = 130;
             // 
             // pictureEdit6
             // 
@@ -770,10 +794,13 @@ namespace ResponseEmergencySystem.Forms
             this.edt_IPPhoneNumber.Properties.Appearance.BorderColor = System.Drawing.Color.Maroon;
             this.edt_IPPhoneNumber.Properties.Appearance.Options.UseBorderColor = true;
             this.edt_IPPhoneNumber.Properties.BeepOnError = false;
-            this.edt_IPPhoneNumber.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.SimpleMaskManager));
-            this.edt_IPPhoneNumber.Properties.MaskSettings.Set("mask", "(999) 000-0000");
+            this.edt_IPPhoneNumber.Properties.MaskSettings.Set("MaskManagerSignature", "isOptimistic=False");
+            this.edt_IPPhoneNumber.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.RegExpMaskManager));
+            this.edt_IPPhoneNumber.Properties.MaskSettings.Set("mask", "\\d+");
             this.edt_IPPhoneNumber.Size = new System.Drawing.Size(124, 24);
             this.edt_IPPhoneNumber.TabIndex = 124;
+            this.edt_IPPhoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.edt_CheckForErrors_KeyPress);
+            this.edt_IPPhoneNumber.Leave += new System.EventHandler(this.edt_CheckForErrors_Leave);
             // 
             // edt_IPLastName1
             // 
@@ -783,6 +810,8 @@ namespace ResponseEmergencySystem.Forms
             this.edt_IPLastName1.Properties.Appearance.Options.UseBorderColor = true;
             this.edt_IPLastName1.Size = new System.Drawing.Size(100, 24);
             this.edt_IPLastName1.TabIndex = 122;
+            this.edt_IPLastName1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.edt_CheckForErrors_KeyPress);
+            this.edt_IPLastName1.Leave += new System.EventHandler(this.edt_CheckForErrors_Leave);
             // 
             // labelControl26
             // 
@@ -840,8 +869,11 @@ namespace ResponseEmergencySystem.Forms
             this.edt_IPLicense.Name = "edt_IPLicense";
             this.edt_IPLicense.Properties.Appearance.BorderColor = System.Drawing.Color.Maroon;
             this.edt_IPLicense.Properties.Appearance.Options.UseBorderColor = true;
+            this.edt_IPLicense.Properties.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.edt_CheckForErrors_KeyPress);
             this.edt_IPLicense.Size = new System.Drawing.Size(77, 24);
             this.edt_IPLicense.TabIndex = 130;
+            this.edt_IPLicense.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.edt_CheckForErrors_KeyPress);
+            this.edt_IPLicense.Leave += new System.EventHandler(this.edt_CheckForErrors_Leave);
             // 
             // simpleButton5
             // 
@@ -884,6 +916,8 @@ namespace ResponseEmergencySystem.Forms
             this.edt_IPFullName.Properties.Appearance.Options.UseBorderColor = true;
             this.edt_IPFullName.Size = new System.Drawing.Size(110, 24);
             this.edt_IPFullName.TabIndex = 121;
+            this.edt_IPFullName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.edt_CheckForErrors_KeyPress);
+            this.edt_IPFullName.Leave += new System.EventHandler(this.edt_CheckForErrors_Leave);
             // 
             // ckedt_IPPrivate
             // 
@@ -893,26 +927,6 @@ namespace ResponseEmergencySystem.Forms
             this.ckedt_IPPrivate.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.ckedt_IPPrivate.Size = new System.Drawing.Size(63, 21);
             this.ckedt_IPPrivate.TabIndex = 126;
-            // 
-            // ckedt_IPPassenger
-            // 
-            this.ckedt_IPPassenger.Location = new System.Drawing.Point(946, 15);
-            this.ckedt_IPPassenger.Name = "ckedt_IPPassenger";
-            this.ckedt_IPPassenger.Properties.Caption = "Passenger";
-            this.ckedt_IPPassenger.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.ckedt_IPPassenger.Properties.CheckedChanged += new System.EventHandler(this.Ckedt_OnValueChanged);
-            this.ckedt_IPPassenger.Size = new System.Drawing.Size(85, 21);
-            this.ckedt_IPPassenger.TabIndex = 128;
-            // 
-            // ckedt_IPDriver
-            // 
-            this.ckedt_IPDriver.Location = new System.Drawing.Point(1046, 15);
-            this.ckedt_IPDriver.Name = "ckedt_IPDriver";
-            this.ckedt_IPDriver.Properties.Caption = "Driver";
-            this.ckedt_IPDriver.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.ckedt_IPDriver.Properties.CheckedChanged += new System.EventHandler(this.Ckedt_OnValueChanged);
-            this.ckedt_IPDriver.Size = new System.Drawing.Size(62, 21);
-            this.ckedt_IPDriver.TabIndex = 129;
             // 
             // gc_InvolvedPersons
             // 
@@ -1942,7 +1956,7 @@ namespace ResponseEmergencySystem.Forms
             this.lue_DriverLicenseState.Properties.NullText = "";
             this.lue_DriverLicenseState.Properties.ShowHeader = false;
             this.lue_DriverLicenseState.Properties.ValueMember = "pk_id";
-            this.lue_DriverLicenseState.Size = new System.Drawing.Size(57, 24);
+            this.lue_DriverLicenseState.Size = new System.Drawing.Size(68, 24);
             this.lue_DriverLicenseState.TabIndex = 11;
             conditionValidationRule10.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule10.ErrorText = "This value is not valid";
@@ -2212,23 +2226,6 @@ namespace ResponseEmergencySystem.Forms
             this.layoutControlGroup2,
             this.layoutControlGroup4});
             // 
-            // layoutControlGroup4
-            // 
-            this.layoutControlGroup4.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem7});
-            this.layoutControlGroup4.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup4.Name = "layoutControlGroup4";
-            this.layoutControlGroup4.Size = new System.Drawing.Size(1335, 294);
-            // 
-            // layoutControlItem7
-            // 
-            this.layoutControlItem7.Control = this.panelControl8;
-            this.layoutControlItem7.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(1335, 294);
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem7.TextVisible = false;
-            // 
             // layoutControlGroup1
             // 
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
@@ -2262,6 +2259,23 @@ namespace ResponseEmergencySystem.Forms
             this.layoutControlItem14.Size = new System.Drawing.Size(1335, 294);
             this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem14.TextVisible = false;
+            // 
+            // layoutControlGroup4
+            // 
+            this.layoutControlGroup4.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem7});
+            this.layoutControlGroup4.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup4.Name = "layoutControlGroup4";
+            this.layoutControlGroup4.Size = new System.Drawing.Size(1335, 294);
+            // 
+            // layoutControlItem7
+            // 
+            this.layoutControlItem7.Control = this.panelControl8;
+            this.layoutControlItem7.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem7.Name = "layoutControlItem7";
+            this.layoutControlItem7.Size = new System.Drawing.Size(1335, 294);
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem7.TextVisible = false;
             // 
             // layoutControlGroup3
             // 
@@ -2314,6 +2328,8 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).EndInit();
             this.panelControl6.ResumeLayout(false);
             this.panelControl6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ckedt_IPDriver.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckedt_IPPassenger.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit6.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_AgeWarning.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_PhoneNumberWarning.Properties)).EndInit();
@@ -2330,8 +2346,6 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.ckedt_IPInjured.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_IPFullName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckedt_IPPrivate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ckedt_IPPassenger.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ckedt_IPDriver.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc_InvolvedPersons)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_InvolvedPersons)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_DeletePerson)).EndInit();
@@ -2407,12 +2421,12 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
@@ -2546,8 +2560,6 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraEditors.CheckEdit ckedt_IPInjured;
         private DevExpress.XtraEditors.TextEdit edt_IPFullName;
         private DevExpress.XtraEditors.CheckEdit ckedt_IPPrivate;
-        private DevExpress.XtraEditors.CheckEdit ckedt_IPPassenger;
-        private DevExpress.XtraEditors.CheckEdit ckedt_IPDriver;
         private DevExpress.XtraLayout.TabbedControlGroup tabbedControlGroup1;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
@@ -2589,5 +2601,7 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
         private DevExpress.XtraEditors.SimpleButton simpleButton6;
         private DevExpress.XtraEditors.SimpleButton simpleButton10;
+        private DevExpress.XtraEditors.CheckEdit ckedt_IPPassenger;
+        private DevExpress.XtraEditors.CheckEdit ckedt_IPDriver;
     }
 }
