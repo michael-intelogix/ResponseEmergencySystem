@@ -1,11 +1,15 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.Utils.Menu;
+using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using ResponseEmergencySystem.Code;
 using ResponseEmergencySystem.Models;
+using ResponseEmergencySystem.Services;
 using ResponseEmergencySystem.Views;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 
@@ -13,6 +17,9 @@ namespace ResponseEmergencySystem.Forms
 {
     public partial class EditIncidentDetails : DevExpress.XtraEditors.XtraForm, IEditIncidentView
     {
+
+        private List<Models.Documents.DocumentCapture> _docs;
+
         public EditIncidentDetails()
         {
             InitializeComponent();
@@ -89,7 +96,7 @@ namespace ResponseEmergencySystem.Forms
 
         public void LoadIncident(Incident incident)
         {
-
+            _docs = new List<Models.Documents.DocumentCapture>();
         }
 
         public void LoadStates(DataTable dt_States)
@@ -275,11 +282,11 @@ namespace ResponseEmergencySystem.Forms
             set { memoEdit1.EditValue = value; }
         }
 
-        public string ID_StatusDetail
-        {
-            get { return lue_StatusDetail.EditValue.ToString(); }
-            set { lue_StatusDetail.EditValue = value; }
-        }
+        //public string ID_StatusDetail
+        //{
+        //    get { return lue_StatusDetail.EditValue.ToString(); }
+        //    set { lue_StatusDetail.EditValue = value; }
+        //}
         #endregion
 
         #region view involved persons
@@ -324,7 +331,7 @@ namespace ResponseEmergencySystem.Forms
             get { return (bool)ckedt_IPDriver.EditValue; }
             set { ckedt_IPDriver.EditValue = value; }
         }
-        public string IPLicense 
+        public string IPDriverLicense
         {
             get { return Utils.GetEdtValue(edt_IPLicense); }
             set { edt_IPLicense.EditValue = value; }
@@ -347,7 +354,7 @@ namespace ResponseEmergencySystem.Forms
             set { lue_Cities.Properties.DataSource = value; }
         }
 
-        public object InvolvedPersonsDataSorurce
+        public object InvolvedPersonsDataSource
         {
             set { gc_InvolvedPersons.DataSource = value; }
         }
@@ -423,6 +430,18 @@ namespace ResponseEmergencySystem.Forms
             set { edt_IPLicense.BorderStyle = value; }
         }
 
+        public BorderStyles CkedtPassengerBorder
+        {
+            get { return ckedt_IPPassenger.BorderStyle; }
+            set { ckedt_IPPassenger.BorderStyle = value; }
+        }
+
+        public BorderStyles CkedtDriverBorder
+        {
+            get { return ckedt_IPDriver.BorderStyle; }
+            set { ckedt_IPDriver.BorderStyle = value; }
+        }
+
         public bool EdtFullNameShowWarningIcon
         {
             get { return pic_FullNameWarning.Visible; }
@@ -450,10 +469,10 @@ namespace ResponseEmergencySystem.Forms
             set { pic_LicenseWarning.Visible = value; }
         }
 
-        public object LueStatusDetailDataSource
-        {
-            set { lue_StatusDetail.Properties.DataSource = value; }
-        }
+        //public object LueStatusDetailDataSource
+        //{
+        //    set { lue_StatusDetail.Properties.DataSource = value; }
+        //}
         #endregion
 
         #region events needed
@@ -510,17 +529,6 @@ namespace ResponseEmergencySystem.Forms
             
         }
 
-        private void btn_EditPersonOnClick(object sender, EventArgs e)
-        {
-            _controller.EditInvolvedPersonByRow(gv_InvolvedPersons.FocusedRowHandle);
-        }
-
-        private void btn_RemovePersonOnClick(object sender, EventArgs e)
-        {
-            _controller.RemoveInvolvedPersonByRow(gv_InvolvedPersons.FocusedRowHandle);
-            gv_InvolvedPersons.BestFitColumns();
-        }
-
         private void ckedt_IPPrivate_CheckedChanged(object sender, EventArgs e)
         {
 
@@ -529,12 +537,6 @@ namespace ResponseEmergencySystem.Forms
         private void simpleButton5_Click(object sender, EventArgs e)
         {
             _controller.AddPersonInvolved();
-            gv_InvolvedPersons.BestFitColumns();
-        }
-
-        private void simpleButton6_Click(object sender, EventArgs e)
-        {
-            _controller.UpdatePersonInvolved();
             gv_InvolvedPersons.BestFitColumns();
         }
 
@@ -569,6 +571,133 @@ namespace ResponseEmergencySystem.Forms
             TextEdit edt = (TextEdit)sender;
 
             _controller.validate(edt.Name);
+        }
+
+        private void simpleButton5_Click_1(object sender, EventArgs e)
+        {
+            _controller.AddPersonInvolved();
+            gv_InvolvedPersons.BestFitColumns();
+        }
+
+        private void edt_CheckForErrors_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                TextEdit edt = (TextEdit)sender;
+                _controller.validate(edt.Name);
+                //_controller.GetDriver();
+            }
+        }
+
+        private void edt_CheckForErrors_Leave(object sender, EventArgs e)
+        {
+            TextEdit edt = (TextEdit)sender;
+            _controller.validate(edt.Name);
+        }
+
+        private void btn_RemovePersonOnClick(object sender, EventArgs e)
+        {
+            _controller.RemoveInvolvedPersonByRow(gv_InvolvedPersons.FocusedRowHandle);
+            gv_InvolvedPersons.BestFitColumns();
+        }
+
+        private void btn_EditPersonOnClick(object sender, EventArgs e)
+        {
+            _controller.EditInvolvedPersonByRow(gv_InvolvedPersons.FocusedRowHandle);
+        }
+
+        private void simpleButton9_Click(object sender, EventArgs e)
+        {
+            AddMoreCaptures AddMoreCaptures = new AddMoreCaptures();
+            Controllers.Captures.AddCapturesController addCapturesCtrl = new Controllers.Captures.AddCapturesController(AddMoreCaptures, CaptureService.list_CaptureTypes());
+            addCapturesCtrl.LoadCaptures();
+            //addCapturesCtrl.LoadDocuments(_docs);
+            addCapturesCtrl.SetIncidentId(Guid.Empty.ToString());
+            if (AddMoreCaptures.ShowDialog() == DialogResult.OK)
+            {
+                _docs.Add(addCapturesCtrl.GetDocuments());
+                var docsType = _docs.Select(dc => new { dc.CaptureType, dc.ID_Capture });
+                gc_DocumentCaptures.DataSource = docsType;
+                gv_DocumentCaptures.BestFitColumns();
+                //Utils.ShowMessage("the capture was added succesfully", "Capture");
+                //_view.OpenSpinner();
+                //_captures = CaptureService.list_Captures(_view.ID_Incident.ToString());
+                //_view.CapturesDataSource = _captures;
+                //if (_captures.Count > 0)
+                //    _view.ImagesDatasSource = CaptureService.list_Images(_captures[0].ID_Capture.ToString());
+                //else
+                //    _view.ImagesDatasSource = new List<ImageCapture>();
+                //_view.CloseSpinner();
+            }
+        }
+
+        private void gc_DocumentCaptures_DoubleClick(object sender, EventArgs e)
+        {
+            int idx = gv_DocumentCaptures.GetFocusedDataSourceRowIndex();
+            gc_Documents.DataSource = _docs[idx].documents;
+        }
+
+        private void rpic_Image_Click(object sender, EventArgs e)
+        {
+            string imgPath = Utils.GetRowID(gv_Documents, "Path");
+            if (imgPath == "")
+            {
+                splashScreenManager1.ShowWaitForm();
+                var d = _controller.CheckDocument();
+                if (d.Item1)
+                {
+                    _docs[gv_DocumentCaptures.FocusedRowHandle].documents[gv_Documents.FocusedRowHandle].Path = d.Item2;
+                    _docs[gv_DocumentCaptures.FocusedRowHandle].documents[gv_Documents.FocusedRowHandle].Type = d.Item3;
+                    _docs[gv_DocumentCaptures.FocusedRowHandle].documents[gv_Documents.FocusedRowHandle].SetImage();
+                }
+                splashScreenManager1.CloseWaitForm();
+            }
+            else
+            {
+                string fileType = Utils.GetRowID(gv_Documents, "Type");
+                string path = _controller.EditImageView(imgPath, fileType);
+                if (path != "")
+                {
+                    _docs[gv_DocumentCaptures.FocusedRowHandle].documents[gv_Documents.FocusedRowHandle].Path = path;
+                    _docs[gv_DocumentCaptures.FocusedRowHandle].documents[gv_Documents.FocusedRowHandle].SetImage();
+                }
+
+            }
+
+            gc_Documents.DataSource = _docs[gv_DocumentCaptures.FocusedRowHandle].documents;
+            gv_Documents.BestFitColumns();
+        }
+
+        private void gv_Documents_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
+        {
+            if (e.MenuType == DevExpress.XtraGrid.Views.Grid.GridMenuType.Row)
+            {
+                DXMenuItem item = new DXMenuItem("Change Document");
+                item.Click += (o, args) => {
+                    int row = this.gv_Documents.FocusedRowHandle;
+                    splashScreenManager1.ShowWaitForm();
+                    var d = _controller.CheckDocument();
+                    if (d.Item1)
+                    {
+                        _docs[gv_DocumentCaptures.FocusedRowHandle].documents[row].Path = d.Item2;
+                        _docs[gv_DocumentCaptures.FocusedRowHandle].documents[row].Type = d.Item3;
+                        _docs[gv_DocumentCaptures.FocusedRowHandle].documents[row].SetImage();
+                    }
+
+                    gc_Documents.DataSource = _docs[gv_DocumentCaptures.FocusedRowHandle].documents;
+                    gv_Documents.BestFitColumns();
+                    splashScreenManager1.CloseWaitForm();
+
+                };
+                e.Menu.Items.Add(item);
+            }
+        }
+
+        private void simpleButton10_Click(object sender, EventArgs e)
+        {
+            _docs[gv_DocumentCaptures.FocusedRowHandle].documents.Add(new Models.Documents.Document("", 0));
+            gc_Documents.DataSource = _docs[gv_DocumentCaptures.FocusedRowHandle].documents;
+            gv_Documents.BestFitColumns();
         }
     }
 }

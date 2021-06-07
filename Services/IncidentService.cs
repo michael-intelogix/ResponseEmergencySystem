@@ -275,7 +275,6 @@ namespace ResponseEmergencySystem.Services
             string ID_Broker,
             string ID_Truck,
             string ID_Trailer,
-            string ID_StatusDetail,
             DateTime incidentDate,
             bool policeReport,
             string citationReport,
@@ -317,7 +316,7 @@ namespace ResponseEmergencySystem.Services
                     cmd.Parameters.AddWithValue("@ID_Broker", ID_Broker);
                     cmd.Parameters.AddWithValue("@ID_Truck", ID_Truck);
                     cmd.Parameters.AddWithValue("@ID_Trailer", ID_Trailer);
-                    cmd.Parameters.AddWithValue("@ID_StatusDetail", ID_StatusDetail);
+                    cmd.Parameters.AddWithValue("@ID_StatusDetail", "");
                     cmd.Parameters.AddWithValue("@Folio", "");
                     cmd.Parameters.AddWithValue("@IncidentDate", incidentDate);
                     cmd.Parameters.AddWithValue("@IncidentCloseDate", "");

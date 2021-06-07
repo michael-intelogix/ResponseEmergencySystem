@@ -16,6 +16,8 @@ using System.Windows.Forms;
 using ResponseEmergencySystem.Forms.Modals;
 using DevExpress.XtraEditors.Controls;
 using System.Diagnostics;
+using System.IO;
+using ResponseEmergencySystem.Forms;
 
 namespace ResponseEmergencySystem.Controllers.Incidents
 {
@@ -40,6 +42,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         private string comments = "";
 
         private bool _errors = false;
+        private bool _validation;
 
         public EditIncidentController(IEditIncidentView view, string incidentId)
         {
@@ -87,7 +90,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             _view.Broker = _selectedIncident.broker.Name;
             _view.Comments = _selectedIncident.Comments;
 
-            _view.ID_StatusDetail = _selectedIncident.ID_StatusDetail;
+            //_view.ID_StatusDetail = _selectedIncident.ID_StatusDetail;
 
             #region Accident Details
             //_view.IncidentDate = _selectedIncident.IncidentDate.Date;
@@ -104,9 +107,9 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
             _view.LoadIncident(_selectedIncident);
             _view.LoadStates(Functions.getStates());
-            _view.LueStatusDetailDataSource = StatusDetailService.list_StatusDetail();
+            //_view.LueStatusDetailDataSource = StatusDetailService.list_StatusDetail();
             if (_PersonsInvolved.Count > 0)
-                _view.InvolvedPersonsDataSorurce = _PersonsInvolved;
+                _view.InvolvedPersonsDataSource = _PersonsInvolved;
 
         }
 
@@ -257,32 +260,12 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
         public void AddPersonInvolved()
         {
-            int errors = 0;
-
-            if (_view.IPDriver)
-            {
-                if (_view.IPLicense.Length == 0)
-                {
-                    _view.EdtLicenseBorder = BorderStyles.Simple;
-                    _view.EdtLicenseShowWarningIcon = true;
-                    errors += 1;
-                }
-                else
-                {
-                    _view.EdtLicenseBorder = BorderStyles.Default;
-                    _view.EdtLicenseShowWarningIcon = false;
-                }
-            }
-            else
-            {
-                if (errors > 5) { errors -= 1; }
-            }
-
-            if (errors == 0)
+            validate("validate");
+            if (_validation)
             {
                 _view.LblEmptyFieldsVisibility = false;
-                _PersonsInvolved.Add(new PersonsInvolved(_view.IPFullName, _view.IPLastName1, _view.IPPhoneNumber, _view.IPAge, _view.IPDriver, _view.IPLicense, _view.IPPrivate, _view.IPInjured, Guid.Empty.ToString()));
-                _view.InvolvedPersonsDataSorurce = _PersonsInvolved;
+                _PersonsInvolved.Add(new PersonsInvolved(_view.IPFullName, _view.IPLastName1, _view.IPPhoneNumber, _view.IPAge, _view.IPDriver, _view.IPDriverLicense, _view.IPPrivate, _view.IPInjured, Guid.Empty.ToString()));
+                _view.InvolvedPersonsDataSource = _PersonsInvolved;
 
                 CleanPersonInvolvedCapture();
             }
@@ -301,7 +284,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
             if (_view.IPDriver)
             {
-                if (_view.IPLicense.Length == 0)
+                if (_view.IPDriverLicense.Length == 0)
                 {
                     _view.EdtLicenseBorder = BorderStyles.Simple;
                     _view.EdtLicenseShowWarningIcon = true;
@@ -326,11 +309,11 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                 _PersonsInvolved[_selectedPerson].PhoneNumber = _view.IPPhoneNumber; 
                 _PersonsInvolved[_selectedPerson].Age = _view.IPAge; 
                 _PersonsInvolved[_selectedPerson].Driver = _view.IPDriver; 
-                _PersonsInvolved[_selectedPerson].DriverLicense = _view.IPLicense;
+                _PersonsInvolved[_selectedPerson].DriverLicense = _view.IPDriverLicense;
                 _PersonsInvolved[_selectedPerson].PrivatePerson = _view.IPPrivate;
                 _PersonsInvolved[_selectedPerson].Injured = _view.IPInjured;
 
-                _view.InvolvedPersonsDataSorurce = _PersonsInvolved;
+                _view.InvolvedPersonsDataSource = _PersonsInvolved;
 
                 CleanPersonInvolvedCapture();
 
@@ -356,19 +339,19 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             _view.IPInjured = person.Injured;
             _view.IPPassenger = !person.Driver;
             _view.IPDriver = person.Driver;
-            _view.IPLicense = person.DriverLicense;
+            _view.IPDriverLicense = person.DriverLicense;
 
             _view.BtnAddInvolvedPersonVisibility = false;
             _view.BtnEditInvolvedPersonVisibility = true;
 
-            if (_view.BtnEditInvolvedPersonLocation.X == 13)
-                _view.BtnEditInvolvedPersonLocation = new System.Drawing.Point(494, 85);
+            if (_view.BtnEditInvolvedPersonLocation.X == 8)
+                _view.BtnEditInvolvedPersonLocation = new System.Drawing.Point(1177, 48);
         }
 
         public void RemoveInvolvedPersonByRow(int idx)
         {
             _PersonsInvolved.RemoveAt(idx);
-            _view.InvolvedPersonsDataSorurce = _PersonsInvolved;
+            _view.InvolvedPersonsDataSource = _PersonsInvolved;
         }
 
         public void Update()
@@ -384,7 +367,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                     ID_Broker.ToUpper(),
                     ID_Truck,
                     ID_Trailer,
-                    _view.ID_StatusDetail,
+                    //_view.ID_StatusDetail,
                     _view.IncidentDate,
                     _view.PoliceReport,
                     _view.CitationReportNumber,
@@ -429,36 +412,58 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         {
             switch (ckedtName)
             {
+                case "ckedt_Spill":
+                    //_view.PnlBolVisibility = ckedtValue;
+                    break;
+                case "ckedt_PoliceReport":
+                    //_view.PnlPoliceReportVisibility = ckedtValue;
+                    break;
                 case "ckedt_IPPassenger":
                     if (_view.IPDriver && ckedtValue)
                     {
                         _view.IPDriver = false;
                         _view.PnlDriverInvolvedVisibility = false;
-                        _view.IPLicense = "";
+                        _view.IPDriverLicense = "";
+                    }
+
+                    if (_view.IPPassenger)
+                    {
+                        _view.CkedtPassengerBorder = BorderStyles.Default;
+                        _view.CkedtDriverBorder = BorderStyles.Default;
+                        _validation = true;
                     }
                     break;
                 case "ckedt_IPDriver":
                     if (_view.IPPassenger && ckedtValue)
                         _view.IPPassenger = false;
+
+                    if (_view.IPDriver)
+                    {
+                        _view.CkedtPassengerBorder = BorderStyles.Default;
+                        _view.CkedtDriverBorder = BorderStyles.Default;
+                        _validation = true;
+                    }
                     _view.PnlDriverInvolvedVisibility = ckedtValue;
                     break;
             }
         }
 
-        public void validate(string edtName)
+        public void validate(string controlName)
         {
-            switch (edtName)
+            switch (controlName)
             {
                 case "edt_IPFullName":
                     if (_view.IPFullName.Length == 0)
                     {
                         _view.EdtFullNameBorder = BorderStyles.Simple;
                         _view.EdtFullNameShowWarningIcon = true;
+                        _validation = false;
                     }
                     else
                     {
                         _view.EdtFullNameBorder = BorderStyles.Default;
                         _view.EdtFullNameShowWarningIcon = false;
+                        _validation = true;
                     }
                     break;
                 case "edt_IPLastName1":
@@ -466,25 +471,91 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                     {
                         _view.EdtLastNameBorder = BorderStyles.Simple;
                         _view.EdtLastName1ShowWarningIcon = true;
+                        _validation = false;
                     }
                     else
                     {
                         _view.EdtLastNameBorder = BorderStyles.Default;
                         _view.EdtLastName1ShowWarningIcon = false;
+                        _validation = true;
+                    }
+                    break;
+                case "edt_IPPhoneNumber":
+                    if (_view.IPPhoneNumber.Length == 0)
+                    {
+                        _view.EdtPhoneNumberBorder = BorderStyles.Simple;
+                        _view.EdtPhoneNumberShowWarningIcon = true;
+                        _validation = false;
+                    }
+                    else
+                    {
+                        _view.EdtPhoneNumberBorder = BorderStyles.Default;
+                        _view.EdtPhoneNumberShowWarningIcon = false;
+                        _validation = true;
+                    }
+                    break;
+                case "edt_IPLicense":
+                    if (_view.IPDriver)
+                    {
+                        if (_view.IPDriverLicense.Length == 0)
+                        {
+                            _view.EdtLicenseBorder = BorderStyles.Simple;
+                            _view.EdtLicenseShowWarningIcon = true;
+                            _validation = false;
+                        }
+                        else
+                        {
+                            _view.EdtLicenseBorder = BorderStyles.Default;
+                            _view.EdtLicenseShowWarningIcon = false;
+                            _validation = true;
+                        }
+                    }
+                    break;
+                case "validate":
+                    if (_view.IPFullName.Length == 0)
+                    {
+                        _view.EdtFullNameBorder = BorderStyles.Simple;
+                        _view.EdtFullNameShowWarningIcon = true;
+                        _validation = false;
+                    }
+
+                    if (_view.IPLastName1.Length == 0)
+                    {
+                        _view.EdtLastNameBorder = BorderStyles.Simple;
+                        _view.EdtLastName1ShowWarningIcon = true;
+                        _validation = false;
+                    }
+
+                    if (_view.IPPhoneNumber.Length == 0)
+                    {
+                        _view.EdtPhoneNumberBorder = BorderStyles.Simple;
+                        _view.EdtPhoneNumberShowWarningIcon = true;
+                        _validation = false;
+                    }
+
+                    if (!_view.IPPassenger && !_view.IPDriver)
+                    {
+                        _view.CkedtPassengerBorder = BorderStyles.Simple;
+                        _view.CkedtDriverBorder = BorderStyles.Simple;
+                        _validation = false;
+                    }
+
+                    if (_view.IPDriver)
+                    {
+                        if (_view.IPDriverLicense.Length == 0)
+                        {
+                            _view.EdtLicenseBorder = BorderStyles.Simple;
+                            _view.EdtLicenseShowWarningIcon = true;
+                            _validation = false;
+                        }
                     }
                     break;
             }
 
             if (_view.EdtFullNameShowWarningIcon || _view.EdtLastName1ShowWarningIcon)
-            {
                 _view.LblEmptyFieldsVisibility = true;
-                _errors = true;
-            }
-            else 
-            { 
+            else
                 _view.LblEmptyFieldsVisibility = false;
-                _errors = false;
-            }
         }
 
         private void CleanPersonInvolvedCapture()
@@ -497,7 +568,84 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             _view.IPInjured = false;
             _view.IPPassenger = false;
             _view.IPDriver = false;
-            _view.IPLicense = "";
+            _view.IPDriverLicense = "";
+        }
+
+        public (bool, string, string) CheckDocument()
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.Filter = "Image Files(*.PNG;*.JPG;*.GIF;*.BMP)|*.PNG;*.JPG;*.GIF;*.BMP|PDF Files (*.PDF)|*.PDF|All Files (*.*)|*.*";
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    (bool, string, string) d;
+
+                    string ext = Path.GetExtension(ofd.FileName).ToUpper();
+                    try
+                    {
+
+                        if (ext == ".GIF" || ext == ".JPG" || ext == ".PNG" || ext == ".BMP")
+                        {
+                            d.Item1 = true;
+                            d.Item2 = ofd.FileName;
+                            d.Item3 = "img";
+
+                            return d;
+                        }
+                        else if (ext == ".PDF")
+                        {
+                            d.Item1 = true;
+                            d.Item2 = ofd.FileName;
+                            d.Item3 = "pdf";
+
+                            return d;
+                        }
+                        else
+                        {
+                            Utils.ShowMessage("The file submitted is not an Image", title: "Image upload error", type: "Warning");
+                            return (false, "", "");
+                        }
+
+
+                    }
+                    catch (Exception ex)
+                    {
+                        //MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Utils.ShowMessage(ex.Message, title: "Image upload error", type: "Error");
+                        return (false, "", "");
+                    }
+                }
+                else
+                {
+                    return (false, "", "");
+                }
+
+
+
+            }
+        }
+
+        public string EditImageView(string imgPath, string fileType)
+        {
+            if (fileType == "img")
+            {
+                frm_Image imageView = new frm_Image("", "", imgPath);
+                ImageController appConfigCtrl = new ImageController(imageView);
+                if (imageView.ShowDialog() == DialogResult.OK)
+                {
+                    Utils.ShowMessage("Image has been updated");
+                    return imageView.filepath;
+                }
+            }
+
+            if (fileType == "pdf")
+            {
+                frm_PdfViewer pdfViewer = new frm_PdfViewer(imgPath);
+                pdfViewer.ShowDialog();
+            }
+
+            return "";
+
         }
     }
 }
