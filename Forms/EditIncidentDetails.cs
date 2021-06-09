@@ -96,11 +96,6 @@ namespace ResponseEmergencySystem.Forms
             }
         }
 
-        public void LoadIncident(Incident incident)
-        {
-            _docs = new List<Models.Documents.DocumentCapture>();
-        }
-
         public void LoadStates(DataTable dt_States)
         {
             lue_states.Properties.DataSource = dt_States;
@@ -111,6 +106,247 @@ namespace ResponseEmergencySystem.Forms
         {
             gc_InvolvedPersons.DataSource = dt_InjuredPersons;
         }
+
+        #region documents
+        // new empty list of documents
+        public void LoadIncident(Incident incident)
+        {
+            _docs = new List<Models.Documents.DocumentCapture>();
+        }
+
+        public List<Models.Documents.DocumentCapture> Documents
+        {
+            get
+            {
+                return _docs;
+            }
+            set
+            {
+                _docs = value;
+            }
+        }
+
+        private void CreatePanel(int number, List<Models.Documents.Document> documents)
+        {
+            int space = (Convert.ToInt32(xtraScrollableControl1.Width) - (documents.Count * 245)) / (documents.Count + 1);
+
+            for (int i = 0; i < documents.Count; i++)
+            {
+                _docs[gv_DocumentCaptures.FocusedRowHandle].documents[i].ID = i;
+
+                space = (space < 50) ? 50 : space;
+
+                var x = (i * 245) + ((i + 1) * space);
+
+                PanelControl pnl = new PanelControl();
+                pnl.Size = new Size(242, 261);
+                pnl.Location = new Point(x, 19);
+                pnl.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+
+                PictureEdit pic = new PictureEdit();
+                pic.Location = new Point(12, 5);
+                pic.Size = new Size(218, 171);
+                if (documents[i].Path == "")
+                {
+                    pic.Image = Resources.add_32x32;
+                    pic.Properties.SizeMode = PictureSizeMode.Clip;
+                    pic.Properties.ZoomPercent = 200;
+                    pic.Properties.PictureAlignment = ContentAlignment.MiddleCenter;
+                    pic.BackColor = Color.Transparent;
+                    pic.BorderStyle = BorderStyles.NoBorder;
+                }
+                else
+                {
+                    pic.Image = documents[i].Image;
+                    pic.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
+                }
+
+                TextEdit edt = new TextEdit();
+                edt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                edt.Location = new Point(5, 139);
+                edt.Size = new Size(199, 24);
+                edt.Text = "Caption of the police report";
+
+                LabelControl lbl = new LabelControl();
+                lbl.AutoSizeMode = LabelAutoSizeMode.None;
+                lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                lbl.Location = new Point(12, 182);
+                lbl.Size = new Size(218, 24);
+                lbl.Text = documents[i].name;
+
+                MyButton btnEdit = new MyButton();
+                btnEdit.ImageOptions.SvgImage = Resources.actions_edit;
+                btnEdit.ImageOptions.ImageToTextAlignment = ImageAlignToText.TopCenter;
+                btnEdit.Size = new Size(36, 34);
+                btnEdit.Location = new Point(70, 212);
+                btnEdit.btnIdx = i;
+                btnEdit.Click += (object sender, EventArgs e) =>
+                {
+
+                    Models.Documents.Document doc = UploadDocument((sender as MyButton).btnIdx);
+                    if (doc.Status == "modified")
+                    {
+                        _docs[gv_DocumentCaptures.FocusedRowHandle].documents[doc.ID] = doc;
+                        xtraScrollableControl1.Controls.Clear();
+                        CreatePanel(0, _docs[gv_DocumentCaptures.FocusedRowHandle].documents);
+                    }
+
+                };
+
+                SimpleButton btnDelete = new SimpleButton();
+                btnDelete.ImageOptions.SvgImage = Resources.delete;
+                btnDelete.ImageOptions.ImageToTextAlignment = ImageAlignToText.TopCenter;
+                btnDelete.Size = new Size(36, 34);
+                btnDelete.Location = new Point(124, 212);
+
+                pnl.Controls.Add(pic);
+                pnl.Controls.Add(lbl);
+                pnl.Controls.Add(btnEdit);
+                pnl.Controls.Add(btnDelete);
+
+                xtraScrollableControl1.Controls.Add(pnl);
+            }
+
+
+
+        }
+
+        private Models.Documents.Document UploadDocument(int idx = 0)
+        {
+            Modals.DocumentModal addDocument;
+            Models.Documents.Document doc = new Models.Documents.Document("", idx);
+            doc.Update("staged");
+            return addDocumentView();
+
+            Models.Documents.Document addDocumentView()
+            {
+                addDocument = new Modals.DocumentModal(doc);
+                if (addDocument.ShowDialog() == DialogResult.OK)
+                {
+                    return addDocument.doc;
+                    
+                }
+
+                return new Models.Documents.Document("", 0);
+            }
+
+        }
+
+        // Add Document button
+        private void simpleButton10_Click(object sender, EventArgs e)
+        {
+            //gc_Documents.DataSource = _docs[gv_DocumentCaptures.FocusedRowHandle].documents;
+
+
+            //gv_Documents.BestFitColumns();
+            xtraScrollableControl1.Controls.Clear();
+            Models.Documents.Document doc = UploadDocument();
+            if (doc.Status == "modified")
+            {
+                _docs[gv_DocumentCaptures.FocusedRowHandle].documents.Add(doc);
+                CreatePanel(4, _docs[gv_DocumentCaptures.FocusedRowHandle].documents);
+
+            }
+        }
+
+        // Used by the grid to change document
+
+        private void gv_Documents_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
+        {
+            if (e.MenuType == DevExpress.XtraGrid.Views.Grid.GridMenuType.Row)
+            {
+                DXMenuItem item = new DXMenuItem("Change Document");
+                item.Click += (o, args) => {
+                    int row = this.gv_Documents.FocusedRowHandle;
+                    splashScreenManager1.ShowWaitForm();
+                    var d = _controller.CheckDocument();
+                    if (d.Item1)
+                    {
+                        _docs[gv_DocumentCaptures.FocusedRowHandle].documents[row].Path = d.Item2;
+                        _docs[gv_DocumentCaptures.FocusedRowHandle].documents[row].Type = d.Item3;
+                        _docs[gv_DocumentCaptures.FocusedRowHandle].documents[row].SetImage();
+                    }
+
+                    gc_Documents.DataSource = _docs[gv_DocumentCaptures.FocusedRowHandle].documents;
+                    gv_Documents.BestFitColumns();
+                    splashScreenManager1.CloseWaitForm();
+
+                };
+                e.Menu.Items.Add(item);
+            }
+        }
+
+        //Image in grid use this method
+        private void rpic_Image_Click(object sender, EventArgs e)
+        {
+            string imgPath = Utils.GetRowID(gv_Documents, "Path");
+            if (imgPath == "")
+            {
+                splashScreenManager1.ShowWaitForm();
+                var d = _controller.CheckDocument();
+                if (d.Item1)
+                {
+                    _docs[gv_DocumentCaptures.FocusedRowHandle].documents[gv_Documents.FocusedRowHandle].Path = d.Item2;
+                    _docs[gv_DocumentCaptures.FocusedRowHandle].documents[gv_Documents.FocusedRowHandle].Type = d.Item3;
+                    _docs[gv_DocumentCaptures.FocusedRowHandle].documents[gv_Documents.FocusedRowHandle].SetImage();
+                }
+                splashScreenManager1.CloseWaitForm();
+            }
+            else
+            {
+                string fileType = Utils.GetRowID(gv_Documents, "Type");
+                string path = _controller.EditImageView(imgPath, fileType);
+                if (path != "")
+                {
+                    _docs[gv_DocumentCaptures.FocusedRowHandle].documents[gv_Documents.FocusedRowHandle].Path = path;
+                    _docs[gv_DocumentCaptures.FocusedRowHandle].documents[gv_Documents.FocusedRowHandle].SetImage();
+                }
+
+            }
+
+            gc_Documents.DataSource = _docs[gv_DocumentCaptures.FocusedRowHandle].documents;
+            gv_Documents.BestFitColumns();
+        }
+
+        // add more captures using this method, popup show to make it happen
+        private void simpleButton9_Click(object sender, EventArgs e)
+        {
+            AddMoreCaptures AddMoreCaptures = new AddMoreCaptures();
+            Controllers.Captures.AddCapturesController addCapturesCtrl = new Controllers.Captures.AddCapturesController(AddMoreCaptures, CaptureService.list_CaptureTypes());
+            addCapturesCtrl.LoadCaptures();
+            //addCapturesCtrl.LoadDocuments(_docs);
+            addCapturesCtrl.SetIncidentId(Guid.Empty.ToString());
+            if (AddMoreCaptures.ShowDialog() == DialogResult.OK)
+            {
+                _docs.Add(addCapturesCtrl.GetDocuments());
+                var docsType = _docs.Select(dc => new { dc.CaptureType, dc.ID_Capture });
+                gc_DocumentCaptures.DataSource = docsType;
+                gv_DocumentCaptures.BestFitColumns();
+                //Utils.ShowMessage("the capture was added succesfully", "Capture");
+                //_view.OpenSpinner();
+                //_captures = CaptureService.list_Captures(_view.ID_Incident.ToString());
+                //_view.CapturesDataSource = _captures;
+                //if (_captures.Count > 0)
+                //    _view.ImagesDatasSource = CaptureService.list_Images(_captures[0].ID_Capture.ToString());
+                //else
+                //    _view.ImagesDatasSource = new List<ImageCapture>();
+                //_view.CloseSpinner();
+
+
+                if (!simpleButton10.Visible)
+                    simpleButton10.Visible = true;
+            }
+        }
+
+        // clear the panel and redraw using the new cards
+        private void gc_DocumentCaptures_DoubleClick(object sender, EventArgs e)
+        {
+            int idx = gv_DocumentCaptures.GetFocusedDataSourceRowIndex();
+            //gc_Documents.DataSource = _docs[idx].documents;
+            xtraScrollableControl1.Controls.Clear();
+            CreatePanel(4, _docs[idx].documents);
+        }
+        #endregion
 
         #region view fields
         public string DriverSearch
@@ -561,9 +797,9 @@ namespace ResponseEmergencySystem.Forms
         {
             if (dxValidationProvider1.Validate())
             {
-                //splashScreenManager1.ShowWaitForm();
-                //_controller.Update();
-                //splashScreenManager1.CloseWaitForm();
+                splashScreenManager1.ShowWaitForm();
+                _controller.Update();
+                splashScreenManager1.CloseWaitForm();
 
                 this.DialogResult = DialogResult.OK;
             }
@@ -618,111 +854,6 @@ namespace ResponseEmergencySystem.Forms
             _controller.EditInvolvedPersonByRow(gv_InvolvedPersons.FocusedRowHandle);
         }
 
-        private void simpleButton9_Click(object sender, EventArgs e)
-        {
-            AddMoreCaptures AddMoreCaptures = new AddMoreCaptures();
-            Controllers.Captures.AddCapturesController addCapturesCtrl = new Controllers.Captures.AddCapturesController(AddMoreCaptures, CaptureService.list_CaptureTypes());
-            addCapturesCtrl.LoadCaptures();
-            //addCapturesCtrl.LoadDocuments(_docs);
-            addCapturesCtrl.SetIncidentId(Guid.Empty.ToString());
-            if (AddMoreCaptures.ShowDialog() == DialogResult.OK)
-            {
-                _docs.Add(addCapturesCtrl.GetDocuments());
-                var docsType = _docs.Select(dc => new { dc.CaptureType, dc.ID_Capture });
-                gc_DocumentCaptures.DataSource = docsType;
-                gv_DocumentCaptures.BestFitColumns();
-                //Utils.ShowMessage("the capture was added succesfully", "Capture");
-                //_view.OpenSpinner();
-                //_captures = CaptureService.list_Captures(_view.ID_Incident.ToString());
-                //_view.CapturesDataSource = _captures;
-                //if (_captures.Count > 0)
-                //    _view.ImagesDatasSource = CaptureService.list_Images(_captures[0].ID_Capture.ToString());
-                //else
-                //    _view.ImagesDatasSource = new List<ImageCapture>();
-                //_view.CloseSpinner();
-            }
-        }
-
-        private void gc_DocumentCaptures_DoubleClick(object sender, EventArgs e)
-        {
-            int idx = gv_DocumentCaptures.GetFocusedDataSourceRowIndex();
-            //gc_Documents.DataSource = _docs[idx].documents;
-            xtraScrollableControl1.Controls.Clear();
-            CreatePanel(4, _docs[idx].documents);
-        }
-
-        private void rpic_Image_Click(object sender, EventArgs e)
-        {
-            string imgPath = Utils.GetRowID(gv_Documents, "Path");
-            if (imgPath == "")
-            {
-                splashScreenManager1.ShowWaitForm();
-                var d = _controller.CheckDocument();
-                if (d.Item1)
-                {
-                    _docs[gv_DocumentCaptures.FocusedRowHandle].documents[gv_Documents.FocusedRowHandle].Path = d.Item2;
-                    _docs[gv_DocumentCaptures.FocusedRowHandle].documents[gv_Documents.FocusedRowHandle].Type = d.Item3;
-                    _docs[gv_DocumentCaptures.FocusedRowHandle].documents[gv_Documents.FocusedRowHandle].SetImage();
-                }
-                splashScreenManager1.CloseWaitForm();
-            }
-            else
-            {
-                string fileType = Utils.GetRowID(gv_Documents, "Type");
-                string path = _controller.EditImageView(imgPath, fileType);
-                if (path != "")
-                {
-                    _docs[gv_DocumentCaptures.FocusedRowHandle].documents[gv_Documents.FocusedRowHandle].Path = path;
-                    _docs[gv_DocumentCaptures.FocusedRowHandle].documents[gv_Documents.FocusedRowHandle].SetImage();
-                }
-
-            }
-
-            gc_Documents.DataSource = _docs[gv_DocumentCaptures.FocusedRowHandle].documents;
-            gv_Documents.BestFitColumns();
-        }
-
-        private void gv_Documents_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
-        {
-            if (e.MenuType == DevExpress.XtraGrid.Views.Grid.GridMenuType.Row)
-            {
-                DXMenuItem item = new DXMenuItem("Change Document");
-                item.Click += (o, args) => {
-                    int row = this.gv_Documents.FocusedRowHandle;
-                    splashScreenManager1.ShowWaitForm();
-                    var d = _controller.CheckDocument();
-                    if (d.Item1)
-                    {
-                        _docs[gv_DocumentCaptures.FocusedRowHandle].documents[row].Path = d.Item2;
-                        _docs[gv_DocumentCaptures.FocusedRowHandle].documents[row].Type = d.Item3;
-                        _docs[gv_DocumentCaptures.FocusedRowHandle].documents[row].SetImage();
-                    }
-
-                    gc_Documents.DataSource = _docs[gv_DocumentCaptures.FocusedRowHandle].documents;
-                    gv_Documents.BestFitColumns();
-                    splashScreenManager1.CloseWaitForm();
-
-                };
-                e.Menu.Items.Add(item);
-            }
-        }
-
-        private void simpleButton10_Click(object sender, EventArgs e)
-        {
-            //gc_Documents.DataSource = _docs[gv_DocumentCaptures.FocusedRowHandle].documents;
-
-
-            //gv_Documents.BestFitColumns();
-
-            (Models.Documents.Document doc, bool response) = UploadDocument();
-            if (response)
-            {
-                _docs[gv_DocumentCaptures.FocusedRowHandle].documents.Add(doc);
-                CreatePanel(4, _docs[gv_DocumentCaptures.FocusedRowHandle].documents);
-
-            }
-        }
-
         private void simpleButton6_Click(object sender, EventArgs e)
         {
             _controller.UpdatePersonInvolved();
@@ -756,161 +887,25 @@ namespace ResponseEmergencySystem.Forms
             
         }
 
-        private void CreatePanel(int number, List<Models.Documents.Document> documents)
+        private void lue_Trucks_Closed(object sender, ClosedEventArgs e)
         {
-            int space = (Convert.ToInt32(xtraScrollableControl1.Width) - (documents.Count * 245)) / (documents.Count + 1);
+            splashScreenManager1.ShowWaitForm();
+            var res = _controller.GetTruckSamsara();
+            gMapControl1.Position = new GMap.NET.PointLatLng(res[0], res[1]);
 
-            for (int i = 0; i < documents.Count; i++)
-            {
-                _docs[gv_DocumentCaptures.FocusedRowHandle].documents[i].ID = i;
-
-                space = (space < 50) ? 50 : space;
-
-                var x = (i * 245) + ((i + 1) * space);
-
-                PanelControl pnl = new PanelControl();
-                pnl.Size = new Size(242, 261);
-                pnl.Location = new Point(x, 19);
-                pnl.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-
-                PictureEdit pic = new PictureEdit();
-                pic.Location = new Point(12, 5);
-                pic.Size = new Size(218, 171);
-                if (documents[i].Path == "") 
-                {
-                    pic.Image = Resources.add_32x32;
-                    pic.Properties.SizeMode = PictureSizeMode.Clip;
-                    pic.Properties.ZoomPercent = 200;
-                    pic.Properties.PictureAlignment = ContentAlignment.MiddleCenter;
-                    pic.BackColor = Color.Transparent;
-                    pic.BorderStyle = BorderStyles.NoBorder;
-                }
-                else
-                {
-                    pic.Image = documents[i].Image;
-                    pic.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-                }
-                
-                TextEdit edt = new TextEdit();
-                edt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-                edt.Location = new Point(5, 139);
-                edt.Size = new Size(199, 24);
-                edt.Text = "Caption of the police report";
-
-                LabelControl lbl = new LabelControl();
-                lbl.AutoSizeMode = LabelAutoSizeMode.None;
-                lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-                lbl.Location = new Point(12, 182);
-                lbl.Size = new Size(218, 24);
-                lbl.Text = documents[i].name;
-
-                MyButton btnEdit = new MyButton();
-                btnEdit.ImageOptions.SvgImage = Resources.actions_edit;
-                btnEdit.ImageOptions.ImageToTextAlignment = ImageAlignToText.TopCenter;
-                btnEdit.Size = new Size(36, 34);
-                btnEdit.Location = new Point(70, 212);
-                btnEdit.btnIdx = i;
-                btnEdit.Click += (object sender, EventArgs e) => 
-                {
-                    
-                    (Models.Documents.Document doc, bool response) = UploadDocument((sender as MyButton).btnIdx);
-                    if (response)
-                    {
-                        _docs[gv_DocumentCaptures.FocusedRowHandle].documents[doc.ID] = doc;
-                        xtraScrollableControl1.Controls.Clear();
-                        CreatePanel(0, _docs[gv_DocumentCaptures.FocusedRowHandle].documents);
-                    }
-                    
-                };
-                
-                SimpleButton btnDelete = new SimpleButton();
-                btnDelete.ImageOptions.SvgImage = Resources.delete;
-                btnDelete.ImageOptions.ImageToTextAlignment = ImageAlignToText.TopCenter;
-                btnDelete.Size = new Size(36, 34);
-                btnDelete.Location = new Point(124, 212);
-
-                pnl.Controls.Add(pic);
-                pnl.Controls.Add(lbl);
-                pnl.Controls.Add(btnEdit);
-                pnl.Controls.Add(btnDelete);
-
-                
-
-                xtraScrollableControl1.Controls.Add(pnl);
-            }
-
-
-
-        }
-
-        private (Models.Documents.Document, bool) UploadDocument(int idx = 0)
-        {
-
-            //bool uploaded;
-            //Models.Documents.Document doc;
-            //(doc, uploaded) = UploadDocument();
-            Modals.DocumentModal addDocument;
-            Models.Documents.Document doc = new Models.Documents.Document("", idx);
-            using (OpenFileDialog ofd = new OpenFileDialog())
-            {
-                ofd.Filter = "Image Files(*.PNG;*.JPG;*.GIF;*.BMP)|*.PNG;*.JPG;*.GIF;*.BMP|PDF Files (*.PDF)|*.PDF|All Files (*.*)|*.*";
-                if (ofd.ShowDialog() == DialogResult.OK)
-                {
-                    string ext = Path.GetExtension(ofd.FileName).ToUpper();
-                    try
-                    {
-                        if (ext == ".GIF" || ext == ".JPG" || ext == ".PNG" || ext == ".BMP")
-                        {
-                            doc.Path = ofd.FileName;
-                            doc.Type = "img";
-                            doc.name = Path.GetFileName(ofd.FileName).Replace(ext.ToLower(), "");
-                            doc.SetImage();
-                            return (addDocumentView(), true);
-                        }
-                        else if (ext == ".PDF")
-                        {
-                            doc.Path = ofd.FileName;
-                            doc.Type = "pdf";
-                            doc.name = Path.GetFileName(ofd.FileName).Replace(ext.ToLower(), "");
-                            doc.SetImage();
-                            return (addDocumentView(), true);
-                        }
-                        else
-                        {
-                            Utils.ShowMessage("The file submitted is not an Image", title: "Image upload error", type: "Warning");
-                        }
-
-
-                    }
-                    catch (Exception ex)
-                    {
-                        //MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        Utils.ShowMessage(ex.Message, title: "Image upload error", type: "Error");
-                    }
-
-                }
-                
-                
-            }
-
-            Models.Documents.Document addDocumentView()
-            {
-                addDocument = new Modals.DocumentModal(doc);
-                if (addDocument.ShowDialog() == DialogResult.OK)
-                {
-                    
-                    return addDocument.doc; 
-                    //CreatePanel(4, _docs[gv_DocumentCaptures.FocusedRowHandle].documents);
-                }
-
-                return new Models.Documents.Document("", 0);
-            }
-
-            return (doc, false);
-
+            GMap.NET.WindowsForms.GMapOverlay markers = new GMap.NET.WindowsForms.GMapOverlay("markers");
+            GMap.NET.WindowsForms.GMapMarker marker = new GMap.NET.WindowsForms.Markers.GMarkerGoogle(
+                                                            new GMap.NET.PointLatLng(res[0], res[1]),
+            GMap.NET.WindowsForms.Markers.GMarkerGoogleType.red_dot);
+            gMapControl1.Overlays.Clear();
+            markers.Markers.Add(marker);
+            gMapControl1.Overlays.Add(markers);
+            //_controller.SetTruck("");
+            splashScreenManager1.CloseWaitForm();
         }
     }
 
+    // a needed ID to know what button was clicked
     class MyButton : SimpleButton
     {
         private int sIdx;

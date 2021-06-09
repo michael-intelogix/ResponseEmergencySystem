@@ -18,6 +18,7 @@ using DevExpress.XtraEditors.Controls;
 using System.Diagnostics;
 using System.IO;
 using ResponseEmergencySystem.Forms;
+using Firebase.Storage;
 
 namespace ResponseEmergencySystem.Controllers.Incidents
 {
@@ -432,6 +433,20 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                         Debug.WriteLine(t.Result.Message);
                     }
                 }
+
+                foreach(var documentCapture in _view.Documents)
+                {
+                    if (t.Result.validation)
+                    {
+                        Debug.WriteLine($"Type of capture: {documentCapture.ID_CaptureType}");
+                        SaveAsync(documentCapture.ID_CaptureType, t.Result.ID, documentCapture.documents);
+                    }
+                    else
+                    {
+                        Debug.Fail(t.Result.Message);
+                    }
+                    
+                }
             } 
             catch (Exception e)
             {
@@ -678,5 +693,92 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             return "";
 
         }
+
+        #region documents
+        public async void SaveAsync(string ID_CaptureType, string ID_Incindent, List<Models.Documents.Document> documents)
+        {
+            string ID_Capture = "";
+            bool success = false;
+
+            var t = new Task(() => (ID_Capture, success) = SaveCapture(ID_CaptureType, ID_Incindent));
+            t.Start();
+            t.Wait();
+
+            if (success)
+            {
+                //List<DocumentCapture> docsLoaded = _documents.Where(d => d.Path != null).ToList();
+                for (var i = 0; i < documents.Count(); i++)
+                {
+                    var document = documents[i];
+                    var task = UploadImgFirebaseAsync(document.Path, document.name, ID_Capture);
+
+                    //ProgressBarControl pbr = _view.GetPbrControl(document.containerName, $"pbrDocument{document.ID}");
+
+                    //_view.SetControlProperties(document.containerName, $"lblStatus{document.ID}", visibility: false);
+                    //pbr.Visible = true;
+
+                    //Track progress of the upload
+                    task.Progress.ProgressChanged += (s, ev) =>
+                    {
+                        //pbr.EditValue = ev.Percentage;
+                        //pbr.CreateGraphics().DrawString(ev.Percentage.ToString() + "%", new Font("Arial", (float)8.25, FontStyle.Regular), Brushes.Black, new PointF(pbr.Width / 2 - 10, pbr.Height / 2 - 7));
+                        Console.WriteLine($"Progress: {ev.Percentage} %");
+                    };
+
+                    document.FirebaseUrl = await task;
+
+
+                    //pbr.Visible = false;
+                    //_view.SetControlProperties(document.containerName, $"lblStatus{document.ID}", "Uploaded", true);
+
+                    Response imgResponse = CaptureService.AddImage(Guid.NewGuid().ToString(), ID_Capture, document.FirebaseUrl, document.name, "", document.Type);
+                    document.ID_Document = imgResponse.ID;
+                }
+            }
+            else
+            {
+                Debug.Fail("Problem in upload capture");
+            }
+
+        }
+
+        private FirebaseStorageTask UploadImgFirebaseAsync(string filepath, string name, string ID_Capture)
+        {
+            try
+            {
+                //Get any Stream — it can be FileStream, MemoryStream or any other type of Stream
+                var stream = File.Open(filepath, FileMode.Open);
+
+                //Construct FirebaseStorage with path to where you want to upload the file and put it there
+                var task = new FirebaseStorage("dcmanagement-3d402.appspot.com")
+                .Child("SIREM")
+                .Child(ID_Capture)
+                .Child(name)
+                .PutAsync(stream);
+
+                // Await the task to wait until upload is completed and get the download url
+                return task;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+        }
+
+        private (string ID, bool success) SaveCapture(string ID_CaptureType, string ID_Incident)
+        {
+            var response = CaptureService.AddCapture(ID_CaptureType, ID_Incident, "testing", "");
+            if (response.validation)
+                return (response.ID, true);
+            else
+            {
+                Debug.Fail(response.Message);
+                return (response.ID, false);
+            }
+
+        }
+
+        #endregion
     }
 }

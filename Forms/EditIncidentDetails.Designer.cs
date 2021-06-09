@@ -63,6 +63,24 @@ namespace ResponseEmergencySystem.Forms
             this.gv_DocumentCaptures = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.xtraScrollableControl1 = new DevExpress.XtraEditors.XtraScrollableControl();
+            this.panelControl14 = new DevExpress.XtraEditors.PanelControl();
+            this.textEdit6 = new DevExpress.XtraEditors.TextEdit();
+            this.progressBar5 = new System.Windows.Forms.ProgressBar();
+            this.panelControl12 = new DevExpress.XtraEditors.PanelControl();
+            this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
+            this.progressBar3 = new System.Windows.Forms.ProgressBar();
+            this.panelControl15 = new DevExpress.XtraEditors.PanelControl();
+            this.textEdit7 = new DevExpress.XtraEditors.TextEdit();
+            this.progressBar6 = new System.Windows.Forms.ProgressBar();
+            this.panelControl11 = new DevExpress.XtraEditors.PanelControl();
+            this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
+            this.progressBar2 = new System.Windows.Forms.ProgressBar();
+            this.panelControl13 = new DevExpress.XtraEditors.PanelControl();
+            this.textEdit5 = new DevExpress.XtraEditors.TextEdit();
+            this.progressBar4 = new System.Windows.Forms.ProgressBar();
+            this.panelControl10 = new DevExpress.XtraEditors.PanelControl();
+            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.panelControl8 = new DevExpress.XtraEditors.PanelControl();
             this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
@@ -231,24 +249,6 @@ namespace ResponseEmergencySystem.Forms
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
-            this.panelControl10 = new DevExpress.XtraEditors.PanelControl();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.panelControl11 = new DevExpress.XtraEditors.PanelControl();
-            this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
-            this.progressBar2 = new System.Windows.Forms.ProgressBar();
-            this.panelControl12 = new DevExpress.XtraEditors.PanelControl();
-            this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
-            this.progressBar3 = new System.Windows.Forms.ProgressBar();
-            this.panelControl13 = new DevExpress.XtraEditors.PanelControl();
-            this.textEdit5 = new DevExpress.XtraEditors.TextEdit();
-            this.progressBar4 = new System.Windows.Forms.ProgressBar();
-            this.panelControl14 = new DevExpress.XtraEditors.PanelControl();
-            this.textEdit6 = new DevExpress.XtraEditors.TextEdit();
-            this.progressBar5 = new System.Windows.Forms.ProgressBar();
-            this.panelControl15 = new DevExpress.XtraEditors.PanelControl();
-            this.textEdit7 = new DevExpress.XtraEditors.TextEdit();
-            this.progressBar6 = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).BeginInit();
@@ -262,6 +262,24 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.gc_DocumentCaptures)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_DocumentCaptures)).BeginInit();
             this.xtraScrollableControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl14)).BeginInit();
+            this.panelControl14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl12)).BeginInit();
+            this.panelControl12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl15)).BeginInit();
+            this.panelControl15.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit7.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl11)).BeginInit();
+            this.panelControl11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl13)).BeginInit();
+            this.panelControl13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl10)).BeginInit();
+            this.panelControl10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).BeginInit();
             this.panelControl8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
@@ -375,24 +393,6 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl10)).BeginInit();
-            this.panelControl10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl11)).BeginInit();
-            this.panelControl11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl12)).BeginInit();
-            this.panelControl12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl13)).BeginInit();
-            this.panelControl13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl14)).BeginInit();
-            this.panelControl14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl15)).BeginInit();
-            this.panelControl15.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit7.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // splashScreenManager1
@@ -494,6 +494,198 @@ namespace ResponseEmergencySystem.Forms
             this.xtraScrollableControl1.Name = "xtraScrollableControl1";
             this.xtraScrollableControl1.Size = new System.Drawing.Size(1187, 308);
             this.xtraScrollableControl1.TabIndex = 1;
+            // 
+            // panelControl14
+            // 
+            this.panelControl14.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panelControl14.Appearance.BorderColor = System.Drawing.Color.Red;
+            this.panelControl14.Appearance.Options.UseBackColor = true;
+            this.panelControl14.Appearance.Options.UseBorderColor = true;
+            this.panelControl14.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
+            this.panelControl14.Controls.Add(this.textEdit6);
+            this.panelControl14.Controls.Add(this.progressBar5);
+            this.panelControl14.Location = new System.Drawing.Point(723, 179);
+            this.panelControl14.Name = "panelControl14";
+            this.panelControl14.Size = new System.Drawing.Size(251, 66);
+            this.panelControl14.TabIndex = 9;
+            this.panelControl14.Visible = false;
+            // 
+            // textEdit6
+            // 
+            this.textEdit6.EditValue = "Caption of the police report";
+            this.textEdit6.Location = new System.Drawing.Point(15, 5);
+            this.textEdit6.Name = "textEdit6";
+            this.textEdit6.Properties.Appearance.Options.UseTextOptions = true;
+            this.textEdit6.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.textEdit6.Size = new System.Drawing.Size(218, 24);
+            this.textEdit6.TabIndex = 4;
+            // 
+            // progressBar5
+            // 
+            this.progressBar5.Location = new System.Drawing.Point(15, 35);
+            this.progressBar5.Name = "progressBar5";
+            this.progressBar5.Size = new System.Drawing.Size(218, 23);
+            this.progressBar5.TabIndex = 0;
+            // 
+            // panelControl12
+            // 
+            this.panelControl12.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panelControl12.Appearance.BorderColor = System.Drawing.Color.Red;
+            this.panelControl12.Appearance.Options.UseBackColor = true;
+            this.panelControl12.Appearance.Options.UseBorderColor = true;
+            this.panelControl12.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
+            this.panelControl12.Controls.Add(this.textEdit4);
+            this.panelControl12.Controls.Add(this.progressBar3);
+            this.panelControl12.Location = new System.Drawing.Point(723, 98);
+            this.panelControl12.Name = "panelControl12";
+            this.panelControl12.Size = new System.Drawing.Size(251, 66);
+            this.panelControl12.TabIndex = 7;
+            this.panelControl12.Visible = false;
+            // 
+            // textEdit4
+            // 
+            this.textEdit4.EditValue = "Caption of the police report";
+            this.textEdit4.Location = new System.Drawing.Point(15, 5);
+            this.textEdit4.Name = "textEdit4";
+            this.textEdit4.Properties.Appearance.Options.UseTextOptions = true;
+            this.textEdit4.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.textEdit4.Size = new System.Drawing.Size(218, 24);
+            this.textEdit4.TabIndex = 4;
+            // 
+            // progressBar3
+            // 
+            this.progressBar3.Location = new System.Drawing.Point(15, 35);
+            this.progressBar3.Name = "progressBar3";
+            this.progressBar3.Size = new System.Drawing.Size(218, 23);
+            this.progressBar3.TabIndex = 0;
+            // 
+            // panelControl15
+            // 
+            this.panelControl15.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panelControl15.Appearance.BorderColor = System.Drawing.Color.Red;
+            this.panelControl15.Appearance.Options.UseBackColor = true;
+            this.panelControl15.Appearance.Options.UseBorderColor = true;
+            this.panelControl15.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
+            this.panelControl15.Controls.Add(this.textEdit7);
+            this.panelControl15.Controls.Add(this.progressBar6);
+            this.panelControl15.Location = new System.Drawing.Point(445, 179);
+            this.panelControl15.Name = "panelControl15";
+            this.panelControl15.Size = new System.Drawing.Size(251, 66);
+            this.panelControl15.TabIndex = 8;
+            this.panelControl15.Visible = false;
+            // 
+            // textEdit7
+            // 
+            this.textEdit7.EditValue = "Caption of the police report";
+            this.textEdit7.Location = new System.Drawing.Point(15, 5);
+            this.textEdit7.Name = "textEdit7";
+            this.textEdit7.Properties.Appearance.Options.UseTextOptions = true;
+            this.textEdit7.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.textEdit7.Size = new System.Drawing.Size(218, 24);
+            this.textEdit7.TabIndex = 4;
+            // 
+            // progressBar6
+            // 
+            this.progressBar6.Location = new System.Drawing.Point(15, 35);
+            this.progressBar6.Name = "progressBar6";
+            this.progressBar6.Size = new System.Drawing.Size(218, 23);
+            this.progressBar6.TabIndex = 0;
+            // 
+            // panelControl11
+            // 
+            this.panelControl11.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panelControl11.Appearance.BorderColor = System.Drawing.Color.Red;
+            this.panelControl11.Appearance.Options.UseBackColor = true;
+            this.panelControl11.Appearance.Options.UseBorderColor = true;
+            this.panelControl11.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
+            this.panelControl11.Controls.Add(this.textEdit3);
+            this.panelControl11.Controls.Add(this.progressBar2);
+            this.panelControl11.Location = new System.Drawing.Point(723, 16);
+            this.panelControl11.Name = "panelControl11";
+            this.panelControl11.Size = new System.Drawing.Size(251, 66);
+            this.panelControl11.TabIndex = 5;
+            this.panelControl11.Visible = false;
+            // 
+            // textEdit3
+            // 
+            this.textEdit3.EditValue = "Caption of the police report";
+            this.textEdit3.Location = new System.Drawing.Point(15, 5);
+            this.textEdit3.Name = "textEdit3";
+            this.textEdit3.Properties.Appearance.Options.UseTextOptions = true;
+            this.textEdit3.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.textEdit3.Size = new System.Drawing.Size(218, 24);
+            this.textEdit3.TabIndex = 4;
+            // 
+            // progressBar2
+            // 
+            this.progressBar2.Location = new System.Drawing.Point(15, 35);
+            this.progressBar2.Name = "progressBar2";
+            this.progressBar2.Size = new System.Drawing.Size(218, 23);
+            this.progressBar2.TabIndex = 0;
+            // 
+            // panelControl13
+            // 
+            this.panelControl13.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panelControl13.Appearance.BorderColor = System.Drawing.Color.Red;
+            this.panelControl13.Appearance.Options.UseBackColor = true;
+            this.panelControl13.Appearance.Options.UseBorderColor = true;
+            this.panelControl13.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
+            this.panelControl13.Controls.Add(this.textEdit5);
+            this.panelControl13.Controls.Add(this.progressBar4);
+            this.panelControl13.Location = new System.Drawing.Point(445, 98);
+            this.panelControl13.Name = "panelControl13";
+            this.panelControl13.Size = new System.Drawing.Size(251, 66);
+            this.panelControl13.TabIndex = 6;
+            this.panelControl13.Visible = false;
+            // 
+            // textEdit5
+            // 
+            this.textEdit5.EditValue = "Caption of the police report";
+            this.textEdit5.Location = new System.Drawing.Point(15, 5);
+            this.textEdit5.Name = "textEdit5";
+            this.textEdit5.Properties.Appearance.Options.UseTextOptions = true;
+            this.textEdit5.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.textEdit5.Size = new System.Drawing.Size(218, 24);
+            this.textEdit5.TabIndex = 4;
+            // 
+            // progressBar4
+            // 
+            this.progressBar4.Location = new System.Drawing.Point(15, 35);
+            this.progressBar4.Name = "progressBar4";
+            this.progressBar4.Size = new System.Drawing.Size(218, 23);
+            this.progressBar4.TabIndex = 0;
+            // 
+            // panelControl10
+            // 
+            this.panelControl10.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panelControl10.Appearance.BorderColor = System.Drawing.Color.Red;
+            this.panelControl10.Appearance.Options.UseBackColor = true;
+            this.panelControl10.Appearance.Options.UseBorderColor = true;
+            this.panelControl10.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
+            this.panelControl10.Controls.Add(this.textEdit1);
+            this.panelControl10.Controls.Add(this.progressBar1);
+            this.panelControl10.Location = new System.Drawing.Point(445, 16);
+            this.panelControl10.Name = "panelControl10";
+            this.panelControl10.Size = new System.Drawing.Size(251, 66);
+            this.panelControl10.TabIndex = 4;
+            this.panelControl10.Visible = false;
+            // 
+            // textEdit1
+            // 
+            this.textEdit1.EditValue = "Caption of the police report";
+            this.textEdit1.Location = new System.Drawing.Point(15, 5);
+            this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Properties.Appearance.Options.UseTextOptions = true;
+            this.textEdit1.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.textEdit1.Size = new System.Drawing.Size(218, 24);
+            this.textEdit1.TabIndex = 4;
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(15, 35);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(218, 23);
+            this.progressBar1.TabIndex = 0;
             // 
             // panelControl8
             // 
@@ -637,6 +829,7 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton10.Size = new System.Drawing.Size(152, 43);
             this.simpleButton10.TabIndex = 1;
             this.simpleButton10.Text = "Add Documents";
+            this.simpleButton10.Visible = false;
             this.simpleButton10.Click += new System.EventHandler(this.simpleButton10_Click);
             // 
             // simpleButton9
@@ -1671,9 +1864,9 @@ namespace ResponseEmergencySystem.Forms
             this.lue_Trucks.Properties.PopupView = this.gridView1;
             this.lue_Trucks.Properties.PopupWidthMode = DevExpress.XtraEditors.PopupWidthMode.UseEditorWidth;
             this.lue_Trucks.Properties.ValueMember = "ID_Samsara";
-            this.lue_Trucks.Properties.EditValueChanged += new System.EventHandler(this.lue_Trucks_Properties_EditValueChanged);
             this.lue_Trucks.Size = new System.Drawing.Size(119, 24);
             this.lue_Trucks.TabIndex = 134;
+            this.lue_Trucks.Closed += new DevExpress.XtraEditors.Controls.ClosedEventHandler(this.lue_Trucks_Closed);
             // 
             // gridView1
             // 
@@ -2383,198 +2576,6 @@ namespace ResponseEmergencySystem.Forms
             this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem10.TextVisible = false;
             // 
-            // panelControl10
-            // 
-            this.panelControl10.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.panelControl10.Appearance.BorderColor = System.Drawing.Color.Red;
-            this.panelControl10.Appearance.Options.UseBackColor = true;
-            this.panelControl10.Appearance.Options.UseBorderColor = true;
-            this.panelControl10.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
-            this.panelControl10.Controls.Add(this.textEdit1);
-            this.panelControl10.Controls.Add(this.progressBar1);
-            this.panelControl10.Location = new System.Drawing.Point(445, 16);
-            this.panelControl10.Name = "panelControl10";
-            this.panelControl10.Size = new System.Drawing.Size(251, 66);
-            this.panelControl10.TabIndex = 4;
-            this.panelControl10.Visible = false;
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(15, 35);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(218, 23);
-            this.progressBar1.TabIndex = 0;
-            // 
-            // textEdit1
-            // 
-            this.textEdit1.EditValue = "Caption of the police report";
-            this.textEdit1.Location = new System.Drawing.Point(15, 5);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Properties.Appearance.Options.UseTextOptions = true;
-            this.textEdit1.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.textEdit1.Size = new System.Drawing.Size(218, 24);
-            this.textEdit1.TabIndex = 4;
-            // 
-            // panelControl11
-            // 
-            this.panelControl11.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.panelControl11.Appearance.BorderColor = System.Drawing.Color.Red;
-            this.panelControl11.Appearance.Options.UseBackColor = true;
-            this.panelControl11.Appearance.Options.UseBorderColor = true;
-            this.panelControl11.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
-            this.panelControl11.Controls.Add(this.textEdit3);
-            this.panelControl11.Controls.Add(this.progressBar2);
-            this.panelControl11.Location = new System.Drawing.Point(723, 16);
-            this.panelControl11.Name = "panelControl11";
-            this.panelControl11.Size = new System.Drawing.Size(251, 66);
-            this.panelControl11.TabIndex = 5;
-            this.panelControl11.Visible = false;
-            // 
-            // textEdit3
-            // 
-            this.textEdit3.EditValue = "Caption of the police report";
-            this.textEdit3.Location = new System.Drawing.Point(15, 5);
-            this.textEdit3.Name = "textEdit3";
-            this.textEdit3.Properties.Appearance.Options.UseTextOptions = true;
-            this.textEdit3.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.textEdit3.Size = new System.Drawing.Size(218, 24);
-            this.textEdit3.TabIndex = 4;
-            // 
-            // progressBar2
-            // 
-            this.progressBar2.Location = new System.Drawing.Point(15, 35);
-            this.progressBar2.Name = "progressBar2";
-            this.progressBar2.Size = new System.Drawing.Size(218, 23);
-            this.progressBar2.TabIndex = 0;
-            // 
-            // panelControl12
-            // 
-            this.panelControl12.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.panelControl12.Appearance.BorderColor = System.Drawing.Color.Red;
-            this.panelControl12.Appearance.Options.UseBackColor = true;
-            this.panelControl12.Appearance.Options.UseBorderColor = true;
-            this.panelControl12.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
-            this.panelControl12.Controls.Add(this.textEdit4);
-            this.panelControl12.Controls.Add(this.progressBar3);
-            this.panelControl12.Location = new System.Drawing.Point(723, 98);
-            this.panelControl12.Name = "panelControl12";
-            this.panelControl12.Size = new System.Drawing.Size(251, 66);
-            this.panelControl12.TabIndex = 7;
-            this.panelControl12.Visible = false;
-            // 
-            // textEdit4
-            // 
-            this.textEdit4.EditValue = "Caption of the police report";
-            this.textEdit4.Location = new System.Drawing.Point(15, 5);
-            this.textEdit4.Name = "textEdit4";
-            this.textEdit4.Properties.Appearance.Options.UseTextOptions = true;
-            this.textEdit4.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.textEdit4.Size = new System.Drawing.Size(218, 24);
-            this.textEdit4.TabIndex = 4;
-            // 
-            // progressBar3
-            // 
-            this.progressBar3.Location = new System.Drawing.Point(15, 35);
-            this.progressBar3.Name = "progressBar3";
-            this.progressBar3.Size = new System.Drawing.Size(218, 23);
-            this.progressBar3.TabIndex = 0;
-            // 
-            // panelControl13
-            // 
-            this.panelControl13.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.panelControl13.Appearance.BorderColor = System.Drawing.Color.Red;
-            this.panelControl13.Appearance.Options.UseBackColor = true;
-            this.panelControl13.Appearance.Options.UseBorderColor = true;
-            this.panelControl13.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
-            this.panelControl13.Controls.Add(this.textEdit5);
-            this.panelControl13.Controls.Add(this.progressBar4);
-            this.panelControl13.Location = new System.Drawing.Point(445, 98);
-            this.panelControl13.Name = "panelControl13";
-            this.panelControl13.Size = new System.Drawing.Size(251, 66);
-            this.panelControl13.TabIndex = 6;
-            this.panelControl13.Visible = false;
-            // 
-            // textEdit5
-            // 
-            this.textEdit5.EditValue = "Caption of the police report";
-            this.textEdit5.Location = new System.Drawing.Point(15, 5);
-            this.textEdit5.Name = "textEdit5";
-            this.textEdit5.Properties.Appearance.Options.UseTextOptions = true;
-            this.textEdit5.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.textEdit5.Size = new System.Drawing.Size(218, 24);
-            this.textEdit5.TabIndex = 4;
-            // 
-            // progressBar4
-            // 
-            this.progressBar4.Location = new System.Drawing.Point(15, 35);
-            this.progressBar4.Name = "progressBar4";
-            this.progressBar4.Size = new System.Drawing.Size(218, 23);
-            this.progressBar4.TabIndex = 0;
-            // 
-            // panelControl14
-            // 
-            this.panelControl14.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.panelControl14.Appearance.BorderColor = System.Drawing.Color.Red;
-            this.panelControl14.Appearance.Options.UseBackColor = true;
-            this.panelControl14.Appearance.Options.UseBorderColor = true;
-            this.panelControl14.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
-            this.panelControl14.Controls.Add(this.textEdit6);
-            this.panelControl14.Controls.Add(this.progressBar5);
-            this.panelControl14.Location = new System.Drawing.Point(723, 179);
-            this.panelControl14.Name = "panelControl14";
-            this.panelControl14.Size = new System.Drawing.Size(251, 66);
-            this.panelControl14.TabIndex = 9;
-            this.panelControl14.Visible = false;
-            // 
-            // textEdit6
-            // 
-            this.textEdit6.EditValue = "Caption of the police report";
-            this.textEdit6.Location = new System.Drawing.Point(15, 5);
-            this.textEdit6.Name = "textEdit6";
-            this.textEdit6.Properties.Appearance.Options.UseTextOptions = true;
-            this.textEdit6.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.textEdit6.Size = new System.Drawing.Size(218, 24);
-            this.textEdit6.TabIndex = 4;
-            // 
-            // progressBar5
-            // 
-            this.progressBar5.Location = new System.Drawing.Point(15, 35);
-            this.progressBar5.Name = "progressBar5";
-            this.progressBar5.Size = new System.Drawing.Size(218, 23);
-            this.progressBar5.TabIndex = 0;
-            // 
-            // panelControl15
-            // 
-            this.panelControl15.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.panelControl15.Appearance.BorderColor = System.Drawing.Color.Red;
-            this.panelControl15.Appearance.Options.UseBackColor = true;
-            this.panelControl15.Appearance.Options.UseBorderColor = true;
-            this.panelControl15.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
-            this.panelControl15.Controls.Add(this.textEdit7);
-            this.panelControl15.Controls.Add(this.progressBar6);
-            this.panelControl15.Location = new System.Drawing.Point(445, 179);
-            this.panelControl15.Name = "panelControl15";
-            this.panelControl15.Size = new System.Drawing.Size(251, 66);
-            this.panelControl15.TabIndex = 8;
-            this.panelControl15.Visible = false;
-            // 
-            // textEdit7
-            // 
-            this.textEdit7.EditValue = "Caption of the police report";
-            this.textEdit7.Location = new System.Drawing.Point(15, 5);
-            this.textEdit7.Name = "textEdit7";
-            this.textEdit7.Properties.Appearance.Options.UseTextOptions = true;
-            this.textEdit7.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.textEdit7.Size = new System.Drawing.Size(218, 24);
-            this.textEdit7.TabIndex = 4;
-            // 
-            // progressBar6
-            // 
-            this.progressBar6.Location = new System.Drawing.Point(15, 35);
-            this.progressBar6.Name = "progressBar6";
-            this.progressBar6.Size = new System.Drawing.Size(218, 23);
-            this.progressBar6.TabIndex = 0;
-            // 
             // EditIncidentDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -2599,6 +2600,24 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.gc_DocumentCaptures)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_DocumentCaptures)).EndInit();
             this.xtraScrollableControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl14)).EndInit();
+            this.panelControl14.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl12)).EndInit();
+            this.panelControl12.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl15)).EndInit();
+            this.panelControl15.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit7.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl11)).EndInit();
+            this.panelControl11.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl13)).EndInit();
+            this.panelControl13.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl10)).EndInit();
+            this.panelControl10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).EndInit();
             this.panelControl8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
@@ -2720,24 +2739,6 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl10)).EndInit();
-            this.panelControl10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl11)).EndInit();
-            this.panelControl11.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl12)).EndInit();
-            this.panelControl12.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl13)).EndInit();
-            this.panelControl13.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl14)).EndInit();
-            this.panelControl14.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl15)).EndInit();
-            this.panelControl15.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit7.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

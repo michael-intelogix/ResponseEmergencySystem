@@ -74,6 +74,7 @@ namespace ResponseEmergencySystem.Forms
             this.Controls.Add(this.pdfViewer1);
             this.Name = "frm_PdfViewer";
             this.Text = "frm_PdfViewer";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frm_PdfViewer_Load);
             this.ResumeLayout(false);
 

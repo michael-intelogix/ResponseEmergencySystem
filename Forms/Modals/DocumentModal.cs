@@ -37,7 +37,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             }
             else
             {
-                doc.name = textEdit1.EditValue.ToString();
+                doc.SetName(textEdit1.EditValue.ToString());
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
@@ -46,6 +46,7 @@ namespace ResponseEmergencySystem.Forms.Modals
 
         private void btn_Cancel2_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 

@@ -20,6 +20,8 @@ namespace ResponseEmergencySystem.Views
         void LoadStates(DataTable dt_States);
         void LoadInjuredPersons(DataTable dt_InjuredPersons);
 
+        List<Models.Documents.DocumentCapture> Documents { get; set; }
+
         string FullName { get; set; }
         string PhoneNumber { get; set; }
         string License { get; set; }

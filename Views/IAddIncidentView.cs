@@ -20,6 +20,8 @@ namespace ResponseEmergencySystem.Views
         void LoadCities(DataTable dt_Cities);
         void LoadInjuredPersons(DataTable dt_InjuredPersons);
 
+        List<Models.Documents.DocumentCapture> Documents { get; set; }
+
         // Controls Events Needed
         void checkNumber_OnEdtKeyPress(object sender, KeyPressEventArgs e);
         void checkNumber_OnEdtLeave(object sender, EventArgs e);

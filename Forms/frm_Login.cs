@@ -35,6 +35,7 @@ namespace ResponseEmergencySystem.Forms
                 if (accesos.Length > 0)
                 {
                     constants.userName = accesos[0].ItemArray[13].ToString();
+                    constants.userID = accesos[0].ItemArray[10].ToString();
                     
                     DialogResult = DialogResult.OK;
                 }

@@ -35,6 +35,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.simpleButton9 = new DevExpress.XtraEditors.SimpleButton();
             this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
+            this.simpleButton12 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             this.SuspendLayout();
@@ -108,7 +109,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             // 
             this.textEdit1.Location = new System.Drawing.Point(53, 393);
             this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(303, 24);
+            this.textEdit1.Size = new System.Drawing.Size(280, 24);
             this.textEdit1.TabIndex = 18;
             // 
             // pictureEdit1
@@ -120,11 +121,23 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.pictureEdit1.Size = new System.Drawing.Size(381, 296);
             this.pictureEdit1.TabIndex = 22;
             // 
+            // simpleButton12
+            // 
+            this.simpleButton12.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
+            this.simpleButton12.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.actions_edit1;
+            this.simpleButton12.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
+            this.simpleButton12.Location = new System.Drawing.Point(339, 393);
+            this.simpleButton12.Name = "simpleButton12";
+            this.simpleButton12.Size = new System.Drawing.Size(24, 24);
+            this.simpleButton12.TabIndex = 23;
+            this.simpleButton12.Visible = false;
+            // 
             // DocumentModal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(405, 468);
+            this.Controls.Add(this.simpleButton12);
             this.Controls.Add(this.pictureEdit1);
             this.Controls.Add(this.btn_Cancel2);
             this.Controls.Add(this.simpleButton9);
@@ -152,5 +165,6 @@ namespace ResponseEmergencySystem.Forms.Modals
         private DevExpress.XtraEditors.SimpleButton btn_Cancel2;
         private DevExpress.XtraEditors.SimpleButton simpleButton9;
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton12;
     }
 }
