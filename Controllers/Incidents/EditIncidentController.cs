@@ -28,6 +28,9 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         Incident _selectedIncident;
         DataTable dt_InjuredPersons = new DataTable();
 
+        private List<Truck> _trucks = new List<Truck>();
+        private List<Driver> _DriversLocal = new List<Driver>();
+
         private Int32 _selectedPerson = 0;
 
         private List<PersonsInvolved> _PersonsInvolved;
@@ -44,9 +47,16 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         private bool _errors = false;
         private bool _validation;
 
+        private bool _DriverUpdateRequired = false;
+
+        private string _ID_Samsara;
+        private string _DriverName;
+
         public EditIncidentController(IEditIncidentView view, string incidentId)
         {
             ID_Incident = incidentId;
+            _DriversLocal = DriverService.GetDriver("");
+            _trucks = GeneralService.list_Trucks();
             _view = view;
             view.SetController(this);
         }
@@ -56,9 +66,19 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             get { return _selectedIncident; }
         }
 
+        public void LoadTrucks()
+        {
+            _view.TrucksDataSource = _trucks;
+        }
+
+        public void LoadDrivers()
+        {
+            _view.DriversDataSource = _DriversLocal;
+        }
+
         public void LoadIncident()
         {
-            _selectedIncident = IncidentService.list_Incidents("", "", "", "", "", incidentId: ID_Incident)[0];
+            _selectedIncident = IncidentService.GetIncident(ID_Incident)[0];
             _PersonsInvolved = IncidentService.list_PersonsInvolved(ID_Incident);
 
             ID_Driver = _selectedIncident.driver.ID_Driver.ToString(); ;
@@ -66,12 +86,14 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             ID_Truck = _selectedIncident.truck.ID_Truck.ToString();
             ID_Trailer = _selectedIncident.trailer.ID_Trailer.ToString();
 
+            _DriverName = _selectedIncident.driver.Name;
+
             _view.FullName = _selectedIncident.Name;
             _view.PhoneNumber = _selectedIncident.PhoneNumber;
             _view.License = _selectedIncident.driver.License;
             _view.ExpirationDate = Convert.ToDateTime(_selectedIncident.driver.ExpirationDate).Date;
             _view.LicenseState = _selectedIncident.driver.ID_StateOfExpedition;
-            _view.TruckNumber = _selectedIncident.truck.truckNumber;
+            _view.TruckNumber = _selectedIncident.truck.ID_Samsara;
             _view.TruckDamages = _selectedIncident.TruckDamage;
             _view.TruckCanMove = _selectedIncident.TruckCanMove;
             _view.TruckNeedCrane = _selectedIncident.TruckNeedCrane;
@@ -190,21 +212,26 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             return new double[] { latitude, longitude };
         }
 
-        public void GetDriver()
+        public void GetDriver(string ID)
         {
-            //var Driver_Response = DriverService.GetDriver(_view.DriverSearch);
+            Driver selectedDriver = _DriversLocal.Where(d => d.ID_Samsara == ID).First();
 
-            //if (Driver_Response == null)
-            //    MessageBox.Show("There is no driver with that search information");
-            //else
-            //{
-            //    ID_Driver = Driver_Response.ID_Driver.ToString();
-            //    _view.FullName = Driver_Response.Name + " " + Driver_Response.LastName1;
-            //    _view.PhoneNumber = Driver_Response.PhoneNumber;
-            //    _view.License = Driver_Response.License;
-            //    _view.ExpirationDate = Convert.ToDateTime(Driver_Response.ExpirationDate).Date;
-            //    _view.LicenseState = Driver_Response.ID_StateOfExpedition;
-            //}
+            ID_Driver = selectedDriver.ID_Driver.ToString();
+            _ID_Samsara = selectedDriver.ID_Samsara.ToString();
+            _DriverName = selectedDriver.Name + " " + selectedDriver.LastName1;
+            _view.FullName = _DriverName;
+            _view.PhoneNumber = selectedDriver.PhoneNumber;
+            _view.License = selectedDriver.License;
+
+            if (selectedDriver.ExpirationDate != null)
+                _view.ExpirationDate = (DateTime)selectedDriver.ExpirationDate;
+            else
+            {
+                _view.ExpirationDate = DateTime.Now;
+                _DriverUpdateRequired = true;
+            }
+
+            _view.LicenseState = selectedDriver.ID_StateOfExpedition;
         }
 
         public void SetBroker(string ID_Broker)
@@ -361,12 +388,15 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             {
                 var t = new Task<Response>(() => IncidentService.UpdateIncident(
                     ID_Incident,
-                    ID_Driver.ToUpper(),
+                    ID_Driver == Guid.Empty.ToString() ? _ID_Samsara : ID_Driver,
+                    _DriverName,
                     _view.ID_State,
                     _view.ID_City,
                     ID_Broker.ToUpper(),
                     ID_Truck,
-                    ID_Trailer,
+                    _view.TruckNumber,
+                    _view.TrailerNumber,
+                    _view.CargoType,
                     //_view.ID_StatusDetail,
                     _view.IncidentDate,
                     _view.PoliceReport,
@@ -383,7 +413,8 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                     _view.TrailerCanMove,
                     _view.TrailerNeedCrane,
                     constants.userIDTest.ToString(),
-                    _view.Comments
+                    _view.Comments,
+                    ID_Driver == Guid.Empty.ToString()
                 ));
 
                 t.Start();

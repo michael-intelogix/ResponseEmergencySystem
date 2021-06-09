@@ -76,6 +76,7 @@ namespace ResponseEmergencySystem.Views
         object LueCitiesDataSource { set; }
         object InvolvedPersonsDataSource { set; }
         object DriversDataSource { set; }
+        object TrucksDataSource { set; }
         bool PnlDriverInvolvedVisibility { set; }
 
         bool BtnAddInvolvedPersonVisibility { set; }

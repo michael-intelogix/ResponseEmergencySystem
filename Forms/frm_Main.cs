@@ -186,5 +186,10 @@ namespace ResponseEmergencySystem.Forms
         {
             
         }
+
+        private void barButtonItem13_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            SamsaraService.UpdateSamsaraVehicles();
+        }
     }
 }

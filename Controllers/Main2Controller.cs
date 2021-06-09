@@ -129,5 +129,10 @@ namespace ResponseEmergencySystem.Controllers
 
             }
         }
+
+        public void AddDocumentsToCapture()
+        {
+            _mainController.AddDocumentsToCapture();
+        }
     }
 }

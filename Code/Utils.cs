@@ -104,7 +104,42 @@ namespace ResponseEmergencySystem.Code
 
         }
 
-        // this only works if the name of the label is like the button and they are sibilings (lbl_text1 - btn_text1 both childs of pnl_1)
+        public static string GetRowID(DevExpress.XtraGrid.Views.Card.CardView gv, string ID_Name)
+        {
+            try
+            {
+                Int32 index = gv.FocusedRowHandle;
+                string ID = gv.GetRowCellValue(index, ID_Name).ToString();
+                return ID;
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message);
+                return "";
+            }
+
+
+        }
+
+        public static string GetRowID(DevExpress.XtraGrid.Views.Layout.LayoutView gv, string ID_Name)
+        {
+            try
+            {
+                Int32 index = gv.FocusedRowHandle;
+                string ID = gv.GetRowCellValue(index, ID_Name).ToString();
+                return ID;
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message);
+                return "";
+            }
+
+        }
+
+            // this only works if the name of the label is like the button and they are sibilings (lbl_text1 - btn_text1 both childs of pnl_1)
         public static string GetTextOfLabelInCaptures(SimpleButton btn)
         {
             return btn.Parent.Controls["lbl_" + btn.Name.Split('_')[1]].Text;
@@ -215,6 +250,29 @@ namespace ResponseEmergencySystem.Code
             return false;
         }
 
+        public static Image GetImage(string path)
+        {
+            Image newImg;
+            try
+            {
+                System.Net.WebRequest request =
+                System.Net.WebRequest.Create(path);
+                System.Net.WebResponse response = request.GetResponse();
+                System.IO.Stream responseStream = response.GetResponseStream();
 
+                using (var bmpTemp = new Bitmap(responseStream))
+                {
+                    newImg = new Bitmap(bmpTemp);
+                }
+
+                return newImg;
+            }
+            catch (System.Net.WebException ex)
+            {
+                //MessageBox.Show("There was an error opening the image file.");
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+        }
     }
 }

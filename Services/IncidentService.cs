@@ -20,7 +20,7 @@ namespace ResponseEmergencySystem.Services
         public static Response response;
         private static Boolean opSuccess;
 
-        public static List<Incident> list_Incidents(string folio, string driverId, string driverName, string truckNum, string statusDetailId, string incidentId = "00000000-0000-0000-0000-000000000000", string date1 = "", string date2 = "")
+        public static List<Incident> list_Incidents(string folio, string driverId, string driverName, string truckNum, string statusDetailId, string date1 = "", string date2 = "")
         {
             opSuccess = false;
             List<Incident> result = new List<Incident>();
@@ -38,7 +38,7 @@ namespace ResponseEmergencySystem.Services
                         cmd.Connection.Close();
                     }
 
-                    cmd.Parameters.AddWithValue("@ID_Incident", Guid.Parse(incidentId));
+                    cmd.Parameters.AddWithValue("@ID_Incident", Guid.Empty);
                     cmd.Parameters.AddWithValue("@Folio", folio);
                     cmd.Parameters.AddWithValue("@ID_Driver", driverId);
                     cmd.Parameters.AddWithValue("@ID_StatusDetail", statusDetailId == "" ? "423E82C9-EE3F-4D83-9066-01E6927FE14D" : statusDetailId);
@@ -72,15 +72,120 @@ namespace ResponseEmergencySystem.Services
                                     (string)sdr["IncidentLatitude"],
                                     (string)sdr["IncidentLongitude"],
                                     (string)sdr["Comments"],
-                                    new Truck (Guid.Parse((string)sdr["ID_Truck"]), (string)sdr["TruckNumber"]),
+                                    new Truck(Guid.Parse((string)sdr["ID_Truck"]), (string)sdr["TruckNumber"]),
                                     (bool)sdr["TruckDamage"],
                                     (bool)sdr["TruckCanMove"],
                                     (bool)sdr["TruckNeedCrane"],
-                                    new Trailer(Guid.Parse((string)sdr["ID_Trailer"]), (string)sdr["TrailerNumber"], (string)sdr["commodity"], (bool)sdr["CargoSpill"]),
+                                    new Trailer(
+                                        sdr["ID_Trailer"] == DBNull.Value ? Guid.Empty : Guid.Parse((string)sdr["ID_Trailer"]),
+                                        sdr["TrailerNumber"] == DBNull.Value ? "" : (string)sdr["TrailerNumber"],
+                                        sdr["TrailerCommodity"] == DBNull.Value ? "" : (string)sdr["TrailerCommodity"], 
+                                        (bool)sdr["CargoSpill"]),
                                     (bool)sdr["TrailerDamage"],
                                     (bool)sdr["TrailerCanMove"],
                                     (bool)sdr["TrailerNeedCrane"],
-                                    new Driver(Guid.Parse((string)sdr["ID_Driver"]), (string)sdr["License"], (string)sdr["Expedition_State"], ExpirationDate: sdr["Expiration_Date"] == DBNull.Value ? "" : Convert.ToDateTime(sdr["Expiration_Date"]).Date.ToString()),
+                                    new Driver(),
+                                    //new Driver((string)sdr["ID_Driver"], (string)sdr["License"], (string)sdr["Expedition_State"], ExpirationDate: sdr["Expiration_Date"] == DBNull.Value ? "" : Convert.ToDateTime(sdr["Expiration_Date"]).Date.ToString()),
+                                    (string)sdr["ID_City"],
+                                    (string)sdr["ID_State"],
+                                    (string)sdr["ID_Broker"],
+                                    new Broker((string)sdr["ID_Broker"], (string)sdr["Broker"]),
+                                    (string)sdr["ID_StatusDetail"],
+                                    (string)sdr["Description"],
+                                    (string)sdr["DriverName"],
+                                    ""
+                                )
+                            );
+                        }
+                    }
+                    cmd.Connection.Close();
+                    opSuccess = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Incident type couldn't be found due: {ex.Message}");
+            }
+
+            return result;
+        }
+
+        public static List<Incident> GetIncident(string incidentId)
+        {
+            opSuccess = false;
+            List<Incident> result = new List<Incident>();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand
+                {
+                    Connection = constants.SIREMConnection,
+                    CommandText = $"List_Incidents",
+                    CommandType = CommandType.StoredProcedure
+                })
+                {
+                    if (cmd.Connection.State == ConnectionState.Open)
+                    {
+                        cmd.Connection.Close();
+                    }
+
+                    cmd.Parameters.AddWithValue("@ID_Incident", Guid.Parse(incidentId));
+                    cmd.Parameters.AddWithValue("@Folio", "");
+                    cmd.Parameters.AddWithValue("@ID_Driver", "");
+                    cmd.Parameters.AddWithValue("@ID_StatusDetail", "");
+                    cmd.Parameters.AddWithValue("@DriverName", "");
+                    cmd.Parameters.AddWithValue("@Truck_No", "");
+                    cmd.Parameters.AddWithValue("@Trailer_No", "");
+                    cmd.Parameters.AddWithValue("@Date1", "");
+                    cmd.Parameters.AddWithValue("@Date2", "");
+
+                    cmd.Connection.Open();
+                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    {
+                        if (sdr == null)
+                        {
+                            throw new NullReferenceException("No Information Available.");
+                        }
+                        while (sdr.Read())
+                        {
+                            //Debug.WriteLine(sdr["IncidentCloseDate"]);
+
+                            result.Add(
+                                new Incident(
+                                    (Guid)sdr["ID_Incident"],
+                                    (string)sdr["Folio"],
+                                    Convert.ToDateTime(sdr["IncidentDate"]),
+                                    DateTime.Now,
+                                    (bool)sdr["PoliceReport"],
+                                    (string)sdr["CitationReportNumber"],
+                                    (string)sdr["ManifestNumber"],
+                                    (string)sdr["LocationReferences"],
+                                    (string)sdr["IncidentLatitude"],
+                                    (string)sdr["IncidentLongitude"],
+                                    (string)sdr["Comments"],
+                                    new Truck(
+                                        Guid.Parse((string)sdr["ID_Truck"]), 
+                                        (string)sdr["ID_Samsara"],
+                                        (string)sdr["TruckNumber"]),
+                                    (bool)sdr["TruckDamage"],
+                                    (bool)sdr["TruckCanMove"],
+                                    (bool)sdr["TruckNeedCrane"],
+                                    new Trailer(
+                                        sdr["ID_Trailer"] == DBNull.Value ? Guid.Empty : Guid.Parse((string)sdr["ID_Trailer"]),
+                                        sdr["TrailerNumber"] == DBNull.Value ? "" : (string)sdr["TrailerNumber"],
+                                        sdr["TrailerCommodity"] == DBNull.Value ? "" : (string)sdr["TrailerCommodity"],
+                                        (bool)sdr["CargoSpill"]),
+                                    (bool)sdr["TrailerDamage"],
+                                    (bool)sdr["TrailerCanMove"],
+                                    (bool)sdr["TrailerNeedCrane"],
+                                    new Driver(
+                                        (string)sdr["ID_Driver"], 
+                                        (string)sdr["Name"], 
+                                        sdr["PhoneNumber"] == DBNull.Value ? "" : (string)sdr["PhoneNumber"], 
+                                        sdr["License"] == DBNull.Value ? "" : (string)sdr["License"], 
+                                        sdr["Expedition_State"] == DBNull.Value ? Guid.Empty.ToString() : (string)sdr["Expedition_State"], 
+                                        (bool)sdr["DSamsara"], 
+                                        ExpirationDate: sdr["Expiration_Date"] == DBNull.Value ? "" : Convert.ToDateTime(sdr["Expiration_Date"]).Date.ToString()
+                                    ),
                                     (string)sdr["ID_City"],
                                     (string)sdr["ID_State"],
                                     (string)sdr["ID_Broker"],
@@ -170,12 +275,15 @@ namespace ResponseEmergencySystem.Services
 
         public static Response AddIncident(
             string ID_Driver,
+            string driverName,
             string ID_State,
             string ID_City,
             string ID_Broker,
             string ID_Truck,
-            string ID_Trailer,
             string folio,
+            string TruckNumber,
+            string trailerNumber,
+            string trailerCommodity,
             DateTime incidentDate,
             bool policeReport,
             string citationReport,
@@ -191,7 +299,8 @@ namespace ResponseEmergencySystem.Services
             bool trailerCanMove,
             bool trailerNeedCrane,
             string ID_User,
-            string comments
+            string comments,
+            bool dSamsara
         )
         {
             opSuccess = false;
@@ -212,11 +321,14 @@ namespace ResponseEmergencySystem.Services
 
                     cmd.Parameters.AddWithValue("@ID_Incident", Guid.Empty);
                     cmd.Parameters.AddWithValue("@ID_Driver", ID_Driver);
+                    cmd.Parameters.AddWithValue("@DriverName", driverName);
                     cmd.Parameters.AddWithValue("@ID_State", ID_State);
                     cmd.Parameters.AddWithValue("@ID_City", ID_City);
                     cmd.Parameters.AddWithValue("@ID_Broker", ID_Broker);
-                    cmd.Parameters.AddWithValue("@ID_Truck", ID_Truck);
-                    cmd.Parameters.AddWithValue("@ID_Trailer", ID_Trailer);
+                    cmd.Parameters.AddWithValue("@ID_Truck", "");
+                    cmd.Parameters.AddWithValue("@TruckNumber", TruckNumber);
+                    cmd.Parameters.AddWithValue("@TrailerNumber", trailerNumber);
+                    cmd.Parameters.AddWithValue("@TrailerCommodity", trailerCommodity);
                     cmd.Parameters.AddWithValue("@ID_StatusDetail", "");
                     cmd.Parameters.AddWithValue("@Folio", folio);
                     cmd.Parameters.AddWithValue("@IncidentDate", incidentDate);
@@ -236,6 +348,7 @@ namespace ResponseEmergencySystem.Services
                     cmd.Parameters.AddWithValue("@TrailerNeedCrane", trailerNeedCrane);
                     cmd.Parameters.AddWithValue("@ID_User", ID_User);
                     cmd.Parameters.AddWithValue("@Comments", comments);
+                    cmd.Parameters.AddWithValue("@DSamsara", dSamsara);
 
                     cmd.Connection.Open();
                     using (SqlDataReader sdr = cmd.ExecuteReader())
@@ -270,11 +383,14 @@ namespace ResponseEmergencySystem.Services
         public static Response UpdateIncident(
             string ID_Incident,
             string ID_Driver,
+            string driverName,
             string ID_State,
             string ID_City,
             string ID_Broker,
             string ID_Truck,
-            string ID_Trailer,
+            string TruckNumber,
+            string trailerNumber,
+            string trailerCommodity,
             DateTime incidentDate,
             bool policeReport,
             string citationReport,
@@ -290,7 +406,8 @@ namespace ResponseEmergencySystem.Services
             bool trailerCanMove,
             bool trailerNeedCrane,
             string ID_User,
-            string comments
+            string comments,
+            bool dSamsara
         )
         {
             opSuccess = false;
@@ -311,11 +428,14 @@ namespace ResponseEmergencySystem.Services
 
                     cmd.Parameters.AddWithValue("@ID_Incident", Guid.Parse(ID_Incident));
                     cmd.Parameters.AddWithValue("@ID_Driver", ID_Driver);
+                    cmd.Parameters.AddWithValue("@DriverName", driverName);
                     cmd.Parameters.AddWithValue("@ID_State", ID_State);
                     cmd.Parameters.AddWithValue("@ID_City", ID_City);
                     cmd.Parameters.AddWithValue("@ID_Broker", ID_Broker);
                     cmd.Parameters.AddWithValue("@ID_Truck", ID_Truck);
-                    cmd.Parameters.AddWithValue("@ID_Trailer", ID_Trailer);
+                    cmd.Parameters.AddWithValue("@TruckNumber", TruckNumber);
+                    cmd.Parameters.AddWithValue("@TrailerNumber", trailerNumber);
+                    cmd.Parameters.AddWithValue("@TrailerCommodity", trailerCommodity);
                     cmd.Parameters.AddWithValue("@ID_StatusDetail", "");
                     cmd.Parameters.AddWithValue("@Folio", "");
                     cmd.Parameters.AddWithValue("@IncidentDate", incidentDate);
@@ -335,6 +455,7 @@ namespace ResponseEmergencySystem.Services
                     cmd.Parameters.AddWithValue("@TrailerNeedCrane", trailerNeedCrane);
                     cmd.Parameters.AddWithValue("@ID_User", ID_User);
                     cmd.Parameters.AddWithValue("@Comments", comments);
+                    cmd.Parameters.AddWithValue("@DSamsara", dSamsara);
 
                     cmd.Connection.Open();
                     using (SqlDataReader sdr = cmd.ExecuteReader())

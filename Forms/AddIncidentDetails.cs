@@ -158,7 +158,7 @@ namespace ResponseEmergencySystem.Forms
 
         public void FindTruckSamsara_Click(object sender, EventArgs e)
         {
-            if(Utils.GetEdtValue(edt_TruckNumber) == "" || lbl_TruckExists.Visible)
+            if(Utils.GetEdtValue(edt_TruckNumber2) == "" || lbl_TruckExists.Visible)
             {
                 gMapControl1.Position = new GMap.NET.PointLatLng(36.05948, -102.51325);
                 Utils.ShowMessage("There is no truck to find, Please check\n the information again", "Samsara Error", type: "Error");
@@ -245,8 +245,8 @@ namespace ResponseEmergencySystem.Forms
 
         public string TruckNumber
         {
-            get { return Utils.GetEdtValue(edt_TruckNumber); }
-            set { edt_TruckNumber.EditValue = value; }
+            get { return lue_Trucks.Text; }
+            set { edt_TruckNumber2.EditValue = value; }
         }
 
         public bool TruckDamages
@@ -446,6 +446,11 @@ namespace ResponseEmergencySystem.Forms
         public object DriversDataSource
         {
             set { lue_Drivers.Properties.DataSource = value; }
+        }
+
+        public object TrucksDataSource
+        {
+            set { lue_Trucks.Properties.DataSource = value; }
         }
 
         public bool PnlDriverInvolvedVisibility
@@ -719,7 +724,7 @@ namespace ResponseEmergencySystem.Forms
             }
  
             gc_Documents.DataSource = _docs[gv_DocumentCaptures.FocusedRowHandle].documents;
-            gv_Documents.BestFitColumns();
+            //gv_Documents.BestFitColumns();
         }
 
         private void gv_Documents_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
@@ -739,7 +744,7 @@ namespace ResponseEmergencySystem.Forms
                     }
 
                     gc_Documents.DataSource = _docs[gv_DocumentCaptures.FocusedRowHandle].documents;
-                    gv_Documents.BestFitColumns();
+                    //gv_Documents.BestFitColumns();
                     splashScreenManager1.CloseWaitForm();
 
                 };
@@ -763,7 +768,7 @@ namespace ResponseEmergencySystem.Forms
         {
             _docs[gv_DocumentCaptures.FocusedRowHandle].documents.Add(new Models.Documents.Document("", 0));
             gc_Documents.DataSource = _docs[gv_DocumentCaptures.FocusedRowHandle].documents;
-            gv_Documents.BestFitColumns();
+            //gv_Documents.BestFitColumns();
         }
 
         private void edt_CheckForErrors_KeyPress(object sender, KeyPressEventArgs e)
@@ -780,6 +785,23 @@ namespace ResponseEmergencySystem.Forms
         {
             TextEdit edt = (TextEdit)sender;
             _controller.validate(edt.Name);
+        }
+
+        private void lue_Trucks_Properties_EditValueChanged(object sender, EventArgs e)
+        {
+            splashScreenManager1.ShowWaitForm();
+            var res = _controller.GetTruckSamsara();
+            gMapControl1.Position = new GMap.NET.PointLatLng(res[0], res[1]);
+
+            GMap.NET.WindowsForms.GMapOverlay markers = new GMap.NET.WindowsForms.GMapOverlay("markers");
+            GMap.NET.WindowsForms.GMapMarker marker = new GMap.NET.WindowsForms.Markers.GMarkerGoogle(
+                                                            new GMap.NET.PointLatLng(res[0], res[1]),
+            GMap.NET.WindowsForms.Markers.GMarkerGoogleType.red_dot);
+            gMapControl1.Overlays.Clear();
+            markers.Markers.Add(marker);
+            gMapControl1.Overlays.Add(markers);
+            //_controller.SetTruck("");
+            splashScreenManager1.CloseWaitForm();
         }
     }
 

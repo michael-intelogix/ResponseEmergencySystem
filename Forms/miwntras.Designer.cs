@@ -51,6 +51,7 @@ namespace ResponseEmergencySystem.Forms
             this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.lbl_DriversCount = new DevExpress.XtraEditors.LabelControl();
             this.lbl_SamsaraCount = new DevExpress.XtraEditors.LabelControl();
@@ -100,12 +101,14 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.pdfViewer1 = new DevExpress.XtraPdfViewer.PdfViewer();
             this.pictureEdit2 = new DevExpress.XtraEditors.PictureEdit();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
@@ -310,22 +313,34 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl1.Appearance.BorderColor = System.Drawing.Color.Red;
             this.panelControl1.Appearance.Options.UseBackColor = true;
             this.panelControl1.Appearance.Options.UseBorderColor = true;
-            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.panelControl1.Controls.Add(this.textEdit2);
             this.panelControl1.Controls.Add(this.pictureEdit1);
-            this.panelControl1.Location = new System.Drawing.Point(390, 46);
+            this.panelControl1.Location = new System.Drawing.Point(31, 3);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(245, 122);
+            this.panelControl1.Size = new System.Drawing.Size(237, 172);
             this.panelControl1.TabIndex = 1;
             this.panelControl1.Visible = false;
+            this.panelControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControl1_Paint);
+            // 
+            // textEdit2
+            // 
+            this.textEdit2.EditValue = "Caption of the police report";
+            this.textEdit2.Location = new System.Drawing.Point(5, 139);
+            this.textEdit2.Name = "textEdit2";
+            this.textEdit2.Properties.Appearance.Options.UseTextOptions = true;
+            this.textEdit2.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.textEdit2.Size = new System.Drawing.Size(199, 24);
+            this.textEdit2.TabIndex = 1;
             // 
             // pictureEdit1
             // 
             this.pictureEdit1.EditValue = global::ResponseEmergencySystem.Properties.Resources.placeholder;
-            this.pictureEdit1.Location = new System.Drawing.Point(5, 5);
+            this.pictureEdit1.Location = new System.Drawing.Point(30, 5);
             this.pictureEdit1.Name = "pictureEdit1";
             this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-            this.pictureEdit1.Size = new System.Drawing.Size(235, 112);
+            this.pictureEdit1.Size = new System.Drawing.Size(174, 128);
             this.pictureEdit1.TabIndex = 0;
             // 
             // lbl_DriversCount
@@ -744,6 +759,7 @@ namespace ResponseEmergencySystem.Forms
             this.pdfViewer1.Name = "pdfViewer1";
             this.pdfViewer1.Size = new System.Drawing.Size(150, 213);
             this.pdfViewer1.TabIndex = 21;
+            this.pdfViewer1.Visible = false;
             // 
             // pictureEdit2
             // 
@@ -752,12 +768,25 @@ namespace ResponseEmergencySystem.Forms
             this.pictureEdit2.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.pictureEdit2.Size = new System.Drawing.Size(215, 174);
             this.pictureEdit2.TabIndex = 22;
+            this.pictureEdit2.Visible = false;
+            // 
+            // simpleButton2
+            // 
+            this.simpleButton2.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.actions_edit;
+            this.simpleButton2.ImageOptions.SvgImageSize = new System.Drawing.Size(15, 15);
+            this.simpleButton2.Location = new System.Drawing.Point(241, 143);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(22, 23);
+            this.simpleButton2.TabIndex = 23;
+            this.simpleButton2.Text = "simpleButton2";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
             // miwntras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1344, 837);
+            this.Controls.Add(this.simpleButton2);
             this.Controls.Add(this.pictureEdit2);
             this.Controls.Add(this.pdfViewer1);
             this.Controls.Add(this.simpleButton1);
@@ -790,6 +819,7 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
@@ -882,5 +912,7 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn37;
         private DevExpress.XtraPdfViewer.PdfViewer pdfViewer1;
         private DevExpress.XtraEditors.PictureEdit pictureEdit2;
+        private DevExpress.XtraEditors.TextEdit textEdit2;
+        private DevExpress.XtraEditors.SimpleButton simpleButton2;
     }
 }

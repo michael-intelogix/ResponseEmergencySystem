@@ -241,7 +241,8 @@ namespace ResponseEmergencySystem.Controllers
 
             Incidents.EditIncidentController incidentCtrl = new Incidents.EditIncidentController(editIncidentView, GetID("incident"));
             incidentCtrl.LoadIncident();
-
+            incidentCtrl.LoadDrivers();
+            incidentCtrl.LoadTrucks();
             editIncidentView.Load += new System.EventHandler((object sender, EventArgs e) =>
             {
                 _view.CloseSpinner();
@@ -283,6 +284,7 @@ namespace ResponseEmergencySystem.Controllers
             Controllers.Incidents.AddIncidentController addIncidentCtrl = new Controllers.Incidents.AddIncidentController(addIncidentView);
             addIncidentCtrl.LoadStates();
             addIncidentCtrl.LoadDrivers();
+            addIncidentCtrl.LoadTrucks();
             addIncidentView.Load += new System.EventHandler((object sender, EventArgs e) =>
             {
                 _view.CloseSpinner();
@@ -396,6 +398,13 @@ namespace ResponseEmergencySystem.Controllers
                 ClearFilters();
                 _view.CloseSpinner();
             }
+        }
+
+        public void AddDocumentsToCapture()
+        {
+            //_docs[gv_DocumentCaptures.FocusedRowHandle].documents.Add(new Models.Documents.Document("", 0));
+            //gc_Documents.DataSource = _docs[gv_DocumentCaptures.FocusedRowHandle].documents;
+            //gv_Documents.BestFitColumns();
         }
     }
 

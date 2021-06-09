@@ -19,13 +19,29 @@ namespace ResponseEmergencySystem.Models
         public string State { get; }
         public DateTime? ExpirationDate { get; set; }
 
-        public Driver(Guid id, string license, string Expedition_State, string ExpirationDate = "")
+        //List Drivers
+        public Driver()
         {
-            ID_Driver = id;
+            ID_Driver = Guid.Empty;
+            ID_Samsara = "";
             Name = "";
             LastName1 = "";
             LastName2 = "";
             PhoneNumber = "";
+            ID_StateOfExpedition = "";
+            State = "";
+            License = "";
+        }
+
+        //Get Driver
+        public Driver(string id, string fullname, string phonenumber, string license, string Expedition_State, bool DSamsara, string ExpirationDate = "")
+        {
+            ID_Driver = !DSamsara ? Guid.Parse(id) : Guid.Empty;
+            ID_Samsara = DSamsara ? id : "";
+            Name = fullname;
+            LastName1 = "";
+            LastName2 = "";
+            PhoneNumber = phonenumber;
             ID_StateOfExpedition = Expedition_State;
             State = "";
             License = license;
@@ -33,12 +49,11 @@ namespace ResponseEmergencySystem.Models
                 this.ExpirationDate = Convert.ToDateTime(ExpirationDate);
         }
 
-        public Driver (Guid id, string name, string lastname1, string lastanme2, string phonenumber, string license, string Expedition_State, string state, string ExpirationDate = "")
+        public Driver (Guid id, string ID_Samsara, string fullName, string phonenumber, string license, string Expedition_State, string state, string ExpirationDate = "")
         {
             ID_Driver = id;
-            Name = name;
-            LastName1 = lastname1;
-            LastName2 = lastanme2;
+            this.ID_Samsara = ID_Samsara;
+            Name = fullName;
             PhoneNumber = phonenumber;
             ID_StateOfExpedition = Expedition_State;
             State = state;

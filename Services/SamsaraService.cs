@@ -126,9 +126,6 @@ namespace ResponseEmergencySystem.Services
                 Utils.ShowMessage(ex.Message, title: "System Error", type: "Error");
                 
             }
-
-
-            
         }
 
         private static void AddDriverToSamsaraTable(Driver driver)
@@ -179,5 +176,112 @@ namespace ResponseEmergencySystem.Services
                 //MessageBox.Show($"Driver couldn't be found due: {ex.Message}");
             }
 }
+
+
+        public static void UpdateSamsaraVehicles()
+        {
+            const string url = "https://api.samsara.com/fleet/vehicles";
+
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri(url);
+
+                    // Add an Accept header for JSON format.
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "samsara_api_XwURzQhn0F9rijd0vqXwDgWir2zLWc");
+
+                    // List data response.
+                    HttpResponseMessage response = client.GetAsync(url).Result;  // Blocking call! Program will wait here until a response is received or a timeout occurs.}
+
+                    var data = JArray.Parse(
+                        JObject.Parse(
+                            response.Content.ReadAsStringAsync().Result
+                        )["data"].ToString()
+                    );
+
+                    List<TruckTrailer> vehicles = data.Select(p => new TruckTrailer
+                    {
+                        Name = p["name"].ToString().Trim(),
+                        VinNumber = (string)p["vin"],
+                        SerialNumber = (string)p["serial"],
+                        Make = (string)p["make"],
+                        Model = (string)p["model"],
+                        Year = (string)p["year"],
+                        LicensePlate = (string)p["licensePlate"],
+                        ID_Samsara = (string)p["id"]
+                    }).ToList();
+
+                    foreach (var item in vehicles)
+                    {
+                        //if (item.LicenseState == "")
+                        //    Debug.WriteLine(item.LicenseState);
+                        AddTruckTrailerToSamsaraTable(item);
+                    }
+                    Debug.WriteLine("FINISHED");
+
+                    //Dispose once all HttpClient calls are complete.This is not necessary if the containing object will be disposed of; for example in this case the HttpClient instance will be disposed automatically when the application terminates so the following call is superfluous.
+                    client.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                Utils.ShowMessage(ex.Message, title: "System Error", type: "Error");
+
+            }
+        }
+
+        private static void AddTruckTrailerToSamsaraTable(TruckTrailer vehicle)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand
+                {
+                    Connection = constants.SIREMConnection,
+                    CommandText = $"Update_SamsaraTruckTrailer",
+                    CommandType = CommandType.StoredProcedure
+                })
+                {
+                    if (cmd.Connection.State == ConnectionState.Open)
+                    {
+                        cmd.Connection.Close();
+                    }
+                    cmd.Connection.Open();
+
+                    cmd.Parameters.AddWithValue("@ID_Samsara", vehicle.ID_Samsara);
+                    cmd.Parameters.AddWithValue("@Name", vehicle.Name == null ? "" : vehicle.Name);
+                    cmd.Parameters.AddWithValue("@Vin", vehicle.VinNumber == null ? "" : vehicle.VinNumber);
+                    cmd.Parameters.AddWithValue("@Serial", vehicle.SerialNumber == null ? "" : vehicle.SerialNumber);
+                    cmd.Parameters.AddWithValue("@Make", vehicle.Make == null ? "" : vehicle.Make);
+                    cmd.Parameters.AddWithValue("@Model", vehicle.Model == null ? "" : vehicle.Model);
+                    cmd.Parameters.AddWithValue("@Year", vehicle.Year == null ? "" : vehicle.Year);
+                    cmd.Parameters.AddWithValue("@LicensePlate", vehicle.LicensePlate == null ? "" : vehicle.LicensePlate);
+
+                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    {
+                        if (sdr == null)
+                        {
+                            throw new NullReferenceException("No Information Available.");
+                        }
+                        while (sdr.Read())
+                        {
+                            if ((int)sdr["Validacion"] == 0)
+                            {
+                                Debug.WriteLine(vehicle.Name);
+                                Debug.WriteLine((string)sdr["msg"]);
+                            }
+                        }
+                    }
+                    cmd.Connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                //MessageBox.Show($"Driver couldn't be found due: {ex.Message}");
+            }
+        }
     }
 }

@@ -40,9 +40,9 @@ namespace ResponseEmergencySystem.Forms
         {
             CreatePanel(4);
 
-            _DriversSamsara = GetDriversSamsara();
-            _Drivers = GetDrivers();
-            _states = GeneralService.list_States();
+            //_DriversSamsara = GetDriversSamsara();
+            //_Drivers = GetDrivers();
+            //_states = GeneralService.list_States();
 
             //gridControl4.DataSource = _Drivers;
 
@@ -76,61 +76,61 @@ namespace ResponseEmergencySystem.Forms
             //Process.Start(path4);
             //Process.Start(path5);
 
-            foreach (var driver in _Drivers)
-            {
-                var obj = new DriverData();
+            //foreach (var driver in _Drivers)
+            //{
+            //    var obj = new DriverData();
 
-                var result = _DriversSamsara.Where(ds => ds.ID == driver.ID_Samsara.ToString()).ToList<Models.Samsara.Driver>();
+            //    var result = _DriversSamsara.Where(ds => ds.ID == driver.ID_Samsara.ToString()).ToList<Models.Samsara.Driver>();
 
-                obj.ID = driver.ID_Driver.ToString();
-                obj.ID_Samsara = driver.ID_Samsara;
-                obj.DriverName = driver.Name;
-                obj.PatSurname = driver.LastName1;
-                obj.MatSurname = driver.LastName2;
+            //    obj.ID = driver.ID_Driver.ToString();
+            //    obj.ID_Samsara = driver.ID_Samsara;
+            //    obj.DriverName = driver.Name;
+            //    obj.PatSurname = driver.LastName1;
+            //    obj.MatSurname = driver.LastName2;
 
-                if (result.Count > 0)
-                {
-                    for (int i = 0; i < result.Count; i++)
-                    {
-                        string fullname = string.Join(" ", new string[] { driver.Name.Trim(), driver.LastName1.Trim(), driver.LastName2.Trim() });
+            //    if (result.Count > 0)
+            //    {
+            //        for (int i = 0; i < result.Count; i++)
+            //        {
+            //            string fullname = string.Join(" ", new string[] { driver.Name.Trim(), driver.LastName1.Trim(), driver.LastName2.Trim() });
 
-                        obj.Name2 = result[i].Name;
-                        obj.License = result[i].LicenseNumber;
-                        obj.PhoneNumber = result[i].Phone;
-                        obj.LicenseState = result[i].LicenseState;
-                        obj.Repeated = (i > 0);
-                        obj.NotFound = false;
-                        obj.FullNameMatched = result[i].Name == fullname.Trim();
+            //            obj.Name2 = result[i].Name;
+            //            obj.License = result[i].LicenseNumber;
+            //            obj.PhoneNumber = result[i].Phone;
+            //            obj.LicenseState = result[i].LicenseState;
+            //            obj.Repeated = (i > 0);
+            //            obj.NotFound = false;
+            //            obj.FullNameMatched = result[i].Name == fullname.Trim();
 
-                        var result2 = _states.Where(s => s.Name == result[i].LicenseState).ToList<State>();
+            //            var result2 = _states.Where(s => s.Name == result[i].LicenseState).ToList<State>();
 
-                        if (result2.Count > 0 && result2.Count < 2)
-                            obj.LicenseState = result2[0].ID_State;
+            //            if (result2.Count > 0 && result2.Count < 2)
+            //                obj.LicenseState = result2[0].ID_State;
 
-                        _DriverData.Add(obj);
-                    }
-                }
-                else
-                {
-                    obj.Name2 = "";
-                    obj.License = "";
-                    obj.PhoneNumber = "";
-                    obj.LicenseState = "";
-                    obj.Repeated = false;
-                    obj.NotFound = true;
+            //            _DriverData.Add(obj);
+            //        }
+            //    }
+            //    else
+            //    {
+            //        obj.Name2 = "";
+            //        obj.License = "";
+            //        obj.PhoneNumber = "";
+            //        obj.LicenseState = "";
+            //        obj.Repeated = false;
+            //        obj.NotFound = true;
 
-                    _DriverData.Add(obj);
-                }
+            //        _DriverData.Add(obj);
+            //    }
 
                 
-            }
+            //}
 
-            gridControl3.DataSource = _DriverData;
+            //gridControl3.DataSource = _DriverData;
 
-            string path = $"{Settings.Default.AppFolder}\\Driver Data.xlsx";
-            gridControl3.ExportToXlsx(path);
+            //string path = $"{Settings.Default.AppFolder}\\Driver Data.xlsx";
+            //gridControl3.ExportToXlsx(path);
 
-            Process.Start(path);
+            //Process.Start(path);
 
             //lbl_DriversCount.Text = $"Drivers Count: {_Drivers.Count}";
             //lbl_SamsaraCount.Text = $"Drivers Samsara Count: {_DriversSamsara.Count}";
@@ -260,17 +260,30 @@ namespace ResponseEmergencySystem.Forms
                 var x = (i * 245) + ((i + 1) * space);
 
                 PanelControl pnl = new PanelControl();
-                pnl.Size = new Size(245, 122);
-                pnl.Location = new Point(x , 46);
+                pnl.Size = new Size(210, 168);
+                pnl.Location = new Point(x , 3);
+                pnl.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
 
                 PictureEdit pic = new PictureEdit();
-
-                pic.Dock = DockStyle.Fill;
+                pic.Location = new Point(16,5);
+                pic.Size = new Size(174, 128);
                 pic.Image = Resources.placeholder;
                 pic.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
 
-                pnl.Controls.Add(pic);
+                TextEdit edt = new TextEdit();
+                edt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                edt.Location = new Point(5, 139);
+                edt.Size = new Size(199, 24);
+                edt.Text = "Caption of the police report";
 
+                LabelControl lbl = new LabelControl();
+                lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                edt.Location = new Point(5, 139);
+                edt.Size = new Size(199, 24);
+                edt.Text = "Caption of the police report";
+
+                pnl.Controls.Add(pic);
+                pnl.Controls.Add(lbl);
 
                 this.Controls.Add(pnl);
                
@@ -278,6 +291,16 @@ namespace ResponseEmergencySystem.Forms
             }
 
             
+
+        }
+
+        private void panelControl1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
 
         }
     }

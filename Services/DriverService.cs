@@ -50,14 +50,13 @@ namespace ResponseEmergencySystem.Services
                         {
                             result.Add(
                                 new Driver(
-                                    Guid.Parse(sdr["pk_id"].ToString()),
-                                    (string)sdr["driverName"],
-                                    (string)sdr["pat_surname"],
-                                    (string)sdr["mat_surname"],
-                                    (string)sdr["phone_number"],
-                                    sdr["License"] == DBNull.Value ? "" : (string)sdr["License"],
-                                    sdr["ID_State"] == DBNull.Value ? "" : (string)sdr["ID_State"],
-                                    sdr["state_name"] == DBNull.Value ? "" : (string)sdr["state_name"],
+                                    sdr["pk_id"] == DBNull.Value ? Guid.Empty : Guid.Parse(sdr["pk_id"].ToString()),
+                                    (string)sdr["ID_Samsara"],
+                                    (string)sdr["SamsaraDriverName"],
+                                    sdr["SamsaraPhoneNumber"] == DBNull.Value ? "" : (string)sdr["SamsaraPhoneNumber"],
+                                    sdr["SamsaraLicenseNumber"] == DBNull.Value ? "" : (string)sdr["SamsaraLicenseNumber"],
+                                    sdr["SamsaraState"] == DBNull.Value ? "" : (string)sdr["SamsaraState"],
+                                    sdr["SamsaraLicenseState"] == DBNull.Value ? "" : (string)sdr["SamsaraLicenseState"],
                                     sdr["Expiration_Date"] == DBNull.Value ? "" : Convert.ToDateTime(sdr["Expiration_Date"]).Date.ToString()
                                 //DateTime.Now.Date.ToString()
                                 //Convert.ToDateTime(sdr["Expiration_Date"]).Date.ToString()

@@ -35,7 +35,7 @@ namespace ResponseEmergencySystem.Services
                         cmd.Connection.Close();
                     }
 
-                    cmd.Parameters.AddWithValue("@ID_Country", Guid.Parse("99F9B034-75BE-4615-88C6-8D64BC3549DC"));
+                    cmd.Parameters.AddWithValue("@ID_Country", Guid.Empty);
                     cmd.Connection.Open();
                     using (SqlDataReader sdr = cmd.ExecuteReader())
                     {
@@ -43,6 +43,15 @@ namespace ResponseEmergencySystem.Services
                         {
                             throw new NullReferenceException("No Information Available.");
                         }
+
+                        result.Add(
+                            new State(
+                                "00000000-0000-0000-0000-000000000000",
+                                "00000000-0000-0000-0000-000000000000",
+                                "DNE"
+                            )
+                        );
+
                         while (sdr.Read())
                         {
 
@@ -139,8 +148,6 @@ namespace ResponseEmergencySystem.Services
                     }
                     cmd.Connection.Open();
 
-                    cmd.Parameters.AddWithValue("@ID_Capture", "");
-
                     using (SqlDataReader sdr = cmd.ExecuteReader())
                     {
                         if (sdr == null)
@@ -151,8 +158,15 @@ namespace ResponseEmergencySystem.Services
                         {
                             result.Add(
                                 new Truck(
-                                    sdr["pk_id"].ToString(),
-                                    (string)sdr["truck"]
+                                    sdr["pk_id"] == DBNull.Value ? Guid.Empty.ToString() : (string)sdr["pk_id"],
+                                    (string)sdr["ID_Samsara"],
+                                    (string)sdr["Name"],
+                                    (string)sdr["VinNumber"],
+                                    (string)sdr["SerialNumber"],
+                                    (string)sdr["Make"],
+                                    (string)sdr["Model"],
+                                    (string)sdr["Year"],
+                                    (string)sdr["LicensePlate"]
                                 )
                             );
                         }

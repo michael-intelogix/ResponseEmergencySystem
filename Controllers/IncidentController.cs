@@ -71,7 +71,7 @@ namespace ResponseEmergencySystem.Controllers
 
         public void LoadIncident()
         {
-            _selectedIncident = IncidentService.list_Incidents("", "", "", "", "", incidentId: ID_Incident)[0];
+            _selectedIncident = IncidentService.GetIncident(ID_Incident)[0];
             _PersonsInvolved = IncidentService.list_PersonsInvolved(ID_Incident);
             _view.MailDirectoryCategoriesDataSource = MailDirectoryService.GetCategories();
 

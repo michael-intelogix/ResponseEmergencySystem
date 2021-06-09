@@ -20,5 +20,6 @@ namespace ResponseEmergencySystem.Models
             Commodity = commodity;
             CargoSpill = spill;
         }
+
     }
 }

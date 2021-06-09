@@ -29,6 +29,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         private List<PersonsInvolved> _PersonsInvolved = new List<PersonsInvolved>();
         private List<State> _States = new List<State>();
         private List<Models.Samsara.Driver> _Drivers = new List<Models.Samsara.Driver>();
+        private List<Truck> _trucks = new List<Truck>(); 
         private List<Driver> _DriversLocal = new List<Driver>();
 
         private Int32 _selectedPerson = 0;
@@ -50,7 +51,13 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             _Drivers = GetDriversSamsara();
             _DriversLocal = DriverService.GetDriver("");
             _States = GeneralService.list_States();
+            _trucks = GeneralService.list_Trucks();
             view.SetController(this);
+        }
+
+        public void LoadTrucks()
+        {
+            _view.TrucksDataSource = _trucks;
         }
 
         public void LoadDrivers()
@@ -251,7 +258,8 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
         public void SetTruck(string ID_Truck)
         {
-            this.ID_Truck = ID_Truck;
+            var truck = _trucks.Where(t => t.truckNumber == _view.TruckNumber).First();
+            this.ID_Truck = truck.ID_Truck.ToString();
         }
 
         public void SetTrailer(string ID_Trailer)
@@ -284,12 +292,15 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
             var t = new Task<Response>(() => IncidentService.AddIncident(
                 ID_Driver.ToUpper(),
+                _view.FullName,
                 _view.ID_State,
                 _view.ID_City,
                 ID_Broker.ToUpper(),
                 ID_Truck,
-                ID_Trailer,
                 folio,
+                _view.TruckNumber,
+                _view.TrailerNumber,
+                _view.CargoType,
                 _view.IncidentDate,
                 _view.PoliceReport,
                 _view.CitationReportNumber,
@@ -305,7 +316,8 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                 _view.TrailerCanMove,
                 _view.TrailerNeedCrane,
                 constants.userIDTest.ToString(),
-                _view.Comments
+                _view.Comments,
+                ID_Driver == Guid.Empty.ToString()
             ));
 
             t.Start();

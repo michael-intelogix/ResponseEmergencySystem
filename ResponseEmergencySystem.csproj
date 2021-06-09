@@ -544,6 +544,12 @@
     <Compile Include="Forms\Modals\Testing.Designer.cs">
       <DependentUpon>Testing.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Modals\DocumentModal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Modals\DocumentModal.Designer.cs">
+      <DependentUpon>DocumentModal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ViewIncidentDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -567,6 +573,7 @@
     <Compile Include="Models\Response.cs" />
     <Compile Include="Models\Samsara\Driver.cs" />
     <Compile Include="Models\Samsara\Trailer.cs" />
+    <Compile Include="Models\Samsara\TruckTrailer.cs" />
     <Compile Include="Models\State.cs" />
     <Compile Include="Models\Samsara\Vehicle.cs" />
     <Compile Include="Models\Testing\DriverData.cs" />
@@ -706,9 +713,14 @@
     <None Include="Resources\bofileattachment_32x32.png" />
     <None Include="Resources\bofileattachment_32x321.png" />
     <None Include="Resources\bofileattachment_16x16.png" />
+    <None Include="Resources\actions_edit.svg" />
+    <None Include="Resources\actions_edit1.svg" />
+    <None Include="Resources\delete.svg" />
+    <None Include="Resources\add_32x32.png" />
     <Content Include="Resources\pdf.png" />
     <None Include="Resources\pdf1.png" />
     <None Include="Resources\índice1.jpg" />
+    <None Include="Resources\travel_car.svg" />
     <Content Include="x64\SQLite.Interop.dll" />
     <Content Include="x86\SQLite.Interop.dll" />
     <EmbeddedResource Include="Forms\EditIncidentDetails.resx">
@@ -770,6 +782,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Modals\DirectoryError.resx">
       <DependentUpon>DirectoryError.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Modals\DocumentModal.resx">
+      <DependentUpon>DocumentModal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Modals\EditComments.resx">
       <DependentUpon>EditComments.cs</DependentUpon>

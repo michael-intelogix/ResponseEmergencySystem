@@ -44,12 +44,14 @@ namespace ResponseEmergencySystem.Code
                     CommandType = CommandType.StoredProcedure
                 })
                 {
-                    cmd.Parameters.AddWithValue("@ID_Country", Guid.Parse("99F9B034-75BE-4615-88C6-8D64BC3549DC"));
+                    cmd.Parameters.AddWithValue("@ID_Country", Guid.Empty);
                     result = new DataTable();
                     using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
                     {
                         sda.Fill(result);
                     }
+
+                    result.Rows.Add(new Object[] { "00000000-0000-0000-0000-000000000000", "00000000-0000-0000-0000-000000000000", "DNE" });
                     opSuccess = true;
                 }
             }
