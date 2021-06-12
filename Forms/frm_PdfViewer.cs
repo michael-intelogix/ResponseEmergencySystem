@@ -16,10 +16,12 @@ namespace ResponseEmergencySystem.Forms
     public partial class frm_PdfViewer : DevExpress.XtraEditors.XtraForm
     {
         string _PdfFireabseUrl;
+        bool firebase = true;
 
-        public frm_PdfViewer(string url)
+        public frm_PdfViewer(string url, bool firebase = true)
         {
             InitializeComponent();
+            this.firebase = firebase;
             _PdfFireabseUrl = url;
         }
 
@@ -30,11 +32,19 @@ namespace ResponseEmergencySystem.Forms
 
         private void frm_PdfViewer_Load(object sender, EventArgs e)
         {
-            MemoryStream stream;
-            WebClient wc = new WebClient();
-            byte[] data = wc.DownloadData(_PdfFireabseUrl);
-            stream = new MemoryStream(data);
-            pdfViewer1.LoadDocument(stream);
+            if(this.firebase)
+            {
+                MemoryStream stream;
+                WebClient wc = new WebClient();
+                byte[] data = wc.DownloadData(_PdfFireabseUrl);
+                stream = new MemoryStream(data);
+                pdfViewer1.LoadDocument(stream);
+            }
+            else
+            {
+                pdfViewer1.LoadDocument(_PdfFireabseUrl);
+            }
+            
         }
     }
 }

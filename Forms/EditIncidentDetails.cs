@@ -206,7 +206,7 @@ namespace ResponseEmergencySystem.Forms
                     string localUrl = _docs[gv_DocumentCaptures.FocusedRowHandle].documents[btnView.btnIdx].Path;
                     string status = _docs[gv_DocumentCaptures.FocusedRowHandle].documents[btnView.btnIdx].Status;
                     string type = _docs[gv_DocumentCaptures.FocusedRowHandle].documents[btnView.btnIdx].Type;
-                    _controller.EditImageView(status == "created" ? localUrl : firebaseUrl, type);
+                    _controller.EditImageView(status == "created" ? localUrl : firebaseUrl, type, status != "created");
                 };
 
                 MyButton btnEdit = new MyButton();

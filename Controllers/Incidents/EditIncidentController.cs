@@ -843,11 +843,11 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             _view.Documents = documentCaptures;
         }
 
-        public string EditImageView(string imgPath, string fileType)
+        public string EditImageView(string imgPath, string fileType, bool firebase = true)
         {
             if (fileType == "img")
             {
-                frm_Image imageView = new frm_Image("", "", imgPath, false);
+                frm_Image imageView = new frm_Image("", "", imgPath, firebase);
                 ImageController appConfigCtrl = new ImageController(imageView);
                 appConfigCtrl.DisableImageLoad();
                 if (imageView.ShowDialog() == DialogResult.OK)
@@ -859,7 +859,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
             if (fileType == "pdf")
             {
-                frm_PdfViewer pdfViewer = new frm_PdfViewer(imgPath);
+                frm_PdfViewer pdfViewer = new frm_PdfViewer(imgPath, firebase);
                 pdfViewer.ShowDialog();
             }
 
