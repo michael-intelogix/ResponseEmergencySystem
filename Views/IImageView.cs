@@ -14,6 +14,8 @@ namespace ResponseEmergencySystem.Views
         void SetController(ImageController controller);
         void CloseForm();
 
+        void DisableLoad();
+
         ProgressBarControl PbImage { get; }
         bool PnlUploadingVisibility { set; }
         bool BtnSaveEnable { set; }

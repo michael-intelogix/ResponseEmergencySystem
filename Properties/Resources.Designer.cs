@@ -101,6 +101,16 @@ namespace ResponseEmergencySystem.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage actions_zoom {
+            get {
+                object obj = ResourceManager.GetObject("actions_zoom", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap add_16x16 {
@@ -1083,6 +1093,16 @@ namespace ResponseEmergencySystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
         /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage security_visibility {
+            get {
+                object obj = ResourceManager.GetObject("security_visibility", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
         internal static DevExpress.Utils.Svg.SvgImage sendWhite {
             get {
                 object obj = ResourceManager.GetObject("sendWhite", resourceCulture);
@@ -1176,6 +1196,16 @@ namespace ResponseEmergencySystem.Properties {
         internal static DevExpress.Utils.Svg.SvgImage travel_car {
             get {
                 object obj = ResourceManager.GetObject("travel_car", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage travel_map {
+            get {
+                object obj = ResourceManager.GetObject("travel_map", resourceCulture);
                 return ((DevExpress.Utils.Svg.SvgImage)(obj));
             }
         }

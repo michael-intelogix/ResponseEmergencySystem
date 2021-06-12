@@ -29,6 +29,7 @@ namespace ResponseEmergencySystem.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pdfViewer1 = new DevExpress.XtraPdfViewer.PdfViewer();
             this.btn_Cancel = new DevExpress.XtraEditors.SimpleButton();
             this.SuspendLayout();
@@ -42,6 +43,7 @@ namespace ResponseEmergencySystem.Forms
             this.pdfViewer1.Name = "pdfViewer1";
             this.pdfViewer1.Size = new System.Drawing.Size(734, 717);
             this.pdfViewer1.TabIndex = 0;
+            this.pdfViewer1.ZoomMode = DevExpress.XtraPdfViewer.PdfZoomMode.FitToWidth;
             // 
             // btn_Cancel
             // 
@@ -74,7 +76,6 @@ namespace ResponseEmergencySystem.Forms
             this.Controls.Add(this.pdfViewer1);
             this.Name = "frm_PdfViewer";
             this.Text = "frm_PdfViewer";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frm_PdfViewer_Load);
             this.ResumeLayout(false);
 

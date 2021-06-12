@@ -165,7 +165,10 @@ namespace ResponseEmergencySystem.Services
                                     new Truck(
                                         Guid.Parse((string)sdr["ID_Truck"]), 
                                         (string)sdr["ID_Samsara"],
-                                        (string)sdr["TruckNumber"]),
+                                        (string)sdr["TruckNumber"],
+                                        (string)sdr["VinNumber"],
+                                        (string)sdr["Broker"],
+                                        (string)sdr["Address"]),
                                     (bool)sdr["TruckDamage"],
                                     (bool)sdr["TruckCanMove"],
                                     (bool)sdr["TruckNeedCrane"],
@@ -173,7 +176,9 @@ namespace ResponseEmergencySystem.Services
                                         sdr["ID_Trailer"] == DBNull.Value ? Guid.Empty : Guid.Parse((string)sdr["ID_Trailer"]),
                                         sdr["TrailerNumber"] == DBNull.Value ? "" : (string)sdr["TrailerNumber"],
                                         sdr["TrailerCommodity"] == DBNull.Value ? "" : (string)sdr["TrailerCommodity"],
-                                        (bool)sdr["CargoSpill"]),
+                                        (bool)sdr["CargoSpill"],
+                                        (string)sdr["TrailerBrokerName"],
+                                        (string)sdr["TrailerBrokerAddress"]),
                                     (bool)sdr["TrailerDamage"],
                                     (bool)sdr["TrailerCanMove"],
                                     (bool)sdr["TrailerNeedCrane"],
@@ -189,7 +194,8 @@ namespace ResponseEmergencySystem.Services
                                     (string)sdr["ID_City"],
                                     (string)sdr["ID_State"],
                                     (string)sdr["ID_Broker"],
-                                    new Broker((string)sdr["ID_Broker"], (string)sdr["Broker"]),
+                                    new Broker((string)sdr["ID_Broker"], (string)sdr["Broker"], (string)sdr["Address"]),
+                                    new Broker((string)sdr["TrailerBroker"], (string)sdr["TrailerBrokerName"], (string)sdr["TrailerBrokerAddress"]),
                                     (string)sdr["ID_StatusDetail"],
                                     (string)sdr["Description"],
                                     (string)sdr["Name"],
@@ -258,6 +264,8 @@ namespace ResponseEmergencySystem.Services
                                     (string)sdr["DriverLicense"],
                                     (bool)sdr["PrivatePerson"],
                                     (bool)sdr["Injured"],
+                                    (string)sdr["Hospital"],
+                                    (string)sdr["Comments"],
                                     Convert.ToString(sdr["ID_Incident"])
                                 )
                             );
@@ -387,6 +395,7 @@ namespace ResponseEmergencySystem.Services
             string ID_State,
             string ID_City,
             string ID_Broker,
+            string ID_Broker2,
             string ID_Truck,
             string TruckNumber,
             string trailerNumber,
@@ -432,6 +441,7 @@ namespace ResponseEmergencySystem.Services
                     cmd.Parameters.AddWithValue("@ID_State", ID_State);
                     cmd.Parameters.AddWithValue("@ID_City", ID_City);
                     cmd.Parameters.AddWithValue("@ID_Broker", ID_Broker);
+                    cmd.Parameters.AddWithValue("@ID_Broker2", ID_Broker2);
                     cmd.Parameters.AddWithValue("@ID_Truck", ID_Truck);
                     cmd.Parameters.AddWithValue("@TruckNumber", TruckNumber);
                     cmd.Parameters.AddWithValue("@TrailerNumber", trailerNumber);
@@ -519,6 +529,8 @@ namespace ResponseEmergencySystem.Services
                     cmd.Parameters.AddWithValue("@driverLicense", involved.DriverLicense);
                     cmd.Parameters.AddWithValue("@privatepPerson", involved.PrivatePerson);
                     cmd.Parameters.AddWithValue("@injured", involved.Injured);
+                    cmd.Parameters.AddWithValue("@Hospital", involved.Hospital);
+                    cmd.Parameters.AddWithValue("@Comments", involved.Comments);
                     cmd.Parameters.AddWithValue("@ID_Incident", involved.ID_Incident);
 
                     cmd.Connection.Open();

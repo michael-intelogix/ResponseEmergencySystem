@@ -43,6 +43,13 @@ namespace ResponseEmergencySystem.Models
             ID = idx;
         }
 
+        public DocumentCapture(string id, string idCaptureType, string idStatusDetail)
+        {
+            this.ID_Document = id;
+            ID_CaptureType = idCaptureType;
+            ID_StatusDetail = idStatusDetail;
+        }
+
         private Image GetImage()
         {
             Image newImg;

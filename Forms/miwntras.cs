@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using Newtonsoft.Json.Linq;
+using ResponseEmergencySystem.Code;
 using ResponseEmergencySystem.Models;
 using ResponseEmergencySystem.Models.Testing;
 using ResponseEmergencySystem.Properties;
@@ -17,6 +18,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ResponseEmergencySystem.Reports;
 
 namespace ResponseEmergencySystem.Forms
 {
@@ -246,7 +248,26 @@ namespace ResponseEmergencySystem.Forms
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            int x = Convert.ToInt32(textEdit1.EditValue); 
+            //int x = Convert.ToInt32(textEdit1.EditValue); 
+
+            //try
+            //{
+            //    report1.ExportToPdf(ReportPath + $"\\{Folio}.pdf");
+            //    //MessageBox.Show("Report " + $"{Folio}.pdf");
+            //    Utils.ShowMessage("Report " + $"{Folio}.pdf");
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //    return;
+            //}
+
+            //Reports.XtraReport2 report = new Reports.XtraReport2();
+            //DevExpress.XtraPrinting.PdfExportOptions MyPdfOptions = new DevExpress.XtraPrinting.PdfExportOptions();
+            //var states = GeneralService.list_States();
+            //report.DataSource = states;
+            //report.ExportToPdf($"{Settings.Default.AppFolder}\\TEST.pdf");
+            //ds.Tables.Clear();
         }
 
         private void CreatePanel(int number)

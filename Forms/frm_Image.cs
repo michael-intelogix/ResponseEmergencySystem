@@ -31,19 +31,29 @@ namespace ResponseEmergencySystem.Forms
         private string ID_Capture = "";
         private string fileName = "";
 
-        public frm_Image(string ID_Capture, string captureName, string imgPath = "")
+        public frm_Image(string ID_Capture, string captureName, string imgPath = "", bool firebase = true)
         {
             InitializeComponent();
             splashScreenManager1.ShowWaitForm();
             this.ID_Capture = ID_Capture;
             fileName = captureName;
-            LoadImage(imgPath);
+            if (firebase)
+                LoadImage(imgPath);
+            else
+                LoadLocalImage(imgPath);
             splashScreenManager1.CloseWaitForm();
             Debug.WriteLine(imgPath);
             //var value = section["url"];
         }
 
         ImageController _controller;
+
+        public void DisableLoad()
+        {
+            simpleButton1.Visible = false;
+            btn_SaveImage.Visible = false;
+            btn_Cancel.Location = new Point(403, 683);
+        }
 
         public void LoadImage(string imgPath)
         {
@@ -65,6 +75,17 @@ namespace ResponseEmergencySystem.Forms
                 MessageBox.Show("There was an error opening the image file.");
             }
         }
+
+        public void LoadLocalImage(string imgPath)
+        {
+            Image img;
+            using (var bmpTemp = new Bitmap(imgPath))
+            {
+                newImg = new Bitmap(bmpTemp);
+                img_Test.Image = newImg;
+            }
+        }
+
 
         public void onClickLoadImage (object sender, EventArgs e)
         {

@@ -16,7 +16,7 @@ namespace ResponseEmergencySystem.Views
     public interface IEditIncidentView
     {
         void SetController(EditIncidentController controller);
-        void LoadIncident(Incident incident);
+        void LoadIncident();
         void LoadStates(DataTable dt_States);
         void LoadInjuredPersons(DataTable dt_InjuredPersons);
 
@@ -42,6 +42,7 @@ namespace ResponseEmergencySystem.Views
         bool CargoSpill { get; set; }
         string ManifestNumber { get; set; }
         string Broker { get; set; }
+        string Broker2 { get; set; }
         DateTime IncidentDate { get; set; }
         bool PoliceReport { get; set; }
         string CitationReportNumber { get; set; }
@@ -64,6 +65,8 @@ namespace ResponseEmergencySystem.Views
         bool IPPassenger { get; set; }
         bool IPDriver { get; set; }
         string IPDriverLicense { get; set; }
+        string IPHospital { get; set; }
+        string IPComments { get; set; }
 
         bool LblTruckExistsVisibility { set; }
         bool LblTrailerExistsVisibility { set; }

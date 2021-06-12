@@ -73,6 +73,7 @@
     <Reference Include="DevExpress.Charts.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.Desktop.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.DataAccess.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Dialogs.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Map.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Office.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -197,6 +198,12 @@
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="PdfSharp, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Charting, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.Charting.dll</HintPath>
+    </Reference>
     <Reference Include="SQLitePCLRaw.core, Version=2.0.3.851, Culture=neutral, PublicKeyToken=1488e028ca7ab535, processorArchitecture=MSIL">
       <HintPath>packages\SQLitePCLRaw.core.2.0.3\lib\netstandard2.0\SQLitePCLRaw.core.dll</HintPath>
     </Reference>
@@ -241,6 +248,7 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Globalization.Calendars, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Globalization.Calendars.4.3.0\lib\net46\System.Globalization.Calendars.dll</HintPath>
       <Private>True</Private>
@@ -400,7 +408,34 @@
     <Compile Include="Controllers\Main2Controller.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\ModalController.cs" />
+    <Compile Include="EF\Captures.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Capture_Type.cs">
+      <DependentUpon>dcManagement.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\dcManagement.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dcManagement.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\dcManagement.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dcManagement.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\dcManagement.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dcManagement.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Images.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="EF\Incidents.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\InjuredPersons.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Model1.Context.cs">
@@ -577,11 +612,18 @@
     <Compile Include="Models\State.cs" />
     <Compile Include="Models\Samsara\Vehicle.cs" />
     <Compile Include="Models\Testing\DriverData.cs" />
+    <Compile Include="Reports\PDFSharp.cs" />
     <Compile Include="Reports\XtraReport1.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\XtraReport1.Designer.cs">
       <DependentUpon>XtraReport1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\XtraReport2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\XtraReport2.Designer.cs">
+      <DependentUpon>XtraReport2.cs</DependentUpon>
     </Compile>
     <Compile Include="Services\BrokerService.cs" />
     <Compile Include="Services\CaptureService.cs" />
@@ -636,10 +678,20 @@
     <Compile Include="Views\IMainView.cs" />
     <Compile Include="Views\IModalView.cs" />
     <Compile Include="Views\IShowIncidentDetails.cs" />
+    <EmbeddedResource Include="Reports\XtraReport2.resx">
+      <DependentUpon>XtraReport2.cs</DependentUpon>
+    </EmbeddedResource>
     <EntityDeploy Include="EF\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <EntityDeploy Include="EF\dcManagement.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>dcManagement.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="EF\dcManagement.edmx.diagram">
+      <DependentUpon>dcManagement.edmx</DependentUpon>
+    </None>
     <None Include="EF\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>
@@ -684,6 +736,16 @@
     <None Include="Resources\save_16x16.png" />
     <None Include="Resources\botask_16x16.png" />
     <None Include="Resources\comment_16x16.png" />
+    <Content Include="EF\dcManagement.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>dcManagement.edmx</DependentUpon>
+      <LastGenOutput>dcManagement.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EF\dcManagement.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>dcManagement.edmx</DependentUpon>
+      <LastGenOutput>dcManagement.cs</LastGenOutput>
+    </Content>
     <Content Include="EF\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -717,10 +779,13 @@
     <None Include="Resources\actions_edit1.svg" />
     <None Include="Resources\delete.svg" />
     <None Include="Resources\add_32x32.png" />
+    <None Include="Resources\actions_zoom.svg" />
     <Content Include="Resources\pdf.png" />
     <None Include="Resources\pdf1.png" />
     <None Include="Resources\índice1.jpg" />
     <None Include="Resources\travel_car.svg" />
+    <None Include="Resources\travel_map.svg" />
+    <None Include="Resources\security_visibility.svg" />
     <Content Include="x64\SQLite.Interop.dll" />
     <Content Include="x86\SQLite.Interop.dll" />
     <EmbeddedResource Include="Forms\EditIncidentDetails.resx">

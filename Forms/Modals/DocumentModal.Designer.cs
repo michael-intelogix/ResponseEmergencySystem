@@ -29,6 +29,7 @@ namespace ResponseEmergencySystem.Forms.Modals
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btn_Capture1 = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.btn_Cancel2 = new DevExpress.XtraEditors.SimpleButton();
@@ -36,6 +37,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.simpleButton12 = new DevExpress.XtraEditors.SimpleButton();
+            this.pdfViewer1 = new DevExpress.XtraPdfViewer.PdfViewer();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             this.SuspendLayout();
@@ -132,11 +134,21 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.simpleButton12.TabIndex = 23;
             this.simpleButton12.Visible = false;
             // 
+            // pdfViewer1
+            // 
+            this.pdfViewer1.Location = new System.Drawing.Point(12, 50);
+            this.pdfViewer1.Name = "pdfViewer1";
+            this.pdfViewer1.Size = new System.Drawing.Size(150, 150);
+            this.pdfViewer1.TabIndex = 24;
+            this.pdfViewer1.Visible = false;
+            this.pdfViewer1.ZoomMode = DevExpress.XtraPdfViewer.PdfZoomMode.FitToWidth;
+            // 
             // DocumentModal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(405, 468);
+            this.Controls.Add(this.pdfViewer1);
             this.Controls.Add(this.simpleButton12);
             this.Controls.Add(this.pictureEdit1);
             this.Controls.Add(this.btn_Cancel2);
@@ -166,5 +178,6 @@ namespace ResponseEmergencySystem.Forms.Modals
         private DevExpress.XtraEditors.SimpleButton simpleButton9;
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
         private DevExpress.XtraEditors.SimpleButton simpleButton12;
+        private DevExpress.XtraPdfViewer.PdfViewer pdfViewer1;
     }
 }

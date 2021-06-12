@@ -14,6 +14,13 @@ namespace ResponseEmergencySystem.EF
     
     public partial class Incidents
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Incidents()
+        {
+            this.Captures = new HashSet<Captures>();
+            this.InjuredPersons = new HashSet<InjuredPersons>();
+        }
+    
         public System.Guid ID_Incident { get; set; }
         public string Folio { get; set; }
         public Nullable<System.DateTime> IncidentDate { get; set; }
@@ -44,5 +51,16 @@ namespace ResponseEmergencySystem.EF
         public string ID_State { get; set; }
         public string ID_Broker { get; set; }
         public string ID_StatusDetail { get; set; }
+        public string TruckNumber { get; set; }
+        public string TrailerNumber { get; set; }
+        public string TrailerCommodity { get; set; }
+        public string DriverName { get; set; }
+        public Nullable<bool> DSamsara { get; set; }
+        public Nullable<bool> TSamsara { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Captures> Captures { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<InjuredPersons> InjuredPersons { get; set; }
     }
 }

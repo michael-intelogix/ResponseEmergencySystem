@@ -24,10 +24,11 @@ namespace ResponseEmergencySystem.Models.Documents
 
         public Image Image { get; private set; } = Resources.no_photo;
 
-        public Document(string cName, int idx)
+        public Document(string cName, int idx, string id = "")
         {
             containerName = cName;
             ID = idx;
+            ID_Document = id;
         }
 
         public Document(string cName, string dName, int idx)
@@ -37,18 +38,35 @@ namespace ResponseEmergencySystem.Models.Documents
             ID = idx;
         }
 
-        public void SetImage()
+        public Document(string document, string documentUrl, string name, string type)
         {
-            this.Image = this.Type == "img" ? GetImage() : Resources.pdf;
+            ID_Document = document;
+            FirebaseUrl = documentUrl;
+            this.name = name;
+            Type = type;
+            SetImage(true);
+            Status = "loaded";
         }
 
-        private Image GetImage()
+        public void SetImage(bool firebaseUrl = false)
+        {
+            if (firebaseUrl)
+            {
+                this.Image = this.Type == "img" ? GetImage(firebaseUrl) : Resources.pdf;
+            }
+            else
+            {
+                this.Image = this.Type == "img" ? GetImage() : Resources.pdf;
+            }
+        }
+
+        private Image GetImage(bool firebaseUrl = false)
         {
             Image newImg;
             try
             {
                 System.Net.WebRequest request =
-                System.Net.WebRequest.Create(this.Path);
+                System.Net.WebRequest.Create(firebaseUrl ? this.FirebaseUrl : this.Path);
                 System.Net.WebResponse response = request.GetResponse();
                 System.IO.Stream responseStream = response.GetResponseStream();
 
@@ -81,7 +99,8 @@ namespace ResponseEmergencySystem.Models.Documents
                         {
                             this.Path = ofd.FileName;
                             this.Type = "img";
-                            this.name = System.IO.Path.GetFileName(ofd.FileName).Replace(ext.ToLower(), "");
+                            if (this.name == "")
+                                this.name = System.IO.Path.GetFileName(ofd.FileName).Replace(ext.ToLower(), "");
                             this.SetImage();
                             this.Status = status;
                         }
@@ -89,7 +108,8 @@ namespace ResponseEmergencySystem.Models.Documents
                         {
                             this.Path = ofd.FileName;
                             this.Type = "pdf";
-                            this.name = System.IO.Path.GetFileName(ofd.FileName).Replace(ext.ToLower(), "");
+                            if (this.name == "")
+                                this.name = System.IO.Path.GetFileName(ofd.FileName).Replace(ext.ToLower(), "");
                             this.SetImage();
                             this.Status = status;
                         }
@@ -115,6 +135,11 @@ namespace ResponseEmergencySystem.Models.Documents
         {
             this.Status = "modified";
             this.name = name;
+        }
+
+        public void SetStatus(string status)
+        {
+            Status = status;
         }
 
         //public void SetImage()

@@ -24,17 +24,23 @@ namespace ResponseEmergencySystem.Models
         public string Year { get; }
         public string LicensePlate { get; }
 
+        public string TowingName { get; }
+        public string TowedTo { get; }
+
         public Truck(Guid ID_Truck, string number)
         {
             this.ID_Truck = ID_Truck;
             truckNumber = number;
         }
 
-        public Truck (Guid ID_Truck, string ID_Samsara, string number)
+        public Truck (Guid ID_Truck, string ID_Samsara, string number, string vin, string towingName, string towedTo)
         {
             this.ID_Truck = ID_Truck;
             this.ID_Samsara = ID_Samsara;
             truckNumber = number;
+            VinNumber = vin;
+            TowingName = towingName;
+            TowedTo = towedTo;
         }
 
         public Truck(string ID_Truck, string number)

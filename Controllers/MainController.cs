@@ -250,7 +250,7 @@ namespace ResponseEmergencySystem.Controllers
 
             if (editIncidentView.ShowDialog() == DialogResult.OK)
             {
-                Utils.ShowMessage("the Incident was updated succesfully", "Incident");
+                //Utils.ShowMessage("the Incident was updated succesfully", "Incident");
                 _view.Incidents = IncidentService.list_Incidents("", "", "", "", "").Select(i => new { i.ID_Incident, i.Name, i.Folio, i.IncidentDate, i.truck.truckNumber, i.ID_StatusDetail });
             }
 

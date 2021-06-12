@@ -41,6 +41,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
         private string ID_Driver;
         private string ID_Broker;
+        private string ID_Broker2;
         private string ID_Truck;
         private string ID_Trailer;
         private string comments = "";
@@ -84,6 +85,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
             ID_Driver = _selectedIncident.driver.ID_Driver.ToString(); ;
             ID_Broker = _selectedIncident.broker.ID_Broker;
+            ID_Broker2 = _selectedIncident.TrailerBroker.ID_Broker;
             ID_Truck = _selectedIncident.truck.ID_Truck.ToString();
             ID_Trailer = _selectedIncident.trailer.ID_Trailer.ToString();
 
@@ -113,6 +115,8 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             _view.Broker = _selectedIncident.broker.Name;
             _view.Comments = _selectedIncident.Comments;
 
+            _view.Broker2 = _selectedIncident.TrailerBroker.Name;
+
             //_view.ID_StatusDetail = _selectedIncident.ID_StatusDetail;
 
             #region Accident Details
@@ -128,12 +132,17 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             latitude = Convert.ToDouble(_selectedIncident.IncidentLatitude);
             longitude = Convert.ToDouble(_selectedIncident.IncidentLongitude);
 
-            _view.LoadIncident(_selectedIncident);
+            GetDocuments(_selectedIncident.ID_Incident);
+
+            //_view.LoadIncident(_selectedIncident);
             _view.LoadStates(Functions.getStates());
             //_view.LueStatusDetailDataSource = StatusDetailService.list_StatusDetail();
             if (_PersonsInvolved.Count > 0)
                 _view.InvolvedPersonsDataSource = _PersonsInvolved;
 
+            
+            _view.Documents = CaptureService.ListDocumentsCapture(_selectedIncident.ID_Incident);
+            _view.LoadIncident();
         }
 
         public void GetBroker()
@@ -147,6 +156,19 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                 ID_Broker = brokerView.ID;
             }
         }
+
+        public void GetBroker2()
+        {
+            frm_BrokerList brokerView = new frm_BrokerList();
+            BrokerController brokerCtrl = new BrokerController(brokerView, BrokerService.list_Brokers());
+            brokerCtrl.LoadBrokers();
+            if (brokerView.ShowDialog() == DialogResult.OK)
+            {
+                _view.Broker2 = brokerView.broker;
+                ID_Broker2 = brokerView.ID;
+            }
+        }
+
 
         public double[] GetTruckSamsara()
         {
@@ -292,7 +314,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             if (_validation)
             {
                 _view.LblEmptyFieldsVisibility = false;
-                _PersonsInvolved.Add(new PersonsInvolved(_view.IPFullName, _view.IPLastName1, _view.IPPhoneNumber, _view.IPAge, _view.IPDriver, _view.IPDriverLicense, _view.IPPrivate, _view.IPInjured, Guid.Empty.ToString()));
+                _PersonsInvolved.Add(new PersonsInvolved(_view.IPFullName, _view.IPLastName1, _view.IPPhoneNumber, _view.IPAge, _view.IPDriver, _view.IPDriverLicense, _view.IPPrivate, _view.IPInjured, _view.IPHospital, _view.IPComments, Guid.Empty.ToString()));
                 _view.InvolvedPersonsDataSource = _PersonsInvolved;
 
                 CleanPersonInvolvedCapture();
@@ -340,6 +362,8 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                 _PersonsInvolved[_selectedPerson].DriverLicense = _view.IPDriverLicense;
                 _PersonsInvolved[_selectedPerson].PrivatePerson = _view.IPPrivate;
                 _PersonsInvolved[_selectedPerson].Injured = _view.IPInjured;
+                _PersonsInvolved[_selectedPerson].Hospital = _view.IPHospital;
+                _PersonsInvolved[_selectedPerson].Comments = _view.IPComments;
 
                 _view.InvolvedPersonsDataSource = _PersonsInvolved;
 
@@ -368,12 +392,14 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             _view.IPPassenger = !person.Driver;
             _view.IPDriver = person.Driver;
             _view.IPDriverLicense = person.DriverLicense;
+            _view.IPHospital = person.Hospital;
+            _view.IPComments = person.Comments;
 
             _view.BtnAddInvolvedPersonVisibility = false;
             _view.BtnEditInvolvedPersonVisibility = true;
 
             if (_view.BtnEditInvolvedPersonLocation.X == 8)
-                _view.BtnEditInvolvedPersonLocation = new System.Drawing.Point(1177, 48);
+                _view.BtnEditInvolvedPersonLocation = new System.Drawing.Point(1177, 80);
         }
 
         public void RemoveInvolvedPersonByRow(int idx)
@@ -394,6 +420,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                     _view.ID_State,
                     _view.ID_City,
                     ID_Broker.ToUpper(),
+                    ID_Broker2,
                     ID_Truck,
                     _view.TruckNumber,
                     _view.TrailerNumber,
@@ -439,7 +466,12 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                     if (t.Result.validation)
                     {
                         Debug.WriteLine($"Type of capture: {documentCapture.ID_CaptureType}");
-                        SaveAsync(documentCapture.ID_CaptureType, t.Result.ID, documentCapture.documents);
+                        if (documentCapture.Status == "created")
+                            SaveAsync(documentCapture.ID_CaptureType, t.Result.ID, documentCapture.documents);
+                        else if (documentCapture.Status == "updated")
+                        {
+                            UpdateAsync(t.Result.ID, documentCapture.documents, documentCapture.ID_Capture);
+                        }
                     }
                     else
                     {
@@ -615,6 +647,8 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             _view.IPPassenger = false;
             _view.IPDriver = false;
             _view.IPDriverLicense = "";
+            _view.IPHospital = "";
+            _view.IPComments = "";
         }
 
         public (bool, string, string) CheckDocument()
@@ -671,28 +705,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             }
         }
 
-        public string EditImageView(string imgPath, string fileType)
-        {
-            if (fileType == "img")
-            {
-                frm_Image imageView = new frm_Image("", "", imgPath);
-                ImageController appConfigCtrl = new ImageController(imageView);
-                if (imageView.ShowDialog() == DialogResult.OK)
-                {
-                    Utils.ShowMessage("Image has been updated");
-                    return imageView.filepath;
-                }
-            }
-
-            if (fileType == "pdf")
-            {
-                frm_PdfViewer pdfViewer = new frm_PdfViewer(imgPath);
-                pdfViewer.ShowDialog();
-            }
-
-            return "";
-
-        }
+        
 
         #region documents
         public async void SaveAsync(string ID_CaptureType, string ID_Incindent, List<Models.Documents.Document> documents)
@@ -742,6 +755,51 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
         }
 
+        public async void UpdateAsync(string ID_Incindent, List<Models.Documents.Document> documents, string ID_Capture)
+        {
+            bool success = true;
+
+            if (success)
+            {
+                //List<DocumentCapture> docsLoaded = _documents.Where(d => d.Path != null).ToList();
+                var documentsUpdated = documents.Where(d => d.Status == "updated" || d.Status == "created").ToList();
+                for (var i = 0; i < documentsUpdated.Count(); i++)
+                {
+                    var document = documentsUpdated[i];
+                    var task = UploadImgFirebaseAsync(document.Path, document.name, ID_Capture);
+
+                    //ProgressBarControl pbr = _view.GetPbrControl(document.containerName, $"pbrDocument{document.ID}");
+
+                    //_view.SetControlProperties(document.containerName, $"lblStatus{document.ID}", visibility: false);
+                    //pbr.Visible = true;
+
+                    //Track progress of the upload
+                    task.Progress.ProgressChanged += (s, ev) =>
+                    {
+                        //pbr.EditValue = ev.Percentage;
+                        //pbr.CreateGraphics().DrawString(ev.Percentage.ToString() + "%", new Font("Arial", (float)8.25, FontStyle.Regular), Brushes.Black, new PointF(pbr.Width / 2 - 10, pbr.Height / 2 - 7));
+                        Console.WriteLine($"Progress: {ev.Percentage} %");
+                    };
+
+                    document.FirebaseUrl = await task;
+
+
+                    //pbr.Visible = false;
+                    //_view.SetControlProperties(document.containerName, $"lblStatus{document.ID}", "Uploaded", true);
+
+                    var ID = document.Status == "created" ? Guid.NewGuid().ToString() : document.ID_Document;
+
+                    Response imgResponse = CaptureService.UpdateImage(ID, ID_Capture, document.FirebaseUrl, document.name, "", document.Type);
+                    Debug.WriteLine(imgResponse.Message);
+                }
+            }
+            else
+            {
+                Debug.Fail("Problem in upload capture");
+            }
+
+        }
+
         private FirebaseStorageTask UploadImgFirebaseAsync(string filepath, string name, string ID_Capture)
         {
             try
@@ -761,7 +819,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Debug.Fail(ex.Message);
                 return null;
             }
         }
@@ -779,6 +837,35 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
         }
 
+        private void GetDocuments(Guid ID)
+        {
+            var documentCaptures = CaptureService.ListDocumentsCapture(ID);
+            _view.Documents = documentCaptures;
+        }
+
+        public string EditImageView(string imgPath, string fileType)
+        {
+            if (fileType == "img")
+            {
+                frm_Image imageView = new frm_Image("", "", imgPath, false);
+                ImageController appConfigCtrl = new ImageController(imageView);
+                appConfigCtrl.DisableImageLoad();
+                if (imageView.ShowDialog() == DialogResult.OK)
+                {
+                    Utils.ShowMessage("Image has been updated");
+                    return imageView.filepath;
+                }
+            }
+
+            if (fileType == "pdf")
+            {
+                frm_PdfViewer pdfViewer = new frm_PdfViewer(imgPath);
+                pdfViewer.ShowDialog();
+            }
+
+            return "";
+
+        }
         #endregion
     }
 }

@@ -234,7 +234,7 @@ namespace ResponseEmergencySystem.Forms
             this.btn_Cancel.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btn_Cancel.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.closeWhite;
             this.btn_Cancel.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
-            this.btn_Cancel.Location = new System.Drawing.Point(277, 684);
+            this.btn_Cancel.Location = new System.Drawing.Point(277, 683);
             this.btn_Cancel.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.btn_Cancel.LookAndFeel.UseDefaultLookAndFeel = false;
             this.btn_Cancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);

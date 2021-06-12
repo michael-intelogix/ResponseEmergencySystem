@@ -38,6 +38,17 @@ namespace ResponseEmergencySystem.Models
             Address = address;
         }
 
+        public Broker(string ID_Broker, string name, string address)
+        {
+            this.ID_Broker = ID_Broker;
+            Name = name;
+            ID_State = "";
+            ID_City = "";
+            State = "";
+            City = "";
+            Address = address;
+        }
+
         public Broker (string ID_Broker, string name)
         {
             this.ID_Broker = ID_Broker;

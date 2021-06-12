@@ -169,10 +169,29 @@ namespace ResponseEmergencySystem.Controllers
 
         public void PDF()
         {
+            //Reports.XtraReport2 report = new Reports.XtraReport2();
+            //DevExpress.XtraPrinting.PdfExportOptions MyPdfOptions = new DevExpress.XtraPrinting.PdfExportOptions();
+            
+
+            //report.ExportToPdf($"{Settings.Default.AppFolder}\\TEST.pdf");
+            //ds.Tables.Clear();
+
+            //var bs = new BindingSource();
+            //Foo foo1 = new Foo("bar1");
+            //fooList.Add(foo1);
+
+            //bs.DataSource = fooList; //<-- point of interrest
+
+            ////Bind fooList to the listBox
+            //listBox1.DataSource = bs; //<-- notes it takes the entire bindingSource
+
             IncidentReport report1 = new IncidentReport(_selectedIncident);
-            DevExpress.XtraPrinting.PdfExportOptions MyPdfOptions = new DevExpress.XtraPrinting.PdfExportOptions();
+            //DevExpress.XtraPrinting.PdfExportOptions MyPdfOptions = new DevExpress.XtraPrinting.PdfExportOptions();
             try
             {
+                //report1.DataSource = states;
+                //report1.refre();
+                
                 report1.ExportToPdf(ReportPath + $"\\{Folio}.pdf");
                 //MessageBox.Show("Report " + $"{Folio}.pdf");
                 Utils.ShowMessage("Report " + $"{Folio}.pdf");

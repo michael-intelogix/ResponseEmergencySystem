@@ -109,9 +109,13 @@ namespace ResponseEmergencySystem.Forms
 
         #region documents
         // new empty list of documents
-        public void LoadIncident(Incident incident)
+        public void LoadIncident()
         {
-            _docs = new List<Models.Documents.DocumentCapture>();
+            //_docs = new List<Models.Documents.DocumentCapture>();
+            var docmentsByCaptureType = _docs.Select(dc => new { dc.CaptureType }).ToList();
+            gc_DocumentCaptures.DataSource = docmentsByCaptureType;
+            if (!simpleButton10.Visible && docmentsByCaptureType.Count > 0)
+                simpleButton10.Visible = true;
         }
 
         public List<Models.Documents.DocumentCapture> Documents
@@ -128,15 +132,29 @@ namespace ResponseEmergencySystem.Forms
 
         private void CreatePanel(int number, List<Models.Documents.Document> documents)
         {
-            int space = (Convert.ToInt32(xtraScrollableControl1.Width) - (documents.Count * 245)) / (documents.Count + 1);
+            int documentsNotDeletedCount = documents.Where(dnd => dnd.Status != "deleted").ToList().Count;
+            int space = (Convert.ToInt32(xtraScrollableControl1.Width) - (documentsNotDeletedCount * 245)) / (documentsNotDeletedCount + 1);
+            int cont = 0;
 
             for (int i = 0; i < documents.Count; i++)
             {
-                _docs[gv_DocumentCaptures.FocusedRowHandle].documents[i].ID = i;
+               
+                if (_docs[gv_DocumentCaptures.FocusedRowHandle].documents[i].Status == "deleted")
+                    continue;
 
                 space = (space < 50) ? 50 : space;
 
-                var x = (i * 245) + ((i + 1) * space);
+                var x = (cont * 245) + ((cont + 1) * space);
+
+                cont++;
+
+                _docs[gv_DocumentCaptures.FocusedRowHandle].documents[i].ID = i;
+                bool loadImage = _docs[gv_DocumentCaptures.FocusedRowHandle].documents[i].Status == "loaded";
+                Image docImage = Resources.add_32x32;
+                if (loadImage)
+                    docImage = _docs[gv_DocumentCaptures.FocusedRowHandle].documents[i].Image;
+
+                
 
                 PanelControl pnl = new PanelControl();
                 pnl.Size = new Size(242, 261);
@@ -148,8 +166,8 @@ namespace ResponseEmergencySystem.Forms
                 pic.Size = new Size(218, 171);
                 if (documents[i].Path == "")
                 {
-                    pic.Image = Resources.add_32x32;
-                    pic.Properties.SizeMode = PictureSizeMode.Clip;
+                    pic.Image = docImage;
+                    pic.Properties.SizeMode = loadImage ? PictureSizeMode.Stretch : PictureSizeMode.Clip;
                     pic.Properties.ZoomPercent = 200;
                     pic.Properties.PictureAlignment = ContentAlignment.MiddleCenter;
                     pic.BackColor = Color.Transparent;
@@ -174,47 +192,76 @@ namespace ResponseEmergencySystem.Forms
                 lbl.Size = new Size(218, 24);
                 lbl.Text = documents[i].name;
 
+
+                MyButton btnView = new MyButton();
+                btnView.ImageOptions.SvgImage = Resources.EyeBlue;
+                btnView.ImageOptions.SvgImageSize = new Size(35, 35);
+                btnView.ImageOptions.ImageToTextAlignment = ImageAlignToText.TopCenter;
+                btnView.Size = new Size(36, 34);
+                btnView.Location = new Point(49,212);
+                btnView.btnIdx = i;
+                btnView.Click += (object sender, EventArgs e) =>
+                {
+                    string firebaseUrl = _docs[gv_DocumentCaptures.FocusedRowHandle].documents[btnView.btnIdx].FirebaseUrl;
+                    string localUrl = _docs[gv_DocumentCaptures.FocusedRowHandle].documents[btnView.btnIdx].Path;
+                    string status = _docs[gv_DocumentCaptures.FocusedRowHandle].documents[btnView.btnIdx].Status;
+                    string type = _docs[gv_DocumentCaptures.FocusedRowHandle].documents[btnView.btnIdx].Type;
+                    _controller.EditImageView(status == "created" ? localUrl : firebaseUrl, type);
+                };
+
                 MyButton btnEdit = new MyButton();
                 btnEdit.ImageOptions.SvgImage = Resources.actions_edit;
                 btnEdit.ImageOptions.ImageToTextAlignment = ImageAlignToText.TopCenter;
                 btnEdit.Size = new Size(36, 34);
-                btnEdit.Location = new Point(70, 212);
+                btnEdit.Location = new Point(103, 212);
                 btnEdit.btnIdx = i;
                 btnEdit.Click += (object sender, EventArgs e) =>
                 {
+                    string id = _docs[gv_DocumentCaptures.FocusedRowHandle].documents[btnEdit.btnIdx].ID_Document;
+                    Models.Documents.Document doc = UploadDocument((sender as MyButton).btnIdx, _docs[gv_DocumentCaptures.FocusedRowHandle].documents[btnEdit.btnIdx].name, id, false);
 
-                    Models.Documents.Document doc = UploadDocument((sender as MyButton).btnIdx);
-                    if (doc.Status == "modified")
+                    if (doc.Status == "disposed")
+                        return;
+
+                    if (doc.Status == "updated")
                     {
                         _docs[gv_DocumentCaptures.FocusedRowHandle].documents[doc.ID] = doc;
+                        _docs[gv_DocumentCaptures.FocusedRowHandle].Status = "updated";
                         xtraScrollableControl1.Controls.Clear();
                         CreatePanel(0, _docs[gv_DocumentCaptures.FocusedRowHandle].documents);
                     }
 
                 };
 
-                SimpleButton btnDelete = new SimpleButton();
+                MyButton btnDelete = new MyButton();
                 btnDelete.ImageOptions.SvgImage = Resources.delete;
                 btnDelete.ImageOptions.ImageToTextAlignment = ImageAlignToText.TopCenter;
                 btnDelete.Size = new Size(36, 34);
-                btnDelete.Location = new Point(124, 212);
+                btnDelete.Location = new Point(157, 212);
+                btnDelete.btnIdx = i;
+                btnDelete.Click += (object sender, EventArgs e) =>
+                {
+                    _docs[gv_DocumentCaptures.FocusedRowHandle].documents[btnDelete.btnIdx].SetStatus("deleted");
+                    xtraScrollableControl1.Controls.Clear();
+                    CreatePanel(0, _docs[gv_DocumentCaptures.FocusedRowHandle].documents);
+                };
 
                 pnl.Controls.Add(pic);
                 pnl.Controls.Add(lbl);
+                pnl.Controls.Add(btnView);
                 pnl.Controls.Add(btnEdit);
                 pnl.Controls.Add(btnDelete);
 
                 xtraScrollableControl1.Controls.Add(pnl);
             }
 
-
-
         }
 
-        private Models.Documents.Document UploadDocument(int idx = 0)
+        private Models.Documents.Document UploadDocument(int idx = 0, string name = "", string id = "", bool created = true)
         {
             Modals.DocumentModal addDocument;
-            Models.Documents.Document doc = new Models.Documents.Document("", idx);
+            Models.Documents.Document doc = new Models.Documents.Document("", idx, id);
+            doc.name = name;
             doc.Update("staged");
             return addDocumentView();
 
@@ -223,11 +270,21 @@ namespace ResponseEmergencySystem.Forms
                 addDocument = new Modals.DocumentModal(doc);
                 if (addDocument.ShowDialog() == DialogResult.OK)
                 {
+                    if (!created)
+                        doc.SetStatus("updated");
+                    else
+                        doc.SetStatus("created");
+
                     return addDocument.doc;
                     
                 }
+                else
+                {
+                    doc.SetStatus("disposed");
+                    return doc;
+                }
 
-                return new Models.Documents.Document("", 0);
+                
             }
 
         }
@@ -241,9 +298,14 @@ namespace ResponseEmergencySystem.Forms
             //gv_Documents.BestFitColumns();
             xtraScrollableControl1.Controls.Clear();
             Models.Documents.Document doc = UploadDocument();
-            if (doc.Status == "modified")
+
+            if (doc.Status == "disposed")
+                return;
+
+            if (doc.Status == "modified" || doc.Status == "created")
             {
                 _docs[gv_DocumentCaptures.FocusedRowHandle].documents.Add(doc);
+                _docs[gv_DocumentCaptures.FocusedRowHandle].Status = "updated";
                 CreatePanel(4, _docs[gv_DocumentCaptures.FocusedRowHandle].documents);
 
             }
@@ -462,6 +524,13 @@ namespace ResponseEmergencySystem.Forms
             set { edt_Broker.EditValue = value; }
         }
 
+        public string Broker2
+        {
+            get { return Utils.GetEdtValue(edt_Broker2); }
+            set { edt_Broker2.EditValue = value; }
+        }
+
+
         public DateTime IncidentDate
         {
             get { return new DateTime(dte_IncidentDate.DateTime.Ticks); }
@@ -575,6 +644,17 @@ namespace ResponseEmergencySystem.Forms
             set { edt_IPLicense.EditValue = value; }
         }
 
+        public string IPHospital
+        {
+            get { return Utils.GetEdtValue(edt_IPHospital); }
+            set { edt_IPHospital.EditValue = value; }
+        }
+
+        public string IPComments
+        {
+            get { return Utils.GetEdtValue(edt_IPComments); }
+            set { edt_IPComments.EditValue = value; }
+        }
         #endregion
 
         #region view properties
@@ -757,6 +837,10 @@ namespace ResponseEmergencySystem.Forms
         {
             try
             {
+                var docsTypes = _docs.Select(dc => new { dc.CaptureType } ).ToList();
+                gc_DocumentCaptures.DataSource = docsTypes;
+                gv_DocumentCaptures.BestFitColumns();
+
                 gMapControl1.MapProvider = GMap.NET.MapProviders.BingMapProvider.Instance;
                 GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
                 gMapControl1.Position = new GMap.NET.PointLatLng(_controller.latitude, _controller.longitude);
@@ -902,6 +986,11 @@ namespace ResponseEmergencySystem.Forms
             gMapControl1.Overlays.Add(markers);
             //_controller.SetTruck("");
             splashScreenManager1.CloseWaitForm();
+        }
+
+        private void simpleButton8_Click(object sender, EventArgs e)
+        {
+            _controller.GetBroker2();
         }
     }
 

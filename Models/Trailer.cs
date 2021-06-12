@@ -13,12 +13,25 @@ namespace ResponseEmergencySystem.Models
         public string Commodity { get; }
         public bool CargoSpill { get; set; }
 
+        public string TowingName { get; }
+        public string TowedTo { get; }
+
         public Trailer(Guid id, string number, string commodity, bool spill)
         {
             ID_Trailer = id;
             TrailerNumber = number;
             Commodity = commodity;
             CargoSpill = spill;
+        }
+
+        public Trailer(Guid id, string number, string commodity, bool spill, string towingName, string towedTo)
+        {
+            ID_Trailer = id;
+            TrailerNumber = number;
+            Commodity = commodity;
+            CargoSpill = spill;
+            TowingName = towingName;
+            TowedTo = towedTo; 
         }
 
     }

@@ -173,6 +173,7 @@ namespace ResponseEmergencySystem.Controllers.Captures
             //t.Wait();
 
             _documentCapture = new Models.Documents.DocumentCapture(_selectedCaptureType.ID_CaptureType, _selectedCaptureType.captureType, _view.Comments);
+            _documentCapture.Status = "created";
             _documentCapture.documents = _documents2;
 
             //_docsLoaded = _docsLoaded.Count > 0 ? _docsLoaded : new List<DocumentCapture>();

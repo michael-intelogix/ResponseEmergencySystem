@@ -4,7 +4,33 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SIREMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SIREMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Captures">
+          <Key>
+            <PropertyRef Name="ID_Capture" />
+          </Key>
+          <Property Name="ID_Capture" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ID_CaptureType" Type="uniqueidentifier" />
+          <Property Name="ID_StatusDetail" Type="nvarchar(max)" />
+          <Property Name="ID_Incident" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Comments" Type="nvarchar(max)" />
+          <Property Name="ImagePath" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="NamesOfImages" Type="nvarchar(max)" />
+          <Property Name="Tokens" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Images">
+          <Key>
+            <PropertyRef Name="ID_Image" />
+          </Key>
+          <Property Name="ID_Image" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ID_Capture" Type="uniqueidentifier" />
+          <Property Name="ImageUrl" Type="nvarchar(max)" />
+          <Property Name="ID_StatusDetail" Type="uniqueidentifier" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Comments" Type="nvarchar(max)" />
+          <Property Name="FileType" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Incidents">
           <Key>
             <PropertyRef Name="ID_Incident" />
@@ -25,26 +51,103 @@
           <Property Name="UpdatedBy" Type="nvarchar(max)" />
           <Property Name="UpdatedAt" Type="datetime" />
           <Property Name="ID_Truck" Type="nvarchar(max)" />
+          <Property Name="TruckNumber" Type="nvarchar" MaxLength="50" />
           <Property Name="TruckDamage" Type="bit" />
           <Property Name="TruckCanMove" Type="bit" Nullable="false" />
           <Property Name="TruckNeedCrane" Type="bit" Nullable="false" />
           <Property Name="ID_Trailer" Type="nvarchar(max)" />
+          <Property Name="TrailerNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="TrailerCommodity" Type="nvarchar" MaxLength="50" />
           <Property Name="TrailerDamage" Type="bit" />
           <Property Name="TrailerCanMove" Type="bit" Nullable="false" />
           <Property Name="TrailerNeedCrane" Type="bit" Nullable="false" />
           <Property Name="CargoSpill" Type="bit" />
           <Property Name="Status" Type="bit" Nullable="false" />
           <Property Name="ID_Driver" Type="nvarchar(max)" />
+          <Property Name="DriverName" Type="nvarchar(max)" />
           <Property Name="ID_City" Type="nvarchar(max)" />
           <Property Name="ID_State" Type="nvarchar(max)" />
           <Property Name="ID_Broker" Type="nvarchar(max)" />
           <Property Name="ID_StatusDetail" Type="nvarchar(max)" />
+          <Property Name="DSamsara" Type="bit" />
+          <Property Name="TSamsara" Type="bit" />
         </EntityType>
+        <EntityType Name="InjuredPersons">
+          <Key>
+            <PropertyRef Name="ID_InjuredPerson" />
+          </Key>
+          <Property Name="ID_InjuredPerson" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar(max)" />
+          <Property Name="LastName1" Type="nvarchar(max)" />
+          <Property Name="LastName2" Type="nvarchar(max)" />
+          <Property Name="Phone" Type="nvarchar(max)" />
+          <Property Name="ID_Incident" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Age" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsDriver" Type="bit" />
+          <Property Name="IsPassenger" Type="bit" />
+          <Property Name="DriverLicense" Type="nvarchar" MaxLength="50" />
+          <Property Name="PrivatePerson" Type="bit" />
+          <Property Name="Injured" Type="bit" />
+        </EntityType>
+        <Association Name="FK_dbo_Captures_dbo_Incidents_ID_Incident">
+          <End Role="Incidents" Type="Self.Incidents" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Captures" Type="Self.Captures" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Incidents">
+              <PropertyRef Name="ID_Incident" />
+            </Principal>
+            <Dependent Role="Captures">
+              <PropertyRef Name="ID_Incident" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_InjuredPersons_dbo_Incidents_ID_Incident">
+          <End Role="Incidents" Type="Self.Incidents" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="InjuredPersons" Type="Self.InjuredPersons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Incidents">
+              <PropertyRef Name="ID_Incident" />
+            </Principal>
+            <Dependent Role="InjuredPersons">
+              <PropertyRef Name="ID_Incident" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Images_Captures">
+          <End Role="Captures" Type="Self.Captures" Multiplicity="0..1" />
+          <End Role="Images" Type="Self.Images" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Captures">
+              <PropertyRef Name="ID_Capture" />
+            </Principal>
+            <Dependent Role="Images">
+              <PropertyRef Name="ID_Capture" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="SIREMModelStoreContainer">
+          <EntitySet Name="Captures" EntityType="Self.Captures" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Images" EntityType="Self.Images" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Incidents" EntityType="Self.Incidents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InjuredPersons" EntityType="Self.InjuredPersons" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_Captures_dbo_Incidents_ID_Incident" Association="Self.FK_dbo_Captures_dbo_Incidents_ID_Incident">
+            <End Role="Incidents" EntitySet="Incidents" />
+            <End Role="Captures" EntitySet="Captures" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_InjuredPersons_dbo_Incidents_ID_Incident" Association="Self.FK_dbo_InjuredPersons_dbo_Incidents_ID_Incident">
+            <End Role="Incidents" EntitySet="Incidents" />
+            <End Role="InjuredPersons" EntitySet="InjuredPersons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Images_Captures" Association="Self.FK_Images_Captures">
+            <End Role="Captures" EntitySet="Captures" />
+            <End Role="Images" EntitySet="Images" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SIREMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -82,10 +185,120 @@
           <Property Name="ID_State" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ID_Broker" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ID_StatusDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TruckNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TrailerNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TrailerCommodity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DriverName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DSamsara" Type="Boolean" />
+          <Property Name="TSamsara" Type="Boolean" />
+          <NavigationProperty Name="Captures" Relationship="SIREMModel.FK_dbo_Captures_dbo_Incidents_ID_Incident" FromRole="Incidents" ToRole="Captures" />
+          <NavigationProperty Name="InjuredPersons" Relationship="SIREMModel.FK_dbo_InjuredPersons_dbo_Incidents_ID_Incident" FromRole="Incidents" ToRole="InjuredPersons" />
         </EntityType>
         <EntityContainer Name="SIREMEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Incidents" EntityType="Self.Incidents" />
+          <EntitySet Name="Captures" EntityType="SIREMModel.Captures" />
+          <EntitySet Name="Images" EntityType="SIREMModel.Images" />
+          <AssociationSet Name="FK_dbo_Captures_dbo_Incidents_ID_Incident" Association="SIREMModel.FK_dbo_Captures_dbo_Incidents_ID_Incident">
+            <End Role="Incidents" EntitySet="Incidents" />
+            <End Role="Captures" EntitySet="Captures" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Images_Captures" Association="SIREMModel.FK_Images_Captures">
+            <End Role="Captures" EntitySet="Captures" />
+            <End Role="Images" EntitySet="Images" />
+          </AssociationSet>
+          <EntitySet Name="InjuredPersons" EntityType="SIREMModel.InjuredPersons" />
+          <AssociationSet Name="FK_dbo_InjuredPersons_dbo_Incidents_ID_Incident" Association="SIREMModel.FK_dbo_InjuredPersons_dbo_Incidents_ID_Incident">
+            <End Role="Incidents" EntitySet="Incidents" />
+            <End Role="InjuredPersons" EntitySet="InjuredPersons" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Captures">
+          <Key>
+            <PropertyRef Name="ID_Capture" />
+          </Key>
+          <Property Name="ID_Capture" Type="Guid" Nullable="false" />
+          <Property Name="ID_CaptureType" Type="Guid" />
+          <Property Name="ID_StatusDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ID_Incident" Type="Guid" Nullable="false" />
+          <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NamesOfImages" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Tokens" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Incidents" Relationship="SIREMModel.FK_dbo_Captures_dbo_Incidents_ID_Incident" FromRole="Captures" ToRole="Incidents" />
+          <NavigationProperty Name="Images" Relationship="SIREMModel.FK_Images_Captures" FromRole="Captures" ToRole="Images" />
+        </EntityType>
+        <EntityType Name="Images">
+          <Key>
+            <PropertyRef Name="ID_Image" />
+          </Key>
+          <Property Name="ID_Image" Type="Guid" Nullable="false" />
+          <Property Name="ID_Capture" Type="Guid" />
+          <Property Name="ImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ID_StatusDetail" Type="Guid" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FileType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Captures" Relationship="SIREMModel.FK_Images_Captures" FromRole="Images" ToRole="Captures" />
+        </EntityType>
+        <Association Name="FK_dbo_Captures_dbo_Incidents_ID_Incident">
+          <End Type="SIREMModel.Incidents" Role="Incidents" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="SIREMModel.Captures" Role="Captures" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Incidents">
+              <PropertyRef Name="ID_Incident" />
+            </Principal>
+            <Dependent Role="Captures">
+              <PropertyRef Name="ID_Incident" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Images_Captures">
+          <End Type="SIREMModel.Captures" Role="Captures" Multiplicity="0..1" />
+          <End Type="SIREMModel.Images" Role="Images" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Captures">
+              <PropertyRef Name="ID_Capture" />
+            </Principal>
+            <Dependent Role="Images">
+              <PropertyRef Name="ID_Capture" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="InjuredPersons">
+          <Key>
+            <PropertyRef Name="ID_InjuredPerson" />
+          </Key>
+          <Property Name="ID_InjuredPerson" Type="Guid" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LastName1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LastName2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ID_Incident" Type="Guid" Nullable="false" />
+          <Property Name="Age" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDriver" Type="Boolean" />
+          <Property Name="IsPassenger" Type="Boolean" />
+          <Property Name="DriverLicense" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PrivatePerson" Type="Boolean" />
+          <Property Name="Injured" Type="Boolean" />
+          <NavigationProperty Name="Incidents" Relationship="SIREMModel.FK_dbo_InjuredPersons_dbo_Incidents_ID_Incident" FromRole="InjuredPersons" ToRole="Incidents" />
+        </EntityType>
+        <Association Name="FK_dbo_InjuredPersons_dbo_Incidents_ID_Incident">
+          <End Type="SIREMModel.Incidents" Role="Incidents" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="SIREMModel.InjuredPersons" Role="InjuredPersons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Incidents">
+              <PropertyRef Name="ID_Incident" />
+            </Principal>
+            <Dependent Role="InjuredPersons">
+              <PropertyRef Name="ID_Incident" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -95,6 +308,12 @@
           <EntitySetMapping Name="Incidents">
             <EntityTypeMapping TypeName="SIREMModel.Incidents">
               <MappingFragment StoreEntitySet="Incidents">
+                <ScalarProperty Name="TSamsara" ColumnName="TSamsara" />
+                <ScalarProperty Name="DSamsara" ColumnName="DSamsara" />
+                <ScalarProperty Name="DriverName" ColumnName="DriverName" />
+                <ScalarProperty Name="TrailerCommodity" ColumnName="TrailerCommodity" />
+                <ScalarProperty Name="TrailerNumber" ColumnName="TrailerNumber" />
+                <ScalarProperty Name="TruckNumber" ColumnName="TruckNumber" />
                 <ScalarProperty Name="ID_Incident" ColumnName="ID_Incident" />
                 <ScalarProperty Name="Folio" ColumnName="Folio" />
                 <ScalarProperty Name="IncidentDate" ColumnName="IncidentDate" />
@@ -125,6 +344,52 @@
                 <ScalarProperty Name="ID_State" ColumnName="ID_State" />
                 <ScalarProperty Name="ID_Broker" ColumnName="ID_Broker" />
                 <ScalarProperty Name="ID_StatusDetail" ColumnName="ID_StatusDetail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Captures">
+            <EntityTypeMapping TypeName="SIREMModel.Captures">
+              <MappingFragment StoreEntitySet="Captures">
+                <ScalarProperty Name="Tokens" ColumnName="Tokens" />
+                <ScalarProperty Name="NamesOfImages" ColumnName="NamesOfImages" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="ID_Incident" ColumnName="ID_Incident" />
+                <ScalarProperty Name="ID_StatusDetail" ColumnName="ID_StatusDetail" />
+                <ScalarProperty Name="ID_CaptureType" ColumnName="ID_CaptureType" />
+                <ScalarProperty Name="ID_Capture" ColumnName="ID_Capture" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Images">
+            <EntityTypeMapping TypeName="SIREMModel.Images">
+              <MappingFragment StoreEntitySet="Images">
+                <ScalarProperty Name="FileType" ColumnName="FileType" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ID_StatusDetail" ColumnName="ID_StatusDetail" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="ID_Capture" ColumnName="ID_Capture" />
+                <ScalarProperty Name="ID_Image" ColumnName="ID_Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InjuredPersons">
+            <EntityTypeMapping TypeName="SIREMModel.InjuredPersons">
+              <MappingFragment StoreEntitySet="InjuredPersons">
+                <ScalarProperty Name="Injured" ColumnName="Injured" />
+                <ScalarProperty Name="PrivatePerson" ColumnName="PrivatePerson" />
+                <ScalarProperty Name="DriverLicense" ColumnName="DriverLicense" />
+                <ScalarProperty Name="IsPassenger" ColumnName="IsPassenger" />
+                <ScalarProperty Name="IsDriver" ColumnName="IsDriver" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="ID_Incident" ColumnName="ID_Incident" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="LastName2" ColumnName="LastName2" />
+                <ScalarProperty Name="LastName1" ColumnName="LastName1" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="ID_InjuredPerson" ColumnName="ID_InjuredPerson" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

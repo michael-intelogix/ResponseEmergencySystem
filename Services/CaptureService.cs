@@ -1,4 +1,5 @@
 ﻿using ResponseEmergencySystem.Code;
+using ResponseEmergencySystem.EF;
 using ResponseEmergencySystem.Models;
 using System;
 using System.Collections.Generic;
@@ -302,6 +303,65 @@ namespace ResponseEmergencySystem.Services
             return new Response(false, "", Guid.Empty.ToString());
         }
 
+        public static Response UpdateImage(string imageId, string captureId, string imageUrl, string description, string comments, string fileType)
+        {
+            opSuccess = false;
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand
+                {
+                    Connection = constants.SIREMConnection,
+                    CommandText = $"Update_Image",
+                    CommandType = CommandType.StoredProcedure
+                })
+                {
+                    if (cmd.Connection.State == ConnectionState.Open)
+                    {
+                        cmd.Connection.Close();
+                    }
+
+                    cmd.Parameters.AddWithValue("@ID_Image", imageId);
+                    cmd.Parameters.AddWithValue("@ID_Capture", captureId);
+                    cmd.Parameters.AddWithValue("@ID_StatusDetail", "");
+                    cmd.Parameters.AddWithValue("@ImageUrl", imageUrl);
+                    cmd.Parameters.AddWithValue("@Description", description);
+                    cmd.Parameters.AddWithValue("@Comments", comments);
+                    cmd.Parameters.AddWithValue("@FileType", fileType);
+
+                    cmd.Connection.Open();
+                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    {
+                        if (sdr == null)
+                        {
+                            throw new NullReferenceException("No Information Available.");
+                        }
+                        while (sdr.Read())
+                        {
+
+                            Debug.WriteLine(sdr["Validacion"]);
+                            Debug.WriteLine(sdr["msg"]);
+                            Debug.WriteLine(sdr["ID"]);
+
+                            //MessageBox.Show((string)sdr["msg"]);
+
+                            return new Response(Convert.ToBoolean(sdr["Validacion"]), sdr["msg"].ToString(), sdr["ID"].ToString());
+                        }
+                    }
+                    cmd.Connection.Close();
+                    opSuccess = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Image couldn't be saved due: {ex.Message}");
+
+                return new Response(false, ex.Message, Guid.Empty.ToString());
+            }
+
+            return new Response(false, "", Guid.Empty.ToString());
+        }
+
         public static Response UpdateCapture(string ID_Capture, string captureTypeId, string incidentId, string description, string comments, string statusDetailId = "")
         {
             opSuccess = false;
@@ -420,5 +480,65 @@ namespace ResponseEmergencySystem.Services
             return new Response(false, "", Guid.Empty.ToString());
         }
 
+        public static List<Models.Documents.DocumentCapture> ListDocumentsCapture(Guid incident)
+        {
+            List<Models.Documents.DocumentCapture> result = new List<Models.Documents.DocumentCapture>();
+
+            Guid ID_Incident = incident;
+            using (var db = new SIREMEntities())
+            {
+                var captures = db.Captures.Where(i => i.ID_Incident == ID_Incident).ToList();
+
+                using (var DCManagement = new DCManagementEntities1())
+                {
+                    if (captures.Count > 0)
+                    {
+                        for (var i = 0; i < captures.Count(); i++)
+                        {
+                            Guid ID_CaptureType = (Guid)captures[i].ID_CaptureType;
+                            Guid ID_Capture = (Guid)captures[i].ID_Capture;
+
+                            var captureType = DCManagement.Capture_Type.Where(ct => ct.ID_CaptureType == ID_CaptureType).First();
+                            var documents = db.Images.Where(ic => ic.ID_Capture == ID_Capture).ToList();
+
+                            result.Add(
+                                new Models.Documents.DocumentCapture(
+                                    captures[i].ID_Capture.ToString(),
+                                    captures[i].ID_CaptureType.ToString(),
+                                    captureType.Name,
+                                    ""
+                                    )
+                                );
+
+                            result[i].documents = new List<Models.Documents.Document>();
+
+                            if (documents.Count > 0)
+                            {
+                                foreach(var document in documents)
+                                {
+                                    result[i].documents.Add(
+                                        new Models.Documents.Document(
+                                            document.ID_Image.ToString(),
+                                            document.ImageUrl,
+                                            document.Description,
+                                            document.FileType
+                                            )
+                                        );
+                                }
+                            }
+                        }
+                    }
+                }
+
+                return result;
+                //Console.WriteLine("Registro actualizado correctamente.");
+                //Utils.ShowMessage($"Incident with folio: {folio} has been deleted", title: "Incident Deleted", type: "approved");
+                //return new Response()
+            }
+
+
+        }
+
+        
     }
 }

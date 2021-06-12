@@ -6,6 +6,13 @@
     <edmx:Diagrams>
       <Diagram DiagramId="e88fa2086e7d4c2194cad0175fc5d500" Name="Diagram1">
         <EntityTypeShape EntityType="SIREMModel.Incidents" Width="2" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIREMModel.Captures" Width="1.5" PointX="4.5" PointY="3.25" />
+        <EntityTypeShape EntityType="SIREMModel.Images" Width="1.5" PointX="8.125" PointY="3.625" />
+        <AssociationConnector Association="SIREMModel.FK_dbo_Captures_dbo_Incidents_ID_Incident" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="SIREMModel.FK_Images_Captures" />
+        <EntityTypeShape EntityType="SIREMModel.InjuredPersons" Width="1.5" PointX="4.75" PointY="7.25" IsExpanded="true" />
+        <AssociationConnector Association="SIREMModel.FK_dbo_InjuredPersons_dbo_Incidents_ID_Incident" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

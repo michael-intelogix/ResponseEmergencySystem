@@ -20,7 +20,6 @@ namespace ResponseEmergencySystem.Controllers
         string _ImageName;
         string filepath = "";
 
-
         public ImageController(IImageView view, string ID_Capture, string imageName)
         {
             _view = view;
@@ -33,6 +32,11 @@ namespace ResponseEmergencySystem.Controllers
         {
             _view = view;
             view.SetController(this);
+        }
+
+        public void DisableImageLoad()
+        {
+            _view.DisableLoad();
         }
 
         public void UpdateImage()
