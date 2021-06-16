@@ -68,6 +68,7 @@
           <Property Name="ID_City" Type="nvarchar(max)" />
           <Property Name="ID_State" Type="nvarchar(max)" />
           <Property Name="ID_Broker" Type="nvarchar(max)" />
+          <Property Name="ID_Broker2" Type="nvarchar(max)" />
           <Property Name="ID_StatusDetail" Type="nvarchar(max)" />
           <Property Name="DSamsara" Type="bit" />
           <Property Name="TSamsara" Type="bit" />
@@ -88,6 +89,19 @@
           <Property Name="DriverLicense" Type="nvarchar" MaxLength="50" />
           <Property Name="PrivatePerson" Type="bit" />
           <Property Name="Injured" Type="bit" />
+          <Property Name="Hospital" Type="nvarchar" MaxLength="200" />
+          <Property Name="Comments" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Locations">
+          <Key>
+            <PropertyRef Name="ID_Location" />
+          </Key>
+          <Property Name="ID_Location" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Latitude" Type="nvarchar" MaxLength="50" />
+          <Property Name="Longitude" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="ID_Incident" Type="uniqueidentifier" />
         </EntityType>
         <Association Name="FK_dbo_Captures_dbo_Incidents_ID_Incident">
           <End Role="Incidents" Type="Self.Incidents" Multiplicity="1">
@@ -129,11 +143,24 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Locations_Incidents">
+          <End Role="Incidents" Type="Self.Incidents" Multiplicity="0..1" />
+          <End Role="Locations" Type="Self.Locations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Incidents">
+              <PropertyRef Name="ID_Incident" />
+            </Principal>
+            <Dependent Role="Locations">
+              <PropertyRef Name="ID_Incident" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="SIREMModelStoreContainer">
           <EntitySet Name="Captures" EntityType="Self.Captures" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Images" EntityType="Self.Images" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Incidents" EntityType="Self.Incidents" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="InjuredPersons" EntityType="Self.InjuredPersons" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Locations" EntityType="Self.Locations" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_dbo_Captures_dbo_Incidents_ID_Incident" Association="Self.FK_dbo_Captures_dbo_Incidents_ID_Incident">
             <End Role="Incidents" EntitySet="Incidents" />
             <End Role="Captures" EntitySet="Captures" />
@@ -145,6 +172,10 @@
           <AssociationSet Name="FK_Images_Captures" Association="Self.FK_Images_Captures">
             <End Role="Captures" EntitySet="Captures" />
             <End Role="Images" EntitySet="Images" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Locations_Incidents" Association="Self.FK_Locations_Incidents">
+            <End Role="Incidents" EntitySet="Incidents" />
+            <End Role="Locations" EntitySet="Locations" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -193,6 +224,8 @@
           <Property Name="TSamsara" Type="Boolean" />
           <NavigationProperty Name="Captures" Relationship="SIREMModel.FK_dbo_Captures_dbo_Incidents_ID_Incident" FromRole="Incidents" ToRole="Captures" />
           <NavigationProperty Name="InjuredPersons" Relationship="SIREMModel.FK_dbo_InjuredPersons_dbo_Incidents_ID_Incident" FromRole="Incidents" ToRole="InjuredPersons" />
+          <Property Name="ID_Broker2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Locations" Relationship="SIREMModel.FK_Locations_Incidents" FromRole="Incidents" ToRole="Locations" />
         </EntityType>
         <EntityContainer Name="SIREMEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Incidents" EntityType="Self.Incidents" />
@@ -210,6 +243,11 @@
           <AssociationSet Name="FK_dbo_InjuredPersons_dbo_Incidents_ID_Incident" Association="SIREMModel.FK_dbo_InjuredPersons_dbo_Incidents_ID_Incident">
             <End Role="Incidents" EntitySet="Incidents" />
             <End Role="InjuredPersons" EntitySet="InjuredPersons" />
+          </AssociationSet>
+          <EntitySet Name="Locations" EntityType="SIREMModel.Locations" />
+          <AssociationSet Name="FK_Locations_Incidents" Association="SIREMModel.FK_Locations_Incidents">
+            <End Role="Incidents" EntitySet="Incidents" />
+            <End Role="Locations" EntitySet="Locations" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Captures">
@@ -284,6 +322,8 @@
           <Property Name="PrivatePerson" Type="Boolean" />
           <Property Name="Injured" Type="Boolean" />
           <NavigationProperty Name="Incidents" Relationship="SIREMModel.FK_dbo_InjuredPersons_dbo_Incidents_ID_Incident" FromRole="InjuredPersons" ToRole="Incidents" />
+          <Property Name="Hospital" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_dbo_InjuredPersons_dbo_Incidents_ID_Incident">
           <End Type="SIREMModel.Incidents" Role="Incidents" Multiplicity="1">
@@ -299,6 +339,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Locations">
+          <Key>
+            <PropertyRef Name="ID_Location" />
+          </Key>
+          <Property Name="ID_Location" Type="Guid" Nullable="false" />
+          <Property Name="Latitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Longitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedAt" Type="DateTime" />
+          <Property Name="ID_Incident" Type="Guid" />
+          <NavigationProperty Name="Incidents" Relationship="SIREMModel.FK_Locations_Incidents" FromRole="Locations" ToRole="Incidents" />
+        </EntityType>
+        <Association Name="FK_Locations_Incidents">
+          <End Type="SIREMModel.Incidents" Role="Incidents" Multiplicity="0..1" />
+          <End Type="SIREMModel.Locations" Role="Locations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Incidents">
+              <PropertyRef Name="ID_Incident" />
+            </Principal>
+            <Dependent Role="Locations">
+              <PropertyRef Name="ID_Incident" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -308,6 +372,7 @@
           <EntitySetMapping Name="Incidents">
             <EntityTypeMapping TypeName="SIREMModel.Incidents">
               <MappingFragment StoreEntitySet="Incidents">
+                <ScalarProperty Name="ID_Broker2" ColumnName="ID_Broker2" />
                 <ScalarProperty Name="TSamsara" ColumnName="TSamsara" />
                 <ScalarProperty Name="DSamsara" ColumnName="DSamsara" />
                 <ScalarProperty Name="DriverName" ColumnName="DriverName" />
@@ -378,6 +443,8 @@
           <EntitySetMapping Name="InjuredPersons">
             <EntityTypeMapping TypeName="SIREMModel.InjuredPersons">
               <MappingFragment StoreEntitySet="InjuredPersons">
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="Hospital" ColumnName="Hospital" />
                 <ScalarProperty Name="Injured" ColumnName="Injured" />
                 <ScalarProperty Name="PrivatePerson" ColumnName="PrivatePerson" />
                 <ScalarProperty Name="DriverLicense" ColumnName="DriverLicense" />
@@ -390,6 +457,18 @@
                 <ScalarProperty Name="LastName1" ColumnName="LastName1" />
                 <ScalarProperty Name="FullName" ColumnName="FullName" />
                 <ScalarProperty Name="ID_InjuredPerson" ColumnName="ID_InjuredPerson" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Locations">
+            <EntityTypeMapping TypeName="SIREMModel.Locations">
+              <MappingFragment StoreEntitySet="Locations">
+                <ScalarProperty Name="ID_Incident" ColumnName="ID_Incident" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="ID_Location" ColumnName="ID_Location" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -19,6 +19,7 @@ using ResponseEmergencySystem.Reports;
 using System.IO;
 using ResponseEmergencySystem.Properties;
 using Settings = ResponseEmergencySystem.Properties.Settings;
+using ResponseEmergencySystem.Forms;
 
 namespace ResponseEmergencySystem.Controllers
 {
@@ -96,6 +97,7 @@ namespace ResponseEmergencySystem.Controllers
             _view.ID_City = _selectedIncident.ID_City;
 
             _view.Broker = _selectedIncident.broker.Name;
+            _view.Broker2 = _selectedIncident.TrailerBroker.Name;
             _view.Comments = _selectedIncident.Comments;
 
             #region Accident Details
@@ -115,12 +117,13 @@ namespace ResponseEmergencySystem.Controllers
             if (_PersonsInvolved.Count > 0)
                 _view.InvolvedPersonsDataSorurce = _PersonsInvolved;
 
+            _view.Documents = CaptureService.ListDocumentsCapture(_selectedIncident.ID_Incident);
+            _view.LoadIncident();
+
         }
 
         public void SendEmail()
         {
-            //var namefile = Utils.GetRowID(gv_Incidents, "Folio");
-
             if (!File.Exists(ReportPath + $"{Folio}.pdf"))
             {
                 PDF();
@@ -136,64 +139,14 @@ namespace ResponseEmergencySystem.Controllers
                 Utils.email_send(ReportPath + $"\\{Folio}.pdf", false, categoryID: _view.MailDirectoryCategory);
             }
 
-            //using (var ofd = new OpenFileDialog())
-            //{
-            //    ofd.Filter = "PDF Files (*.PDF)|*.PDF";
-            //    ofd.ShowDialog();
-
-            //    string ext = Path.GetExtension(ofd.FileName).ToUpper();
-            //    try
-            //    {
-            //        if (ext == ".PDF")
-            //        {
-            //            ReportPath = ofd.FileName;
-            //            PDF = true;
-            //        }
-
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    }
-            //}
-
-            //if (PDF)
-            //{
-            //    //string ReportPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), $"{Folio}.pdf");
-            //    return Utils.email_send(ReportPath, false);
-            //}
-
-            //return false;
-
         }
 
         public void PDF()
         {
-            //Reports.XtraReport2 report = new Reports.XtraReport2();
-            //DevExpress.XtraPrinting.PdfExportOptions MyPdfOptions = new DevExpress.XtraPrinting.PdfExportOptions();
-            
-
-            //report.ExportToPdf($"{Settings.Default.AppFolder}\\TEST.pdf");
-            //ds.Tables.Clear();
-
-            //var bs = new BindingSource();
-            //Foo foo1 = new Foo("bar1");
-            //fooList.Add(foo1);
-
-            //bs.DataSource = fooList; //<-- point of interrest
-
-            ////Bind fooList to the listBox
-            //listBox1.DataSource = bs; //<-- notes it takes the entire bindingSource
-
             IncidentReport report1 = new IncidentReport(_selectedIncident);
-            //DevExpress.XtraPrinting.PdfExportOptions MyPdfOptions = new DevExpress.XtraPrinting.PdfExportOptions();
             try
             {
-                //report1.DataSource = states;
-                //report1.refre();
-                
                 report1.ExportToPdf(ReportPath + $"\\{Folio}.pdf");
-                //MessageBox.Show("Report " + $"{Folio}.pdf");
                 Utils.ShowMessage("Report " + $"{Folio}.pdf");
             }
             catch (Exception ex)
@@ -214,6 +167,99 @@ namespace ResponseEmergencySystem.Controllers
             _MailDIrectory = MailDirectoryService.GetMailDirectory(_view.MailDirectoryCategory);
             _view.MailDirectoryDataSource = _MailDIrectory;
         }
+
+        public double[] GetTruckSamsara()
+        {
+            double latitude = 0;
+            double longitude = 0;
+            const string url = "https://api.samsara.com/fleet/vehicles/locations";
+            string number = _view.TruckNumber;
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri(url);
+
+                    // Add an Accept header for JSON format.
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "samsara_api_XwURzQhn0F9rijd0vqXwDgWir2zLWc");
+
+                    // List data response.
+                    HttpResponseMessage response = client.GetAsync(url).Result;  // Blocking call! Program will wait here until a response is received or a timeout occurs.}
+
+                    var data = JArray.Parse(
+                        JObject.Parse(
+                            response.Content.ReadAsStringAsync().Result
+                        )["data"].ToString()
+                    );
+
+                    List<Vehicle> locs = data.Select(p => new Vehicle
+                    {
+                        name = p["name"].ToString().Trim(),
+                        time = (DateTime)p["location"]["time"],
+                        latitude = (float)p["location"]["latitude"],
+                        longitude = (float)p["location"]["longitude"],
+                        heading = (int)p["location"]["heading"],
+                        speed = (int)p["location"]["speed"],
+                        formattedLocation = (string)p["location"]["reverseGeo"]["formattedLocation"]
+                    }).ToList();
+
+                    var filtered = locs.Where(x => x.name == number);
+
+                    foreach (var item in filtered)
+                    {
+                        latitude = (double)item.latitude;
+                        longitude = (double)item.longitude;
+                        _view.Latitude = item.latitude.ToString();
+                        _view.Longitude = item.longitude.ToString();
+
+                        //Testing samsara = new Testing(item.name, item.time, item.latitude, item.longitude, item.heading, item.speed, item.formattedLocation);
+                        //samsara.Show();
+
+                    }
+
+
+                    //Dispose once all HttpClient calls are complete.This is not necessary if the containing object will be disposed of; for example in this case the HttpClient instance will be disposed automatically when the application terminates so the following call is superfluous.
+                    client.Dispose();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            return new double[] { latitude, longitude };
+        }
+
+
+        #region documents
+        public string EditImageView(string imgPath, string fileType, bool firebase = true)
+        {
+            if (fileType == "img")
+            {
+                //Utils.ShowMessage(imgPath);
+                frm_Image imageView = new frm_Image("", "", imgPath, firebase);
+                ImageController appConfigCtrl = new ImageController(imageView);
+                appConfigCtrl.DisableImageLoad();
+                if (imageView.ShowDialog() == DialogResult.OK)
+                {
+                    Utils.ShowMessage("Image has been updated");
+                    return imageView.filepath;
+                }
+            }
+
+            if (fileType == "pdf")
+            {
+                frm_PdfViewer pdfViewer = new frm_PdfViewer(imgPath, firebase);
+                pdfViewer.ShowDialog();
+            }
+
+            return "";
+
+        }
+        #endregion
 
     }
 }

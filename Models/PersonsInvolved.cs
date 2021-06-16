@@ -20,10 +20,10 @@ namespace ResponseEmergencySystem.Models
         public bool Injured { get; set; }
         public string ID_Incident { get; set; }
 
-        public string IsDriver { get; }
-        public string IsPassenger { get; }
-        public string IsInjured { get; }
-        public string IsPrivate { get; }
+        public string IsDriver { get; private set; }
+        public string IsPassenger { get; private set; }
+        public string IsInjured { get; private set; }
+        public string IsPrivate { get; private set; }
 
         public string Hospital { get; set; }
         public string Comments { get; set; }
@@ -90,6 +90,25 @@ namespace ResponseEmergencySystem.Models
             IsPassenger = !driver ? "yes" : "no";
             IsInjured = injured ? "yes" : "no";
             IsPrivate = privatePerson ? "yes" : "no";
+        }
+
+        public void SetPrivate(bool p)
+        {
+            PrivatePerson = p;
+            IsPrivate = p ? "yes" : "no";
+        }
+
+        public void SetDriver(bool d)
+        {
+            Driver = d;
+            IsDriver = d ? "yes" : "no";
+            IsPassenger = !d ? "yes" : "no";
+        }
+
+        public void SetInjured(bool i)
+        {
+            Injured = i;
+            IsInjured = i ? "yes" : "no";
         }
     }
 }

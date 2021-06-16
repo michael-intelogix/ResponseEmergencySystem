@@ -61,23 +61,6 @@ namespace ResponseEmergencySystem.Services
             return result;
         }
 
-        public static void UpdateStatus(string incidentID, string status)
-        {
-            Guid ID_Incident = Guid.Parse(incidentID);
-            using (var db = new SIREMEntities())
-            {
-                Incidents incident = (Incidents)db.Incidents.Where(i => i.ID_Incident == ID_Incident).FirstOrDefault();
 
-                incident.ID_StatusDetail = status;
-
-                db.Entry(incident).State = System.Data.Entity.EntityState.Modified;
-
-                db.SaveChanges();
-
-                Console.WriteLine("Registro actualizado correctamente.");
-                Utils.ShowMessage("Status has been updated correctly.", title: "Status Updated", type: "Approved");
-                //return new Response()
-            }
-        }
     }
 }

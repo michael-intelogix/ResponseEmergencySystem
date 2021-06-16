@@ -87,5 +87,10 @@ namespace ResponseEmergencySystem.Forms
                 //}
             }
         }
+
+        private void gridLookUpEdit1_Properties_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

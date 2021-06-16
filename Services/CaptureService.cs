@@ -421,7 +421,7 @@ namespace ResponseEmergencySystem.Services
             return new Response(false, "", Guid.Empty.ToString());
         }
 
-        public static Response UpdateImageData(string ID_Image, string ID_StatusDetail, string comments)
+        public static Response UpdateImageData(string ID_Image, string ID_StatusDetail, string comments, string fileType)
         {
             opSuccess = false;
 
@@ -445,6 +445,7 @@ namespace ResponseEmergencySystem.Services
                     cmd.Parameters.AddWithValue("@ImageUrl", "");
                     cmd.Parameters.AddWithValue("@Description", "");
                     cmd.Parameters.AddWithValue("@Comments", comments);
+                    cmd.Parameters.AddWithValue("@FileType", fileType);
 
                     cmd.Connection.Open();
                     using (SqlDataReader sdr = cmd.ExecuteReader())
@@ -539,6 +540,8 @@ namespace ResponseEmergencySystem.Services
 
         }
 
+
+        //public static Response DeleteDocument(ID_)
         
     }
 }

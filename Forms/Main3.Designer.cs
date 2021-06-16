@@ -438,7 +438,7 @@ namespace ResponseEmergencySystem.Forms
             // rpic_Image
             // 
             this.rpic_Image.Name = "rpic_Image";
-            this.rpic_Image.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
+            this.rpic_Image.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
             this.rpic_Image.Click += new System.EventHandler(this.btn_Picture_Click);
             // 
             // gridColumn9

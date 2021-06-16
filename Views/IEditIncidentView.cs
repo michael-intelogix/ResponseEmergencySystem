@@ -107,5 +107,14 @@ namespace ResponseEmergencySystem.Views
         bool EdtPhoneNumberShowWarningIcon { set; }
         bool EdtAgeShowWarningIcon { set; }
         bool EdtLicenseShowWarningIcon { set; }
+        //bool PnlPoliceReportVisibility { get; set; }
+
+        #region Mailing
+        bool SendToAllRecipientsInTheCategory { get; }
+        string MailDirectoryCategory { get; }
+        string SelectedMail { get; }
+        object MailDirectoryDataSource { set; }
+        object MailDirectoryCategoriesDataSource { set; }
+        #endregion
     }
 }

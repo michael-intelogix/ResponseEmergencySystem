@@ -26,6 +26,8 @@ namespace ResponseEmergencySystem.EF
         public string DriverLicense { get; set; }
         public Nullable<bool> PrivatePerson { get; set; }
         public Nullable<bool> Injured { get; set; }
+        public string Hospital { get; set; }
+        public string Comments { get; set; }
     
         public virtual Incidents Incidents { get; set; }
     }

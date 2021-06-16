@@ -13,11 +13,13 @@ namespace ResponseEmergencySystem.Controllers
     {
         IEditImageData _view;
         string _ImageID;
+        string _Type;
 
-        public EditImageDataController(IEditImageData view, string ID_Image)
+        public EditImageDataController(IEditImageData view, string ID_Image, string documentType)
         {
             _view = view;
             _ImageID = ID_Image;
+            _Type = documentType;
             view.SetController(this);
         }
 
@@ -28,7 +30,7 @@ namespace ResponseEmergencySystem.Controllers
 
         public void UpdateData()
         {
-            CaptureService.UpdateImageData(_ImageID, "", _view.Comments); ;
+            CaptureService.UpdateImageData(_ImageID, "", _view.Comments, _Type); ;
             _view.CloseForm();
 
             //if (_view.StatusDetail == null)

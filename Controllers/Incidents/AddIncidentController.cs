@@ -26,21 +26,25 @@ namespace ResponseEmergencySystem.Controllers.Incidents
     {
         IAddIncidentView _view;
         public DataTable dt_InjuredPersons = new DataTable();
+        Driver _selectedDriver;
+        private String _ID_Samsara;
 
         private List<PersonsInvolved> _PersonsInvolved = new List<PersonsInvolved>();
         private List<State> _States = new List<State>();
         private List<Models.Samsara.Driver> _Drivers = new List<Models.Samsara.Driver>();
         private List<Truck> _trucks = new List<Truck>(); 
         private List<Driver> _DriversLocal = new List<Driver>();
+        private List<Models.Logs.Log> _logs = new List<Models.Logs.Log>();
 
         private Int32 _selectedPerson = 0;
+        private bool _errors = false;
 
         private string ID_Driver;
         private string ID_Broker;
+        private string ID_Broker2;
         private string ID_Truck;
         private string ID_Trailer;
         private string comments = "";
-        private int _errors = 0;
 
         private bool _validation = false;
 
@@ -201,47 +205,23 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
         public void GetDriver(string ID)
         {
-            Driver selectedDriver = _DriversLocal.Where(d => d.ID_Driver == Guid.Parse(ID)).First();
+            _selectedDriver = _DriversLocal.Where(d => d.ID_Driver == Guid.Parse(ID)).First();
 
-            ID_Driver = selectedDriver.ID_Driver.ToString();
-            _view.FullName = selectedDriver.Name + " " + selectedDriver.LastName1;
-            _view.PhoneNumber = selectedDriver.PhoneNumber;
-            _view.License = selectedDriver.License;
+            ID_Driver = _selectedDriver.ID_Driver.ToString();
+            _ID_Samsara = _selectedDriver.ID_Samsara.ToString();
+            _view.FullName = _selectedDriver.Name + " " + _selectedDriver.LastName1;
+            _view.PhoneNumber = _selectedDriver.PhoneNumber;
+            _view.License = _selectedDriver.License;
 
-            if (selectedDriver.ExpirationDate != null)
-                _view.ExpirationDate = (DateTime)selectedDriver.ExpirationDate;
+            if (_selectedDriver.ExpirationDate != null)
+                _view.ExpirationDate = (DateTime)_selectedDriver.ExpirationDate;
             else
             {
                 _view.ExpirationDate = DateTime.Now;
                 _DriverUpdateRequired = true;
             }
 
-            _view.LicenseState = selectedDriver.ID_StateOfExpedition;
-
-            //var Driver_Response = DriverService.GetDriver(_view.DriverInfoSearch);
-
-            //if (Driver_Response == null)
-            //{
-            //    Utils.ShowMessage("There is no driver with that search information", title: "Driver Not Found", type: "Warning");
-            //}
-            //else
-            //{
-            //    ID_Driver = Driver_Response.ID_Driver.ToString();
-            //    _view.FullName = Driver_Response.Name + " " + Driver_Response.LastName1;
-            //    _view.PhoneNumber = Driver_Response.PhoneNumber;
-            //    _view.License = Driver_Response.License;
-
-            //    if (Driver_Response.ExpirationDate != null)
-            //        _view.ExpirationDate = (DateTime)Driver_Response.ExpirationDate;
-            //    else
-            //    {
-            //        _view.ExpirationDate = DateTime.Now;
-            //        _DriverUpdateRequired = true;
-            //    }
-
-            //    _view.LicenseState = Driver_Response.ID_StateOfExpedition;
-            //}
-
+            _view.LicenseState = _selectedDriver.ID_StateOfExpedition;
         }
 
         public void SetBroker()
@@ -249,12 +229,36 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             frm_BrokerList brokerView = new frm_BrokerList();
             BrokerController brokerCtrl = new BrokerController(brokerView, BrokerService.list_Brokers());
             brokerCtrl.LoadBrokers();
+
+            brokerView.Load += new System.EventHandler((object sender, EventArgs e) =>
+            {
+                _view.CloseSpinner();
+            });
+
             if (brokerView.ShowDialog() == DialogResult.OK)
             {
                 this.ID_Broker = brokerView.ID;
                 _view.Broker = brokerView.broker;
             }
             
+        }
+
+        public void SetBroker2()
+        {
+            frm_BrokerList brokerView = new frm_BrokerList();
+            BrokerController brokerCtrl = new BrokerController(brokerView, BrokerService.list_Brokers());
+            brokerCtrl.LoadBrokers();
+
+            brokerView.Load += new System.EventHandler((object sender, EventArgs e) =>
+            {
+                _view.CloseSpinner();
+            });
+
+            if (brokerView.ShowDialog() == DialogResult.OK)
+            {
+                ID_Broker2 = brokerView.ID;
+                _view.Broker2 = brokerView.broker;
+            }
         }
 
         public void SetTruck(string ID_Truck)
@@ -283,20 +287,14 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             string folio = folioReponse.ItemArray[2].ToString() + "-" + folioReponse.ItemArray[3].ToString();
 
             string ID_Incident = "";
-            //check location refreces
-
-            if (_DriverUpdateRequired)
-            {
-                //var t2 = new Task<Response>(() =>);
-            }
-            
 
             var t = new Task<Response>(() => IncidentService.AddIncident(
-                ID_Driver.ToUpper(),
+                ID_Driver == Guid.Empty.ToString() ? _ID_Samsara : ID_Driver,
                 _view.FullName,
                 _view.ID_State,
                 _view.ID_City,
                 ID_Broker.ToUpper(),
+                ID_Broker2,
                 ID_Truck,
                 folio,
                 _view.TruckNumber,
@@ -343,7 +341,13 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                 if (t.Result.validation)
                 {
                     Debug.WriteLine($"Type of capture: {documentCapture.ID_CaptureType}");
-                    SaveAsync(documentCapture.ID_CaptureType, t.Result.ID, documentCapture.documents);
+                    if (documentCapture.Status == "created")
+                        SaveAsync(documentCapture.ID_CaptureType, t.Result.ID, documentCapture.documents);
+                    else if (documentCapture.Status == "updated")
+                    {
+                        SaveAsync(documentCapture.ID_CaptureType, t.Result.ID, documentCapture.documents);
+                        //UpdateAsync(t.Result.ID, documentCapture.documents, documentCapture.ID_Capture);
+                    }
                 }
                 else
                 {
@@ -422,7 +426,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
         public void validate(string controlName)
         {
-            switch(controlName)
+            switch (controlName)
             {
                 case "edt_IPFullName":
                     if (_view.IPFullName.Length == 0)
@@ -468,7 +472,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                     break;
                 case "edt_IPLicense":
                     if (_view.IPDriver)
-                    { 
+                    {
                         if (_view.IPDriverLicense.Length == 0)
                         {
                             _view.EdtLicenseBorder = BorderStyles.Simple;
@@ -567,31 +571,11 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
         public void AddPersonInvolved()
         {
-            //int errors = 0;
-
-            //if (_view.IPDriver)
-            //{
-            //    if (_view.IPDriverLicense.Length == 0)
-            //    {
-            //        _view.EdtLicenseBorder = BorderStyles.Simple;
-            //        _view.EdtLicenseShowWarningIcon = true;
-            //        errors += 1;
-            //    }
-            //    else
-            //    {
-            //        _view.EdtLicenseBorder = BorderStyles.Default;
-            //        _view.EdtLicenseShowWarningIcon = false;
-            //    }
-            //}
-            //else
-            //{
-            //    if (errors > 5) { errors -= 1; }
-            //}
             validate("validate");
             if (_validation)
             {
                 _view.LblEmptyFieldsVisibility = false;
-                _PersonsInvolved.Add(new PersonsInvolved(_view.IPFullName, _view.IPLastName1, _view.IPPhoneNumber, _view.IPAge, _view.IPDriver, _view.IPDriverLicense, _view.IPPrivate, _view.IPInjured, Guid.Empty.ToString()));
+                _PersonsInvolved.Add(new PersonsInvolved(_view.IPFullName, _view.IPLastName1, _view.IPPhoneNumber, _view.IPAge, _view.IPDriver, _view.IPDriverLicense, _view.IPPrivate, _view.IPInjured, _view.IPHospital, _view.IPComments, Guid.Empty.ToString()));
                 _view.InvolvedPersonsDataSource = _PersonsInvolved;
 
                 CleanPersonInvolvedCapture();
@@ -623,13 +607,23 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             }
             else
             {
-                if (errors > 5) { errors -= 1; }
+                if (errors > 0) { errors -= 1; }
             }
 
-            if (errors == 0)
+            if (!_errors)
             {
                 _view.LblEmptyFieldsVisibility = false;
-                _PersonsInvolved[_selectedPerson] = new PersonsInvolved(_view.IPFullName, _view.IPLastName1, _view.IPPhoneNumber, _view.IPAge, _view.IPDriver, _view.IPDriverLicense, _view.IPPrivate, _view.IPInjured, Guid.Empty.ToString());
+                _PersonsInvolved[_selectedPerson].FullName = _view.IPFullName;
+                _PersonsInvolved[_selectedPerson].LastName1 = _view.IPLastName1;
+                _PersonsInvolved[_selectedPerson].PhoneNumber = _view.IPPhoneNumber;
+                _PersonsInvolved[_selectedPerson].Age = _view.IPAge;
+                _PersonsInvolved[_selectedPerson].SetDriver(_view.IPDriver);
+                _PersonsInvolved[_selectedPerson].DriverLicense = _view.IPDriverLicense;
+                _PersonsInvolved[_selectedPerson].SetPrivate(_view.IPPrivate);
+                _PersonsInvolved[_selectedPerson].SetInjured(_view.IPInjured);
+                _PersonsInvolved[_selectedPerson].Hospital = _view.IPHospital;
+                _PersonsInvolved[_selectedPerson].Comments = _view.IPComments;
+
                 _view.InvolvedPersonsDataSource = _PersonsInvolved;
 
                 CleanPersonInvolvedCapture();
@@ -657,12 +651,14 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             _view.IPPassenger = !person.Driver;
             _view.IPDriver = person.Driver;
             _view.IPDriverLicense = person.DriverLicense;
+            _view.IPHospital = person.Hospital;
+            _view.IPComments = person.Comments;
 
             _view.BtnAddInvolvedPersonVisibility = false;
             _view.BtnEditInvolvedPersonVisibility = true;
 
             if (_view.BtnEditInvolvedPersonLocation.X == 8)
-                _view.BtnEditInvolvedPersonLocation = new System.Drawing.Point(1177, 48);
+                _view.BtnEditInvolvedPersonLocation = new System.Drawing.Point(1177, 80);
 
         }
 
@@ -719,14 +715,18 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             _view.IPPassenger = false;
             _view.IPDriver = false;
             _view.IPDriverLicense = "";
+            _view.IPHospital = "";
+            _view.IPComments = "";
         }
 
-        public string EditImageView(string imgPath, string fileType)
+        public string EditImageView(string imgPath, string fileType, bool firebase = true)
         {
             if (fileType == "img")
             {
-                frm_Image imageView = new frm_Image("", "", imgPath);
+                //Utils.ShowMessage(imgPath);
+                frm_Image imageView = new frm_Image("", "", imgPath, firebase);
                 ImageController appConfigCtrl = new ImageController(imageView);
+                appConfigCtrl.DisableImageLoad();
                 if (imageView.ShowDialog() == DialogResult.OK)
                 {
                     Utils.ShowMessage("Image has been updated");
@@ -736,7 +736,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
             if (fileType == "pdf")
             {
-                frm_PdfViewer pdfViewer = new frm_PdfViewer(imgPath);
+                frm_PdfViewer pdfViewer = new frm_PdfViewer(imgPath, firebase);
                 pdfViewer.ShowDialog();
             }
 
@@ -814,6 +814,10 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                 for (var i = 0; i < documents.Count(); i++)
                 {
                     var document = documents[i];
+
+                    if (document.Path == "")
+                        continue;
+
                     var task = UploadImgFirebaseAsync(document.Path, document.name, ID_Capture);
 
                     //ProgressBarControl pbr = _view.GetPbrControl(document.containerName, $"pbrDocument{document.ID}");
@@ -838,6 +842,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                     Response imgResponse = CaptureService.AddImage(Guid.NewGuid().ToString(), ID_Capture, document.FirebaseUrl, document.name, "", document.Type);
                     document.ID_Document = imgResponse.ID;
                 }
+
             }
             else
             {
@@ -881,6 +886,13 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                 return (response.ID, false);
             }
 
+        }
+        #endregion
+
+        #region Logs
+        public void SetLicenseStateChange()
+        {
+            _logs.Add(new Models.Logs.Log("Samsara Drivers", "License State", _selectedDriver.ID_StateOfExpedition, _view.LicenseState));
         }
         #endregion
     }

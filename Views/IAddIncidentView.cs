@@ -19,6 +19,7 @@ namespace ResponseEmergencySystem.Views
         void LoadStates(DataTable dt_States);
         void LoadCities(DataTable dt_Cities);
         void LoadInjuredPersons(DataTable dt_InjuredPersons);
+        void CloseSpinner();
 
         List<Models.Documents.DocumentCapture> Documents { get; set; }
 
@@ -48,6 +49,7 @@ namespace ResponseEmergencySystem.Views
         bool CargoSpill { get; set; }
         string ManifestNumber { get; set; }
         string Broker { get; set; }
+        string Broker2 { get; set; }
         DateTime IncidentDate { get; }
         bool PoliceReport { get; set; }
         string CitationReportNumber { get; set; }
@@ -70,6 +72,8 @@ namespace ResponseEmergencySystem.Views
         string IPDriverLicense { get; set; }
         bool IPPrivate { get; set; }
         bool IPInjured { get; set; }
+        string IPHospital { get; set; }
+        string IPComments { get; set; }
 
         // form elements properties (change properties of especific elements in the form)
         bool PnlBolVisibility { set; }

@@ -22,6 +22,7 @@ namespace ResponseEmergencySystem.Controllers
         IMainView _view;
         public List<Capture> _captures;
         List<Incident> _incidents;
+        List<StatusDetail> _statusDetail;
         private string ID_Incident = "";
         private string ID_Capture = "";
         private string ID_StatusDetail = "423E82C9-EE3F-4D83-9066-01E6927FE14D";
@@ -40,6 +41,7 @@ namespace ResponseEmergencySystem.Controllers
         public MainController(IMainView view)
         {
             _incidents = new List<Incident>();
+            _statusDetail = StatusDetailService.list_StatusDetail();
             _view = view;
             view.SetController(this);
         }
@@ -67,7 +69,7 @@ namespace ResponseEmergencySystem.Controllers
         public void EditImageData()
         {
             Forms.Modals.EditComments editCommentsView = new Forms.Modals.EditComments();
-            EditImageDataController editImageDataCtrl = new EditImageDataController(editCommentsView, _view.ID_Image);
+            EditImageDataController editImageDataCtrl = new EditImageDataController(editCommentsView, _view.ID_Image, GetID("documentType"));
             editImageDataCtrl.LoadStatusDetail();
             if (editCommentsView.ShowDialog() == DialogResult.OK)
             {
@@ -122,7 +124,7 @@ namespace ResponseEmergencySystem.Controllers
         {
             //Login();
             //Test();
-            _view.StatusDetailDataSource = StatusDetailService.list_StatusDetail();
+            _view.StatusDetailDataSource = _statusDetail;
             _incidents = IncidentService.list_Incidents("", "", "", "", "");
             if (_incidents.Count > 0)
             {
@@ -235,7 +237,7 @@ namespace ResponseEmergencySystem.Controllers
 
         public void EditIncidentView()
         {
-            EditIncidentDetails editIncidentView = new EditIncidentDetails();
+            Forms.Incidents.EditDriverIncident editIncidentView = new Forms.Incidents.EditDriverIncident();
             
             _view.OpenSpinner();
 
@@ -243,6 +245,7 @@ namespace ResponseEmergencySystem.Controllers
             incidentCtrl.LoadIncident();
             incidentCtrl.LoadDrivers();
             incidentCtrl.LoadTrucks();
+
             editIncidentView.Load += new System.EventHandler((object sender, EventArgs e) =>
             {
                 _view.CloseSpinner();
@@ -251,7 +254,7 @@ namespace ResponseEmergencySystem.Controllers
             if (editIncidentView.ShowDialog() == DialogResult.OK)
             {
                 //Utils.ShowMessage("the Incident was updated succesfully", "Incident");
-                _view.Incidents = IncidentService.list_Incidents("", "", "", "", "").Select(i => new { i.ID_Incident, i.Name, i.Folio, i.IncidentDate, i.truck.truckNumber, i.ID_StatusDetail });
+                //ClearFilters();
             }
 
         }
@@ -260,7 +263,7 @@ namespace ResponseEmergencySystem.Controllers
         {
             if (_view.Folio != null)
             {
-                ViewIncidentDetails viewIncident = new ViewIncidentDetails();
+                Forms.Incidents.ShowDriverIncident viewIncident = new Forms.Incidents.ShowDriverIncident();
 
                 _view.OpenSpinner();
 
@@ -280,11 +283,12 @@ namespace ResponseEmergencySystem.Controllers
         public void AddIncidentView()
         {
             _view.OpenSpinner();
-            AddIncidentDetails addIncidentView = new AddIncidentDetails();
-            Controllers.Incidents.AddIncidentController addIncidentCtrl = new Controllers.Incidents.AddIncidentController(addIncidentView);
+            Forms.Incidents.AddDriverIncident addIncidentView = new Forms.Incidents.AddDriverIncident();
+            Incidents.AddIncidentController addIncidentCtrl = new Incidents.AddIncidentController(addIncidentView);
             addIncidentCtrl.LoadStates();
             addIncidentCtrl.LoadDrivers();
             addIncidentCtrl.LoadTrucks();
+
             addIncidentView.Load += new System.EventHandler((object sender, EventArgs e) =>
             {
                 _view.CloseSpinner();
@@ -293,7 +297,7 @@ namespace ResponseEmergencySystem.Controllers
             if (addIncidentView.ShowDialog() == DialogResult.OK)
             {
                 Utils.ShowMessage("the Incident was added succesfully", "Incident");
-                _view.Incidents = IncidentService.list_Incidents("", "", "", "", "").Select(i => new { i.ID_Incident, i.Name, i.Folio, i.IncidentDate, i.truck.truckNumber, i.ID_StatusDetail });
+                ClearFilters();
             }
               
         }
@@ -356,6 +360,10 @@ namespace ResponseEmergencySystem.Controllers
                     return _view.ID_Capture == null ? ID_Capture : _view.ID_Capture.ToString();
                 case "status":
                     return _view.ID_StatusDetail == null ? ID_StatusDetail : _view.ID_StatusDetail.ToString();
+                case "truck":
+                    return _view.TruckNumber == null ? "" : _view.TruckNumber.ToString();
+                case "documentType":
+                    return _view.DocumentType == null ? "" : _view.DocumentType.ToString();
                 default:
                     return "";
             }
@@ -370,7 +378,13 @@ namespace ResponseEmergencySystem.Controllers
 
         public void SaveStatus()
         {
-            StatusDetailService.UpdateStatus(GetID("incident"), GetID("status"));
+            _view.OpenSpinner();
+            if (GetID("truck") != "")
+                IncidentService.UpdateStatus(GetID("incident"), GetID("status"), GetID("truck"));
+            _view.CloseSpinner();
+
+
+            Utils.ShowMessage("Status has been updated correctly.", title: "Status Updated", type: "Approved");
         }
 
         public void CloseIncident()

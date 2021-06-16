@@ -33,5 +33,10 @@ namespace ResponseEmergencySystem.Forms.Modals
             }
                 
         }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

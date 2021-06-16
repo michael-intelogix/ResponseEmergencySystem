@@ -11,8 +11,10 @@
         <AssociationConnector Association="SIREMModel.FK_dbo_Captures_dbo_Incidents_ID_Incident" ManuallyRouted="false" >
         </AssociationConnector>
         <AssociationConnector Association="SIREMModel.FK_Images_Captures" />
-        <EntityTypeShape EntityType="SIREMModel.InjuredPersons" Width="1.5" PointX="4.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIREMModel.InjuredPersons" Width="1.5" PointX="4.5" PointY="7.25" IsExpanded="true" />
         <AssociationConnector Association="SIREMModel.FK_dbo_InjuredPersons_dbo_Incidents_ID_Incident" />
+        <EntityTypeShape EntityType="SIREMModel.Locations" Width="1.5" PointX="4.5" PointY="0.75" />
+        <AssociationConnector Association="SIREMModel.FK_Locations_Incidents" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

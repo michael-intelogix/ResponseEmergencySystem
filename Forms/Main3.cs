@@ -62,6 +62,8 @@ namespace ResponseEmergencySystem.Forms
 
         public string LblFolio { set => lbl_Folio.Text = value; }
 
+        public object DocumentType => gv_Images.GetFocusedRowCellValue("FileType");
+
         //ScaleData_Form.Scales_GridView.SetRowCellValue(ScaleData_Form.Scales_GridControl.AutoFilterRowHandle, ScaleData_Form.Scales_GridView.Columns("Ticket"), Me.Bar_Ticket.EditValue.ToString)
         // 049
         #endregion
@@ -86,9 +88,9 @@ namespace ResponseEmergencySystem.Forms
             get => throw new NotImplementedException(); 
             set => throw new NotImplementedException(); 
         }
-        public string TruckNumber 
+        public object TruckNumber 
         { 
-            get => throw new NotImplementedException(); 
+            get => gv_Incidents.GetFocusedRowCellValue("truck.truckNumber"); 
             set => throw new NotImplementedException(); 
         }
 
@@ -120,7 +122,11 @@ namespace ResponseEmergencySystem.Forms
         }
         public object StatusDetailDataSource 
         { 
-            set => lue_StatusDetail.DataSource = value; 
+            set
+            {
+                lue_StatusDetail.DataSource = value;
+                lue_StatusDetail.BestFit();
+            } 
         }
         
         #endregion

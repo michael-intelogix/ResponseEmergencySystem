@@ -705,6 +705,7 @@ namespace ResponseEmergencySystem.Forms
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("State", "State", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Name")});
             this.lue_LocationCities.Properties.DisplayMember = "Name";
+            this.lue_LocationCities.Properties.NullText = "";
             this.lue_LocationCities.Properties.ReadOnly = true;
             this.lue_LocationCities.Properties.UseReadOnlyAppearance = false;
             this.lue_LocationCities.Properties.ValueMember = "ID_City";
@@ -721,6 +722,7 @@ namespace ResponseEmergencySystem.Forms
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("pk_id", "id", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("state", "Name9")});
             this.lue_LocationStates.Properties.DisplayMember = "state";
+            this.lue_LocationStates.Properties.NullText = "";
             this.lue_LocationStates.Properties.ReadOnly = true;
             this.lue_LocationStates.Properties.ShowHeader = false;
             this.lue_LocationStates.Properties.UseReadOnlyAppearance = false;

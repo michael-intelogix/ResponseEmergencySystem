@@ -12,10 +12,12 @@ namespace ResponseEmergencySystem.Views
     public interface IShowIncidentDetails
     {
         void SetController(IncidentController controller);
-        void LoadIncident(Incident incident);
+        void LoadIncident();
         void LoadStates(DataTable dt_States);
         void LoadCities(DataTable dt_Cities);
         void LoadInjuredPersons(DataTable dt_InjuredPersons);
+
+        List<Models.Documents.DocumentCapture> Documents { get; set; }
 
         bool ShowMailButton { set; }
 
@@ -38,6 +40,7 @@ namespace ResponseEmergencySystem.Views
         bool CargoSpill { get; set; }
         string ManifestNumber { get; set; }
         string Broker { get; set; }
+        string Broker2 { get; set; }
         string IncidentDate { get; set; }
         string IncidentTime { get; set; }
         bool PoliceReport { get; set; }

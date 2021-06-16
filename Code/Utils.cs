@@ -49,8 +49,8 @@ namespace ResponseEmergencySystem.Code
             //    }
 
             //mail.To.Add("jjind@citlogistics.us");
-            mail.Subject = "Información del reporte registrado";
-            mail.Body = "Buen día,\n\rEnvío información el reporte sobre el accidente que se registro hoy";
+            mail.Subject = "SIREM - Incident Report";
+            mail.Body = "Good morning,\n\rToday was registered a new incident, please check the report attached to this mail";
             if (resend)
             {
                 mail.Subject = "Corrección de información de nuevo empleado";

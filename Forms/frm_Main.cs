@@ -13,6 +13,7 @@ using ResponseEmergencySystem.Forms;
 using ResponseEmergencySystem.Controllers;
 using ResponseEmergencySystem.Views;
 using ResponseEmergencySystem.Services;
+using ResponseEmergencySystem.Code;
 
 namespace ResponseEmergencySystem.Forms
 {
@@ -189,7 +190,18 @@ namespace ResponseEmergencySystem.Forms
 
         private void barButtonItem13_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            splashScreenManager1.ShowWaitForm();
             SamsaraService.UpdateSamsaraVehicles();
+            splashScreenManager1.CloseWaitForm();
+            Utils.ShowMessage("Samsara trailers have been updated", "Trucks Samsara");
+        }
+
+        private void barButtonItem14_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            splashScreenManager1.ShowWaitForm();
+            SamsaraService.UpdateSamsaraDrivers();
+            splashScreenManager1.CloseWaitForm();
+            Utils.ShowMessage("Samsara drivers have been updated", "Drivers Samsara");
         }
     }
 }

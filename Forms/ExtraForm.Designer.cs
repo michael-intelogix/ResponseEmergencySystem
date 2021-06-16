@@ -51,7 +51,6 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.textEdit6 = new DevExpress.XtraEditors.TextEdit();
             this.labelControl29 = new DevExpress.XtraEditors.LabelControl();
-            this.xtraScrollableControl1 = new DevExpress.XtraEditors.XtraScrollableControl();
             this.xtraScrollableControl2 = new DevExpress.XtraEditors.XtraScrollableControl();
             this.panelControl8 = new DevExpress.XtraEditors.PanelControl();
             this.simpleButton12 = new DevExpress.XtraEditors.SimpleButton();
@@ -82,6 +81,29 @@ namespace ResponseEmergencySystem.Forms
             this.textEdit12 = new DevExpress.XtraEditors.TextEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.lue_Test = new DevExpress.XtraEditors.LookUpEdit();
+            this.panelControl9 = new DevExpress.XtraEditors.PanelControl();
+            this.lue_Drivers = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.simpleButton14 = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.simpleButton15 = new DevExpress.XtraEditors.SimpleButton();
+            this.edt_SearchDriver = new DevExpress.XtraEditors.TextEdit();
+            this.btn_FindDriver = new DevExpress.XtraEditors.SimpleButton();
+            this.lue_DriverLicenseState = new DevExpress.XtraEditors.LookUpEdit();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
+            this.edt_License = new DevExpress.XtraEditors.TextEdit();
+            this.edt_PhoneNumber = new DevExpress.XtraEditors.TextEdit();
+            this.edt_FullName = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
+            this.dte_ExpirationDate = new DevExpress.XtraEditors.DateEdit();
             ((System.ComponentModel.ISupportInitialize)(this.pnl_footer)).BeginInit();
             this.pnl_footer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
@@ -116,6 +138,17 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.textEdit11.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit12.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_Test.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl9)).BeginInit();
+            this.panelControl9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lue_Drivers.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_SearchDriver.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lue_DriverLicenseState.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_License.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_PhoneNumber.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_FullName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dte_ExpirationDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dte_ExpirationDate.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // pnl_footer
@@ -126,7 +159,7 @@ namespace ResponseEmergencySystem.Forms
             this.pnl_footer.Location = new System.Drawing.Point(0, 526);
             this.pnl_footer.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnl_footer.Name = "pnl_footer";
-            this.pnl_footer.Size = new System.Drawing.Size(853, 61);
+            this.pnl_footer.Size = new System.Drawing.Size(1444, 61);
             this.pnl_footer.TabIndex = 2;
             // 
             // textEdit1
@@ -353,14 +386,6 @@ namespace ResponseEmergencySystem.Forms
             this.labelControl29.Size = new System.Drawing.Size(175, 17);
             this.labelControl29.TabIndex = 105;
             this.labelControl29.Text = "Name of First Person Injured";
-            // 
-            // xtraScrollableControl1
-            // 
-            this.xtraScrollableControl1.Location = new System.Drawing.Point(265, 224);
-            this.xtraScrollableControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.xtraScrollableControl1.Name = "xtraScrollableControl1";
-            this.xtraScrollableControl1.Size = new System.Drawing.Size(225, 199);
-            this.xtraScrollableControl1.TabIndex = 111;
             // 
             // xtraScrollableControl2
             // 
@@ -723,14 +748,286 @@ namespace ResponseEmergencySystem.Forms
             this.lue_Test.Size = new System.Drawing.Size(203, 24);
             this.lue_Test.TabIndex = 113;
             // 
+            // panelControl9
+            // 
+            this.panelControl9.Appearance.BackColor = System.Drawing.Color.White;
+            this.panelControl9.Appearance.Options.UseBackColor = true;
+            this.panelControl9.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl9.Controls.Add(this.lue_Drivers);
+            this.panelControl9.Controls.Add(this.simpleButton14);
+            this.panelControl9.Controls.Add(this.labelControl9);
+            this.panelControl9.Controls.Add(this.simpleButton15);
+            this.panelControl9.Controls.Add(this.edt_SearchDriver);
+            this.panelControl9.Controls.Add(this.btn_FindDriver);
+            this.panelControl9.Controls.Add(this.lue_DriverLicenseState);
+            this.panelControl9.Controls.Add(this.labelControl10);
+            this.panelControl9.Controls.Add(this.labelControl11);
+            this.panelControl9.Controls.Add(this.edt_License);
+            this.panelControl9.Controls.Add(this.edt_PhoneNumber);
+            this.panelControl9.Controls.Add(this.edt_FullName);
+            this.panelControl9.Controls.Add(this.labelControl12);
+            this.panelControl9.Controls.Add(this.labelControl13);
+            this.panelControl9.Controls.Add(this.labelControl14);
+            this.panelControl9.Controls.Add(this.dte_ExpirationDate);
+            this.panelControl9.Location = new System.Drawing.Point(14, 317);
+            this.panelControl9.Name = "panelControl9";
+            this.panelControl9.Size = new System.Drawing.Size(1355, 88);
+            this.panelControl9.TabIndex = 114;
+            // 
+            // lue_Drivers
+            // 
+            this.lue_Drivers.EditValue = "";
+            this.lue_Drivers.Location = new System.Drawing.Point(17, 11);
+            this.lue_Drivers.Name = "lue_Drivers";
+            this.lue_Drivers.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lue_Drivers.Properties.DisplayMember = "Name";
+            this.lue_Drivers.Properties.NullText = "";
+            this.lue_Drivers.Properties.PopupFormSize = new System.Drawing.Size(1200, 0);
+            this.lue_Drivers.Properties.PopupView = this.gridLookUpEdit1View;
+            this.lue_Drivers.Properties.PopupWidthMode = DevExpress.XtraEditors.PopupWidthMode.UseEditorWidth;
+            this.lue_Drivers.Properties.ValueMember = "ID_Driver";
+            this.lue_Drivers.Properties.EditValueChanged += new System.EventHandler(this.gridLookUpEdit1_Properties_EditValueChanged);
+            this.lue_Drivers.Size = new System.Drawing.Size(300, 24);
+            this.lue_Drivers.TabIndex = 132;
+            this.lue_Drivers.TabStop = false;
+            // 
+            // gridLookUpEdit1View
+            // 
+            this.gridLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1,
+            this.gridColumn2,
+            this.gridColumn5,
+            this.gridColumn6,
+            this.gridColumn3});
+            this.gridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridLookUpEdit1View.Name = "gridLookUpEdit1View";
+            this.gridLookUpEdit1View.OptionsEditForm.PopupEditFormWidth = 1200;
+            this.gridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "ID_Driver";
+            this.gridColumn1.FieldName = "ID_Driver";
+            this.gridColumn1.Name = "gridColumn1";
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "Name";
+            this.gridColumn2.FieldName = "Name";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 0;
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "PhoneNumber";
+            this.gridColumn5.FieldName = "PhoneNumber";
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 1;
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.Caption = "License";
+            this.gridColumn6.FieldName = "License";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 2;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "State";
+            this.gridColumn3.FieldName = "State";
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 3;
+            // 
+            // simpleButton14
+            // 
+            this.simpleButton14.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.simpleButton14.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.simpleButton14.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton14.Appearance.Options.UseBackColor = true;
+            this.simpleButton14.Appearance.Options.UseBorderColor = true;
+            this.simpleButton14.Appearance.Options.UseFont = true;
+            this.simpleButton14.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.simpleButton14.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.searchWhite1;
+            this.simpleButton14.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
+            this.simpleButton14.Location = new System.Drawing.Point(507, 11);
+            this.simpleButton14.Name = "simpleButton14";
+            this.simpleButton14.Size = new System.Drawing.Size(208, 24);
+            this.simpleButton14.TabIndex = 131;
+            this.simpleButton14.TabStop = false;
+            this.simpleButton14.Text = "Find driver in samsara";
+            this.simpleButton14.Visible = false;
+            // 
+            // labelControl9
+            // 
+            this.labelControl9.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl9.Appearance.ForeColor = System.Drawing.Color.Maroon;
+            this.labelControl9.Appearance.Options.UseFont = true;
+            this.labelControl9.Appearance.Options.UseForeColor = true;
+            this.labelControl9.Location = new System.Drawing.Point(726, 14);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(477, 17);
+            this.labelControl9.TabIndex = 130;
+            this.labelControl9.Text = "Please fill the driver information then click the button to find it in samsara";
+            this.labelControl9.Visible = false;
+            // 
+            // simpleButton15
+            // 
+            this.simpleButton15.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.simpleButton15.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.simpleButton15.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton15.Appearance.Options.UseBackColor = true;
+            this.simpleButton15.Appearance.Options.UseBorderColor = true;
+            this.simpleButton15.Appearance.Options.UseFont = true;
+            this.simpleButton15.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.simpleButton15.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.addWhite;
+            this.simpleButton15.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.simpleButton15.Location = new System.Drawing.Point(1211, 43);
+            this.simpleButton15.Name = "simpleButton15";
+            this.simpleButton15.Size = new System.Drawing.Size(136, 24);
+            this.simpleButton15.TabIndex = 12;
+            this.simpleButton15.TabStop = false;
+            this.simpleButton15.Text = "Update Driver";
+            this.simpleButton15.Visible = false;
+            // 
+            // edt_SearchDriver
+            // 
+            this.edt_SearchDriver.Location = new System.Drawing.Point(435, 8);
+            this.edt_SearchDriver.Name = "edt_SearchDriver";
+            this.edt_SearchDriver.Size = new System.Drawing.Size(66, 24);
+            this.edt_SearchDriver.TabIndex = 50;
+            this.edt_SearchDriver.TabStop = false;
+            this.edt_SearchDriver.Visible = false;
+            // 
+            // btn_FindDriver
+            // 
+            this.btn_FindDriver.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.btn_FindDriver.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.btn_FindDriver.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_FindDriver.Appearance.Options.UseBackColor = true;
+            this.btn_FindDriver.Appearance.Options.UseBorderColor = true;
+            this.btn_FindDriver.Appearance.Options.UseFont = true;
+            this.btn_FindDriver.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btn_FindDriver.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.searchWhite1;
+            this.btn_FindDriver.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
+            this.btn_FindDriver.Location = new System.Drawing.Point(323, 11);
+            this.btn_FindDriver.Name = "btn_FindDriver";
+            this.btn_FindDriver.Size = new System.Drawing.Size(106, 24);
+            this.btn_FindDriver.TabIndex = 1;
+            this.btn_FindDriver.TabStop = false;
+            this.btn_FindDriver.Text = "Find driver";
+            this.btn_FindDriver.Visible = false;
+            // 
+            // lue_DriverLicenseState
+            // 
+            this.lue_DriverLicenseState.Location = new System.Drawing.Point(1137, 43);
+            this.lue_DriverLicenseState.Name = "lue_DriverLicenseState";
+            this.lue_DriverLicenseState.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lue_DriverLicenseState.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("pk_id", "id", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("state", "state")});
+            this.lue_DriverLicenseState.Properties.DisplayMember = "state";
+            this.lue_DriverLicenseState.Properties.NullText = "";
+            this.lue_DriverLicenseState.Properties.ShowHeader = false;
+            this.lue_DriverLicenseState.Properties.ValueMember = "pk_id";
+            this.lue_DriverLicenseState.Size = new System.Drawing.Size(68, 24);
+            this.lue_DriverLicenseState.TabIndex = 4;
+            // 
+            // labelControl10
+            // 
+            this.labelControl10.Location = new System.Drawing.Point(1018, 45);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(113, 17);
+            this.labelControl10.TabIndex = 10;
+            this.labelControl10.Text = "State of expedition";
+            // 
+            // labelControl11
+            // 
+            this.labelControl11.Location = new System.Drawing.Point(787, 45);
+            this.labelControl11.Name = "labelControl11";
+            this.labelControl11.Size = new System.Drawing.Size(90, 17);
+            this.labelControl11.TabIndex = 8;
+            this.labelControl11.Text = "Expiration date";
+            // 
+            // edt_License
+            // 
+            this.edt_License.Location = new System.Drawing.Point(651, 43);
+            this.edt_License.Name = "edt_License";
+            this.edt_License.Size = new System.Drawing.Size(111, 24);
+            this.edt_License.TabIndex = 3;
+            // 
+            // edt_PhoneNumber
+            // 
+            this.edt_PhoneNumber.Location = new System.Drawing.Point(437, 43);
+            this.edt_PhoneNumber.Name = "edt_PhoneNumber";
+            this.edt_PhoneNumber.Size = new System.Drawing.Size(142, 24);
+            this.edt_PhoneNumber.TabIndex = 2;
+            // 
+            // edt_FullName
+            // 
+            this.edt_FullName.Location = new System.Drawing.Point(60, 43);
+            this.edt_FullName.Name = "edt_FullName";
+            this.edt_FullName.Size = new System.Drawing.Size(257, 24);
+            this.edt_FullName.TabIndex = 1;
+            // 
+            // labelControl12
+            // 
+            this.labelControl12.Location = new System.Drawing.Point(592, 45);
+            this.labelControl12.Name = "labelControl12";
+            this.labelControl12.Size = new System.Drawing.Size(51, 17);
+            this.labelControl12.TabIndex = 6;
+            this.labelControl12.Text = "License#";
+            // 
+            // labelControl13
+            // 
+            this.labelControl13.Location = new System.Drawing.Point(339, 45);
+            this.labelControl13.Name = "labelControl13";
+            this.labelControl13.Size = new System.Drawing.Size(90, 17);
+            this.labelControl13.TabIndex = 4;
+            this.labelControl13.Text = "Phone number";
+            // 
+            // labelControl14
+            // 
+            this.labelControl14.Location = new System.Drawing.Point(17, 45);
+            this.labelControl14.Name = "labelControl14";
+            this.labelControl14.Size = new System.Drawing.Size(35, 17);
+            this.labelControl14.TabIndex = 2;
+            this.labelControl14.Text = "Name";
+            // 
+            // dte_ExpirationDate
+            // 
+            this.dte_ExpirationDate.EditValue = null;
+            this.dte_ExpirationDate.Location = new System.Drawing.Point(886, 43);
+            this.dte_ExpirationDate.Name = "dte_ExpirationDate";
+            this.dte_ExpirationDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dte_ExpirationDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dte_ExpirationDate.Properties.DisplayFormat.FormatString = "";
+            this.dte_ExpirationDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dte_ExpirationDate.Properties.EditFormat.FormatString = "";
+            this.dte_ExpirationDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dte_ExpirationDate.Properties.MaskSettings.Set("mask", "MM/dd/yyyy");
+            this.dte_ExpirationDate.Properties.ReadOnly = true;
+            this.dte_ExpirationDate.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.dte_ExpirationDate.Properties.UseMaskAsDisplayFormat = true;
+            this.dte_ExpirationDate.Size = new System.Drawing.Size(112, 24);
+            this.dte_ExpirationDate.TabIndex = 9;
+            // 
             // ExtraForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(853, 587);
+            this.ClientSize = new System.Drawing.Size(1444, 587);
+            this.Controls.Add(this.panelControl9);
             this.Controls.Add(this.lue_Test);
             this.Controls.Add(this.xtraScrollableControl2);
-            this.Controls.Add(this.xtraScrollableControl1);
             this.Controls.Add(this.panelControl6);
             this.Controls.Add(this.panelControl5);
             this.Controls.Add(this.panelControl4);
@@ -783,6 +1080,18 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.textEdit11.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit12.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_Test.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl9)).EndInit();
+            this.panelControl9.ResumeLayout(false);
+            this.panelControl9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lue_Drivers.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_SearchDriver.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lue_DriverLicenseState.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_License.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_PhoneNumber.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_FullName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dte_ExpirationDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dte_ExpirationDate.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -809,7 +1118,6 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraEditors.PanelControl panelControl3;
         private DevExpress.XtraEditors.TextEdit textEdit6;
         private DevExpress.XtraEditors.LabelControl labelControl29;
-        private DevExpress.XtraEditors.XtraScrollableControl xtraScrollableControl1;
         private DevExpress.XtraEditors.XtraScrollableControl xtraScrollableControl2;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.SimpleButton simpleButton6;
@@ -840,5 +1148,28 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraEditors.TextEdit textEdit14;
         private DevExpress.XtraEditors.LabelControl labelControl8;
         private DevExpress.XtraEditors.LookUpEdit lue_Test;
+        private DevExpress.XtraEditors.PanelControl panelControl9;
+        private DevExpress.XtraEditors.GridLookUpEdit lue_Drivers;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridLookUpEdit1View;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraEditors.SimpleButton simpleButton14;
+        private DevExpress.XtraEditors.LabelControl labelControl9;
+        private DevExpress.XtraEditors.SimpleButton simpleButton15;
+        private DevExpress.XtraEditors.TextEdit edt_SearchDriver;
+        private DevExpress.XtraEditors.SimpleButton btn_FindDriver;
+        private DevExpress.XtraEditors.LookUpEdit lue_DriverLicenseState;
+        private DevExpress.XtraEditors.LabelControl labelControl10;
+        private DevExpress.XtraEditors.LabelControl labelControl11;
+        private DevExpress.XtraEditors.TextEdit edt_License;
+        private DevExpress.XtraEditors.TextEdit edt_PhoneNumber;
+        private DevExpress.XtraEditors.TextEdit edt_FullName;
+        private DevExpress.XtraEditors.LabelControl labelControl12;
+        private DevExpress.XtraEditors.LabelControl labelControl13;
+        private DevExpress.XtraEditors.LabelControl labelControl14;
+        private DevExpress.XtraEditors.DateEdit dte_ExpirationDate;
     }
 }

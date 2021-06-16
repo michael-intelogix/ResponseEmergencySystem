@@ -29,7 +29,6 @@ namespace ResponseEmergencySystem.Forms.Modals
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.btn_Capture1 = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.btn_Cancel2 = new DevExpress.XtraEditors.SimpleButton();
@@ -119,7 +118,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.pictureEdit1.Location = new System.Drawing.Point(12, 50);
             this.pictureEdit1.Name = "pictureEdit1";
             this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
+            this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
             this.pictureEdit1.Size = new System.Drawing.Size(381, 296);
             this.pictureEdit1.TabIndex = 22;
             // 
@@ -161,6 +160,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.Name = "DocumentModal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "XtraForm1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DocumentModal_FormClosing);
             this.Load += new System.EventHandler(this.DocumentModal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();

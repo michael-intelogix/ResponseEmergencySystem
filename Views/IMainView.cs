@@ -33,6 +33,7 @@ namespace ResponseEmergencySystem.Views
         object ID_Capture { get; }
         string ID_Image { get; }
         object ID_StatusDetail { get; set; }
+        object DocumentType { get; }
 
         string ImageName { get; }
 
@@ -42,7 +43,7 @@ namespace ResponseEmergencySystem.Views
         string Date2 { get; set;  }
         object Folio { get; set;  }
         string DriverName { get; set;  }
-        string TruckNumber { get; set; }
+        object TruckNumber { get; set; }
 
         object Incidents { set; }
 

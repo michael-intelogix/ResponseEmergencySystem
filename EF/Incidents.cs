@@ -19,6 +19,7 @@ namespace ResponseEmergencySystem.EF
         {
             this.Captures = new HashSet<Captures>();
             this.InjuredPersons = new HashSet<InjuredPersons>();
+            this.Locations = new HashSet<Locations>();
         }
     
         public System.Guid ID_Incident { get; set; }
@@ -57,10 +58,13 @@ namespace ResponseEmergencySystem.EF
         public string DriverName { get; set; }
         public Nullable<bool> DSamsara { get; set; }
         public Nullable<bool> TSamsara { get; set; }
+        public string ID_Broker2 { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Captures> Captures { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<InjuredPersons> InjuredPersons { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Locations> Locations { get; set; }
     }
 }

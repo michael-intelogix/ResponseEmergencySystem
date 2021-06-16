@@ -45,5 +45,24 @@ namespace ResponseEmergencySystem.Code
 
         public static List<State> states { get; set; }
 
+        public static List<Reason> reasons { get; } = new List<Reason>(){ 
+            new Reason("Driver Judgement"),
+            new Reason("Weather"),
+            new Reason("Animals"),
+            new Reason("Mechanical Issues"),
+            new Reason("Other")
+        };
+        //"Driver Judgement", "Weather", "Animals", "Mechanical Issues", "Other" };
+
+        public static List<Models.Action> actions = new List<Models.Action>()
+        {
+            new Models.Action("Fix Object Collision"),
+            new Models.Action("While Turning"),
+            new Models.Action("While Backing"),
+            new Models.Action("Moving Object Collision"),
+            new Models.Action("Couldn't be prevented"),
+            new Models.Action("other")
+        };
+
     }
 }

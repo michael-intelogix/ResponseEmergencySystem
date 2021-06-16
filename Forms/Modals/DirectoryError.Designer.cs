@@ -132,6 +132,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.simpleButton2.Size = new System.Drawing.Size(96, 34);
             this.simpleButton2.TabIndex = 2;
             this.simpleButton2.Text = "Accept";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
             // stackPanel1
             // 

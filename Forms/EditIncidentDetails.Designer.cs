@@ -872,6 +872,7 @@ namespace ResponseEmergencySystem.Forms
             // splitContainerControl1
             // 
             this.splitContainerControl1.Horizontal = false;
+            this.splitContainerControl1.IsSplitterFixed = true;
             this.splitContainerControl1.Location = new System.Drawing.Point(24, 485);
             this.splitContainerControl1.Name = "splitContainerControl1";
             // 
@@ -885,7 +886,7 @@ namespace ResponseEmergencySystem.Forms
             this.splitContainerControl1.Panel2.Controls.Add(this.gc_InvolvedPersons);
             this.splitContainerControl1.Panel2.Text = "Panel2";
             this.splitContainerControl1.Size = new System.Drawing.Size(1331, 363);
-            this.splitContainerControl1.SplitterPosition = 113;
+            this.splitContainerControl1.SplitterPosition = 112;
             this.splitContainerControl1.TabIndex = 113;
             // 
             // panelControl5
@@ -921,7 +922,7 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl5.Location = new System.Drawing.Point(0, 0);
             this.panelControl5.Name = "panelControl5";
-            this.panelControl5.Size = new System.Drawing.Size(1331, 113);
+            this.panelControl5.Size = new System.Drawing.Size(1331, 112);
             this.panelControl5.TabIndex = 122;
             this.panelControl5.TabStop = true;
             // 
@@ -1276,7 +1277,7 @@ namespace ResponseEmergencySystem.Forms
             this.gc_InvolvedPersons.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btn_DeletePerson,
             this.btn_EditPerson});
-            this.gc_InvolvedPersons.Size = new System.Drawing.Size(1331, 244);
+            this.gc_InvolvedPersons.Size = new System.Drawing.Size(1331, 245);
             this.gc_InvolvedPersons.TabIndex = 116;
             this.gc_InvolvedPersons.TabStop = false;
             this.gc_InvolvedPersons.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1811,6 +1812,7 @@ namespace ResponseEmergencySystem.Forms
             this.ckedt_PoliceReport.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.ckedt_PoliceReport.Size = new System.Drawing.Size(104, 21);
             this.ckedt_PoliceReport.TabIndex = 118;
+            this.ckedt_PoliceReport.CheckedChanged += new System.EventHandler(this.OnChangedCheckEdit);
             // 
             // edt_Highway
             // 
@@ -1953,6 +1955,7 @@ namespace ResponseEmergencySystem.Forms
             this.lue_Trucks.Size = new System.Drawing.Size(119, 24);
             this.lue_Trucks.TabIndex = 134;
             this.lue_Trucks.Closed += new DevExpress.XtraEditors.Controls.ClosedEventHandler(this.lue_Trucks_Closed);
+            this.lue_Trucks.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lue_Trucks_KeyDown);
             // 
             // gridView1
             // 
@@ -2293,6 +2296,7 @@ namespace ResponseEmergencySystem.Forms
             conditionValidationRule12.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule12.ErrorText = "This value is not valid";
             this.dxValidationProvider1.SetValidationRule(this.lue_DriverLicenseState, conditionValidationRule12);
+            this.lue_DriverLicenseState.EditValueChanged += new System.EventHandler(this.lue_DriverLicenseState_EditValueChanged);
             // 
             // labelControl5
             // 

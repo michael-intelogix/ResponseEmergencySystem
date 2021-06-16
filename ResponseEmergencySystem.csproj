@@ -27,8 +27,10 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>false</MapFileExtensions>
+    <ProductName>SIREM</ProductName>
+    <PublisherName>IntelogixSoft</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>44</ApplicationRevision>
+    <ApplicationRevision>60</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -438,6 +440,9 @@
     <Compile Include="EF\InjuredPersons.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="EF\Locations.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="EF\Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -506,6 +511,18 @@
     </Compile>
     <Compile Include="Forms\Incidents\AddDriverIncident.Designer.cs">
       <DependentUpon>AddDriverIncident.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Incidents\EditDriverIncident.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Incidents\EditDriverIncident.Designer.cs">
+      <DependentUpon>EditDriverIncident.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Incidents\ShowDriverIncident.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Incidents\ShowDriverIncident.Designer.cs">
+      <DependentUpon>ShowDriverIncident.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Main2.cs">
       <SubType>Form</SubType>
@@ -597,14 +614,17 @@
     <Compile Include="Forms\AddIncidentDetails.Designer.cs">
       <DependentUpon>AddIncidentDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Action.cs" />
     <Compile Include="Models\Broker.cs" />
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\DocumentCapture.cs" />
     <Compile Include="Models\Documents\Document.cs" />
     <Compile Include="Models\Documents\DocumentCapture.cs" />
+    <Compile Include="Models\Logs\Log.cs" />
     <Compile Include="Models\MailCategory.cs" />
     <Compile Include="Models\MailDirectory.cs" />
     <Compile Include="Models\PersonsInvolved.cs" />
+    <Compile Include="Models\Reason.cs" />
     <Compile Include="Models\Response.cs" />
     <Compile Include="Models\Samsara\Driver.cs" />
     <Compile Include="Models\Samsara\Trailer.cs" />
@@ -678,6 +698,12 @@
     <Compile Include="Views\IMainView.cs" />
     <Compile Include="Views\IModalView.cs" />
     <Compile Include="Views\IShowIncidentDetails.cs" />
+    <EmbeddedResource Include="Forms\Incidents\EditDriverIncident.resx">
+      <DependentUpon>EditDriverIncident.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Incidents\ShowDriverIncident.resx">
+      <DependentUpon>ShowDriverIncident.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\XtraReport2.resx">
       <DependentUpon>XtraReport2.cs</DependentUpon>
     </EmbeddedResource>
@@ -780,6 +806,7 @@
     <None Include="Resources\delete.svg" />
     <None Include="Resources\add_32x32.png" />
     <None Include="Resources\actions_zoom.svg" />
+    <None Include="Resources\bo_person.svg" />
     <Content Include="Resources\pdf.png" />
     <None Include="Resources\pdf1.png" />
     <None Include="Resources\índice1.jpg" />

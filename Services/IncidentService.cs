@@ -1,12 +1,16 @@
-﻿using ResponseEmergencySystem.Code;
+﻿using Newtonsoft.Json.Linq;
+using ResponseEmergencySystem.Code;
 using ResponseEmergencySystem.EF;
 using ResponseEmergencySystem.Models;
+using ResponseEmergencySystem.Samsara_Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -287,6 +291,7 @@ namespace ResponseEmergencySystem.Services
             string ID_State,
             string ID_City,
             string ID_Broker,
+            string ID_Broker2,
             string ID_Truck,
             string folio,
             string TruckNumber,
@@ -333,6 +338,7 @@ namespace ResponseEmergencySystem.Services
                     cmd.Parameters.AddWithValue("@ID_State", ID_State);
                     cmd.Parameters.AddWithValue("@ID_City", ID_City);
                     cmd.Parameters.AddWithValue("@ID_Broker", ID_Broker);
+                    cmd.Parameters.AddWithValue("@ID_Broker2", ID_Broker2);
                     cmd.Parameters.AddWithValue("@ID_Truck", "");
                     cmd.Parameters.AddWithValue("@TruckNumber", TruckNumber);
                     cmd.Parameters.AddWithValue("@TrailerNumber", trailerNumber);
@@ -603,6 +609,105 @@ namespace ResponseEmergencySystem.Services
                 }
             }
 
+        }
+
+        public static void UpdateStatus(string incidentID, string status, string truckNum)
+        {
+            Guid ID_Incident = Guid.Parse(incidentID);
+            using (var db = new SIREMEntities())
+            {
+                Incidents incident = (Incidents)db.Incidents.Where(i => i.ID_Incident == ID_Incident).FirstOrDefault();
+
+                incident.ID_StatusDetail = status;
+
+                db.Entry(incident).State = System.Data.Entity.EntityState.Modified;
+
+                
+
+                var truckLoc = GetTruckSamsara(truckNum);
+                if (truckLoc.validation == true)
+                {
+                    var loc = new Locations()
+                    {
+                        ID_Location = Guid.NewGuid(),
+                        ID_Incident = incident.ID_Incident,
+                        Latitude = truckLoc.latitude.ToString(),
+                        Longitude = truckLoc.longitude.ToString(),
+                        Description = truckLoc.FormattedLocation,
+                        CreatedAt = truckLoc.currentTime
+                    };
+
+                    db.Locations.Add(loc);
+                }
+
+                db.SaveChanges();
+
+                Console.WriteLine("Registro actualizado correctamente.");
+                
+                //return new Response()
+            }
+
+            
+
+        }
+
+        private static (double latitude, double longitude, DateTime currentTime, string FormattedLocation, bool validation) GetTruckSamsara(string truckNumber)
+        {
+            double latitude = 0;
+            double longitude = 0;
+            DateTime currentTime = DateTime.Now;
+            const string url = "https://api.samsara.com/fleet/vehicles/locations";
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri(url);
+
+                    // Add an Accept header for JSON format.
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "samsara_api_XwURzQhn0F9rijd0vqXwDgWir2zLWc");
+
+                    // List data response.
+                    HttpResponseMessage response = client.GetAsync(url).Result;  // Blocking call! Program will wait here until a response is received or a timeout occurs.}
+
+                    var data = JArray.Parse(
+                        JObject.Parse(
+                            response.Content.ReadAsStringAsync().Result
+                        )["data"].ToString()
+                    );
+
+                    List<Vehicle> locs = data.Select(p => new Vehicle
+                    {
+                        name = p["name"].ToString().Trim(),
+                        time = (DateTime)p["location"]["time"],
+                        latitude = (float)p["location"]["latitude"],
+                        longitude = (float)p["location"]["longitude"],
+                        heading = (int)p["location"]["heading"],
+                        speed = (int)p["location"]["speed"],
+                        formattedLocation = (string)p["location"]["reverseGeo"]["formattedLocation"]
+                    }).ToList();
+
+                    var filtered = locs.Where(x => x.name == truckNumber).FirstOrDefault();
+
+                    latitude = (double)filtered.latitude;
+                    longitude = (double)filtered.longitude;
+                    
+
+
+                    //Dispose once all HttpClient calls are complete.This is not necessary if the containing object will be disposed of; for example in this case the HttpClient instance will be disposed automatically when the application terminates so the following call is superfluous.
+                    client.Dispose();
+
+                    return (latitude, longitude, currentTime, filtered.formattedLocation, true);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            return (latitude, longitude, currentTime, "", false);
         }
 
     }

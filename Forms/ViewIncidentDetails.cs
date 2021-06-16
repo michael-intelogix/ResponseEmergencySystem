@@ -19,7 +19,7 @@ using GMap.NET.MapProviders;
 namespace ResponseEmergencySystem.Forms
 {
     // https://stackoverflow.com/questions/1774498/how-to-iterate-through-a-datatable
-    public partial class ViewIncidentDetails : DevExpress.XtraEditors.XtraForm, IShowIncidentDetails
+    public partial class ViewIncidentDetails : DevExpress.XtraEditors.XtraForm
     {
         DataTable dt_InjuredPersons = new DataTable();
 
@@ -40,7 +40,7 @@ namespace ResponseEmergencySystem.Forms
         {
             _controller = controller;
         }
-        public void LoadIncident(Incident incident)
+        public void LoadIncident()
         {
 
         }
@@ -260,6 +260,8 @@ namespace ResponseEmergencySystem.Forms
         {
             set { memoEdit1.Text = value; }
         }
+
+       
         #endregion
 
         private void ViewIncidentDetails_Load(object sender, EventArgs e)

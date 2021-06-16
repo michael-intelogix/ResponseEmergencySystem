@@ -21,6 +21,7 @@ namespace ResponseEmergencySystem
         [STAThread]
         static void Main()
         {
+            //Properties.Settings.Default.Reset();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -50,7 +51,7 @@ namespace ResponseEmergencySystem
 
 
 
-            //Application.Run(new Forms.Incidents.AddDriverIncident());
+            //Application.Run(new ExtraForm());
         }
 
 

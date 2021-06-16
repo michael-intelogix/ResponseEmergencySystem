@@ -257,6 +257,7 @@ namespace ResponseEmergencySystem.Forms
             this.img_Test.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.img_Test.Properties.ShowMenu = false;
             this.img_Test.Properties.ShowZoomSubMenu = DevExpress.Utils.DefaultBoolean.False;
+            this.img_Test.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
             this.img_Test.Size = new System.Drawing.Size(874, 660);
             this.img_Test.TabIndex = 0;
             this.img_Test.EditValueChanged += new System.EventHandler(this.img_Test_EditValueChanged);

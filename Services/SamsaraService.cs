@@ -111,8 +111,8 @@ namespace ResponseEmergencySystem.Services
 
                     foreach (var item in drivers)
                     {
-                        if (item.LicenseState == "")
-                            Debug.WriteLine(item.LicenseState);
+                        //if (item.LicenseState == "")
+                        //    Debug.WriteLine(item.LicenseState);
                         AddDriverToSamsaraTable(item);
                     }
                     Debug.WriteLine("FINISHED");
@@ -145,11 +145,11 @@ namespace ResponseEmergencySystem.Services
                     }
                     cmd.Connection.Open();
 
-                    cmd.Parameters.AddWithValue("@ID_Samsara", driver.ID_Samsara);
-                    cmd.Parameters.AddWithValue("@Name", driver.Name);
-                    //cmd.Parameters.AddWithValue("@PhoneNumber", driver.Phone);
-                    //cmd.Parameters.AddWithValue("@LicenseNumber", driver.LicenseNumber);
-                    //cmd.Parameters.AddWithValue("@LicenseState", driver.LicenseState);
+                    cmd.Parameters.AddWithValue("@ID_Samsara", driver.ID_Samsara == null ? "" : driver.ID_Samsara);
+                    cmd.Parameters.AddWithValue("@Name", driver.Name == null ? "" : driver.Name);
+                    cmd.Parameters.AddWithValue("@PhoneNumber", driver.Phone == null ? "" : driver.Phone);
+                    cmd.Parameters.AddWithValue("@LicenseNumber", driver.LicenseNumber == null ? "" : driver.LicenseNumber);
+                    cmd.Parameters.AddWithValue("@LicenseState", driver.LicenseState == null ? "" : driver.LicenseState);
                     cmd.Parameters.AddWithValue("@IsDeactivated", false);
 
                     using (SqlDataReader sdr = cmd.ExecuteReader())

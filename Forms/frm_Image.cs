@@ -131,6 +131,11 @@ namespace ResponseEmergencySystem.Forms
 
         private void img_Test_DoubleClick(object sender, MouseEventArgs e)
         {
+            if (img_Test.Properties.SizeMode == PictureSizeMode.Zoom)
+            {
+                img_Test.Properties.SizeMode = PictureSizeMode.Clip;
+            }
+
             img_Test.Properties.ZoomPercent += 20;
         }
 
@@ -140,6 +145,11 @@ namespace ResponseEmergencySystem.Forms
 
             if (e.Button == MouseButtons.Right)
             {
+                if (img_Test.Properties.SizeMode == PictureSizeMode.Zoom)
+                {
+                    img_Test.Properties.SizeMode = PictureSizeMode.Clip;
+                }
+
                 img_Test.Properties.ZoomPercent -= 20;
             }
         }
@@ -155,17 +165,27 @@ namespace ResponseEmergencySystem.Forms
 
         private void labelControl3_Click(object sender, EventArgs e)
         {
+            if (img_Test.Properties.SizeMode == PictureSizeMode.Zoom)
+            {
+                img_Test.Properties.SizeMode = PictureSizeMode.Clip;
+            }
+                
             img_Test.Properties.ZoomPercent += 20;
         }
 
         private void labelControl2_Click(object sender, EventArgs e)
         {
+            if (img_Test.Properties.SizeMode == PictureSizeMode.Zoom)
+            {
+                img_Test.Properties.SizeMode = PictureSizeMode.Clip;
+            }
+
             img_Test.Properties.ZoomPercent -= 20;
         }
 
         private void labelControl1_Click(object sender, EventArgs e)
         {
-            img_Test.Properties.ZoomPercent = 100;
+            img_Test.Properties.SizeMode = PictureSizeMode.Zoom;
         }
 
         private void img_Test_EditValueChanged(object sender, EventArgs e)

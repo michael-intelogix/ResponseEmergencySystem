@@ -19,6 +19,8 @@ using System.Diagnostics;
 using System.IO;
 using ResponseEmergencySystem.Forms;
 using Firebase.Storage;
+using ResponseEmergencySystem.Reports;
+using ResponseEmergencySystem.Properties;
 
 namespace ResponseEmergencySystem.Controllers.Incidents
 {
@@ -28,6 +30,10 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         private string ID_Incident;
         Incident _selectedIncident;
         DataTable dt_InjuredPersons = new DataTable();
+
+        private string ReportPath;
+
+        private Driver _selectedDriver;
 
         private List<Truck> _trucks = new List<Truck>();
         private List<Driver> _DriversLocal = new List<Driver>();
@@ -54,11 +60,19 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         private string _ID_Samsara;
         private string _DriverName;
 
+        private string _folio;
+
+        private List<Models.Logs.Log> _logs;
+
+        private List<MailDirectory> _MailDIrectory;
+
         public EditIncidentController(IEditIncidentView view, string incidentId)
         {
             ID_Incident = incidentId;
+            ReportPath = Settings.Default.AppFolder;
             _DriversLocal = DriverService.GetDriver("");
             _trucks = GeneralService.list_Trucks();
+            _logs = new List<Models.Logs.Log>();
             _view = view;
             view.SetController(this);
         }
@@ -82,6 +96,9 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         {
             _selectedIncident = IncidentService.GetIncident(ID_Incident)[0];
             _PersonsInvolved = IncidentService.list_PersonsInvolved(ID_Incident);
+            _view.MailDirectoryCategoriesDataSource = MailDirectoryService.GetCategories();
+
+            _folio = _selectedIncident.Folio;
 
             ID_Driver = _selectedIncident.driver.ID_Driver.ToString(); ;
             ID_Broker = _selectedIncident.broker.ID_Broker;
@@ -143,6 +160,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             
             _view.Documents = CaptureService.ListDocumentsCapture(_selectedIncident.ID_Incident);
             _view.LoadIncident();
+
         }
 
         public void GetBroker()
@@ -237,24 +255,24 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
         public void GetDriver(string ID)
         {
-            Driver selectedDriver = _DriversLocal.Where(d => d.ID_Samsara == ID).First();
+            _selectedDriver = _DriversLocal.Where(d => d.ID_Samsara == ID).First();
 
-            ID_Driver = selectedDriver.ID_Driver.ToString();
-            _ID_Samsara = selectedDriver.ID_Samsara.ToString();
-            _DriverName = selectedDriver.Name + " " + selectedDriver.LastName1;
+            ID_Driver = _selectedDriver.ID_Driver.ToString();
+            _ID_Samsara = _selectedDriver.ID_Samsara.ToString();
+            _DriverName = _selectedDriver.Name + " " + _selectedDriver.LastName1;
             _view.FullName = _DriverName;
-            _view.PhoneNumber = selectedDriver.PhoneNumber;
-            _view.License = selectedDriver.License;
+            _view.PhoneNumber = _selectedDriver.PhoneNumber;
+            _view.License = _selectedDriver.License;
 
-            if (selectedDriver.ExpirationDate != null)
-                _view.ExpirationDate = (DateTime)selectedDriver.ExpirationDate;
+            if (_selectedDriver.ExpirationDate != null)
+                _view.ExpirationDate = (DateTime)_selectedDriver.ExpirationDate;
             else
             {
                 _view.ExpirationDate = DateTime.Now;
                 _DriverUpdateRequired = true;
             }
 
-            _view.LicenseState = selectedDriver.ID_StateOfExpedition;
+            _view.LicenseState = _selectedDriver.ID_StateOfExpedition;
         }
 
         public void SetBroker(string ID_Broker)
@@ -357,11 +375,11 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                 _PersonsInvolved[_selectedPerson].FullName = _view.IPFullName; 
                 _PersonsInvolved[_selectedPerson].LastName1 = _view.IPLastName1; 
                 _PersonsInvolved[_selectedPerson].PhoneNumber = _view.IPPhoneNumber; 
-                _PersonsInvolved[_selectedPerson].Age = _view.IPAge; 
-                _PersonsInvolved[_selectedPerson].Driver = _view.IPDriver; 
+                _PersonsInvolved[_selectedPerson].Age = _view.IPAge;
+                _PersonsInvolved[_selectedPerson].SetDriver(_view.IPDriver);
                 _PersonsInvolved[_selectedPerson].DriverLicense = _view.IPDriverLicense;
-                _PersonsInvolved[_selectedPerson].PrivatePerson = _view.IPPrivate;
-                _PersonsInvolved[_selectedPerson].Injured = _view.IPInjured;
+                _PersonsInvolved[_selectedPerson].SetPrivate(_view.IPPrivate);
+                _PersonsInvolved[_selectedPerson].SetInjured(_view.IPInjured);
                 _PersonsInvolved[_selectedPerson].Hospital = _view.IPHospital;
                 _PersonsInvolved[_selectedPerson].Comments = _view.IPComments;
 
@@ -440,7 +458,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                     _view.TrailerDamages,
                     _view.TrailerCanMove,
                     _view.TrailerNeedCrane,
-                    constants.userIDTest.ToString(),
+                    constants.userID,
                     _view.Comments,
                     ID_Driver == Guid.Empty.ToString()
                 ));
@@ -472,6 +490,10 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                         {
                             UpdateAsync(t.Result.ID, documentCapture.documents, documentCapture.ID_Capture);
                         }
+                        else if(documentCapture.Status == "deleted")
+                        {
+                            Debug.WriteLine("is deleted");
+                        }
                     }
                     else
                     {
@@ -479,6 +501,13 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                     }
                     
                 }
+
+                foreach (var log in _logs)
+                {
+                    Debug.WriteLine(log.Change);
+                }
+
+                
             } 
             catch (Exception e)
             {
@@ -723,6 +752,10 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                 for (var i = 0; i < documents.Count(); i++)
                 {
                     var document = documents[i];
+
+                    if (document.Path == "")
+                        continue;
+                   
                     var task = UploadImgFirebaseAsync(document.Path, document.name, ID_Capture);
 
                     //ProgressBarControl pbr = _view.GetPbrControl(document.containerName, $"pbrDocument{document.ID}");
@@ -761,6 +794,15 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
             if (success)
             {
+                //var documentsDeleted = documents.Where(d => d.Status == "deleted").ToList();
+                //if (documentsDeleted.Count > 0)
+                //{
+                //    for (var i = 0; i < documentsDeleted.Count(); i++)
+                //    {
+
+                //    }
+                //}
+
                 //List<DocumentCapture> docsLoaded = _documents.Where(d => d.Path != null).ToList();
                 var documentsUpdated = documents.Where(d => d.Status == "updated" || d.Status == "created").ToList();
                 for (var i = 0; i < documentsUpdated.Count(); i++)
@@ -808,7 +850,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                 var stream = File.Open(filepath, FileMode.Open);
 
                 //Construct FirebaseStorage with path to where you want to upload the file and put it there
-                var task = new FirebaseStorage("dcmanagement-3d402.appspot.com")
+                 var task = new FirebaseStorage("dcmanagement-3d402.appspot.com")
                 .Child("SIREM")
                 .Child(ID_Capture)
                 .Child(name)
@@ -847,6 +889,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         {
             if (fileType == "img")
             {
+                //Utils.ShowMessage(imgPath);
                 frm_Image imageView = new frm_Image("", "", imgPath, firebase);
                 ImageController appConfigCtrl = new ImageController(imageView);
                 appConfigCtrl.DisableImageLoad();
@@ -867,5 +910,73 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
         }
         #endregion
+
+        #region Logs
+        public void SetLicenseStateChange()
+        {
+            if (_selectedDriver != null)
+                _logs.Add(new Models.Logs.Log("Samsara Drivers", "License State", _selectedDriver.ID_StateOfExpedition, _view.LicenseState));
+        }
+        #endregion
+
+        public bool SendEmail()
+        {
+            if (!File.Exists(ReportPath + $"{_folio}.pdf"))
+            {
+                PDF(false);
+            }
+
+            if (!_view.SendToAllRecipientsInTheCategory)
+            {
+                if (_view.SelectedMail != "")
+                {
+                    Utils.email_send(ReportPath + $"\\{_folio}.pdf", false, mailAddress: _view.SelectedMail);
+                    return true;
+                }
+                else
+                {
+                    Utils.ShowMessage("Please select a mail before save", "Mailing Problem", type: "Warning");
+                    return false;
+                }
+            }
+
+            if (_view.SendToAllRecipientsInTheCategory)
+            {
+                if (_view.MailDirectoryCategory != "")
+                { 
+                    Utils.email_send(ReportPath + $"\\{_folio}.pdf", false, categoryID: _view.MailDirectoryCategory);
+                    return true;
+                }
+                else
+                {
+                    Utils.ShowMessage("Please select a mail before save", "Mailing Problem", type: "Warning");
+                    return false;
+                }
+            }
+
+            return false;
+        }
+
+        public void PDF(bool showMessage = true)
+        {
+            IncidentReport report1 = new IncidentReport(_selectedIncident);
+            try
+            {
+                report1.ExportToPdf(ReportPath + $"\\{_folio}.pdf");
+                if(showMessage)
+                    Utils.ShowMessage("Report " + $"{_folio}.pdf");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+        }
+
+        public void GetMailsByCategory()
+        {
+            _MailDIrectory = MailDirectoryService.GetMailDirectory(_view.MailDirectoryCategory);
+            _view.MailDirectoryDataSource = _MailDIrectory;
+        }
     }
 }

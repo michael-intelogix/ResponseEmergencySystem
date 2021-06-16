@@ -53,7 +53,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             {
                 doc.SetName(textEdit1.EditValue.ToString());
                 doc.SetImage();
-                pdfViewer1.Dispose();
+                //pdfViewer1.Dispose();
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
@@ -82,6 +82,19 @@ namespace ResponseEmergencySystem.Forms.Modals
                 pdfViewer1.Visible = true;
             }
             textEdit1.EditValue = doc.name;
+        }
+
+        private void DocumentModal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (doc.Type == "img")
+            {
+                pictureEdit1.Dispose();
+            }
+
+            if (doc.Type == "pdf")
+            {
+                pdfViewer1.Dispose();
+            }
         }
     }
 }
