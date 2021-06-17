@@ -26,9 +26,9 @@ namespace ResponseEmergencySystem.Controllers.Captures
         private string ID_Incident;
         private string ID_Capture;
         private List<ImageCapture> _images;
-        private List<DocumentCapture> _documents;
+        private List<DocumentCapture> _documents2;
         private Models.Documents.DocumentCapture _documentCapture;
-        private List<Models.Documents.Document> _documents2;
+        private List<Models.Documents.Document> _documents;
         private bool img = false;
 
         private List<DocumentCapture> _docsLoaded;
@@ -40,15 +40,15 @@ namespace ResponseEmergencySystem.Controllers.Captures
             _view = view;
             _captures = captures;
             _images = new List<ImageCapture>();
-            _documents = new List<DocumentCapture>();
+            _documents2 = new List<DocumentCapture>();
             view.SetController(this);
         }
 
         public void SetIncidentId(string id)
         {
             ID_Incident = id;
-            if (id == Guid.Empty.ToString())
-                _documents2 = new List<Models.Documents.Document>();
+            //if (id == Guid.Empty.ToString())
+            _documents = new List<Models.Documents.Document>();
         }
 
         public void LoadCaptures()
@@ -131,7 +131,7 @@ namespace ResponseEmergencySystem.Controllers.Captures
             t.Start();
             t.Wait();
 
-            List<DocumentCapture> docsLoaded = _documents.Where(d => d.Path != null).ToList();
+            List<DocumentCapture> docsLoaded = _documents2.Where(d => d.Path != null).ToList();
             for (var i = 0; i < docsLoaded.Count(); i++)
             {
                 var document = docsLoaded[i];
@@ -174,7 +174,7 @@ namespace ResponseEmergencySystem.Controllers.Captures
 
             _documentCapture = new Models.Documents.DocumentCapture(_selectedCaptureType.ID_CaptureType, _selectedCaptureType.captureType, _view.Comments);
             _documentCapture.Status = "created";
-            _documentCapture.documents = _documents2;
+            _documentCapture.documents = _documents;
 
             //_docsLoaded = _docsLoaded.Count > 0 ? _docsLoaded : new List<DocumentCapture>();
             var tempDocs = _documentCapture.documents.Where(d => d.Path != null).ToList();
@@ -183,29 +183,7 @@ namespace ResponseEmergencySystem.Controllers.Captures
                 var document = tempDocs[i];
                 var id = tempDocs[i].ID;
                 document.Comments = _view.Comments;
-                //var task = UploadImgFirebaseAsync(docsLoaded[i].Path, docsLoaded[i].name);
-
-                //ProgressBarControl pbr = _view.GetPbrControl(document.containerName, $"pbrDocument{document.ID}");
-
-                //_view.SetControlProperties(document.containerName, $"lblStatus{document.ID}", visibility: false);
-                //pbr.Visible = true;
-
-                // Track progress of the upload
-                //task.Progress.ProgressChanged += (s, ev) =>
-                //{
-                //    pbr.EditValue = ev.Percentage;
-                //    pbr.CreateGraphics().DrawString(ev.Percentage.ToString() + "%", new Font("Arial", (float)8.25, FontStyle.Regular), Brushes.Black, new PointF(pbr.Width / 2 - 10, pbr.Height / 2 - 7));
-                //    Console.WriteLine($"Progress: {ev.Percentage} %");
-                //};
-
-                //document.FirebaseUrl = await task;
-
-
-                //pbr.Visible = false;
-                //_view.SetControlProperties(document.containerName, $"lblStatus{document.ID}", "Uploaded", true);
-
-                //Response imgResponse = CaptureService.AddImage(Guid.NewGuid().ToString(), ID_Capture, document.FirebaseUrl, document.name, "", document.Type);
-                //document.ID_Document = imgResponse.ID;
+                
             }
             
             Reset();
@@ -217,11 +195,10 @@ namespace ResponseEmergencySystem.Controllers.Captures
             _view.ClearCapturesPanel();
             List<ImageCapture> documentNames = _selectedCaptureType.imagesListOfNames;
 
-            if (ID_Incident != Guid.Empty.ToString())
-                _documents.Clear();
-            else
-                _documents2.Clear();
-
+            //if (ID_Incident != Guid.Empty.ToString())
+            //    _documents2.Clear();
+            //else
+            _documents.Clear();
 
             switch (_selectedCaptureType.captureType)
             {
@@ -347,14 +324,16 @@ namespace ResponseEmergencySystem.Controllers.Captures
             pnl.Controls.Add(lbl2);
             lbl2.BringToFront();
 
-            if (ID_Incident == Guid.Empty.ToString())
-            {
-                _documents2.Add(new Models.Documents.Document(pnl.Name, lblText, i));
-            }
-            else
-            {
-                _documents.Add(new DocumentCapture(pnl.Name, lblText, i));
-            }
+            _documents.Add(new Models.Documents.Document(pnl.Name, lblText, i));
+
+            //if (ID_Incident == Guid.Empty.ToString())
+            //{
+            //    _documents.Add(new Models.Documents.Document(pnl.Name, lblText, i));
+            //}
+            //else
+            //{
+            //    _documents2.Add(new DocumentCapture(pnl.Name, lblText, i));
+            //}
 
             return pnl;
         }
@@ -379,7 +358,7 @@ namespace ResponseEmergencySystem.Controllers.Captures
                     {
                         if (ID_Incident != Guid.Empty.ToString())
                         {
-                            var document = _documents.Where(d => d.containerName == containerName).First();
+                            var document = _documents2.Where(d => d.containerName == containerName).First();
 
                             if (ext == ".GIF" || ext == ".JPG" || ext == ".PNG" || ext == ".BMP")
                             {
@@ -404,7 +383,7 @@ namespace ResponseEmergencySystem.Controllers.Captures
                         }
                         else
                         {
-                            var document2 = _documents2.Where(d => d.containerName == containerName).First();
+                            var document2 = _documents.Where(d => d.containerName == containerName).First();
 
                             if (ext == ".GIF" || ext == ".JPG" || ext == ".PNG" || ext == ".BMP")
                             {

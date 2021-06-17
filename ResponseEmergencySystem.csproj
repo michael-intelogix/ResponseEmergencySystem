@@ -30,7 +30,7 @@
     <ProductName>SIREM</ProductName>
     <PublisherName>IntelogixSoft</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>60</ApplicationRevision>
+    <ApplicationRevision>61</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -464,12 +464,6 @@
     <Compile Include="Forms\EditIncidentDetails.Designer.cs">
       <DependentUpon>EditIncidentDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frm_DriverSearchList.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frm_DriverSearchList.Designer.cs">
-      <DependentUpon>frm_DriverSearchList.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\frm_Image.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -494,18 +488,6 @@
     <Compile Include="Forms\frm_PdfViewer.Designer.cs">
       <DependentUpon>frm_PdfViewer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Helpers\frm_Zoom.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Helpers\frm_Zoom.Designer.cs">
-      <DependentUpon>frm_Zoom.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\IncidentCaptures.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\IncidentCaptures.Designer.cs">
-      <DependentUpon>IncidentCaptures.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Incidents\AddDriverIncident.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -524,6 +506,12 @@
     <Compile Include="Forms\Incidents\ShowDriverIncident.Designer.cs">
       <DependentUpon>ShowDriverIncident.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Loadings\SplashScreen1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Loadings\SplashScreen1.Designer.cs">
+      <DependentUpon>SplashScreen1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Main2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -535,12 +523,6 @@
     </Compile>
     <Compile Include="Forms\Main3.Designer.cs">
       <DependentUpon>Main3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\miwntras.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\miwntras.Designer.cs">
-      <DependentUpon>miwntras.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Modals\AddComments.cs">
       <SubType>Form</SubType>
@@ -590,29 +572,23 @@
     <Compile Include="Forms\Modals\Modals.Designer.cs">
       <DependentUpon>Modals.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Modals\Testing.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Modals\Testing.Designer.cs">
-      <DependentUpon>Testing.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Modals\DocumentModal.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Modals\DocumentModal.Designer.cs">
       <DependentUpon>DocumentModal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ViewIncidentDetails.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\ViewIncidentDetails.Designer.cs">
-      <DependentUpon>ViewIncidentDetails.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\AddIncidentDetails.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\AddIncidentDetails.Designer.cs">
       <DependentUpon>AddIncidentDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WaitForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\WaitForm1.Designer.cs">
+      <DependentUpon>WaitForm1.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Action.cs" />
     <Compile Include="Models\Broker.cs" />
@@ -653,24 +629,6 @@
     <Compile Include="Services\MailDirectoryService.cs" />
     <Compile Include="Services\SamsaraService.cs" />
     <Compile Include="Services\StatusDetailService.cs" />
-    <Compile Include="Forms\Main.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Main.Designer.cs">
-      <DependentUpon>Main.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\ExtraForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\ExtraForm.Designer.cs">
-      <DependentUpon>ExtraForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Loadings\SamasaraFindTruck.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Loadings\SamasaraFindTruck.Designer.cs">
-      <DependentUpon>SamasaraFindTruck.cs</DependentUpon>
-    </Compile>
     <Compile Include="Models\Capture.cs" />
     <Compile Include="Models\Driver.cs" />
     <Compile Include="Models\ImageCapture.cs" />
@@ -703,6 +661,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Incidents\ShowDriverIncident.resx">
       <DependentUpon>ShowDriverIncident.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Loadings\SplashScreen1.resx">
+      <DependentUpon>SplashScreen1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\WaitForm1.resx">
+      <DependentUpon>WaitForm1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\XtraReport2.resx">
       <DependentUpon>XtraReport2.cs</DependentUpon>
@@ -818,9 +782,6 @@
     <EmbeddedResource Include="Forms\EditIncidentDetails.resx">
       <DependentUpon>EditIncidentDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frm_DriverSearchList.resx">
-      <DependentUpon>frm_DriverSearchList.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frm_Image.resx">
       <DependentUpon>frm_Image.cs</DependentUpon>
     </EmbeddedResource>
@@ -833,32 +794,17 @@
     <EmbeddedResource Include="Forms\frm_PdfViewer.resx">
       <DependentUpon>frm_PdfViewer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Helpers\frm_Zoom.resx">
-      <DependentUpon>frm_Zoom.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\IncidentCaptures.resx">
-      <DependentUpon>IncidentCaptures.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddIncidentDetails.resx">
       <DependentUpon>AddIncidentDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Incidents\AddDriverIncident.resx">
       <DependentUpon>AddDriverIncident.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Main.resx">
-      <DependentUpon>Main.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ExtraForm.resx">
-      <DependentUpon>ExtraForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Main2.resx">
       <DependentUpon>Main2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Main3.resx">
       <DependentUpon>Main3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\miwntras.resx">
-      <DependentUpon>miwntras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Modals\AddComments.resx">
       <DependentUpon>AddComments.cs</DependentUpon>
@@ -886,14 +832,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Modals\Modals.resx">
       <DependentUpon>Modals.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Modals\Testing.resx">
-      <DependentUpon>Testing.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ViewIncidentDetails.resx">
-      <DependentUpon>ViewIncidentDetails.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Loadings\SamasaraFindTruck.resx">
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\IncidentReport.resx">
       <DependentUpon>IncidentReport.cs</DependentUpon>
@@ -932,6 +870,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Code\Captures\" />
+    <Folder Include="Forms\Helpers\" />
     <Folder Include="Views\Incidents\" />
   </ItemGroup>
   <ItemGroup>

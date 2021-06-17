@@ -302,6 +302,65 @@ namespace ResponseEmergencySystem.Services
 
             return new Response(false, "", Guid.Empty.ToString());
         }
+        public static async Task<Response> AddImage(string imageId, string captureId, Firebase.Storage.FirebaseStorageTask imageUrl, string description, string comments, string fileType)
+        {
+            opSuccess = false;
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand
+                {
+                    Connection = constants.SIREMConnection,
+                    CommandText = $"Update_Image",
+                    CommandType = CommandType.StoredProcedure
+                })
+                {
+                    if (cmd.Connection.State == ConnectionState.Open)
+                    {
+                        cmd.Connection.Close();
+                    }
+
+                    cmd.Parameters.AddWithValue("@ID_Image", imageId);
+                    cmd.Parameters.AddWithValue("@ID_Capture", captureId);
+                    cmd.Parameters.AddWithValue("@ID_StatusDetail", "");
+                    cmd.Parameters.AddWithValue("@ImageUrl", await imageUrl);
+                    cmd.Parameters.AddWithValue("@Description", description);
+                    cmd.Parameters.AddWithValue("@Comments", comments);
+                    cmd.Parameters.AddWithValue("@FileType", fileType);
+
+                    cmd.Connection.Open();
+                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    {
+                        if (sdr == null)
+                        {
+                            throw new NullReferenceException("No Information Available.");
+                        }
+                        while (sdr.Read())
+                        {
+
+                            Debug.WriteLine(sdr["Validacion"]);
+                            Debug.WriteLine(sdr["msg"]);
+                            Debug.WriteLine(sdr["ID"]);
+
+                            //MessageBox.Show((string)sdr["msg"]);
+
+                            return new Response(Convert.ToBoolean(sdr["Validacion"]), sdr["msg"].ToString(), sdr["ID"].ToString());
+                        }
+                    }
+                    cmd.Connection.Close();
+                    opSuccess = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Image couldn't be saved due: {ex.Message}");
+
+                return new Response(false, ex.Message, Guid.Empty.ToString());
+            }
+
+            return new Response(false, "", Guid.Empty.ToString());
+        }
+
 
         public static Response UpdateImage(string imageId, string captureId, string imageUrl, string description, string comments, string fileType)
         {
@@ -325,6 +384,65 @@ namespace ResponseEmergencySystem.Services
                     cmd.Parameters.AddWithValue("@ID_Capture", captureId);
                     cmd.Parameters.AddWithValue("@ID_StatusDetail", "");
                     cmd.Parameters.AddWithValue("@ImageUrl", imageUrl);
+                    cmd.Parameters.AddWithValue("@Description", description);
+                    cmd.Parameters.AddWithValue("@Comments", comments);
+                    cmd.Parameters.AddWithValue("@FileType", fileType);
+
+                    cmd.Connection.Open();
+                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    {
+                        if (sdr == null)
+                        {
+                            throw new NullReferenceException("No Information Available.");
+                        }
+                        while (sdr.Read())
+                        {
+
+                            Debug.WriteLine(sdr["Validacion"]);
+                            Debug.WriteLine(sdr["msg"]);
+                            Debug.WriteLine(sdr["ID"]);
+
+                            //MessageBox.Show((string)sdr["msg"]);
+
+                            return new Response(Convert.ToBoolean(sdr["Validacion"]), sdr["msg"].ToString(), sdr["ID"].ToString());
+                        }
+                    }
+                    cmd.Connection.Close();
+                    opSuccess = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Image couldn't be saved due: {ex.Message}");
+
+                return new Response(false, ex.Message, Guid.Empty.ToString());
+            }
+
+            return new Response(false, "", Guid.Empty.ToString());
+        }
+
+        public static async Task<Response> UpdateImage(string imageId, string captureId, Firebase.Storage.FirebaseStorageTask imageUrl, string description, string comments, string fileType)
+        {
+            opSuccess = false;
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand
+                {
+                    Connection = constants.SIREMConnection,
+                    CommandText = $"Update_Image",
+                    CommandType = CommandType.StoredProcedure
+                })
+                {
+                    if (cmd.Connection.State == ConnectionState.Open)
+                    {
+                        cmd.Connection.Close();
+                    }
+
+                    cmd.Parameters.AddWithValue("@ID_Image", imageId);
+                    cmd.Parameters.AddWithValue("@ID_Capture", captureId);
+                    cmd.Parameters.AddWithValue("@ID_StatusDetail", "");
+                    cmd.Parameters.AddWithValue("@ImageUrl", await imageUrl);
                     cmd.Parameters.AddWithValue("@Description", description);
                     cmd.Parameters.AddWithValue("@Comments", comments);
                     cmd.Parameters.AddWithValue("@FileType", fileType);

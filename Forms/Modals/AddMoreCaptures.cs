@@ -90,14 +90,6 @@ namespace ResponseEmergencySystem.Forms
            
         }
 
-        private void UploadImageOnClick(object sender, EventArgs e)
-        {
-            var btn = (SimpleButton)sender;
-            //bool preloaded = _controller.CheckImage();
-            //if (preloaded) PreloadImage(btn);
-            
-        }
-
 
         private void lue_Type_EditValueChanged(object sender, EventArgs e)
         {

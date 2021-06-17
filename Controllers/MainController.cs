@@ -59,13 +59,6 @@ namespace ResponseEmergencySystem.Controllers
             
         }
 
-        public void Test()
-        {
-            Forms.Modals.Testing test = new Forms.Modals.Testing();
-            test.Show();
-            
-        }
-
         public void EditImageData()
         {
             Forms.Modals.EditComments editCommentsView = new Forms.Modals.EditComments();
@@ -159,7 +152,7 @@ namespace ResponseEmergencySystem.Controllers
             if (_captures.Count > 0)
             {
                 ID_Capture = _captures[0].ID_Capture.ToString();
-                _view.CapturesDataSource = _captures;
+                _view.CapturesDataSource = _captures.Select(c => new { c.captureType, c.comments, c.ID_Capture });
                 if (_captures.Count > 0)
                     _view.ImagesDatasSource = CaptureService.list_Images(ID_Capture);
                 else
@@ -241,7 +234,7 @@ namespace ResponseEmergencySystem.Controllers
             
             _view.OpenSpinner();
 
-            Incidents.EditIncidentController incidentCtrl = new Incidents.EditIncidentController(editIncidentView, GetID("incident"));
+            Incidents.EditIncidentController incidentCtrl = new Incidents.EditIncidentController(editIncidentView, GetID("incident"), ref _view);
             incidentCtrl.LoadIncident();
             incidentCtrl.LoadDrivers();
             incidentCtrl.LoadTrucks();
@@ -324,22 +317,22 @@ namespace ResponseEmergencySystem.Controllers
 
         public void AddMoreCaptures()
         {
-            AddMoreCaptures AddMoreCaptures = new AddMoreCaptures();
-            Captures.AddCapturesController addCapturesCtrl = new Captures.AddCapturesController(AddMoreCaptures, CaptureService.list_CaptureTypes());
-            addCapturesCtrl.LoadCaptures();
-            addCapturesCtrl.SetIncidentId(_view.ID_Incident.ToString());
-            if (AddMoreCaptures.ShowDialog() == DialogResult.OK)
-            {
-                Utils.ShowMessage("the capture was added succesfully", "Capture");
-                _view.OpenSpinner();
-                _captures = CaptureService.list_Captures(_view.ID_Incident.ToString());
-                _view.CapturesDataSource = _captures;
-                if (_captures.Count > 0)
-                    _view.ImagesDatasSource = CaptureService.list_Images(_captures[0].ID_Capture.ToString());
-                else
-                    _view.ImagesDatasSource = new List<ImageCapture>();
-                _view.CloseSpinner();
-            }
+            //AddMoreCaptures AddMoreCaptures = new AddMoreCaptures();
+            //Captures.AddCapturesController addCapturesCtrl = new Captures.AddCapturesController(AddMoreCaptures, CaptureService.list_CaptureTypes());
+            //addCapturesCtrl.LoadCaptures();
+            //addCapturesCtrl.SetIncidentId(_view.ID_Incident.ToString());
+            //if (AddMoreCaptures.ShowDialog() == DialogResult.OK)
+            //{
+            //    Utils.ShowMessage("the capture was added succesfully", "Capture");
+            //    _view.OpenSpinner();
+            //    _captures = CaptureService.list_Captures(_view.ID_Incident.ToString());
+            //    _view.CapturesDataSource = _captures;
+            //    if (_captures.Count > 0)
+            //        _view.ImagesDatasSource = CaptureService.list_Images(_captures[0].ID_Capture.ToString());
+            //    else
+            //        _view.ImagesDatasSource = new List<ImageCapture>();
+            //    _view.CloseSpinner();
+            //}
         }
 
         public List<ImageCapture> GetImages(string captureId)

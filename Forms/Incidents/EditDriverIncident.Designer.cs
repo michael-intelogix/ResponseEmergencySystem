@@ -30,17 +30,17 @@ namespace ResponseEmergencySystem.Forms.Incidents
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
@@ -59,11 +59,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.simpleButton8 = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControl31 = new DevExpress.XtraEditors.LabelControl();
             this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
-            this.edt_DriverInfoSearch = new DevExpress.XtraEditors.TextEdit();
-            this.btn_FindDriver = new DevExpress.XtraEditors.SimpleButton();
             this.lue_DriverLicenseState = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
@@ -116,7 +112,6 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.ckedt_TrailerDamages = new DevExpress.XtraEditors.CheckEdit();
             this.ckedt_TrailerCanMove = new DevExpress.XtraEditors.CheckEdit();
             this.ckedt_TrailerNeedCrane = new DevExpress.XtraEditors.CheckEdit();
-            this.btn_AddTrailer = new DevExpress.XtraEditors.SimpleButton();
             this.lbl_TrailerExists = new DevExpress.XtraEditors.LabelControl();
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
             this.pnl_TruckTrailerHeader = new DevExpress.XtraEditors.PanelControl();
@@ -260,7 +255,6 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.panelControl21.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lue_Drivers.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.edt_DriverInfoSearch.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_DriverLicenseState.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_License.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_PhoneNumber.Properties)).BeginInit();
@@ -550,11 +544,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.panelControl21.Appearance.Options.UseBackColor = true;
             this.panelControl21.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl21.Controls.Add(this.lue_Drivers);
-            this.panelControl21.Controls.Add(this.simpleButton8);
-            this.panelControl21.Controls.Add(this.labelControl31);
             this.panelControl21.Controls.Add(this.simpleButton7);
-            this.panelControl21.Controls.Add(this.edt_DriverInfoSearch);
-            this.panelControl21.Controls.Add(this.btn_FindDriver);
             this.panelControl21.Controls.Add(this.lue_DriverLicenseState);
             this.panelControl21.Controls.Add(this.labelControl5);
             this.panelControl21.Controls.Add(this.labelControl6);
@@ -641,38 +631,6 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 3;
             // 
-            // simpleButton8
-            // 
-            this.simpleButton8.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
-            this.simpleButton8.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
-            this.simpleButton8.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton8.Appearance.Options.UseBackColor = true;
-            this.simpleButton8.Appearance.Options.UseBorderColor = true;
-            this.simpleButton8.Appearance.Options.UseFont = true;
-            this.simpleButton8.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.simpleButton8.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.searchWhite1;
-            this.simpleButton8.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.simpleButton8.Location = new System.Drawing.Point(507, 11);
-            this.simpleButton8.Name = "simpleButton8";
-            this.simpleButton8.Size = new System.Drawing.Size(208, 24);
-            this.simpleButton8.TabIndex = 131;
-            this.simpleButton8.TabStop = false;
-            this.simpleButton8.Text = "Find driver in samsara";
-            this.simpleButton8.Visible = false;
-            // 
-            // labelControl31
-            // 
-            this.labelControl31.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl31.Appearance.ForeColor = System.Drawing.Color.Maroon;
-            this.labelControl31.Appearance.Options.UseFont = true;
-            this.labelControl31.Appearance.Options.UseForeColor = true;
-            this.labelControl31.Location = new System.Drawing.Point(726, 14);
-            this.labelControl31.Name = "labelControl31";
-            this.labelControl31.Size = new System.Drawing.Size(477, 17);
-            this.labelControl31.TabIndex = 130;
-            this.labelControl31.Text = "Please fill the driver information then click the button to find it in samsara";
-            this.labelControl31.Visible = false;
-            // 
             // simpleButton7
             // 
             this.simpleButton7.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
@@ -691,34 +649,6 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.simpleButton7.TabStop = false;
             this.simpleButton7.Text = "Update Driver";
             this.simpleButton7.Visible = false;
-            // 
-            // edt_DriverInfoSearch
-            // 
-            this.edt_DriverInfoSearch.Location = new System.Drawing.Point(435, 8);
-            this.edt_DriverInfoSearch.Name = "edt_DriverInfoSearch";
-            this.edt_DriverInfoSearch.Size = new System.Drawing.Size(66, 24);
-            this.edt_DriverInfoSearch.TabIndex = 50;
-            this.edt_DriverInfoSearch.TabStop = false;
-            this.edt_DriverInfoSearch.Visible = false;
-            // 
-            // btn_FindDriver
-            // 
-            this.btn_FindDriver.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
-            this.btn_FindDriver.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
-            this.btn_FindDriver.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_FindDriver.Appearance.Options.UseBackColor = true;
-            this.btn_FindDriver.Appearance.Options.UseBorderColor = true;
-            this.btn_FindDriver.Appearance.Options.UseFont = true;
-            this.btn_FindDriver.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btn_FindDriver.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.searchWhite1;
-            this.btn_FindDriver.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.btn_FindDriver.Location = new System.Drawing.Point(323, 11);
-            this.btn_FindDriver.Name = "btn_FindDriver";
-            this.btn_FindDriver.Size = new System.Drawing.Size(106, 24);
-            this.btn_FindDriver.TabIndex = 1;
-            this.btn_FindDriver.TabStop = false;
-            this.btn_FindDriver.Text = "Find driver";
-            this.btn_FindDriver.Visible = false;
             // 
             // lue_DriverLicenseState
             // 
@@ -913,6 +843,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.simpleButton14.Name = "simpleButton14";
             this.simpleButton14.Size = new System.Drawing.Size(28, 25);
             this.simpleButton14.TabIndex = 138;
+            this.simpleButton14.Click += new System.EventHandler(this.btn_SelectBroker_Click);
             // 
             // lue_Trucks
             // 
@@ -927,9 +858,10 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.lue_Trucks.Properties.PopupView = this.gridView1;
             this.lue_Trucks.Properties.PopupWidthMode = DevExpress.XtraEditors.PopupWidthMode.UseEditorWidth;
             this.lue_Trucks.Properties.ValueMember = "ID_Samsara";
-            this.lue_Trucks.Properties.EditValueChanged += new System.EventHandler(this.lue_Trucks_Properties_EditValueChanged);
             this.lue_Trucks.Size = new System.Drawing.Size(88, 24);
             this.lue_Trucks.TabIndex = 1;
+            this.lue_Trucks.Closed += new DevExpress.XtraEditors.Controls.ClosedEventHandler(this.lue_Trucks_Closed);
+            this.lue_Trucks.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lue_Trucks_KeyDown);
             // 
             // gridView1
             // 
@@ -1124,7 +1056,6 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.panelControl11.Controls.Add(this.ckedt_TrailerDamages);
             this.panelControl11.Controls.Add(this.ckedt_TrailerCanMove);
             this.panelControl11.Controls.Add(this.ckedt_TrailerNeedCrane);
-            this.panelControl11.Controls.Add(this.btn_AddTrailer);
             this.panelControl11.Controls.Add(this.lbl_TrailerExists);
             this.panelControl11.Controls.Add(this.labelControl13);
             this.panelControl11.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1165,6 +1096,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.simpleButton13.Name = "simpleButton13";
             this.simpleButton13.Size = new System.Drawing.Size(29, 25);
             this.simpleButton13.TabIndex = 153;
+            this.simpleButton13.Click += new System.EventHandler(this.simpleButton8_Click);
             // 
             // edt_manifest
             // 
@@ -1262,22 +1194,6 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.ckedt_TrailerNeedCrane.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.ckedt_TrailerNeedCrane.Size = new System.Drawing.Size(102, 21);
             this.ckedt_TrailerNeedCrane.TabIndex = 148;
-            // 
-            // btn_AddTrailer
-            // 
-            this.btn_AddTrailer.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
-            this.btn_AddTrailer.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_AddTrailer.Appearance.Options.UseBackColor = true;
-            this.btn_AddTrailer.Appearance.Options.UseFont = true;
-            this.btn_AddTrailer.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btn_AddTrailer.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.addWhite;
-            this.btn_AddTrailer.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btn_AddTrailer.Location = new System.Drawing.Point(353, 6);
-            this.btn_AddTrailer.Name = "btn_AddTrailer";
-            this.btn_AddTrailer.Size = new System.Drawing.Size(108, 24);
-            this.btn_AddTrailer.TabIndex = 130;
-            this.btn_AddTrailer.Text = "Add trailer";
-            this.btn_AddTrailer.Visible = false;
             // 
             // lbl_TrailerExists
             // 
@@ -1411,9 +1327,9 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.lue_Cities.Properties.ValueMember = "ID_City";
             this.lue_Cities.Size = new System.Drawing.Size(111, 24);
             this.lue_Cities.TabIndex = 131;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "This value is not valid";
-            this.dxValidationProvider1.SetValidationRule(this.lue_Cities, conditionValidationRule1);
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "This value is not valid";
+            this.dxValidationProvider1.SetValidationRule(this.lue_Cities, conditionValidationRule2);
             // 
             // edt_OtherAction
             // 
@@ -2299,10 +2215,10 @@ namespace ResponseEmergencySystem.Forms.Incidents
             // btn_DeletePerson
             // 
             this.btn_DeletePerson.AutoHeight = false;
-            editorButtonImageOptions1.SvgImage = global::ResponseEmergencySystem.Properties.Resources.cancelRed;
-            editorButtonImageOptions1.SvgImageSize = new System.Drawing.Size(20, 25);
+            editorButtonImageOptions3.SvgImage = global::ResponseEmergencySystem.Properties.Resources.cancelRed;
+            editorButtonImageOptions3.SvgImageSize = new System.Drawing.Size(20, 25);
             this.btn_DeletePerson.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btn_DeletePerson.Name = "btn_DeletePerson";
             this.btn_DeletePerson.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
@@ -2324,10 +2240,10 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.btn_EditPerson.Appearance.Options.UseTextOptions = true;
             this.btn_EditPerson.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.btn_EditPerson.AutoHeight = false;
-            editorButtonImageOptions2.SvgImage = global::ResponseEmergencySystem.Properties.Resources.editBlue;
-            editorButtonImageOptions2.SvgImageSize = new System.Drawing.Size(20, 25);
+            editorButtonImageOptions4.SvgImage = global::ResponseEmergencySystem.Properties.Resources.editBlue;
+            editorButtonImageOptions4.SvgImageSize = new System.Drawing.Size(20, 25);
             this.btn_EditPerson.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btn_EditPerson.Name = "btn_EditPerson";
             this.btn_EditPerson.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
@@ -2708,6 +2624,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.simpleButton10.TabIndex = 1;
             this.simpleButton10.Text = "Add Documents";
             this.simpleButton10.Visible = false;
+            this.simpleButton10.Click += new System.EventHandler(this.simpleButton10_Click);
             // 
             // simpleButton9
             // 
@@ -2718,6 +2635,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.simpleButton9.Size = new System.Drawing.Size(133, 43);
             this.simpleButton9.TabIndex = 0;
             this.simpleButton9.Text = "Add Capture";
+            this.simpleButton9.Click += new System.EventHandler(this.simpleButton9_Click);
             // 
             // pnl_TabsHeader
             // 
@@ -2762,6 +2680,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.simpleButton15.Size = new System.Drawing.Size(94, 34);
             this.simpleButton15.TabIndex = 3;
             this.simpleButton15.Text = "Cancel";
+            this.simpleButton15.Click += new System.EventHandler(this.simpleButton2_Click_1);
             // 
             // simpleButton16
             // 
@@ -2822,6 +2741,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditDriverIncident";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EditDriverIncident_FormClosing);
             this.Load += new System.EventHandler(this.EditDriverIncident_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
@@ -2838,7 +2758,6 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.panelControl21.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lue_Drivers.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.edt_DriverInfoSearch.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_DriverLicenseState.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_License.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_PhoneNumber.Properties)).EndInit();
@@ -3034,11 +2953,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
-        private DevExpress.XtraEditors.SimpleButton simpleButton8;
-        private DevExpress.XtraEditors.LabelControl labelControl31;
         private DevExpress.XtraEditors.SimpleButton simpleButton7;
-        private DevExpress.XtraEditors.TextEdit edt_DriverInfoSearch;
-        private DevExpress.XtraEditors.SimpleButton btn_FindDriver;
         private DevExpress.XtraEditors.LookUpEdit lue_DriverLicenseState;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.LabelControl labelControl6;
@@ -3088,7 +3003,6 @@ namespace ResponseEmergencySystem.Forms.Incidents
         private DevExpress.XtraEditors.CheckEdit ckedt_TrailerDamages;
         private DevExpress.XtraEditors.CheckEdit ckedt_TrailerCanMove;
         private DevExpress.XtraEditors.CheckEdit ckedt_TrailerNeedCrane;
-        private DevExpress.XtraEditors.SimpleButton btn_AddTrailer;
         private DevExpress.XtraEditors.LabelControl lbl_TrailerExists;
         private DevExpress.XtraEditors.LabelControl labelControl13;
         private DevExpress.XtraEditors.PanelControl pnl_TruckTrailerHeader;

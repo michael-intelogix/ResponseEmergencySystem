@@ -29,9 +29,9 @@ namespace ResponseEmergencySystem.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.pdfViewer1 = new DevExpress.XtraPdfViewer.PdfViewer();
             this.btn_Cancel = new DevExpress.XtraEditors.SimpleButton();
+            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ResponseEmergencySystem.Forms.WaitForm1), true, true);
             this.SuspendLayout();
             // 
             // pdfViewer1
@@ -67,6 +67,10 @@ namespace ResponseEmergencySystem.Forms
             this.btn_Cancel.Text = "Cancel";
             this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
             // 
+            // splashScreenManager1
+            // 
+            this.splashScreenManager1.ClosingDelay = 500;
+            // 
             // frm_PdfViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -85,5 +89,6 @@ namespace ResponseEmergencySystem.Forms
 
         private DevExpress.XtraPdfViewer.PdfViewer pdfViewer1;
         private DevExpress.XtraEditors.SimpleButton btn_Cancel;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
     }
 }

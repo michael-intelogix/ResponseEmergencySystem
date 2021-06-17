@@ -27,8 +27,6 @@ namespace ResponseEmergencySystem.Views
         string License { get; set; }
         DateTime ExpirationDate { get; set; }
 
-        string DriverSearch { get; }
-
         string LicenseState { get; set; }
         string TruckNumber { get; set; }
         bool TruckDamages { get; set; }

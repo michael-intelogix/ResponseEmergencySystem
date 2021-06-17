@@ -894,31 +894,31 @@ namespace ResponseEmergencySystem.Forms
         private void simpleButton9_Click(object sender, EventArgs e)
         {
 
-            AddMoreCaptures AddMoreCaptures = new AddMoreCaptures();
-            Controllers.Captures.AddCapturesController addCapturesCtrl = new Controllers.Captures.AddCapturesController(AddMoreCaptures, CaptureService.list_CaptureTypes());
-            addCapturesCtrl.LoadCaptures();
-            //addCapturesCtrl.LoadDocuments(_docs);
-            addCapturesCtrl.SetIncidentId(Guid.Empty.ToString());
-            if (AddMoreCaptures.ShowDialog() == DialogResult.OK)
-            {
-                _docs.Add(addCapturesCtrl.GetDocuments());
-                var docsType = _docs.Select(dc => new { dc.CaptureType, dc.ID_Capture });
-                gc_DocumentCaptures.DataSource = docsType;
-                gv_DocumentCaptures.BestFitColumns();
-                //Utils.ShowMessage("the capture was added succesfully", "Capture");
-                //_view.OpenSpinner();
-                //_captures = CaptureService.list_Captures(_view.ID_Incident.ToString());
-                //_view.CapturesDataSource = _captures;
-                //if (_captures.Count > 0)
-                //    _view.ImagesDatasSource = CaptureService.list_Images(_captures[0].ID_Capture.ToString());
-                //else
-                //    _view.ImagesDatasSource = new List<ImageCapture>();
-                //_view.CloseSpinner();
+            //AddMoreCaptures AddMoreCaptures = new AddMoreCaptures();
+            //Controllers.Captures.AddCapturesController addCapturesCtrl = new Controllers.Captures.AddCapturesController(AddMoreCaptures, CaptureService.list_CaptureTypes());
+            //addCapturesCtrl.LoadCaptures();
+            ////addCapturesCtrl.LoadDocuments(_docs);
+            //addCapturesCtrl.SetIncidentId(Guid.Empty.ToString());
+            //if (AddMoreCaptures.ShowDialog() == DialogResult.OK)
+            //{
+            //    _docs.Add(addCapturesCtrl.GetDocuments());
+            //    var docsType = _docs.Select(dc => new { dc.CaptureType, dc.ID_Capture });
+            //    gc_DocumentCaptures.DataSource = docsType;
+            //    gv_DocumentCaptures.BestFitColumns();
+            //    //Utils.ShowMessage("the capture was added succesfully", "Capture");
+            //    //_view.OpenSpinner();
+            //    //_captures = CaptureService.list_Captures(_view.ID_Incident.ToString());
+            //    //_view.CapturesDataSource = _captures;
+            //    //if (_captures.Count > 0)
+            //    //    _view.ImagesDatasSource = CaptureService.list_Images(_captures[0].ID_Capture.ToString());
+            //    //else
+            //    //    _view.ImagesDatasSource = new List<ImageCapture>();
+            //    //_view.CloseSpinner();
 
 
-                if (!simpleButton10.Visible)
-                    simpleButton10.Visible = true;
-            }
+            //    if (!simpleButton10.Visible)
+            //        simpleButton10.Visible = true;
+            //}
         }
 
         //private void gc_DocumentCaptures_DoubleClick(object sender, EventArgs e)

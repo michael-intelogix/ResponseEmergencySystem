@@ -2,7 +2,6 @@
 using DevExpress.XtraEditors.Controls;
 using ResponseEmergencySystem.Code;
 using ResponseEmergencySystem.Properties;
-using ResponseEmergencySystem.Forms.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -151,15 +150,6 @@ namespace ResponseEmergencySystem.Forms
                 }
 
                 img_Test.Properties.ZoomPercent -= 20;
-            }
-        }
-
-        private void frm_Image_Shown(object sender, EventArgs e)
-        {
-            if (Settings.Default.ZoomMsg)
-            {
-                frm_Zoom zoomHelper = new frm_Zoom();
-                zoomHelper.ShowDialog();
             }
         }
 

@@ -286,7 +286,6 @@ namespace ResponseEmergencySystem.Forms
             this.Name = "frm_Image";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Image";
-            this.Shown += new System.EventHandler(this.frm_Image_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.pnl_Zoom)).EndInit();
             this.pnl_Zoom.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pnl_ImgControls)).EndInit();

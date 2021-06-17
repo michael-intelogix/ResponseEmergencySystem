@@ -50,7 +50,6 @@ namespace ResponseEmergencySystem.Forms
             this.progressPanel1.Size = new System.Drawing.Size(246, 39);
             this.progressPanel1.TabIndex = 0;
             this.progressPanel1.Text = "progressPanel1";
-            this.progressPanel1.WaitAnimationType = DevExpress.Utils.Animation.WaitingAnimatorType.Ring;
             // 
             // tableLayoutPanel1
             // 
@@ -69,21 +68,21 @@ namespace ResponseEmergencySystem.Forms
             this.tableLayoutPanel1.Size = new System.Drawing.Size(246, 73);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
-            // WaitForm1
+            // Form1
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(246, 73);
             this.Controls.Add(this.tableLayoutPanel1);
             this.DoubleBuffered = true;
-            this.Name = "WaitForm1";
+            this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Form1";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

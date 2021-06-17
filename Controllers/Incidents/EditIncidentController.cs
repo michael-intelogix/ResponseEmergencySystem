@@ -66,13 +66,18 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
         private List<MailDirectory> _MailDIrectory;
 
-        public EditIncidentController(IEditIncidentView view, string incidentId)
+        private IMainView _mainView;
+
+        private FileStream _stream;
+
+        public EditIncidentController(IEditIncidentView view, string incidentId, ref IMainView main)
         {
             ID_Incident = incidentId;
             ReportPath = Settings.Default.AppFolder;
             _DriversLocal = DriverService.GetDriver("");
             _trucks = GeneralService.list_Trucks();
             _logs = new List<Models.Logs.Log>();
+            _mainView = main;
             _view = view;
             view.SetController(this);
         }
@@ -428,6 +433,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
         public void Update()
         {
+            _mainView.OpenSpinner();
             //check location refreces
             try
             {
@@ -466,7 +472,9 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                 t.Start();
                 t.Wait();
 
-                foreach(var person in _PersonsInvolved)
+                _mainView.CloseSpinner();
+
+                foreach (var person in _PersonsInvolved)
                 {
                     if (t.Result.validation)
                     {
@@ -479,16 +487,29 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                     }
                 }
 
-                foreach(var documentCapture in _view.Documents)
+                foreach (var documentCapture in _view.Documents)
                 {
                     if (t.Result.validation)
                     {
+                        
                         Debug.WriteLine($"Type of capture: {documentCapture.ID_CaptureType}");
                         if (documentCapture.Status == "created")
+                        {
                             SaveAsync(documentCapture.ID_CaptureType, t.Result.ID, documentCapture.documents);
+                            // Wait for all the tasks to finish.
+                            //Task.WaitAll(SaveAsync(documentCapture.ID_CaptureType, t.Result.ID, documentCapture.documents).ToArray());
+
+                            //// We should never get to this point
+                            //Console.WriteLine("WaitAll() has not thrown exceptions. THIS WAS NOT EXPECTED.");
+                        }                    
                         else if (documentCapture.Status == "updated")
                         {
                             UpdateAsync(t.Result.ID, documentCapture.documents, documentCapture.ID_Capture);
+                            // Wait for all the tasks to finish.
+                            //Task.WaitAll(UpdateAsync(t.Result.ID, documentCapture.documents, documentCapture.ID_Capture).ToArray());
+
+                            //// We should never get to this point
+                            //Console.WriteLine("WaitAll() has not thrown exceptions. THIS WAS NOT EXPECTED.");
                         }
                         else if(documentCapture.Status == "deleted")
                         {
@@ -741,6 +762,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         {
             string ID_Capture = "";
             bool success = false;
+            List<Task<Response>> filesUploaded = new List<Task<Response>>();
 
             var t = new Task(() => (ID_Capture, success) = SaveCapture(ID_CaptureType, ID_Incindent));
             t.Start();
@@ -755,7 +777,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
                     if (document.Path == "")
                         continue;
-                   
+                        
                     var task = UploadImgFirebaseAsync(document.Path, document.name, ID_Capture);
 
                     //ProgressBarControl pbr = _view.GetPbrControl(document.containerName, $"pbrDocument{document.ID}");
@@ -773,13 +795,14 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
                     document.FirebaseUrl = await task;
 
-
                     //pbr.Visible = false;
                     //_view.SetControlProperties(document.containerName, $"lblStatus{document.ID}", "Uploaded", true);
 
                     Response imgResponse = CaptureService.AddImage(Guid.NewGuid().ToString(), ID_Capture, document.FirebaseUrl, document.name, "", document.Type);
-                    document.ID_Document = imgResponse.ID;
+                                       
                 }
+
+
             }
             else
             {
@@ -790,6 +813,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
         public async void UpdateAsync(string ID_Incindent, List<Models.Documents.Document> documents, string ID_Capture)
         {
+            List<Task<Response>> filesUploaded = new List<Task<Response>>();
             bool success = true;
 
             if (success)
@@ -823,17 +847,17 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                         Console.WriteLine($"Progress: {ev.Percentage} %");
                     };
 
-                    document.FirebaseUrl = await task;
-
-
                     //pbr.Visible = false;
                     //_view.SetControlProperties(document.containerName, $"lblStatus{document.ID}", "Uploaded", true);
 
                     var ID = document.Status == "created" ? Guid.NewGuid().ToString() : document.ID_Document;
 
+                    document.FirebaseUrl = await task;
+
                     Response imgResponse = CaptureService.UpdateImage(ID, ID_Capture, document.FirebaseUrl, document.name, "", document.Type);
-                    Debug.WriteLine(imgResponse.Message);
+
                 }
+
             }
             else
             {
@@ -847,14 +871,14 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             try
             {
                 //Get any Stream — it can be FileStream, MemoryStream or any other type of Stream
-                var stream = File.Open(filepath, FileMode.Open);
+                _stream = File.Open(filepath, FileMode.Open);
 
                 //Construct FirebaseStorage with path to where you want to upload the file and put it there
                  var task = new FirebaseStorage("dcmanagement-3d402.appspot.com")
                 .Child("SIREM")
                 .Child(ID_Capture)
                 .Child(name)
-                .PutAsync(stream);
+                .PutAsync(_stream);
 
                 // Await the task to wait until upload is completed and get the download url
                 return task;

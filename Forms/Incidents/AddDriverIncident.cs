@@ -30,6 +30,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
         }
 
         private List<Models.Documents.DocumentCapture> _docs;
+        List<Models.Capture> _captures;
 
         Controllers.Incidents.AddIncidentController _controller;
 
@@ -94,6 +95,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
 
         public void LoadIncident(Incident incident)
         {
+            
         }
 
         public void LoadStates(DataTable dt_States)
@@ -621,6 +623,17 @@ namespace ResponseEmergencySystem.Forms.Incidents
             Models.Documents.Document doc = new Models.Documents.Document("", idx, id);
             doc.name = name;
             doc.Update("staged");
+
+            foreach (var document in _docs[gv_DocumentCaptures.FocusedRowHandle].documents)
+            {
+                if (System.IO.Path.GetFileName(document.Path) == System.IO.Path.GetFileName(doc.Path))
+                {
+                    Utils.ShowMessage("This file has already been uploaded", "File error", type: "Warning");
+                    doc.SetStatus("disposed");
+                    return doc;
+                }
+            }
+
             return addDocumentView();
 
             Models.Documents.Document addDocumentView()
@@ -863,21 +876,25 @@ namespace ResponseEmergencySystem.Forms.Incidents
 
         private void simpleButton9_Click(object sender, EventArgs e)
         {
-
-            AddMoreCaptures AddMoreCaptures = new AddMoreCaptures();
-            Controllers.Captures.AddCapturesController addCapturesCtrl = new Controllers.Captures.AddCapturesController(AddMoreCaptures, CaptureService.list_CaptureTypes());
-            addCapturesCtrl.LoadCaptures();
-
-            addCapturesCtrl.SetIncidentId(Guid.Empty.ToString());
-            if (AddMoreCaptures.ShowDialog() == DialogResult.OK)
+            if (_captures.Count > 0)
             {
-                _docs.Add(addCapturesCtrl.GetDocuments());
-                var docsType = _docs.Select(dc => new { dc.CaptureType, dc.ID_Capture });
-                gc_DocumentCaptures.DataSource = docsType;
-                gv_DocumentCaptures.BestFitColumns();
+                AddMoreCaptures AddMoreCaptures = new AddMoreCaptures();
+                Controllers.Captures.AddCapturesController addCapturesCtrl = new Controllers.Captures.AddCapturesController(AddMoreCaptures, _captures);
+                addCapturesCtrl.LoadCaptures();
 
-                if (!simpleButton10.Visible)
-                    simpleButton10.Visible = true;
+                addCapturesCtrl.SetIncidentId(Guid.Empty.ToString());
+                if (AddMoreCaptures.ShowDialog() == DialogResult.OK)
+                {
+                    var capture = addCapturesCtrl.GetDocuments();
+                    _docs.Add(capture);
+                    var docsType = _docs.Select(dc => new { dc.CaptureType, dc.ID_Capture });
+                    _captures.RemoveAll(c => c.ID_CaptureType == capture.ID_CaptureType.ToUpper());
+                    gc_DocumentCaptures.DataSource = docsType;
+                    gv_DocumentCaptures.BestFitColumns();
+
+                    if (!simpleButton10.Visible)
+                        simpleButton10.Visible = true;
+                }
             }
         }
 
@@ -968,6 +985,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
         private void AddDriverIncident_Load(object sender, EventArgs e)
         {
             _docs = new List<Models.Documents.DocumentCapture>();
+            _captures = CaptureService.list_CaptureTypes();
 
             gMapControl1.MapProvider = GMap.NET.MapProviders.BingMapProvider.Instance;
             GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
@@ -1018,7 +1036,10 @@ namespace ResponseEmergencySystem.Forms.Incidents
             Models.Documents.Document doc = UploadDocument();
 
             if (doc.Status == "disposed")
+            {
+                CreatePanel(4, _docs[gv_DocumentCaptures.FocusedRowHandle].documents);
                 return;
+            }
 
             if (doc.Status == "modified" || doc.Status == "created")
             {

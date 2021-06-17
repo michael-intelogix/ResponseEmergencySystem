@@ -25,6 +25,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
         }
 
         private List<Models.Documents.DocumentCapture> _docs;
+        List<Models.Capture> _captures;
 
         Controllers.Incidents.EditIncidentController _controller;
 
@@ -46,17 +47,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
                 case "ckedt_PoliceReport":
                     pnl_PoliceReport.Visible = ckedtValue;
                     break;
-                    //case "ckedt_Injured":
-                    //    panelControl3.Visible = ckedtValue;
-                    //    pnl_AddInjuredFields.Visible = ckedtValue;
-                    //    gc_InjuredPersons.Enabled = ckedtValue;
-
-                    //    if (dt_InjuredPersons.Rows.Count == 0)
-                    //        addEmptyRow();
-
-                    //    break;
             }
-
         }
 
         private void btn_SelectBroker_Click(object sender, EventArgs e)
@@ -64,37 +55,12 @@ namespace ResponseEmergencySystem.Forms.Incidents
             _controller.GetBroker();
         }
 
-        private void btn_Update_Click(object sender, EventArgs e)
-        {
 
-        }
 
         public void SetController(Controllers.Incidents.EditIncidentController controller)
         {
             _controller = controller;
         }
-
-        private void FindTruckSamsara_Click(object sender, EventArgs e)
-        {
-            if (Utils.GetEdtValue(edt_TruckNumber) == "" || lbl_TruckExists.Visible)
-            {
-                gMapControl1.Position = new GMap.NET.PointLatLng(36.05948, -102.51325);
-                Utils.ShowMessage("There is no truck to find, Please check\n the information again", "Samsara Error");
-            }
-            else
-            {
-                splashScreenManager1.ShowWaitForm();
-                var res = _controller.GetTruckSamsara();
-                gMapControl1.Position = new GMap.NET.PointLatLng(res[0], res[1]);
-                GMap.NET.WindowsForms.GMapOverlay markers = new GMap.NET.WindowsForms.GMapOverlay("markers");
-                GMap.NET.WindowsForms.GMapMarker marker = new GMap.NET.WindowsForms.Markers.GMarkerGoogle(new GMap.NET.PointLatLng(res[0], res[1]), GMap.NET.WindowsForms.Markers.GMarkerGoogleType.red_dot);
-                gMapControl1.Overlays.Clear();
-                markers.Markers.Add(marker);
-                gMapControl1.Overlays.Add(markers);
-                splashScreenManager1.CloseWaitForm();
-            }
-        }
-
         public void LoadStates(DataTable dt_States)
         {
             lue_states.Properties.DataSource = dt_States;
@@ -112,6 +78,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
         {
             //_docs = new List<Models.Documents.DocumentCapture>();
             var docmentsByCaptureType = _docs.Select(dc => new { dc.CaptureType }).ToList();
+            _captures = capturesTypesAvaible();
             gc_DocumentCaptures.DataSource = docmentsByCaptureType;
             if (!simpleButton10.Visible && docmentsByCaptureType.Count > 0)
                 simpleButton10.Visible = true;
@@ -255,13 +222,25 @@ namespace ResponseEmergencySystem.Forms.Incidents
             }
 
         }
-
+         
         private Models.Documents.Document UploadDocument(int idx = 0, string name = "", string id = "", bool created = true)
         {
             Modals.DocumentModal addDocument;
             Models.Documents.Document doc = new Models.Documents.Document("", idx, id);
             doc.name = name;
             doc.Update("staged");
+
+            foreach( var document in _docs[gv_DocumentCaptures.FocusedRowHandle].documents)
+            {
+                if (System.IO.Path.GetFileName(document.Path) == System.IO.Path.GetFileName(doc.Path))
+                {
+                    Utils.ShowMessage("This file has already been uploaded", "File error", type: "Warning");
+                    doc.SetStatus("disposed");
+                    return doc;
+                }
+            }
+                
+
             return addDocumentView();
 
             Models.Documents.Document addDocumentView()
@@ -297,7 +276,10 @@ namespace ResponseEmergencySystem.Forms.Incidents
             Models.Documents.Document doc = UploadDocument();
 
             if (doc.Status == "disposed")
-                return;
+            {
+                 
+            }
+                
 
             if (doc.Status == "modified" || doc.Status == "created")
             {
@@ -370,21 +352,27 @@ namespace ResponseEmergencySystem.Forms.Incidents
         // add more captures using this method, popup show to make it happen
         private void simpleButton9_Click(object sender, EventArgs e)
         {
-            AddMoreCaptures AddMoreCaptures = new AddMoreCaptures();
-            Controllers.Captures.AddCapturesController addCapturesCtrl = new Controllers.Captures.AddCapturesController(AddMoreCaptures, CaptureService.list_CaptureTypes());
-            addCapturesCtrl.LoadCaptures();
-
-            addCapturesCtrl.SetIncidentId(Guid.Empty.ToString());
-            if (AddMoreCaptures.ShowDialog() == DialogResult.OK)
+            if (_captures.Count > 0)
             {
-                _docs.Add(addCapturesCtrl.GetDocuments());
-                var docsType = _docs.Select(dc => new { dc.CaptureType, dc.ID_Capture });
-                gc_DocumentCaptures.DataSource = docsType;
-                gv_DocumentCaptures.BestFitColumns();
+                AddMoreCaptures AddMoreCaptures = new AddMoreCaptures();
+                Controllers.Captures.AddCapturesController addCapturesCtrl = new Controllers.Captures.AddCapturesController(AddMoreCaptures, _captures);
+                addCapturesCtrl.LoadCaptures();
 
-                if (!simpleButton10.Visible)
-                    simpleButton10.Visible = true;
+                addCapturesCtrl.SetIncidentId(Guid.Empty.ToString());
+                if (AddMoreCaptures.ShowDialog() == DialogResult.OK)
+                {
+                    var capture = addCapturesCtrl.GetDocuments();
+                    _docs.Add(capture);
+                    var docsType = _docs.Select(dc => new { dc.CaptureType, dc.ID_Capture });
+                    _captures.RemoveAll(c => c.ID_CaptureType == capture.ID_CaptureType.ToUpper());
+                    gc_DocumentCaptures.DataSource = docsType;
+                    gv_DocumentCaptures.BestFitColumns();
+
+                    if (!simpleButton10.Visible)
+                        simpleButton10.Visible = true;
+                }
             }
+            
         }
 
         // clear the panel and redraw using the new cards
@@ -395,14 +383,25 @@ namespace ResponseEmergencySystem.Forms.Incidents
             xtraScrollableControl1.Controls.Clear();
             CreatePanel(4, _docs[idx].documents);
         }
+
+        private List<Models.Capture> capturesTypesAvaible() 
+        {
+            var captures = CaptureService.list_CaptureTypes();
+
+            foreach(var currentCapture in _docs)
+            {
+                var count = captures.Where(c => c.ID_CaptureType == currentCapture.ID_CaptureType.ToUpper()).Count();
+                if (count > 0)
+                {
+                    captures.RemoveAll(c => c.ID_CaptureType == currentCapture.ID_CaptureType.ToUpper());
+                }
+            }
+
+            return captures;
+        }
         #endregion
 
         #region view fields
-        public string DriverSearch
-        {
-            get { return Utils.GetEdtValue(edt_DriverInfoSearch); }
-        }
-
         public string FullName
         {
             get { return Utils.GetEdtValue(edt_FullName); }
@@ -849,59 +848,11 @@ namespace ResponseEmergencySystem.Forms.Incidents
         }
         #endregion
 
-        private void btn_FindDriver_Click(object sender, EventArgs e)
-        {
-            //_controller.GetDriver();
-        }
-
-        private void edt_DriverInfoSearch_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)13)
-            {
-                //_controller.GetDriver();
-            }
-        }
-
-        private void EditIncidentDetails_Load(object sender, EventArgs e)
-        {
-            
-
-        }
-
-        private void ckedt_IPPrivate_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void simpleButton5_Click(object sender, EventArgs e)
-        {
-            _controller.AddPersonInvolved();
-            gv_InvolvedPersons.BestFitColumns();
-        }
-
-        private void simpleButton2_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void Ckedt_OnValueChanged(object sender, EventArgs e)
         {
             CheckEdit cb = (CheckEdit)sender;
 
             _controller.CheckEditChanged(cb.Name, (bool)cb.EditValue);
-        }
-
-        private void edt_Leave(object sender, EventArgs e)
-        {
-            TextEdit edt = (TextEdit)sender;
-
-            _controller.validate(edt.Name);
-        }
-
-        private void simpleButton5_Click_1(object sender, EventArgs e)
-        {
-            _controller.AddPersonInvolved();
-            gv_InvolvedPersons.BestFitColumns();
         }
 
         private void edt_CheckForErrors_KeyPress(object sender, KeyPressEventArgs e)
@@ -914,43 +865,10 @@ namespace ResponseEmergencySystem.Forms.Incidents
             }
         }
 
-        private void edt_CheckForErrors_Leave(object sender, EventArgs e)
-        {
-            TextEdit edt = (TextEdit)sender;
-            _controller.validate(edt.Name);
-        }
-
-        private void btn_RemovePersonOnClick(object sender, EventArgs e)
-        {
-            _controller.RemoveInvolvedPersonByRow(gv_InvolvedPersons.FocusedRowHandle);
-            gv_InvolvedPersons.BestFitColumns();
-        }
-
-        private void btn_EditPersonOnClick(object sender, EventArgs e)
-        {
-            _controller.EditInvolvedPersonByRow(gv_InvolvedPersons.FocusedRowHandle);
-        }
-
-        private void simpleButton6_Click(object sender, EventArgs e)
-        {
-            _controller.UpdatePersonInvolved();
-            gv_InvolvedPersons.BestFitColumns();
-        }
-
         private void gridLookUpEdit1_Properties_EditValueChanged(object sender, EventArgs e)
         {
             GridLookUpEdit view = (GridLookUpEdit)sender;
             _controller.GetDriver(view.EditValue.ToString());
-        }
-
-        private void lue_Trucks_Properties_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dte_IncidentDate_Properties_EditValueChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void lue_Trucks_Closed(object sender, ClosedEventArgs e)
@@ -970,15 +888,6 @@ namespace ResponseEmergencySystem.Forms.Incidents
             splashScreenManager1.CloseWaitForm();
         }
 
-        private void simpleButton8_Click(object sender, EventArgs e)
-        {
-            _controller.GetBroker2();
-        }
-
-        private void lue_DriverLicenseState_EditValueChanged(object sender, EventArgs e)
-        {
-            _controller.SetLicenseStateChange();
-        }
 
         private void EditDriverIncident_Load(object sender, EventArgs e)
         {
@@ -1030,10 +939,12 @@ namespace ResponseEmergencySystem.Forms.Incidents
                     bool sended = _controller.SendEmail();
                     if (sended)
                     {
-                        _controller.Update();
+                        
                         splashScreenManager1.CloseWaitForm();
-
+                        xtraScrollableControl1.Controls.Clear();
+                        _controller.Update();
                         this.DialogResult = DialogResult.OK;
+
                     }
                     else
                     {
@@ -1042,10 +953,12 @@ namespace ResponseEmergencySystem.Forms.Incidents
                 }
                 else
                 {
-                    _controller.Update();
+                    
                     splashScreenManager1.CloseWaitForm();
-
+                    xtraScrollableControl1.Controls.Clear();
+                    _controller.Update();
                     this.DialogResult = DialogResult.OK;
+
                 }
 
                 
@@ -1059,14 +972,6 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.Close();
         }
 
-        private void gv_DocumentCaptures_DoubleClick(object sender, EventArgs e)
-        {
-            int idx = gv_DocumentCaptures.GetFocusedDataSourceRowIndex();
-            //gc_Documents.DataSource = _docs[idx].documents;
-            xtraScrollableControl1.Controls.Clear();
-            CreatePanel(4, _docs[idx].documents);
-        }
-
         private void simpleButton2_Click_2(object sender, EventArgs e)
         {
             _controller.SendEmail();
@@ -1077,9 +982,15 @@ namespace ResponseEmergencySystem.Forms.Incidents
             _controller.PDF();
         }
 
-        private void simpleButton16_Click(object sender, EventArgs e)
-        {
 
+        private void EditDriverIncident_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
+        }
+
+        private void simpleButton8_Click(object sender, EventArgs e)
+        {
+            _controller.GetBroker2();
         }
     }
 
