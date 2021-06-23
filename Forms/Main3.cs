@@ -2,6 +2,7 @@
 using Google.Cloud.Firestore;
 using ResponseEmergencySystem.Code;
 using ResponseEmergencySystem.Controllers;
+using ResponseEmergencySystem.Models;
 using ResponseEmergencySystem.Views;
 using System;
 using System.Collections.Generic;
@@ -50,7 +51,11 @@ namespace ResponseEmergencySystem.Forms
 
         public object ID_StatusDetail
         {
-            get => gv_Incidents.GetFocusedRowCellValue("ID_StatusDetail");
+            get 
+            {
+                var status = gv_Incidents.GetFocusedRowCellValue("ID_StatusDetail");
+                return status;
+            }
             set => gv_Incidents.SetFocusedRowCellValue("ID_StatusDetail", value);
         }
 
@@ -110,7 +115,12 @@ namespace ResponseEmergencySystem.Forms
         #region DataSources
         public object Incidents 
         { 
-            set => gc_Incidents.DataSource = value; 
+            set => gc_Incidents.DataSource = value;
+            get
+            {
+                gv_Incidents.FocusedColumn = gv_Incidents.VisibleColumns[0];
+                return (List<Incident>)gv_Incidents.GridControl.DataSource;
+            }
         }
         public object CapturesDataSource 
         { 
@@ -151,11 +161,19 @@ namespace ResponseEmergencySystem.Forms
         #region Form Methods
         private void Main3_Load(object sender, EventArgs e)
         {
+            _controller.LoadData();
         }
 
         public void LblFolioPosition()
         {
             lbl_Folio.Location = new Point((panelControl1.Width - lbl_Folio.Width) / 2, (panelControl1.Height - lbl_Folio.Height) / 2);
+        }
+
+        public void TEST()
+        {
+            var dt = (List<Incident>)gv_Incidents.GridControl.DataSource;
+           
+            MessageBox.Show(dt.Count.ToString());
         }
         #endregion
 
@@ -168,10 +186,7 @@ namespace ResponseEmergencySystem.Forms
 
         private void btn_ViewIncident_Click(object sender, EventArgs e)
         {
-            string incidentId = Utils.GetRowID(gv_Incidents, "ID_Incident");
-            string folio = Utils.GetRowID(gv_Incidents, "Folio");
-
-            _controller.ShowIncident(incidentId, folio);
+            _controller.ShowIncident();
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
@@ -181,7 +196,12 @@ namespace ResponseEmergencySystem.Forms
 
         private void btn_Edit_Click(object sender, EventArgs e)
         {
-            _controller.EditImageData();
+            _controller.EditImageData(false);
+        }
+
+        private void btn_EditCapture_Click(object sender, EventArgs e)
+        {
+            _controller.EditImageData(true);
         }
 
         private void btn_Picture_Click(object sender, EventArgs e)
@@ -193,7 +213,7 @@ namespace ResponseEmergencySystem.Forms
 
         private void btn_SaveStatus_Click(object sender, EventArgs e)
         {
-            _controller.SaveStatus();
+            _controller.AddLocation();
         }
 
         private void btn_CloseIncident_Click(object sender, EventArgs e)

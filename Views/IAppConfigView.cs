@@ -1,4 +1,5 @@
-﻿using ResponseEmergencySystem.Controllers;
+﻿using DevExpress.XtraEditors.Controls;
+using ResponseEmergencySystem.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,8 +22,16 @@ namespace ResponseEmergencySystem.Views
 
         //string StateName { get; }
         //string CityName { get; }
+        #region validation
+        bool CategoryWarningIcon { set; }
+        BorderStyles EdtCategoryBorder { set; }
+        bool LueMailCategoryWarningIcon { set; }
+        BorderStyles LueMailCategoryBorder { set; }
+        bool EdtMailWarningIcon { set; }
+        BorderStyles EdtMailBorder { set; }
+        #endregion
 
-        #region
+        #region DataSources
         object MailDirectoryDataSource { set; }
         object CategoriesDataSource { set; }
         object Categories2DataSource { set; }

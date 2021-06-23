@@ -101,7 +101,7 @@ namespace ResponseEmergencySystem.Models.Documents
                             this.Type = "img";
                             if (this.name == "")
                                 this.name = System.IO.Path.GetFileName(ofd.FileName).Replace(ext.ToLower(), "");
-                            this.SetImage();
+                            //this.SetImage();
                             this.Status = status;
                         }
                         else if (ext == ".PDF")
@@ -110,7 +110,7 @@ namespace ResponseEmergencySystem.Models.Documents
                             this.Type = "pdf";
                             if (this.name == "")
                                 this.name = System.IO.Path.GetFileName(ofd.FileName).Replace(ext.ToLower(), "");
-                            this.SetImage();
+                            //this.SetImage();
                             this.Status = status;
                         }
                         else

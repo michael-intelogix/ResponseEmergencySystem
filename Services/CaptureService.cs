@@ -15,13 +15,11 @@ namespace ResponseEmergencySystem.Services
 {
     public static class CaptureService
     {
-
-        private static Boolean opSuccess;
         public static Response response;
 
         public static List<Capture> list_CaptureTypes()
         {
-            opSuccess = false;
+            
             List<Capture> result = new List<Capture>();
 
             try
@@ -64,7 +62,7 @@ namespace ResponseEmergencySystem.Services
                         }
                     }
                     cmd.Connection.Close();
-                    opSuccess = true;
+                    
                 }
             }
             catch (Exception ex)
@@ -77,7 +75,7 @@ namespace ResponseEmergencySystem.Services
 
         public static List<Capture> list_Captures(string ID_Incident)
         {
-            opSuccess = false;
+            
             List<Capture> result = new List<Capture>();
 
             try
@@ -119,7 +117,7 @@ namespace ResponseEmergencySystem.Services
                         }
                     }
                     cmd.Connection.Close();
-                    opSuccess = true;
+                    
                 }
             }
             catch (Exception ex)
@@ -132,7 +130,7 @@ namespace ResponseEmergencySystem.Services
 
         public static List<ImageCapture> list_Images(string ID_Capture)
         {
-            opSuccess = false;
+            
             List<ImageCapture> result = new List<ImageCapture>();
 
             try
@@ -174,7 +172,7 @@ namespace ResponseEmergencySystem.Services
                         }
                     }
                     cmd.Connection.Close();
-                    opSuccess = true;
+                    
                 }
             }
             catch (Exception ex)
@@ -185,9 +183,9 @@ namespace ResponseEmergencySystem.Services
             return result;
         }
 
-        public static Response AddCapture(string captureTypeId, string incidentId, string description, string comments, string statusDetailId = "")
+        public static Response AddCapture(string captureId, string captureTypeId, string incidentId, string description, string comments, string statusDetailId = "", bool create = true)
         {
-            opSuccess = false;
+            
 
             try
             {
@@ -203,12 +201,13 @@ namespace ResponseEmergencySystem.Services
                         cmd.Connection.Close();
                     }
 
-                    cmd.Parameters.AddWithValue("@ID_Capture", Guid.Empty);
+                    cmd.Parameters.AddWithValue("@ID_Capture", captureId);
                     cmd.Parameters.AddWithValue("@ID_CaptureType", captureTypeId);
                     cmd.Parameters.AddWithValue("@ID_Incident", incidentId);
                     cmd.Parameters.AddWithValue("@ID_StatusDetail", statusDetailId);
                     cmd.Parameters.AddWithValue("@Description", description);
                     cmd.Parameters.AddWithValue("@Comments", comments);
+                    cmd.Parameters.AddWithValue("@Create", create);
 
                     cmd.Connection.Open();
                     using (SqlDataReader sdr = cmd.ExecuteReader())
@@ -231,7 +230,7 @@ namespace ResponseEmergencySystem.Services
                         }
                     }
                     cmd.Connection.Close();
-                    opSuccess = true;
+                    
                 }
             }
             catch (Exception ex)
@@ -246,7 +245,7 @@ namespace ResponseEmergencySystem.Services
 
         public static Response AddImage(string imageId, string captureId, string imageUrl, string description, string comments, string fileType)
         {
-            opSuccess = false;
+            
 
             try
             {
@@ -269,6 +268,7 @@ namespace ResponseEmergencySystem.Services
                     cmd.Parameters.AddWithValue("@Description", description);
                     cmd.Parameters.AddWithValue("@Comments", comments);
                     cmd.Parameters.AddWithValue("@FileType", fileType);
+                    cmd.Parameters.AddWithValue("@Status", 1);
 
                     cmd.Connection.Open();
                     using (SqlDataReader sdr = cmd.ExecuteReader())
@@ -290,7 +290,7 @@ namespace ResponseEmergencySystem.Services
                         }
                     }
                     cmd.Connection.Close();
-                    opSuccess = true;
+                    
                 }
             }
             catch (Exception ex)
@@ -302,9 +302,10 @@ namespace ResponseEmergencySystem.Services
 
             return new Response(false, "", Guid.Empty.ToString());
         }
+        
         public static async Task<Response> AddImage(string imageId, string captureId, Firebase.Storage.FirebaseStorageTask imageUrl, string description, string comments, string fileType)
         {
-            opSuccess = false;
+            
 
             try
             {
@@ -348,7 +349,7 @@ namespace ResponseEmergencySystem.Services
                         }
                     }
                     cmd.Connection.Close();
-                    opSuccess = true;
+                    
                 }
             }
             catch (Exception ex)
@@ -361,10 +362,9 @@ namespace ResponseEmergencySystem.Services
             return new Response(false, "", Guid.Empty.ToString());
         }
 
-
         public static Response UpdateImage(string imageId, string captureId, string imageUrl, string description, string comments, string fileType)
         {
-            opSuccess = false;
+            
 
             try
             {
@@ -387,6 +387,7 @@ namespace ResponseEmergencySystem.Services
                     cmd.Parameters.AddWithValue("@Description", description);
                     cmd.Parameters.AddWithValue("@Comments", comments);
                     cmd.Parameters.AddWithValue("@FileType", fileType);
+                    cmd.Parameters.AddWithValue("@Status", 1);
 
                     cmd.Connection.Open();
                     using (SqlDataReader sdr = cmd.ExecuteReader())
@@ -408,7 +409,7 @@ namespace ResponseEmergencySystem.Services
                         }
                     }
                     cmd.Connection.Close();
-                    opSuccess = true;
+                    
                 }
             }
             catch (Exception ex)
@@ -423,7 +424,7 @@ namespace ResponseEmergencySystem.Services
 
         public static async Task<Response> UpdateImage(string imageId, string captureId, Firebase.Storage.FirebaseStorageTask imageUrl, string description, string comments, string fileType)
         {
-            opSuccess = false;
+            
 
             try
             {
@@ -446,6 +447,7 @@ namespace ResponseEmergencySystem.Services
                     cmd.Parameters.AddWithValue("@Description", description);
                     cmd.Parameters.AddWithValue("@Comments", comments);
                     cmd.Parameters.AddWithValue("@FileType", fileType);
+                    cmd.Parameters.AddWithValue("@Status", 1);
 
                     cmd.Connection.Open();
                     using (SqlDataReader sdr = cmd.ExecuteReader())
@@ -467,7 +469,7 @@ namespace ResponseEmergencySystem.Services
                         }
                     }
                     cmd.Connection.Close();
-                    opSuccess = true;
+                    
                 }
             }
             catch (Exception ex)
@@ -482,7 +484,7 @@ namespace ResponseEmergencySystem.Services
 
         public static Response UpdateCapture(string ID_Capture, string captureTypeId, string incidentId, string description, string comments, string statusDetailId = "")
         {
-            opSuccess = false;
+            
 
             try
             {
@@ -526,7 +528,7 @@ namespace ResponseEmergencySystem.Services
                         }
                     }
                     cmd.Connection.Close();
-                    opSuccess = true;
+                    
                 }
             }
             catch (Exception ex)
@@ -539,9 +541,9 @@ namespace ResponseEmergencySystem.Services
             return new Response(false, "", Guid.Empty.ToString());
         }
 
-        public static Response UpdateImageData(string ID_Image, string ID_StatusDetail, string comments, string fileType)
+        public static Response UpdateImageData(string ID_Image, string ImgUrl, string comments, string fileType)
         {
-            opSuccess = false;
+            
 
             try
             {
@@ -559,7 +561,7 @@ namespace ResponseEmergencySystem.Services
 
                     cmd.Parameters.AddWithValue("@ID_Image", Guid.Parse(ID_Image));
                     cmd.Parameters.AddWithValue("@ID_Capture", Guid.Empty);
-                    cmd.Parameters.AddWithValue("@ID_StatusDetail", ID_StatusDetail);
+                    cmd.Parameters.AddWithValue("@ID_StatusDetail", "");
                     cmd.Parameters.AddWithValue("@ImageUrl", "");
                     cmd.Parameters.AddWithValue("@Description", "");
                     cmd.Parameters.AddWithValue("@Comments", comments);
@@ -586,7 +588,66 @@ namespace ResponseEmergencySystem.Services
                         }
                     }
                     cmd.Connection.Close();
-                    opSuccess = true;
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Capture couldn't be saved due: {ex.Message}");
+
+                return new Response(false, ex.Message, Guid.Empty.ToString());
+            }
+
+            return new Response(false, "", Guid.Empty.ToString());
+        }
+        
+        public static Response UpdateCaptureData(string ID_Capture, string comments)
+        {
+            
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand
+                {
+                    Connection = constants.SIREMConnection,
+                    CommandText = $"Update_Capture",
+                    CommandType = CommandType.StoredProcedure
+                })
+                {
+                    if (cmd.Connection.State == ConnectionState.Open)
+                    {
+                        cmd.Connection.Close();
+                    }
+
+                    cmd.Parameters.AddWithValue("@ID_Capture", Guid.Parse(ID_Capture));
+                    cmd.Parameters.AddWithValue("@ID_CaptureType", Guid.Empty);
+                    cmd.Parameters.AddWithValue("@ID_Incident", Guid.Empty);
+                    cmd.Parameters.AddWithValue("@ID_StatusDetail", "");
+                    cmd.Parameters.AddWithValue("@Description", "");
+                    cmd.Parameters.AddWithValue("@Comments", comments);
+
+                    cmd.Connection.Open();
+                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    {
+                        if (sdr == null)
+                        {
+                            throw new NullReferenceException("No Information Available.");
+                        }
+
+                        while (sdr.Read())
+                        {
+
+                            Debug.WriteLine(sdr["Validacion"]);
+                            Debug.WriteLine(sdr["msg"]);
+                            Debug.WriteLine(sdr["ID"]);
+
+                            //MessageBox.Show((string)sdr["msg"]);
+
+                            return new Response(Convert.ToBoolean(sdr["Validacion"]), sdr["msg"].ToString(), sdr["ID"].ToString());
+                        }
+                    }
+                    cmd.Connection.Close();
+                    
                 }
             }
             catch (Exception ex)

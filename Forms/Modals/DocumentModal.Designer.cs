@@ -37,8 +37,10 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.simpleButton12 = new DevExpress.XtraEditors.SimpleButton();
             this.pdfViewer1 = new DevExpress.XtraPdfViewer.PdfViewer();
+            this.pbrUploading = new DevExpress.XtraEditors.ProgressBarControl();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbrUploading.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_Capture1
@@ -60,7 +62,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(53, 370);
+            this.labelControl1.Location = new System.Drawing.Point(53, 376);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(141, 17);
             this.labelControl1.TabIndex = 19;
@@ -77,7 +79,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.btn_Cancel2.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btn_Cancel2.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.closeWhite;
             this.btn_Cancel2.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btn_Cancel2.Location = new System.Drawing.Point(92, 423);
+            this.btn_Cancel2.Location = new System.Drawing.Point(92, 429);
             this.btn_Cancel2.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.btn_Cancel2.LookAndFeel.UseDefaultLookAndFeel = false;
             this.btn_Cancel2.Name = "btn_Cancel2";
@@ -97,7 +99,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.simpleButton9.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.simpleButton9.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.saveWhite;
             this.simpleButton9.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.simpleButton9.Location = new System.Drawing.Point(185, 423);
+            this.simpleButton9.Location = new System.Drawing.Point(185, 429);
             this.simpleButton9.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.simpleButton9.LookAndFeel.UseDefaultLookAndFeel = false;
             this.simpleButton9.Name = "simpleButton9";
@@ -108,7 +110,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             // 
             // textEdit1
             // 
-            this.textEdit1.Location = new System.Drawing.Point(53, 393);
+            this.textEdit1.Location = new System.Drawing.Point(53, 399);
             this.textEdit1.Name = "textEdit1";
             this.textEdit1.Size = new System.Drawing.Size(280, 24);
             this.textEdit1.TabIndex = 18;
@@ -127,7 +129,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.simpleButton12.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
             this.simpleButton12.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.actions_edit1;
             this.simpleButton12.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.simpleButton12.Location = new System.Drawing.Point(339, 393);
+            this.simpleButton12.Location = new System.Drawing.Point(339, 399);
             this.simpleButton12.Name = "simpleButton12";
             this.simpleButton12.Size = new System.Drawing.Size(24, 24);
             this.simpleButton12.TabIndex = 23;
@@ -142,11 +144,20 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.pdfViewer1.Visible = false;
             this.pdfViewer1.ZoomMode = DevExpress.XtraPdfViewer.PdfZoomMode.FitToWidth;
             // 
+            // pbrUploading
+            // 
+            this.pbrUploading.Location = new System.Drawing.Point(53, 352);
+            this.pbrUploading.Name = "pbrUploading";
+            this.pbrUploading.Size = new System.Drawing.Size(310, 18);
+            this.pbrUploading.TabIndex = 25;
+            this.pbrUploading.Visible = false;
+            // 
             // DocumentModal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(405, 468);
+            this.ClientSize = new System.Drawing.Size(405, 466);
+            this.Controls.Add(this.pbrUploading);
             this.Controls.Add(this.pdfViewer1);
             this.Controls.Add(this.simpleButton12);
             this.Controls.Add(this.pictureEdit1);
@@ -164,6 +175,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.Load += new System.EventHandler(this.DocumentModal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbrUploading.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -179,5 +191,6 @@ namespace ResponseEmergencySystem.Forms.Modals
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
         private DevExpress.XtraEditors.SimpleButton simpleButton12;
         private DevExpress.XtraPdfViewer.PdfViewer pdfViewer1;
+        private DevExpress.XtraEditors.ProgressBarControl pbrUploading;
     }
 }

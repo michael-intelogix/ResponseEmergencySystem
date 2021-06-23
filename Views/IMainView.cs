@@ -21,7 +21,7 @@ namespace ResponseEmergencySystem.Views
         void ClearFilters();
 
         void LblFolioPosition();
-        //void LoadStates(DataTable dt_States);
+        void TEST();
         //void LoadCities(DataTable dt_Cities);
         //void LoadInjuredPersons(DataTable dt_InjuredPersons);
 
@@ -45,7 +45,7 @@ namespace ResponseEmergencySystem.Views
         string DriverName { get; set;  }
         object TruckNumber { get; set; }
 
-        object Incidents { set; }
+        object Incidents { set; get; }
 
         object CapturesDataSource { set; }
         object ImagesDatasSource { set; }

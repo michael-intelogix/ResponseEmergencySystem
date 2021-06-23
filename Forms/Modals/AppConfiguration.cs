@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
 using ResponseEmergencySystem.Code;
 using ResponseEmergencySystem.Views;
 using System;
@@ -53,6 +54,7 @@ namespace ResponseEmergencySystem.Forms.Modals
 
         private void btn_AddCategory_Click(object sender, EventArgs e)
         {
+            _controller.validate("category", true);
             _controller.AddCategory();   
         }
 
@@ -98,6 +100,38 @@ namespace ResponseEmergencySystem.Forms.Modals
         }
         #endregion
 
+        #region validation properties
+        public bool CategoryWarningIcon
+        {
+            set { pic_AddDeparmentWarning.Visible = value; }
+        }
+
+        public BorderStyles EdtCategoryBorder
+        {
+            set { edt_Category.BorderStyle = value; }
+        }
+
+        public bool LueMailCategoryWarningIcon
+        {
+            set { pic_MailCategoryWarningIcon.Visible = value; }
+        }
+
+        public BorderStyles LueMailCategoryBorder
+        {
+            set { lue_Categories.BorderStyle = value; }
+        }
+
+        public bool EdtMailWarningIcon
+        {
+            set { pic_MailWarningIcon.Visible = value; }
+        }
+
+        public BorderStyles EdtMailBorder
+        {
+            set { edt_Mail.BorderStyle = value; }
+        }
+        #endregion
+
         private void simpleButton5_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
@@ -112,12 +146,14 @@ namespace ResponseEmergencySystem.Forms.Modals
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
+            _controller.validate("mailCategory");
+            _controller.validate("mail");
             _controller.AddMailToDirectory();
         }
 
         private void lue_Categories_EditValueChanged(object sender, EventArgs e)
         {
-
+            _controller.validate("mailCategory");
         }
 
         private void edt_Category_EditValueChanged(object sender, EventArgs e)
@@ -146,6 +182,32 @@ namespace ResponseEmergencySystem.Forms.Modals
 
             _controller.DeleteMailFromDirectory(index);
             gv_MailDirectory.BestFitColumns();
+        }
+
+        private void edt_Category_Leave(object sender, EventArgs e)
+        {
+            _controller.validate("category");
+        }
+
+        private void edt_Category_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                _controller.validate("category");
+            }
+        }
+
+        private void edt_Mail_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                _controller.validate("mail");
+            }
+        }
+
+        private void edt_Mail_Leave(object sender, EventArgs e)
+        {
+            _controller.validate("mail");
         }
     }
 }

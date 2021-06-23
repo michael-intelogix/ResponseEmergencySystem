@@ -29,7 +29,7 @@ namespace ResponseEmergencySystem.Controllers.Captures
         private List<DocumentCapture> _documents2;
         private Models.Documents.DocumentCapture _documentCapture;
         private List<Models.Documents.Document> _documents;
-        private bool img = false;
+      
 
         private List<DocumentCapture> _docsLoaded;
 
@@ -65,7 +65,6 @@ namespace ResponseEmergencySystem.Controllers.Captures
                 _images[idx - 1].ImagePath = _imgUrl;
             _view.LueTypeBlock = true;
             _view.SaveButtonEnable = true;
-            img = true;
             //MessageBox.Show(ofd.FileName);
         }
 
@@ -117,26 +116,30 @@ namespace ResponseEmergencySystem.Controllers.Captures
 
         public async void SaveAsync()
         {
-            if (ID_Incident == Guid.Empty.ToString())
-            {
-                SaveLocal();
-                return;
-            }
-
             _view.LueTypeBlock = true;
             _view.SaveButtonEnable = false;
             //Thread.Sleep(5000);
+            //Task t1;
 
-            var t = new Task(() => SaveCapture());
-            t.Start();
-            t.Wait();
+            //if (ID_Incident == Guid.Empty.ToString())
+            //{
+            //    t1 = new Task(() => SaveEmptyIncident());
+            //    t1.Start();
+            //    t1.Wait();
+            //}
 
-            List<DocumentCapture> docsLoaded = _documents2.Where(d => d.Path != null).ToList();
+            //var t = new Task(() => SaveCapture());
+            //t.Start();
+            //t.Wait();
+            var captureId = Guid.NewGuid().ToString();
+
+            var docsLoaded = _documents.Where(d => d.Path != "").ToList();
             for (var i = 0; i < docsLoaded.Count(); i++)
             {
                 var document = docsLoaded[i];
                 var id = docsLoaded[i].ID;
-                var task = UploadImgFirebaseAsync(docsLoaded[i].Path, docsLoaded[i].name);
+                var tempPath = Path.GetTempPath();
+                var task = UploadImgFirebaseAsync(captureId, docsLoaded[i].Path, docsLoaded[i].name);
 
                 ProgressBarControl pbr = _view.GetPbrControl(document.containerName, $"pbrDocument{document.ID}");
 
@@ -157,9 +160,28 @@ namespace ResponseEmergencySystem.Controllers.Captures
                 pbr.Visible = false;
                 _view.SetControlProperties(document.containerName, $"lblStatus{document.ID}", "Uploaded", true);
 
-                Response imgResponse = CaptureService.AddImage(Guid.NewGuid().ToString(), ID_Capture, document.FirebaseUrl, document.name, "", document.Type);
-                document.ID_Document = imgResponse.ID;
+                //Response imgResponse = CaptureService.AddImage(Guid.NewGuid().ToString(), ID_Capture, document.FirebaseUrl, document.name, "", document.Type);
+                //document.ID_Document = imgResponse.ID;
+                document.SetImage(true);
             }
+
+
+            
+            _documentCapture = new Models.Documents.DocumentCapture(_selectedCaptureType.ID_CaptureType, _selectedCaptureType.captureType, _view.Comments);
+            _documentCapture.ID_Capture = captureId;
+            _documentCapture.Status = "created";
+            _documentCapture.documents = docsLoaded;
+
+
+            ////_docsLoaded = _docsLoaded.Count > 0 ? _docsLoaded : new List<DocumentCapture>();
+            //var tempDocs = _documentCapture.documents.Where(d => d.Path != null).ToList();
+            //for (var i = 0; i < tempDocs.Count(); i++)
+            //{
+            //    var document = tempDocs[i];
+            //    var id = tempDocs[i].ID;
+            //    document.Comments = _view.Comments;
+                
+            //}
             Reset();
         }
 
@@ -233,7 +255,7 @@ namespace ResponseEmergencySystem.Controllers.Captures
             
         }
 
-        private FirebaseStorageTask UploadImgFirebaseAsync(string filepath, string name)
+        private FirebaseStorageTask UploadImgFirebaseAsync(string captureId, string filepath, string name)
         {
             try
             {
@@ -243,7 +265,7 @@ namespace ResponseEmergencySystem.Controllers.Captures
                 // Construct FirebaseStorage with path to where you want to upload the file and put it there
                 var task = new FirebaseStorage("dcmanagement-3d402.appspot.com")
                 .Child("SIREM")
-                .Child(ID_Capture)
+                .Child(captureId)
                 .Child(name)
                 .PutAsync(stream);
 
@@ -271,8 +293,14 @@ namespace ResponseEmergencySystem.Controllers.Captures
 
         private void SaveCapture()
         {
-            var response = CaptureService.AddCapture(_selectedCaptureType.ID_CaptureType, ID_Incident, "testing", _view.Comments);
+            var response = CaptureService.AddCapture("",_selectedCaptureType.ID_CaptureType, ID_Incident, "testing", _view.Comments);
             ID_Capture = response.ID;
+        }
+
+        private void SaveEmptyIncident()
+        {
+            var response = IncidentService.CreateEmptyIncident();
+            ID_Incident = response.ID;
         }
 
         private PanelControl GetPnlCapture(int i, string lblText)
@@ -389,7 +417,7 @@ namespace ResponseEmergencySystem.Controllers.Captures
                             {
                                 document2.Path = ofd.FileName;
                                 document2.Type = "img";
-                                document2.SetImage();
+                                //document2.SetImage();
                                 _view.SetControlProperties(document2.containerName, $"lblStatus{document2.ID}", "Preloaded");
 
                                 return true;
@@ -398,7 +426,7 @@ namespace ResponseEmergencySystem.Controllers.Captures
                             {
                                 document2.Path = ofd.FileName;
                                 document2.Type = "pdf";
-                                document2.SetImage();
+                                //document2.SetImage();
                                 _view.SetControlProperties(document2.containerName, $"lblStatus{document2.ID}", "Preloaded");
                                 return true;
                             }

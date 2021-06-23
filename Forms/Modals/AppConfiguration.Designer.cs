@@ -31,6 +31,7 @@ namespace ResponseEmergencySystem.Forms.Modals
         {
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AppConfiguration));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -38,9 +39,12 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.xtraFolderBrowserDialog1 = new DevExpress.XtraEditors.XtraFolderBrowserDialog(this.components);
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+            this.pic_MailWarningIcon = new DevExpress.XtraEditors.PictureEdit();
+            this.pic_MailCategoryWarningIcon = new DevExpress.XtraEditors.PictureEdit();
             this.lue_Categories = new DevExpress.XtraEditors.LookUpEdit();
             this.ckedt_NewCategory = new DevExpress.XtraEditors.CheckEdit();
             this.pnl_Category = new DevExpress.XtraEditors.PanelControl();
+            this.pic_AddDeparmentWarning = new DevExpress.XtraEditors.PictureEdit();
             this.btn_AddCategory = new DevExpress.XtraEditors.SimpleButton();
             this.edt_Category = new DevExpress.XtraEditors.TextEdit();
             this.labelControl22 = new DevExpress.XtraEditors.LabelControl();
@@ -67,10 +71,13 @@ namespace ResponseEmergencySystem.Forms.Modals
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_MailWarningIcon.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_MailCategoryWarningIcon.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_Categories.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckedt_NewCategory.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnl_Category)).BeginInit();
             this.pnl_Category.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_AddDeparmentWarning.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_Category.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc_MailDirectory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_MailDirectory)).BeginInit();
@@ -99,6 +106,8 @@ namespace ResponseEmergencySystem.Forms.Modals
             // 
             // xtraTabPage1
             // 
+            this.xtraTabPage1.Controls.Add(this.pic_MailWarningIcon);
+            this.xtraTabPage1.Controls.Add(this.pic_MailCategoryWarningIcon);
             this.xtraTabPage1.Controls.Add(this.lue_Categories);
             this.xtraTabPage1.Controls.Add(this.ckedt_NewCategory);
             this.xtraTabPage1.Controls.Add(this.pnl_Category);
@@ -110,13 +119,47 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.xtraTabPage1.Controls.Add(this.labelControl2);
             this.xtraTabPage1.Controls.Add(this.labelControl1);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(754, 420);
+            this.xtraTabPage1.Size = new System.Drawing.Size(751, 423);
             this.xtraTabPage1.Text = "Emails";
+            // 
+            // pic_MailWarningIcon
+            // 
+            this.pic_MailWarningIcon.EditValue = global::ResponseEmergencySystem.Properties.Resources.warnigColors;
+            this.pic_MailWarningIcon.Location = new System.Drawing.Point(587, 50);
+            this.pic_MailWarningIcon.Name = "pic_MailWarningIcon";
+            this.pic_MailWarningIcon.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.pic_MailWarningIcon.Properties.Appearance.BorderColor = System.Drawing.Color.Transparent;
+            this.pic_MailWarningIcon.Properties.Appearance.Options.UseBackColor = true;
+            this.pic_MailWarningIcon.Properties.Appearance.Options.UseBorderColor = true;
+            this.pic_MailWarningIcon.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pic_MailWarningIcon.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pic_MailWarningIcon.Properties.SvgImageSize = new System.Drawing.Size(30, 30);
+            this.pic_MailWarningIcon.Size = new System.Drawing.Size(30, 22);
+            this.pic_MailWarningIcon.TabIndex = 178;
+            this.pic_MailWarningIcon.Visible = false;
+            // 
+            // pic_MailCategoryWarningIcon
+            // 
+            this.pic_MailCategoryWarningIcon.EditValue = global::ResponseEmergencySystem.Properties.Resources.warnigColors;
+            this.pic_MailCategoryWarningIcon.Location = new System.Drawing.Point(266, 49);
+            this.pic_MailCategoryWarningIcon.Name = "pic_MailCategoryWarningIcon";
+            this.pic_MailCategoryWarningIcon.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.pic_MailCategoryWarningIcon.Properties.Appearance.BorderColor = System.Drawing.Color.Transparent;
+            this.pic_MailCategoryWarningIcon.Properties.Appearance.Options.UseBackColor = true;
+            this.pic_MailCategoryWarningIcon.Properties.Appearance.Options.UseBorderColor = true;
+            this.pic_MailCategoryWarningIcon.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pic_MailCategoryWarningIcon.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pic_MailCategoryWarningIcon.Properties.SvgImageSize = new System.Drawing.Size(30, 30);
+            this.pic_MailCategoryWarningIcon.Size = new System.Drawing.Size(30, 22);
+            this.pic_MailCategoryWarningIcon.TabIndex = 177;
+            this.pic_MailCategoryWarningIcon.Visible = false;
             // 
             // lue_Categories
             // 
             this.lue_Categories.Location = new System.Drawing.Point(112, 48);
             this.lue_Categories.Name = "lue_Categories";
+            this.lue_Categories.Properties.Appearance.BorderColor = System.Drawing.Color.Maroon;
+            this.lue_Categories.Properties.Appearance.Options.UseBorderColor = true;
             this.lue_Categories.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lue_Categories.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
@@ -126,7 +169,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.lue_Categories.Properties.NullText = "";
             this.lue_Categories.Properties.ShowHeader = false;
             this.lue_Categories.Properties.ValueMember = "ID_Category";
-            this.lue_Categories.Size = new System.Drawing.Size(158, 24);
+            this.lue_Categories.Size = new System.Drawing.Size(153, 24);
             this.lue_Categories.TabIndex = 55;
             this.lue_Categories.EditValueChanged += new System.EventHandler(this.lue_Categories_EditValueChanged);
             // 
@@ -145,14 +188,31 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.pnl_Category.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.pnl_Category.Appearance.Options.UseBackColor = true;
             this.pnl_Category.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pnl_Category.Controls.Add(this.pic_AddDeparmentWarning);
             this.pnl_Category.Controls.Add(this.btn_AddCategory);
             this.pnl_Category.Controls.Add(this.edt_Category);
             this.pnl_Category.Controls.Add(this.labelControl22);
             this.pnl_Category.Location = new System.Drawing.Point(171, 6);
             this.pnl_Category.Name = "pnl_Category";
-            this.pnl_Category.Size = new System.Drawing.Size(432, 36);
+            this.pnl_Category.Size = new System.Drawing.Size(537, 36);
             this.pnl_Category.TabIndex = 53;
             this.pnl_Category.Visible = false;
+            // 
+            // pic_AddDeparmentWarning
+            // 
+            this.pic_AddDeparmentWarning.EditValue = global::ResponseEmergencySystem.Properties.Resources.warnigColors;
+            this.pic_AddDeparmentWarning.Location = new System.Drawing.Point(323, 7);
+            this.pic_AddDeparmentWarning.Name = "pic_AddDeparmentWarning";
+            this.pic_AddDeparmentWarning.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.pic_AddDeparmentWarning.Properties.Appearance.BorderColor = System.Drawing.Color.Transparent;
+            this.pic_AddDeparmentWarning.Properties.Appearance.Options.UseBackColor = true;
+            this.pic_AddDeparmentWarning.Properties.Appearance.Options.UseBorderColor = true;
+            this.pic_AddDeparmentWarning.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pic_AddDeparmentWarning.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pic_AddDeparmentWarning.Properties.SvgImageSize = new System.Drawing.Size(30, 30);
+            this.pic_AddDeparmentWarning.Size = new System.Drawing.Size(30, 22);
+            this.pic_AddDeparmentWarning.TabIndex = 176;
+            this.pic_AddDeparmentWarning.Visible = false;
             // 
             // btn_AddCategory
             // 
@@ -163,7 +223,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.btn_AddCategory.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btn_AddCategory.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.addWhite;
             this.btn_AddCategory.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btn_AddCategory.Location = new System.Drawing.Point(250, 6);
+            this.btn_AddCategory.Location = new System.Drawing.Point(359, 6);
             this.btn_AddCategory.Name = "btn_AddCategory";
             this.btn_AddCategory.Size = new System.Drawing.Size(168, 23);
             this.btn_AddCategory.TabIndex = 54;
@@ -172,11 +232,15 @@ namespace ResponseEmergencySystem.Forms.Modals
             // 
             // edt_Category
             // 
-            this.edt_Category.Location = new System.Drawing.Point(125, 5);
+            this.edt_Category.Location = new System.Drawing.Point(122, 5);
             this.edt_Category.Name = "edt_Category";
-            this.edt_Category.Size = new System.Drawing.Size(116, 24);
+            this.edt_Category.Properties.Appearance.BorderColor = System.Drawing.Color.Maroon;
+            this.edt_Category.Properties.Appearance.Options.UseBorderColor = true;
+            this.edt_Category.Size = new System.Drawing.Size(195, 24);
             this.edt_Category.TabIndex = 7;
             this.edt_Category.EditValueChanged += new System.EventHandler(this.edt_Category_EditValueChanged);
+            this.edt_Category.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.edt_Category_KeyPress);
+            this.edt_Category.Leave += new System.EventHandler(this.edt_Category_Leave);
             // 
             // labelControl22
             // 
@@ -271,7 +335,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             // btn_Delete
             // 
             this.btn_Delete.AutoHeight = false;
-            editorButtonImageOptions1.SvgImage = global::ResponseEmergencySystem.Properties.Resources.cancelRed;
+            editorButtonImageOptions1.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("editorButtonImageOptions1.SvgImage")));
             editorButtonImageOptions1.SvgImageSize = new System.Drawing.Size(30, 30);
             this.btn_Delete.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
@@ -326,8 +390,12 @@ namespace ResponseEmergencySystem.Forms.Modals
             // 
             this.edt_Mail.Location = new System.Drawing.Point(339, 48);
             this.edt_Mail.Name = "edt_Mail";
-            this.edt_Mail.Size = new System.Drawing.Size(264, 24);
+            this.edt_Mail.Properties.Appearance.BorderColor = System.Drawing.Color.Maroon;
+            this.edt_Mail.Properties.Appearance.Options.UseBorderColor = true;
+            this.edt_Mail.Size = new System.Drawing.Size(242, 24);
             this.edt_Mail.TabIndex = 3;
+            this.edt_Mail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.edt_Mail_KeyPress);
+            this.edt_Mail.Leave += new System.EventHandler(this.edt_Mail_Leave);
             // 
             // labelControl2
             // 
@@ -353,7 +421,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.xtraTabPage2.Controls.Add(this.textEdit1);
             this.xtraTabPage2.Controls.Add(this.simpleButton3);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(754, 420);
+            this.xtraTabPage2.Size = new System.Drawing.Size(751, 423);
             this.xtraTabPage2.Text = "Location";
             // 
             // simpleButton6
@@ -434,6 +502,8 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.ClientSize = new System.Drawing.Size(756, 453);
             this.Controls.Add(this.xtraTabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AppConfiguration";
             this.Text = "App Configuration";
             this.Load += new System.EventHandler(this.AppConfiguration_Load);
@@ -441,11 +511,14 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.xtraTabControl1.ResumeLayout(false);
             this.xtraTabPage1.ResumeLayout(false);
             this.xtraTabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_MailWarningIcon.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_MailCategoryWarningIcon.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_Categories.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckedt_NewCategory.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnl_Category)).EndInit();
             this.pnl_Category.ResumeLayout(false);
             this.pnl_Category.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_AddDeparmentWarning.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_Category.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc_MailDirectory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_MailDirectory)).EndInit();
@@ -489,5 +562,8 @@ namespace ResponseEmergencySystem.Forms.Modals
         private DevExpress.XtraEditors.LookUpEdit lue_Categories;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit lue_Categories2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        private DevExpress.XtraEditors.PictureEdit pic_MailWarningIcon;
+        private DevExpress.XtraEditors.PictureEdit pic_MailCategoryWarningIcon;
+        private DevExpress.XtraEditors.PictureEdit pic_AddDeparmentWarning;
     }
 }

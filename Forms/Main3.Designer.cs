@@ -317,7 +317,7 @@ namespace ResponseEmergencySystem.Forms
             // btn_SaveStatus
             // 
             this.btn_SaveStatus.AutoHeight = false;
-            editorButtonImageOptions3.Image = global::ResponseEmergencySystem.Properties.Resources.save_16x16;
+            editorButtonImageOptions3.Image = global::ResponseEmergencySystem.Properties.Resources.map_16x16;
             this.btn_SaveStatus.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btn_SaveStatus.Name = "btn_SaveStatus";
@@ -535,6 +535,7 @@ namespace ResponseEmergencySystem.Forms
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions6, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, serializableAppearanceObject22, serializableAppearanceObject23, serializableAppearanceObject24, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btn_Comments.Name = "btn_Comments";
             this.btn_Comments.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.btn_Comments.Click += new System.EventHandler(this.btn_EditCapture_Click);
             // 
             // gridColumn15
             // 

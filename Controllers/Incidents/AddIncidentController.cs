@@ -48,7 +48,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
         private bool _validation = false;
 
-        private bool _DriverUpdateRequired = false;
+        
 
         public AddIncidentController(IAddIncidentView view)
         {
@@ -218,7 +218,6 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             else
             {
                 _view.ExpirationDate = DateTime.Now;
-                _DriverUpdateRequired = true;
             }
 
             _view.LicenseState = _selectedDriver.ID_StateOfExpedition;
@@ -285,8 +284,6 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         {
             DataRow folioReponse = Functions.Get_Folio().Select().First();
             string folio = folioReponse.ItemArray[2].ToString() + "-" + folioReponse.ItemArray[3].ToString();
-
-            string ID_Incident = "";
 
             var t = new Task<Response>(() => IncidentService.AddIncident(
                 ID_Driver == Guid.Empty.ToString() ? _ID_Samsara : ID_Driver,
@@ -877,7 +874,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
         private (string ID, bool success) SaveCapture(string ID_CaptureType, string ID_Incident)
         {
-            var response = CaptureService.AddCapture(ID_CaptureType, ID_Incident, "testing", "");
+            var response = CaptureService.AddCapture("",ID_CaptureType, ID_Incident, "testing", "");
             if (response.validation)
                 return (response.ID, true);
             else

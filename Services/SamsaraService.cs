@@ -18,8 +18,6 @@ namespace ResponseEmergencySystem.Services
     {
         public static Driver FindDriver(Driver driver)
         {
-            double latitude = 0;
-            double longitude = 0;
             const string url = "https://api.samsara.com/fleet/drivers";
 
             try

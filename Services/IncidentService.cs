@@ -19,14 +19,11 @@ namespace ResponseEmergencySystem.Services
 {
     public static class IncidentService
     {
-
-        private static DataTable result;
         public static Response response;
-        private static Boolean opSuccess;
 
         public static List<Incident> list_Incidents(string folio, string driverId, string driverName, string truckNum, string statusDetailId, string date1 = "", string date2 = "")
         {
-            opSuccess = false;
+
             List<Incident> result = new List<Incident>();
             try
             {
@@ -83,7 +80,7 @@ namespace ResponseEmergencySystem.Services
                                     new Trailer(
                                         sdr["ID_Trailer"] == DBNull.Value ? Guid.Empty : Guid.Parse((string)sdr["ID_Trailer"]),
                                         sdr["TrailerNumber"] == DBNull.Value ? "" : (string)sdr["TrailerNumber"],
-                                        sdr["TrailerCommodity"] == DBNull.Value ? "" : (string)sdr["TrailerCommodity"], 
+                                        sdr["TrailerCommodity"] == DBNull.Value ? "" : (string)sdr["TrailerCommodity"],
                                         (bool)sdr["CargoSpill"]),
                                     (bool)sdr["TrailerDamage"],
                                     (bool)sdr["TrailerCanMove"],
@@ -103,7 +100,7 @@ namespace ResponseEmergencySystem.Services
                         }
                     }
                     cmd.Connection.Close();
-                    opSuccess = true;
+
                 }
             }
             catch (Exception ex)
@@ -116,7 +113,7 @@ namespace ResponseEmergencySystem.Services
 
         public static List<Incident> GetIncident(string incidentId)
         {
-            opSuccess = false;
+
             List<Incident> result = new List<Incident>();
             try
             {
@@ -167,8 +164,8 @@ namespace ResponseEmergencySystem.Services
                                     (string)sdr["IncidentLongitude"],
                                     (string)sdr["Comments"],
                                     new Truck(
-                                        Guid.Parse((string)sdr["ID_Truck"]), 
-                                        (string)sdr["ID_Samsara"],
+                                        Guid.Parse((string)sdr["ID_Truck"]),
+                                        (string)sdr["TruckSamsaraID"],
                                         (string)sdr["TruckNumber"],
                                         (string)sdr["VinNumber"],
                                         (string)sdr["Broker"],
@@ -187,12 +184,12 @@ namespace ResponseEmergencySystem.Services
                                     (bool)sdr["TrailerCanMove"],
                                     (bool)sdr["TrailerNeedCrane"],
                                     new Driver(
-                                        (string)sdr["ID_Driver"], 
-                                        (string)sdr["Name"], 
-                                        sdr["PhoneNumber"] == DBNull.Value ? "" : (string)sdr["PhoneNumber"], 
-                                        sdr["License"] == DBNull.Value ? "" : (string)sdr["License"], 
-                                        sdr["Expedition_State"] == DBNull.Value ? Guid.Empty.ToString() : (string)sdr["Expedition_State"], 
-                                        (bool)sdr["DSamsara"], 
+                                        (string)sdr["ID_Driver"],
+                                        (string)sdr["Name"],
+                                        sdr["PhoneNumber"] == DBNull.Value ? "" : (string)sdr["PhoneNumber"],
+                                        sdr["License"] == DBNull.Value ? "" : (string)sdr["License"],
+                                        sdr["Expedition_State"] == DBNull.Value ? Guid.Empty.ToString() : (string)sdr["Expedition_State"],
+                                        (bool)sdr["DSamsara"],
                                         ExpirationDate: sdr["Expiration_Date"] == DBNull.Value ? "" : Convert.ToDateTime(sdr["Expiration_Date"]).Date.ToString()
                                     ),
                                     (string)sdr["ID_City"],
@@ -209,7 +206,7 @@ namespace ResponseEmergencySystem.Services
                         }
                     }
                     cmd.Connection.Close();
-                    opSuccess = true;
+
                 }
             }
             catch (Exception ex)
@@ -222,7 +219,7 @@ namespace ResponseEmergencySystem.Services
 
         public static List<PersonsInvolved> list_PersonsInvolved(string incidentId)
         {
-            opSuccess = false;
+
             List<PersonsInvolved> result = new List<PersonsInvolved>();
             try
             {
@@ -316,7 +313,7 @@ namespace ResponseEmergencySystem.Services
             bool dSamsara
         )
         {
-            opSuccess = false;
+
 
             try
             {
@@ -363,6 +360,7 @@ namespace ResponseEmergencySystem.Services
                     cmd.Parameters.AddWithValue("@ID_User", ID_User);
                     cmd.Parameters.AddWithValue("@Comments", comments);
                     cmd.Parameters.AddWithValue("@DSamsara", dSamsara);
+                    cmd.Parameters.AddWithValue("@Status", true);
 
                     cmd.Connection.Open();
                     using (SqlDataReader sdr = cmd.ExecuteReader())
@@ -425,7 +423,7 @@ namespace ResponseEmergencySystem.Services
             bool dSamsara
         )
         {
-            opSuccess = false;
+
 
             try
             {
@@ -472,6 +470,7 @@ namespace ResponseEmergencySystem.Services
                     cmd.Parameters.AddWithValue("@ID_User", ID_User);
                     cmd.Parameters.AddWithValue("@Comments", comments);
                     cmd.Parameters.AddWithValue("@DSamsara", dSamsara);
+                    cmd.Parameters.AddWithValue("@Status", true);
 
                     cmd.Connection.Open();
                     using (SqlDataReader sdr = cmd.ExecuteReader())
@@ -508,7 +507,7 @@ namespace ResponseEmergencySystem.Services
 
         public static void AddPersonInvolved(PersonsInvolved involved)
         {
-            opSuccess = false;
+
 
             try
             {
@@ -622,15 +621,29 @@ namespace ResponseEmergencySystem.Services
 
                 db.Entry(incident).State = System.Data.Entity.EntityState.Modified;
 
-                
+                db.SaveChanges();
 
+                Console.WriteLine("Registro actualizado correctamente.");
+
+                //return new Response()
+            }
+
+
+
+        }
+
+        public static void UpdateLocation(string incidentID, string truckNum)
+        {
+            Guid ID_Incident = Guid.Parse(incidentID);
+            using (var db = new SIREMEntities())
+            { 
                 var truckLoc = GetTruckSamsara(truckNum);
                 if (truckLoc.validation == true)
                 {
                     var loc = new Locations()
                     {
                         ID_Location = Guid.NewGuid(),
-                        ID_Incident = incident.ID_Incident,
+                        ID_Incident = ID_Incident,
                         Latitude = truckLoc.latitude.ToString(),
                         Longitude = truckLoc.longitude.ToString(),
                         Description = truckLoc.FormattedLocation,
@@ -638,17 +651,12 @@ namespace ResponseEmergencySystem.Services
                     };
 
                     db.Locations.Add(loc);
+
+                    db.SaveChanges();
+
+                    Console.WriteLine("Locaction added.");
                 }
-
-                db.SaveChanges();
-
-                Console.WriteLine("Registro actualizado correctamente.");
-                
-                //return new Response()
             }
-
-            
-
         }
 
         private static (double latitude, double longitude, DateTime currentTime, string FormattedLocation, bool validation) GetTruckSamsara(string truckNumber)
@@ -709,6 +717,143 @@ namespace ResponseEmergencySystem.Services
 
             return (latitude, longitude, currentTime, "", false);
         }
+
+        public static Response CreateEmptyIncident()
+        {
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand
+                {
+                    Connection = constants.SIREMConnection,
+                    CommandText = $"Update_Incident",
+                    CommandType = CommandType.StoredProcedure
+                })
+                {
+                    if (cmd.Connection.State == ConnectionState.Open)
+                    {
+                        cmd.Connection.Close();
+                    }
+
+                    cmd.Parameters.AddWithValue("@ID_Incident", Guid.Empty);
+                    cmd.Parameters.AddWithValue("@ID_Driver", "");
+                    cmd.Parameters.AddWithValue("@DriverName", "");
+                    cmd.Parameters.AddWithValue("@ID_State", Guid.Empty);
+                    cmd.Parameters.AddWithValue("@ID_City", "");
+                    cmd.Parameters.AddWithValue("@ID_Broker", "");
+                    cmd.Parameters.AddWithValue("@ID_Broker2", "");
+                    cmd.Parameters.AddWithValue("@ID_Truck", "");
+                    cmd.Parameters.AddWithValue("@TruckNumber", "");
+                    cmd.Parameters.AddWithValue("@TrailerNumber", "");
+                    cmd.Parameters.AddWithValue("@TrailerCommodity", "");
+                    cmd.Parameters.AddWithValue("@ID_StatusDetail", "");
+                    cmd.Parameters.AddWithValue("@Folio", "");
+                    cmd.Parameters.AddWithValue("@IncidentDate", "");
+                    cmd.Parameters.AddWithValue("@IncidentCloseDate", "");
+                    cmd.Parameters.AddWithValue("@PoliceReportBoolean", "");
+                    cmd.Parameters.AddWithValue("@CitationReportNumber", "");
+                    cmd.Parameters.AddWithValue("@CargoSpill", "");
+                    cmd.Parameters.AddWithValue("@ManifestNumber", "");
+                    cmd.Parameters.AddWithValue("@LocationReferences", "");
+                    cmd.Parameters.AddWithValue("@IncidentLatitude", "");
+                    cmd.Parameters.AddWithValue("@IncidentLongitude", "");
+                    cmd.Parameters.AddWithValue("@TruckDamage", "");
+                    cmd.Parameters.AddWithValue("@TruckCanMove", "");
+                    cmd.Parameters.AddWithValue("@TruckNeedCrane", "");
+                    cmd.Parameters.AddWithValue("@TrailerDamage", "");
+                    cmd.Parameters.AddWithValue("@TrailerCanMove", "");
+                    cmd.Parameters.AddWithValue("@TrailerNeedCrane", "");
+                    cmd.Parameters.AddWithValue("@ID_User", "");
+                    cmd.Parameters.AddWithValue("@Comments", "");
+                    cmd.Parameters.AddWithValue("@DSamsara", false);
+                    cmd.Parameters.AddWithValue("@Status", false);
+
+                    cmd.Connection.Open();
+                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    {
+                        if (sdr == null)
+                        {
+                            throw new NullReferenceException("No Information Available.");
+                        }
+                        while (sdr.Read())
+                        {
+                            Debug.WriteLine(sdr["Validacion"]);
+                            Debug.WriteLine(sdr["msg"]);
+                            Debug.WriteLine(sdr["ID"]);
+
+                            response = new Response(Convert.ToBoolean(sdr["Validacion"]), sdr["msg"].ToString(), sdr["ID"].ToString());
+                        }
+                    }
+                    cmd.Connection.Close();
+
+                }
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show($"Incident couldn't be saved due: {ex.Message}");
+                return new Response(false, ex.Message, Guid.Empty.ToString());
+            }
+
+        }
+        public static List<Location> list_Locations(string incidentId)
+        {
+
+            List<Location> result = new List<Location>();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand
+                {
+                    Connection = constants.SIREMConnection,
+                    CommandText = $"List_Locations",
+                    CommandType = CommandType.StoredProcedure
+                })
+                {
+                    if (cmd.Connection.State == ConnectionState.Open)
+                    {
+                        cmd.Connection.Close();
+                    }
+
+                    //cmd.Parameters.AddWithValue("@ID_Incident", Guid.Parse(incidentId));
+                    cmd.Parameters.AddWithValue("@ID_Incident", "ECFB89AD-542D-4D96-97DF-A6CDD5FA401F");
+
+                    if (cmd.Connection.State == ConnectionState.Open)
+                    {
+                        cmd.Connection.Close();
+                    }
+
+                    cmd.Connection.Open();
+
+                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    {
+                        if (sdr == null)
+                        {
+                            throw new NullReferenceException("No Information Available.");
+                        }
+                        while (sdr.Read())
+                        {
+                            //Debug.WriteLine(sdr["IncidentCloseDate"]);
+
+                            result.Add(
+                                new Location(
+                                    (string)sdr["Latitude"],
+                                    (string)sdr["Longitude"],
+                                    (DateTime)sdr["CreatedAt"]
+                                )
+                            );
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Person type couldn't be found due: {ex.Message}");
+            }
+
+            return result;
+        }
+
 
     }
 }

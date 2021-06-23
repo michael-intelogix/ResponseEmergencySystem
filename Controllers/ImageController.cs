@@ -56,7 +56,6 @@ namespace ResponseEmergencySystem.Controllers
                         //img_Test.Visible = true;
                         filepath = ofd.FileName;
 
-                        Image img;
                         using (var bmpTemp = new Bitmap(filepath))
                         {
                             var newImg = new Bitmap(bmpTemp);

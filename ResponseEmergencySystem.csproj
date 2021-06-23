@@ -21,7 +21,7 @@
     <Install>true</Install>
     <InstallFrom>Unc</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
-    <UpdateMode>Background</UpdateMode>
+    <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>false</UpdatePeriodically>
@@ -30,7 +30,7 @@
     <ProductName>SIREM</ProductName>
     <PublisherName>IntelogixSoft</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>61</ApplicationRevision>
+    <ApplicationRevision>68</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -395,7 +395,6 @@
     <Compile Include="Code\constants.cs" />
     <Compile Include="Code\FireBaseFunctions.cs" />
     <Compile Include="Code\Functions.cs" />
-    <Compile Include="Code\Location.cs" />
     <Compile Include="Code\Utils.cs" />
     <Compile Include="Connection\Connection.cs" />
     <Compile Include="Controllers\AppConfigController.cs" />
@@ -404,9 +403,9 @@
     <Compile Include="Controllers\ConfirmationModalController.cs" />
     <Compile Include="Controllers\EditImageDataController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
-    <Compile Include="Controllers\IncidentController.cs" />
     <Compile Include="Controllers\Incidents\AddIncidentController.cs" />
     <Compile Include="Controllers\Incidents\EditIncidentController.cs" />
+    <Compile Include="Controllers\Incidents\DriverIncidentController.cs" />
     <Compile Include="Controllers\Main2Controller.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\ModalController.cs" />
@@ -458,12 +457,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Forms\EditIncidentDetails.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\EditIncidentDetails.Designer.cs">
-      <DependentUpon>EditIncidentDetails.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\frm_Image.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -488,23 +481,14 @@
     <Compile Include="Forms\frm_PdfViewer.Designer.cs">
       <DependentUpon>frm_PdfViewer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Incidents\AddDriverIncident.cs">
+    <Compile Include="Forms\Incidents\DriverIncident.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Incidents\AddDriverIncident.Designer.cs">
-      <DependentUpon>AddDriverIncident.cs</DependentUpon>
+    <Compile Include="Forms\Incidents\DriverIncident.Designer.cs">
+      <DependentUpon>DriverIncident.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Incidents\EditDriverIncident.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Incidents\EditDriverIncident.Designer.cs">
-      <DependentUpon>EditDriverIncident.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Incidents\ShowDriverIncident.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Incidents\ShowDriverIncident.Designer.cs">
-      <DependentUpon>ShowDriverIncident.cs</DependentUpon>
+    <Compile Include="Forms\Incidents\MyButton.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Forms\Loadings\SplashScreen1.cs">
       <SubType>Form</SubType>
@@ -578,12 +562,6 @@
     <Compile Include="Forms\Modals\DocumentModal.Designer.cs">
       <DependentUpon>DocumentModal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AddIncidentDetails.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\AddIncidentDetails.Designer.cs">
-      <DependentUpon>AddIncidentDetails.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\WaitForm1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -596,6 +574,7 @@
     <Compile Include="Models\DocumentCapture.cs" />
     <Compile Include="Models\Documents\Document.cs" />
     <Compile Include="Models\Documents\DocumentCapture.cs" />
+    <Compile Include="Models\Location.cs" />
     <Compile Include="Models\Logs\Log.cs" />
     <Compile Include="Models\MailCategory.cs" />
     <Compile Include="Models\MailDirectory.cs" />
@@ -655,12 +634,9 @@
     <Compile Include="Views\IMain2View.cs" />
     <Compile Include="Views\IMainView.cs" />
     <Compile Include="Views\IModalView.cs" />
-    <Compile Include="Views\IShowIncidentDetails.cs" />
-    <EmbeddedResource Include="Forms\Incidents\EditDriverIncident.resx">
-      <DependentUpon>EditDriverIncident.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Incidents\ShowDriverIncident.resx">
-      <DependentUpon>ShowDriverIncident.cs</DependentUpon>
+    <Compile Include="Views\Incidents\IIncidentView.cs" />
+    <EmbeddedResource Include="Forms\Incidents\DriverIncident.resx">
+      <DependentUpon>DriverIncident.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Loadings\SplashScreen1.resx">
       <DependentUpon>SplashScreen1.cs</DependentUpon>
@@ -771,17 +747,20 @@
     <None Include="Resources\add_32x32.png" />
     <None Include="Resources\actions_zoom.svg" />
     <None Include="Resources\bo_person.svg" />
+    <None Include="Resources\actions_checkcircled.svg" />
+    <None Include="Resources\actions_deletecircled.svg" />
+    <None Include="Resources\actions_checkcircled1.svg" />
+    <None Include="Resources\geopointmap_32x32.png" />
+    <None Include="Resources\map_16x16.png" />
     <Content Include="Resources\pdf.png" />
     <None Include="Resources\pdf1.png" />
     <None Include="Resources\índice1.jpg" />
     <None Include="Resources\travel_car.svg" />
     <None Include="Resources\travel_map.svg" />
     <None Include="Resources\security_visibility.svg" />
+    <None Include="Resources\warning.svg" />
     <Content Include="x64\SQLite.Interop.dll" />
     <Content Include="x86\SQLite.Interop.dll" />
-    <EmbeddedResource Include="Forms\EditIncidentDetails.resx">
-      <DependentUpon>EditIncidentDetails.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frm_Image.resx">
       <DependentUpon>frm_Image.cs</DependentUpon>
     </EmbeddedResource>
@@ -793,12 +772,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frm_PdfViewer.resx">
       <DependentUpon>frm_PdfViewer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AddIncidentDetails.resx">
-      <DependentUpon>AddIncidentDetails.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Incidents\AddDriverIncident.resx">
-      <DependentUpon>AddDriverIncident.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Main2.resx">
       <DependentUpon>Main2.cs</DependentUpon>
@@ -871,7 +844,6 @@
   <ItemGroup>
     <Folder Include="Code\Captures\" />
     <Folder Include="Forms\Helpers\" />
-    <Folder Include="Views\Incidents\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

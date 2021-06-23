@@ -50,12 +50,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         private string ID_Broker2;
         private string ID_Truck;
         private string ID_Trailer;
-        private string comments = "";
-
-        private bool _errors = false;
         private bool _validation;
-
-        private bool _DriverUpdateRequired = false;
 
         private string _ID_Samsara;
         private string _DriverName;
@@ -69,6 +64,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         private IMainView _mainView;
 
         private FileStream _stream;
+        private bool _errors = false;
 
         public EditIncidentController(IEditIncidentView view, string incidentId, ref IMainView main)
         {
@@ -118,7 +114,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             _view.License = _selectedIncident.driver.License;
             _view.ExpirationDate = Convert.ToDateTime(_selectedIncident.driver.ExpirationDate).Date;
             _view.LicenseState = _selectedIncident.driver.ID_StateOfExpedition;
-            _view.TruckNumber = _selectedIncident.truck.ID_Samsara;
+            _view.TruckId = _selectedIncident.truck.ID_Samsara;
             _view.TruckDamages = _selectedIncident.TruckDamage;
             _view.TruckCanMove = _selectedIncident.TruckCanMove;
             _view.TruckNeedCrane = _selectedIncident.TruckNeedCrane;
@@ -197,62 +193,73 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         {
             double latitude = 0;
             double longitude = 0;
-            const string url = "https://api.samsara.com/fleet/vehicles/locations";
-            string number = _view.TruckNumber;
-            try
+            string number = _view.TruckId;
+            string url = "https://api.samsara.com/fleet/vehicles/locations/feed?vehicleIds=" + number;
+
+            if (number != "")
             {
-                using (var client = new HttpClient())
+                try
                 {
-                    client.BaseAddress = new Uri(url);
-
-                    // Add an Accept header for JSON format.
-                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "samsara_api_XwURzQhn0F9rijd0vqXwDgWir2zLWc");
-
-                    // List data response.
-                    HttpResponseMessage response = client.GetAsync(url).Result;  // Blocking call! Program will wait here until a response is received or a timeout occurs.}
-
-                    var data = JArray.Parse(
-                        JObject.Parse(
-                            response.Content.ReadAsStringAsync().Result
-                        )["data"].ToString()
-                    );
-
-                    List<Vehicle> locs = data.Select(p => new Vehicle
+                    using (var client = new HttpClient())
                     {
-                        name = p["name"].ToString().Trim(),
-                        time = (DateTime)p["location"]["time"],
-                        latitude = (float)p["location"]["latitude"],
-                        longitude = (float)p["location"]["longitude"],
-                        heading = (int)p["location"]["heading"],
-                        speed = (int)p["location"]["speed"],
-                        formattedLocation = (string)p["location"]["reverseGeo"]["formattedLocation"]
-                    }).ToList();
+                        client.BaseAddress = new Uri(url);
 
-                    var filtered = locs.Where(x => x.name == number);
+                        // Add an Accept header for JSON format.
+                        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                    foreach (var item in filtered)
-                    {
-                        latitude = (double)item.latitude;
-                        longitude = (double)item.longitude;
-                        _view.Latitude = item.latitude.ToString();
-                        _view.Longitude = item.longitude.ToString();
+                        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "samsara_api_XwURzQhn0F9rijd0vqXwDgWir2zLWc");
 
-                        //Testing samsara = new Testing(item.name, item.time, item.latitude, item.longitude, item.heading, item.speed, item.formattedLocation);
-                        //samsara.Show();
+                        // List data response.
+                        HttpResponseMessage response = client.GetAsync(url).Result;  // Blocking call! Program will wait here until a response is received or a timeout occurs.}
 
+                        var data = JArray.Parse(
+                            JObject.Parse(
+                                response.Content.ReadAsStringAsync().Result
+                            )["data"].ToString()
+                        );
+
+                        //List<Vehicle> locs = data.Select(p => new Vehicle
+                        //{
+                        //    name = p["name"].ToString().Trim(),
+                        //    time = (DateTime)p["location"]["time"],
+                        //    latitude = (float)p["location"]["latitude"],
+                        //    longitude = (float)p["location"]["longitude"],
+                        //    heading = (int)p["location"]["heading"],
+                        //    speed = (int)p["location"]["speed"],
+                        //    formattedLocation = (string)p["location"]["reverseGeo"]["formattedLocation"]
+                        //}).ToList();
+
+                        //var filtered = locs.Where(x => x.name == number);
+                        if (data.Count > 0)
+                        {
+                            latitude = (double)data[0]["locations"][0]["latitude"];
+                            longitude = (double)data[0]["locations"][0]["longitude"];
+                            _view.Latitude = latitude.ToString();
+                            _view.Longitude = longitude.ToString();
+                        }
+
+                        //foreach (var item in filtered)
+                        //{
+                        //    latitude = (double)item.latitude;
+                        //    longitude = (double)item.longitude;
+                        //    _view.Latitude = item.latitude.ToString();
+                        //    _view.Longitude = item.longitude.ToString();
+
+                        //    //Testing samsara = new Testing(item.name, item.time, item.latitude, item.longitude, item.heading, item.speed, item.formattedLocation);
+                        //    //samsara.Show();
+
+                        //}
+
+
+                        //Dispose once all HttpClient calls are complete.This is not necessary if the containing object will be disposed of; for example in this case the HttpClient instance will be disposed automatically when the application terminates so the following call is superfluous.
+                        client.Dispose();
                     }
 
-
-                    //Dispose once all HttpClient calls are complete.This is not necessary if the containing object will be disposed of; for example in this case the HttpClient instance will be disposed automatically when the application terminates so the following call is superfluous.
-                    client.Dispose();
                 }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
 
             return new double[] { latitude, longitude };
@@ -274,7 +281,6 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             else
             {
                 _view.ExpirationDate = DateTime.Now;
-                _DriverUpdateRequired = true;
             }
 
             _view.LicenseState = _selectedDriver.ID_StateOfExpedition;
@@ -892,7 +898,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
         private (string ID, bool success) SaveCapture(string ID_CaptureType, string ID_Incident)
         {
-            var response = CaptureService.AddCapture(ID_CaptureType, ID_Incident, "testing", "");
+            var response = CaptureService.AddCapture("",ID_CaptureType, ID_Incident, "testing", "");
             if (response.validation)
                 return (response.ID, true);
             else

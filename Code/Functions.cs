@@ -15,7 +15,6 @@ namespace ResponseEmergencySystem.Code
     public static class Functions
     {
         private static DataTable result;
-        private static Boolean opSuccess;
 
         private static DataTable errorsResult(string error)
         {
@@ -34,7 +33,7 @@ namespace ResponseEmergencySystem.Code
 
         public static DataTable getStates()
         {
-            opSuccess = false;
+           
             try
             {
                 using (SqlCommand cmd = new SqlCommand
@@ -52,7 +51,7 @@ namespace ResponseEmergencySystem.Code
                     }
 
                     result.Rows.Add(new Object[] { "00000000-0000-0000-0000-000000000000", "00000000-0000-0000-0000-000000000000", "DNE" });
-                    opSuccess = true;
+                   
                 }
             }
             catch (Exception ex)
@@ -64,7 +63,7 @@ namespace ResponseEmergencySystem.Code
 
         public static DataTable getCities(Guid ID_State, string state = "")
         {
-            opSuccess = false;
+           
             try
             {
                 using (SqlCommand cmd = new SqlCommand
@@ -81,7 +80,7 @@ namespace ResponseEmergencySystem.Code
                     {
                         sda.Fill(result);
                     }
-                    opSuccess = true;
+                   
                 }
             }
             catch (Exception ex)
@@ -93,7 +92,7 @@ namespace ResponseEmergencySystem.Code
 
         public static DataRow getDriver(string license, string phone, string name) 
         {
-            opSuccess = false;
+           
             try
             {
                 using (SqlCommand cmd = new SqlCommand
@@ -111,7 +110,7 @@ namespace ResponseEmergencySystem.Code
                     {
                         sda.Fill(result);
                     }
-                    opSuccess = true;
+                   
                 }
             }
             catch (Exception ex)
@@ -157,7 +156,7 @@ namespace ResponseEmergencySystem.Code
 
         public static DataTable updateInjuredPerson(Guid ID, string fullName, string lastName1, string lastName2, string phone, Guid ID_Incident)
         {
-            opSuccess = false;
+           
             try
             {
                 using (SqlCommand cmd = new SqlCommand
@@ -178,7 +177,7 @@ namespace ResponseEmergencySystem.Code
                     {
                         sda.Fill(result);
                     }
-                    opSuccess = true;
+                   
                 }
             }
             catch (Exception ex)
@@ -190,7 +189,7 @@ namespace ResponseEmergencySystem.Code
 
         public static DataTable Get_Truck(string truckNumber)
         {
-            opSuccess = false;
+           
             try
             {
                 using (SqlCommand cmd = new SqlCommand
@@ -206,7 +205,7 @@ namespace ResponseEmergencySystem.Code
                     {
                         sda.Fill(result);
                     }
-                    opSuccess = true;
+                   
                 }
             }
             catch (Exception ex)
@@ -219,7 +218,7 @@ namespace ResponseEmergencySystem.Code
 
         public static DataTable Get_Trailer(string trailerNumber)
         {
-            opSuccess = false;
+           
             try
             {
                 using (SqlCommand cmd = new SqlCommand
@@ -235,7 +234,7 @@ namespace ResponseEmergencySystem.Code
                     {
                         sda.Fill(result);
                     }
-                    opSuccess = true;
+                   
                 }
             }
             catch (Exception ex)
@@ -248,7 +247,7 @@ namespace ResponseEmergencySystem.Code
 
         public static DataTable Get_Folio()
         {
-            opSuccess = false;
+           
             try
             {
                 using (SqlCommand cmd = new SqlCommand
@@ -264,7 +263,7 @@ namespace ResponseEmergencySystem.Code
                     {
                         sda.Fill(result);
                     }
-                    opSuccess = true;
+                   
                 }
             }
             catch (Exception ex)
@@ -301,7 +300,7 @@ namespace ResponseEmergencySystem.Code
         )
         {
             result = new DataTable();
-            opSuccess = false;
+           
             try
             {
                 using (SqlCommand cmd = new SqlCommand
@@ -341,7 +340,7 @@ namespace ResponseEmergencySystem.Code
                     {
                         sda.Fill(result);
                     }
-                    opSuccess = true;
+                   
                 }
             }
             catch (Exception ex)
@@ -354,7 +353,7 @@ namespace ResponseEmergencySystem.Code
         public static DataTable list_CaptureType()
         {
 
-            opSuccess = false;
+           
             try
             {
                 using (SqlCommand cmd = new SqlCommand
@@ -373,7 +372,7 @@ namespace ResponseEmergencySystem.Code
                     {
                         sda.Fill(result);
                     }
-                    opSuccess = true;
+                   
                 }
             }
             catch (Exception ex)
@@ -386,7 +385,7 @@ namespace ResponseEmergencySystem.Code
 
         public static DataRow getBroker(string name)
         {
-            opSuccess = false;
+           
             try
             {
                 using (SqlCommand cmd = new SqlCommand
@@ -405,7 +404,7 @@ namespace ResponseEmergencySystem.Code
                     {
                         sda.Fill(result);
                     }
-                    opSuccess = true;
+                   
                 }
             }
             catch (Exception ex)
@@ -433,7 +432,7 @@ namespace ResponseEmergencySystem.Code
 
         public static DataRow saveBroker(string name)
         {
-            opSuccess = false;
+           
             try
             {
                 using (SqlCommand cmd = new SqlCommand
@@ -452,7 +451,7 @@ namespace ResponseEmergencySystem.Code
                     {
                         sda.Fill(result);
                     }
-                    opSuccess = true;
+                   
                 }
             }
             catch (Exception ex)
@@ -480,7 +479,7 @@ namespace ResponseEmergencySystem.Code
 
         public static DataTable list_Incidents(string folio, string driverId, string driverName, string truckNum, string statusDetailId, string incidentId = "00000000-0000-0000-0000-000000000000", string date1 = "", string date2 = "")
         {
-            opSuccess = false;
+           
             try
             {
                 using (SqlCommand cmd = new SqlCommand
@@ -504,7 +503,7 @@ namespace ResponseEmergencySystem.Code
                     {
                         sda.Fill(result);
                     }
-                    opSuccess = true;
+                   
                 }
             }
             catch (Exception ex)
@@ -517,7 +516,7 @@ namespace ResponseEmergencySystem.Code
 
         public static DataTable list_StatusDetail()
         {
-            opSuccess = false;
+           
             try
             {
                 using (SqlCommand cmd = new SqlCommand
@@ -532,7 +531,7 @@ namespace ResponseEmergencySystem.Code
                     {
                         sda.Fill(result);
                     }
-                    opSuccess = true;
+                   
                 }
             }
             catch (Exception ex)
@@ -545,7 +544,7 @@ namespace ResponseEmergencySystem.Code
 
         //public static DataTable UpdateEmployee(Employee updateEmployee, bool bln_UsaInfo, out bool opSuccess)
         //{
-        //    opSuccess = false;
+        //   
         //    try
         //    {
         //        using (SqlCommand cmd = new SqlCommand
@@ -613,7 +612,7 @@ namespace ResponseEmergencySystem.Code
         //            {
         //                sda.Fill(result);
         //            }
-        //            opSuccess = true;
+        //           
         //        }
         //    }
         //    catch (Exception ex)

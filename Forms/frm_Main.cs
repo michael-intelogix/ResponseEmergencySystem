@@ -100,8 +100,9 @@ namespace ResponseEmergencySystem.Forms
         private void frm_Main_Load(object sender, EventArgs e)
         {
             _mainView = new Main3();
-            _mainCtrl = new MainController(_mainView);
-            _mainCtrl.LoadData();
+            IMain2View main2View = this;
+            _mainCtrl = new MainController(_mainView, ref main2View);
+            //_mainCtrl.LoadData();
             _controller.SetMainController(_mainCtrl);
             repositoryItemLookUpEdit1.DataSource = StatusDetailService.list_StatusDetail();
             itx.cfrm_InsertForm(_mainView, pnl_Container);
@@ -135,7 +136,8 @@ namespace ResponseEmergencySystem.Forms
 
         private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            _controller.ClearFilters();
+            bar_StatusDetail.EditValue = "423E82C9-EE3F-4D83-9066-01E6927FE14D";
+            _mainCtrl.ClearFilters();
         }
 
         private void bar_Folio_EditValueChanged(object sender, EventArgs e)
@@ -175,7 +177,8 @@ namespace ResponseEmergencySystem.Forms
 
         private void barButtonItem9_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            _controller.ActionsMenu("status");
+            _mainCtrl.SaveStatus(true);
+            //_controller.ActionsMenu("status");
         }
 
         private void barButtonItem11_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

@@ -17,6 +17,16 @@ namespace ResponseEmergencySystem.Reports
             InitializeComponent();
 
             var states = IncidentService.list_PersonsInvolved(incident.ID_Incident.ToString());
+            if (states == null)
+            {
+                states = new List<PersonsInvolved>();
+            }
+
+            var locations = IncidentService.list_Locations(incident.ID_Incident.ToString());
+            if (locations == null)
+            {
+                locations = new List<Location>();
+            }
 
             DataSet dataSet1 = new DataSet();
             dataSet1.DataSetName = "nwindDataSet1";
@@ -42,8 +52,10 @@ namespace ResponseEmergencySystem.Reports
             xrTableCell11.DataBindings.Add("Text", dataTable1, "PhoneNumber");
 
             //CreateLabels(states);
+            var test = CreateXRTable(states, new PointF(74f, 47.5f));
+            this.Detail.Controls.Add(test);
+            this.Detail.Controls.Add(CreateXRTable2(locations, new PointF(74f, test.SizeF.Height + test.LocationF.Y + 20)));
 
-            this.Detail.Controls.Add(CreateXRTable(states));
 
             LoadData(incident);
         }
@@ -90,16 +102,17 @@ namespace ResponseEmergencySystem.Reports
             }
         }
 
-        public XRTable CreateXRTable(List<PersonsInvolved> list)
+        public XRTable CreateXRTable(List<PersonsInvolved> list, PointF loc)
         {
             int cellsInRow = 4;
             int rowsCount = list.Count;
             float rowHeight = 200f;
 
             XRTable table = new XRTable();
+            table.Name = "injured";
             table.Borders = DevExpress.XtraPrinting.BorderSide.All;
             table.SizeF = new SizeF(688.67f, 43.75f);
-            table.LocationF = new PointF(74f, 47.5f);
+            table.LocationF = loc;
             table.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             table.BeginInit();
 
@@ -178,6 +191,88 @@ namespace ResponseEmergencySystem.Reports
 
             return row;
         }
+
+        public XRTable CreateXRTable2(List<Location> list, PointF loc)
+        {
+            int cellsInRow = 3;
+            int rowsCount = list.Count;
+            float rowHeight = 200f;
+
+            XRTable table = new XRTable();
+            table.Borders = DevExpress.XtraPrinting.BorderSide.All;
+            table.SizeF = new SizeF(688.67f, 43.75f);
+            table.LocationF = loc;
+            table.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            table.BeginInit();
+
+            table.Rows.Add(GetHeaderRow2());
+
+            for (int i = 0; i < rowsCount; i++)
+            {
+                XRTableRow row = new XRTableRow();
+                row.HeightF = rowHeight;
+
+                for (int j = 0; j < cellsInRow; j++)
+                {
+                    XRTableCell cell = new XRTableCell();
+
+                    switch (j)
+                    {
+                        case 0:
+                            cell.WidthF = (float)204.76;
+                            cell.Text = list[i].Latitude;
+                            break;
+                        case 1:
+                            cell.WidthF = (float)154.74;
+                            cell.Text = list[i].Longitude;
+                            break;
+                        case 2:
+                            cell.WidthF = (float)270.54;
+                            cell.Text = list[i].CreatedAt.ToString();
+                            break;
+                    }
+
+                    row.Cells.Add(cell);
+                }
+                table.Rows.Add(row);
+            }
+
+            table.EndInit();
+            return table;
+        }
+
+        private XRTableRow GetHeaderRow2()
+        {
+            XRTableRow row = new XRTableRow();
+            row.BackColor = Color.FromArgb(173, 216, 230);
+            row.HeightF = 200f;
+
+            for (int j = 0; j < 3; j++)
+            {
+                XRTableCell cell = new XRTableCell();
+
+                switch (j)
+                {
+                    case 0:
+                        cell.WidthF = (float)204.76;
+                        cell.Text = "Latitude";
+                        break;
+                    case 1:
+                        cell.WidthF = (float)154.74;
+                        cell.Text = "Longitude";
+                        break;
+                    case 2:
+                        cell.WidthF = (float)270.54;
+                        cell.Text = "Date";
+                        break;
+                }
+
+                row.Cells.Add(cell);
+            }
+
+            return row;
+        }
+
 
         //public void AddBoundTable(int numberOfDataColumns)
         //{

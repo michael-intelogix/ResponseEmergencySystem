@@ -77,7 +77,6 @@ namespace ResponseEmergencySystem.Forms
 
         public void LoadLocalImage(string imgPath)
         {
-            Image img;
             using (var bmpTemp = new Bitmap(imgPath))
             {
                 newImg = new Bitmap(bmpTemp);
@@ -100,7 +99,6 @@ namespace ResponseEmergencySystem.Forms
                     img_Test .Visible = true;
                     filepath = ofd.FileName;
 
-                    Image img;
                     using (var bmpTemp = new Bitmap(filepath))
                     {
                         newImg = new Bitmap(bmpTemp);
@@ -184,7 +182,7 @@ namespace ResponseEmergencySystem.Forms
             btn_SaveImage.Visible = true;
         }
 
-        private async void btn_SaveImage_Click(object sender, EventArgs e)
+        private void btn_SaveImage_Click(object sender, EventArgs e)
         {
             //btn_SaveImage.Visible = false;
             //pnl_Uploading.BackColor = Color.FromArgb(17, 0, 0, 0);

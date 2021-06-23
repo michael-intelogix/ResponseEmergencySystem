@@ -70,6 +70,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
+            this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(411, 0, 650, 400);
             this.layoutControl1.Root = this.Root;
             this.layoutControl1.Size = new System.Drawing.Size(389, 190);
             this.layoutControl1.TabIndex = 0;
@@ -79,9 +80,9 @@ namespace ResponseEmergencySystem.Forms.Modals
             // 
             this.stackPanel2.Controls.Add(this.simpleButton2);
             this.stackPanel2.LayoutDirection = DevExpress.Utils.Layout.StackPanelLayoutDirection.RightToLeft;
-            this.stackPanel2.Location = new System.Drawing.Point(196, 143);
+            this.stackPanel2.Location = new System.Drawing.Point(196, 145);
             this.stackPanel2.Name = "stackPanel2";
-            this.stackPanel2.Size = new System.Drawing.Size(181, 35);
+            this.stackPanel2.Size = new System.Drawing.Size(181, 33);
             this.stackPanel2.TabIndex = 9;
             this.stackPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.stackPanel2_Paint);
             // 
@@ -108,9 +109,9 @@ namespace ResponseEmergencySystem.Forms.Modals
             // 
             this.stackPanel1.Controls.Add(this.simpleButton1);
             this.stackPanel1.LayoutDirection = DevExpress.Utils.Layout.StackPanelLayoutDirection.RightToLeft;
-            this.stackPanel1.Location = new System.Drawing.Point(12, 143);
+            this.stackPanel1.Location = new System.Drawing.Point(12, 145);
             this.stackPanel1.Name = "stackPanel1";
-            this.stackPanel1.Size = new System.Drawing.Size(180, 35);
+            this.stackPanel1.Size = new System.Drawing.Size(180, 33);
             this.stackPanel1.TabIndex = 6;
             this.stackPanel1.Visible = false;
             // 
@@ -134,9 +135,9 @@ namespace ResponseEmergencySystem.Forms.Modals
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 74);
+            this.label1.Location = new System.Drawing.Point(12, 82);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(365, 55);
+            this.label1.Size = new System.Drawing.Size(365, 49);
             this.label1.TabIndex = 5;
             this.label1.Text = "Modal text";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -179,41 +180,41 @@ namespace ResponseEmergencySystem.Forms.Modals
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.label1;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 62);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 70);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(369, 59);
+            this.layoutControlItem2.Size = new System.Drawing.Size(369, 53);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.stackPanel1;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 131);
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 133);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(184, 39);
+            this.layoutControlItem3.Size = new System.Drawing.Size(184, 37);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.stackPanel2;
-            this.layoutControlItem4.Location = new System.Drawing.Point(184, 131);
+            this.layoutControlItem4.Location = new System.Drawing.Point(184, 133);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(185, 39);
+            this.layoutControlItem4.Size = new System.Drawing.Size(185, 37);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 121);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 123);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
             this.emptySpaceItem1.Size = new System.Drawing.Size(369, 10);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // pictureEdit2
             // 
-            this.pictureEdit2.EditValue = global::ResponseEmergencySystem.Properties.Resources.checkGreen1;
+            this.pictureEdit2.EditValue = global::ResponseEmergencySystem.Properties.Resources.actions_checkcircled;
             this.pictureEdit2.Location = new System.Drawing.Point(12, 41);
             this.pictureEdit2.Name = "pictureEdit2";
             this.pictureEdit2.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -221,7 +222,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.pictureEdit2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.pictureEdit2.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.pictureEdit2.Properties.SvgImageSize = new System.Drawing.Size(40, 40);
-            this.pictureEdit2.Size = new System.Drawing.Size(365, 29);
+            this.pictureEdit2.Size = new System.Drawing.Size(365, 37);
             this.pictureEdit2.StyleController = this.layoutControl1;
             this.pictureEdit2.TabIndex = 8;
             // 
@@ -229,8 +230,11 @@ namespace ResponseEmergencySystem.Forms.Modals
             // 
             this.layoutControlItem5.Control = this.pictureEdit2;
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 29);
+            this.layoutControlItem5.MaxSize = new System.Drawing.Size(369, 0);
+            this.layoutControlItem5.MinSize = new System.Drawing.Size(369, 24);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(369, 33);
+            this.layoutControlItem5.Size = new System.Drawing.Size(369, 41);
+            this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 

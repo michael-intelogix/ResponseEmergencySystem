@@ -15,11 +15,10 @@ namespace ResponseEmergencySystem.Services
 {
     public static class StatusDetailService
     {
-        private static Boolean opSuccess;
 
         public static List<StatusDetail> list_StatusDetail()
         {
-            opSuccess = false;
+            
             List<StatusDetail> result = new List<StatusDetail>();
             try
             {
@@ -50,7 +49,7 @@ namespace ResponseEmergencySystem.Services
                         }
                     }
                     cmd.Connection.Close();
-                    opSuccess = true;
+   
                 }
             }
             catch (Exception ex)

@@ -297,7 +297,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             // barButtonItem9
             // 
-            this.barButtonItem9.Caption = "Save Status";
+            this.barButtonItem9.Caption = "Save All";
             this.barButtonItem9.Id = 17;
             this.barButtonItem9.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem9.ImageOptions.Image")));
             this.barButtonItem9.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem9.ImageOptions.LargeImage")));

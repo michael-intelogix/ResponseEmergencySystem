@@ -15,11 +15,8 @@ namespace ResponseEmergencySystem.Services
     public static class GeneralService
     {
 
-        private static Boolean opSuccess;
-
         public static List<State> list_States()
         {
-            opSuccess = false;
             List<State> result = new List<State>();
             try
             {
@@ -65,7 +62,6 @@ namespace ResponseEmergencySystem.Services
                         }
                     }
                     cmd.Connection.Close();
-                    opSuccess = true;
                 }
             }
             catch (Exception ex)
@@ -78,7 +74,6 @@ namespace ResponseEmergencySystem.Services
 
         public static List<City> list_Cities(string stateId)
         {
-            opSuccess = false;
             List<City> result = new List<City>();
             try
             {
@@ -117,7 +112,6 @@ namespace ResponseEmergencySystem.Services
                         }
                     }
                     cmd.Connection.Close();
-                    opSuccess = true;
                 }
             }
             catch (Exception ex)
@@ -130,7 +124,7 @@ namespace ResponseEmergencySystem.Services
 
         public static List<Truck> list_Trucks()
         {
-            opSuccess = false;
+        
             List<Truck> result = new List<Truck>();
 
             try
@@ -172,7 +166,6 @@ namespace ResponseEmergencySystem.Services
                         }
                     }
                     cmd.Connection.Close();
-                    opSuccess = true;
 
                     return result;
                 }
@@ -188,7 +181,6 @@ namespace ResponseEmergencySystem.Services
 
         public static List<Trailer> list_Trailers()
         {
-            opSuccess = false;
             List<Trailer> result = new List<Trailer>();
 
             try
@@ -227,7 +219,7 @@ namespace ResponseEmergencySystem.Services
                         }
                     }
                     cmd.Connection.Close();
-                    opSuccess = true;
+                   
 
                     return result;
                 }

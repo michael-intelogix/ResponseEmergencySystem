@@ -50,8 +50,13 @@ namespace ResponseEmergencySystem
             }
 
 
+            //frm_Main frmMainView = new frm_Main();
+            //Main2Controller frmMainCtrl = new Main2Controller(frmMainView);
+            //frmMainCtrl.ShowSpinner();
 
-            //Application.Run(new ExtraForm());
+            //Application.Run(frmMainView);
+
+            //Application.Run(new Forms.Incidents.DriverIncident());
         }
 
 

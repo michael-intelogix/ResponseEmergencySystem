@@ -1,4 +1,6 @@
-﻿using ResponseEmergencySystem.Code;
+﻿using DevExpress.XtraEditors.Controls;
+using ResponseEmergencySystem.Code;
+using ResponseEmergencySystem.Models;
 using ResponseEmergencySystem.Services;
 using ResponseEmergencySystem.Views;
 using System;
@@ -15,6 +17,8 @@ namespace ResponseEmergencySystem.Controllers
         IAppConfigView _view;
         private List<Models.MailDirectory> _mailDirectory;
 
+        bool _validation = true;
+
         public AppConfigController(IAppConfigView view)
         {
             _view = view;
@@ -23,20 +27,89 @@ namespace ResponseEmergencySystem.Controllers
 
         public void AddCategory()
         {
-            var response = MailDirectoryService.Add_Category(_view.NewCategory);
-            _view.CategoriesDataSource = MailDirectoryService.GetCategories();
-            _view.Categories2DataSource = MailDirectoryService.GetCategories();
-            Utils.ShowMessage(response.Message, "Mail Category");
+            Response response;
+
+            if (_validation)
+            {
+                response = MailDirectoryService.Add_Category(_view.NewCategory);
+                _view.CategoriesDataSource = MailDirectoryService.GetCategories();
+                _view.Categories2DataSource = MailDirectoryService.GetCategories();
+                Utils.ShowMessage(response.Message, "Mail Category");
+            }
+            
+        }
+
+        public void validate(string field = "category", bool show = false)
+        {
+            switch(field)
+            {
+                case "category":
+                    if (_view.NewCategory.Length < 2)
+                    {
+                        _view.EdtCategoryBorder = BorderStyles.Simple;
+                        _view.CategoryWarningIcon = true;
+                        if (show)
+                            Utils.ShowMessage("The category can't be empty, please fill it and try again", "Mail Directory Error", type: "Warning");
+                        _validation = false;
+                    }
+                    else
+                    {
+                        _view.EdtCategoryBorder = BorderStyles.Default;
+                        _view.CategoryWarningIcon = false;
+                        _validation = true;
+                    }
+                    break;
+                case "mailCategory":
+                    if (_view.Category.Length < 2)
+                    {
+                        _view.LueMailCategoryBorder = BorderStyles.Simple;
+                        _view.LueMailCategoryWarningIcon = true;
+                        if (show)
+                            Utils.ShowMessage("The category can't be empty, please fill it and try again", "Mail Directory Error", type: "Warning");
+                        _validation = false;
+                    }
+                    else
+                    {
+                        _view.LueMailCategoryBorder = BorderStyles.Default;
+                        _view.LueMailCategoryWarningIcon = false;
+                        _validation = true;
+                    }
+                    break;
+                case "mail":
+                    if (_view.Mail.Length < 2)
+                    {
+                        _view.EdtMailBorder = BorderStyles.Simple;
+                        _view.EdtMailWarningIcon = true;
+                        if (show)
+                            Utils.ShowMessage("The Mail can't be empty, please fill it and try again", "Mail Directory Error", type: "Warning");
+                        _validation = false;
+                    }
+                    else
+                    {
+                        _view.EdtMailBorder = BorderStyles.Default;
+                        _view.EdtMailWarningIcon = false;
+                        _validation = true;
+                    }
+                    break;
+
+            }
         }
 
         public void AddMailToDirectory()
         {
-            var response = MailDirectoryService.AddMailToDirectory(_view.Mail, _view.Category);
-            _mailDirectory = MailDirectoryService.GetMailDirectory();
-            _view.MailDirectoryDataSource = _mailDirectory;
-            _view.Mail = "";
-            _view.Category = null;
-            Utils.ShowMessage(response.Message, "Mail Response");
+            if (_validation)
+            {
+                var response = MailDirectoryService.AddMailToDirectory(_view.Mail, _view.Category);
+                _mailDirectory = MailDirectoryService.GetMailDirectory();
+                _view.MailDirectoryDataSource = _mailDirectory;
+                _view.Mail = "";
+                _view.Category = null;
+                if (response.validation)
+                    Utils.ShowMessage(response.Message, "Mail Response");
+                else
+                    Utils.ShowMessage(response.Message, "Mail Response", type: "error");
+            }
+
         }
 
         public void LoadCategories()

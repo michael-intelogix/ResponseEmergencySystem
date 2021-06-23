@@ -1,34 +1,31 @@
-﻿using System;
+﻿using DevExpress.XtraEditors.Controls;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DevExpress.XtraEditors.Controls;
-using ResponseEmergencySystem.Controllers;
-using ResponseEmergencySystem.Controllers.Incidents;
-using ResponseEmergencySystem.Models;
 
-
-namespace ResponseEmergencySystem.Views
+namespace ResponseEmergencySystem.Views.Incidents
 {
-    public interface IEditIncidentView
+    public interface IIncidentView
     {
-        void SetController(EditIncidentController controller);
+        void SetController(Controllers.Incidents.DriverIncidentController controller);
+
         void LoadIncident();
         void LoadStates(DataTable dt_States);
         void LoadInjuredPersons(DataTable dt_InjuredPersons);
 
         List<Models.Documents.DocumentCapture> Documents { get; set; }
 
+        #region basic vehicle incident
         string FullName { get; set; }
         string PhoneNumber { get; set; }
         string License { get; set; }
         DateTime ExpirationDate { get; set; }
-
         string LicenseState { get; set; }
-        string TruckNumber { get; set; }
+        object TruckNumber { get; set; }
         string TruckId { get; set; }
         bool TruckDamages { get; set; }
         bool TruckCanMove { get; set; }
@@ -51,10 +48,10 @@ namespace ResponseEmergencySystem.Views
         string ID_City { get; set; }
         //this value can be highway street and other kind of references like that 
         string LocationReferences { get; set; }
-        string Comments { get; set; }
+        object Comments { get; set; }
+        #endregion
 
-        //string ID_StatusDetail { get; set; }
-
+        #region Involved Persons
         string IPFullName { get; set; }
         string IPLastName1 { get; set; }
         string IPPhoneNumber { get; set; }
@@ -66,22 +63,18 @@ namespace ResponseEmergencySystem.Views
         string IPDriverLicense { get; set; }
         string IPHospital { get; set; }
         string IPComments { get; set; }
+        #endregion
 
-        bool LblTruckExistsVisibility { set; }
-        bool LblTrailerExistsVisibility { set; }
-        
         object LueCitiesDataSource { set; }
         //object LueStatusDetailDataSource { set; }
 
         object InvolvedPersonsDataSource { set; }
         object DriversDataSource { set; }
         object TrucksDataSource { set; }
-        bool PnlDriverInvolvedVisibility { set; }
-        string BtnAddInvolvedPersonText { set; }
+        //bool PnlDriverInvolvedVisibility { set; }
 
         bool BtnAddInvolvedPersonVisibility { set; }
         Point BtnAddInvolvedPersonLocation { set; }
-        Size BtnAddInvolvedPersonSize { set; }
         //521, 85
         //n 494,85
 
@@ -106,7 +99,6 @@ namespace ResponseEmergencySystem.Views
         bool EdtPhoneNumberShowWarningIcon { set; }
         bool EdtAgeShowWarningIcon { set; }
         bool EdtLicenseShowWarningIcon { set; }
-        //bool PnlPoliceReportVisibility { get; set; }
 
         #region Mailing
         bool SendToAllRecipientsInTheCategory { get; }
@@ -114,6 +106,8 @@ namespace ResponseEmergencySystem.Views
         string SelectedMail { get; }
         object MailDirectoryDataSource { set; }
         object MailDirectoryCategoriesDataSource { set; }
+        bool SendAfterSave { get; }
         #endregion
+
     }
 }

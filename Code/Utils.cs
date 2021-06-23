@@ -20,7 +20,7 @@ namespace ResponseEmergencySystem.Code
     {
         private static string Employee_Email = "noreply@intelogix.mx";
         private static string PasswordEmail = "Intelogix1";
-        private static string EmailDestination = "michaelreyesfernandez@hotmail.com";
+        //private static string EmailDestination = "michaelreyesfernandez@hotmail.com";
 
         public static bool email_send(string filePath, bool resend, string mailAddress = "", string categoryID = "")
         {
