@@ -271,8 +271,8 @@ namespace ResponseEmergencySystem.Forms.Incidents
 
         public string IPComments
         {
-            get { return Utils.GetEdtValue(edt_IPComments); }
-            set { edt_IPComments.EditValue = value; }
+            get { return medt_IPComments.EditValue == null ? "" : medt_IPComments.EditValue.ToString(); }
+            set { medt_IPComments.EditValue = value; }
         }
 
         public object InvolvedPersonsDataSource
@@ -464,7 +464,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             Models.Documents.Document addDocumentView()
             {
 
-                addDocument = new Modals.DocumentModal(doc, ID_Capture);
+                addDocument = new Modals.DocumentModal(ref doc, ID_Capture);
                 if (addDocument.ShowDialog() == DialogResult.OK)
                 {
                     if (!created)
@@ -472,6 +472,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
                     else
                         doc.SetStatus("created");
 
+                    doc.SetImage();
                     return addDocument.doc;
 
                 }
@@ -490,6 +491,9 @@ namespace ResponseEmergencySystem.Forms.Incidents
             {
                 foreach (var document in documentCapture.documents)
                 {
+                    if (doc.Path == "")
+                        continue;
+
                     if (System.IO.Path.GetFileName(document.Path) == System.IO.Path.GetFileName(doc.Path))
                     {
                         //Utils.ShowMessage("This file has already been uploaded", "File error", type: "Warning");
@@ -939,5 +943,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
         {
             _controller.PDF();
         }
+
+
     }
 }

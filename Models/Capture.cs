@@ -22,6 +22,11 @@ namespace ResponseEmergencySystem.Models
 
         private string name;
 
+        public Capture()
+        {
+
+        }
+
         public Capture(string id, string captureType, string captures)
         {
             ID_Capture = Guid.NewGuid();
@@ -117,6 +122,31 @@ namespace ResponseEmergencySystem.Models
             ImageName = "";
         }
 
+
+        public List<ImageCapture> GetCaptures(string captures, string captureType)
+        {
+            List<ImageCapture> _imagesListOfNames = new List<ImageCapture>();
+            switch (captures)
+            {
+                case "Page":
+                    string page = captures.Trim() + " " + 1;
+                    _imagesListOfNames.Add(new ImageCapture(page));
+                    break;
+                case "Capture":
+                    name = captures.Trim().Trim() + " of the " + captureType;
+                    _imagesListOfNames.Add(new ImageCapture(name));
+                    break;
+                default:
+                    foreach (var n in captures.Split(','))
+                    {
+                        name = n.Trim() + " of the " + captureType;
+                        _imagesListOfNames.Add(new ImageCapture(name));
+                    }
+                    break;
+            }
+
+            return _imagesListOfNames;
+        }
 
     }
 }

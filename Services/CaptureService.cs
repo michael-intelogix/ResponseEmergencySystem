@@ -692,10 +692,14 @@ namespace ResponseEmergencySystem.Services
 
                             result[i].documents = new List<Models.Documents.Document>();
 
-                            if (documents.Count > 0)
+                            var c = new Models.Capture();
+                            var x = c.GetCaptures(captureType.CapturesNames, captureType.Name);
+                            
+                            if (documents.Count >= x.Count)
                             {
                                 foreach(var document in documents)
                                 {
+
                                     result[i].documents.Add(
                                         new Models.Documents.Document(
                                             document.ID_Image.ToString(),
@@ -704,6 +708,35 @@ namespace ResponseEmergencySystem.Services
                                             document.FileType
                                             )
                                         );
+                                }
+                            }
+                            else 
+                            {
+                                for (var y = 0; y < x.Count; y++)
+                                {
+                                    var docFound = documents.Where(d => d.Description == x[y].name).ToList();
+                                    if (docFound.Count > 0)
+                                    {
+                                        var doc = docFound.FirstOrDefault();
+                                        result[i].documents.Add(
+                                        new Models.Documents.Document(
+                                            doc.ID_Image.ToString(),
+                                            doc.ImageUrl,
+                                            doc.Description,
+                                            doc.FileType
+                                            )
+                                        );
+                                    }
+                                    else
+                                    {
+                                        result[i].documents.Add(
+                                        new Models.Documents.Document(
+                                            x[y].name,
+                                            "created"
+                                            )
+                                        );
+                                    }
+
                                 }
                             }
                         }

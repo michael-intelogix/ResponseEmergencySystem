@@ -170,7 +170,7 @@ namespace ResponseEmergencySystem.Controllers.Captures
             _documentCapture = new Models.Documents.DocumentCapture(_selectedCaptureType.ID_CaptureType, _selectedCaptureType.captureType, _view.Comments);
             _documentCapture.ID_Capture = captureId;
             _documentCapture.Status = "created";
-            _documentCapture.documents = docsLoaded;
+            _documentCapture.documents = _documents;
 
 
             ////_docsLoaded = _docsLoaded.Count > 0 ? _docsLoaded : new List<DocumentCapture>();
@@ -352,7 +352,7 @@ namespace ResponseEmergencySystem.Controllers.Captures
             pnl.Controls.Add(lbl2);
             lbl2.BringToFront();
 
-            _documents.Add(new Models.Documents.Document(pnl.Name, lblText, i));
+            _documents.Add(new Models.Documents.Document(pnl.Name, lblText, i, true));
 
             //if (ID_Incident == Guid.Empty.ToString())
             //{
@@ -417,6 +417,7 @@ namespace ResponseEmergencySystem.Controllers.Captures
                             {
                                 document2.Path = ofd.FileName;
                                 document2.Type = "img";
+                                document2.SetStatus("created");
                                 //document2.SetImage();
                                 _view.SetControlProperties(document2.containerName, $"lblStatus{document2.ID}", "Preloaded");
 
@@ -426,6 +427,7 @@ namespace ResponseEmergencySystem.Controllers.Captures
                             {
                                 document2.Path = ofd.FileName;
                                 document2.Type = "pdf";
+                                document2.SetStatus("created");
                                 //document2.SetImage();
                                 _view.SetControlProperties(document2.containerName, $"lblStatus{document2.ID}", "Preloaded");
                                 return true;

@@ -21,8 +21,15 @@ namespace ResponseEmergencySystem.Models.Documents
         public string Comments { get; set; }
         public string Type { get; set; }
         public string Status { get; private set; } = "created";
+        private System.IO.Stream _responseStream;
 
         public Image Image { get; private set; } = Resources.no_photo;
+
+        public Document(string name, string status)
+        {
+            this.name = name;
+            this.Status = status;
+        }
 
         public Document(string cName, int idx, string id = "")
         {
@@ -31,11 +38,13 @@ namespace ResponseEmergencySystem.Models.Documents
             ID_Document = id;
         }
 
-        public Document(string cName, string dName, int idx)
+        public Document(string cName, string dName, int idx, bool empty = false)
         {
             containerName = cName;
             name = dName;
             ID = idx;
+            if (empty)
+                Status = "empty";
         }
 
         public Document(string document, string documentUrl, string name, string type)
@@ -60,7 +69,13 @@ namespace ResponseEmergencySystem.Models.Documents
             }
         }
 
-        private Image GetImage(bool firebaseUrl = false)
+        public void ClearImage()
+        {
+            this.Image = null;
+            this.Image = Resources.no_photo;
+        }
+
+        public Image GetImage(bool firebaseUrl = false, bool temp = false)
         {
             Image newImg;
             try
@@ -68,9 +83,9 @@ namespace ResponseEmergencySystem.Models.Documents
                 System.Net.WebRequest request =
                 System.Net.WebRequest.Create(firebaseUrl ? this.FirebaseUrl : this.Path);
                 System.Net.WebResponse response = request.GetResponse();
-                System.IO.Stream responseStream = response.GetResponseStream();
+                _responseStream = response.GetResponseStream();
 
-                using (var bmpTemp = new Bitmap(responseStream))
+                using (var bmpTemp = new Bitmap(_responseStream))
                 {
                     newImg = new Bitmap(bmpTemp);
                 }
@@ -85,7 +100,7 @@ namespace ResponseEmergencySystem.Models.Documents
             }
         }
 
-        public void Update(string status = "modified")
+        public void Update(string status = "modified", bool get = false)
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
@@ -140,6 +155,12 @@ namespace ResponseEmergencySystem.Models.Documents
         public void SetStatus(string status)
         {
             Status = status;
+        }
+        public void CloseStream()
+        {
+            Image = Resources.no_photo;
+            _responseStream.Close();
+            _responseStream = null;
         }
 
         //public void SetImage()

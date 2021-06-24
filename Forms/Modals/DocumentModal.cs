@@ -21,8 +21,9 @@ namespace ResponseEmergencySystem.Forms.Modals
         public Models.Documents.Document doc = new Models.Documents.Document("", 0);
         private string ID_Incident;
         private string ID_Capture;
+        private Image _img;
 
-        public DocumentModal(Models.Documents.Document doc, string captureID)
+        public DocumentModal(ref Models.Documents.Document doc, string captureID)
         {
             InitializeComponent();
             this.doc = doc;
@@ -35,7 +36,8 @@ namespace ResponseEmergencySystem.Forms.Modals
 
             if (doc.Type == "img")
             {
-                pictureEdit1.Image = doc.Image;
+                _img = doc.GetImage();
+                pictureEdit1.Image = _img;
                 pdfViewer1.Visible = false;
                 pictureEdit1.Visible = true;
             }
@@ -60,8 +62,7 @@ namespace ResponseEmergencySystem.Forms.Modals
                 SaveAsync(doc);
                 //doc.SetImage();
                 //pdfViewer1.Dispose();
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                
             }
 
         }
@@ -83,6 +84,8 @@ namespace ResponseEmergencySystem.Forms.Modals
 
             if (doc.Path != "")
             {
+                _img.Dispose();
+                doc.CloseStream();
                 var task = UploadImgFirebaseAsync(doc.Path, doc.name);
 
                 pbrUploading.Visible = true;
@@ -96,7 +99,11 @@ namespace ResponseEmergencySystem.Forms.Modals
                 };
 
                 doc.FirebaseUrl = await task;
-                doc.SetImage(true);
+
+                Console.WriteLine(doc.FirebaseUrl);
+                //doc.SetImage(true);
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
 
         }
@@ -149,7 +156,8 @@ namespace ResponseEmergencySystem.Forms.Modals
 
             if (doc.Type == "img")
             {
-                pictureEdit1.Image = doc.Image;
+                _img = doc.GetImage();
+                pictureEdit1.Image = _img;
             }
             
             if (doc.Type == "pdf")

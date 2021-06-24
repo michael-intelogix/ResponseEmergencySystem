@@ -274,6 +274,9 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
                             foreach (var doc in documentCapture.documents)
                             {
+                                if (doc.Status == "empty")
+                                    continue;
+
                                 var tDocument = new Task(() => CaptureService.AddImage(Guid.NewGuid().ToString(), documentCapture.ID_Capture, doc.FirebaseUrl, doc.name, "", doc.Type));
                                 tDocument.Start();
                                 tDocument.Wait();
@@ -283,6 +286,8 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                         {
                             foreach (var doc in documentCapture.documents)
                             {
+                                if (doc.Status == "empty")
+                                    continue;
                                 var ID = doc.Status == "created" ? Guid.NewGuid().ToString() : doc.ID_Document;
                                 var tDocument = new Task(() => CaptureService.AddImage(ID, documentCapture.ID_Capture, doc.FirebaseUrl, doc.name, "", doc.Type));
                                 tDocument.Start();
@@ -423,6 +428,8 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
                         foreach (var doc in documentCapture.documents)
                         {
+                            if (doc.Status == "empty")
+                                continue;
                             var tDocument = new Task(() => CaptureService.AddImage(Guid.NewGuid().ToString(), documentCapture.ID_Capture, doc.FirebaseUrl, doc.name, "", doc.Type));
                             tDocument.Start();
                             tDocument.Wait();
@@ -432,6 +439,8 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                     {
                         foreach (var doc in documentCapture.documents)
                         {
+                            if (doc.Status == "empty")
+                                continue;
                             var tDocument = new Task(() => CaptureService.AddImage(Guid.NewGuid().ToString(), documentCapture.ID_Capture, doc.FirebaseUrl, doc.name, "", doc.Type));
                             tDocument.Start();
                             tDocument.Wait();
@@ -766,6 +775,12 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                 _view.LblEmptyFieldsVisibility = true;
             }
 
+        }
+
+        public void RemoveInvolvedPersonByRow(int idx)
+        {
+            _PersonsInvolved.RemoveAt(idx);
+            _view.InvolvedPersonsDataSource = _PersonsInvolved;
         }
         #endregion
 
