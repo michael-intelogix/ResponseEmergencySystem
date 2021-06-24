@@ -839,6 +839,7 @@ namespace ResponseEmergencySystem.Services
                                 new Location(
                                     (string)sdr["Latitude"],
                                     (string)sdr["Longitude"],
+                                    (string)sdr["Description"],
                                     (DateTime)sdr["CreatedAt"]
                                 )
                             );

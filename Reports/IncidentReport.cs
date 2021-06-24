@@ -194,7 +194,7 @@ namespace ResponseEmergencySystem.Reports
 
         public XRTable CreateXRTable2(List<Location> list, PointF loc)
         {
-            int cellsInRow = 3;
+            int cellsInRow = 4;
             int rowsCount = list.Count;
             float rowHeight = 200f;
 
@@ -228,6 +228,10 @@ namespace ResponseEmergencySystem.Reports
                             break;
                         case 2:
                             cell.WidthF = (float)270.54;
+                            cell.Text = list[i].Description;
+                            break;
+                        case 3:
+                            cell.WidthF = (float)270.54;
                             cell.Text = list[i].CreatedAt.ToString();
                             break;
                     }
@@ -247,7 +251,7 @@ namespace ResponseEmergencySystem.Reports
             row.BackColor = Color.FromArgb(173, 216, 230);
             row.HeightF = 200f;
 
-            for (int j = 0; j < 3; j++)
+            for (int j = 0; j < 4; j++)
             {
                 XRTableCell cell = new XRTableCell();
 
@@ -262,6 +266,10 @@ namespace ResponseEmergencySystem.Reports
                         cell.Text = "Longitude";
                         break;
                     case 2:
+                        cell.WidthF = (float)270.54;
+                        cell.Text = "Description";
+                        break;
+                    case 3:
                         cell.WidthF = (float)270.54;
                         cell.Text = "Date";
                         break;
