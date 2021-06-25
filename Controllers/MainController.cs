@@ -72,7 +72,7 @@ namespace ResponseEmergencySystem.Controllers
             {
                 if (capture)
                 {
-                    _view.CapturesDataSource = CaptureService.list_Captures(GetID("incident"));
+                    _view.CapturesDataSource = CaptureService.list_Captures(GetID("incident")).Select(c => new { c.captureType, c.comments } );
                     Utils.ShowMessage("Capture information has been updated");
                 }
                 else

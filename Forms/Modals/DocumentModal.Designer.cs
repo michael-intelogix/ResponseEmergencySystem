@@ -112,6 +112,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             // 
             this.textEdit1.Location = new System.Drawing.Point(53, 399);
             this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Properties.UseReadOnlyAppearance = false;
             this.textEdit1.Size = new System.Drawing.Size(280, 24);
             this.textEdit1.TabIndex = 18;
             // 

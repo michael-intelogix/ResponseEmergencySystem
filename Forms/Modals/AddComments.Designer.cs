@@ -104,6 +104,7 @@ namespace ResponseEmergencySystem.Forms
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddComments";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit Capture Comments";
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).EndInit();

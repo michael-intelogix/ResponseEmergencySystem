@@ -96,6 +96,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             
 
             Folio = _selectedIncident.Folio;
+            _view.Folio = Folio;
 
             ID_Driver = _selectedIncident.driver.ID_Driver.ToString(); ;
             ID_Broker = _selectedIncident.broker.ID_Broker;
@@ -274,7 +275,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
                             foreach (var doc in documentCapture.documents)
                             {
-                                if (doc.Status == "empty")
+                                if (doc.Status == "empty" || doc.Status == "loaded")
                                     continue;
 
                                 var tDocument = new Task(() => CaptureService.AddImage(Guid.NewGuid().ToString(), documentCapture.ID_Capture, doc.FirebaseUrl, doc.name, "", doc.Type));
@@ -286,7 +287,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                         {
                             foreach (var doc in documentCapture.documents)
                             {
-                                if (doc.Status == "empty")
+                                if (doc.Status == "empty" || doc.Status == "loaded")
                                     continue;
                                 var ID = doc.Status == "created" ? Guid.NewGuid().ToString() : doc.ID_Document;
                                 var tDocument = new Task(() => CaptureService.AddImage(ID, documentCapture.ID_Capture, doc.FirebaseUrl, doc.name, "", doc.Type));
@@ -428,7 +429,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
                         foreach (var doc in documentCapture.documents)
                         {
-                            if (doc.Status == "empty")
+                            if (doc.Status == "empty" || doc.Status == "loaded")
                                 continue;
                             var tDocument = new Task(() => CaptureService.AddImage(Guid.NewGuid().ToString(), documentCapture.ID_Capture, doc.FirebaseUrl, doc.name, "", doc.Type));
                             tDocument.Start();
@@ -439,7 +440,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                     {
                         foreach (var doc in documentCapture.documents)
                         {
-                            if (doc.Status == "empty")
+                            if (doc.Status == "empty" || doc.Status == "loaded")
                                 continue;
                             var tDocument = new Task(() => CaptureService.AddImage(Guid.NewGuid().ToString(), documentCapture.ID_Capture, doc.FirebaseUrl, doc.name, "", doc.Type));
                             tDocument.Start();

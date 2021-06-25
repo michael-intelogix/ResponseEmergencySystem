@@ -21,6 +21,8 @@ namespace ResponseEmergencySystem.Models.Documents
         public string Comments { get; set; }
         public string Type { get; set; }
         public string Status { get; private set; } = "created";
+        public bool locked { get; private set; } = false;
+
         private System.IO.Stream _responseStream;
 
         public Image Image { get; private set; } = Resources.no_photo;
@@ -29,6 +31,7 @@ namespace ResponseEmergencySystem.Models.Documents
         {
             this.name = name;
             this.Status = status;
+            locked = true;
         }
 
         public Document(string cName, int idx, string id = "")
@@ -43,11 +46,12 @@ namespace ResponseEmergencySystem.Models.Documents
             containerName = cName;
             name = dName;
             ID = idx;
+            locked = true;
             if (empty)
                 Status = "empty";
         }
 
-        public Document(string document, string documentUrl, string name, string type)
+        public Document(string document, string documentUrl, string name, string type, bool locked = false)
         {
             ID_Document = document;
             FirebaseUrl = documentUrl;
@@ -55,6 +59,7 @@ namespace ResponseEmergencySystem.Models.Documents
             Type = type;
             SetImage(true);
             Status = "loaded";
+            this.locked = locked;
         }
 
         public void SetImage(bool firebaseUrl = false)
@@ -77,6 +82,7 @@ namespace ResponseEmergencySystem.Models.Documents
 
         public Image GetImage(bool firebaseUrl = false, bool temp = false)
         {
+            CloseStream();
             Image newImg;
             try
             {
@@ -159,8 +165,14 @@ namespace ResponseEmergencySystem.Models.Documents
         public void CloseStream()
         {
             Image = Resources.no_photo;
-            _responseStream.Close();
+            if (_responseStream != null)
+                _responseStream.Close();
             _responseStream = null;
+        }
+
+        public void SetLocked()
+        {
+            locked = !locked;
         }
 
         //public void SetImage()
@@ -214,5 +226,6 @@ namespace ResponseEmergencySystem.Models.Documents
 
             return uploaded;
         }
+
     }
 }

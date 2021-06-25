@@ -24,6 +24,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
         private List<Models.Documents.DocumentCapture> _docs;
         List<Models.Capture> _captures;
         bool isNew = false;
+        bool isShow = false;
         string ID_Incident = "";
 
         public DriverIncident(string view = "edit")
@@ -39,11 +40,13 @@ namespace ResponseEmergencySystem.Forms.Incidents
                     btn_Close.Location = new Point((pnl_Footer.Width - btn_Close.Width) / 2, btn_Close.Location.Y);
                     btn_Save.Visible = false;
                     ckedt_SaveAndSend.Visible = false;
+                    isShow = true;
                     break;
                 case "add":
                     pnl_Header.Visible = true;
                     ckedt_SaveAndSend.Visible = true;
                     isNew = true;
+                    lbl_Folio.Visible = false;
                     pnl_PDFControls.Visible = false;
                     break;
             }
@@ -70,6 +73,11 @@ namespace ResponseEmergencySystem.Forms.Incidents
         #endregion
 
         #region View Properties
+        public string Folio
+        {
+            set { lbl_Folio.Text = value; }
+        }
+
         public string FullName 
         {
             get { return Utils.GetEdtValue(edt_FullName); } 
@@ -445,14 +453,17 @@ namespace ResponseEmergencySystem.Forms.Incidents
             CreatePanel(4, _docs[idx].documents);
         }
 
-        private Models.Documents.Document UploadDocument(string ID_Capture, int idx = 0, string name = "", string id = "", bool created = true)
+        private Models.Documents.Document UploadDocument(string ID_Capture, bool locked, int idx = 0, string name = "", string id = "", bool created = true)
         {
             Modals.DocumentModal addDocument;
             Models.Documents.Document doc = new Models.Documents.Document("", idx, id);
             doc.name = name;
             doc.Update("staged");
-
-            checkPath(doc);
+            
+            if (locked)
+                doc.SetLocked();
+            
+            //checkPath(doc);
 
             if (doc.Status == "disposed")
             {
@@ -534,13 +545,13 @@ namespace ResponseEmergencySystem.Forms.Incidents
 
 
                 PanelControl pnl = new PanelControl();
-                pnl.Size = new Size(242, 276);
-                pnl.Location = new Point(x, 19);
+                pnl.Size = new Size(242, 249);
+                pnl.Location = new Point(x, 18);
                 pnl.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
 
                 PictureEdit pic = new PictureEdit();
                 pic.Location = new Point(12, 5);
-                pic.Size = new Size(218, 176);
+                pic.Size = new Size(218, 162);
                 if (documents[i].Path == "")
                 {
                     pic.Image = docImage;
@@ -565,7 +576,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
                 LabelControl lbl = new LabelControl();
                 lbl.AutoSizeMode = LabelAutoSizeMode.None;
                 lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-                lbl.Location = new Point(12, 202);
+                lbl.Location = new Point(12, 173);
                 lbl.Size = new Size(218, 24);
                 lbl.Text = documents[i].name;
 
@@ -575,7 +586,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
                 btnView.ImageOptions.SvgImageSize = new Size(35, 35);
                 btnView.ImageOptions.ImageToTextAlignment = ImageAlignToText.TopCenter;
                 btnView.Size = new Size(36, 34);
-                btnView.Location = new Point(59, 232);
+                btnView.Location = isShow ? new Point(107, 203) : new Point(59, 203);
                 btnView.btnIdx = i;
                 btnView.Click += (object sender, EventArgs e) =>
                 {
@@ -590,18 +601,22 @@ namespace ResponseEmergencySystem.Forms.Incidents
                 btnEdit.ImageOptions.SvgImage = Resources.actions_edit;
                 btnEdit.ImageOptions.ImageToTextAlignment = ImageAlignToText.TopCenter;
                 btnEdit.Size = new Size(36, 34);
-                btnEdit.Location = new Point(107, 232);
+                btnEdit.Location = new Point(107, 203);
                 btnEdit.btnIdx = i;
+                if (isShow)
+                    btnEdit.Visible = false;
                 btnEdit.Click += (object sender, EventArgs e) =>
                 {
                     string id = _docs[gv_DocumentCaptures.FocusedRowHandle].documents[btnEdit.btnIdx].ID_Document;
                     string ID_Capture = _docs[gv_DocumentCaptures.FocusedRowHandle].ID_Capture;
-                    Models.Documents.Document doc = UploadDocument(ID_Capture, (sender as MyButton).btnIdx, _docs[gv_DocumentCaptures.FocusedRowHandle].documents[btnEdit.btnIdx].name, id, false);
+                    bool locked = _docs[gv_DocumentCaptures.FocusedRowHandle].documents[btnEdit.btnIdx].locked;
+                    string status = _docs[gv_DocumentCaptures.FocusedRowHandle].documents[btnEdit.btnIdx].Status;
+                    Models.Documents.Document doc = UploadDocument(ID_Capture, locked, (sender as MyButton).btnIdx, _docs[gv_DocumentCaptures.FocusedRowHandle].documents[btnEdit.btnIdx].name, id, status == "empty");
 
                     if (doc.Status == "disposed")
                         return;
 
-                    if (doc.Status == "updated")
+                    if (doc.Status == "updated" || doc.Status == "created")
                     {
                         _docs[gv_DocumentCaptures.FocusedRowHandle].documents[doc.ID] = doc;
                         _docs[gv_DocumentCaptures.FocusedRowHandle].Status = "updated";
@@ -615,8 +630,12 @@ namespace ResponseEmergencySystem.Forms.Incidents
                 btnDelete.ImageOptions.SvgImage = Resources.delete;
                 btnDelete.ImageOptions.ImageToTextAlignment = ImageAlignToText.TopCenter;
                 btnDelete.Size = new Size(36, 34);
-                btnDelete.Location = new Point(154, 232);
+                btnDelete.Location = new Point(154, 203);
                 btnDelete.btnIdx = i;
+                if (isShow)
+                    btnDelete.Visible = false;
+                if (_docs[gv_DocumentCaptures.FocusedRowHandle].documents[i].locked)
+                    btnDelete.Enabled = false;
                 btnDelete.Click += (object sender, EventArgs e) =>
                 {
                     _docs[gv_DocumentCaptures.FocusedRowHandle].documents[btnDelete.btnIdx].SetStatus("deleted");
@@ -696,7 +715,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
 
         private void Incident_Load(object sender, EventArgs e)
         {
-            if(!isNew)
+              if(!isNew)
             {
                 _controller.LoadIncident();
 
@@ -887,16 +906,16 @@ namespace ResponseEmergencySystem.Forms.Incidents
                 {
                     var capture = addCapturesCtrl.GetDocuments();
 
-                    for(var i = 0; i < capture.documents.Count; i++)
-                    {
-                        var doc = capture.documents[i];
-                        if (checkPath(doc).Status == "disposed")
-                        {
-                            capture.documents[i].SetStatus("created");
-                            capture.documents[i].Path = "";
-                        }
+                    //for(var i = 0; i < capture.documents.Count; i++)
+                    //{
+                    //    var doc = capture.documents[i];
+                    //    if (checkPath(doc).Status == "disposed")
+                    //    {
+                    //        capture.documents[i].SetStatus("created");
+                    //        capture.documents[i].Path = "";
+                    //    }
                         
-                    }
+                    //}
 
                     _docs.Add(capture);
                     var docsType = _docs.Select(dc => new { dc.CaptureType, dc.ID_Capture });
@@ -917,7 +936,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
 
             //gv_Documents.BestFitColumns();
             xtraScrollableControl1.Controls.Clear();
-            Models.Documents.Document doc = UploadDocument(ID_Capture);
+            Models.Documents.Document doc = UploadDocument(ID_Capture, false);
 
             if (doc.Status == "disposed")
             {
@@ -928,9 +947,15 @@ namespace ResponseEmergencySystem.Forms.Incidents
             if (doc.Status == "modified" || doc.Status == "created")
             {
                 _docs[gv_DocumentCaptures.FocusedRowHandle].documents.Add(doc);
-                _docs[gv_DocumentCaptures.FocusedRowHandle].Status = "updated";
                 CreatePanel(4, _docs[gv_DocumentCaptures.FocusedRowHandle].documents);
 
+            }
+
+            if (doc.Status == "loaded" || doc.Status == "empty")
+            {
+                _docs[gv_DocumentCaptures.FocusedRowHandle].documents.Add(doc);
+                _docs[gv_DocumentCaptures.FocusedRowHandle].Status = "updated";
+                CreatePanel(4, _docs[gv_DocumentCaptures.FocusedRowHandle].documents);
             }
         }
 

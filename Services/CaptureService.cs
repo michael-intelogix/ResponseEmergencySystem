@@ -1,4 +1,4 @@
-﻿using ResponseEmergencySystem.Code;
+﻿ using ResponseEmergencySystem.Code;
 using ResponseEmergencySystem.EF;
 using ResponseEmergencySystem.Models;
 using System;
@@ -625,6 +625,7 @@ namespace ResponseEmergencySystem.Services
                     cmd.Parameters.AddWithValue("@ID_StatusDetail", "");
                     cmd.Parameters.AddWithValue("@Description", "");
                     cmd.Parameters.AddWithValue("@Comments", comments);
+                    cmd.Parameters.AddWithValue("@Create", false);
 
                     cmd.Connection.Open();
                     using (SqlDataReader sdr = cmd.ExecuteReader())
@@ -694,50 +695,50 @@ namespace ResponseEmergencySystem.Services
 
                             var c = new Models.Capture();
                             var x = c.GetCaptures(captureType.CapturesNames, captureType.Name);
-                            
-                            if (documents.Count >= x.Count)
-                            {
-                                foreach(var document in documents)
-                                {
 
+                            for (var y = 0; y < x.Count; y++)
+                            {
+                                var docFound = documents.Where(d => d.Description == x[y].name).ToList();
+                                if (docFound.Count > 0)
+                                {
+                                    var doc = docFound.FirstOrDefault();
                                     result[i].documents.Add(
-                                        new Models.Documents.Document(
-                                            document.ID_Image.ToString(),
-                                            document.ImageUrl,
-                                            document.Description,
-                                            document.FileType
-                                            )
-                                        );
+                                    new Models.Documents.Document(
+                                        doc.ID_Image.ToString(),
+                                        doc.ImageUrl,
+                                        doc.Description,
+                                        doc.FileType,
+                                        true
+                                        )
+                                    );
                                 }
-                            }
-                            else 
-                            {
-                                for (var y = 0; y < x.Count; y++)
+                                else
                                 {
-                                    var docFound = documents.Where(d => d.Description == x[y].name).ToList();
-                                    if (docFound.Count > 0)
-                                    {
-                                        var doc = docFound.FirstOrDefault();
-                                        result[i].documents.Add(
-                                        new Models.Documents.Document(
-                                            doc.ID_Image.ToString(),
-                                            doc.ImageUrl,
-                                            doc.Description,
-                                            doc.FileType
-                                            )
-                                        );
-                                    }
-                                    else
-                                    {
-                                        result[i].documents.Add(
-                                        new Models.Documents.Document(
-                                            x[y].name,
-                                            "created"
-                                            )
-                                        );
-                                    }
-
+                                    result[i].documents.Add(
+                                    new Models.Documents.Document(
+                                        x[y].name,
+                                        "empty"
+                                        )
+                                    );
                                 }
+
+                            }
+
+                            for (var t = 0; t < documents.Count; t++)
+                            {
+                                var docFound = result[i].documents.Where(d => d.name == documents[t].Description).ToList();
+                                if (docFound.Count == 0)
+                                {
+                                    result[i].documents.Add(
+                                    new Models.Documents.Document(
+                                        documents[t].ID_Image.ToString(),
+                                        documents[t].ImageUrl,
+                                        documents[t].Description,
+                                        documents[t].FileType
+                                        )
+                                    );
+                                }
+
                             }
                         }
                     }

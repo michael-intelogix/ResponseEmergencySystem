@@ -27,6 +27,7 @@ namespace ResponseEmergencySystem.Forms
 
         private void btn_Cancel_Click(object sender, EventArgs e)
         {
+            pdfViewer1.CloseDocument();
             this.Close();
         }
 

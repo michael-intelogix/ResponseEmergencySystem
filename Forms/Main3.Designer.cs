@@ -310,8 +310,6 @@ namespace ResponseEmergencySystem.Forms
             this.gridColumn10.MinWidth = 40;
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.OptionsColumn.FixedWidth = true;
-            this.gridColumn10.Visible = true;
-            this.gridColumn10.VisibleIndex = 7;
             this.gridColumn10.Width = 40;
             // 
             // btn_SaveStatus
@@ -333,7 +331,7 @@ namespace ResponseEmergencySystem.Forms
             this.gridColumn11.Name = "gridColumn11";
             this.gridColumn11.OptionsColumn.FixedWidth = true;
             this.gridColumn11.Visible = true;
-            this.gridColumn11.VisibleIndex = 8;
+            this.gridColumn11.VisibleIndex = 7;
             this.gridColumn11.Width = 40;
             // 
             // btn_CloseIncident

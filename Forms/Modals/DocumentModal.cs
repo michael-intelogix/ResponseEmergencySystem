@@ -32,6 +32,7 @@ namespace ResponseEmergencySystem.Forms.Modals
 
         private void btn_Capture1_Click(object sender, EventArgs e)
         {
+            doc.CloseStream();
             doc.Update("staged");
 
             if (doc.Type == "img")
@@ -84,8 +85,17 @@ namespace ResponseEmergencySystem.Forms.Modals
 
             if (doc.Path != "")
             {
-                _img.Dispose();
-                doc.CloseStream();
+                if(doc.Type == "img")
+                {
+                    _img.Dispose();
+                    doc.CloseStream();
+                }
+                    
+
+                if (doc.Type == "pdf")
+                    pdfViewer1.CloseDocument();
+
+                
                 var task = UploadImgFirebaseAsync(doc.Path, doc.name);
 
                 pbrUploading.Visible = true;
@@ -152,6 +162,8 @@ namespace ResponseEmergencySystem.Forms.Modals
 
         private void DocumentModal_Load(object sender, EventArgs e)
         {
+            textEdit1.ReadOnly = doc.locked;
+
             pdfViewer1.Size = new Size(381, 296);
 
             if (doc.Type == "img")

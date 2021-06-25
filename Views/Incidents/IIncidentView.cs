@@ -20,6 +20,7 @@ namespace ResponseEmergencySystem.Views.Incidents
         List<Models.Documents.DocumentCapture> Documents { get; set; }
 
         #region basic vehicle incident
+        string Folio { set; }
         string FullName { get; set; }
         string PhoneNumber { get; set; }
         string License { get; set; }
