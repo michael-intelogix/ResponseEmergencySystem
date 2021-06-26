@@ -30,6 +30,7 @@
           <Property Name="Description" Type="nvarchar(max)" />
           <Property Name="Comments" Type="nvarchar(max)" />
           <Property Name="FileType" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="bit" />
         </EntityType>
         <EntityType Name="Incidents">
           <Key>
@@ -39,7 +40,7 @@
           <Property Name="Folio" Type="nvarchar(max)" />
           <Property Name="IncidentDate" Type="datetime" />
           <Property Name="IncidentCloseDate" Type="datetime" />
-          <Property Name="PoliceReport" Type="bit" Nullable="false" />
+          <Property Name="PoliceReport" Type="bit" />
           <Property Name="CitationReportNumber" Type="nvarchar(max)" />
           <Property Name="ManifestNumber" Type="nvarchar(max)" />
           <Property Name="LocationReferences" Type="nvarchar(max)" />
@@ -47,22 +48,22 @@
           <Property Name="IncidentLongitude" Type="nvarchar(max)" />
           <Property Name="Comments" Type="nvarchar(max)" />
           <Property Name="CreatedBy" Type="nvarchar(max)" />
-          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime" />
           <Property Name="UpdatedBy" Type="nvarchar(max)" />
           <Property Name="UpdatedAt" Type="datetime" />
           <Property Name="ID_Truck" Type="nvarchar(max)" />
           <Property Name="TruckNumber" Type="nvarchar" MaxLength="50" />
           <Property Name="TruckDamage" Type="bit" />
-          <Property Name="TruckCanMove" Type="bit" Nullable="false" />
-          <Property Name="TruckNeedCrane" Type="bit" Nullable="false" />
+          <Property Name="TruckCanMove" Type="bit" />
+          <Property Name="TruckNeedCrane" Type="bit" />
           <Property Name="ID_Trailer" Type="nvarchar(max)" />
           <Property Name="TrailerNumber" Type="nvarchar" MaxLength="50" />
           <Property Name="TrailerCommodity" Type="nvarchar" MaxLength="50" />
           <Property Name="TrailerDamage" Type="bit" />
-          <Property Name="TrailerCanMove" Type="bit" Nullable="false" />
-          <Property Name="TrailerNeedCrane" Type="bit" Nullable="false" />
+          <Property Name="TrailerCanMove" Type="bit" />
+          <Property Name="TrailerNeedCrane" Type="bit" />
           <Property Name="CargoSpill" Type="bit" />
-          <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="Status" Type="bit" />
           <Property Name="ID_Driver" Type="nvarchar(max)" />
           <Property Name="DriverName" Type="nvarchar(max)" />
           <Property Name="ID_City" Type="nvarchar(max)" />
@@ -190,7 +191,7 @@
           <Property Name="Folio" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="IncidentDate" Type="DateTime" Precision="3" />
           <Property Name="IncidentCloseDate" Type="DateTime" Precision="3" />
-          <Property Name="PoliceReport" Type="Boolean" Nullable="false" />
+          <Property Name="PoliceReport" Type="Boolean" />
           <Property Name="CitationReportNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ManifestNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="LocationReferences" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -198,19 +199,19 @@
           <Property Name="IncidentLongitude" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
           <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
           <Property Name="ID_Truck" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="TruckDamage" Type="Boolean" />
-          <Property Name="TruckCanMove" Type="Boolean" Nullable="false" />
-          <Property Name="TruckNeedCrane" Type="Boolean" Nullable="false" />
+          <Property Name="TruckCanMove" Type="Boolean" />
+          <Property Name="TruckNeedCrane" Type="Boolean" />
           <Property Name="ID_Trailer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="TrailerDamage" Type="Boolean" />
-          <Property Name="TrailerCanMove" Type="Boolean" Nullable="false" />
-          <Property Name="TrailerNeedCrane" Type="Boolean" Nullable="false" />
+          <Property Name="TrailerCanMove" Type="Boolean" />
+          <Property Name="TrailerNeedCrane" Type="Boolean" />
           <Property Name="CargoSpill" Type="Boolean" />
-          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="Status" Type="Boolean" />
           <Property Name="ID_Driver" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ID_City" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ID_State" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -278,6 +279,7 @@
           <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="FileType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Captures" Relationship="SIREMModel.FK_Images_Captures" FromRole="Images" ToRole="Captures" />
+          <Property Name="Status" Type="Boolean" />
         </EntityType>
         <Association Name="FK_dbo_Captures_dbo_Incidents_ID_Incident">
           <End Type="SIREMModel.Incidents" Role="Incidents" Multiplicity="1">
@@ -347,7 +349,7 @@
           <Property Name="Latitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Longitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="CreatedAt" Type="DateTime" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
           <Property Name="ID_Incident" Type="Guid" />
           <NavigationProperty Name="Incidents" Relationship="SIREMModel.FK_Locations_Incidents" FromRole="Locations" ToRole="Incidents" />
         </EntityType>
@@ -430,6 +432,7 @@
           <EntitySetMapping Name="Images">
             <EntityTypeMapping TypeName="SIREMModel.Images">
               <MappingFragment StoreEntitySet="Images">
+                <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="FileType" ColumnName="FileType" />
                 <ScalarProperty Name="Comments" ColumnName="Comments" />
                 <ScalarProperty Name="Description" ColumnName="Description" />

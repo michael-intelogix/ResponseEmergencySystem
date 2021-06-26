@@ -80,7 +80,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             _view = view;
             view.SetController(this);
 
-            _view.LoadStates(Functions.getStates());
+            _view.LoadStates(Functions.getStates("99F9B034-75BE-4615-88C6-8D64BC3549DC"));
             _view.DriversDataSource = _DriversLocal;
             _view.TrucksDataSource = _trucks;
             _view.MailDirectoryCategoriesDataSource = MailDirectoryService.GetCategories();
@@ -211,6 +211,23 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         {
             //_mainView.OpenSpinner();
             //check location refreces
+            if (_view.SendAfterSave)
+            {
+                if (_view.SelectedMail == "" && !_view.SendToAllRecipientsInTheCategory)
+                {
+                    _view.MailValidationBorder = BorderStyles.Simple;
+                    Utils.ShowMessage("Please select a mail before submit the changes", "Mail Error", type: "Warning");
+                    return;
+                }
+
+                if (_view.MailDirectoryCategory == "" && _view.SendToAllRecipientsInTheCategory)
+                {
+                    _view.CategoryValidationBorder = BorderStyles.Simple;
+                    Utils.ShowMessage("Please select a category before submit the changes", "Mail Error", type: "Warning");
+                    return;
+                }
+            }
+
             try
             {
                 var t = new Task<Response>(() => IncidentService.UpdateIncident(
@@ -240,7 +257,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                     _view.TrailerCanMove,
                     _view.TrailerNeedCrane,
                     constants.userID,
-                    _view.Comments == null ? "" : _view.TruckNumber.ToString(),
+                    _view.Comments == null ? "" : _view.Comments.ToString(),
                     ID_Driver == Guid.Empty.ToString()
                 ));
 
@@ -289,6 +306,15 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                             {
                                 if (doc.Status == "empty" || doc.Status == "loaded")
                                     continue;
+
+                                if (doc.Status == "deleted")
+                                {
+                                    var tDelete = new Task(() => CaptureService.DeleteImageCapture(doc.ID_Document));
+                                    tDelete.Start();
+                                    tDelete.Wait();
+                                    continue;
+                                }
+
                                 var ID = doc.Status == "created" ? Guid.NewGuid().ToString() : doc.ID_Document;
                                 var tDocument = new Task(() => CaptureService.AddImage(ID, documentCapture.ID_Capture, doc.FirebaseUrl, doc.name, "", doc.Type));
                                 tDocument.Start();
@@ -342,6 +368,11 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                 if (_view.SendAfterSave && ID_Incident != "")
                 {
                     SendEmail();
+                    _view.ViewClose();
+                }
+                else
+                {
+                    _view.ViewClose();
                 }
 
 
@@ -360,6 +391,23 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
         public void AddIncident()
         {
+            if (_view.SendAfterSave)
+            {
+                if (_view.SelectedMail == "" && !_view.SendToAllRecipientsInTheCategory)
+                {
+                    _view.MailValidationBorder = BorderStyles.Simple;
+                    Utils.ShowMessage("Please select a mail before submit the changes", "Mail Error", type: "Warning");
+                    return;
+                }
+
+                if (_view.MailDirectoryCategory == "" && _view.SendToAllRecipientsInTheCategory)
+                {
+                    _view.CategoryValidationBorder = BorderStyles.Simple;
+                    Utils.ShowMessage("Please select a category before submit the changes", "Mail Error", type: "Warning");
+                    return;
+                }
+            }
+
             DataRow folioReponse = Functions.Get_Folio().Select().First();
             Folio = folioReponse.ItemArray[2].ToString() + "-" + folioReponse.ItemArray[3].ToString();
 
@@ -475,6 +523,11 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             if (_view.SendAfterSave && ID_Incident != "")
             {
                 SendEmail();
+                _view.ViewClose();
+            }
+            else
+            {
+                _view.ViewClose();
             }
         }
 
@@ -634,6 +687,18 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                             _view.EdtLicenseShowWarningIcon = false;
                             _validation = true;
                         }
+                    }
+                    break;
+                case "selectedMail":
+                    if (_view.SelectedMail != "")
+                    {
+                        _view.MailValidationBorder = BorderStyles.Default;
+                    }
+                    break;
+                case "selectedCategory":
+                    if (_view.MailDirectoryCategory != "")
+                    {
+                        _view.CategoryValidationBorder = BorderStyles.Default;
                     }
                     break;
                 case "validate":

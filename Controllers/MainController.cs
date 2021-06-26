@@ -377,6 +377,11 @@ namespace ResponseEmergencySystem.Controllers
         public void ClearFilters(string status = "423E82C9-EE3F-4D83-9066-01E6927FE14D")
         {
             IncidentsFilter("", "", "", status, databaseFilter: true);
+            _mainView.Date1 = null;
+            _mainView.Date2 = null;
+            _mainView.Folio = "";
+            _mainView.TruckNumber = "";
+            _mainView.DriverName = "";
             _view.ClearFilters();
         }
 

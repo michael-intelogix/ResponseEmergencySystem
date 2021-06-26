@@ -16,6 +16,7 @@ namespace ResponseEmergencySystem.Views.Incidents
         void LoadIncident();
         void LoadStates(DataTable dt_States);
         void LoadInjuredPersons(DataTable dt_InjuredPersons);
+        void ViewClose();
 
         List<Models.Documents.DocumentCapture> Documents { get; set; }
 
@@ -108,6 +109,8 @@ namespace ResponseEmergencySystem.Views.Incidents
         object MailDirectoryDataSource { set; }
         object MailDirectoryCategoriesDataSource { set; }
         bool SendAfterSave { get; }
+        BorderStyles MailValidationBorder { get; set; }
+        BorderStyles CategoryValidationBorder { get; set; }
         #endregion
 
     }

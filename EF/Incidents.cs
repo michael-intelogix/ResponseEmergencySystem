@@ -26,7 +26,7 @@ namespace ResponseEmergencySystem.EF
         public string Folio { get; set; }
         public Nullable<System.DateTime> IncidentDate { get; set; }
         public Nullable<System.DateTime> IncidentCloseDate { get; set; }
-        public bool PoliceReport { get; set; }
+        public Nullable<bool> PoliceReport { get; set; }
         public string CitationReportNumber { get; set; }
         public string ManifestNumber { get; set; }
         public string LocationReferences { get; set; }
@@ -34,19 +34,19 @@ namespace ResponseEmergencySystem.EF
         public string IncidentLongitude { get; set; }
         public string Comments { get; set; }
         public string CreatedBy { get; set; }
-        public System.DateTime CreatedAt { get; set; }
+        public Nullable<System.DateTime> CreatedAt { get; set; }
         public string UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedAt { get; set; }
         public string ID_Truck { get; set; }
         public Nullable<bool> TruckDamage { get; set; }
-        public bool TruckCanMove { get; set; }
-        public bool TruckNeedCrane { get; set; }
+        public Nullable<bool> TruckCanMove { get; set; }
+        public Nullable<bool> TruckNeedCrane { get; set; }
         public string ID_Trailer { get; set; }
         public Nullable<bool> TrailerDamage { get; set; }
-        public bool TrailerCanMove { get; set; }
-        public bool TrailerNeedCrane { get; set; }
+        public Nullable<bool> TrailerCanMove { get; set; }
+        public Nullable<bool> TrailerNeedCrane { get; set; }
         public Nullable<bool> CargoSpill { get; set; }
-        public bool Status { get; set; }
+        public Nullable<bool> Status { get; set; }
         public string ID_Driver { get; set; }
         public string ID_City { get; set; }
         public string ID_State { get; set; }

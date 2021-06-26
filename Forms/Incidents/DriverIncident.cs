@@ -58,6 +58,14 @@ namespace ResponseEmergencySystem.Forms.Incidents
             ID_Incident = response.ID;
         }
 
+        #region view methods
+        public void ViewClose()
+        {
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }            
+        #endregion
+
         #region documents
         public List<Models.Documents.DocumentCapture> Documents
         {
@@ -638,7 +646,11 @@ namespace ResponseEmergencySystem.Forms.Incidents
                     btnDelete.Enabled = false;
                 btnDelete.Click += (object sender, EventArgs e) =>
                 {
-                    _docs[gv_DocumentCaptures.FocusedRowHandle].documents[btnDelete.btnIdx].SetStatus("deleted");
+                    if (_docs[gv_DocumentCaptures.FocusedRowHandle].documents[btnDelete.btnIdx].Status == "loaded")
+                    {
+                        _docs[gv_DocumentCaptures.FocusedRowHandle].Status = "updated";
+                        _docs[gv_DocumentCaptures.FocusedRowHandle].documents[btnDelete.btnIdx].SetStatus("deleted");
+                    }
                     xtraScrollableControl1.Controls.Clear();
                     CreatePanel(0, _docs[gv_DocumentCaptures.FocusedRowHandle].documents);
                 };
@@ -707,6 +719,19 @@ namespace ResponseEmergencySystem.Forms.Incidents
             get { return (bool)ckedt_SaveAndSend.EditValue; }
         }
 
+        public BorderStyles MailValidationBorder
+        {
+            get { return lue_MailDirectory.BorderStyle; }
+            set { lue_MailDirectory.BorderStyle = value; }
+        }
+
+
+        public BorderStyles CategoryValidationBorder
+        {
+            get { return lue_MailDirectoryCategories.BorderStyle; }
+            set { lue_MailDirectoryCategories.BorderStyle = value; }
+        }
+
         private void lue_MailDirectoryCategories_EditValueChanged(object sender, EventArgs e)
         {
             _controller.GetMailsByCategory();
@@ -715,7 +740,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
 
         private void Incident_Load(object sender, EventArgs e)
         {
-              if(!isNew)
+            if(!isNew)
             {
                 _controller.LoadIncident();
 
@@ -731,7 +756,14 @@ namespace ResponseEmergencySystem.Forms.Incidents
                 _docs = new List<DocumentCapture>();
                 LoadDocuments();
             }
-                
+
+            if (!isShow)
+            {
+                btn_AddInvolvedPerson.Location = new Point((pnl_InvolvedPersonsCapture.Width - btn_AddInvolvedPerson.Width) / 2, btn_AddInvolvedPerson.Location.Y);
+                simpleButton6.Location = new Point((pnl_InvolvedPersonsCapture.Width - simpleButton6.Width) / 2, simpleButton6.Location.Y);
+            }
+
+            gv_InvolvedPersons.BestFitColumns();
 
             try
             {
@@ -836,8 +868,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
 
                 //    xtraScrollableControl1.Controls.Clear();
                 //    _controller.Update();
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+
                 //}
 
 
@@ -969,6 +1000,21 @@ namespace ResponseEmergencySystem.Forms.Incidents
             _controller.PDF();
         }
 
+        private void btn_DeletePerson_Click(object sender, EventArgs e)
+        {
+            int idx = gv_InvolvedPersons.FocusedRowHandle;
+            _controller.RemoveInvolvedPersonByRow(idx);
+            gv_InvolvedPersons.BestFitColumns();
+        }
 
+        private void lue_MailDirectory_Properties_EditValueChanged(object sender, EventArgs e)
+        {
+            _controller.validate("selectedMail");
+        }
+
+        private void lue_MailDirectoryCategories_Properties_EditValueChanged(object sender, EventArgs e)
+        {
+            _controller.validate("selectedCategory");
+        }
     }
 }

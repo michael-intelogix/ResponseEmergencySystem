@@ -21,6 +21,7 @@ namespace ResponseEmergencySystem.EF
         public string Description { get; set; }
         public string Comments { get; set; }
         public string FileType { get; set; }
+        public Nullable<bool> Status { get; set; }
     
         public virtual Captures Captures { get; set; }
     }

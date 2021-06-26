@@ -680,7 +680,7 @@ namespace ResponseEmergencySystem.Services
                             Guid ID_Capture = (Guid)captures[i].ID_Capture;
 
                             var captureType = DCManagement.Capture_Type.Where(ct => ct.ID_CaptureType == ID_CaptureType).First();
-                            var documents = db.Images.Where(ic => ic.ID_Capture == ID_Capture).ToList();
+                            var documents = db.Images.Where(ic => ic.ID_Capture == ID_Capture && ic.Status == true).ToList();
 
                             result.Add(
                                 new Models.Documents.DocumentCapture(
@@ -751,6 +751,25 @@ namespace ResponseEmergencySystem.Services
             }
 
 
+        }
+
+        public static void DeleteImageCapture(string imageID)
+        {
+            Guid ID_Image = Guid.Parse(imageID);
+            using (var db = new SIREMEntities())
+            {
+                Images imageCapture = (Images)db.Images.Where(i => i.ID_Image == ID_Image).FirstOrDefault();
+
+                imageCapture.Status = false;
+
+                db.Entry(imageCapture).State = System.Data.Entity.EntityState.Modified;
+
+                db.SaveChanges();
+
+                Console.WriteLine("Registro actualizado correctamente.");
+
+                //return new Response()
+            }
         }
 
 

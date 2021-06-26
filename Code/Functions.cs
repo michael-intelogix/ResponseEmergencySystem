@@ -31,7 +31,7 @@ namespace ResponseEmergencySystem.Code
             return dt_Errors;
         } 
 
-        public static DataTable getStates()
+        public static DataTable getStates(string countryID = "")
         {
            
             try
@@ -43,7 +43,7 @@ namespace ResponseEmergencySystem.Code
                     CommandType = CommandType.StoredProcedure
                 })
                 {
-                    cmd.Parameters.AddWithValue("@ID_Country", Guid.Empty);
+                    cmd.Parameters.AddWithValue("@ID_Country", countryID != "" ? Guid.Parse(countryID) : Guid.Empty);
                     result = new DataTable();
                     using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
                     {
