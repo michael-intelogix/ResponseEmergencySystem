@@ -51,7 +51,7 @@ namespace ResponseEmergencySystem.Forms
 
         public object ID_StatusDetail
         {
-            get 
+            get
             {
                 var status = gv_Incidents.GetFocusedRowCellValue("ID_StatusDetail");
                 return status;
@@ -59,7 +59,13 @@ namespace ResponseEmergencySystem.Forms
             set => gv_Incidents.SetFocusedRowCellValue("ID_StatusDetail", value);
         }
 
-        public object ID_Capture => gv_Captures.GetFocusedRowCellValue("ID_Capture").ToString();
+        public object ID_Capture 
+        {
+            get {
+                gv_Captures.FocusedColumn = gv_Captures.VisibleColumns[0];
+                return gv_Captures.GetFocusedRowCellValue("ID_Capture").ToString(); 
+            }
+        }
 
         public string ID_Image => gv_Images.GetFocusedRowCellValue("ID_Image").ToString();
 
@@ -201,7 +207,8 @@ namespace ResponseEmergencySystem.Forms
 
         private void btn_EditCapture_Click(object sender, EventArgs e)
         {
-            _controller.EditImageData(true);
+            int idx = gv_Captures.FocusedRowHandle;
+            _controller.EditImageData(true, idx);
         }
 
         private void btn_Picture_Click(object sender, EventArgs e)

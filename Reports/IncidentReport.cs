@@ -54,7 +54,7 @@ namespace ResponseEmergencySystem.Reports
             //CreateLabels(states);
             var test = CreateXRTable(states, new PointF(74f, 47.5f));
             this.Detail.Controls.Add(test);
-            this.Detail.Controls.Add(CreateXRTable2(locations, new PointF(74f, test.SizeF.Height + test.LocationF.Y + 20)));
+            //this.Detail.Controls.Add(CreateXRTable2(locations, new PointF(74f, test.SizeF.Height + test.LocationF.Y + 20)));
 
 
             LoadData(incident);

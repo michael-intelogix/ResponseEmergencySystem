@@ -30,6 +30,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
         public DriverIncident(string view = "edit")
         {
             InitializeComponent();
+
             switch(view)
             {
                 case "show":
@@ -40,6 +41,8 @@ namespace ResponseEmergencySystem.Forms.Incidents
                     btn_Close.Location = new Point((pnl_Footer.Width - btn_Close.Width) / 2, btn_Close.Location.Y);
                     btn_Save.Visible = false;
                     ckedt_SaveAndSend.Visible = false;
+                    col_Delete.Visible = false;
+                    col_Edit.Visible = false;
                     isShow = true;
                     break;
                 case "add":
@@ -491,7 +494,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
                     else
                         doc.SetStatus("created");
 
-                    doc.SetImage();
+                    doc.SetImage(true);
                     return addDocument.doc;
 
                 }
@@ -649,8 +652,9 @@ namespace ResponseEmergencySystem.Forms.Incidents
                     if (_docs[gv_DocumentCaptures.FocusedRowHandle].documents[btnDelete.btnIdx].Status == "loaded")
                     {
                         _docs[gv_DocumentCaptures.FocusedRowHandle].Status = "updated";
-                        _docs[gv_DocumentCaptures.FocusedRowHandle].documents[btnDelete.btnIdx].SetStatus("deleted");
                     }
+
+                    _docs[gv_DocumentCaptures.FocusedRowHandle].documents[btnDelete.btnIdx].SetStatus("deleted");
                     xtraScrollableControl1.Controls.Clear();
                     CreatePanel(0, _docs[gv_DocumentCaptures.FocusedRowHandle].documents);
                 };

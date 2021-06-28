@@ -74,6 +74,7 @@ namespace ResponseEmergencySystem.Forms
             this.simpleButton1.Size = new System.Drawing.Size(139, 34);
             this.simpleButton1.TabIndex = 1;
             this.simpleButton1.Text = "Upload Image";
+            this.simpleButton1.Visible = false;
             this.simpleButton1.Click += new System.EventHandler(this.onClickLoadImage);
             // 
             // pnl_Zoom
@@ -220,6 +221,7 @@ namespace ResponseEmergencySystem.Forms
             this.btn_SaveImage.Size = new System.Drawing.Size(86, 34);
             this.btn_SaveImage.TabIndex = 15;
             this.btn_SaveImage.Text = "Save";
+            this.btn_SaveImage.Visible = false;
             this.btn_SaveImage.Click += new System.EventHandler(this.btn_SaveImage_Click);
             // 
             // btn_Cancel
@@ -234,12 +236,12 @@ namespace ResponseEmergencySystem.Forms
             this.btn_Cancel.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btn_Cancel.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.closeWhite;
             this.btn_Cancel.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
-            this.btn_Cancel.Location = new System.Drawing.Point(277, 683);
+            this.btn_Cancel.Location = new System.Drawing.Point(263, 683);
             this.btn_Cancel.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.btn_Cancel.LookAndFeel.UseDefaultLookAndFeel = false;
             this.btn_Cancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_Cancel.Name = "btn_Cancel";
-            this.btn_Cancel.Size = new System.Drawing.Size(86, 34);
+            this.btn_Cancel.Size = new System.Drawing.Size(100, 34);
             this.btn_Cancel.TabIndex = 16;
             this.btn_Cancel.Text = "Cancel";
             this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
@@ -286,6 +288,7 @@ namespace ResponseEmergencySystem.Forms
             this.Name = "frm_Image";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Image";
+            this.Load += new System.EventHandler(this.frm_Image_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pnl_Zoom)).EndInit();
             this.pnl_Zoom.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pnl_ImgControls)).EndInit();

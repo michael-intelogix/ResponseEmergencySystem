@@ -566,6 +566,7 @@ namespace ResponseEmergencySystem.Services
                     cmd.Parameters.AddWithValue("@Description", "");
                     cmd.Parameters.AddWithValue("@Comments", comments);
                     cmd.Parameters.AddWithValue("@FileType", fileType);
+                    cmd.Parameters.AddWithValue("@Status", true);
 
                     cmd.Connection.Open();
                     using (SqlDataReader sdr = cmd.ExecuteReader())

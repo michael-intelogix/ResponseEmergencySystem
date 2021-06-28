@@ -62,9 +62,9 @@ namespace ResponseEmergencySystem.Controllers
             
         }
 
-        public void EditImageData(bool capture)
+        public void EditImageData(bool capture, int idx = 0)
         {
-            var ID = capture ? _view.ID_Capture.ToString() : _view.ID_Image;
+            var ID = capture ? _captures[idx].ID_Capture.ToString() : _view.ID_Image;
             Forms.Modals.EditComments editCommentsView = new Forms.Modals.EditComments();
             EditImageDataController editImageDataCtrl = new EditImageDataController(editCommentsView, ID, GetID("documentType"), capture);
             editImageDataCtrl.LoadStatusDetail();

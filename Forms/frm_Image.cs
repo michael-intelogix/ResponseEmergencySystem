@@ -179,7 +179,7 @@ namespace ResponseEmergencySystem.Forms
         private void img_Test_EditValueChanged(object sender, EventArgs e)
         {
             pnl_ImgControls.Visible = true;
-            btn_SaveImage.Visible = true;
+            //btn_SaveImage.Visible = true;
         }
 
         private void btn_SaveImage_Click(object sender, EventArgs e)
@@ -265,5 +265,10 @@ namespace ResponseEmergencySystem.Forms
             set { btn_SaveImage.Enabled = value; }
         }
         #endregion
+
+        private void frm_Image_Load(object sender, EventArgs e)
+        {
+            btn_Cancel.Location = new Point((this.Width - btn_Cancel.Width) / 2, btn_Cancel.Location.Y);
+        }
     }
 }
