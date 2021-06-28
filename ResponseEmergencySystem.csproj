@@ -759,6 +759,7 @@
     <None Include="Resources\travel_map.svg" />
     <None Include="Resources\security_visibility.svg" />
     <None Include="Resources\warning.svg" />
+    <None Include="Resources\prev_32x32.png" />
     <Content Include="x64\SQLite.Interop.dll" />
     <Content Include="x86\SQLite.Interop.dll" />
     <EmbeddedResource Include="Forms\frm_Image.resx">

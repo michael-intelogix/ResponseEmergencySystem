@@ -44,6 +44,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
                     col_Delete.Visible = false;
                     col_Edit.Visible = false;
                     isShow = true;
+                    enableReadOnly();
                     break;
                 case "add":
                     pnl_Header.Visible = true;
@@ -66,6 +67,30 @@ namespace ResponseEmergencySystem.Forms.Incidents
         {
             this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        public void enableReadOnly()
+        {
+            edt_FullName.ReadOnly = true;
+            edt_PhoneNumber.ReadOnly = true;
+            edt_License.ReadOnly = true;
+            lue_DriverLicenseState.ReadOnly = true;
+            lue_Trucks.ReadOnly = true;
+            edt_Broker.ReadOnly = true;
+            edt_TrailerNumber.ReadOnly = true;
+            edt_Cargo.ReadOnly = true;
+            edt_Broker2.ReadOnly = true;
+            ckedt_Spill.ReadOnly = true;
+            dte_IncidentDate.ReadOnly = true;
+            tme_IncidentTime.ReadOnly = true;
+            lue_states.ReadOnly = true;
+            lue_Cities.ReadOnly = true;
+            edt_Highway.ReadOnly = true;
+            ckedt_PoliceReport.ReadOnly = true;
+            btn_Broker1.Visible = false;
+            btn_Broker2.Visible = false;
+            edt_manifest.ReadOnly = true;
+            edt_manifest.Properties.UseReadOnlyAppearance = true;
         }
         #endregion
 
@@ -436,8 +461,8 @@ namespace ResponseEmergencySystem.Forms.Incidents
         private void Ckedt_OnValueChanged(object sender, EventArgs e)
         {
             CheckEdit cb = (CheckEdit)sender;
-
-            _controller.CheckEditChanged(cb.Name, (bool)cb.EditValue);
+            if(!isShow)
+                _controller.CheckEditChanged(cb.Name, (bool)cb.EditValue);
         }
         #endregion
 
@@ -1008,6 +1033,21 @@ namespace ResponseEmergencySystem.Forms.Incidents
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
+
+            if (SelectedMail == "" && !SendToAllRecipientsInTheCategory)
+            {
+                MailValidationBorder = BorderStyles.Simple;
+                Utils.ShowMessage("Please select a mail before submit the changes", "Mail Error", type: "Warning");
+                return;
+            }
+
+            if (MailDirectoryCategory == "" && SendToAllRecipientsInTheCategory)
+            {
+                CategoryValidationBorder = BorderStyles.Simple;
+                Utils.ShowMessage("Please select a category before submit the changes", "Mail Error", type: "Warning");
+                return;
+            }
+
             _controller.SendEmail();
         }
 
