@@ -59,6 +59,8 @@ namespace ResponseEmergencySystem.EF
         public Nullable<bool> DSamsara { get; set; }
         public Nullable<bool> TSamsara { get; set; }
         public string ID_Broker2 { get; set; }
+        public Nullable<System.Guid> ID_Reason { get; set; }
+        public Nullable<System.Guid> ID_Reaction { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Captures> Captures { get; set; }
@@ -66,5 +68,7 @@ namespace ResponseEmergencySystem.EF
         public virtual ICollection<InjuredPersons> InjuredPersons { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Locations> Locations { get; set; }
+        public virtual Reactions Reactions { get; set; }
+        public virtual Reasons Reasons { get; set; }
     }
 }

@@ -15,6 +15,11 @@
         <AssociationConnector Association="SIREMModel.FK_dbo_InjuredPersons_dbo_Incidents_ID_Incident" />
         <EntityTypeShape EntityType="SIREMModel.Locations" Width="1.5" PointX="4.5" PointY="0.75" />
         <AssociationConnector Association="SIREMModel.FK_Locations_Incidents" />
+        <EntityTypeShape EntityType="SIREMModel.Reactions" Width="1.5" PointX="6.375" PointY="6.625" />
+        <EntityTypeShape EntityType="SIREMModel.Reasons" Width="1.5" PointX="10.25" PointY="5.5" />
+        <AssociationConnector Association="SIREMModel.FK_Incidents_Reactions" />
+        <AssociationConnector Association="SIREMModel.FK_Incidents_Reasons" ManuallyRouted="false" >
+        </AssociationConnector>
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -1717,15 +1717,14 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.lue_Reason.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lue_Reason.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Name")});
-            this.lue_Reason.Properties.DisplayMember = "Name";
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Reason", "Name")});
+            this.lue_Reason.Properties.DisplayMember = "Reason";
             this.lue_Reason.Properties.NullText = "";
             this.lue_Reason.Properties.ShowHeader = false;
-            this.lue_Reason.Properties.ValueMember = "Name";
-            this.lue_Reason.Size = new System.Drawing.Size(111, 24);
+            this.lue_Reason.Properties.ValueMember = "ID_Reason";
+            this.lue_Reason.Size = new System.Drawing.Size(133, 24);
             this.lue_Reason.TabIndex = 8;
             this.lue_Reason.TabStop = false;
-            this.lue_Reason.Visible = false;
             // 
             // labelControl22
             // 

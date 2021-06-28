@@ -171,7 +171,6 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.lue_Categories.Properties.ValueMember = "ID_Category";
             this.lue_Categories.Size = new System.Drawing.Size(153, 24);
             this.lue_Categories.TabIndex = 55;
-            this.lue_Categories.EditValueChanged += new System.EventHandler(this.lue_Categories_EditValueChanged);
             // 
             // ckedt_NewCategory
             // 

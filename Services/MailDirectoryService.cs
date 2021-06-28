@@ -34,6 +34,7 @@ namespace ResponseEmergencySystem.Services
 
                     cmd.Parameters.AddWithValue("@ID_Category", Guid.Empty);
                     cmd.Parameters.AddWithValue("@Category", category);
+                    cmd.Parameters.AddWithValue("@UserID", constants.userID);
                     cmd.Parameters.AddWithValue("@Status", true);
 
                     cmd.Connection.Open();
@@ -87,6 +88,7 @@ namespace ResponseEmergencySystem.Services
                     cmd.Parameters.AddWithValue("@ID_Mail", Guid.Empty);
                     cmd.Parameters.AddWithValue("@Mail", mail);
                     cmd.Parameters.AddWithValue("@Category", category);
+                    cmd.Parameters.AddWithValue("@UserID", constants.userID);
                     cmd.Parameters.AddWithValue("@Status", true);
 
                     cmd.Connection.Open();

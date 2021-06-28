@@ -49,7 +49,7 @@ namespace ResponseEmergencySystem.Code
             new Reason("Driver Judgement"),
             new Reason("Weather"),
             new Reason("Animals"),
-            new Reason("Mechanical Issues"),
+            new Reason("Automotive"),
             new Reason("Other")
         };
         //"Driver Judgement", "Weather", "Animals", "Mechanical Issues", "Other" };

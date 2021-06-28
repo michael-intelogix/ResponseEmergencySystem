@@ -30,5 +30,7 @@ namespace ResponseEmergencySystem.EF
         public virtual DbSet<Images> Images { get; set; }
         public virtual DbSet<InjuredPersons> InjuredPersons { get; set; }
         public virtual DbSet<Locations> Locations { get; set; }
+        public virtual DbSet<Reactions> Reactions { get; set; }
+        public virtual DbSet<Reasons> Reasons { get; set; }
     }
 }

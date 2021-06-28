@@ -658,16 +658,24 @@ namespace ResponseEmergencySystem.Forms.Incidents
                     string id = _docs[gv_DocumentCaptures.FocusedRowHandle].documents[btnEdit.btnIdx].ID_Document;
                     string ID_Capture = _docs[gv_DocumentCaptures.FocusedRowHandle].ID_Capture;
                     bool locked = _docs[gv_DocumentCaptures.FocusedRowHandle].documents[btnEdit.btnIdx].locked;
+                    string capStatus = _docs[gv_DocumentCaptures.FocusedRowHandle].Status;
                     string status = _docs[gv_DocumentCaptures.FocusedRowHandle].documents[btnEdit.btnIdx].Status;
-                    Models.Documents.Document doc = UploadDocument(ID_Capture, locked, (sender as MyButton).btnIdx, _docs[gv_DocumentCaptures.FocusedRowHandle].documents[btnEdit.btnIdx].name, id, status == "empty");
+                    Models.Documents.Document doc = UploadDocument(ID_Capture, locked, (sender as MyButton).btnIdx, _docs[gv_DocumentCaptures.FocusedRowHandle].documents[btnEdit.btnIdx].name, id, (status == "empty" || capStatus == "created" || status == "created"));
 
                     if (doc.Status == "disposed")
                         return;
 
-                    if (doc.Status == "updated" || doc.Status == "created")
+                    if (doc.Status == "updated" || doc.Status == "created" && capStatus != "created")
                     {
                         _docs[gv_DocumentCaptures.FocusedRowHandle].documents[doc.ID] = doc;
                         _docs[gv_DocumentCaptures.FocusedRowHandle].Status = "updated";
+                        xtraScrollableControl1.Controls.Clear();
+                        CreatePanel(0, _docs[gv_DocumentCaptures.FocusedRowHandle].documents);
+                    }
+                    else if(capStatus == "created")
+                    {
+                        _docs[gv_DocumentCaptures.FocusedRowHandle].documents[doc.ID] = doc;
+                        _docs[gv_DocumentCaptures.FocusedRowHandle].Status = "created";
                         xtraScrollableControl1.Controls.Clear();
                         CreatePanel(0, _docs[gv_DocumentCaptures.FocusedRowHandle].documents);
                     }
@@ -805,6 +813,9 @@ namespace ResponseEmergencySystem.Forms.Incidents
             }
 
             gv_InvolvedPersons.BestFitColumns();
+
+            var reasons = IncidentService.List_Reasons();
+            lue_Reason.Properties.DataSource = reasons;
 
             try
             {
@@ -1020,7 +1031,6 @@ namespace ResponseEmergencySystem.Forms.Incidents
             {
                 _docs[gv_DocumentCaptures.FocusedRowHandle].documents.Add(doc);
                 CreatePanel(4, _docs[gv_DocumentCaptures.FocusedRowHandle].documents);
-
             }
 
             if (doc.Status == "loaded" || doc.Status == "empty")

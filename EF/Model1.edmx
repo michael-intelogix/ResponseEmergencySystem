@@ -37,6 +37,8 @@
             <PropertyRef Name="ID_Incident" />
           </Key>
           <Property Name="ID_Incident" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ID_Reason" Type="uniqueidentifier" />
+          <Property Name="ID_Reaction" Type="uniqueidentifier" />
           <Property Name="Folio" Type="nvarchar(max)" />
           <Property Name="IncidentDate" Type="datetime" />
           <Property Name="IncidentCloseDate" Type="datetime" />
@@ -104,6 +106,22 @@
           <Property Name="CreatedAt" Type="datetime" />
           <Property Name="ID_Incident" Type="uniqueidentifier" />
         </EntityType>
+        <EntityType Name="Reactions">
+          <Key>
+            <PropertyRef Name="ID_Reaction" />
+          </Key>
+          <Property Name="ID_Reaction" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Reaction" Type="nvarchar(max)" />
+          <Property Name="Status" Type="bit" />
+        </EntityType>
+        <EntityType Name="Reasons">
+          <Key>
+            <PropertyRef Name="ID_Reason" />
+          </Key>
+          <Property Name="ID_Reason" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Reason" Type="nvarchar(max)" />
+          <Property Name="Status" Type="bit" />
+        </EntityType>
         <Association Name="FK_dbo_Captures_dbo_Incidents_ID_Incident">
           <End Role="Incidents" Type="Self.Incidents" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -144,6 +162,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Incidents_Reactions">
+          <End Role="Reactions" Type="Self.Reactions" Multiplicity="0..1" />
+          <End Role="Incidents" Type="Self.Incidents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reactions">
+              <PropertyRef Name="ID_Reaction" />
+            </Principal>
+            <Dependent Role="Incidents">
+              <PropertyRef Name="ID_Reaction" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Incidents_Reasons">
+          <End Role="Reasons" Type="Self.Reasons" Multiplicity="0..1" />
+          <End Role="Incidents" Type="Self.Incidents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reasons">
+              <PropertyRef Name="ID_Reason" />
+            </Principal>
+            <Dependent Role="Incidents">
+              <PropertyRef Name="ID_Reason" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Locations_Incidents">
           <End Role="Incidents" Type="Self.Incidents" Multiplicity="0..1" />
           <End Role="Locations" Type="Self.Locations" Multiplicity="*" />
@@ -162,6 +204,8 @@
           <EntitySet Name="Incidents" EntityType="Self.Incidents" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="InjuredPersons" EntityType="Self.InjuredPersons" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Locations" EntityType="Self.Locations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reactions" EntityType="Self.Reactions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reasons" EntityType="Self.Reasons" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_dbo_Captures_dbo_Incidents_ID_Incident" Association="Self.FK_dbo_Captures_dbo_Incidents_ID_Incident">
             <End Role="Incidents" EntitySet="Incidents" />
             <End Role="Captures" EntitySet="Captures" />
@@ -173,6 +217,14 @@
           <AssociationSet Name="FK_Images_Captures" Association="Self.FK_Images_Captures">
             <End Role="Captures" EntitySet="Captures" />
             <End Role="Images" EntitySet="Images" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Incidents_Reactions" Association="Self.FK_Incidents_Reactions">
+            <End Role="Reactions" EntitySet="Reactions" />
+            <End Role="Incidents" EntitySet="Incidents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Incidents_Reasons" Association="Self.FK_Incidents_Reasons">
+            <End Role="Reasons" EntitySet="Reasons" />
+            <End Role="Incidents" EntitySet="Incidents" />
           </AssociationSet>
           <AssociationSet Name="FK_Locations_Incidents" Association="Self.FK_Locations_Incidents">
             <End Role="Incidents" EntitySet="Incidents" />
@@ -227,6 +279,10 @@
           <NavigationProperty Name="InjuredPersons" Relationship="SIREMModel.FK_dbo_InjuredPersons_dbo_Incidents_ID_Incident" FromRole="Incidents" ToRole="InjuredPersons" />
           <Property Name="ID_Broker2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Locations" Relationship="SIREMModel.FK_Locations_Incidents" FromRole="Incidents" ToRole="Locations" />
+          <Property Name="ID_Reason" Type="Guid" />
+          <Property Name="ID_Reaction" Type="Guid" />
+          <NavigationProperty Name="Reactions" Relationship="SIREMModel.FK_Incidents_Reactions" FromRole="Incidents" ToRole="Reactions" />
+          <NavigationProperty Name="Reasons" Relationship="SIREMModel.FK_Incidents_Reasons" FromRole="Incidents" ToRole="Reasons" />
         </EntityType>
         <EntityContainer Name="SIREMEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Incidents" EntityType="Self.Incidents" />
@@ -249,6 +305,16 @@
           <AssociationSet Name="FK_Locations_Incidents" Association="SIREMModel.FK_Locations_Incidents">
             <End Role="Incidents" EntitySet="Incidents" />
             <End Role="Locations" EntitySet="Locations" />
+          </AssociationSet>
+          <EntitySet Name="Reactions" EntityType="SIREMModel.Reactions" />
+          <EntitySet Name="Reasons" EntityType="SIREMModel.Reasons" />
+          <AssociationSet Name="FK_Incidents_Reactions" Association="SIREMModel.FK_Incidents_Reactions">
+            <End Role="Reactions" EntitySet="Reactions" />
+            <End Role="Incidents" EntitySet="Incidents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Incidents_Reasons" Association="SIREMModel.FK_Incidents_Reasons">
+            <End Role="Reasons" EntitySet="Reasons" />
+            <End Role="Incidents" EntitySet="Incidents" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Captures">
@@ -365,6 +431,48 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Reactions">
+          <Key>
+            <PropertyRef Name="ID_Reaction" />
+          </Key>
+          <Property Name="ID_Reaction" Type="Guid" Nullable="false" />
+          <Property Name="Reaction" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" />
+          <NavigationProperty Name="Incidents" Relationship="SIREMModel.FK_Incidents_Reactions" FromRole="Reactions" ToRole="Incidents" />
+        </EntityType>
+        <EntityType Name="Reasons">
+          <Key>
+            <PropertyRef Name="ID_Reason" />
+          </Key>
+          <Property Name="ID_Reason" Type="Guid" Nullable="false" />
+          <Property Name="Reason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" />
+          <NavigationProperty Name="Incidents" Relationship="SIREMModel.FK_Incidents_Reasons" FromRole="Reasons" ToRole="Incidents" />
+        </EntityType>
+        <Association Name="FK_Incidents_Reactions">
+          <End Type="SIREMModel.Reactions" Role="Reactions" Multiplicity="0..1" />
+          <End Type="SIREMModel.Incidents" Role="Incidents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reactions">
+              <PropertyRef Name="ID_Reaction" />
+            </Principal>
+            <Dependent Role="Incidents">
+              <PropertyRef Name="ID_Reaction" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Incidents_Reasons">
+          <End Type="SIREMModel.Reasons" Role="Reasons" Multiplicity="0..1" />
+          <End Type="SIREMModel.Incidents" Role="Incidents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reasons">
+              <PropertyRef Name="ID_Reason" />
+            </Principal>
+            <Dependent Role="Incidents">
+              <PropertyRef Name="ID_Reason" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -374,6 +482,8 @@
           <EntitySetMapping Name="Incidents">
             <EntityTypeMapping TypeName="SIREMModel.Incidents">
               <MappingFragment StoreEntitySet="Incidents">
+                <ScalarProperty Name="ID_Reaction" ColumnName="ID_Reaction" />
+                <ScalarProperty Name="ID_Reason" ColumnName="ID_Reason" />
                 <ScalarProperty Name="ID_Broker2" ColumnName="ID_Broker2" />
                 <ScalarProperty Name="TSamsara" ColumnName="TSamsara" />
                 <ScalarProperty Name="DSamsara" ColumnName="DSamsara" />
@@ -472,6 +582,24 @@
                 <ScalarProperty Name="Longitude" ColumnName="Longitude" />
                 <ScalarProperty Name="Latitude" ColumnName="Latitude" />
                 <ScalarProperty Name="ID_Location" ColumnName="ID_Location" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reactions">
+            <EntityTypeMapping TypeName="SIREMModel.Reactions">
+              <MappingFragment StoreEntitySet="Reactions">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Reaction" ColumnName="Reaction" />
+                <ScalarProperty Name="ID_Reaction" ColumnName="ID_Reaction" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reasons">
+            <EntityTypeMapping TypeName="SIREMModel.Reasons">
+              <MappingFragment StoreEntitySet="Reasons">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+                <ScalarProperty Name="ID_Reason" ColumnName="ID_Reason" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -855,6 +855,14 @@ namespace ResponseEmergencySystem.Services
             return result;
         }
 
+        public static List<Reasons> List_Reasons()
+        {
+            using (var db = new SIREMEntities())
+            {
+                List<Reasons> reasons = db.Reasons.Where(r => r.Status == true).ToList();
 
+                return reasons;
+            }
+        }
     }
 }
