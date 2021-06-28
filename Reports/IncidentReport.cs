@@ -131,7 +131,7 @@ namespace ResponseEmergencySystem.Reports
                     {
                         case 0:
                             cell.WidthF = (float)204.76;
-                            cell.Text = list[i].FullName;
+                            cell.Text = string.Join(" ", new string[] { list[i].FullName, list[i].LastName1, list[i].LastName2 } );
                             break;
                         case 1:
                             cell.WidthF = (float)154.74;

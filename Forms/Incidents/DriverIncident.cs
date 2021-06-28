@@ -31,7 +31,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
         {
             InitializeComponent();
 
-            switch(view)
+            switch (view)
             {
                 case "show":
                     pnl_DriversSamsara.Visible = false;
@@ -66,7 +66,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
         {
             this.DialogResult = DialogResult.OK;
             this.Close();
-        }            
+        }
         #endregion
 
         #region documents
@@ -89,33 +89,33 @@ namespace ResponseEmergencySystem.Forms.Incidents
             set { lbl_Folio.Text = value; }
         }
 
-        public string FullName 
+        public string FullName
         {
-            get { return Utils.GetEdtValue(edt_FullName); } 
+            get { return Utils.GetEdtValue(edt_FullName); }
             set { edt_FullName.EditValue = value; }
         }
-        public string PhoneNumber 
+        public string PhoneNumber
         {
             get { return Utils.GetEdtValue(edt_PhoneNumber); }
             set { edt_PhoneNumber.EditValue = value; }
         }
-        public string License 
+        public string License
         {
             get { return Utils.GetEdtValue(edt_License); }
-            set { edt_License.EditValue = value; } 
+            set { edt_License.EditValue = value; }
         }
-        public DateTime ExpirationDate 
+        public DateTime ExpirationDate
         {
             get { return dte_ExpirationDate.DateTime; }
             set { dte_ExpirationDate.EditValue = value; }
         }
-        public string LicenseState 
+        public string LicenseState
         {
             get { return lue_DriverLicenseState.EditValue.ToString(); }
             set { lue_DriverLicenseState.EditValue = value; }
         }
-        public object TruckNumber 
-        { 
+        public object TruckNumber
+        {
             get { return lue_Trucks.Text; }
             set { lue_Trucks.EditValue = value; }
         }
@@ -124,67 +124,67 @@ namespace ResponseEmergencySystem.Forms.Incidents
             get { return lue_Trucks.EditValue == null ? "" : lue_Trucks.EditValue.ToString(); }
             set { lue_Trucks.EditValue = value; }
         }
-        public bool TruckDamages 
+        public bool TruckDamages
         {
             get { return (bool)ckedt_truckDamages.EditValue; }
-            set { ckedt_truckDamages.EditValue = value; } 
+            set { ckedt_truckDamages.EditValue = value; }
         }
-        public bool TruckCanMove 
+        public bool TruckCanMove
         {
             get { return (bool)ckedt_TruckCanMove.EditValue; }
             set { ckedt_TruckCanMove.EditValue = value; }
         }
-        public bool TruckNeedCrane 
+        public bool TruckNeedCrane
         {
             get { return (bool)ckedt_TruckNeedCrane.EditValue; }
             set { ckedt_TruckNeedCrane.EditValue = value; }
         }
-        public string TrailerNumber 
+        public string TrailerNumber
         {
             get { return Utils.GetEdtValue(edt_TrailerNumber); }
             set { edt_TrailerNumber.EditValue = value; }
         }
-        public bool TrailerDamages 
+        public bool TrailerDamages
         {
             get { return (bool)ckedt_TrailerDamages.EditValue; }
             set { ckedt_TrailerDamages.EditValue = value; }
         }
-        public bool TrailerCanMove 
+        public bool TrailerCanMove
         {
             get { return (bool)ckedt_TrailerCanMove.EditValue; }
             set { ckedt_TrailerCanMove.EditValue = value; }
         }
-        public bool TrailerNeedCrane 
+        public bool TrailerNeedCrane
         {
             get { return (bool)ckedt_TrailerNeedCrane.EditValue; }
             set { ckedt_TrailerNeedCrane.EditValue = value; }
         }
-        public string CargoType 
+        public string CargoType
         {
             get { return Utils.GetEdtValue(edt_Cargo); }
-            set { edt_Cargo.EditValue = value; } 
+            set { edt_Cargo.EditValue = value; }
         }
-        public bool CargoSpill 
+        public bool CargoSpill
         {
             get { return (bool)ckedt_Spill.EditValue; }
             set { ckedt_Spill.EditValue = value; }
         }
-        public string ManifestNumber 
+        public string ManifestNumber
         {
             get { return Utils.GetEdtValue(edt_manifest); }
-            set { edt_manifest.EditValue = value; } 
+            set { edt_manifest.EditValue = value; }
         }
-        public string Broker 
+        public string Broker
         {
             get { return Utils.GetEdtValue(edt_Broker); }
             set { edt_Broker.EditValue = value; }
         }
-        public string Broker2 
+        public string Broker2
         {
             get { return Utils.GetEdtValue(edt_Broker2); }
             set { edt_Broker2.EditValue = value; }
         }
-        public DateTime IncidentDate 
+        public DateTime IncidentDate
         {
             get { return new DateTime(dte_IncidentDate.DateTime.Ticks); }
             set
@@ -193,45 +193,57 @@ namespace ResponseEmergencySystem.Forms.Incidents
                 tme_IncidentTime.Time = value;
             }
         }
-        public bool PoliceReport 
+        public bool PoliceReport
         {
             get { return (bool)ckedt_PoliceReport.EditValue; }
             set { ckedt_PoliceReport.EditValue = value; }
         }
-        public string CitationReportNumber 
+        public string CitationReportNumber
         {
             get { return Utils.GetEdtValue(edt_PoliceReport); }
             set { edt_PoliceReport.EditValue = value; }
         }
-        public string Latitude 
+        public string Latitude
         {
             get { return Utils.GetEdtValue(edt_Latitude); }
             set { edt_Latitude.EditValue = value; }
         }
-        public string Longitude 
+        public string Longitude
         {
             get { return Utils.GetEdtValue(edt_Longitude); }
             set { edt_Longitude.EditValue = value; }
         }
-        public string ID_State 
+        public string ID_State
         {
             get { return lue_states.EditValue.ToString(); }
             set { lue_states.EditValue = value; }
         }
-        public string ID_City 
+        public string ID_City
         {
             get { return lue_Cities.EditValue.ToString(); }
             set { lue_Cities.EditValue = value; }
         }
-        public string LocationReferences 
+        public string LocationReferences
         {
             get { return Utils.GetEdtValue(edt_Highway); }
-            set { edt_Highway.EditValue = value; } 
+            set { edt_Highway.EditValue = value; }
         }
-        public object Comments 
+        public object Comments
         {
             get { return memoEdit1.EditValue; }
             set { memoEdit1.EditValue = value; }
+        }
+        #endregion
+
+        #region view inputs properties
+        public bool edtManifestReadOnly 
+        {
+            set => edt_manifest.ReadOnly = value;
+        }
+
+        public bool edtPoliceReportReadOnly
+        {
+            set => edt_PoliceReport.ReadOnly = value;
         }
         #endregion
 
@@ -740,7 +752,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
         {
             _controller.GetMailsByCategory();
         }
-        #endregion
+        #endregion 
 
         private void Incident_Load(object sender, EventArgs e)
         {

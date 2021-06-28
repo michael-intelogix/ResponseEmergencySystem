@@ -53,6 +53,11 @@ namespace ResponseEmergencySystem.Views.Incidents
         object Comments { get; set; }
         #endregion
 
+        #region input properties
+        bool edtManifestReadOnly { set; }
+        bool edtPoliceReportReadOnly { set; }
+        #endregion
+
         #region Involved Persons
         string IPFullName { get; set; }
         string IPLastName1 { get; set; }

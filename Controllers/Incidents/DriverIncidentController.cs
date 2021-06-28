@@ -856,10 +856,12 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             switch (ckedtName)
             {
                 case "ckedt_Spill":
-                    //_view.PnlBolVisibility = ckedtValue;
+                    _view.edtManifestReadOnly = !ckedtValue;
+                    _view.ManifestNumber = "";
                     break;
                 case "ckedt_PoliceReport":
-                    //_view.PnlPoliceReportVisibility = ckedtValue;
+                    _view.edtPoliceReportReadOnly = !ckedtValue;
+                    _view.CitationReportNumber = "";
                     break;
                 case "ckedt_IPPassenger":
                     if (_view.IPDriver && ckedtValue)
@@ -1155,9 +1157,11 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             IncidentReport report1 = new IncidentReport(_selectedIncident);
             try
             {
-                report1.ExportToPdf(ReportPath + $"\\{Folio}.pdf");
+                var reportFilename = ReportPath + $"\\{Folio}.pdf";
+                report1.ExportToPdf(reportFilename);
                 if (!generate)
                     Utils.ShowMessage("Report " + $"{Folio}.pdf");
+                Process.Start(reportFilename);
             }
             catch (Exception ex)
             {
