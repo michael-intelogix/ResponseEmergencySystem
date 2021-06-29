@@ -80,7 +80,9 @@ namespace ResponseEmergencySystem.Forms
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.edt_Name = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.edt_Comments = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.rpic_Image = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
@@ -90,7 +92,9 @@ namespace ResponseEmergencySystem.Forms
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.gv_Captures = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.edt_CaptureType = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
             this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.edt_Comments1 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
             this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btn_Comments = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -113,10 +117,14 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.btn_CloseIncident)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc_Images)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_Images)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_Name)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_Comments)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rpic_Image)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Edit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_Captures)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_CaptureType)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_Comments1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Comments)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc_Captures)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -190,6 +198,7 @@ namespace ResponseEmergencySystem.Forms
             this.col_Status.MaxWidth = 100;
             this.col_Status.MinWidth = 100;
             this.col_Status.Name = "col_Status";
+            this.col_Status.OptionsColumn.AllowMove = false;
             this.col_Status.Visible = true;
             this.col_Status.VisibleIndex = 4;
             this.col_Status.Width = 100;
@@ -213,6 +222,8 @@ namespace ResponseEmergencySystem.Forms
             this.col_DriverName.FieldName = "Name";
             this.col_DriverName.Name = "col_DriverName";
             this.col_DriverName.OptionsColumn.AllowEdit = false;
+            this.col_DriverName.OptionsColumn.AllowFocus = false;
+            this.col_DriverName.OptionsColumn.AllowMove = false;
             this.col_DriverName.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "Name", "Incidents Registered = {0}")});
             this.col_DriverName.Visible = true;
@@ -227,6 +238,9 @@ namespace ResponseEmergencySystem.Forms
             this.col_Folio.MinWidth = 80;
             this.col_Folio.Name = "col_Folio";
             this.col_Folio.OptionsColumn.AllowEdit = false;
+            this.col_Folio.OptionsColumn.AllowFocus = false;
+            this.col_Folio.OptionsColumn.AllowMove = false;
+            this.col_Folio.OptionsColumn.ReadOnly = true;
             this.col_Folio.Visible = true;
             this.col_Folio.VisibleIndex = 1;
             this.col_Folio.Width = 94;
@@ -239,6 +253,9 @@ namespace ResponseEmergencySystem.Forms
             this.col_TruckNumber.MinWidth = 50;
             this.col_TruckNumber.Name = "col_TruckNumber";
             this.col_TruckNumber.OptionsColumn.AllowEdit = false;
+            this.col_TruckNumber.OptionsColumn.AllowFocus = false;
+            this.col_TruckNumber.OptionsColumn.AllowMove = false;
+            this.col_TruckNumber.OptionsColumn.ReadOnly = true;
             this.col_TruckNumber.Visible = true;
             this.col_TruckNumber.VisibleIndex = 2;
             this.col_TruckNumber.Width = 66;
@@ -251,6 +268,9 @@ namespace ResponseEmergencySystem.Forms
             this.col_Date.MinWidth = 100;
             this.col_Date.Name = "col_Date";
             this.col_Date.OptionsColumn.AllowEdit = false;
+            this.col_Date.OptionsColumn.AllowFocus = false;
+            this.col_Date.OptionsColumn.AllowMove = false;
+            this.col_Date.OptionsColumn.ReadOnly = true;
             this.col_Date.Visible = true;
             this.col_Date.VisibleIndex = 3;
             this.col_Date.Width = 100;
@@ -352,7 +372,9 @@ namespace ResponseEmergencySystem.Forms
             this.gc_Images.Name = "gc_Images";
             this.gc_Images.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.rpic_Image,
-            this.btn_Edit});
+            this.btn_Edit,
+            this.edt_Comments,
+            this.edt_Name});
             this.gc_Images.Size = new System.Drawing.Size(787, 388);
             this.gc_Images.TabIndex = 2;
             this.gc_Images.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -379,6 +401,7 @@ namespace ResponseEmergencySystem.Forms
             this.gridColumn3.Caption = "ID_Image";
             this.gridColumn3.FieldName = "ID_Image";
             this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.OptionsColumn.AllowMove = false;
             // 
             // gridColumn4
             // 
@@ -391,24 +414,39 @@ namespace ResponseEmergencySystem.Forms
             this.gridColumn5.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn5.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn5.Caption = "Name";
+            this.gridColumn5.ColumnEdit = this.edt_Name;
             this.gridColumn5.FieldName = "ImageName";
             this.gridColumn5.MaxWidth = 160;
             this.gridColumn5.MinWidth = 160;
             this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.OptionsColumn.AllowEdit = false;
+            this.gridColumn5.OptionsColumn.AllowFocus = false;
             this.gridColumn5.OptionsColumn.FixedWidth = true;
             this.gridColumn5.OptionsColumn.ReadOnly = true;
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 1;
             this.gridColumn5.Width = 160;
             // 
+            // edt_Name
+            // 
+            this.edt_Name.Name = "edt_Name";
+            // 
             // gridColumn6
             // 
             this.gridColumn6.Caption = "Comments";
+            this.gridColumn6.ColumnEdit = this.edt_Comments;
             this.gridColumn6.FieldName = "comments";
             this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.OptionsColumn.AllowEdit = false;
+            this.gridColumn6.OptionsColumn.AllowFocus = false;
+            this.gridColumn6.OptionsColumn.ReadOnly = true;
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 2;
             this.gridColumn6.Width = 268;
+            // 
+            // edt_Comments
+            // 
+            this.edt_Comments.Name = "edt_Comments";
             // 
             // gridColumn7
             // 
@@ -489,29 +527,46 @@ namespace ResponseEmergencySystem.Forms
             this.gridColumn15});
             this.gv_Captures.GridControl = this.gc_Captures;
             this.gv_Captures.Name = "gv_Captures";
+            this.gv_Captures.OptionsView.RowAutoHeight = true;
             this.gv_Captures.OptionsView.ShowGroupPanel = false;
             this.gv_Captures.DoubleClick += new System.EventHandler(this.gv_Captures_DoubleClick);
             // 
             // gridColumn12
             // 
             this.gridColumn12.Caption = "Capture Type";
+            this.gridColumn12.ColumnEdit = this.edt_CaptureType;
             this.gridColumn12.FieldName = "captureType";
             this.gridColumn12.MaxWidth = 100;
             this.gridColumn12.MinWidth = 100;
             this.gridColumn12.Name = "gridColumn12";
+            this.gridColumn12.OptionsColumn.AllowFocus = false;
+            this.gridColumn12.OptionsColumn.AllowMove = false;
             this.gridColumn12.OptionsColumn.FixedWidth = true;
+            this.gridColumn12.OptionsColumn.ReadOnly = true;
             this.gridColumn12.Visible = true;
             this.gridColumn12.VisibleIndex = 0;
             this.gridColumn12.Width = 100;
             // 
+            // edt_CaptureType
+            // 
+            this.edt_CaptureType.Name = "edt_CaptureType";
+            // 
             // gridColumn13
             // 
             this.gridColumn13.Caption = "Comments";
+            this.gridColumn13.ColumnEdit = this.edt_Comments1;
             this.gridColumn13.FieldName = "comments";
             this.gridColumn13.Name = "gridColumn13";
+            this.gridColumn13.OptionsColumn.AllowEdit = false;
+            this.gridColumn13.OptionsColumn.AllowFocus = false;
+            this.gridColumn13.OptionsColumn.ReadOnly = true;
             this.gridColumn13.Visible = true;
             this.gridColumn13.VisibleIndex = 1;
             this.gridColumn13.Width = 634;
+            // 
+            // edt_Comments1
+            // 
+            this.edt_Comments1.Name = "edt_Comments1";
             // 
             // gridColumn14
             // 
@@ -548,7 +603,9 @@ namespace ResponseEmergencySystem.Forms
             this.gc_Captures.MainView = this.gv_Captures;
             this.gc_Captures.Name = "gc_Captures";
             this.gc_Captures.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.btn_Comments});
+            this.btn_Comments,
+            this.edt_CaptureType,
+            this.edt_Comments1});
             this.gc_Captures.Size = new System.Drawing.Size(793, 336);
             this.gc_Captures.TabIndex = 1;
             this.gc_Captures.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -689,10 +746,14 @@ namespace ResponseEmergencySystem.Forms
             ((System.ComponentModel.ISupportInitialize)(this.btn_CloseIncident)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc_Images)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_Images)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_Name)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_Comments)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rpic_Image)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Edit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_Captures)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_CaptureType)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_Comments1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_Comments)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc_Captures)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
@@ -770,5 +831,9 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn15;
         private DevExpress.XtraEditors.LabelControl lbl_Folio;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn16;
+        private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit edt_Name;
+        private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit edt_Comments;
+        private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit edt_CaptureType;
+        private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit edt_Comments1;
     }
 }
