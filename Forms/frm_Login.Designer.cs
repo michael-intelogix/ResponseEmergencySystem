@@ -56,6 +56,7 @@ namespace ResponseEmergencySystem.Forms
             this.ControlBox = false;
             this.Controls.Add(this.loginCtrl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.IconOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.intelogixWhite;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frm_Login";

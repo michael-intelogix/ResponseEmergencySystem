@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -896,34 +897,6 @@ namespace ResponseEmergencySystem.Forms.Incidents
                 }
 
                 splashScreenManager1.CloseWaitForm();
-
-
-                //if ((bool)ckedt_SaveAndSend.EditValue)
-                //{
-                //    bool sended = _controller.SendEmail();
-                //    if (sended)
-                //    {
-
-                //        //splashScreenManager1.CloseWaitForm();
-                //        xtraScrollableControl1.Controls.Clear();
-                //        _controller.Update();
-                //        this.DialogResult = DialogResult.OK;
-
-                //    }
-                //    else
-                //    {
-                //        //splashScreenManager1.CloseWaitForm();
-                //    }
-                //}
-                //else
-                //{
-
-                //    xtraScrollableControl1.Controls.Clear();
-                //    _controller.Update();
-
-                //}
-
-
             }
             else
                 Utils.ShowMessage("Please Check the information again", "Validation Error", type: "Warning");
@@ -1030,6 +1003,8 @@ namespace ResponseEmergencySystem.Forms.Incidents
             if (doc.Status == "modified" || doc.Status == "created")
             {
                 _docs[gv_DocumentCaptures.FocusedRowHandle].documents.Add(doc);
+                if (_docs[gv_DocumentCaptures.FocusedRowHandle].Status == "loaded")
+                    _docs[gv_DocumentCaptures.FocusedRowHandle].Status = "updated";
                 CreatePanel(4, _docs[gv_DocumentCaptures.FocusedRowHandle].documents);
             }
 
@@ -1058,12 +1033,14 @@ namespace ResponseEmergencySystem.Forms.Incidents
                 return;
             }
 
+            splashScreenManager1.ShowWaitForm();
             _controller.SendEmail();
+            splashScreenManager1.CloseWaitForm();
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            _controller.PDF();
+            _controller.PDF(openAfterSave: true);
         }
 
         private void btn_DeletePerson_Click(object sender, EventArgs e)
@@ -1081,6 +1058,15 @@ namespace ResponseEmergencySystem.Forms.Incidents
         private void lue_MailDirectoryCategories_Properties_EditValueChanged(object sender, EventArgs e)
         {
             _controller.validate("selectedCategory");
+        }
+
+        private void DriverIncident_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!isShow)
+                if (!Utils.ShowConfirmationMessage("Are you sure you want to close the incident before saving changes"))
+                {
+                    e.Cancel = true;
+                }
         }
     }
 }

@@ -472,6 +472,7 @@ namespace ResponseEmergencySystem.Forms
             this.Controls.Add(this.pnl_Container);
             this.Controls.Add(this.ribbonStatusBar1);
             this.Controls.Add(this.ribbonControl1);
+            this.IconOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.intelogixWhite;
             this.Name = "frm_Main";
             this.Ribbon = this.ribbonControl1;
             this.StatusBar = this.ribbonStatusBar1;

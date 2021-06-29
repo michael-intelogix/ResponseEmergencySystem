@@ -1412,10 +1412,17 @@ namespace ResponseEmergencySystem.Forms.Incidents
             // 
             // gv_DocumentCaptures
             // 
+            this.gv_DocumentCaptures.ActiveFilterEnabled = false;
             this.gv_DocumentCaptures.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn7});
             this.gv_DocumentCaptures.GridControl = this.gc_DocumentCaptures;
             this.gv_DocumentCaptures.Name = "gv_DocumentCaptures";
+            this.gv_DocumentCaptures.OptionsCustomization.AllowColumnMoving = false;
+            this.gv_DocumentCaptures.OptionsCustomization.AllowFilter = false;
+            this.gv_DocumentCaptures.OptionsCustomization.AllowGroup = false;
+            this.gv_DocumentCaptures.OptionsCustomization.AllowSort = false;
+            this.gv_DocumentCaptures.OptionsFilter.AllowFilterEditor = false;
+            this.gv_DocumentCaptures.OptionsFilter.AllowFilterIncrementalSearch = false;
             this.gv_DocumentCaptures.OptionsView.ShowGroupPanel = false;
             // 
             // gridColumn7
@@ -1424,6 +1431,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.gridColumn7.FieldName = "CaptureType";
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.OptionsColumn.AllowEdit = false;
+            this.gridColumn7.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 0;
             // 
@@ -2293,7 +2301,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             // lue_MailDirectoryCategories
             // 
             this.lue_MailDirectoryCategories.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lue_MailDirectoryCategories.Location = new System.Drawing.Point(767, 6);
+            this.lue_MailDirectoryCategories.Location = new System.Drawing.Point(448, 6);
             this.lue_MailDirectoryCategories.Name = "lue_MailDirectoryCategories";
             this.lue_MailDirectoryCategories.Properties.Appearance.BorderColor = System.Drawing.Color.Maroon;
             this.lue_MailDirectoryCategories.Properties.Appearance.Options.UseBorderColor = true;
@@ -2314,7 +2322,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             // labelControl1
             // 
             this.labelControl1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.labelControl1.Location = new System.Drawing.Point(689, 9);
+            this.labelControl1.Location = new System.Drawing.Point(388, 9);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(53, 17);
             this.labelControl1.TabIndex = 150;
@@ -2323,7 +2331,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             // lue_MailDirectory
             // 
             this.lue_MailDirectory.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lue_MailDirectory.Location = new System.Drawing.Point(419, 6);
+            this.lue_MailDirectory.Location = new System.Drawing.Point(650, 6);
             this.lue_MailDirectory.Name = "lue_MailDirectory";
             this.lue_MailDirectory.Properties.Appearance.BorderColor = System.Drawing.Color.Maroon;
             this.lue_MailDirectory.Properties.Appearance.Options.UseBorderColor = true;
@@ -2344,7 +2352,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             // labelControl2
             // 
             this.labelControl2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.labelControl2.Location = new System.Drawing.Point(366, 9);
+            this.labelControl2.Location = new System.Drawing.Point(597, 9);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(47, 17);
             this.labelControl2.TabIndex = 152;
@@ -2414,6 +2422,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1486, 800);
             this.Controls.Add(this.xpnl_Main);
+            this.IconOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.intelogixWhite;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1492, 832);
             this.MinimizeBox = false;
@@ -2421,6 +2430,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Incident";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DriverIncident_FormClosing);
             this.Load += new System.EventHandler(this.Incident_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_License.Properties)).EndInit();

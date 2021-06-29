@@ -48,12 +48,12 @@ namespace ResponseEmergencySystem.Forms.Modals
         #region set status icons
         public void SetErrorIcon()
         {
-            pictureEdit2.SvgImage = Resources.cancelRed;
+            pictureEdit2.SvgImage = Resources.actions_deletecircled;
         }
 
         public void SetApprovedIcon()
         {
-            pictureEdit2.SvgImage = Resources.checkGreen;
+            pictureEdit2.SvgImage = Resources.actions_checkcircled;
         }
 
         public void SetWarningIcon()

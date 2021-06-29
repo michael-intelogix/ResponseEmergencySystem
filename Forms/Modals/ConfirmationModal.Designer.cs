@@ -45,7 +45,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             // 
             // pictureEdit2
             // 
-            this.pictureEdit2.EditValue = global::ResponseEmergencySystem.Properties.Resources.checkGreen1;
+            this.pictureEdit2.EditValue = global::ResponseEmergencySystem.Properties.Resources.actions_checkcircled;
             this.pictureEdit2.Location = new System.Drawing.Point(12, 41);
             this.pictureEdit2.Name = "pictureEdit2";
             this.pictureEdit2.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -74,11 +74,11 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.simpleButton1.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.simpleButton1.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.closeWhite;
             this.simpleButton1.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.simpleButton1.Location = new System.Drawing.Point(91, 0);
+            this.simpleButton1.Location = new System.Drawing.Point(79, 0);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(86, 34);
+            this.simpleButton1.Size = new System.Drawing.Size(98, 34);
             this.simpleButton1.TabIndex = 0;
-            this.simpleButton1.Text = "Close";
+            this.simpleButton1.Text = "Cancel";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // label1

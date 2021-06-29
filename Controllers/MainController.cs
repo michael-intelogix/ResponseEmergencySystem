@@ -71,7 +71,7 @@ namespace ResponseEmergencySystem.Controllers
             }
             else
                 _view.SetGridFilters(driverName, truckNumber, folio);
-            
+
         }
 
         public void EditImageData(bool capture, int idx = 0)
@@ -85,7 +85,7 @@ namespace ResponseEmergencySystem.Controllers
             {
                 if (capture)
                 {
-                    _view.CapturesDataSource = CaptureService.list_Captures(GetID("incident")).Select(c => new { c.captureType, c.comments } );
+                    _view.CapturesDataSource = CaptureService.list_Captures(GetID("incident")).Select(c => new { c.captureType, c.comments });
                     Utils.ShowMessage("Capture information has been updated");
                 }
                 else
@@ -93,7 +93,7 @@ namespace ResponseEmergencySystem.Controllers
                     _view.ImagesDatasSource = CaptureService.list_Images(GetID("capture"));
                     Utils.ShowMessage("Image information has been updated");
                 }
-                
+
             }
         }
 
@@ -151,7 +151,7 @@ namespace ResponseEmergencySystem.Controllers
             {
                 _view.Incidents = _incidents;
                 SetIncident();
-                SetCaptures();            
+                SetCaptures();
             }
             else
             {
@@ -188,8 +188,16 @@ namespace ResponseEmergencySystem.Controllers
             }
         }
 
-        public void SetCaptures()
+        public void SetCaptures(bool empty = false)
         {
+
+            if (empty || GetID("incident") == "")
+            {
+                _view.CapturesDataSource = new List<Capture>();
+                _view.ImagesDatasSource = new List<ImageCapture>();
+                return;
+            }
+
             _captures = CaptureService.list_Captures(GetID("incident").ToString());
             if (_captures.Count > 0)
             {
@@ -199,11 +207,6 @@ namespace ResponseEmergencySystem.Controllers
                     _view.ImagesDatasSource = CaptureService.list_Images(ID_Capture);
                 else
                     _view.ImagesDatasSource = new List<ImageCapture>();
-            }
-            else
-            {
-                _view.CapturesDataSource = new List<Capture>();
-                _view.ImagesDatasSource = new List<ImageCapture>();
             }
 
         }
@@ -406,12 +409,17 @@ namespace ResponseEmergencySystem.Controllers
         public void ClearFilters(string status = "423E82C9-EE3F-4D83-9066-01E6927FE14D")
         {
             IncidentsFilter("", "", "", status, databaseFilter: true);
+            _mainView.Status = "423E82C9-EE3F-4D83-9066-01E6927FE14D";
             _mainView.Date1 = null;
             _mainView.Date2 = null;
             _mainView.Folio = "";
             _mainView.TruckNumber = "";
             _mainView.DriverName = "";
             _view.ClearFilters();
+            
+            //SetIncident();
+            SetCaptures(true);
+
         }
 
         public void SaveStatus(bool all = false)
@@ -460,6 +468,7 @@ namespace ResponseEmergencySystem.Controllers
                 _view.LblFolio = _view.Folio.ToString();
                 _view.LblFolioPosition();
             }
+            
             
         }
 

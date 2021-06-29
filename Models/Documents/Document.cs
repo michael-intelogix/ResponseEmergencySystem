@@ -3,6 +3,7 @@ using ResponseEmergencySystem.Properties;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -113,6 +114,8 @@ namespace ResponseEmergencySystem.Models.Documents
                 ofd.Filter = "Image Files(*.PNG;*.JPG;*.GIF;*.BMP)|*.PNG;*.JPG;*.GIF;*.BMP|PDF Files (*.PDF)|*.PDF|All Files (*.*)|*.*";
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
+                    bool isFileLocked = IsFileLocked(ofd.FileName);
+                    Utils.ShowMessage($"the file is locked: {isFileLocked}", type: isFileLocked ? "Error" : "approved");
                     string ext = System.IO.Path.GetExtension(ofd.FileName).ToUpper();
                     try
                     {
@@ -148,8 +151,35 @@ namespace ResponseEmergencySystem.Models.Documents
                     }
 
                 }
+                
+                if (ofd.ShowDialog() == DialogResult.Cancel)
+                {
+                    this.Status = "disposed";
+                }
 
             }
+        }
+
+        private bool IsFileLocked(string filePath)
+        {
+            try
+            {
+                using (FileStream fileStream = File.Open(filePath, FileMode.Open, FileAccess.ReadWrite, FileShare.None))
+                {
+                    if (fileStream != null) fileStream.Close();  //This line is me being overly cautious, fileStream will never be null unless an exception occurs... and I know the "using" does it but its helpful to be explicit - especially when we encounter errors - at least for me anyway!
+                }
+            }
+            catch (IOException)
+            {
+                //the file is unavailable because it is:
+                //still being written to
+                //or being processed by another thread
+                //or does not exist (has already been processed)
+                return true;
+            }
+
+            //file is not locked
+            return false;
         }
 
         public void SetName(string name)

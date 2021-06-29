@@ -30,7 +30,7 @@
     <ProductName>SIREM</ProductName>
     <PublisherName>IntelogixSoft</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>82</ApplicationRevision>
+    <ApplicationRevision>93</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -758,6 +758,9 @@
     <None Include="Resources\actions_checkcircled1.svg" />
     <None Include="Resources\geopointmap_32x32.png" />
     <None Include="Resources\map_16x16.png" />
+    <None Include="Resources\logo.bmp" />
+    <None Include="Resources\intelogixWhite.svg" />
+    <None Include="Resources\intelogixWhite1.svg" />
     <Content Include="Resources\pdf.png" />
     <None Include="Resources\pdf1.png" />
     <None Include="Resources\índice1.jpg" />

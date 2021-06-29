@@ -47,7 +47,14 @@ namespace ResponseEmergencySystem.Forms
         #endregion
 
         #region Main Properties
-        public object ID_Incident => gv_Incidents.GetFocusedRowCellValue("ID_Incident");
+        public object ID_Incident 
+        {
+            get
+            {
+                gv_Incidents.FocusedColumn = gv_Captures.VisibleColumns[0];
+                return gv_Incidents.GetFocusedRowCellValue("ID_Incident");
+            }
+        }
 
         public object ID_StatusDetail
         {
@@ -62,6 +69,7 @@ namespace ResponseEmergencySystem.Forms
         public object ID_Capture 
         {
             get {
+
                 gv_Captures.FocusedColumn = gv_Captures.VisibleColumns[0];
                 return gv_Captures.GetFocusedRowCellValue("ID_Capture").ToString(); 
             }
@@ -167,12 +175,16 @@ namespace ResponseEmergencySystem.Forms
         #region Interface Methods
         public void OpenSpinner()
         {
+            if (splashScreenManager1.IsSplashFormVisible)
+                splashScreenManager1.CloseWaitForm();
+
             splashScreenManager1.ShowWaitForm();
         }
 
         public void CloseSpinner()
         {
-            splashScreenManager1.CloseWaitForm();
+            if (splashScreenManager1.IsSplashFormVisible)
+                splashScreenManager1.CloseWaitForm();
         }
 
         public void SetController(MainController controller)

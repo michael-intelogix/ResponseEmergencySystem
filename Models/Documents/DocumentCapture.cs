@@ -33,6 +33,7 @@ namespace ResponseEmergencySystem.Models.Documents
             ID_CaptureType = idCaptureType;
             CaptureType = captureType;
             this.comments = comments;
+            this.Status = "loaded";
         }
     }
 }

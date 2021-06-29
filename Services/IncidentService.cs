@@ -589,7 +589,7 @@ namespace ResponseEmergencySystem.Services
 
         public static void Delete(string incidentID, string folio)
         {
-            if (Utils.ShowConfirmationMessage($"Are you sure you want to delete this incident with {folio}?", type: "warning"))
+            if (Utils.ShowConfirmationMessage($"Are you sure you want to delete this incident with {folio}?", type: "Warning"))
             {
                 Guid ID_Incident = Guid.Parse(incidentID);
                 using (var db = new SIREMEntities())

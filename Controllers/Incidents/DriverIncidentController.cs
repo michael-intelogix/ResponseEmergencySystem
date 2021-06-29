@@ -1123,6 +1123,8 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         #region mailing
         public void SendEmail()
         {
+            bool sended = false;
+
             if (!File.Exists(ReportPath + $"{Folio}.pdf"))
             {
                 PDF(true);
@@ -1130,17 +1132,19 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
             if (!_view.SendToAllRecipientsInTheCategory)
             {
-                Utils.email_send(ReportPath + $"\\{Folio}.pdf", false, mailAddress: _view.SelectedMail);
+                sended = Utils.email_send(ReportPath + $"\\{Folio}.pdf", false, mailAddress: _view.SelectedMail);
             }
 
             if (_view.SendToAllRecipientsInTheCategory)
             {
-                Utils.email_send(ReportPath + $"\\{Folio}.pdf", false, categoryID: _view.MailDirectoryCategory);
+                sended = Utils.email_send(ReportPath + $"\\{Folio}.pdf", false, categoryID: _view.MailDirectoryCategory);
             }
 
+            if (sended)
+                Utils.ShowMessage("Mail Sent", type: "MailSent");
         }
 
-        public void PDF(bool generate = false)
+        public void PDF(bool generate = false, bool openAfterSave = false)
         {
             if (generate)
             {
@@ -1161,7 +1165,8 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                 report1.ExportToPdf(reportFilename);
                 if (!generate)
                     Utils.ShowMessage("Report " + $"{Folio}.pdf");
-                Process.Start(reportFilename);
+                if (openAfterSave)
+                    Process.Start(reportFilename);
             }
             catch (Exception ex)
             {
