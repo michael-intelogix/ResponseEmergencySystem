@@ -475,7 +475,7 @@ namespace ResponseEmergencySystem.Forms
             this.Name = "frm_Main";
             this.Ribbon = this.ribbonControl1;
             this.StatusBar = this.ribbonStatusBar1;
-            this.Text = "frm_Main";
+            this.Text = "SIREM";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frm_Main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();

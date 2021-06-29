@@ -859,7 +859,7 @@ namespace ResponseEmergencySystem.Services
         {
             using (var db = new SIREMEntities())
             {
-                List<Reasons> reasons = db.Reasons.Where(r => r.Status == true).ToList();
+                List<Reasons> reasons = db.Reasons.OrderByDescending(r => r.Reason).Where(r => r.Status == true).ToList();
 
                 return reasons;
             }

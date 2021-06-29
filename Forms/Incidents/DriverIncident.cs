@@ -814,8 +814,8 @@ namespace ResponseEmergencySystem.Forms.Incidents
 
             gv_InvolvedPersons.BestFitColumns();
 
-            var reasons = IncidentService.List_Reasons();
-            lue_Reason.Properties.DataSource = reasons;
+            //var reasons = IncidentService.List_Reasons();
+            //lue_Reason.Properties.DataSource = reasons;
 
             try
             {

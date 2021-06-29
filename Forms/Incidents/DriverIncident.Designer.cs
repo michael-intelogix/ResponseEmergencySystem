@@ -1725,6 +1725,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.lue_Reason.Size = new System.Drawing.Size(133, 24);
             this.lue_Reason.TabIndex = 8;
             this.lue_Reason.TabStop = false;
+            this.lue_Reason.Visible = false;
             // 
             // labelControl22
             // 
