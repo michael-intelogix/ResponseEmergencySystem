@@ -77,17 +77,39 @@ namespace ResponseEmergencySystem.Forms
             splashScreenManager1.CloseWaitForm();
         }
 
+        #region View Controls Properties
+        bool IMain2View.EnableShowIncidentButton 
+        {
+            set { barButtonItem7.Enabled = value; }
+        }
+
+        bool IMain2View.EnableEditIncidentButton
+        {
+            set { barButtonItem8.Enabled = value; }
+        }
+
+        bool IMain2View.EnableCloseIncidentButton
+        {
+            set { barButtonItem10.Enabled = value; }
+        }
+
+        bool IMain2View.EnableDeleteIncidentButton
+        {
+            set { barButtonItem11.Enabled = value; }
+        }
+
+        bool IMain2View.EnableSaveAllButton
+        {
+            set { barButtonItem9.Enabled = value; }
+        }
+        #endregion
+
         public frm_Main()
         {
             InitializeComponent();
         }
 
         private void barEditItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-
-        }
-
-        private void barEditItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
         }
@@ -112,11 +134,6 @@ namespace ResponseEmergencySystem.Forms
         private void pnl_Container_SizeChanged(object sender, EventArgs e)
         {
             itx.RefreshForms(pnl_Container);
-        }
-
-        private void barEditItem2_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-
         }
 
         private void barButtonItem4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

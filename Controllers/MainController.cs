@@ -53,9 +53,18 @@ namespace ResponseEmergencySystem.Controllers
             {
                 _incidents = IncidentService.list_Incidents(folio, "", driverName, truckNumber, status, date1: date1, date2: date2);
                 if (_incidents.Count > 0)
+                {
+                    EnableControlsRibbon();
                     _view.Incidents = _incidents;
+                    _view.LblFolio = _incidents[0].Folio;
+                    _view.LblFolioVisibility = true;
+                }
                 else
+                {
+                    EnableControlsRibbon(false);
+                    _view.LblFolioVisibility = false;
                     _view.Incidents = new List<Incident>();
+                }
             }
             else
                 _view.SetGridFilters(driverName, truckNumber, folio);
@@ -132,11 +141,17 @@ namespace ResponseEmergencySystem.Controllers
             //Test();
             _view.StatusDetailDataSource = _statusDetail;
             _incidents = IncidentService.list_Incidents("", "", "", "", "");
+            _mainView.Status = "423E82C9-EE3F-4D83-9066-01E6927FE14D";
+
             if (_incidents.Count > 0)
             {
                 _view.Incidents = _incidents;
                 SetIncident();
                 SetCaptures();            
+            }
+            else
+            {
+                EnableControlsRibbon(false);
             }
 
             if (!Directory.Exists(Settings.Default.AppFolder))
@@ -146,6 +161,16 @@ namespace ResponseEmergencySystem.Controllers
             }
 
 
+        }
+
+        private void EnableControlsRibbon(bool enable = true)
+        {
+            _view.LblFolioVisibility = enable;
+            _mainView.EnableShowIncidentButton = enable;
+            _mainView.EnableEditIncidentButton = enable;
+            _mainView.EnableCloseIncidentButton = enable;
+            _mainView.EnableDeleteIncidentButton = enable;
+            _mainView.EnableSaveAllButton = enable;
         }
 
         public void LoadChat(string ID_incident = "")
@@ -427,9 +452,11 @@ namespace ResponseEmergencySystem.Controllers
             if (_view.Folio != null)
             {
                 ID_Incident = GetID("incident");
+                _view.LblFolioVisibility = true;
                 _view.LblFolio = _view.Folio.ToString();
                 _view.LblFolioPosition();
             }
+            
         }
 
         public void DeleteIncident()

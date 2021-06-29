@@ -54,5 +54,6 @@ namespace ResponseEmergencySystem.Views
         MemoEdit chat { get; }
 
         string LblFolio { set; }
+        bool LblFolioVisibility { set; }
     }
 }

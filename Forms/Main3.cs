@@ -73,6 +73,8 @@ namespace ResponseEmergencySystem.Forms
 
         public string LblFolio { set => lbl_Folio.Text = value; }
 
+        public bool LblFolioVisibility { set => lbl_Folio.Visible = value; }
+
         public object DocumentType => gv_Images.GetFocusedRowCellValue("FileType");
 
         //ScaleData_Form.Scales_GridView.SetRowCellValue(ScaleData_Form.Scales_GridControl.AutoFilterRowHandle, ScaleData_Form.Scales_GridView.Columns("Ticket"), Me.Bar_Ticket.EditValue.ToString)

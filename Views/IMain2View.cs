@@ -28,6 +28,14 @@ namespace ResponseEmergencySystem.Views
 
         string Status { get; set; }
 
+        #region View Controls Properties
+        bool EnableShowIncidentButton { set; }
+        bool EnableEditIncidentButton { set; }
+        bool EnableCloseIncidentButton { set; }
+        bool EnableDeleteIncidentButton { set; }
+        bool EnableSaveAllButton { set; }
+        #endregion
+
         object IncidentsDataSource { get; set; }
     }
 }
