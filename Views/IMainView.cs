@@ -37,6 +37,10 @@ namespace ResponseEmergencySystem.Views
 
         string ImageName { get; }
 
+        object CaptureComments { get; }
+
+        object ImageComments { get; }
+
         //dateEdit1.DateTime.Date.ToString("MM/dd/yyyy")
         string Date1 { get; set;  }
         //dateEdit2.DateTime.Date.ToString("MM/dd/yyyy")

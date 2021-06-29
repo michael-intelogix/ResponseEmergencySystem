@@ -77,6 +77,21 @@ namespace ResponseEmergencySystem.Forms
 
         public object DocumentType => gv_Images.GetFocusedRowCellValue("FileType");
 
+        public object CaptureComments
+        {
+            get
+            {
+                return gv_Captures.GetFocusedRowCellValue("comments");
+            }
+        }
+
+        public object ImageComments
+        {
+            get
+            {
+                return gv_Images.GetFocusedRowCellValue("comments");
+            }
+        }
         //ScaleData_Form.Scales_GridView.SetRowCellValue(ScaleData_Form.Scales_GridControl.AutoFilterRowHandle, ScaleData_Form.Scales_GridView.Columns("Ticket"), Me.Bar_Ticket.EditValue.ToString)
         // 049
         #endregion

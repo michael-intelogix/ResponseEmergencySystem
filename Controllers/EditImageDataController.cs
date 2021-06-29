@@ -15,13 +15,15 @@ namespace ResponseEmergencySystem.Controllers
         string _ImageID;
         string _Type;
         bool _capture;
+        public string comments;
 
-        public EditImageDataController(IEditImageData view, string ID_Image, string documentType, bool capture)
+        public EditImageDataController(IEditImageData view, string ID_Image, string documentType, bool capture, object comments)
         {
             _view = view;
             _ImageID = ID_Image;
             _Type = documentType;
             _capture = capture;
+            this.comments = comments == null ? "" : comments.ToString();
             view.SetController(this);
         }
 

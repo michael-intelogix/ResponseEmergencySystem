@@ -31,5 +31,10 @@ namespace ResponseEmergencySystem.Forms
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
+
+        private void AddComments_Load(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

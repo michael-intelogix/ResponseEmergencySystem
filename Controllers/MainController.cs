@@ -74,8 +74,9 @@ namespace ResponseEmergencySystem.Controllers
         public void EditImageData(bool capture, int idx = 0)
         {
             var ID = capture ? _captures[idx].ID_Capture.ToString() : _view.ID_Image;
+            object comments = capture ? _view.CaptureComments : _view.ImageComments;
             Forms.Modals.EditComments editCommentsView = new Forms.Modals.EditComments();
-            EditImageDataController editImageDataCtrl = new EditImageDataController(editCommentsView, ID, GetID("documentType"), capture);
+            EditImageDataController editImageDataCtrl = new EditImageDataController(editCommentsView, ID, GetID("documentType"), capture, comments);
             editImageDataCtrl.LoadStatusDetail();
             if (editCommentsView.ShowDialog() == DialogResult.OK)
             {

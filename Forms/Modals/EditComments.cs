@@ -55,7 +55,7 @@ namespace ResponseEmergencySystem.Forms.Modals
 
         private void EditComments_Load(object sender, EventArgs e)
         {
-
+            memoEdit1.EditValue = _controller.comments;
         }
 
         private void simpleButton9_Click(object sender, EventArgs e)
