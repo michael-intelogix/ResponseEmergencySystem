@@ -56,8 +56,11 @@ namespace ResponseEmergencySystem.Controllers
                 {
                     EnableControlsRibbon();
                     _view.Incidents = _incidents;
-                    _view.LblFolio = _incidents[0].Folio;
                     _view.LblFolioVisibility = true;
+                    _view.OpenSpinner();
+                    SetIncident();
+                    SetCaptures();
+                    _view.CloseSpinner();
                 }
                 else
                 {
