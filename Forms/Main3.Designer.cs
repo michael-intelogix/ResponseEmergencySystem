@@ -184,6 +184,12 @@ namespace ResponseEmergencySystem.Forms
             this.gridColumn11});
             this.gv_Incidents.GridControl = this.gc_Incidents;
             this.gv_Incidents.Name = "gv_Incidents";
+            this.gv_Incidents.OptionsCustomization.AllowColumnMoving = false;
+            this.gv_Incidents.OptionsCustomization.AllowFilter = false;
+            this.gv_Incidents.OptionsCustomization.AllowGroup = false;
+            this.gv_Incidents.OptionsCustomization.AllowSort = false;
+            this.gv_Incidents.OptionsFilter.AllowAutoFilterConditionChange = DevExpress.Utils.DefaultBoolean.False;
+            this.gv_Incidents.OptionsFilter.AllowFilterEditor = false;
             this.gv_Incidents.OptionsView.ShowAutoFilterRow = true;
             this.gv_Incidents.OptionsView.ShowFooter = true;
             this.gv_Incidents.OptionsView.ShowGroupPanel = false;
@@ -199,6 +205,7 @@ namespace ResponseEmergencySystem.Forms
             this.col_Status.MinWidth = 100;
             this.col_Status.Name = "col_Status";
             this.col_Status.OptionsColumn.AllowMove = false;
+            this.col_Status.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.col_Status.Visible = true;
             this.col_Status.VisibleIndex = 4;
             this.col_Status.Width = 100;
@@ -224,6 +231,8 @@ namespace ResponseEmergencySystem.Forms
             this.col_DriverName.OptionsColumn.AllowEdit = false;
             this.col_DriverName.OptionsColumn.AllowFocus = false;
             this.col_DriverName.OptionsColumn.AllowMove = false;
+            this.col_DriverName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.col_DriverName.OptionsColumn.ReadOnly = true;
             this.col_DriverName.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "Name", "Incidents Registered = {0}")});
             this.col_DriverName.Visible = true;
@@ -240,6 +249,7 @@ namespace ResponseEmergencySystem.Forms
             this.col_Folio.OptionsColumn.AllowEdit = false;
             this.col_Folio.OptionsColumn.AllowFocus = false;
             this.col_Folio.OptionsColumn.AllowMove = false;
+            this.col_Folio.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.col_Folio.OptionsColumn.ReadOnly = true;
             this.col_Folio.Visible = true;
             this.col_Folio.VisibleIndex = 1;
@@ -255,6 +265,7 @@ namespace ResponseEmergencySystem.Forms
             this.col_TruckNumber.OptionsColumn.AllowEdit = false;
             this.col_TruckNumber.OptionsColumn.AllowFocus = false;
             this.col_TruckNumber.OptionsColumn.AllowMove = false;
+            this.col_TruckNumber.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.col_TruckNumber.OptionsColumn.ReadOnly = true;
             this.col_TruckNumber.Visible = true;
             this.col_TruckNumber.VisibleIndex = 2;
@@ -270,6 +281,7 @@ namespace ResponseEmergencySystem.Forms
             this.col_Date.OptionsColumn.AllowEdit = false;
             this.col_Date.OptionsColumn.AllowFocus = false;
             this.col_Date.OptionsColumn.AllowMove = false;
+            this.col_Date.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.col_Date.OptionsColumn.ReadOnly = true;
             this.col_Date.Visible = true;
             this.col_Date.VisibleIndex = 3;
@@ -421,6 +433,7 @@ namespace ResponseEmergencySystem.Forms
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.OptionsColumn.AllowEdit = false;
             this.gridColumn5.OptionsColumn.AllowFocus = false;
+            this.gridColumn5.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn5.OptionsColumn.FixedWidth = true;
             this.gridColumn5.OptionsColumn.ReadOnly = true;
             this.gridColumn5.Visible = true;
@@ -439,6 +452,7 @@ namespace ResponseEmergencySystem.Forms
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.OptionsColumn.AllowEdit = false;
             this.gridColumn6.OptionsColumn.AllowFocus = false;
+            this.gridColumn6.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn6.OptionsColumn.ReadOnly = true;
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 2;
@@ -541,6 +555,7 @@ namespace ResponseEmergencySystem.Forms
             this.gridColumn12.Name = "gridColumn12";
             this.gridColumn12.OptionsColumn.AllowFocus = false;
             this.gridColumn12.OptionsColumn.AllowMove = false;
+            this.gridColumn12.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn12.OptionsColumn.FixedWidth = true;
             this.gridColumn12.OptionsColumn.ReadOnly = true;
             this.gridColumn12.Visible = true;
@@ -559,6 +574,7 @@ namespace ResponseEmergencySystem.Forms
             this.gridColumn13.Name = "gridColumn13";
             this.gridColumn13.OptionsColumn.AllowEdit = false;
             this.gridColumn13.OptionsColumn.AllowFocus = false;
+            this.gridColumn13.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn13.OptionsColumn.ReadOnly = true;
             this.gridColumn13.Visible = true;
             this.gridColumn13.VisibleIndex = 1;
@@ -624,13 +640,15 @@ namespace ResponseEmergencySystem.Forms
             // 
             // lbl_Folio
             // 
-            this.lbl_Folio.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Folio.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Folio.Appearance.ForeColor = System.Drawing.Color.Black;
             this.lbl_Folio.Appearance.Options.UseFont = true;
-            this.lbl_Folio.Location = new System.Drawing.Point(718, 12);
+            this.lbl_Folio.Appearance.Options.UseForeColor = true;
+            this.lbl_Folio.Location = new System.Drawing.Point(727, 12);
             this.lbl_Folio.Name = "lbl_Folio";
-            this.lbl_Folio.Size = new System.Drawing.Size(84, 17);
+            this.lbl_Folio.Size = new System.Drawing.Size(44, 25);
             this.lbl_Folio.TabIndex = 8;
-            this.lbl_Folio.Text = "labelControl1";
+            this.lbl_Folio.Text = "Folio";
             // 
             // panelControl2
             // 

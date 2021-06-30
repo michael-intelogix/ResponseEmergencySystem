@@ -475,7 +475,11 @@ namespace ResponseEmergencySystem.Forms.Incidents
             _captures = capturesTypesAvaible();
             gc_DocumentCaptures.DataSource = docmentsByCaptureType;
             if (!simpleButton10.Visible && docmentsByCaptureType.Count > 0)
+            {
                 simpleButton10.Visible = true;
+                CreatePanel(4, _docs[0].documents);
+            }
+                
         }
 
         private List<Models.Capture> capturesTypesAvaible()
@@ -492,6 +496,14 @@ namespace ResponseEmergencySystem.Forms.Incidents
             }
 
             return captures;
+        }
+
+        private void gv_DocumentCaptures_Click(object sender, EventArgs e)
+        {
+            int idx = gv_DocumentCaptures.GetFocusedDataSourceRowIndex();
+            //gc_Documents.DataSource = _docs[idx].documents;
+            xtraScrollableControl1.Controls.Clear();
+            CreatePanel(4, _docs[idx].documents);
         }
 
         private void gc_DocumentCaptures_DoubleClick(object sender, EventArgs e)
@@ -1062,7 +1074,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
 
         private void DriverIncident_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (!isShow)
+            if (!isShow && this.DialogResult != DialogResult.OK)
                 if (!Utils.ShowConfirmationMessage("Are you sure you want to close the incident before saving changes"))
                 {
                     e.Cancel = true;

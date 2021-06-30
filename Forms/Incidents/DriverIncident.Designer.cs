@@ -1138,6 +1138,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.edt_IPFullName.Name = "edt_IPFullName";
             this.edt_IPFullName.Properties.Appearance.BorderColor = System.Drawing.Color.Maroon;
             this.edt_IPFullName.Properties.Appearance.Options.UseBorderColor = true;
+            this.edt_IPFullName.Properties.MaxLength = 30;
             this.edt_IPFullName.Size = new System.Drawing.Size(203, 24);
             this.edt_IPFullName.TabIndex = 1;
             this.edt_IPFullName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.edt_CheckForErrors_KeyPress);
@@ -1194,6 +1195,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.edt_IPLastName1.Name = "edt_IPLastName1";
             this.edt_IPLastName1.Properties.Appearance.BorderColor = System.Drawing.Color.Maroon;
             this.edt_IPLastName1.Properties.Appearance.Options.UseBorderColor = true;
+            this.edt_IPLastName1.Properties.MaxLength = 30;
             this.edt_IPLastName1.Size = new System.Drawing.Size(203, 24);
             this.edt_IPLastName1.TabIndex = 2;
             this.edt_IPLastName1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.edt_CheckForErrors_KeyPress);
@@ -1276,6 +1278,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.edt_IPPhoneNumber.Properties.MaskSettings.Set("MaskManagerSignature", "isOptimistic=False");
             this.edt_IPPhoneNumber.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.RegExpMaskManager));
             this.edt_IPPhoneNumber.Properties.MaskSettings.Set("mask", "\\d+");
+            this.edt_IPPhoneNumber.Properties.MaxLength = 12;
             this.edt_IPPhoneNumber.Size = new System.Drawing.Size(203, 24);
             this.edt_IPPhoneNumber.TabIndex = 3;
             this.edt_IPPhoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.edt_CheckForErrors_KeyPress);
@@ -1424,6 +1427,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.gv_DocumentCaptures.OptionsFilter.AllowFilterEditor = false;
             this.gv_DocumentCaptures.OptionsFilter.AllowFilterIncrementalSearch = false;
             this.gv_DocumentCaptures.OptionsView.ShowGroupPanel = false;
+            this.gv_DocumentCaptures.Click += new System.EventHandler(this.gv_DocumentCaptures_Click);
             // 
             // gridColumn7
             // 
@@ -1890,9 +1894,9 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.btn_Broker2.Appearance.Options.UseFont = true;
             this.btn_Broker2.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.searchWhite;
             this.btn_Broker2.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.btn_Broker2.Location = new System.Drawing.Point(294, 115);
+            this.btn_Broker2.Location = new System.Drawing.Point(291, 116);
             this.btn_Broker2.Name = "btn_Broker2";
-            this.btn_Broker2.Size = new System.Drawing.Size(25, 25);
+            this.btn_Broker2.Size = new System.Drawing.Size(28, 23);
             this.btn_Broker2.TabIndex = 153;
             this.btn_Broker2.TabStop = false;
             this.btn_Broker2.Click += new System.EventHandler(this.btn_Broker2_Click);
@@ -1999,9 +2003,9 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.btn_Broker1.Appearance.Options.UseFont = true;
             this.btn_Broker1.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.searchWhite;
             this.btn_Broker1.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.btn_Broker1.Location = new System.Drawing.Point(291, 91);
+            this.btn_Broker1.Location = new System.Drawing.Point(291, 92);
             this.btn_Broker1.Name = "btn_Broker1";
-            this.btn_Broker1.Size = new System.Drawing.Size(28, 24);
+            this.btn_Broker1.Size = new System.Drawing.Size(28, 23);
             this.btn_Broker1.TabIndex = 138;
             this.btn_Broker1.TabStop = false;
             this.btn_Broker1.Click += new System.EventHandler(this.btn_Broker1_Click);

@@ -259,9 +259,9 @@ namespace ResponseEmergencySystem.Forms
 
         private void gv_Incidents_DoubleClick(object sender, EventArgs e)
         {
-            splashScreenManager1.ShowWaitForm();
-            _controller.SetCaptures();
-            splashScreenManager1.CloseWaitForm();
+            //splashScreenManager1.ShowWaitForm();
+            //_controller.SetCaptures();
+            //splashScreenManager1.CloseWaitForm();
         }
 
         private void gv_Captures_DoubleClick(object sender, EventArgs e)
@@ -278,7 +278,10 @@ namespace ResponseEmergencySystem.Forms
 
         private void gv_Incidents_Click(object sender, EventArgs e)
         {
+            splashScreenManager1.ShowWaitForm();
             _controller.SetIncident();
+            _controller.SetCaptures();
+            splashScreenManager1.CloseWaitForm();
         }
 
         private void Main3_SizeChanged(object sender, EventArgs e)

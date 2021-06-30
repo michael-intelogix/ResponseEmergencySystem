@@ -615,7 +615,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             if (_validation)
             {
                 _view.LblEmptyFieldsVisibility = false;
-                _PersonsInvolved.Add(new PersonsInvolved(_view.IPFullName, _view.IPLastName1, _view.IPPhoneNumber, _view.IPAge, _view.IPDriver, _view.IPDriverLicense, _view.IPPrivate, _view.IPInjured, _view.IPHospital, _view.IPComments, Guid.Empty.ToString()));
+                _PersonsInvolved.Add(new PersonsInvolved(_view.IPFullName, _view.IPLastName1, _view.IPPhoneNumber, _view.IPAge, _view.IPDriver, _view.IPDriver ? _view.IPDriverLicense : "", _view.IPPrivate, _view.IPInjured, _view.IPHospital, _view.IPComments, Guid.Empty.ToString()));
                 _view.InvolvedPersonsDataSource = _PersonsInvolved;
 
                 CleanPersonInvolvedCapture();

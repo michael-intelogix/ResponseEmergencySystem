@@ -65,6 +65,7 @@ namespace ResponseEmergencySystem.Controllers
                 else
                 {
                     EnableControlsRibbon(false);
+                    SetCaptures(true);
                     _view.LblFolioVisibility = false;
                     _view.Incidents = new List<Incident>();
                 }
