@@ -810,6 +810,13 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.gridColumn21});
             this.gv_InvolvedPersons.GridControl = this.gc_InvolvedPersons;
             this.gv_InvolvedPersons.Name = "gv_InvolvedPersons";
+            this.gv_InvolvedPersons.OptionsCustomization.AllowColumnMoving = false;
+            this.gv_InvolvedPersons.OptionsCustomization.AllowFilter = false;
+            this.gv_InvolvedPersons.OptionsCustomization.AllowGroup = false;
+            this.gv_InvolvedPersons.OptionsCustomization.AllowMergedGrouping = DevExpress.Utils.DefaultBoolean.False;
+            this.gv_InvolvedPersons.OptionsCustomization.AllowSort = false;
+            this.gv_InvolvedPersons.OptionsFilter.AllowAutoFilterConditionChange = DevExpress.Utils.DefaultBoolean.False;
+            this.gv_InvolvedPersons.OptionsFilter.AllowFilterEditor = false;
             this.gv_InvolvedPersons.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gv_InvolvedPersons.OptionsView.BestFitMode = DevExpress.XtraGrid.Views.Grid.GridBestFitMode.Full;
             this.gv_InvolvedPersons.OptionsView.ColumnAutoWidth = false;
