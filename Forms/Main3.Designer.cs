@@ -543,6 +543,7 @@ namespace ResponseEmergencySystem.Forms
             this.gv_Captures.Name = "gv_Captures";
             this.gv_Captures.OptionsView.RowAutoHeight = true;
             this.gv_Captures.OptionsView.ShowGroupPanel = false;
+            this.gv_Captures.Click += new System.EventHandler(this.gv_Captures_Click);
             this.gv_Captures.DoubleClick += new System.EventHandler(this.gv_Captures_DoubleClick);
             // 
             // gridColumn12
