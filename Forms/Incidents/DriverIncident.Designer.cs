@@ -156,7 +156,6 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.labelControl26 = new DevExpress.XtraEditors.LabelControl();
             this.pnl_DriverInformation = new DevExpress.XtraEditors.PanelControl();
             this.spnl_DriverInformationContent = new DevExpress.XtraEditors.XtraScrollableControl();
-            this.gMapControl1 = new GMap.NET.WindowsForms.GMapControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
             this.edt_OtherAction = new DevExpress.XtraEditors.TextEdit();
@@ -1588,7 +1587,6 @@ namespace ResponseEmergencySystem.Forms.Incidents
             // 
             // spnl_DriverInformationContent
             // 
-            this.spnl_DriverInformationContent.Controls.Add(this.gMapControl1);
             this.spnl_DriverInformationContent.Controls.Add(this.panelControl3);
             this.spnl_DriverInformationContent.Controls.Add(this.groupControl4);
             this.spnl_DriverInformationContent.Controls.Add(this.pnl_Divider1);
@@ -1600,37 +1598,6 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.spnl_DriverInformationContent.Name = "spnl_DriverInformationContent";
             this.spnl_DriverInformationContent.Size = new System.Drawing.Size(1482, 305);
             this.spnl_DriverInformationContent.TabIndex = 0;
-            // 
-            // gMapControl1
-            // 
-            this.gMapControl1.AutoScroll = true;
-            this.gMapControl1.AutoScrollMinSize = new System.Drawing.Size(358, 305);
-            this.gMapControl1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.gMapControl1.Bearing = 0F;
-            this.gMapControl1.CanDragMap = true;
-            this.gMapControl1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.gMapControl1.EmptyTileColor = System.Drawing.Color.Navy;
-            this.gMapControl1.GrayScaleMode = false;
-            this.gMapControl1.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
-            this.gMapControl1.LevelsKeepInMemory = 5;
-            this.gMapControl1.Location = new System.Drawing.Point(1109, 0);
-            this.gMapControl1.MarkersEnabled = true;
-            this.gMapControl1.MaxZoom = 18;
-            this.gMapControl1.MinimumSize = new System.Drawing.Size(358, 305);
-            this.gMapControl1.MinZoom = 2;
-            this.gMapControl1.MouseWheelZoomEnabled = true;
-            this.gMapControl1.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
-            this.gMapControl1.Name = "gMapControl1";
-            this.gMapControl1.NegativeMode = false;
-            this.gMapControl1.PolygonsEnabled = true;
-            this.gMapControl1.RetryLoadTile = 0;
-            this.gMapControl1.RoutesEnabled = true;
-            this.gMapControl1.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
-            this.gMapControl1.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
-            this.gMapControl1.ShowTileGridLines = false;
-            this.gMapControl1.Size = new System.Drawing.Size(370, 305);
-            this.gMapControl1.TabIndex = 15;
-            this.gMapControl1.Zoom = 13D;
             // 
             // panelControl3
             // 
@@ -2673,7 +2640,6 @@ namespace ResponseEmergencySystem.Forms.Incidents
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.XtraEditors.XtraScrollableControl spnl_DriverInformationContent;
-        private GMap.NET.WindowsForms.GMapControl gMapControl1;
         private DevExpress.XtraEditors.PanelControl panelControl3;
         private DevExpress.XtraEditors.GroupControl groupControl4;
         private DevExpress.XtraEditors.TextEdit edt_OtherAction;

@@ -68,6 +68,11 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
+            this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
+            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.lue_Drivers = new DevExpress.XtraEditors.LookUpEdit();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
@@ -86,6 +91,11 @@ namespace ResponseEmergencySystem.Forms.Modals
             ((System.ComponentModel.ISupportInitialize)(this.edt_Mail.Properties)).BeginInit();
             this.xtraTabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            this.xtraTabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lue_Drivers.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // xtraFolderBrowserDialog1
@@ -102,7 +112,8 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.xtraTabControl1.TabIndex = 0;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1,
-            this.xtraTabPage2});
+            this.xtraTabPage2,
+            this.xtraTabPage3});
             // 
             // xtraTabPage1
             // 
@@ -494,6 +505,49 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.simpleButton3.Text = "Files Folder";
             this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click_1);
             // 
+            // xtraTabPage3
+            // 
+            this.xtraTabPage3.Controls.Add(this.groupControl2);
+            this.xtraTabPage3.Controls.Add(this.groupControl1);
+            this.xtraTabPage3.Name = "xtraTabPage3";
+            this.xtraTabPage3.Size = new System.Drawing.Size(751, 423);
+            this.xtraTabPage3.Text = "Samsara";
+            // 
+            // groupControl2
+            // 
+            this.groupControl2.Location = new System.Drawing.Point(384, 22);
+            this.groupControl2.Name = "groupControl2";
+            this.groupControl2.Size = new System.Drawing.Size(359, 205);
+            this.groupControl2.TabIndex = 1;
+            this.groupControl2.Text = "Trucks";
+            // 
+            // groupControl1
+            // 
+            this.groupControl1.Controls.Add(this.lue_Drivers);
+            this.groupControl1.Controls.Add(this.labelControl4);
+            this.groupControl1.Location = new System.Drawing.Point(11, 22);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(367, 205);
+            this.groupControl1.TabIndex = 0;
+            this.groupControl1.Text = "Drivers";
+            // 
+            // lue_Drivers
+            // 
+            this.lue_Drivers.Location = new System.Drawing.Point(64, 41);
+            this.lue_Drivers.Name = "lue_Drivers";
+            this.lue_Drivers.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lue_Drivers.Size = new System.Drawing.Size(298, 24);
+            this.lue_Drivers.TabIndex = 2;
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Location = new System.Drawing.Point(18, 44);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(40, 17);
+            this.labelControl4.TabIndex = 1;
+            this.labelControl4.Text = "Driver ";
+            // 
             // AppConfiguration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -527,6 +581,12 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.xtraTabPage2.ResumeLayout(false);
             this.xtraTabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            this.xtraTabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
+            this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lue_Drivers.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -564,5 +624,10 @@ namespace ResponseEmergencySystem.Forms.Modals
         private DevExpress.XtraEditors.PictureEdit pic_MailWarningIcon;
         private DevExpress.XtraEditors.PictureEdit pic_MailCategoryWarningIcon;
         private DevExpress.XtraEditors.PictureEdit pic_AddDeparmentWarning;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage3;
+        private DevExpress.XtraEditors.GroupControl groupControl2;
+        private DevExpress.XtraEditors.GroupControl groupControl1;
+        private DevExpress.XtraEditors.LookUpEdit lue_Drivers;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
     }
 }

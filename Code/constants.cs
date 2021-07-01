@@ -22,6 +22,7 @@ namespace ResponseEmergencySystem.Code
         public static readonly string path = Environment.CurrentDirectory + @"\dcmanagement.json";
         public static SqlConnection GeneralConnection { get; }  = itx.DbCon("General");
         public static SqlConnection SIREMConnection { get; }  = itx.DbCon("SIREM");
+        public static SqlConnection GlobalConnection { get; }  = itx.DbCon("Global");
         public static SqlConnection DCManagement { get; } = itx.DbCon("DCManagement");
         public static SqlConnection EmilioConn { get; } = itx.DbCon("DCManagement");
 

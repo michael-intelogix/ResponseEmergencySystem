@@ -223,5 +223,6 @@ namespace ResponseEmergencySystem.Forms
             splashScreenManager1.CloseWaitForm();
             Utils.ShowMessage("Samsara drivers have been updated", "Drivers Samsara");
         }
+
     }
 }

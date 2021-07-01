@@ -215,5 +215,7 @@ namespace ResponseEmergencySystem.Services
         //    }
 
         //}
+
+        //public static D
     }
 }

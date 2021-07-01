@@ -832,18 +832,18 @@ namespace ResponseEmergencySystem.Forms.Incidents
 
             try
             {
-                gMapControl1.MapProvider = GMap.NET.MapProviders.BingMapProvider.Instance;
-                GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
-                gMapControl1.Position = new GMap.NET.PointLatLng(_controller.latitude, _controller.longitude);
-                gMapControl1.ShowCenter = false;
+                //gMapControl1.MapProvider = GMap.NET.MapProviders.BingMapProvider.Instance;
+                //GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
+                //gMapControl1.Position = new GMap.NET.PointLatLng(_controller.latitude, _controller.longitude);
+                //gMapControl1.ShowCenter = false;
 
-                GMap.NET.WindowsForms.GMapOverlay markers = new GMap.NET.WindowsForms.GMapOverlay("markers");
-                GMap.NET.WindowsForms.GMapMarker marker = new GMap.NET.WindowsForms.Markers.GMarkerGoogle(
-                                                                new GMap.NET.PointLatLng(_controller.latitude, _controller.longitude),
-                GMap.NET.WindowsForms.Markers.GMarkerGoogleType.red_dot);
-                gMapControl1.Overlays.Clear();
-                markers.Markers.Add(marker);
-                gMapControl1.Overlays.Add(markers);
+                //GMap.NET.WindowsForms.GMapOverlay markers = new GMap.NET.WindowsForms.GMapOverlay("markers");
+                //GMap.NET.WindowsForms.GMapMarker marker = new GMap.NET.WindowsForms.Markers.GMarkerGoogle(
+                //                                                new GMap.NET.PointLatLng(_controller.latitude, _controller.longitude),
+                //GMap.NET.WindowsForms.Markers.GMarkerGoogleType.red_dot);
+                //gMapControl1.Overlays.Clear();
+                //markers.Markers.Add(marker);
+                //gMapControl1.Overlays.Add(markers);
             }
             catch (Exception ex)
             {
@@ -918,15 +918,15 @@ namespace ResponseEmergencySystem.Forms.Incidents
         {
             splashScreenManager1.ShowWaitForm();
             var res = _controller.GetTruckSamsara();
-            gMapControl1.Position = new GMap.NET.PointLatLng(res[0], res[1]);
+            //gMapControl1.Position = new GMap.NET.PointLatLng(res[0], res[1]);
 
-            GMap.NET.WindowsForms.GMapOverlay markers = new GMap.NET.WindowsForms.GMapOverlay("markers");
-            GMap.NET.WindowsForms.GMapMarker marker = new GMap.NET.WindowsForms.Markers.GMarkerGoogle(
-                                                            new GMap.NET.PointLatLng(res[0], res[1]),
-            GMap.NET.WindowsForms.Markers.GMarkerGoogleType.red_dot);
-            gMapControl1.Overlays.Clear();
-            markers.Markers.Add(marker);
-            gMapControl1.Overlays.Add(markers);
+            //GMap.NET.WindowsForms.GMapOverlay markers = new GMap.NET.WindowsForms.GMapOverlay("markers");
+            //GMap.NET.WindowsForms.GMapMarker marker = new GMap.NET.WindowsForms.Markers.GMarkerGoogle(
+            //                                                new GMap.NET.PointLatLng(res[0], res[1]),
+            //GMap.NET.WindowsForms.Markers.GMarkerGoogleType.red_dot);
+            //gMapControl1.Overlays.Clear();
+            //markers.Markers.Add(marker);
+            //gMapControl1.Overlays.Add(markers);
             //_controller.SetTruck("");
             splashScreenManager1.CloseWaitForm();
         }
