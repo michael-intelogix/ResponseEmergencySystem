@@ -1020,7 +1020,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
                 CreatePanel(4, _docs[gv_DocumentCaptures.FocusedRowHandle].documents);
             }
 
-            if (doc.Status == "loaded" || doc.Status == "empty")
+             if (doc.Status == "loaded" || doc.Status == "empty")
             {
                 _docs[gv_DocumentCaptures.FocusedRowHandle].documents.Add(doc);
                 _docs[gv_DocumentCaptures.FocusedRowHandle].Status = "updated";
@@ -1079,6 +1079,19 @@ namespace ResponseEmergencySystem.Forms.Incidents
                 {
                     e.Cancel = true;
                 }
+        }
+
+        private void lue_Reason_EditValueChanged(object sender, EventArgs e)
+        {
+            LookUpEdit lue = (LookUpEdit)sender;
+            if(lue.Text == "Other")
+            {
+                edt_OtherReason.ReadOnly = false;
+            }
+            else
+            {
+                edt_OtherReason.ReadOnly = true;
+            }
         }
     }
 }

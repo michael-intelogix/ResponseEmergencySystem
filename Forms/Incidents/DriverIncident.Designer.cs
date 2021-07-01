@@ -1712,10 +1712,10 @@ namespace ResponseEmergencySystem.Forms.Incidents
             // edt_OtherReason
             // 
             this.edt_OtherReason.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.edt_OtherReason.Location = new System.Drawing.Point(228, 221);
+            this.edt_OtherReason.Location = new System.Drawing.Point(215, 221);
             this.edt_OtherReason.Name = "edt_OtherReason";
             this.edt_OtherReason.Properties.ReadOnly = true;
-            this.edt_OtherReason.Size = new System.Drawing.Size(129, 24);
+            this.edt_OtherReason.Size = new System.Drawing.Size(142, 24);
             this.edt_OtherReason.TabIndex = 46;
             this.edt_OtherReason.TabStop = false;
             this.edt_OtherReason.Visible = false;
@@ -1745,6 +1745,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.lue_Reason.TabIndex = 8;
             this.lue_Reason.TabStop = false;
             this.lue_Reason.Visible = false;
+            this.lue_Reason.EditValueChanged += new System.EventHandler(this.lue_Reason_EditValueChanged);
             // 
             // labelControl22
             // 
