@@ -1109,5 +1109,10 @@ namespace ResponseEmergencySystem.Forms.Incidents
             gc_DocumentCaptures.DataSource = docsTypes;
             gv_DocumentCaptures.BestFitColumns();
         }
+
+        private void ckedt_MailByCategory_CheckedChanged(object sender, EventArgs e)
+        {
+            lue_MailDirectory.ReadOnly = (bool)ckedt_MailByCategory.EditValue;
+        }
     }
 }

@@ -209,6 +209,11 @@ namespace ResponseEmergencySystem.Controllers
                 else
                     _view.ImagesDatasSource = new List<ImageCapture>();
             }
+            else
+            {
+                _view.CapturesDataSource = new List<Capture>();
+                _view.ImagesDatasSource = new List<ImageCapture>();
+            }
 
         }
 
