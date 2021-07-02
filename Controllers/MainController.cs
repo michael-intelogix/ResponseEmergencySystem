@@ -407,10 +407,18 @@ namespace ResponseEmergencySystem.Controllers
 
         }
 
-        public void ClearFilters(string status = "423E82C9-EE3F-4D83-9066-01E6927FE14D")
+        public void ClearFilters(string status = "423E82C9-EE3F-4D83-9066-01E6927FE14D", bool refreshIncidents = true)
         {
-            IncidentsFilter("", "", "", status, databaseFilter: true);
-            _mainView.Status = "423E82C9-EE3F-4D83-9066-01E6927FE14D";
+            if (refreshIncidents)
+            {
+                IncidentsFilter("", "", "", status, databaseFilter: true);
+                _mainView.Status = "423E82C9-EE3F-4D83-9066-01E6927FE14D";
+            }
+            //else
+            //{
+            //    _mainView.Status = _mainView.Status;
+            //}
+
             _mainView.Date1 = null;
             _mainView.Date2 = null;
             _mainView.Folio = "";
@@ -440,14 +448,14 @@ namespace ResponseEmergencySystem.Controllers
                     if (GetID("truck") != "")
                         IncidentService.UpdateStatus(incident.ID_Incident.ToString(), incident.ID_StatusDetail, incident.truck.ID);
                 }
-
             }
             else
             {
                 if (GetID("truck") != "")
                     IncidentService.UpdateStatus(GetID("incident"), GetID("status"), GetID("truck"));
             }
-            ClearFilters();
+
+            ClearFilters(refreshIncidents: false);
             _view.CloseSpinner();
 
 
