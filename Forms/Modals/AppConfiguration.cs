@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using ResponseEmergencySystem.Code;
+using ResponseEmergencySystem.Services;
 using ResponseEmergencySystem.Views;
 using System;
 using System.Collections.Generic;
@@ -44,6 +45,7 @@ namespace ResponseEmergencySystem.Forms.Modals
         {
             AppPath = Properties.Settings.Default.AppFolder;
             textEdit1.Text = AppPath.Replace("\\", "/");
+            lue_Drivers.Properties.DataSource = DriverService.List_SamsaraDrivers();
         }
 
         private void ckedt_NewCategory_CheckedChanged(object sender, EventArgs e)
@@ -208,6 +210,11 @@ namespace ResponseEmergencySystem.Forms.Modals
         private void edt_Mail_Leave(object sender, EventArgs e)
         {
             _controller.validate("mail");
+        }
+
+        private void simpleButton1_Click_1(object sender, EventArgs e)
+        {
+            SamsaraService.UpdateDriverSamsara(lue_Drivers.EditValue == null ? "" : lue_Drivers.EditValue.ToString());
         }
     }
 }

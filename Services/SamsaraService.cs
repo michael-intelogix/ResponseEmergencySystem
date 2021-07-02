@@ -158,6 +158,7 @@ namespace ResponseEmergencySystem.Services
                         }
                         while (sdr.Read())
                         {
+                            Debug.WriteLine((string)sdr["msg"]);
                             if ((int)sdr["Validacion"] == 0)
                             {
                                 Debug.WriteLine(driver.LicenseState);
@@ -174,7 +175,6 @@ namespace ResponseEmergencySystem.Services
                 //MessageBox.Show($"Driver couldn't be found due: {ex.Message}");
             }
 }
-
 
         public static void UpdateSamsaraVehicles()
         {
@@ -279,6 +279,40 @@ namespace ResponseEmergencySystem.Services
             {
                 Debug.WriteLine(ex);
                 //MessageBox.Show($"Driver couldn't be found due: {ex.Message}");
+            }
+        }
+
+        public static void UpdateDriverSamsara(string ID)
+        {
+            string url = "https://api.samsara.com/fleet/drivers/" + ID;
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(url);
+
+                // Add an Accept header for JSON format.
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "samsara_api_XwURzQhn0F9rijd0vqXwDgWir2zLWc");
+
+                // List data response.
+                HttpResponseMessage response = client.GetAsync(url).Result;  // Blocking call! Program will wait here until a response is received or a timeout occurs.}
+
+                var data = JObject.Parse(response.Content.ReadAsStringAsync().Result);
+
+                Driver d = new Driver
+                {
+                    Name = data["data"]["name"].ToString().Trim(),
+                    Phone = (string)data["data"]["phone"],
+                    LicenseNumber = (string)data["data"]["licenseNumber"],
+                    LicenseState = (string)data["data"]["licenseState"],
+                    ID_Samsara = (string)data["data"]["id"]
+                };
+
+                //Dispose once all HttpClient calls are complete.This is not necessary if the containing object will be disposed of; for example in this case the HttpClient instance will be disposed automatically when the application terminates so the following call is superfluous.
+                client.Dispose();
+
+                AddDriverToSamsaraTable(d);
             }
         }
     }

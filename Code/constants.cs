@@ -31,6 +31,8 @@ namespace ResponseEmergencySystem.Code
 
         public static Guid idIncident { get; set; }
 
+        public static bool tester { get; private set; }
+
         public static Guid emptyId
         {
             get { return Guid.Empty; }
@@ -40,7 +42,7 @@ namespace ResponseEmergencySystem.Code
 
         public static string userName { get; set; }
 
-        public static string folioCode { get; } = "SIREM";
+        public static string folioCode { get; private set; } 
 
         public static string system { get; } = "SIREM";
 
@@ -64,6 +66,12 @@ namespace ResponseEmergencySystem.Code
             new Models.Action("Couldn't be prevented"),
             new Models.Action("other")
         };
+
+        public static void SetTester(bool isTester)
+        {
+            tester = isTester;
+            folioCode = tester ? "TEST" : "SIREM"; 
+        }
 
     }
 }

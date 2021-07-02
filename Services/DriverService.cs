@@ -165,57 +165,112 @@ namespace ResponseEmergencySystem.Services
 
         //public static Response UpdateDriver(Driver d)
         //{
-        //    try
-        //    {
-        //        using (SqlCommand cmd = new SqlCommand
-        //        {
-        //            Connection = constants.GeneralConnection,
-        //            CommandText = $"Update_Driver",
-        //            CommandType = CommandType.StoredProcedure
-        //        })
-        //        {
-        //            if (cmd.Connection.State == ConnectionState.Open)
-        //            {
-        //                cmd.Connection.Close();
-        //            }
+//            try
+//            {
+//                using (SqlCommand cmd = new SqlCommand
+//                {
+//                    Connection = constants.GeneralConnection,
+//                    CommandText = $"Update_Driver",
+//                    CommandType = CommandType.StoredProcedure
+//    })
+//                {
+//                    if (cmd.Connection.State == ConnectionState.Open)
+//                    {
+//                        cmd.Connection.Close();
+//                    }
 
-        //            cmd.Parameters.AddWithValue("@ID_Category", Guid.Empty);
-        //            cmd.Parameters.AddWithValue("@Category", category);
-        //            cmd.Parameters.AddWithValue("@Status", true);
+//cmd.Parameters.AddWithValue("@ID_Category", Guid.Empty);
+//cmd.Parameters.AddWithValue("@Category", category);
+//cmd.Parameters.AddWithValue("@Status", true);
 
-        //            cmd.Connection.Open();
-        //            using (SqlDataReader sdr = cmd.ExecuteReader())
-        //            {
-        //                if (sdr == null)
-        //                {
-        //                    throw new NullReferenceException("No Information Available.");
-        //                }
+//cmd.Connection.Open();
+//using (SqlDataReader sdr = cmd.ExecuteReader())
+//{
+//    if (sdr == null)
+//    {
+//        throw new NullReferenceException("No Information Available.");
+//    }
 
-        //                while (sdr.Read())
-        //                {
-        //                    Debug.WriteLine(sdr["Validacion"]);
-        //                    Debug.WriteLine(sdr["msg"]);
-        //                    Debug.WriteLine(sdr["ID"]);
+//    while (sdr.Read())
+//    {
+//        Debug.WriteLine(sdr["Validacion"]);
+//        Debug.WriteLine(sdr["msg"]);
+//        Debug.WriteLine(sdr["ID"]);
 
-        //                    //MessageBox.Show((string)sdr["msg"]);
+//        //MessageBox.Show((string)sdr["msg"]);
 
-        //                    response = new Response(Convert.ToBoolean(sdr["Validacion"]), sdr["msg"].ToString(), sdr["ID"].ToString());
-        //                }
-        //            }
-        //            cmd.Connection.Close();
+//        response = new Response(Convert.ToBoolean(sdr["Validacion"]), sdr["msg"].ToString(), sdr["ID"].ToString());
+//    }
+//}
+//cmd.Connection.Close();
 
-        //        }
+//                }
 
-        //        return response;
+//                return response;
 
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return new Response(false, ex.Message, Guid.Empty.ToString());
-        //    }
+//            }
+//            catch (Exception ex)
+//{
+//    return new Response(false, ex.Message, Guid.Empty.ToString());
+//}
 
-        //}
+//}
 
-        //public static D
+        public static List<Driver> List_SamsaraDrivers()
+        {
+
+            List<Driver> result = new List<Driver>();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand
+                {
+                    Connection = constants.GeneralConnection,
+                    CommandText = $"List_DriversSamsara",
+                    CommandType = CommandType.StoredProcedure
+                })
+                {
+                    if (cmd.Connection.State == ConnectionState.Open)
+                    {
+                        cmd.Connection.Close();
+                    }
+
+                    cmd.Parameters.AddWithValue("@active", true);
+
+                    cmd.Connection.Open();
+                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    {
+                        if (sdr == null)
+                        {
+                            throw new NullReferenceException("No Information Available.");
+                        }
+
+                        while (sdr.Read())
+                        {
+
+                            result.Add(
+                               new Driver(
+                                   (string)sdr["ID_Samsara"],
+                                   (string)sdr["Name"],
+                                   (string)sdr["PhoneNumber"],
+                                   (string)sdr["LicenseNumber"],
+                                   (string)sdr["LicenseState"]
+                               )
+                           );
+                        }
+                    }
+                    cmd.Connection.Close();
+
+                }
+
+                return result;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Driver couldn't be found due: {ex.Message}");
+
+                return new List<Driver>();
+            }
+        }
     }
 }

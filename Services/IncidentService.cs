@@ -40,7 +40,7 @@ namespace ResponseEmergencySystem.Services
                     }
 
                     cmd.Parameters.AddWithValue("@ID_Incident", Guid.Empty);
-                    cmd.Parameters.AddWithValue("@Folio", folio);
+                    cmd.Parameters.AddWithValue("@Folio", constants.folioCode);
                     cmd.Parameters.AddWithValue("@ID_Driver", driverId);
                     cmd.Parameters.AddWithValue("@ID_StatusDetail", statusDetailId == "" ? "423E82C9-EE3F-4D83-9066-01E6927FE14D" : statusDetailId);
                     cmd.Parameters.AddWithValue("@DriverName", driverName);
@@ -48,6 +48,7 @@ namespace ResponseEmergencySystem.Services
                     cmd.Parameters.AddWithValue("@Trailer_No", "");
                     cmd.Parameters.AddWithValue("@Date1", date1);
                     cmd.Parameters.AddWithValue("@Date2", date2);
+                    cmd.Parameters.AddWithValue("@Tester", constants.tester);
 
                     cmd.Connection.Open();
                     using (SqlDataReader sdr = cmd.ExecuteReader())
@@ -361,6 +362,7 @@ namespace ResponseEmergencySystem.Services
                     cmd.Parameters.AddWithValue("@Comments", comments);
                     cmd.Parameters.AddWithValue("@DSamsara", dSamsara);
                     cmd.Parameters.AddWithValue("@Status", true);
+                    cmd.Parameters.AddWithValue("@Tester", constants.tester);
 
                     cmd.Connection.Open();
                     using (SqlDataReader sdr = cmd.ExecuteReader())
@@ -797,6 +799,7 @@ namespace ResponseEmergencySystem.Services
             }
 
         }
+
         public static List<Location> list_Locations(string incidentId)
         {
 

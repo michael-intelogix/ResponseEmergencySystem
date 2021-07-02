@@ -36,7 +36,11 @@ namespace ResponseEmergencySystem.Forms
                 {
                     constants.userName = accesos[0].ItemArray[13].ToString();
                     constants.userID = accesos[0].ItemArray[10].ToString();
-                    
+
+                    DataRow[] module = myData.Select($"Module = 'Test'");
+              
+                    constants.SetTester(module.Count() > 0);
+                        
                     DialogResult = DialogResult.OK;
                 }
                 else

@@ -71,7 +71,7 @@ namespace ResponseEmergencySystem.Forms
             get {
 
                 gv_Captures.FocusedColumn = gv_Captures.VisibleColumns[0];
-                return gv_Captures.GetFocusedRowCellValue("ID_Capture").ToString(); 
+                return gv_Captures.GetFocusedRowCellValue("ID_Capture"); 
             }
         }
 
