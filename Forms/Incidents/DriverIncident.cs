@@ -594,7 +594,8 @@ namespace ResponseEmergencySystem.Forms.Incidents
             for (int i = 0; i < documents.Count; i++)
             {
 
-                if (_docs[gv_DocumentCaptures.FocusedRowHandle].documents[i].Status == "deleted")
+                if (_docs[gv_DocumentCaptures.FocusedRowHandle].documents[i].Status == "deleted" ||
+                    _docs[gv_DocumentCaptures.FocusedRowHandle].documents[i].Status == "disposed")
                     continue;
 
                 space = (space < 50) ? 50 : space;
@@ -716,9 +717,13 @@ namespace ResponseEmergencySystem.Forms.Incidents
                     if (_docs[gv_DocumentCaptures.FocusedRowHandle].documents[btnDelete.btnIdx].Status == "loaded")
                     {
                         _docs[gv_DocumentCaptures.FocusedRowHandle].Status = "updated";
+                        _docs[gv_DocumentCaptures.FocusedRowHandle].documents[btnDelete.btnIdx].SetStatus("deleted");
+                    }
+                    else
+                    {
+                        _docs[gv_DocumentCaptures.FocusedRowHandle].documents[btnDelete.btnIdx].SetStatus("disposed");
                     }
 
-                    _docs[gv_DocumentCaptures.FocusedRowHandle].documents[btnDelete.btnIdx].SetStatus("deleted");
                     xtraScrollableControl1.Controls.Clear();
                     CreatePanel(0, _docs[gv_DocumentCaptures.FocusedRowHandle].documents);
                 };

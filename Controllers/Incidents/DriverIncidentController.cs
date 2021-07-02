@@ -304,7 +304,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                         {
                             foreach (var doc in documentCapture.documents)
                             {
-                                if (doc.Status == "empty" || doc.Status == "loaded")
+                                if (doc.Status == "empty" || doc.Status == "loaded" || doc.Status == "disposed")
                                     continue;
 
                                 if (doc.Status == "deleted")
@@ -847,6 +847,9 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         {
             _PersonsInvolved.RemoveAt(idx);
             _view.InvolvedPersonsDataSource = _PersonsInvolved;
+            CleanPersonInvolvedCapture();
+            _view.BtnAddInvolvedPersonVisibility = true;
+            _view.BtnEditInvolvedPersonVisibility = false;
         }
         #endregion
 

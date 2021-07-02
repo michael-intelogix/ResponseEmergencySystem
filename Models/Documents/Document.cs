@@ -114,8 +114,8 @@ namespace ResponseEmergencySystem.Models.Documents
                 ofd.Filter = "Image Files(*.PNG;*.JPG;*.GIF;*.BMP)|*.PNG;*.JPG;*.GIF;*.BMP|PDF Files (*.PDF)|*.PDF|All Files (*.*)|*.*";
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
-                    bool isFileLocked = IsFileLocked(ofd.FileName);
-                    Utils.ShowMessage($"the file is locked: {isFileLocked}", type: isFileLocked ? "Error" : "approved");
+                    //bool isFileLocked = IsFileLocked(ofd.FileName);
+                    //Utils.ShowMessage($"the file is locked: {isFileLocked}", type: isFileLocked ? "Error" : "approved");
                     string ext = System.IO.Path.GetExtension(ofd.FileName).ToUpper();
                     try
                     {
@@ -151,8 +151,7 @@ namespace ResponseEmergencySystem.Models.Documents
                     }
 
                 }
-                
-                if (ofd.ShowDialog() == DialogResult.Cancel)
+                else
                 {
                     this.Status = "disposed";
                 }
