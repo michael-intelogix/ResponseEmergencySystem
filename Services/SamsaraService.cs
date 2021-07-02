@@ -11,6 +11,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ResponseEmergencySystem.Services
 {
@@ -201,16 +202,16 @@ namespace ResponseEmergencySystem.Services
                     );
 
                     List<TruckTrailer> vehicles = data.Select(p => new TruckTrailer
-                    {
-                        Name = p["name"].ToString().Trim(),
-                        VinNumber = (string)p["vin"],
-                        SerialNumber = (string)p["serial"],
-                        Make = (string)p["make"],
-                        Model = (string)p["model"],
-                        Year = (string)p["year"],
-                        LicensePlate = (string)p["licensePlate"],
-                        ID_Samsara = (string)p["id"]
-                    }).ToList();
+                    (
+                        p["name"].ToString().Trim(),
+                        (string)p["vin"],
+                        (string)p["serial"],
+                        (string)p["make"],
+                        (string)p["model"],
+                        (string)p["year"],
+                        (string)p["licensePlate"],
+                        (string)p["id"]
+                    )).ToList();
 
                     foreach (var item in vehicles)
                     {
@@ -265,6 +266,8 @@ namespace ResponseEmergencySystem.Services
                         }
                         while (sdr.Read())
                         {
+                            Debug.WriteLine((string)sdr["msg"]);
+
                             if ((int)sdr["Validacion"] == 0)
                             {
                                 Debug.WriteLine(vehicle.Name);
@@ -313,6 +316,103 @@ namespace ResponseEmergencySystem.Services
                 client.Dispose();
 
                 AddDriverToSamsaraTable(d);
+            }
+        }
+
+        public static void UpdateTruckSamsara(string ID)
+        {
+            string url = "https://api.samsara.com/fleet/vehicles/" + ID;
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(url);
+
+                // Add an Accept header for JSON format.
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "samsara_api_XwURzQhn0F9rijd0vqXwDgWir2zLWc");
+
+                // List data response.
+                HttpResponseMessage response = client.GetAsync(url).Result;  // Blocking call! Program will wait here until a response is received or a timeout occurs.}
+
+                var data = JObject.Parse(response.Content.ReadAsStringAsync().Result);
+
+                TruckTrailer t = new TruckTrailer
+                (
+                    data["data"]["name"].ToString().Trim(),
+                    (string)data["data"]["vin"],
+                    (string)data["data"]["serial"],
+                    (string)data["data"]["make"],
+                    (string)data["data"]["model"],
+                    (string)data["data"]["year"],
+                    (string)data["data"]["licensePlate"],
+                    (string)data["data"]["id"]
+                );
+
+                //Dispose once all HttpClient calls are complete.This is not necessary if the containing object will be disposed of; for example in this case the HttpClient instance will be disposed automatically when the application terminates so the following call is superfluous.
+                client.Dispose();
+
+                AddTruckTrailerToSamsaraTable(t);
+            }
+        }
+
+        public static List<TruckTrailer> List_SamsaraTrucks()
+        {
+
+            List<TruckTrailer> result = new List<TruckTrailer>();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand
+                {
+                    Connection = constants.SIREMConnection,
+                    CommandText = $"List_TrucksSamsara",
+                    CommandType = CommandType.StoredProcedure
+                })
+                {
+                    if (cmd.Connection.State == ConnectionState.Open)
+                    {
+                        cmd.Connection.Close();
+                    }
+
+                    cmd.Parameters.AddWithValue("@active", true);
+
+                    cmd.Connection.Open();
+                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    {
+                        if (sdr == null)
+                        {
+                            throw new NullReferenceException("No Information Available.");
+                        }
+
+                        while (sdr.Read())
+                        {
+
+                            result.Add(
+                               new TruckTrailer(
+                                   (string)sdr["Name"],
+                                   (string)sdr["VinNumber"],
+                                   (string)sdr["SerialNumber"],
+                                   (string)sdr["Make"],
+                                   (string)sdr["Model"],
+                                   (string)sdr["Year"],
+                                   (string)sdr["LicensePlate"],
+                                   (string)sdr["ID_Samsara"]
+                               )
+                           );
+                        }
+                    }
+                    cmd.Connection.Close();
+
+                }
+
+                return result;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Driver couldn't be found due: {ex.Message}");
+
+                return new List<TruckTrailer>();
             }
         }
     }
