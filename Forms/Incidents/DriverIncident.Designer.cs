@@ -156,6 +156,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.labelControl26 = new DevExpress.XtraEditors.LabelControl();
             this.pnl_DriverInformation = new DevExpress.XtraEditors.PanelControl();
             this.spnl_DriverInformationContent = new DevExpress.XtraEditors.XtraScrollableControl();
+            this.gMapControl1 = new GMap.NET.WindowsForms.GMapControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
             this.edt_OtherAction = new DevExpress.XtraEditors.TextEdit();
@@ -224,6 +225,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.pnl_PDFControls = new DevExpress.XtraEditors.PanelControl();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_License.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_PhoneNumber.Properties)).BeginInit();
@@ -1587,6 +1589,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             // 
             // spnl_DriverInformationContent
             // 
+            this.spnl_DriverInformationContent.Controls.Add(this.gMapControl1);
             this.spnl_DriverInformationContent.Controls.Add(this.panelControl3);
             this.spnl_DriverInformationContent.Controls.Add(this.groupControl4);
             this.spnl_DriverInformationContent.Controls.Add(this.pnl_Divider1);
@@ -1598,6 +1601,33 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.spnl_DriverInformationContent.Name = "spnl_DriverInformationContent";
             this.spnl_DriverInformationContent.Size = new System.Drawing.Size(1482, 305);
             this.spnl_DriverInformationContent.TabIndex = 0;
+            // 
+            // gMapControl1
+            // 
+            this.gMapControl1.Bearing = 0F;
+            this.gMapControl1.CanDragMap = false;
+            this.gMapControl1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.gMapControl1.EmptyTileColor = System.Drawing.Color.Navy;
+            this.gMapControl1.GrayScaleMode = false;
+            this.gMapControl1.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
+            this.gMapControl1.LevelsKeepInMemory = 5;
+            this.gMapControl1.Location = new System.Drawing.Point(1109, 0);
+            this.gMapControl1.MarkersEnabled = true;
+            this.gMapControl1.MaxZoom = 18;
+            this.gMapControl1.MinZoom = 2;
+            this.gMapControl1.MouseWheelZoomEnabled = true;
+            this.gMapControl1.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
+            this.gMapControl1.Name = "gMapControl1";
+            this.gMapControl1.NegativeMode = false;
+            this.gMapControl1.PolygonsEnabled = true;
+            this.gMapControl1.RetryLoadTile = 0;
+            this.gMapControl1.RoutesEnabled = true;
+            this.gMapControl1.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
+            this.gMapControl1.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
+            this.gMapControl1.ShowTileGridLines = false;
+            this.gMapControl1.Size = new System.Drawing.Size(373, 305);
+            this.gMapControl1.TabIndex = 15;
+            this.gMapControl1.Zoom = 13D;
             // 
             // panelControl3
             // 
@@ -2394,6 +2424,11 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.simpleButton2.Text = "Send email";
             this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
+            // 
             // DriverIncident
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -2718,5 +2753,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn20;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn21;
         private DevExpress.XtraEditors.PanelControl panelControl1;
+        private GMap.NET.WindowsForms.GMapControl gMapControl1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

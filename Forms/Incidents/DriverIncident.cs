@@ -813,21 +813,23 @@ namespace ResponseEmergencySystem.Forms.Incidents
 
         private void Incident_Load(object sender, EventArgs e)
         {
-            if(!isNew)
+
+            if (backgroundWorker1.IsBusy != true)
+            {
+                backgroundWorker1.RunWorkerAsync();
+            }
+
+            if (!isNew)
             {
                 _controller.LoadIncident();
 
-                LoadDocuments();
-
-                var docsTypes = _docs.Select(dc => new { dc.CaptureType }).ToList();
-                gc_DocumentCaptures.DataSource = docsTypes;
-                gv_DocumentCaptures.BestFitColumns();
+                
             }
 
             if (isNew)
             {
                 _docs = new List<DocumentCapture>();
-                LoadDocuments();
+                
             }
 
             if (!isShow)
@@ -843,18 +845,20 @@ namespace ResponseEmergencySystem.Forms.Incidents
 
             try
             {
-                //gMapControl1.MapProvider = GMap.NET.MapProviders.BingMapProvider.Instance;
-                //GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
-                //gMapControl1.Position = new GMap.NET.PointLatLng(_controller.latitude, _controller.longitude);
-                //gMapControl1.ShowCenter = false;
+                gMapControl1.MapProvider = GMap.NET.MapProviders.BingMapProvider.Instance;
+                GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
+                gMapControl1.Position = new GMap.NET.PointLatLng(_controller.latitude, _controller.longitude);
+                gMapControl1.ShowCenter = false;
 
-                //GMap.NET.WindowsForms.GMapOverlay markers = new GMap.NET.WindowsForms.GMapOverlay("markers");
+                GMap.NET.WindowsForms.GMapOverlay markers = new GMap.NET.WindowsForms.GMapOverlay("markers");
                 //GMap.NET.WindowsForms.GMapMarker marker = new GMap.NET.WindowsForms.Markers.GMarkerGoogle(
                 //                                                new GMap.NET.PointLatLng(_controller.latitude, _controller.longitude),
-                //GMap.NET.WindowsForms.Markers.GMarkerGoogleType.red_dot);
-                //gMapControl1.Overlays.Clear();
-                //markers.Markers.Add(marker);
-                //gMapControl1.Overlays.Add(markers);
+                GMap.NET.WindowsForms.GMapMarker marker = new GMap.NET.WindowsForms.Markers.GMarkerGoogle(
+                                                                new GMap.NET.PointLatLng(_controller.latitude, _controller.longitude),
+                GMap.NET.WindowsForms.Markers.GMarkerGoogleType.red_dot);
+                gMapControl1.Overlays.Clear();
+                markers.Markers.Add(marker);
+                gMapControl1.Overlays.Add(markers);
             }
             catch (Exception ex)
             {
@@ -1090,6 +1094,20 @@ namespace ResponseEmergencySystem.Forms.Incidents
                 {
                     e.Cancel = true;
                 }
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            _controller.GetDocuments();
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            LoadDocuments();
+
+            var docsTypes = _docs.Select(dc => new { dc.CaptureType }).ToList();
+            gc_DocumentCaptures.DataSource = docsTypes;
+            gv_DocumentCaptures.BestFitColumns();
         }
     }
 }
