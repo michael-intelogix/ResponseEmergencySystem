@@ -32,6 +32,12 @@ namespace ResponseEmergencySystem.Forms.Incidents
         {
             InitializeComponent();
 
+            if (constants.tester)
+            {
+                lue_Reason.Visible = true;
+                edt_OtherReason.Visible = true;
+            }
+
             switch (view)
             {
                 case "show":

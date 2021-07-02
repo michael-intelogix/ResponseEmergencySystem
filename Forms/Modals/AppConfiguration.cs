@@ -214,7 +214,20 @@ namespace ResponseEmergencySystem.Forms.Modals
 
         private void simpleButton1_Click_1(object sender, EventArgs e)
         {
-            SamsaraService.UpdateDriverSamsara(lue_Drivers.EditValue == null ? "" : lue_Drivers.EditValue.ToString());
+            if ((bool)ckedt_UpdateAllDrivers.EditValue)
+            {
+                splashScreenManager1.ShowWaitForm();
+                SamsaraService.UpdateSamsaraDrivers();
+                splashScreenManager1.CloseWaitForm();
+            }
+            else
+            {
+                splashScreenManager1.ShowWaitForm();
+                SamsaraService.UpdateDriverSamsara(lue_Drivers.EditValue == null ? "" : lue_Drivers.EditValue.ToString());
+                splashScreenManager1.CloseWaitForm();
+            }
+                
+
         }
     }
 }

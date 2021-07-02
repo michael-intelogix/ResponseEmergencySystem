@@ -71,10 +71,11 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.ckedt_UpdateAllDrivers = new DevExpress.XtraEditors.CheckEdit();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.lue_Drivers = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
+            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ResponseEmergencySystem.Forms.WaitForm1), true, true);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
@@ -97,8 +98,8 @@ namespace ResponseEmergencySystem.Forms.Modals
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ckedt_UpdateAllDrivers.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_Drivers.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // xtraFolderBrowserDialog1
@@ -526,7 +527,7 @@ namespace ResponseEmergencySystem.Forms.Modals
             // 
             // groupControl1
             // 
-            this.groupControl1.Controls.Add(this.checkEdit1);
+            this.groupControl1.Controls.Add(this.ckedt_UpdateAllDrivers);
             this.groupControl1.Controls.Add(this.simpleButton1);
             this.groupControl1.Controls.Add(this.lue_Drivers);
             this.groupControl1.Controls.Add(this.labelControl4);
@@ -535,6 +536,30 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.groupControl1.Size = new System.Drawing.Size(367, 205);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Drivers";
+            // 
+            // ckedt_UpdateAllDrivers
+            // 
+            this.ckedt_UpdateAllDrivers.Location = new System.Drawing.Point(18, 76);
+            this.ckedt_UpdateAllDrivers.Name = "ckedt_UpdateAllDrivers";
+            this.ckedt_UpdateAllDrivers.Properties.Caption = "update all drivers";
+            this.ckedt_UpdateAllDrivers.Size = new System.Drawing.Size(213, 21);
+            this.ckedt_UpdateAllDrivers.TabIndex = 6;
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(138)))), ((int)(((byte)(50)))));
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton1.Appearance.Options.UseBackColor = true;
+            this.simpleButton1.Appearance.Options.UseFont = true;
+            this.simpleButton1.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.simpleButton1.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.addWhite;
+            this.simpleButton1.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.simpleButton1.Location = new System.Drawing.Point(256, 78);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(106, 19);
+            this.simpleButton1.TabIndex = 5;
+            this.simpleButton1.Text = "Update";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click_1);
             // 
             // lue_Drivers
             // 
@@ -560,29 +585,9 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.labelControl4.TabIndex = 1;
             this.labelControl4.Text = "Driver ";
             // 
-            // simpleButton1
+            // splashScreenManager1
             // 
-            this.simpleButton1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(138)))), ((int)(((byte)(50)))));
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton1.Appearance.Options.UseBackColor = true;
-            this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.simpleButton1.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.addWhite;
-            this.simpleButton1.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.simpleButton1.Location = new System.Drawing.Point(256, 78);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(106, 19);
-            this.simpleButton1.TabIndex = 5;
-            this.simpleButton1.Text = "Update";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click_1);
-            // 
-            // checkEdit1
-            // 
-            this.checkEdit1.Location = new System.Drawing.Point(18, 76);
-            this.checkEdit1.Name = "checkEdit1";
-            this.checkEdit1.Properties.Caption = "update all drivers";
-            this.checkEdit1.Size = new System.Drawing.Size(213, 21);
-            this.checkEdit1.TabIndex = 6;
+            this.splashScreenManager1.ClosingDelay = 500;
             // 
             // AppConfiguration
             // 
@@ -622,8 +627,8 @@ namespace ResponseEmergencySystem.Forms.Modals
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ckedt_UpdateAllDrivers.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_Drivers.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -667,6 +672,7 @@ namespace ResponseEmergencySystem.Forms.Modals
         private DevExpress.XtraEditors.LookUpEdit lue_Drivers;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.CheckEdit checkEdit1;
+        private DevExpress.XtraEditors.CheckEdit ckedt_UpdateAllDrivers;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
     }
 }
