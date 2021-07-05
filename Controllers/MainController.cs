@@ -224,6 +224,10 @@ namespace ResponseEmergencySystem.Controllers
                 var images = CaptureService.list_Images(GetID("capture"));
                 _view.ImagesDatasSource = images;
             }
+            else
+            {
+                _view.ImagesDatasSource = new List<ImageCapture>();
+            }
                
         }
 
