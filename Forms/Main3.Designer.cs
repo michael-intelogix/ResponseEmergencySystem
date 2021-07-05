@@ -164,7 +164,7 @@ namespace ResponseEmergencySystem.Forms
             this.btn_EditIncident,
             this.btn_SaveStatus,
             this.btn_CloseIncident});
-            this.gc_Incidents.Size = new System.Drawing.Size(758, 754);
+            this.gc_Incidents.Size = new System.Drawing.Size(885, 754);
             this.gc_Incidents.TabIndex = 0;
             this.gc_Incidents.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_Incidents});
@@ -387,7 +387,7 @@ namespace ResponseEmergencySystem.Forms
             this.btn_Edit,
             this.edt_Comments,
             this.edt_Name});
-            this.gc_Images.Size = new System.Drawing.Size(787, 388);
+            this.gc_Images.Size = new System.Drawing.Size(919, 388);
             this.gc_Images.TabIndex = 2;
             this.gc_Images.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_Images});
@@ -557,7 +557,6 @@ namespace ResponseEmergencySystem.Forms
             this.gridColumn12.OptionsColumn.AllowFocus = false;
             this.gridColumn12.OptionsColumn.AllowMove = false;
             this.gridColumn12.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn12.OptionsColumn.FixedWidth = true;
             this.gridColumn12.OptionsColumn.ReadOnly = true;
             this.gridColumn12.Visible = true;
             this.gridColumn12.VisibleIndex = 0;
@@ -623,7 +622,7 @@ namespace ResponseEmergencySystem.Forms
             this.btn_Comments,
             this.edt_CaptureType,
             this.edt_Comments1});
-            this.gc_Captures.Size = new System.Drawing.Size(793, 336);
+            this.gc_Captures.Size = new System.Drawing.Size(925, 336);
             this.gc_Captures.TabIndex = 1;
             this.gc_Captures.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_Captures});
@@ -636,7 +635,7 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1557, 59);
+            this.panelControl1.Size = new System.Drawing.Size(1816, 59);
             this.panelControl1.TabIndex = 23;
             // 
             // lbl_Folio
@@ -659,7 +658,7 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelControl2.Location = new System.Drawing.Point(2, 54);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1553, 3);
+            this.panelControl2.Size = new System.Drawing.Size(1812, 3);
             this.panelControl2.TabIndex = 7;
             // 
             // splitContainerControl1
@@ -679,8 +678,8 @@ namespace ResponseEmergencySystem.Forms
             this.splitContainerControl1.Panel2.Controls.Add(this.splitContainerControl2);
             this.splitContainerControl1.Panel2.Controls.Add(this.panelControl4);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(1557, 754);
-            this.splitContainerControl1.SplitterPosition = 758;
+            this.splitContainerControl1.Size = new System.Drawing.Size(1816, 754);
+            this.splitContainerControl1.SplitterPosition = 884;
             this.splitContainerControl1.TabIndex = 24;
             // 
             // splitContainerControl2
@@ -700,7 +699,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.splitContainerControl2.Panel2.Controls.Add(this.splitContainerControl3);
             this.splitContainerControl2.Panel2.Text = "Panel2";
-            this.splitContainerControl2.Size = new System.Drawing.Size(793, 730);
+            this.splitContainerControl2.Size = new System.Drawing.Size(925, 730);
             this.splitContainerControl2.SplitterPosition = 336;
             this.splitContainerControl2.TabIndex = 2;
             // 
@@ -721,7 +720,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.splitContainerControl3.Panel2.Controls.Add(this.panelControl5);
             this.splitContainerControl3.Panel2.Text = "Panel2";
-            this.splitContainerControl3.Size = new System.Drawing.Size(793, 388);
+            this.splitContainerControl3.Size = new System.Drawing.Size(925, 388);
             this.splitContainerControl3.SplitterPosition = 543;
             this.splitContainerControl3.TabIndex = 0;
             // 
@@ -738,7 +737,7 @@ namespace ResponseEmergencySystem.Forms
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl4.Location = new System.Drawing.Point(0, 0);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(793, 24);
+            this.panelControl4.Size = new System.Drawing.Size(925, 24);
             this.panelControl4.TabIndex = 1;
             // 
             // splashScreenManager1
@@ -749,7 +748,7 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1557, 813);
+            this.ClientSize = new System.Drawing.Size(1816, 813);
             this.Controls.Add(this.splitContainerControl1);
             this.Controls.Add(this.panelControl1);
             this.Name = "Main3";

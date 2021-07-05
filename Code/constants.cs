@@ -20,15 +20,15 @@ namespace ResponseEmergencySystem.Code
 
         private static string ProductionServer = "35.223.136.179";
         private static string TestsServer = "34.135.124.146";
-        private static bool TestApp = false;
+        private static bool TestApp = true;
 
 
         //public static readonly string path = AppDomain.CurrentDomain.BaseDirectory + @"dcmanagement.json";
         public static readonly string path = Environment.CurrentDirectory + @"\dcmanagement.json";
-        public static SqlConnection GeneralConnection { get; }  = itx.DbCon("General");
-        public static SqlConnection SIREMConnection { get; }  = itx.DbCon("SIREM");
-        public static SqlConnection DCManagement { get; } = itx.DbCon("DCManagement");
-        public static SqlConnection EmilioConn { get; } = itx.DbCon("DCManagement");
+        public static SqlConnection GeneralConnection { get; }  = itx.DbCon("General", TestApp);
+        public static SqlConnection SIREMConnection { get; }  = itx.DbCon("SIREM", TestApp);
+        public static SqlConnection DCManagement { get; } = itx.DbCon("DCManagement", TestApp);
+        public static SqlConnection EmilioConn { get; } = itx.DbCon("DCManagement", TestApp);
 
         public static string userID { get; set; }
         public static Guid userIDTest { get; } = Guid.Parse("00000000-0000-0000-0000-000000000000");
