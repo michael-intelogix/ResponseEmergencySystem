@@ -301,7 +301,7 @@ namespace ResponseEmergencySystem.Controllers
             if (editIncident.ShowDialog() == DialogResult.OK)
             {
                 Utils.ShowMessage("the Incident was updated succesfully", "Incident");
-                ClearFilters();
+                ClearFilters(capturesEmpty: false);
             }
 
         }
@@ -416,7 +416,7 @@ namespace ResponseEmergencySystem.Controllers
 
         }
 
-        public void ClearFilters(string status = "423E82C9-EE3F-4D83-9066-01E6927FE14D", bool refreshIncidents = true)
+        public void ClearFilters(string status = "423E82C9-EE3F-4D83-9066-01E6927FE14D", bool refreshIncidents = true, bool capturesEmpty = true)
         {
             if (refreshIncidents)
             {
@@ -436,7 +436,7 @@ namespace ResponseEmergencySystem.Controllers
             _view.ClearFilters();
             
             //SetIncident();
-            SetCaptures(true);
+            SetCaptures(capturesEmpty);
 
         }
 

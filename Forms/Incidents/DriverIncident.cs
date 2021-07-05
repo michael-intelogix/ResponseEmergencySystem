@@ -588,7 +588,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
 
         private void CreatePanel(int number, List<Models.Documents.Document> documents)
         {
-            int documentsNotDeletedCount = documents.Where(dnd => dnd.Status != "deleted").ToList().Count;
+            int documentsNotDeletedCount = documents.Where(dnd => dnd.Status != "deleted" && dnd.Status != "disposed").ToList().Count;
             int space = (Convert.ToInt32(xtraScrollableControl1.Width) - (documentsNotDeletedCount * 245)) / (documentsNotDeletedCount + 1);
             int cont = 0;
 
