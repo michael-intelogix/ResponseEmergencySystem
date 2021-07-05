@@ -362,7 +362,6 @@ namespace ResponseEmergencySystem.Services
                     cmd.Parameters.AddWithValue("@Comments", comments);
                     cmd.Parameters.AddWithValue("@DSamsara", dSamsara);
                     cmd.Parameters.AddWithValue("@Status", true);
-                    cmd.Parameters.AddWithValue("@Tester", constants.tester);
 
                     cmd.Connection.Open();
                     using (SqlDataReader sdr = cmd.ExecuteReader())

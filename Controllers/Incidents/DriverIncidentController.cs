@@ -445,6 +445,11 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             t.Start();
             t.Wait();
 
+            if (!t.Result.validation)
+            {
+                Utils.ShowMessage(t.Result.Message, "Incident Error", type: "Error");
+            }
+
             if (t.Result.validation)
             {
                 ID_Incident = t.Result.ID;
