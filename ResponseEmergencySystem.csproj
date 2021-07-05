@@ -412,7 +412,7 @@
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\ModalController.cs" />
     <Compile Include="EF\Captures.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Sirem.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Capture_Type.cs">
       <DependentUpon>dcManagement.tt</DependentUpon>
@@ -433,37 +433,37 @@
       <DependentUpon>dcManagement.edmx</DependentUpon>
     </Compile>
     <Compile Include="EF\Images.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Sirem.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Incidents.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Sirem.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\InjuredPersons.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Sirem.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Locations.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Sirem.tt</DependentUpon>
     </Compile>
-    <Compile Include="EF\Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="EF\Reactions.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+    <Compile Include="EF\MailCategories.cs">
+      <DependentUpon>Sirem.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Reasons.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>Sirem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Sirem.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Sirem.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Sirem.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Sirem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Sirem.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Sirem.edmx</DependentUpon>
     </Compile>
     <Compile Include="Forms\frm_Image.cs">
       <SubType>Form</SubType>
@@ -655,10 +655,6 @@
     <EmbeddedResource Include="Reports\XtraReport2.resx">
       <DependentUpon>XtraReport2.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="EF\Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <EntityDeploy Include="EF\dcManagement.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>dcManagement.Designer.cs</LastGenOutput>
@@ -666,8 +662,12 @@
     <None Include="EF\dcManagement.edmx.diagram">
       <DependentUpon>dcManagement.edmx</DependentUpon>
     </None>
-    <None Include="EF\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
+    <EntityDeploy Include="EF\Sirem.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Sirem.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="EF\Sirem.edmx.diagram">
+      <DependentUpon>Sirem.edmx</DependentUpon>
     </None>
     <None Include="Resources\SIREMlogo.svg" />
     <None Include="Resources\updateWhite.svg" />
@@ -720,16 +720,6 @@
       <DependentUpon>dcManagement.edmx</DependentUpon>
       <LastGenOutput>dcManagement.cs</LastGenOutput>
     </Content>
-    <Content Include="EF\Model1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="EF\Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-    </Content>
     <None Include="Resources\image_32x32.png" />
     <None Include="Resources\image_16x16.png" />
     <None Include="Resources\preview_32x322.png" />
@@ -763,6 +753,16 @@
     <None Include="Resources\logo.bmp" />
     <None Include="Resources\intelogixWhite.svg" />
     <None Include="Resources\intelogixWhite1.svg" />
+    <Content Include="EF\Sirem.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Sirem.edmx</DependentUpon>
+      <LastGenOutput>Sirem.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EF\Sirem.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Sirem.edmx</DependentUpon>
+      <LastGenOutput>Sirem.cs</LastGenOutput>
+    </Content>
     <Content Include="Resources\pdf.png" />
     <None Include="Resources\pdf1.png" />
     <None Include="Resources\índice1.jpg" />

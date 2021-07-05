@@ -145,7 +145,7 @@ namespace ResponseEmergencySystem.Reports
             // 
             efConnectionParameters1.ConnectionString = "";
             efConnectionParameters1.ConnectionStringName = "SIREMEntities";
-            efConnectionParameters1.Source = typeof(ResponseEmergencySystem.EF.SIREMEntities);
+            efConnectionParameters1.Source = typeof(ResponseEmergencySystem.EF.SIREMEntities1);
             this.efDataSource1.ConnectionParameters = efConnectionParameters1;
             this.efDataSource1.Name = "efDataSource1";
             // 

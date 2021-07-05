@@ -12,19 +12,10 @@ namespace ResponseEmergencySystem.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class Reactions
+    public partial class MailCategories
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Reactions()
-        {
-            this.Incidents = new HashSet<Incidents>();
-        }
-    
-        public System.Guid ID_Reaction { get; set; }
-        public string Reaction { get; set; }
+        public System.Guid ID_Category { get; set; }
+        public string Category { get; set; }
         public Nullable<bool> Status { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Incidents> Incidents { get; set; }
     }
 }

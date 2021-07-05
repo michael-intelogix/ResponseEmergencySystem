@@ -13,10 +13,10 @@ namespace ResponseEmergencySystem.EF
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SIREMEntities : DbContext
+    public partial class SIREMEntities1 : DbContext
     {
-        public SIREMEntities()
-            : base("name=SIREMEntities")
+        public SIREMEntities1()
+            : base("name=SIREMEntities1")
         {
         }
     
@@ -25,12 +25,12 @@ namespace ResponseEmergencySystem.EF
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Incidents> Incidents { get; set; }
         public virtual DbSet<Captures> Captures { get; set; }
         public virtual DbSet<Images> Images { get; set; }
+        public virtual DbSet<Incidents> Incidents { get; set; }
         public virtual DbSet<InjuredPersons> InjuredPersons { get; set; }
         public virtual DbSet<Locations> Locations { get; set; }
-        public virtual DbSet<Reactions> Reactions { get; set; }
+        public virtual DbSet<MailCategories> MailCategories { get; set; }
         public virtual DbSet<Reasons> Reasons { get; set; }
     }
 }

@@ -18,8 +18,8 @@ namespace ResponseEmergencySystem.Code
     {
         private static readonly ITXServerConection itx = new ITXServerConection();
 
-        private static string ProductionServer = "35.223.136.179";
-        private static string TestsServer = "34.135.124.146";
+        //private static string ProductionServer = "35.223.136.179";
+        //private static string TestsServer = "34.135.124.146";
         private static bool TestApp = true;
 
 

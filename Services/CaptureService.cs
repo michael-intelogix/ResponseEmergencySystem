@@ -17,10 +17,10 @@ namespace ResponseEmergencySystem.Services
     {
         public static Response response;
 
-        public static List<Capture> list_CaptureTypes()
+        public static List<Models.Capture> list_CaptureTypes()
         {
             
-            List<Capture> result = new List<Capture>();
+            List<Models.Capture> result = new List<Models.Capture>();
 
             try
             {
@@ -53,7 +53,7 @@ namespace ResponseEmergencySystem.Services
                             Debug.WriteLine((string)sdr["CapturesNames"]);
 
                             result.Add(
-                                new Capture(
+                                new Models.Capture(
                                     (string)sdr["ID_CaptureType"],
                                     (string)sdr["Name"],
                                     (string)sdr["CapturesNames"]
@@ -73,10 +73,10 @@ namespace ResponseEmergencySystem.Services
             return result;
         }
 
-        public static List<Capture> list_Captures(string ID_Incident)
+        public static List<Models.Capture> list_Captures(string ID_Incident)
         {
             
-            List<Capture> result = new List<Capture>();
+            List<Models.Capture> result = new List<Models.Capture>();
 
             try
             {
@@ -105,7 +105,7 @@ namespace ResponseEmergencySystem.Services
                         {
 
                             result.Add(
-                                new Capture(
+                                new Models.Capture(
                                     sdr["ID_Capture"].ToString(),
                                     (string)sdr["ID_StatusDetail"],
                                     sdr["ID_CaptureType"].ToString(),
@@ -667,7 +667,7 @@ namespace ResponseEmergencySystem.Services
             List<Models.Documents.DocumentCapture> result = new List<Models.Documents.DocumentCapture>();
 
             Guid ID_Incident = incident;
-            using (var db = new SIREMEntities())
+            using (var db = new SIREMEntities1())
             {
                 var captures = db.Captures.Where(i => i.ID_Incident == ID_Incident).ToList();
 
@@ -757,9 +757,9 @@ namespace ResponseEmergencySystem.Services
         public static void DeleteImageCapture(string imageID)
         {
             Guid ID_Image = Guid.Parse(imageID);
-            using (var db = new SIREMEntities())
+            using (var db = new SIREMEntities1())
             {
-                Images imageCapture = (Images)db.Images.Where(i => i.ID_Image == ID_Image).FirstOrDefault();
+                Images imageCapture = db.Images.Where(i => i.ID_Image == ID_Image).FirstOrDefault();
 
                 imageCapture.Status = false;
 

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6defe92140f7498e95156987e2c5ac60" Name="Diagram1">
+        <EntityTypeShape EntityType="SIREMModel.Captures" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIREMModel.Images" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIREMModel.Incidents" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIREMModel.InjuredPersons" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIREMModel.Locations" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIREMModel.MailCategories" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SIREMModel.Reasons" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="SIREMModel.FK_dbo_Captures_dbo_Incidents_ID_Incident" ManuallyRouted="false" />
+        <AssociationConnector Association="SIREMModel.FK_Images_Captures" ManuallyRouted="false" />
+        <AssociationConnector Association="SIREMModel.FK_dbo_InjuredPersons_dbo_Incidents_ID_Incident" ManuallyRouted="false" />
+        <AssociationConnector Association="SIREMModel.FK_Locations_Incidents" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

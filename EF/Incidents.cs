@@ -38,29 +38,27 @@ namespace ResponseEmergencySystem.EF
         public string UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedAt { get; set; }
         public string ID_Truck { get; set; }
+        public string TruckNumber { get; set; }
         public Nullable<bool> TruckDamage { get; set; }
         public Nullable<bool> TruckCanMove { get; set; }
         public Nullable<bool> TruckNeedCrane { get; set; }
         public string ID_Trailer { get; set; }
+        public string TrailerNumber { get; set; }
+        public string TrailerCommodity { get; set; }
         public Nullable<bool> TrailerDamage { get; set; }
         public Nullable<bool> TrailerCanMove { get; set; }
         public Nullable<bool> TrailerNeedCrane { get; set; }
         public Nullable<bool> CargoSpill { get; set; }
         public Nullable<bool> Status { get; set; }
         public string ID_Driver { get; set; }
+        public string DriverName { get; set; }
         public string ID_City { get; set; }
         public string ID_State { get; set; }
         public string ID_Broker { get; set; }
+        public string ID_Broker2 { get; set; }
         public string ID_StatusDetail { get; set; }
-        public string TruckNumber { get; set; }
-        public string TrailerNumber { get; set; }
-        public string TrailerCommodity { get; set; }
-        public string DriverName { get; set; }
         public Nullable<bool> DSamsara { get; set; }
         public Nullable<bool> TSamsara { get; set; }
-        public string ID_Broker2 { get; set; }
-        public Nullable<System.Guid> ID_Reason { get; set; }
-        public Nullable<System.Guid> ID_Reaction { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Captures> Captures { get; set; }
@@ -68,7 +66,5 @@ namespace ResponseEmergencySystem.EF
         public virtual ICollection<InjuredPersons> InjuredPersons { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Locations> Locations { get; set; }
-        public virtual Reactions Reactions { get; set; }
-        public virtual Reasons Reasons { get; set; }
     }
 }

@@ -21,10 +21,10 @@ namespace ResponseEmergencySystem.Services
     {
         public static Response response;
 
-        public static List<Incident> list_Incidents(string folio, string driverId, string driverName, string truckNum, string statusDetailId, string date1 = "", string date2 = "")
+        public static List<Models.Incident> list_Incidents(string folio, string driverId, string driverName, string truckNum, string statusDetailId, string date1 = "", string date2 = "")
         {
 
-            List<Incident> result = new List<Incident>();
+            List<Models.Incident> result = new List<Models.Incident>();
             try
             {
                 using (SqlCommand cmd = new SqlCommand
@@ -62,7 +62,7 @@ namespace ResponseEmergencySystem.Services
                             //Debug.WriteLine(sdr["IncidentCloseDate"]);
 
                             result.Add(
-                                new Incident(
+                                new Models.Incident(
                                     (Guid)sdr["ID_Incident"],
                                     (string)sdr["Folio"],
                                     Convert.ToDateTime(sdr["IncidentDate"]),
@@ -112,10 +112,10 @@ namespace ResponseEmergencySystem.Services
             return result;
         }
 
-        public static List<Incident> GetIncident(string incidentId)
+        public static List<Models.Incident> GetIncident(string incidentId)
         {
 
-            List<Incident> result = new List<Incident>();
+            List<Models.Incident> result = new List<Models.Incident>();
             try
             {
                 using (SqlCommand cmd = new SqlCommand
@@ -152,7 +152,7 @@ namespace ResponseEmergencySystem.Services
                             //Debug.WriteLine(sdr["IncidentCloseDate"]);
 
                             result.Add(
-                                new Incident(
+                                new Models.Incident(
                                     (Guid)sdr["ID_Incident"],
                                     (string)sdr["Folio"],
                                     Convert.ToDateTime(sdr["IncidentDate"]),
@@ -571,9 +571,9 @@ namespace ResponseEmergencySystem.Services
         public static void CloseIncident(string incidentID)
         {
             Guid ID_Incident = Guid.Parse(incidentID);
-            using (var db = new SIREMEntities())
+            using (var db = new SIREMEntities1())
             {
-                Incidents incident = (Incidents)db.Incidents.Where(i => i.ID_Incident == ID_Incident).FirstOrDefault();
+                Incidents incident = db.Incidents.Where(i => i.ID_Incident == ID_Incident).FirstOrDefault();
 
                 incident.ID_StatusDetail = "AF034BC4-3F32-4174-B042-3178B2EC8199";
                 incident.IncidentCloseDate = DateTime.Now;
@@ -593,9 +593,9 @@ namespace ResponseEmergencySystem.Services
             if (Utils.ShowConfirmationMessage($"Are you sure you want to delete this incident with {folio}?", type: "Warning"))
             {
                 Guid ID_Incident = Guid.Parse(incidentID);
-                using (var db = new SIREMEntities())
+                using (var db = new SIREMEntities1())
                 {
-                    Incidents incident = (Incidents)db.Incidents.Where(i => i.ID_Incident == ID_Incident).FirstOrDefault();
+                    Incidents incident = db.Incidents.Where(i => i.ID_Incident == ID_Incident).FirstOrDefault();
 
                     incident.Status = false;
 
@@ -614,9 +614,9 @@ namespace ResponseEmergencySystem.Services
         public static void UpdateStatus(string incidentID, string status, string truckNum)
         {
             Guid ID_Incident = Guid.Parse(incidentID);
-            using (var db = new SIREMEntities())
+            using (var db = new SIREMEntities1())
             {
-                Incidents incident = (Incidents)db.Incidents.Where(i => i.ID_Incident == ID_Incident).FirstOrDefault();
+                Incidents incident = db.Incidents.Where(i => i.ID_Incident == ID_Incident).FirstOrDefault();
 
                 incident.ID_StatusDetail = status;
 
@@ -636,7 +636,7 @@ namespace ResponseEmergencySystem.Services
         public static void UpdateLocation(string incidentID, string truckNum)
         {
             Guid ID_Incident = Guid.Parse(incidentID);
-            using (var db = new SIREMEntities())
+            using (var db = new SIREMEntities1())
             { 
                 var truckLoc = GetTruckSamsara(truckNum);
                 if (truckLoc.validation == true)
@@ -799,10 +799,10 @@ namespace ResponseEmergencySystem.Services
 
         }
 
-        public static List<Location> list_Locations(string incidentId)
+        public static List<Models.Location> list_Locations(string incidentId)
         {
 
-            List<Location> result = new List<Location>();
+            List<Models.Location> result = new List<Models.Location>();
             try
             {
                 using (SqlCommand cmd = new SqlCommand
@@ -838,7 +838,7 @@ namespace ResponseEmergencySystem.Services
                             //Debug.WriteLine(sdr["IncidentCloseDate"]);
 
                             result.Add(
-                                new Location(
+                                new Models.Location(
                                     (string)sdr["Latitude"],
                                     (string)sdr["Longitude"],
                                     (string)sdr["Description"],
@@ -857,14 +857,14 @@ namespace ResponseEmergencySystem.Services
             return result;
         }
 
-        public static List<Reasons> List_Reasons()
-        {
-            using (var db = new SIREMEntities())
-            {
-                List<Reasons> reasons = db.Reasons.OrderByDescending(r => r.Reason).Where(r => r.Status == true).ToList();
+        //public static List<EF.Reasons> List_Reasons()
+        //{
+        //    using (var db = new SIREMEntities())
+        //    {
+        //        List<Reasons> reasons = db.Reasons.OrderByDescending(r => r.Reason).Where(r => r.Status == true).ToList();
 
-                return reasons;
-            }
-        }
+        //        return reasons;
+        //    }
+        //}
     }
 }
