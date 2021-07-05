@@ -16,5 +16,17 @@ namespace ResponseEmergencySystem.Models.Samsara
         public string Model { get; set; }
         public string Year { get; set; }
         public string LicensePlate { get; set; }
+
+        public TruckTrailer(string name, string vin, string serial, string make, string model, string year, string plate, string ID)
+        {
+            Name = name;
+            VinNumber = vin;
+            SerialNumber = serial;
+            Make = make;
+            Model = model;
+            Year = year;
+            LicensePlate = plate;
+            ID_Samsara = ID;
+        }
     }
 }

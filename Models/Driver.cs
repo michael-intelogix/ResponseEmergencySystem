@@ -77,5 +77,14 @@ namespace ResponseEmergencySystem.Models
                 this.ExpirationDate = Convert.ToDateTime(ExpirationDate);
         }
 
+        public Driver(string ID_Samsara, string name, string phonenNumber, string licenseNumber, string licenseState)
+        {
+            this.ID_Samsara = ID_Samsara;
+            this.Name = name;
+            PhoneNumber = phonenNumber;
+            License = licenseNumber;
+            State = licenseState;
+        }
+
     }
 }

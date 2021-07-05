@@ -68,6 +68,18 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
+            this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
+            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.ckedt_UpdateAllDrivers = new DevExpress.XtraEditors.CheckEdit();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.lue_Drivers = new DevExpress.XtraEditors.LookUpEdit();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ResponseEmergencySystem.Forms.WaitForm1), true, true);
+            this.ckedt_UpdateAllTrucks = new DevExpress.XtraEditors.CheckEdit();
+            this.simpleButton8 = new DevExpress.XtraEditors.SimpleButton();
+            this.lue_Trucks = new DevExpress.XtraEditors.LookUpEdit();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
@@ -86,6 +98,15 @@ namespace ResponseEmergencySystem.Forms.Modals
             ((System.ComponentModel.ISupportInitialize)(this.edt_Mail.Properties)).BeginInit();
             this.xtraTabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            this.xtraTabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
+            this.groupControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ckedt_UpdateAllDrivers.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lue_Drivers.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckedt_UpdateAllTrucks.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lue_Trucks.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // xtraFolderBrowserDialog1
@@ -102,7 +123,8 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.xtraTabControl1.TabIndex = 0;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1,
-            this.xtraTabPage2});
+            this.xtraTabPage2,
+            this.xtraTabPage3});
             // 
             // xtraTabPage1
             // 
@@ -494,6 +516,138 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.simpleButton3.Text = "Files Folder";
             this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click_1);
             // 
+            // xtraTabPage3
+            // 
+            this.xtraTabPage3.Controls.Add(this.groupControl2);
+            this.xtraTabPage3.Controls.Add(this.groupControl1);
+            this.xtraTabPage3.Name = "xtraTabPage3";
+            this.xtraTabPage3.Size = new System.Drawing.Size(751, 423);
+            this.xtraTabPage3.Text = "Samsara";
+            // 
+            // groupControl2
+            // 
+            this.groupControl2.Controls.Add(this.ckedt_UpdateAllTrucks);
+            this.groupControl2.Controls.Add(this.labelControl5);
+            this.groupControl2.Controls.Add(this.simpleButton8);
+            this.groupControl2.Controls.Add(this.lue_Trucks);
+            this.groupControl2.Location = new System.Drawing.Point(384, 22);
+            this.groupControl2.Name = "groupControl2";
+            this.groupControl2.Size = new System.Drawing.Size(359, 205);
+            this.groupControl2.TabIndex = 1;
+            this.groupControl2.Text = "Trucks";
+            // 
+            // groupControl1
+            // 
+            this.groupControl1.Controls.Add(this.ckedt_UpdateAllDrivers);
+            this.groupControl1.Controls.Add(this.simpleButton1);
+            this.groupControl1.Controls.Add(this.lue_Drivers);
+            this.groupControl1.Controls.Add(this.labelControl4);
+            this.groupControl1.Location = new System.Drawing.Point(11, 22);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(367, 205);
+            this.groupControl1.TabIndex = 0;
+            this.groupControl1.Text = "Drivers";
+            // 
+            // ckedt_UpdateAllDrivers
+            // 
+            this.ckedt_UpdateAllDrivers.Location = new System.Drawing.Point(18, 76);
+            this.ckedt_UpdateAllDrivers.Name = "ckedt_UpdateAllDrivers";
+            this.ckedt_UpdateAllDrivers.Properties.Caption = "update all drivers";
+            this.ckedt_UpdateAllDrivers.Size = new System.Drawing.Size(213, 21);
+            this.ckedt_UpdateAllDrivers.TabIndex = 6;
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(138)))), ((int)(((byte)(50)))));
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton1.Appearance.Options.UseBackColor = true;
+            this.simpleButton1.Appearance.Options.UseFont = true;
+            this.simpleButton1.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.simpleButton1.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.addWhite;
+            this.simpleButton1.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.simpleButton1.Location = new System.Drawing.Point(256, 78);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(106, 19);
+            this.simpleButton1.TabIndex = 5;
+            this.simpleButton1.Text = "Update";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click_1);
+            // 
+            // lue_Drivers
+            // 
+            this.lue_Drivers.Location = new System.Drawing.Point(64, 41);
+            this.lue_Drivers.Name = "lue_Drivers";
+            this.lue_Drivers.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lue_Drivers.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID_Samsara", "ID_Samsara", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Driver Name"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PhoneNumber", "Phone Number")});
+            this.lue_Drivers.Properties.DisplayMember = "Name";
+            this.lue_Drivers.Properties.NullText = "Select a driver";
+            this.lue_Drivers.Properties.ValueMember = "ID_Samsara";
+            this.lue_Drivers.Size = new System.Drawing.Size(298, 24);
+            this.lue_Drivers.TabIndex = 2;
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Location = new System.Drawing.Point(18, 44);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(40, 17);
+            this.labelControl4.TabIndex = 1;
+            this.labelControl4.Text = "Driver ";
+            // 
+            // splashScreenManager1
+            // 
+            this.splashScreenManager1.ClosingDelay = 500;
+            // 
+            // ckedt_UpdateAllTrucks
+            // 
+            this.ckedt_UpdateAllTrucks.Location = new System.Drawing.Point(5, 76);
+            this.ckedt_UpdateAllTrucks.Name = "ckedt_UpdateAllTrucks";
+            this.ckedt_UpdateAllTrucks.Properties.Caption = "update all trucks";
+            this.ckedt_UpdateAllTrucks.Size = new System.Drawing.Size(213, 21);
+            this.ckedt_UpdateAllTrucks.TabIndex = 10;
+            // 
+            // simpleButton8
+            // 
+            this.simpleButton8.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(138)))), ((int)(((byte)(50)))));
+            this.simpleButton8.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton8.Appearance.Options.UseBackColor = true;
+            this.simpleButton8.Appearance.Options.UseFont = true;
+            this.simpleButton8.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.simpleButton8.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.addWhite;
+            this.simpleButton8.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.simpleButton8.Location = new System.Drawing.Point(243, 78);
+            this.simpleButton8.Name = "simpleButton8";
+            this.simpleButton8.Size = new System.Drawing.Size(106, 19);
+            this.simpleButton8.TabIndex = 9;
+            this.simpleButton8.Text = "Update";
+            this.simpleButton8.Click += new System.EventHandler(this.simpleButton8_Click);
+            // 
+            // lue_Trucks
+            // 
+            this.lue_Trucks.Location = new System.Drawing.Point(51, 41);
+            this.lue_Trucks.Name = "lue_Trucks";
+            this.lue_Trucks.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lue_Trucks.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID_Samsara", "ID_Samsara", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Truck"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VinNumber", "Vin Number")});
+            this.lue_Trucks.Properties.DisplayMember = "Name";
+            this.lue_Trucks.Properties.NullText = "Select a truck";
+            this.lue_Trucks.Properties.ValueMember = "ID_Samsara";
+            this.lue_Trucks.Size = new System.Drawing.Size(298, 24);
+            this.lue_Trucks.TabIndex = 8;
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Location = new System.Drawing.Point(5, 44);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(33, 17);
+            this.labelControl5.TabIndex = 7;
+            this.labelControl5.Text = "Truck";
+            // 
             // AppConfiguration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -527,6 +681,17 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.xtraTabPage2.ResumeLayout(false);
             this.xtraTabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            this.xtraTabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
+            this.groupControl2.ResumeLayout(false);
+            this.groupControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
+            this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ckedt_UpdateAllDrivers.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lue_Drivers.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckedt_UpdateAllTrucks.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lue_Trucks.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -564,5 +729,17 @@ namespace ResponseEmergencySystem.Forms.Modals
         private DevExpress.XtraEditors.PictureEdit pic_MailWarningIcon;
         private DevExpress.XtraEditors.PictureEdit pic_MailCategoryWarningIcon;
         private DevExpress.XtraEditors.PictureEdit pic_AddDeparmentWarning;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage3;
+        private DevExpress.XtraEditors.GroupControl groupControl2;
+        private DevExpress.XtraEditors.GroupControl groupControl1;
+        private DevExpress.XtraEditors.LookUpEdit lue_Drivers;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.CheckEdit ckedt_UpdateAllDrivers;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1;
+        private DevExpress.XtraEditors.CheckEdit ckedt_UpdateAllTrucks;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
+        private DevExpress.XtraEditors.SimpleButton simpleButton8;
+        private DevExpress.XtraEditors.LookUpEdit lue_Trucks;
     }
 }

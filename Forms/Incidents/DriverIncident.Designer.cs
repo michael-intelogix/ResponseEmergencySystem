@@ -225,6 +225,8 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.pnl_PDFControls = new DevExpress.XtraEditors.PanelControl();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.marqueeProgressBarControl1 = new DevExpress.XtraEditors.MarqueeProgressBarControl();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_License.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_PhoneNumber.Properties)).BeginInit();
@@ -349,6 +351,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             ((System.ComponentModel.ISupportInitialize)(this.ckedt_MailByCategory.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnl_PDFControls)).BeginInit();
             this.pnl_PDFControls.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.marqueeProgressBarControl1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // edt_License
@@ -1448,6 +1451,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             // 
             // xtraScrollableControl1
             // 
+            this.xtraScrollableControl1.Controls.Add(this.marqueeProgressBarControl1);
             this.xtraScrollableControl1.Controls.Add(this.panelControl17);
             this.xtraScrollableControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtraScrollableControl1.Location = new System.Drawing.Point(0, 0);
@@ -1603,11 +1607,8 @@ namespace ResponseEmergencySystem.Forms.Incidents
             // 
             // gMapControl1
             // 
-            this.gMapControl1.AutoScroll = true;
-            this.gMapControl1.AutoScrollMinSize = new System.Drawing.Size(358, 305);
-            this.gMapControl1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.gMapControl1.Bearing = 0F;
-            this.gMapControl1.CanDragMap = true;
+            this.gMapControl1.CanDragMap = false;
             this.gMapControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.gMapControl1.EmptyTileColor = System.Drawing.Color.Navy;
             this.gMapControl1.GrayScaleMode = false;
@@ -1616,7 +1617,6 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.gMapControl1.Location = new System.Drawing.Point(1109, 0);
             this.gMapControl1.MarkersEnabled = true;
             this.gMapControl1.MaxZoom = 18;
-            this.gMapControl1.MinimumSize = new System.Drawing.Size(358, 305);
             this.gMapControl1.MinZoom = 2;
             this.gMapControl1.MouseWheelZoomEnabled = true;
             this.gMapControl1.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
@@ -1628,7 +1628,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.gMapControl1.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             this.gMapControl1.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.gMapControl1.ShowTileGridLines = false;
-            this.gMapControl1.Size = new System.Drawing.Size(370, 305);
+            this.gMapControl1.Size = new System.Drawing.Size(373, 305);
             this.gMapControl1.TabIndex = 15;
             this.gMapControl1.Zoom = 13D;
             // 
@@ -2366,20 +2366,21 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.labelControl2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.labelControl2.Location = new System.Drawing.Point(597, 9);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(47, 17);
+            this.labelControl2.Size = new System.Drawing.Size(42, 17);
             this.labelControl2.TabIndex = 152;
-            this.labelControl2.Text = "Send to";
+            this.labelControl2.Text = "Mail to";
             // 
             // ckedt_MailByCategory
             // 
             this.ckedt_MailByCategory.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.ckedt_MailByCategory.Location = new System.Drawing.Point(25, 7);
+            this.ckedt_MailByCategory.Location = new System.Drawing.Point(218, 7);
             this.ckedt_MailByCategory.Name = "ckedt_MailByCategory";
-            this.ckedt_MailByCategory.Properties.Caption = "Send to all the recipients in the selected category?";
+            this.ckedt_MailByCategory.Properties.Caption = "send mails to category?";
             this.ckedt_MailByCategory.Properties.ContentAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.ckedt_MailByCategory.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.ckedt_MailByCategory.Size = new System.Drawing.Size(335, 21);
+            this.ckedt_MailByCategory.Size = new System.Drawing.Size(164, 21);
             this.ckedt_MailByCategory.TabIndex = 153;
+            this.ckedt_MailByCategory.CheckedChanged += new System.EventHandler(this.ckedt_MailByCategory_CheckedChanged);
             // 
             // pnl_PDFControls
             // 
@@ -2427,6 +2428,20 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.simpleButton2.TabIndex = 140;
             this.simpleButton2.Text = "Send email";
             this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.WorkerReportsProgress = true;
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
+            // 
+            // marqueeProgressBarControl1
+            // 
+            this.marqueeProgressBarControl1.Location = new System.Drawing.Point(379, 110);
+            this.marqueeProgressBarControl1.Name = "marqueeProgressBarControl1";
+            this.marqueeProgressBarControl1.Size = new System.Drawing.Size(563, 18);
+            this.marqueeProgressBarControl1.TabIndex = 18;
             // 
             // DriverIncident
             // 
@@ -2576,6 +2591,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             ((System.ComponentModel.ISupportInitialize)(this.ckedt_MailByCategory.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnl_PDFControls)).EndInit();
             this.pnl_PDFControls.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.marqueeProgressBarControl1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2674,7 +2690,6 @@ namespace ResponseEmergencySystem.Forms.Incidents
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.XtraEditors.XtraScrollableControl spnl_DriverInformationContent;
-        private GMap.NET.WindowsForms.GMapControl gMapControl1;
         private DevExpress.XtraEditors.PanelControl panelControl3;
         private DevExpress.XtraEditors.GroupControl groupControl4;
         private DevExpress.XtraEditors.TextEdit edt_OtherAction;
@@ -2753,5 +2768,8 @@ namespace ResponseEmergencySystem.Forms.Incidents
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn20;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn21;
         private DevExpress.XtraEditors.PanelControl panelControl1;
+        private GMap.NET.WindowsForms.GMapControl gMapControl1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private DevExpress.XtraEditors.MarqueeProgressBarControl marqueeProgressBarControl1;
     }
 }

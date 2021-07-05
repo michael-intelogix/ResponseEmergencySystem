@@ -144,13 +144,13 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             latitude = Convert.ToDouble(_selectedIncident.IncidentLatitude);
             longitude = Convert.ToDouble(_selectedIncident.IncidentLongitude);
 
-            GetDocuments(_selectedIncident.ID_Incident);
+            //GetDocuments(_selectedIncident.ID_Incident);
 
             _view.TruckId = _selectedIncident.truck.ID_Samsara;
             //if (_PersonsInvolved.Count > 0)
             //    _view.InvolvedPersonsDataSorurce = _PersonsInvolved;
 
-            _view.Documents = CaptureService.ListDocumentsCapture(_selectedIncident.ID_Incident);
+            //_view.Documents = CaptureService.ListDocumentsCapture(_selectedIncident.ID_Incident);
             //_view.LoadIncident();
 
 
@@ -304,7 +304,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                         {
                             foreach (var doc in documentCapture.documents)
                             {
-                                if (doc.Status == "empty" || doc.Status == "loaded")
+                                if (doc.Status == "empty" || doc.Status == "loaded" || doc.Status == "disposed")
                                     continue;
 
                                 if (doc.Status == "deleted")
@@ -847,6 +847,9 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         {
             _PersonsInvolved.RemoveAt(idx);
             _view.InvolvedPersonsDataSource = _PersonsInvolved;
+            CleanPersonInvolvedCapture();
+            _view.BtnAddInvolvedPersonVisibility = true;
+            _view.BtnEditInvolvedPersonVisibility = false;
         }
         #endregion
 
@@ -1075,10 +1078,14 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             }
         }
 
-        private void GetDocuments(Guid ID)
+        public void GetDocuments()
         {
-            var documentCaptures = CaptureService.ListDocumentsCapture(ID);
-            _view.Documents = documentCaptures;
+            if (ID_Incident != "")
+            {
+                var documentCaptures = CaptureService.ListDocumentsCapture(Guid.Parse(ID_Incident));
+                _view.Documents = documentCaptures;
+            }
+            
         }
 
         //private (string ID, bool success) SaveCapture(string ID_CaptureType, string ID_Incident)

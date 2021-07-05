@@ -150,7 +150,7 @@ namespace ResponseEmergencySystem.Models.Documents
                         Utils.ShowMessage(ex.Message, title: "Image upload error", type: "Error");
                     }
 
-                } 
+                }
                 else
                 {
                     this.Status = "disposed";

@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -31,6 +32,12 @@ namespace ResponseEmergencySystem.Forms.Incidents
         public DriverIncident(string view = "edit")
         {
             InitializeComponent();
+
+            if (constants.tester)
+            {
+                lue_Reason.Visible = true;
+                edt_OtherReason.Visible = true;
+            }
 
             switch (view)
             {
@@ -588,7 +595,8 @@ namespace ResponseEmergencySystem.Forms.Incidents
             for (int i = 0; i < documents.Count; i++)
             {
 
-                if (_docs[gv_DocumentCaptures.FocusedRowHandle].documents[i].Status == "deleted")
+                if (_docs[gv_DocumentCaptures.FocusedRowHandle].documents[i].Status == "deleted" ||
+                    _docs[gv_DocumentCaptures.FocusedRowHandle].documents[i].Status == "disposed")
                     continue;
 
                 space = (space < 50) ? 50 : space;
@@ -710,9 +718,13 @@ namespace ResponseEmergencySystem.Forms.Incidents
                     if (_docs[gv_DocumentCaptures.FocusedRowHandle].documents[btnDelete.btnIdx].Status == "loaded")
                     {
                         _docs[gv_DocumentCaptures.FocusedRowHandle].Status = "updated";
+                        _docs[gv_DocumentCaptures.FocusedRowHandle].documents[btnDelete.btnIdx].SetStatus("deleted");
+                    }
+                    else
+                    {
+                        _docs[gv_DocumentCaptures.FocusedRowHandle].documents[btnDelete.btnIdx].SetStatus("disposed");
                     }
 
-                    _docs[gv_DocumentCaptures.FocusedRowHandle].documents[btnDelete.btnIdx].SetStatus("deleted");
                     xtraScrollableControl1.Controls.Clear();
                     CreatePanel(0, _docs[gv_DocumentCaptures.FocusedRowHandle].documents);
                 };
@@ -802,21 +814,23 @@ namespace ResponseEmergencySystem.Forms.Incidents
 
         private void Incident_Load(object sender, EventArgs e)
         {
-            if(!isNew)
+
+            if (backgroundWorker1.IsBusy != true)
+            {
+                backgroundWorker1.RunWorkerAsync();
+            }
+
+            if (!isNew)
             {
                 _controller.LoadIncident();
 
-                LoadDocuments();
-
-                var docsTypes = _docs.Select(dc => new { dc.CaptureType }).ToList();
-                gc_DocumentCaptures.DataSource = docsTypes;
-                gv_DocumentCaptures.BestFitColumns();
+                
             }
 
             if (isNew)
             {
                 _docs = new List<DocumentCapture>();
-                LoadDocuments();
+                
             }
 
             if (!isShow)
@@ -838,6 +852,8 @@ namespace ResponseEmergencySystem.Forms.Incidents
                 gMapControl1.ShowCenter = false;
 
                 GMap.NET.WindowsForms.GMapOverlay markers = new GMap.NET.WindowsForms.GMapOverlay("markers");
+                //GMap.NET.WindowsForms.GMapMarker marker = new GMap.NET.WindowsForms.Markers.GMarkerGoogle(
+                //                                                new GMap.NET.PointLatLng(_controller.latitude, _controller.longitude),
                 GMap.NET.WindowsForms.GMapMarker marker = new GMap.NET.WindowsForms.Markers.GMarkerGoogle(
                                                                 new GMap.NET.PointLatLng(_controller.latitude, _controller.longitude),
                 GMap.NET.WindowsForms.Markers.GMarkerGoogleType.red_dot);
@@ -927,7 +943,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             gMapControl1.Overlays.Clear();
             markers.Markers.Add(marker);
             gMapControl1.Overlays.Add(markers);
-            //_controller.SetTruck("");
+            ////_controller.SetTruck("");
             splashScreenManager1.CloseWaitForm();
         }
 
@@ -1079,6 +1095,31 @@ namespace ResponseEmergencySystem.Forms.Incidents
                 {
                     e.Cancel = true;
                 }
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            _controller.GetDocuments();
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            marqueeProgressBarControl1.Visible = false;
+            LoadDocuments();
+
+            var docsTypes = _docs.Select(dc => new { dc.CaptureType }).ToList();
+            gc_DocumentCaptures.DataSource = docsTypes;
+            gv_DocumentCaptures.BestFitColumns();
+        }
+
+        private void ckedt_MailByCategory_CheckedChanged(object sender, EventArgs e)
+        {
+            lue_MailDirectory.ReadOnly = (bool)ckedt_MailByCategory.EditValue;
+        }
+
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            Debug.WriteLine(e.ProgressPercentage);
         }
 
         private void lue_Reason_EditValueChanged(object sender, EventArgs e)

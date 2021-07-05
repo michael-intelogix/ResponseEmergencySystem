@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using ResponseEmergencySystem.Code;
+using ResponseEmergencySystem.Services;
 using ResponseEmergencySystem.Views;
 using System;
 using System.Collections.Generic;
@@ -44,6 +45,8 @@ namespace ResponseEmergencySystem.Forms.Modals
         {
             AppPath = Properties.Settings.Default.AppFolder;
             textEdit1.Text = AppPath.Replace("\\", "/");
+            lue_Drivers.Properties.DataSource = DriverService.List_SamsaraDrivers();
+            lue_Trucks.Properties.DataSource = SamsaraService.List_SamsaraTrucks();
         }
 
         private void ckedt_NewCategory_CheckedChanged(object sender, EventArgs e)
@@ -208,6 +211,54 @@ namespace ResponseEmergencySystem.Forms.Modals
         private void edt_Mail_Leave(object sender, EventArgs e)
         {
             _controller.validate("mail");
+        }
+
+        private void simpleButton1_Click_1(object sender, EventArgs e)
+        {
+            if ((bool)ckedt_UpdateAllDrivers.EditValue)
+            {
+                splashScreenManager1.ShowWaitForm();
+                SamsaraService.UpdateSamsaraDrivers();
+                splashScreenManager1.CloseWaitForm();
+            }
+            else
+            {
+                var driverId = lue_Drivers.EditValue == null ? "" : lue_Drivers.EditValue.ToString();
+                if (driverId == "")
+                {
+                    Utils.ShowMessage("Please select a driver first", type: "Warning");
+                    return;
+                }
+
+                splashScreenManager1.ShowWaitForm();
+                SamsaraService.UpdateDriverSamsara(driverId);
+                splashScreenManager1.CloseWaitForm();
+            }
+                
+
+        }
+
+        private void simpleButton8_Click(object sender, EventArgs e)
+        {
+            if ((bool)ckedt_UpdateAllTrucks.EditValue)
+            {
+                splashScreenManager1.ShowWaitForm();
+                SamsaraService.UpdateSamsaraVehicles();
+                splashScreenManager1.CloseWaitForm();
+            }
+            else
+            {
+                var truckId = lue_Trucks.EditValue == null ? "" : lue_Trucks.EditValue.ToString();
+                if (truckId == "")
+                {
+                    Utils.ShowMessage("Please select a truck first", type: "Warning");
+                    return;
+                }
+
+                splashScreenManager1.ShowWaitForm();
+                SamsaraService.UpdateTruckSamsara(truckId);
+                splashScreenManager1.CloseWaitForm();
+            }
         }
     }
 }
