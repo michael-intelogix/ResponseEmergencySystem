@@ -14,7 +14,7 @@ namespace ResponseEmergencySystem.Views.Incidents
         void SetController(Controllers.Incidents.DriverIncidentController controller);
 
         void LoadIncident();
-        void LoadStates(DataTable dt_States);
+        void LoadStates(List<Models.State> dt_States);
         void LoadInjuredPersons(DataTable dt_InjuredPersons);
         void ViewClose();
 

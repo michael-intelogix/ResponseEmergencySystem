@@ -884,7 +884,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             throw new NotImplementedException();
         }
 
-        public void LoadStates(DataTable dt_States)
+        public void LoadStates(List<Models.State> dt_States)
         {
             lue_states.Properties.DataSource = dt_States;
             lue_DriverLicenseState.Properties.DataSource = dt_States;

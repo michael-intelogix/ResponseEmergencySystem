@@ -38,7 +38,7 @@ namespace ResponseEmergencySystem.Code
             {
                 using (SqlCommand cmd = new SqlCommand
                 {
-                    Connection = constants.GeneralConnection,
+                    Connection = constants.SIREMConnection,
                     CommandText = $"List_States",
                     CommandType = CommandType.StoredProcedure
                 })

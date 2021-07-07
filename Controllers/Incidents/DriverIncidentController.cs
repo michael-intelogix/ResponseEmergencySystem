@@ -80,7 +80,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             _view = view;
             view.SetController(this);
 
-            _view.LoadStates(Functions.getStates("99F9B034-75BE-4615-88C6-8D64BC3549DC"));
+            _view.LoadStates(GeneralService.list_States());
             _view.DriversDataSource = _DriversLocal;
             _view.TrucksDataSource = _trucks;
             _view.MailDirectoryCategoriesDataSource = MailDirectoryService.GetCategories();
@@ -444,6 +444,12 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
             t.Start();
             t.Wait();
+
+            if (!t.Result.validation)
+            {
+                Utils.ShowMessage(t.Result.Message, title: "Incident Error", type: "Error");
+                return;
+            }
 
             if (t.Result.validation)
             {

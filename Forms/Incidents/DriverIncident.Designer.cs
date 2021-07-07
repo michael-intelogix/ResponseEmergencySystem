@@ -143,6 +143,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.gv_DocumentCaptures = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.xtraScrollableControl1 = new DevExpress.XtraEditors.XtraScrollableControl();
+            this.marqueeProgressBarControl1 = new DevExpress.XtraEditors.MarqueeProgressBarControl();
             this.panelControl17 = new DevExpress.XtraEditors.PanelControl();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton11 = new DevExpress.XtraEditors.SimpleButton();
@@ -226,7 +227,6 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.marqueeProgressBarControl1 = new DevExpress.XtraEditors.MarqueeProgressBarControl();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_License.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_PhoneNumber.Properties)).BeginInit();
@@ -293,6 +293,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             ((System.ComponentModel.ISupportInitialize)(this.gc_DocumentCaptures)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_DocumentCaptures)).BeginInit();
             this.xtraScrollableControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.marqueeProgressBarControl1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl17)).BeginInit();
             this.panelControl17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
@@ -351,7 +352,6 @@ namespace ResponseEmergencySystem.Forms.Incidents
             ((System.ComponentModel.ISupportInitialize)(this.ckedt_MailByCategory.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnl_PDFControls)).BeginInit();
             this.pnl_PDFControls.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.marqueeProgressBarControl1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // edt_License
@@ -433,12 +433,12 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.lue_states.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lue_states.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("pk_id", "id", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("state", "Name9")});
-            this.lue_states.Properties.DisplayMember = "state";
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID_State", "id", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Name9")});
+            this.lue_states.Properties.DisplayMember = "Name";
             this.lue_states.Properties.NullText = "";
             this.lue_states.Properties.ShowHeader = false;
-            this.lue_states.Properties.ValueMember = "pk_id";
+            this.lue_states.Properties.ValueMember = "ID_State";
             this.lue_states.Properties.EditValueChanged += new System.EventHandler(this.OnStateEditValueChanged);
             this.lue_states.Size = new System.Drawing.Size(107, 24);
             this.lue_states.TabIndex = 3;
@@ -1459,6 +1459,14 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.xtraScrollableControl1.Size = new System.Drawing.Size(1273, 286);
             this.xtraScrollableControl1.TabIndex = 0;
             // 
+            // marqueeProgressBarControl1
+            // 
+            this.marqueeProgressBarControl1.EditValue = 0;
+            this.marqueeProgressBarControl1.Location = new System.Drawing.Point(379, 110);
+            this.marqueeProgressBarControl1.Name = "marqueeProgressBarControl1";
+            this.marqueeProgressBarControl1.Size = new System.Drawing.Size(563, 18);
+            this.marqueeProgressBarControl1.TabIndex = 18;
+            // 
             // panelControl17
             // 
             this.panelControl17.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
@@ -2132,12 +2140,12 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.lue_DriverLicenseState.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lue_DriverLicenseState.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("pk_id", "id", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("state", "state")});
-            this.lue_DriverLicenseState.Properties.DisplayMember = "state";
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID_State", "id", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "state")});
+            this.lue_DriverLicenseState.Properties.DisplayMember = "Name";
             this.lue_DriverLicenseState.Properties.NullText = "";
             this.lue_DriverLicenseState.Properties.ShowHeader = false;
-            this.lue_DriverLicenseState.Properties.ValueMember = "pk_id";
+            this.lue_DriverLicenseState.Properties.ValueMember = "ID_State";
             this.lue_DriverLicenseState.Size = new System.Drawing.Size(206, 24);
             this.lue_DriverLicenseState.TabIndex = 4;
             this.lue_DriverLicenseState.TabStop = false;
@@ -2435,13 +2443,6 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
             this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
             // 
-            // marqueeProgressBarControl1
-            // 
-            this.marqueeProgressBarControl1.Location = new System.Drawing.Point(379, 110);
-            this.marqueeProgressBarControl1.Name = "marqueeProgressBarControl1";
-            this.marqueeProgressBarControl1.Size = new System.Drawing.Size(563, 18);
-            this.marqueeProgressBarControl1.TabIndex = 18;
-            // 
             // DriverIncident
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -2525,6 +2526,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             ((System.ComponentModel.ISupportInitialize)(this.gc_DocumentCaptures)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_DocumentCaptures)).EndInit();
             this.xtraScrollableControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.marqueeProgressBarControl1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl17)).EndInit();
             this.panelControl17.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
@@ -2590,7 +2592,6 @@ namespace ResponseEmergencySystem.Forms.Incidents
             ((System.ComponentModel.ISupportInitialize)(this.ckedt_MailByCategory.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnl_PDFControls)).EndInit();
             this.pnl_PDFControls.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.marqueeProgressBarControl1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

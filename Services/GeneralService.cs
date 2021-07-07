@@ -22,7 +22,7 @@ namespace ResponseEmergencySystem.Services
             {
                 using (SqlCommand cmd = new SqlCommand
                 {
-                    Connection = constants.GeneralConnection,
+                    Connection = constants.SIREMConnection,
                     CommandText = $"List_States",
                     CommandType = CommandType.StoredProcedure
                 })
@@ -32,7 +32,7 @@ namespace ResponseEmergencySystem.Services
                         cmd.Connection.Close();
                     }
 
-                    cmd.Parameters.AddWithValue("@ID_Country", Guid.Empty);
+                    cmd.Parameters.AddWithValue("@ID_Country", "8E87EA2A-5D45-4CF5-B752-FF8675483C74");
                     cmd.Connection.Open();
                     using (SqlDataReader sdr = cmd.ExecuteReader())
                     {
@@ -41,21 +41,13 @@ namespace ResponseEmergencySystem.Services
                             throw new NullReferenceException("No Information Available.");
                         }
 
-                        result.Add(
-                            new State(
-                                "00000000-0000-0000-0000-000000000000",
-                                "00000000-0000-0000-0000-000000000000",
-                                "DNE"
-                            )
-                        );
-
                         while (sdr.Read())
                         {
-
+                            Debug.WriteLine((string)sdr["state"]);
                             result.Add(
                                 new State(
-                                    (string)sdr["pk_id"],
-                                    (string)sdr["country"],
+                                    sdr["pk_id"].ToString(),
+                                    (string)sdr["Country"],
                                     (string)sdr["state"]
                                 )
                             );
@@ -79,7 +71,7 @@ namespace ResponseEmergencySystem.Services
             {
                 using (SqlCommand cmd = new SqlCommand
                 {
-                    Connection = constants.GeneralConnection,
+                    Connection = constants.SIREMConnection,
                     CommandText = $"List_Cities",
                     CommandType = CommandType.StoredProcedure
                 })
@@ -104,7 +96,7 @@ namespace ResponseEmergencySystem.Services
 
                             result.Add(
                                 new City(
-                                    (string)sdr["pk_id"],
+                                    sdr["pk_id"].ToString(),
                                     (string)sdr["state"],
                                     (string)sdr["city"]
                                 )
