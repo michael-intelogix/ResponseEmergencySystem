@@ -18,13 +18,22 @@ namespace ResponseEmergencySystem.Models.Documents
         public List<Document> documents { get; set; }
         public string Status { get; set; }
 
-
         public DocumentCapture(string captureTypeID, string captureType, string c)
         {
             ID_Incident = Guid.Empty.ToString();
             ID_CaptureType = captureTypeID;
             CaptureType = captureType;
             this.comments = c;
+        }
+
+        public DocumentCapture(string captureTypeID, string captureType, string name, string c, List<Document> docs)
+        {
+            ID_Incident = Guid.Empty.ToString();
+            ID_CaptureType = captureTypeID;
+            CaptureType = captureType;
+            this.name = name;
+            this.comments = c;
+            documents = docs;
         }
 
         public DocumentCapture(string id, string idCaptureType, string captureType, string comments)

@@ -129,6 +129,11 @@ namespace ResponseEmergencySystem.Forms
             repositoryItemLookUpEdit1.DataSource = StatusDetailService.list_StatusDetail();
             itx.cfrm_InsertForm(_mainView, pnl_Container);
             splashScreenManager1.CloseWaitForm();
+
+            if (backgroundWorker1.IsBusy != true)
+            {
+                backgroundWorker1.RunWorkerAsync();
+            }
         }
 
         private void pnl_Container_SizeChanged(object sender, EventArgs e)
@@ -224,5 +229,9 @@ namespace ResponseEmergencySystem.Forms
             Utils.ShowMessage("Samsara drivers have been updated", "Drivers Samsara");
         }
 
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            CaptureService.ListDocumentsCapture2(Guid.Parse("A04E4FCF-7D23-40C1-9E51-25D4786F4FB6"));
+        }
     }
 }

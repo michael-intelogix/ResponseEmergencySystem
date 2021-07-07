@@ -71,6 +71,7 @@ namespace ResponseEmergencySystem.Forms
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.pnl_Container = new DevExpress.XtraEditors.PanelControl();
             this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ResponseEmergencySystem.Forms.WaitForm1), true, true);
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit2.CalendarTimeProperties)).BeginInit();
@@ -464,6 +465,10 @@ namespace ResponseEmergencySystem.Forms
             // 
             this.splashScreenManager1.ClosingDelay = 500;
             // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            // 
             // frm_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -539,5 +544,6 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraBars.BarButtonItem barButtonItem13;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
         private DevExpress.XtraBars.BarButtonItem barButtonItem14;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

@@ -80,7 +80,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             _view = view;
             view.SetController(this);
 
-            _view.LoadStates(Functions.getStates("99F9B034-75BE-4615-88C6-8D64BC3549DC"));
+            _view.LoadStates(Functions.getStates("8E87EA2A-5D45-4CF5-B752-FF8675483C74"));
             _view.DriversDataSource = _DriversLocal;
             _view.TrucksDataSource = _trucks;
             _view.MailDirectoryCategoriesDataSource = MailDirectoryService.GetCategories();

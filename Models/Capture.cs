@@ -123,24 +123,24 @@ namespace ResponseEmergencySystem.Models
         }
 
 
-        public List<ImageCapture> GetCaptures(string captures, string captureType)
+        public List<Documents.Document> GetCaptures(string captures, string captureType)
         {
-            List<ImageCapture> _imagesListOfNames = new List<ImageCapture>();
+            List<Documents.Document> _imagesListOfNames = new List<Documents.Document>();
             switch (captures)
             {
                 case "Page":
                     string page = captures.Trim() + " " + 1;
-                    _imagesListOfNames.Add(new ImageCapture(page));
+                    _imagesListOfNames.Add(new Documents.Document(page, "empty"));
                     break;
                 case "Capture":
                     name = captures.Trim().Trim() + " of the " + captureType;
-                    _imagesListOfNames.Add(new ImageCapture(name));
+                    _imagesListOfNames.Add(new Documents.Document(name, "empty"));
                     break;
                 default:
                     foreach (var n in captures.Split(','))
                     {
                         name = n.Trim() + " of the " + captureType;
-                        _imagesListOfNames.Add(new ImageCapture(name));
+                        _imagesListOfNames.Add(new Documents.Document(name, "empty"));
                     }
                     break;
             }

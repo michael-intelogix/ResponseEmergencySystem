@@ -688,7 +688,7 @@ namespace ResponseEmergencySystem.Services
                                     captures[i].ID_Capture.ToString(),
                                     captures[i].ID_CaptureType.ToString(),
                                     captureType.Name,
-                                    ""
+                                    captures[i].Comments 
                                     )
                                 );
 
@@ -750,6 +750,137 @@ namespace ResponseEmergencySystem.Services
                 //Utils.ShowMessage($"Incident with folio: {folio} has been deleted", title: "Incident Deleted", type: "approved");
                 //return new Response()
             }
+
+
+        }
+
+
+        private static List<Models.Documents.DocumentCapture> ListCurrentCaptures(Guid incident)
+        {
+
+            var result = new List<Models.Documents.DocumentCapture>();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand
+                {
+                    Connection = constants.SIREMConnection,
+                    CommandText = $"List_CurrentCaptures",
+                    CommandType = CommandType.StoredProcedure
+                })
+                {
+                    if (cmd.Connection.State == ConnectionState.Open)
+                    {
+                        cmd.Connection.Close();
+                    }
+
+                    cmd.Parameters.AddWithValue("@ID_Incident", incident);
+
+                    cmd.Connection.Open();
+                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    {
+                        if (sdr == null)
+                        {
+                            throw new NullReferenceException("No Information Available.");
+                        }
+
+                        while (sdr.Read())
+                        {
+
+                            while (sdr.Read())
+                            {
+
+                                var c = new Models.Capture();
+                                var listDocuments = c.GetCaptures((string)sdr["CapturesNames"], (string)sdr["Name"]);
+
+                                result.Add(
+                                    new Models.Documents.DocumentCapture(
+                                        sdr["ID_Capture"].ToString(),
+                                        sdr["ID_CaptureType"].ToString(),
+                                        (string)sdr["Name"],
+                                        (string)sdr["Comments"],
+                                        listDocuments
+                                    )
+                                );
+                                
+                            }
+
+                            //MessageBox.Show((string)sdr["msg"]);
+                        }
+                    }
+                    cmd.Connection.Close();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Capture couldn't be saved due: {ex.Message}");
+
+                return new List<Models.Documents.DocumentCapture>();
+            }
+
+            return result;
+        }
+
+        public static List<Models.Documents.DocumentCapture> ListDocumentsCapture2(Guid incident)
+        {
+            var t = new Task<List<Models.Documents.DocumentCapture>>(() => ListCurrentCaptures(incident));
+            t.Start();
+            t.Wait();
+
+            var result = t.Result;
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand
+                {
+                    Connection = constants.SIREMConnection,
+                    CommandText = $"List_CurrentCapturesDocuments",
+                    CommandType = CommandType.StoredProcedure
+                })
+                {
+                    if (cmd.Connection.State == ConnectionState.Open)
+                    {
+                        cmd.Connection.Close();
+                    }
+
+                    cmd.Parameters.AddWithValue("@ID_Incident", incident);
+
+                    cmd.Connection.Open();
+                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    {
+                        if (sdr == null)
+                        {
+                            throw new NullReferenceException("No Information Available.");
+                        }
+
+                        while (sdr.Read())
+                        {
+
+                            while (sdr.Read())
+                            {
+                                string documentName = (string)sdr["Description"];
+
+                                
+                                var documents = result.Where(r => r.ID_Capture == (string)sdr["ID_Capture"]).FirstOrDefault().documents;
+
+
+                            }
+
+                            //MessageBox.Show((string)sdr["msg"]);
+                        }
+                    }
+                    cmd.Connection.Close();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Capture couldn't be saved due: {ex.Message}");
+
+                return new List<Models.Documents.DocumentCapture>();
+            }
+
+            return result;
 
 
         }
