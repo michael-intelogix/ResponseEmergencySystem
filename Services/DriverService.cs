@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -271,6 +272,58 @@ namespace ResponseEmergencySystem.Services
 
                 return new List<Driver>();
             }
+        }
+
+        public static Response AddDriver(string ID, string name, string phone, string license)
+        {
+            
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand
+                {
+                    Connection = constants.SIREMConnection,
+                    CommandText = $"Update_Employee",
+                    CommandType = CommandType.StoredProcedure
+                })
+                {
+                    if (cmd.Connection.State == ConnectionState.Open)
+                    {
+                        cmd.Connection.Close();
+                    }
+
+                    cmd.Parameters.AddWithValue("@ID_Employee", Guid.Parse(ID));
+                    cmd.Parameters.AddWithValue("@Name", name);
+                    cmd.Parameters.AddWithValue("@PhoneNumber", phone);
+                    cmd.Parameters.AddWithValue("@License", license);
+
+                    cmd.Connection.Open();
+                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    {
+                        if (sdr == null)
+                        {
+                            throw new NullReferenceException("No Information Available.");
+                        }
+                        while (sdr.Read())
+                        {
+                            Debug.WriteLine(sdr["Validacion"]);
+                            Debug.WriteLine(sdr["msg"]);
+                            Debug.WriteLine(sdr["ID"]);
+
+                            return new Response(Convert.ToBoolean(sdr["Validacion"]), sdr["msg"].ToString(), sdr["ID"].ToString());
+                        }
+                    }
+                    cmd.Connection.Close();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Broker couldn't be saved due: {ex.Message}");
+                return new Response(false, ex.Message, Guid.Empty.ToString());
+
+            }
+
+            return new Response(false, "Failed request", Guid.Empty.ToString());
         }
     }
 }

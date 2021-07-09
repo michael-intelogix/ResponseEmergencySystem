@@ -52,7 +52,6 @@ namespace ResponseEmergencySystem.Forms.Incidents
                     col_Delete.Visible = false;
                     col_Edit.Visible = false;
                     isShow = true;
-                    enableReadOnly();
                     break;
                 case "add":
                     pnl_Header.Visible = true;
@@ -99,6 +98,31 @@ namespace ResponseEmergencySystem.Forms.Incidents
             btn_Broker2.Visible = false;
             edt_manifest.ReadOnly = true;
             edt_manifest.Properties.UseReadOnlyAppearance = true;
+        }
+
+
+        public void DriverInformationReadOnly(bool enable, bool update = false)
+        {
+            lue_Drivers.ReadOnly = enable;
+
+            edt_FullName.Properties.UseReadOnlyAppearance = true;
+            edt_PhoneNumber.Properties.UseReadOnlyAppearance = true;
+            edt_License.Properties.UseReadOnlyAppearance = true;
+
+            edt_FullName.ReadOnly = !enable;
+            edt_PhoneNumber.ReadOnly = !enable;
+            edt_License.ReadOnly = !enable;
+
+            if (_controller.IsNewDriver())
+            {
+                ckedt_NewDriver.Text = "Update this driver";
+
+            }
+            else
+            {
+                ckedt_NewDriver.Text = "Register as new driver";
+            }
+
         }
         #endregion
 
@@ -265,6 +289,11 @@ namespace ResponseEmergencySystem.Forms.Incidents
         {
             get { return memoEdit1.EditValue; }
             set { memoEdit1.EditValue = value; }
+        }
+
+        public bool NewDriver
+        {
+            get { return (bool)ckedt_NewDriver.EditValue; }
         }
         #endregion
 
@@ -820,15 +849,25 @@ namespace ResponseEmergencySystem.Forms.Incidents
                 backgroundWorker1.RunWorkerAsync();
             }
 
+            if (isShow)
+            {
+                enableReadOnly();
+            }
+
             if (!isNew)
             {
                 _controller.LoadIncident();
-
                 
+            }
+
+            if (!isNew && !isShow)
+            {
+                DriverInformationReadOnly(false, _controller.IsNewDriver());
             }
 
             if (isNew)
             {
+                DriverInformationReadOnly(false);
                 _docs = new List<DocumentCapture>();
                 
             }

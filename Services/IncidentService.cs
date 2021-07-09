@@ -201,7 +201,8 @@ namespace ResponseEmergencySystem.Services
                                     (string)sdr["ID_StatusDetail"],
                                     (string)sdr["Description"],
                                     (string)sdr["Name"],
-                                    (string)sdr["PhoneNumber"]
+                                    (string)sdr["PhoneNumber"],
+                                    (bool)sdr["NewDriver"]
                                 )
                             );
                         }
@@ -361,6 +362,7 @@ namespace ResponseEmergencySystem.Services
                     cmd.Parameters.AddWithValue("@ID_User", ID_User);
                     cmd.Parameters.AddWithValue("@Comments", comments);
                     cmd.Parameters.AddWithValue("@DSamsara", dSamsara);
+                    cmd.Parameters.AddWithValue("@NewDriver", dSamsara);
                     cmd.Parameters.AddWithValue("@Status", true);
 
                     cmd.Connection.Open();
@@ -865,6 +867,58 @@ namespace ResponseEmergencySystem.Services
 
                 return reasons;
             }
+        }
+
+        public static void AddNewEmployee(PersonsInvolved involved)
+        {
+
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand
+                {
+                    Connection = constants.SIREMConnection,
+                    CommandText = $"Update_NewEmployee",
+                    CommandType = CommandType.StoredProcedure
+                })
+                {
+                    if (cmd.Connection.State == ConnectionState.Open)
+                    {
+                        cmd.Connection.Close();
+                    }
+
+                    cmd.Parameters.AddWithValue("@ID_Employee", involved.ID_Injured);
+                    cmd.Parameters.AddWithValue("@fullName", involved.FullName);
+                    cmd.Parameters.AddWithValue("@phoneNumber", involved.PhoneNumber);
+                    cmd.Parameters.AddWithValue("@license", involved.ID_Incident);
+
+                    cmd.Connection.Open();
+                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    {
+                        if (sdr == null)
+                        {
+                            throw new NullReferenceException("No Information Available.");
+                        }
+                        while (sdr.Read())
+                        {
+                            Debug.WriteLine(sdr["Validacion"]);
+                            Debug.WriteLine(sdr["msg"]);
+                            Debug.WriteLine(sdr["ID"]);
+
+                            //MessageBox.Show((string)sdr["msg"]);
+
+                            response = new Response(Convert.ToBoolean(sdr["Validacion"]), sdr["msg"].ToString(), sdr["ID"].ToString());
+                        }
+                    }
+                    cmd.Connection.Close();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Involved person couldn't be saved due: {ex.Message}");
+            }
+
         }
     }
 }

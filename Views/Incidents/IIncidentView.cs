@@ -18,6 +18,12 @@ namespace ResponseEmergencySystem.Views.Incidents
         void LoadInjuredPersons(DataTable dt_InjuredPersons);
         void ViewClose();
 
+        #region View Methods
+
+        void DriverInformationReadOnly(bool enable, bool update = false);
+
+        #endregion
+
         List<Models.Documents.DocumentCapture> Documents { get; set; }
 
         #region basic vehicle incident
@@ -51,6 +57,8 @@ namespace ResponseEmergencySystem.Views.Incidents
         //this value can be highway street and other kind of references like that 
         string LocationReferences { get; set; }
         object Comments { get; set; }
+
+        bool NewDriver { get; }
         #endregion
 
         #region input properties

@@ -82,15 +82,20 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
             _view.LoadStates(GeneralService.list_States());
             _view.DriversDataSource = _DriversLocal;
+            var samsaraDrivers = _DriversLocal.Where(x => x.ID_Driver == Guid.Empty).ToList();
             _view.TrucksDataSource = _trucks;
             _view.MailDirectoryCategoriesDataSource = MailDirectoryService.GetCategories();
+        }
+
+        public bool IsNewDriver()
+        {
+            //_selectedIncident.isNew
+            return false;
         }
 
         public void LoadIncident()
         {
             _selectedIncident = IncidentService.GetIncident(ID_Incident)[0];
-            //_PersonsInvolved = IncidentService.list_PersonsInvolved(ID_Incident);
-            //_view.MailDirectoryCategoriesDataSource = MailDirectoryService.GetCategories();
 
             ID_Truck = _selectedIncident.truck.ID_Truck.ToString();
             
@@ -144,16 +149,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             latitude = Convert.ToDouble(_selectedIncident.IncidentLatitude);
             longitude = Convert.ToDouble(_selectedIncident.IncidentLongitude);
 
-            //GetDocuments(_selectedIncident.ID_Incident);
-
             _view.TruckId = _selectedIncident.truck.ID_Samsara;
-            //if (_PersonsInvolved.Count > 0)
-            //    _view.InvolvedPersonsDataSorurce = _PersonsInvolved;
-
-            //_view.Documents = CaptureService.ListDocumentsCapture(_selectedIncident.ID_Incident);
-            //_view.LoadIncident();
-
-
 
         }
 
@@ -209,7 +205,8 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         }
         public void Update()
         {
-            //_mainView.OpenSpinner();
+            Task<Response> t2 = null;
+
             //check location refreces
             if (_view.SendAfterSave)
             {
@@ -228,11 +225,23 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                 }
             }
 
+            if (_view.NewDriver || ID_Driver == Guid.Empty.ToString())
+            {
+                t2 = new Task<Response>(() => DriverService.AddDriver(Guid.Empty.ToString(), _view.FullName, _view.PhoneNumber, _view.License));
+                t2.Start();
+                t2.Wait();
+                if (!t2.Result.validation)
+                {
+                    Utils.ShowMessage(t2.Result.Message, title: "New Employee Error", type: "Error");
+                    return;
+                }
+            }
+
             try
             {
                 var t = new Task<Response>(() => IncidentService.UpdateIncident(
                     ID_Incident,
-                    ID_Driver == Guid.Empty.ToString() ? _ID_Samsara : ID_Driver,
+                    _view.NewDriver ? t2.Result.ID.ToString() : ID_Driver,
                     _DriverName,
                     _view.ID_State,
                     _view.ID_City,
@@ -263,8 +272,6 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
                 t.Start();
                 t.Wait();
-
-                //_mainView.CloseSpinner();
 
                 foreach (var person in _PersonsInvolved)
                 {
@@ -321,49 +328,9 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                                 tDocument.Wait();
                             }
                         }
-                        //var t1 = new Task(() => CaptureService.AddImage(Guid.NewGuid().ToString(), ID_Capture, document.FirebaseUrl, document.name, "", document.Type););
-                        //t1.Start();
-                        //t1.Wait();
-                        //if (t.Result.validation)
-                        //{
-
-                            //    Debug.WriteLine($"Type of capture: {documentCapture.ID_CaptureType}");
-                            //    if (documentCapture.Status == "created")
-                            //    {
-                            //        SaveAsync(documentCapture.ID_CaptureType, t.Result.ID, documentCapture.documents);
-                            //        // Wait for all the tasks to finish.
-                            //        //Task.WaitAll(SaveAsync(documentCapture.ID_CaptureType, t.Result.ID, documentCapture.documents).ToArray());
-
-                            //        //// We should never get to this point
-                            //        //Console.WriteLine("WaitAll() has not thrown exceptions. THIS WAS NOT EXPECTED.");
-                            //    }
-                            //    else if (documentCapture.Status == "updated")
-                            //    {
-                            //        UpdateAsync(t.Result.ID, documentCapture.documents, documentCapture.ID_Capture);
-                            //        // Wait for all the tasks to finish.
-                            //        //Task.WaitAll(UpdateAsync(t.Result.ID, documentCapture.documents, documentCapture.ID_Capture).ToArray());
-
-                            //        //// We should never get to this point
-                            //        //Console.WriteLine("WaitAll() has not thrown exceptions. THIS WAS NOT EXPECTED.");
-                            //    }
-                            //    else if (documentCapture.Status == "deleted")
-                            //    {
-                            //        Debug.WriteLine("is deleted");
-                            //    }
-                            //}
-                            //else
-                            //{
-                            //    Debug.Fail(t.Result.Message);
-                            //}
 
                     }
                 }
-
-
-                //foreach (var log in _logs)
-                //{
-                //    Debug.WriteLine(log.Change);
-                //}
 
                 if (_view.SendAfterSave && ID_Incident != "")
                 {
@@ -391,6 +358,8 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
         public void AddIncident()
         {
+            Task<Response> t2 = null; 
+
             if (_view.SendAfterSave)
             {
                 if (_view.SelectedMail == "" && !_view.SendToAllRecipientsInTheCategory)
@@ -408,11 +377,23 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                 }
             }
 
+            if (_view.NewDriver)
+            {
+                t2 = new Task<Response>(() => DriverService.AddDriver(Guid.Empty.ToString(), _view.FullName, _view.PhoneNumber, _view.License));
+                t2.Start();
+                t2.Wait();
+                if (!t2.Result.validation)
+                {
+                    Utils.ShowMessage(t2.Result.Message, title: "New Employee Error", type: "Error");
+                    return;
+                }
+            }
+
             DataRow folioReponse = Functions.Get_Folio().Select().First();
             Folio = folioReponse.ItemArray[2].ToString() + "-" + folioReponse.ItemArray[3].ToString();
 
             var t = new Task<Response>(() => IncidentService.AddIncident(
-                ID_Driver == Guid.Empty.ToString() ? _ID_Samsara : ID_Driver,
+                ID_Driver == Guid.Empty.ToString() ? t2.Result.ID : ID_Driver,
                 _view.FullName,
                 _view.ID_State,
                 _view.ID_City,
@@ -439,9 +420,8 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                 _view.TrailerNeedCrane,
                 constants.userID,
                 _view.Comments == null ? "" : _view.Comments.ToString(),
-                ID_Driver == Guid.Empty.ToString()
+                ID_Driver ==  Guid.Empty.ToString()
             ));
-
             t.Start();
             t.Wait();
 
@@ -505,27 +485,6 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
             }
 
-
-            //        foreach (var documentCapture in _view.Documents)
-            //{
-            //    if (t.Result.validation)
-            //    {
-            //        Debug.WriteLine($"Type of capture: {documentCapture.ID_CaptureType}");
-            //        if (documentCapture.Status == "created")
-            //            SaveAsync(documentCapture.ID_CaptureType, t.Result.ID, documentCapture.documents);
-            //        else if (documentCapture.Status == "updated")
-            //        {
-            //            SaveAsync(documentCapture.ID_CaptureType, t.Result.ID, documentCapture.documents);
-            //            //UpdateAsync(t.Result.ID, documentCapture.documents, documentCapture.ID_Capture);
-            //        }
-            //    }
-            //    else
-            //    {
-            //        Debug.Fail(t.Result.Message);
-            //    }
-
-            //}
-
             if (_view.SendAfterSave && ID_Incident != "")
             {
                 SendEmail();
@@ -566,17 +525,6 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                             )["data"].ToString()
                         );
 
-                        //List<Vehicle> locs = data.Select(p => new Vehicle
-                        //{
-                        //    name = p["name"].ToString().Trim(),
-                        //    time = (DateTime)p["location"]["time"],
-                        //    latitude = (float)p["location"]["latitude"],
-                        //    longitude = (float)p["location"]["longitude"],
-                        //    heading = (int)p["location"]["heading"],
-                        //    speed = (int)p["location"]["speed"],
-                        //    formattedLocation = (string)p["location"]["reverseGeo"]["formattedLocation"]
-                        //}).ToList();
-
                         //var filtered = locs.Where(x => x.name == number);
                         if (data.Count > 0)
                         {
@@ -586,19 +534,6 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                             _view.Longitude = longitude.ToString();
                             _view.LocationReferences = (string)data[0]["locations"][0]["reverseGeo"]["formattedLocation"];
                         }
-
-                        //foreach (var item in filtered)
-                        //{
-                        //    latitude = (double)item.latitude;
-                        //    longitude = (double)item.longitude;
-                        //    _view.Latitude = item.latitude.ToString();
-                        //    _view.Longitude = item.longitude.ToString();
-
-                        //    //Testing samsara = new Testing(item.name, item.time, item.latitude, item.longitude, item.heading, item.speed, item.formattedLocation);
-                        //    //samsara.Show();
-
-                        //}
-
 
                         //Dispose once all HttpClient calls are complete.This is not necessary if the containing object will be disposed of; for example in this case the HttpClient instance will be disposed automatically when the application terminates so the following call is superfluous.
                         client.Dispose();
@@ -901,6 +836,9 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                         _validation = true;
                     }
                     //_view.PnlDriverInvolvedVisibility = ckedtValue;
+                    break;
+                case "ckedt_NewDriver":
+                    _view.DriverInformationReadOnly(ckedtValue);
                     break;
             }
         }

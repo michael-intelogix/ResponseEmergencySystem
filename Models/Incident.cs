@@ -38,6 +38,8 @@ namespace ResponseEmergencySystem.Models
         public string Name { get; set; }
         public string PhoneNumber { get; set; } 
 
+        public bool isNew { get; }
+
         public Incident(
             Guid id, 
             string Folio,
@@ -129,7 +131,8 @@ namespace ResponseEmergencySystem.Models
            string ID_StatusDetail,
            string Description,
            string Name,
-           string PhoneNumber
+           string PhoneNumber,
+           bool isNew
        )
         {
             ID_Incident = id;
@@ -161,6 +164,7 @@ namespace ResponseEmergencySystem.Models
             this.Description = Description;
             this.Name = Name;
             this.PhoneNumber = PhoneNumber;
+            this.isNew = isNew;
         }
     }
 }
