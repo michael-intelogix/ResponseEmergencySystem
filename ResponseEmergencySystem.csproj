@@ -394,6 +394,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Builders\DriverBuilder.cs" />
     <Compile Include="Builders\LogBuilder.cs" />
     <Compile Include="Code\constants.cs" />
     <Compile Include="Code\FireBaseFunctions.cs" />
