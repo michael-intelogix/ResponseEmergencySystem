@@ -862,12 +862,12 @@ namespace ResponseEmergencySystem.Forms.Incidents
 
             if (!isNew && !isShow)
             {
-                DriverInformationReadOnly(false, _controller.IsNewDriver());
+                //DriverInformationReadOnly(true, _controller.IsNewDriver());
             }
 
             if (isNew)
             {
-                DriverInformationReadOnly(false);
+                //DriverInformationReadOnly(true);
                 _docs = new List<DocumentCapture>();
                 
             }

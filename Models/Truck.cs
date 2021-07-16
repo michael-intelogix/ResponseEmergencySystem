@@ -27,6 +27,12 @@ namespace ResponseEmergencySystem.Models
         public string TowingName { get; }
         public string TowedTo { get; }
 
+        public bool Damages { get; }
+
+        public bool CanMove { get; }
+
+        public bool NeedCrane { get; }
+
         public Truck(Guid ID_Truck, string number)
         {
             this.ID_Truck = ID_Truck;
@@ -60,6 +66,28 @@ namespace ResponseEmergencySystem.Models
             Model = model;
             Year = year;
             LicensePlate = license;
+        }
+
+        public Truck(string ID, string truckNumber, bool damages, bool canMove, bool needCrane)
+        {
+            this.ID = ID;
+            this.truckNumber = truckNumber;
+            this.Damages = damages;
+            this.CanMove = canMove;
+            this.NeedCrane = needCrane;
+        }
+
+        public Truck(Guid ID_Truck, string ID_Samsara, string number, string vin, string towingName, string towedTo, bool damages, bool canMove, bool needCrane)
+        {
+            this.ID_Truck = ID_Truck;
+            this.ID_Samsara = ID_Samsara;
+            truckNumber = number;
+            VinNumber = vin;
+            TowingName = towingName;
+            TowedTo = towedTo;
+            this.Damages = damages;
+            this.CanMove = canMove;
+            this.NeedCrane = needCrane;
         }
     }
 }

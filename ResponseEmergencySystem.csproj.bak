@@ -1,0 +1,994 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CAA0E2DC-C372-45D2-B6A0-DE3E2C5DC96D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ResponseEmergencySystem</RootNamespace>
+    <AssemblyName>ResponseEmergencySystem</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>\\35.223.136.179\01 IT-Apps\SIREM\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>false</MapFileExtensions>
+    <ProductName>SIREM</ProductName>
+    <PublisherName>IntelogixSoft</PublisherName>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>105</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>3CA198AABB078DC6063D5F9C0D849942F9EC4E08</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>ResponseEmergencySystem_2_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Charts.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.Desktop.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.DataAccess.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Dialogs.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Map.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v20.2.Drawing, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.PivotGrid.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v20.2.Export, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v20.2.UI, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraDialogs.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGauges.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraLayout.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraMap.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPdfViewer.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v20.2.Extensions, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v20.2.Core, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v20.2.Core.Desktop, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Firebase.Auth, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\FirebaseAuthentication.net.3.6.0\lib\netstandard1.1\Firebase.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Firebase.Storage, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\FirebaseStorage.net.1.0.3\lib\netstandard1.1\Firebase.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="FontAwesome.Sharp, Version=5.15.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\FontAwesome.Sharp.5.15.3\lib\net472\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.Core, Version=2.0.2.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>packages\GMap.NET.Core.2.0.2\lib\net46\GMap.NET.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.WindowsForms, Version=2.0.2.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>packages\GMap.NET.WinForms.2.0.2\lib\net46\GMap.NET.WindowsForms.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.WindowsPresentation, Version=2.0.2.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>packages\GMap.NET.WinPresentation.2.0.2\lib\net46\GMap.NET.WindowsPresentation.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Api.CommonProtos, Version=2.2.0.0, Culture=neutral, PublicKeyToken=3ec5ea7f18953e47, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Api.CommonProtos.2.2.0\lib\net461\Google.Api.CommonProtos.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Api.Gax, Version=3.2.0.0, Culture=neutral, PublicKeyToken=3ec5ea7f18953e47, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Api.Gax.3.2.0\lib\net461\Google.Api.Gax.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Api.Gax.Grpc, Version=3.2.0.0, Culture=neutral, PublicKeyToken=3ec5ea7f18953e47, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Api.Gax.Grpc.3.2.0\lib\net461\Google.Api.Gax.Grpc.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Api.Gax.Grpc.GrpcCore, Version=3.2.0.0, Culture=neutral, PublicKeyToken=3ec5ea7f18953e47, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Api.Gax.Grpc.GrpcCore.3.2.0\lib\net461\Google.Api.Gax.Grpc.GrpcCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis, Version=1.48.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Apis.1.48.0\lib\net45\Google.Apis.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth, Version=1.48.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Apis.Auth.1.48.0\lib\net45\Google.Apis.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth.PlatformServices, Version=1.48.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Apis.Auth.1.48.0\lib\net45\Google.Apis.Auth.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Core, Version=1.48.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Apis.Core.1.48.0\lib\net45\Google.Apis.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.PlatformServices, Version=1.48.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Apis.1.48.0\lib\net45\Google.Apis.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Cloud.Firestore, Version=2.3.0.0, Culture=neutral, PublicKeyToken=185c282632e132a0, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Cloud.Firestore.2.3.0\lib\net461\Google.Cloud.Firestore.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Cloud.Firestore.V1, Version=2.2.0.0, Culture=neutral, PublicKeyToken=185c282632e132a0, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Cloud.Firestore.V1.2.2.0\lib\net461\Google.Cloud.Firestore.V1.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.LongRunning, Version=2.1.0.0, Culture=neutral, PublicKeyToken=185c282632e132a0, processorArchitecture=MSIL">
+      <HintPath>packages\Google.LongRunning.2.1.0\lib\net461\Google.LongRunning.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.13.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Protobuf.3.13.0\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="Grpc.Auth, Version=2.0.0.0, Culture=neutral, PublicKeyToken=d754f35622e28bad, processorArchitecture=MSIL">
+      <HintPath>packages\Grpc.Auth.2.31.0\lib\net45\Grpc.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Grpc.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=d754f35622e28bad, processorArchitecture=MSIL">
+      <HintPath>packages\Grpc.Core.2.31.0\lib\net45\Grpc.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Grpc.Core.Api, Version=2.0.0.0, Culture=neutral, PublicKeyToken=d754f35622e28bad, processorArchitecture=MSIL">
+      <HintPath>packages\Grpc.Core.Api.2.31.0\lib\net45\Grpc.Core.Api.dll</HintPath>
+    </Reference>
+    <Reference Include="ITXFramework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\ITXFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Login, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\Login.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.1.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Sqlite, Version=3.1.15.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Data.Sqlite.Core.3.1.15\lib\netstandard2.0\Microsoft.Data.Sqlite.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Win32.Primitives.4.3.0\lib\net46\Microsoft.Win32.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Charting, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.Charting.dll</HintPath>
+    </Reference>
+    <Reference Include="SecureInstaller">
+      <HintPath>.\SecureInstaller.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.core, Version=2.0.3.851, Culture=neutral, PublicKeyToken=1488e028ca7ab535, processorArchitecture=MSIL">
+      <HintPath>packages\SQLitePCLRaw.core.2.0.3\lib\netstandard2.0\SQLitePCLRaw.core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.AppContext, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.AppContext.4.3.0\lib\net463\System.AppContext.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Collections.Immutable.1.4.0\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Console, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Console.4.3.0\lib\net46\System.Console.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlClient, Version=4.6.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Data.SqlClient.4.8.2\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>packages\System.Data.SQLite.EF6.1.0.113.0\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>packages\System.Data.SQLite.Linq.1.0.113.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Diagnostics.DiagnosticSource.4.3.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.Tracing, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Diagnostics.Tracing.4.3.0\lib\net462\System.Diagnostics.Tracing.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Globalization.Calendars, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Globalization.Calendars.4.3.0\lib\net46\System.Globalization.Calendars.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.IO.Compression.ZipFile, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.Compression.ZipFile.4.3.0\lib\net46\System.IO.Compression.ZipFile.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.FileSystem, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.FileSystem.4.3.0\lib\net46\System.IO.FileSystem.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Linq, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Linq.4.3.0\lib\net463\System.Linq.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Linq.Async, Version=4.0.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>packages\System.Linq.Async.4.0.0\lib\net461\System.Linq.Async.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq.Expressions, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Linq.Expressions.4.3.0\lib\net463\System.Linq.Expressions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Net.Http.4.3.0\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Sockets, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Net.Sockets.4.3.0\lib\net46\System.Net.Sockets.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Reflection.4.3.0\lib\net462\System.Reflection.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Extensions, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.Extensions.4.3.0\lib\net462\System.Runtime.Extensions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.InteropServices.4.3.0\lib\net463\System.Runtime.InteropServices.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Text.RegularExpressions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.RegularExpressions.4.3.0\lib\net463\System.Text.RegularExpressions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.ReaderWriter, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Xml.ReaderWriter.4.3.0\lib\net46\System.Xml.ReaderWriter.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Builders\LogBuilder.cs" />
+    <Compile Include="Code\constants.cs" />
+    <Compile Include="Code\FireBaseFunctions.cs" />
+    <Compile Include="Code\Functions.cs" />
+    <Compile Include="Code\Utils.cs" />
+    <Compile Include="Connection\Connection.cs" />
+    <Compile Include="Controllers\AppConfigController.cs" />
+    <Compile Include="Controllers\BrokerController.cs" />
+    <Compile Include="Controllers\Captures\AddCapturesController.cs" />
+    <Compile Include="Controllers\ConfirmationModalController.cs" />
+    <Compile Include="Controllers\EditImageDataController.cs" />
+    <Compile Include="Controllers\ImageController.cs" />
+    <Compile Include="Controllers\Incidents\DriverIncidentController.cs" />
+    <Compile Include="Controllers\Main2Controller.cs" />
+    <Compile Include="Controllers\MainController.cs" />
+    <Compile Include="Controllers\ModalController.cs" />
+    <Compile Include="EF\Captures.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Capture_Type.cs">
+      <DependentUpon>dcManagement.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\dcManagement.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dcManagement.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\dcManagement.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dcManagement.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\dcManagement.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dcManagement.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Images.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Incidents.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\InjuredPersons.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Locations.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Reactions.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Reasons.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm_Image.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm_Image.Designer.cs">
+      <DependentUpon>frm_Image.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm_Login.Designer.cs">
+      <DependentUpon>frm_Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm_Main.Designer.cs">
+      <DependentUpon>frm_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm_PdfViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm_PdfViewer.Designer.cs">
+      <DependentUpon>frm_PdfViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Incidents\DriverIncident.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Incidents\DriverIncident.Designer.cs">
+      <DependentUpon>DriverIncident.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Incidents\MyButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Loadings\SplashScreen1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Loadings\SplashScreen1.Designer.cs">
+      <DependentUpon>SplashScreen1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Main2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Main2.Designer.cs">
+      <DependentUpon>Main2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Main3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Main3.Designer.cs">
+      <DependentUpon>Main3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Modals\AddComments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Modals\AddComments.Designer.cs">
+      <DependentUpon>AddComments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Modals\AddMoreCaptures.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Modals\AddMoreCaptures.Designer.cs">
+      <DependentUpon>AddMoreCaptures.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Modals\AppConfiguration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Modals\AppConfiguration.Designer.cs">
+      <DependentUpon>AppConfiguration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Modals\ConfirmationModal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Modals\ConfirmationModal.Designer.cs">
+      <DependentUpon>ConfirmationModal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Modals\DirectoryError.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Modals\DirectoryError.Designer.cs">
+      <DependentUpon>DirectoryError.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Modals\EditComments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Modals\EditComments.Designer.cs">
+      <DependentUpon>EditComments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Modals\frm_BrokerList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Modals\frm_BrokerList.Designer.cs">
+      <DependentUpon>frm_BrokerList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Modals\Modals.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Modals\Modals.Designer.cs">
+      <DependentUpon>Modals.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Modals\DocumentModal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Modals\DocumentModal.Designer.cs">
+      <DependentUpon>DocumentModal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WaitForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\WaitForm1.Designer.cs">
+      <DependentUpon>WaitForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Action.cs" />
+    <Compile Include="Models\Broker.cs" />
+    <Compile Include="Models\City.cs" />
+    <Compile Include="Models\DocumentCapture.cs" />
+    <Compile Include="Models\Documents\Document.cs" />
+    <Compile Include="Models\Documents\DocumentCapture.cs" />
+    <Compile Include="Models\Location.cs" />
+    <Compile Include="Models\Logs\Log.cs" />
+    <Compile Include="Models\MailCategory.cs" />
+    <Compile Include="Models\MailDirectory.cs" />
+    <Compile Include="Models\PersonsInvolved.cs" />
+    <Compile Include="Models\Reason.cs" />
+    <Compile Include="Models\Response.cs" />
+    <Compile Include="Models\Samsara\Driver.cs" />
+    <Compile Include="Models\Samsara\Trailer.cs" />
+    <Compile Include="Models\Samsara\TruckTrailer.cs" />
+    <Compile Include="Models\State.cs" />
+    <Compile Include="Models\Samsara\Vehicle.cs" />
+    <Compile Include="Models\Testing\DriverData.cs" />
+    <Compile Include="Reports\PDFSharp.cs" />
+    <Compile Include="Reports\XtraReport1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\XtraReport1.Designer.cs">
+      <DependentUpon>XtraReport1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\XtraReport2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\XtraReport2.Designer.cs">
+      <DependentUpon>XtraReport2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\BrokerService.cs" />
+    <Compile Include="Services\CaptureService.cs" />
+    <Compile Include="Services\DriverService.cs" />
+    <Compile Include="Services\IncidentService.cs" />
+    <Compile Include="Services\GeneralService.cs" />
+    <Compile Include="Services\MailDirectoryService.cs" />
+    <Compile Include="Services\SamsaraService.cs" />
+    <Compile Include="Services\StatusDetailService.cs" />
+    <Compile Include="Models\Capture.cs" />
+    <Compile Include="Models\Driver.cs" />
+    <Compile Include="Models\ImageCapture.cs" />
+    <Compile Include="Models\Incident.cs" />
+    <Compile Include="Models\StatusDetail.cs" />
+    <Compile Include="Models\Trailer.cs" />
+    <Compile Include="Models\Truck.cs" />
+    <Compile Include="Reports\IncidentReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\IncidentReport.Designer.cs">
+      <DependentUpon>IncidentReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Captures\IAddCapturesView.cs" />
+    <Compile Include="Views\IAppConfigView.cs" />
+    <Compile Include="Views\IBrokerView.cs" />
+    <Compile Include="Views\IConfirmationModalView.cs" />
+    <Compile Include="Views\IEditImageData.cs" />
+    <Compile Include="Views\IImageView.cs" />
+    <Compile Include="Views\IMain2View.cs" />
+    <Compile Include="Views\IMainView.cs" />
+    <Compile Include="Views\IModalView.cs" />
+    <Compile Include="Views\Incidents\IIncidentView.cs" />
+    <EmbeddedResource Include="Forms\Incidents\DriverIncident.resx">
+      <DependentUpon>DriverIncident.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Loadings\SplashScreen1.resx">
+      <DependentUpon>SplashScreen1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\WaitForm1.resx">
+      <DependentUpon>WaitForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\XtraReport2.resx">
+      <DependentUpon>XtraReport2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="EF\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="EF\dcManagement.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>dcManagement.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="EF\dcManagement.edmx.diagram">
+      <DependentUpon>dcManagement.edmx</DependentUpon>
+    </None>
+    <None Include="EF\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
+    <None Include="Resources\SIREMlogo.svg" />
+    <None Include="Resources\updateWhite.svg" />
+    <None Include="Resources\chatboxWhite1.svg" />
+    <None Include="Resources\warnigColors1.svg" />
+    <None Include="Resources\folder1.svg" />
+    <None Include="Resources\emailSent1.svg" />
+    <None Include="Resources\checkGreen1.svg" />
+    <None Include="Resources\checked.svg" />
+    <None Include="Resources\checked %281%29.svg" />
+    <None Include="Resources\índice.jpg" />
+    <None Include="Resources\placeholder.jpg" />
+    <None Include="Resources\clearfilter_16x16.png" />
+    <None Include="Resources\properties_16x16.png" />
+    <None Include="Resources\properties_32x32.png" />
+    <None Include="Resources\add_16x161.png" />
+    <None Include="Resources\clearfilter_16x161.png" />
+    <None Include="Resources\preview_32x32.png" />
+    <None Include="Resources\edit_32x32.png" />
+    <None Include="Resources\preview_32x321.png" />
+    <None Include="Resources\preview_16x161.png" />
+    <None Include="Resources\edit_16x16.png" />
+    <None Include="Resources\clearfilter_32x32.png" />
+    <None Include="Resources\clearfilter_16x162.png" />
+    <None Include="Resources\today_32x32.png" />
+    <None Include="Resources\today_16x16.png" />
+    <None Include="Resources\today_32x321.png" />
+    <None Include="Resources\today_16x161.png" />
+    <None Include="Resources\status_32x32.png" />
+    <None Include="Resources\status_16x16.png" />
+    <None Include="Resources\refresh_32x32.png" />
+    <None Include="Resources\refresh_16x16.png" />
+    <None Include="Resources\insert_32x32.png" />
+    <None Include="Resources\insert_16x16.png" />
+    <None Include="Resources\properties_32x321.png" />
+    <None Include="Resources\properties_32x322.png" />
+    <None Include="Resources\properties_16x161.png" />
+    <None Include="Resources\editcomment_32x32.png" />
+    <None Include="Resources\comment_32x32.png" />
+    <None Include="Resources\save_16x16.png" />
+    <None Include="Resources\botask_16x16.png" />
+    <None Include="Resources\comment_16x16.png" />
+    <Content Include="EF\dcManagement.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>dcManagement.edmx</DependentUpon>
+      <LastGenOutput>dcManagement.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EF\dcManagement.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>dcManagement.edmx</DependentUpon>
+      <LastGenOutput>dcManagement.cs</LastGenOutput>
+    </Content>
+    <Content Include="EF\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EF\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <None Include="Resources\image_32x32.png" />
+    <None Include="Resources\image_16x16.png" />
+    <None Include="Resources\preview_32x322.png" />
+    <None Include="Resources\preview_16x162.png" />
+    <None Include="Resources\edit_32x321.png" />
+    <None Include="Resources\edit_16x161.png" />
+    <None Include="Resources\save_32x322.png" />
+    <None Include="Resources\save_16x161.png" />
+    <None Include="Resources\botask_32x32.png" />
+    <None Include="Resources\botask_16x161.png" />
+    <None Include="Resources\deletelist_32x32.png" />
+    <None Include="Resources\deletelist_16x16.png" />
+    <None Include="Resources\insertimage_32x32.png" />
+    <None Include="Resources\insertimage_32x321.png" />
+    <None Include="Resources\no_photo.jpg" />
+    <None Include="Resources\insertimage_32x322.png" />
+    <None Include="Resources\bofileattachment_32x32.png" />
+    <None Include="Resources\bofileattachment_32x321.png" />
+    <None Include="Resources\bofileattachment_16x16.png" />
+    <None Include="Resources\actions_edit.svg" />
+    <None Include="Resources\actions_edit1.svg" />
+    <None Include="Resources\delete.svg" />
+    <None Include="Resources\add_32x32.png" />
+    <None Include="Resources\actions_zoom.svg" />
+    <None Include="Resources\bo_person.svg" />
+    <None Include="Resources\actions_checkcircled.svg" />
+    <None Include="Resources\actions_deletecircled.svg" />
+    <None Include="Resources\actions_checkcircled1.svg" />
+    <None Include="Resources\geopointmap_32x32.png" />
+    <None Include="Resources\map_16x16.png" />
+    <None Include="Resources\logo.bmp" />
+    <None Include="Resources\intelogixWhite.svg" />
+    <None Include="Resources\intelogixWhite1.svg" />
+    <Content Include="Resources\pdf.png" />
+    <None Include="Resources\pdf1.png" />
+    <None Include="Resources\índice1.jpg" />
+    <None Include="Resources\travel_car.svg" />
+    <None Include="Resources\travel_map.svg" />
+    <None Include="Resources\security_visibility.svg" />
+    <None Include="Resources\warning.svg" />
+    <None Include="Resources\prev_32x32.png" />
+    <Content Include="x64\SQLite.Interop.dll" />
+    <Content Include="x86\SQLite.Interop.dll" />
+    <EmbeddedResource Include="Forms\frm_Image.resx">
+      <DependentUpon>frm_Image.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm_Login.resx">
+      <DependentUpon>frm_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm_Main.resx">
+      <DependentUpon>frm_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm_PdfViewer.resx">
+      <DependentUpon>frm_PdfViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Main2.resx">
+      <DependentUpon>Main2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Main3.resx">
+      <DependentUpon>Main3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Modals\AddComments.resx">
+      <DependentUpon>AddComments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Modals\AddMoreCaptures.resx">
+      <DependentUpon>AddMoreCaptures.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Modals\AppConfiguration.resx">
+      <DependentUpon>AppConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Modals\ConfirmationModal.resx">
+      <DependentUpon>ConfirmationModal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Modals\DirectoryError.resx">
+      <DependentUpon>DirectoryError.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Modals\DocumentModal.resx">
+      <DependentUpon>DocumentModal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Modals\EditComments.resx">
+      <DependentUpon>EditComments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Modals\frm_BrokerList.resx">
+      <DependentUpon>frm_BrokerList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Modals\Modals.resx">
+      <DependentUpon>Modals.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\IncidentReport.resx">
+      <DependentUpon>IncidentReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Reports\XtraReport1.resx">
+      <DependentUpon>XtraReport1.cs</DependentUpon>
+    </EmbeddedResource>
+    <Content Include="dcmanagement.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\ResponseEmergencySystem.Entity_Framework.SIREMEntities.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Code\Captures\" />
+    <Folder Include="Forms\Helpers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save_32x321.png" />
+    <None Include="Resources\save_32x32.png" />
+    <None Include="Resources\zoomin_32x32.png" />
+    <None Include="Resources\zoomout_32x32.png" />
+    <None Include="Resources\refreshallpivottable_16x16.png" />
+    <None Include="Resources\refreshallpivottable_32x32.png" />
+    <None Include="Resources\importimage_32x32.png" />
+    <None Include="Resources\importimage_16x16.png" />
+    <None Include="Resources\zoomin_16x161.png" />
+    <None Include="Resources\zoomout_16x16.png" />
+    <None Include="Resources\zoomin_16x16.png" />
+    <None Include="Resources\actions_addcircled.svg" />
+    <None Include="Resources\preview_16x16.png" />
+    <None Include="Resources\cancel_16x161.png" />
+    <None Include="Resources\search_16x16.png" />
+    <None Include="Resources\apply_16x162.png" />
+    <None Include="Resources\find_16x161.png" />
+    <None Include="Resources\find_16x16.png" />
+    <None Include="Resources\apply_16x161.png" />
+    <None Include="Resources\apply_16x16.png" />
+    <None Include="Resources\cancel_16x16.png" />
+    <None Include="Resources\add_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoutWhite.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addWhite.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EyeBlue.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EyeBlue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editBlue.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sendWhite.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\picturesBlue.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\uploadWhite.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveWhite.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\closeWhite.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zoomInBlue.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zoomOutBlue.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refreshBlue.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\searchBlue.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\searchWhite.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancelRed.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checkGreen.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\commentsBlue.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mailBlue.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pdfBlue.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chatboxWhite.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bo_attention.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Intelogix White2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Intelogix White3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settingsBlue.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clearWhite.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\open1.svg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="packages\Grpc.Core.2.31.0\build\net45\Grpc.Core.targets" Condition="Exists('packages\Grpc.Core.2.31.0\build\net45\Grpc.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Grpc.Core.2.31.0\build\net45\Grpc.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Grpc.Core.2.31.0\build\net45\Grpc.Core.targets'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
+  </Target>
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
+</Project>

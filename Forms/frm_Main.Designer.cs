@@ -56,6 +56,7 @@ namespace ResponseEmergencySystem.Forms
             this.barButtonItem12 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem13 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem14 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem16 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -64,6 +65,7 @@ namespace ResponseEmergencySystem.Forms
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.repositoryItemDateEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
@@ -71,6 +73,7 @@ namespace ResponseEmergencySystem.Forms
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.pnl_Container = new DevExpress.XtraEditors.PanelControl();
             this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::ResponseEmergencySystem.Forms.WaitForm1), true, true);
+            this.barButtonItem15 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit2.CalendarTimeProperties)).BeginInit();
@@ -110,9 +113,10 @@ namespace ResponseEmergencySystem.Forms
             this.barButtonItem11,
             this.barButtonItem12,
             this.barButtonItem13,
-            this.barButtonItem14});
+            this.barButtonItem14,
+            this.barButtonItem16});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 23;
+            this.ribbonControl1.MaxItemId = 24;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -348,6 +352,15 @@ namespace ResponseEmergencySystem.Forms
             this.barButtonItem14.Name = "barButtonItem14";
             this.barButtonItem14.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem14_ItemClick);
             // 
+            // barButtonItem16
+            // 
+            this.barButtonItem16.Caption = "Logs";
+            this.barButtonItem16.Id = 23;
+            this.barButtonItem16.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.richeditbookmark_16x16;
+            this.barButtonItem16.ImageOptions.LargeImage = global::ResponseEmergencySystem.Properties.Resources.richeditbookmark_32x32;
+            this.barButtonItem16.Name = "barButtonItem16";
+            this.barButtonItem16.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem16_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -357,7 +370,8 @@ namespace ResponseEmergencySystem.Forms
             this.ribbonPageGroup2,
             this.ribbonPageGroup4,
             this.ribbonPageGroup5,
-            this.ribbonPageGroup7});
+            this.ribbonPageGroup7,
+            this.ribbonPageGroup8});
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "Load Incidents";
             // 
@@ -419,6 +433,12 @@ namespace ResponseEmergencySystem.Forms
             this.ribbonPageGroup7.Text = "Samsara Tools";
             this.ribbonPageGroup7.Visible = false;
             // 
+            // ribbonPageGroup8
+            // 
+            this.ribbonPageGroup8.ItemLinks.Add(this.barButtonItem16);
+            this.ribbonPageGroup8.Name = "ribbonPageGroup8";
+            this.ribbonPageGroup8.Text = "ribbonPageGroup8";
+            // 
             // repositoryItemTextEdit1
             // 
             this.repositoryItemTextEdit1.AutoHeight = false;
@@ -463,6 +483,14 @@ namespace ResponseEmergencySystem.Forms
             // splashScreenManager1
             // 
             this.splashScreenManager1.ClosingDelay = 500;
+            // 
+            // barButtonItem15
+            // 
+            this.barButtonItem15.Caption = "Delete Incident";
+            this.barButtonItem15.Id = 19;
+            this.barButtonItem15.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem15.ImageOptions.Image")));
+            this.barButtonItem15.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem15.ImageOptions.LargeImage")));
+            this.barButtonItem15.Name = "barButtonItem15";
             // 
             // frm_Main
             // 
@@ -539,5 +567,8 @@ namespace ResponseEmergencySystem.Forms
         private DevExpress.XtraBars.BarButtonItem barButtonItem13;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
         private DevExpress.XtraBars.BarButtonItem barButtonItem14;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem16;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem15;
     }
 }

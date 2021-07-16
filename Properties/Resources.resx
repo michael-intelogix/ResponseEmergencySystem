@@ -134,7 +134,7 @@
     <value>..\Resources\zoomin_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\delete.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\delete.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="image_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\image_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -155,7 +155,7 @@
     <value>..\Resources\clearfilter_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bo_person" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bo_person.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\bo_person.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="preview_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\preview_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -164,7 +164,7 @@
     <value>..\Resources\edit_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="actions_zoom" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\actions_zoom.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\actions_zoom.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="importimage_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\importimage_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -173,19 +173,19 @@
     <value>..\Resources\status_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bo_attention" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bo_attention.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\bo_attention.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="picturesBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\picturesBlue.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\picturesBlue.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="add_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="EyeBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\EyeBlue.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\EyeBlue.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="índice" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\índice.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Intelogix White" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Intelogix White.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="edit_16x161" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit_16x161.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -194,7 +194,7 @@
     <value>..\Resources\save_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="saveWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\saveWhite.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\saveWhite.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="apply_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\apply_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -205,29 +205,29 @@
   <data name="Intelogix White3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Intelogix White3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="properties_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\properties_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Intelogix White2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Intelogix White2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="chatboxWhite1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\chatboxWhite1.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\chatboxWhite1.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="actions_checkcircled1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\actions_checkcircled1.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\actions_checkcircled1.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="emailSent" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\emailSent1.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\emailSent1.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="zoomin_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\zoomin_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="checkGreen1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\checkGreen1.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\checkGreen1.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="índice1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\índice1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="addWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\addWhite.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\addWhite.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="preview_16x161" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\preview_16x161.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -239,19 +239,19 @@
     <value>..\Resources\save_32x322.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="chatboxWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\chatboxWhite.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\chatboxWhite.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="today_32x321" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\today_32x321.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SIREMlogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SIREMlogo.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\SIREMlogo.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="add_16x161" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add_16x161.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="botask_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\botask_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="intelogixWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\intelogixWhite1.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="prev_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\prev_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -260,7 +260,7 @@
     <value>..\Resources\apply_16x162.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="warnigColors" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\warnigColors1.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\warnigColors1.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="apply_16x161" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\apply_16x161.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -269,25 +269,22 @@
     <value>..\Resources\insert_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="actions_checkcircled" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\actions_checkcircled.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\actions_checkcircled.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="checkGreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\checkGreen.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\checkGreen.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="Intelogix White" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Intelogix White.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="edit_32x321" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\edit_32x321.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="botask_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\botask_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="importimage_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\importimage_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="searchWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\searchWhite.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\searchWhite.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="closeWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\closeWhite.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\closeWhite.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="save_16x161" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\save_16x161.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -304,6 +301,9 @@
   <data name="zoomin_16x161" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\zoomin_16x161.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="edit_32x321" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\edit_32x321.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="preview_32x322" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\preview_32x322.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -311,10 +311,10 @@
     <value>..\Resources\cancel_16x161.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logoutWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logoutWhite.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\logoutWhite.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="uploadWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\uploadWhite.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\uploadWhite.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="no_photo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\no_photo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -332,13 +332,13 @@
     <value>..\Resources\insertimage_32x321.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="security_visibility" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\security_visibility.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\security_visibility.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="updateWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\updateWhite.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\updateWhite.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="open" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\open.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\open.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="deletelist_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\deletelist_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -347,25 +347,25 @@
     <value>..\Resources\geopointmap_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="checked" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\checked.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\checked.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="pdf" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pdf1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pdfWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pdfWhite.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\pdfWhite.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="cancelRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cancelRed.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\cancelRed.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="travel_map" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\travel_map.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\travel_map.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="clearfilter_16x162" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\clearfilter_16x162.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="travel_car" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\travel_car.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\travel_car.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="editcomment_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\editcomment_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -376,8 +376,8 @@
   <data name="map_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\map_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Intelogix White2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Intelogix White2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="folder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\folder1.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="preview_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\preview_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -386,10 +386,10 @@
     <value>..\Resources\properties_32x321.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="refreshBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\refreshBlue.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\refreshBlue.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="zoomOutBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\zoomOutBlue.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\zoomOutBlue.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="refreshallpivottable_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\refreshallpivottable_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -404,37 +404,40 @@
     <value>..\Resources\Intelogix White1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="clearWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\clearWhite.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\clearWhite.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="editBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\editBlue.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="pdfBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pdfBlue.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\pdfBlue.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="mailWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mailWhite.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\mailWhite.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="search_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\search_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="zoomInBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\zoomInBlue.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\zoomInBlue.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="searchBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\searchBlue.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\searchBlue.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="editBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\editBlue.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  <data name="índice" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\índice.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="deletelist_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\deletelist_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="warning" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\warning.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\warning.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="actions_edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\actions_edit.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\actions_edit.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="mailBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mailBlue.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\mailBlue.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="save_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\save_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -451,23 +454,26 @@
   <data name="clearfilter_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\clearfilter_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="richeditbookmark_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\richeditbookmark_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="refresh_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\refresh_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="folder" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\folder1.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  <data name="properties_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\properties_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="zoomout_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\zoomout_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="actions_edit1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\actions_edit1.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\actions_edit1.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="actions_deletecircled" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\actions_deletecircled.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\actions_deletecircled.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="checked (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\checked (1).svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\checked (1).svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="clearfilter_16x161" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\clearfilter_16x161.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -479,13 +485,13 @@
     <value>..\Resources\EyeBlue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="settingsBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\settingsBlue.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\settingsBlue.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="open1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\open1.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\open1.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="actions_addcircled" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\actions_addcircled.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\actions_addcircled.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="placeholder" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\placeholder.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -503,21 +509,21 @@
     <value>..\Resources\refreshallpivottable_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="sendWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sendWhite.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\sendWhite.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="insertimage_32x322" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\insertimage_32x322.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="searchWhite1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\searchWhite1.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\searchWhite1.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="commentsBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\commentsBlue.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+    <value>..\Resources\commentsBlue.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.1, Version=21.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="preview_32x321" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\preview_32x321.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="intelogixWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\intelogixWhite1.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v20.2, Version=20.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  <data name="richeditbookmark_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\richeditbookmark_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -26,7 +26,7 @@ namespace ResponseEmergencySystem.Code
         public static SqlConnection DCManagement { get; } = itx.DbCon("DCManagement");
         public static SqlConnection EmilioConn { get; } = itx.DbCon("DCManagement");
 
-        public static string userID { get; set; }
+        public static string userID { get; private set; }
         public static Guid userIDTest { get; } = Guid.Parse("00000000-0000-0000-0000-000000000000");
 
         public static Guid idIncident { get; set; }
@@ -66,6 +66,11 @@ namespace ResponseEmergencySystem.Code
             new Models.Action("Couldn't be prevented"),
             new Models.Action("other")
         };
+
+        public static void SetUserId(string ID)
+        {
+            userID = ID;
+        }
 
         public static void SetTester(bool isTester)
         {

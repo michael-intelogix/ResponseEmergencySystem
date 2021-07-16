@@ -128,7 +128,11 @@ namespace ResponseEmergencySystem.Forms
             _controller.SetMainController(_mainCtrl);
             repositoryItemLookUpEdit1.DataSource = StatusDetailService.list_StatusDetail();
             itx.cfrm_InsertForm(_mainView, pnl_Container);
+
+            
             splashScreenManager1.CloseWaitForm();
+
+
         }
 
         private void pnl_Container_SizeChanged(object sender, EventArgs e)
@@ -224,5 +228,10 @@ namespace ResponseEmergencySystem.Forms
             Utils.ShowMessage("Samsara drivers have been updated", "Drivers Samsara");
         }
 
+        private void barButtonItem16_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frm_Logs logsView = new frm_Logs();
+            logsView.Show();
+        }
     }
 }

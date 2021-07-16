@@ -34,6 +34,8 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         private List<Driver> _DriversLocal = new List<Driver>();
         private List<Truck> _trucks = new List<Truck>();
 
+        private List<Models.Logs.Log> _logs = new List<Models.Logs.Log>();
+
         string ID_Incident = ""; 
         string Folio;
         string ReportPath;
@@ -90,7 +92,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         public bool IsNewDriver()
         {
             //_selectedIncident.isNew
-            return false;
+            return true;
         }
 
         public void LoadIncident()
@@ -236,42 +238,53 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                     return;
                 }
             }
-
+ 
             try
             {
-                var t = new Task<Response>(() => IncidentService.UpdateIncident(
-                    ID_Incident,
-                    _view.NewDriver ? t2.Result.ID.ToString() : ID_Driver,
-                    _DriverName,
-                    _view.ID_State,
-                    _view.ID_City,
-                    ID_Broker.ToUpper(),
-                    ID_Broker2,
-                    ID_Truck,
-                    _view.TruckNumber == null ? "" : _view.TruckNumber.ToString(),
-                    _view.TrailerNumber,
-                    _view.CargoType,
-                    _view.IncidentDate,
+                var incident = new Incident(
+                    Guid.Parse(ID_Incident),
                     _view.PoliceReport,
                     _view.CitationReportNumber,
-                    _view.CargoSpill,
                     _view.ManifestNumber,
-                    _view.LocationReferences,
-                    _view.Latitude,
-                    _view.Longitude,
-                    _view.TruckDamages,
-                    _view.TruckCanMove,
-                    _view.TruckNeedCrane,
-                    _view.TrailerDamages,
-                    _view.TrailerCanMove,
-                    _view.TrailerNeedCrane,
-                    constants.userID,
+                    _view.IncidentDate,
+                    new Location(_view.Latitude, _view.Longitude, _view.LocationReferences, DateTime.Now),
                     _view.Comments == null ? "" : _view.Comments.ToString(),
-                    ID_Driver == Guid.Empty.ToString()
+                    new Truck(
+                        ID_Truck,
+                        _view.TruckNumber == null ? "" : _view.TruckNumber.ToString(),
+                        _view.TruckDamages,
+                        _view.TruckCanMove,
+                        _view.TruckNeedCrane
+                        ),
+                    new Trailer(
+                        ID_Trailer,
+                        _view.TrailerNumber,
+                        _view.CargoType,
+                        _view.CargoSpill,
+                        _view.TrailerDamages,
+                        _view.TrailerCanMove,
+                        _view.TrailerNeedCrane
+                        ),
+                    new Driver(
+                        ID_Driver,
+                        _ID_Samsara,
+                        _DriverName,
+                        ID_Driver == Guid.Empty.ToString()
+                        ),
+                    _view.ID_City,
+                    _view.ID_State,
+                    ID_Broker,
+                    ID_Broker2
+                    );
+
+                var t = new Task<Response>(() => IncidentService.UpdateIncident(
+                    incident, _selectedIncident
                 ));
 
                 t.Start();
                 t.Wait();
+
+                CheckDiscrepancies(t.Result.ID);
 
                 foreach (var person in _PersonsInvolved)
                 {
@@ -332,6 +345,11 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                     }
                 }
 
+                foreach(var log in _logs)
+                {
+
+                }
+
                 if (_view.SendAfterSave && ID_Incident != "")
                 {
                     SendEmail();
@@ -343,11 +361,47 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                 }
 
 
+
+
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }
+        }
+
+        public void CheckDiscrepancies(string ID)
+        {
+   
+
+                    //ID_Incident,
+                    //_view.NewDriver? t2.Result.ID.ToString() : ID_Driver,
+                    //_DriverName,
+                    //_view.ID_State,
+                    //_view.ID_City,
+                    //ID_Broker.ToUpper(),
+                    //ID_Broker2,
+                    //ID_Truck,
+                    //_view.TruckNumber == null ? "" : _view.TruckNumber.ToString(),
+                    //_view.TrailerNumber,
+                    //_view.CargoType,
+                    //_view.IncidentDate,
+                    //_view.PoliceReport,
+                    //_view.CitationReportNumber,
+                    //_view.CargoSpill,
+                    //_view.ManifestNumber,
+                    //_view.LocationReferences,
+                    //_view.Latitude,
+                    //_view.Longitude,
+                    //_view.TruckDamages,
+                    //_view.TruckCanMove,
+                    //_view.TruckNeedCrane,
+                    //_view.TrailerDamages,
+                    //_view.TrailerCanMove,
+                    //_view.TrailerNeedCrane,
+                    //constants.userID,
+                    //_view.Comments == null ? "" : _view.Comments.ToString(),
+                    //ID_Driver == Guid.Empty.ToString()
         }
 
         private void SaveCapture(string captureId, string captureType, string incident)

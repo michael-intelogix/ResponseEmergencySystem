@@ -19,6 +19,8 @@ namespace ResponseEmergencySystem.Models
         public string State { get; }
         public DateTime? ExpirationDate { get; set; }
 
+        public bool dSamsara;
+
         //List Drivers
         public Driver()
         {
@@ -84,6 +86,13 @@ namespace ResponseEmergencySystem.Models
             PhoneNumber = phonenNumber;
             License = licenseNumber;
             State = licenseState;
+        }
+
+        public Driver(string ID_Driver, string ID_Samsara, string driverName, bool dSamsara)
+        {
+            this.ID_Driver = Guid.Parse(ID_Driver == Guid.Empty.ToString() ? ID_Samsara : ID_Driver);
+            this.Name = driverName;
+            this.dSamsara = dSamsara;
         }
 
     }

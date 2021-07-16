@@ -16,6 +16,12 @@ namespace ResponseEmergencySystem.Models
         public string TowingName { get; }
         public string TowedTo { get; }
 
+        public bool Damages { get; }
+
+        public bool CanMove { get; }
+
+        public bool NeedCrane { get; }
+
         public Trailer(Guid id, string number, string commodity, bool spill)
         {
             ID_Trailer = id;
@@ -34,5 +40,28 @@ namespace ResponseEmergencySystem.Models
             TowedTo = towedTo; 
         }
 
+        public Trailer(string id, string number, string commodity, bool spill, bool damages, bool canMove, bool needCrane)
+        {
+            ID_Trailer = Guid.Parse(id);
+            TrailerNumber = number;
+            Commodity = commodity;
+            CargoSpill = spill;
+            Damages = damages;
+            CanMove = canMove;
+            NeedCrane = needCrane;
+        }
+
+        public Trailer(Guid id, string number, string commodity, bool spill, string towingName, string towedTo, bool damages, bool canMove, bool needCrane)
+        {
+            ID_Trailer = id;
+            TrailerNumber = number;
+            Commodity = commodity;
+            CargoSpill = spill;
+            TowingName = towingName;
+            TowedTo = towedTo;
+            Damages = damages;
+            CanMove = canMove;
+            NeedCrane = needCrane;
+        }
     }
 }

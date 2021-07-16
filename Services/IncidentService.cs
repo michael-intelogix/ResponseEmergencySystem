@@ -112,6 +112,60 @@ namespace ResponseEmergencySystem.Services
             return result;
         }
 
+
+        //new Incident(
+        //        (Guid)sdr["ID_Incident"],
+        //        (string)sdr["Folio"],
+        //        Convert.ToDateTime(sdr["IncidentDate"]),
+        //        DateTime.Now,
+        //        (bool)sdr["PoliceReport"],
+        //        (string)sdr["CitationReportNumber"],
+        //        (string)sdr["ManifestNumber"],
+        //        (string)sdr["LocationReferences"],
+        //        (string)sdr["IncidentLatitude"],
+        //        (string)sdr["IncidentLongitude"],
+
+        //        new Truck(
+        //            Guid.Parse((string)sdr["ID_Truck"]),
+        //            (string)sdr["TruckSamsaraID"],
+        //            (string)sdr["TruckNumber"],
+        //            (string)sdr["VinNumber"],
+        //            (string)sdr["Broker"],
+        //            (string)sdr["Address"]),
+        //        (bool)sdr["TruckDamage"],
+        //        (bool)sdr["TruckCanMove"],
+        //        (bool)sdr["TruckNeedCrane"],
+        //        new Trailer(
+        //            sdr["ID_Trailer"] == DBNull.Value ? Guid.Empty : Guid.Parse((string)sdr["ID_Trailer"]),
+        //            sdr["TrailerNumber"] == DBNull.Value ? "" : (string)sdr["TrailerNumber"],
+        //            sdr["TrailerCommodity"] == DBNull.Value ? "" : (string)sdr["TrailerCommodity"],
+        //            (bool)sdr["CargoSpill"],
+        //            (string)sdr["TrailerBrokerName"],
+        //            (string)sdr["TrailerBrokerAddress"]),
+        //        (bool)sdr["TrailerDamage"],
+        //        (bool)sdr["TrailerCanMove"],
+        //        (bool)sdr["TrailerNeedCrane"],
+        //        new Driver(
+        //            (string)sdr["ID_Driver"],
+        //            (string)sdr["Name"],
+        //            sdr["PhoneNumber"] == DBNull.Value ? "" : (string)sdr["PhoneNumber"],
+        //            sdr["License"] == DBNull.Value ? "" : (string)sdr["License"],
+        //            sdr["Expedition_State"] == DBNull.Value ? Guid.Empty.ToString() : (string)sdr["Expedition_State"],
+        //            (bool)sdr["DSamsara"],
+        //            ExpirationDate: sdr["Expiration_Date"] == DBNull.Value ? "" : Convert.ToDateTime(sdr["Expiration_Date"]).Date.ToString()
+        //        ),
+        //        (string)sdr["ID_City"],
+        //        (string)sdr["ID_State"],
+        //        (string)sdr["ID_Broker"],
+        //        new Broker((string)sdr["ID_Broker"], (string)sdr["Broker"], (string)sdr["Address"]),
+        //        new Broker((string)sdr["TrailerBroker"], (string)sdr["TrailerBrokerName"], (string)sdr["TrailerBrokerAddress"]),
+        //        (string)sdr["ID_StatusDetail"],
+        //        (string)sdr["Description"],
+        //        (string)sdr["Name"],
+        //        (string)sdr["PhoneNumber"],
+        //        (bool)sdr["NewDriver"]
+        //    )
+
         public static List<Incident> GetIncident(string incidentId)
         {
 
@@ -156,13 +210,15 @@ namespace ResponseEmergencySystem.Services
                                     (Guid)sdr["ID_Incident"],
                                     (string)sdr["Folio"],
                                     Convert.ToDateTime(sdr["IncidentDate"]),
-                                    DateTime.Now,
                                     (bool)sdr["PoliceReport"],
                                     (string)sdr["CitationReportNumber"],
                                     (string)sdr["ManifestNumber"],
-                                    (string)sdr["LocationReferences"],
-                                    (string)sdr["IncidentLatitude"],
-                                    (string)sdr["IncidentLongitude"],
+                                    new Location(
+                                        (string)sdr["IncidentLatitude"],
+                                        (string)sdr["IncidentLongitude"],
+                                        (string)sdr["LocationReferences"],
+                                        DateTime.Now
+                                        ),
                                     (string)sdr["Comments"],
                                     new Truck(
                                         Guid.Parse((string)sdr["ID_Truck"]),
@@ -170,20 +226,22 @@ namespace ResponseEmergencySystem.Services
                                         (string)sdr["TruckNumber"],
                                         (string)sdr["VinNumber"],
                                         (string)sdr["Broker"],
-                                        (string)sdr["Address"]),
-                                    (bool)sdr["TruckDamage"],
-                                    (bool)sdr["TruckCanMove"],
-                                    (bool)sdr["TruckNeedCrane"],
+                                        (string)sdr["Address"],
+                                        (bool)sdr["TruckDamage"],
+                                        (bool)sdr["TruckCanMove"],
+                                        (bool)sdr["TruckNeedCrane"]
+                                        ),
                                     new Trailer(
                                         sdr["ID_Trailer"] == DBNull.Value ? Guid.Empty : Guid.Parse((string)sdr["ID_Trailer"]),
                                         sdr["TrailerNumber"] == DBNull.Value ? "" : (string)sdr["TrailerNumber"],
                                         sdr["TrailerCommodity"] == DBNull.Value ? "" : (string)sdr["TrailerCommodity"],
                                         (bool)sdr["CargoSpill"],
                                         (string)sdr["TrailerBrokerName"],
-                                        (string)sdr["TrailerBrokerAddress"]),
-                                    (bool)sdr["TrailerDamage"],
-                                    (bool)sdr["TrailerCanMove"],
-                                    (bool)sdr["TrailerNeedCrane"],
+                                        (string)sdr["TrailerBrokerAddress"],
+                                        (bool)sdr["TrailerDamage"],
+                                        (bool)sdr["TrailerCanMove"],
+                                        (bool)sdr["TrailerNeedCrane"]
+                                        ),
                                     new Driver(
                                         (string)sdr["ID_Driver"],
                                         (string)sdr["Name"],
@@ -192,10 +250,9 @@ namespace ResponseEmergencySystem.Services
                                         sdr["Expedition_State"] == DBNull.Value ? Guid.Empty.ToString() : (string)sdr["Expedition_State"],
                                         (bool)sdr["DSamsara"],
                                         ExpirationDate: sdr["Expiration_Date"] == DBNull.Value ? "" : Convert.ToDateTime(sdr["Expiration_Date"]).Date.ToString()
-                                    ),
+                                        ),
                                     (string)sdr["ID_City"],
                                     (string)sdr["ID_State"],
-                                    (string)sdr["ID_Broker"],
                                     new Broker((string)sdr["ID_Broker"], (string)sdr["Broker"], (string)sdr["Address"]),
                                     new Broker((string)sdr["TrailerBroker"], (string)sdr["TrailerBrokerName"], (string)sdr["TrailerBrokerAddress"]),
                                     (string)sdr["ID_StatusDetail"],
@@ -203,7 +260,7 @@ namespace ResponseEmergencySystem.Services
                                     (string)sdr["Name"],
                                     (string)sdr["PhoneNumber"],
                                     (bool)sdr["NewDriver"]
-                                )
+                                    )
                             );
                         }
                     }
@@ -362,7 +419,6 @@ namespace ResponseEmergencySystem.Services
                     cmd.Parameters.AddWithValue("@ID_User", ID_User);
                     cmd.Parameters.AddWithValue("@Comments", comments);
                     cmd.Parameters.AddWithValue("@DSamsara", dSamsara);
-                    cmd.Parameters.AddWithValue("@NewDriver", dSamsara);
                     cmd.Parameters.AddWithValue("@Status", true);
 
                     cmd.Connection.Open();
@@ -395,38 +451,84 @@ namespace ResponseEmergencySystem.Services
 
         }
 
+        private static void checkObj(object obj1, object obj2)
+        {
+            foreach (var prop in obj1.GetType().GetProperties())
+            {
+                var type = Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType;
+
+                //if (type == typeof(DateTime))
+                //{
+                //    Console.WriteLine(prop.GetValue(car, null).ToString());
+                //}
+
+                var oldValue = obj2.GetType().GetProperty(prop.Name).GetValue(obj2, null);
+                var newvalue = obj1.GetType().GetProperty(prop.Name).GetValue(obj1, null);
+
+                var @switch = new Dictionary<Type, System.Action> {
+                    { typeof(DateTime), () =>
+                        {
+                            if (!DateTime.Equals(oldValue, newvalue))
+                            {
+                                string dte1 = Convert.ToDateTime(oldValue).ToString("yyyy-MM-dd hh:mm:ss tt");
+                                string dte2 = Convert.ToDateTime(newvalue).ToString("yyyy-MM-dd hh:mm:ss tt");
+
+                                var logs = new Builders.LogBuilder()
+                                .Create(prop.Name, dte1, dte2, constants.userID)
+                                .Build();
+                            }
+                        }
+                    },
+                    { typeof(string), () =>
+                        {
+                            if (oldValue != newvalue)
+                            {
+                                var logs = new Builders.LogBuilder()
+                                .Create(prop.Name, oldValue.ToString(), newvalue.ToString(), constants.userID)
+                                .Build();
+                            }
+                        }
+                    },
+                    { typeof(Driver), () =>
+                        {
+                            Console.WriteLine("Driver");
+                            checkObj(((Driver)newvalue), ((Driver)oldValue));
+                        }
+                    },
+                    { typeof(Guid), () =>
+                        {
+                            Console.WriteLine("Guid");
+                            if(oldValue != newvalue)
+                            {
+                                var logs = new Builders.LogBuilder()
+                                .Create(prop.Name, oldValue.ToString(), newvalue.ToString(), constants.userID)
+                                .Build();
+                            }
+                        } 
+                    },
+                    { typeof(Boolean), () => Console.WriteLine("Bool") },
+                    { typeof(Truck), () =>
+                        {
+                            Console.WriteLine("truck");
+                            checkObj(((Truck)newvalue), ((Truck)oldValue));
+                        }
+                    },
+                    { typeof(Trailer), () => Console.WriteLine("trailer") },
+                    { typeof(Broker), () => Console.WriteLine("Broker") },
+                    { typeof(List<Location>), () => Console.WriteLine("Locations") },
+                };
+
+                if (oldValue != null && newvalue != null)
+                    @switch[type]();
+            }
+        }
+
         public static Response UpdateIncident(
-            string ID_Incident,
-            string ID_Driver,
-            string driverName,
-            string ID_State,
-            string ID_City,
-            string ID_Broker,
-            string ID_Broker2,
-            string ID_Truck,
-            string TruckNumber,
-            string trailerNumber,
-            string trailerCommodity,
-            DateTime incidentDate,
-            bool policeReport,
-            string citationReport,
-            bool cargoSpill,
-            string manifestNumber,
-            string locationReferences,
-            string incidentLatitude,
-            string incidentLongitude,
-            bool truckDamage,
-            bool truckCanMove,
-            bool truckNeedCrane,
-            bool trailerDamage,
-            bool trailerCanMove,
-            bool trailerNeedCrane,
-            string ID_User,
-            string comments,
-            bool dSamsara
+            Incident incident, Incident oldIncident
         )
         {
 
+            checkObj(incident, oldIncident);
 
             try
             {
@@ -442,37 +544,37 @@ namespace ResponseEmergencySystem.Services
                         cmd.Connection.Close();
                     }
 
-                    cmd.Parameters.AddWithValue("@ID_Incident", Guid.Parse(ID_Incident));
-                    cmd.Parameters.AddWithValue("@ID_Driver", ID_Driver);
-                    cmd.Parameters.AddWithValue("@DriverName", driverName);
-                    cmd.Parameters.AddWithValue("@ID_State", ID_State);
-                    cmd.Parameters.AddWithValue("@ID_City", ID_City);
-                    cmd.Parameters.AddWithValue("@ID_Broker", ID_Broker);
-                    cmd.Parameters.AddWithValue("@ID_Broker2", ID_Broker2);
-                    cmd.Parameters.AddWithValue("@ID_Truck", ID_Truck);
-                    cmd.Parameters.AddWithValue("@TruckNumber", TruckNumber);
-                    cmd.Parameters.AddWithValue("@TrailerNumber", trailerNumber);
-                    cmd.Parameters.AddWithValue("@TrailerCommodity", trailerCommodity);
+                    cmd.Parameters.AddWithValue("@ID_Incident", incident.ID_Incident);
+                    cmd.Parameters.AddWithValue("@ID_Driver", incident.driver.ID_Driver);
+                    cmd.Parameters.AddWithValue("@DriverName", incident.driver.Name);
+                    cmd.Parameters.AddWithValue("@ID_State", incident.ID_State);
+                    cmd.Parameters.AddWithValue("@ID_City", incident.ID_City);
+                    cmd.Parameters.AddWithValue("@ID_Broker", incident.ID_Broker);
+                    cmd.Parameters.AddWithValue("@ID_Broker2", incident.ID_Broker2);
+                    cmd.Parameters.AddWithValue("@ID_Truck", incident.truck.ID);
+                    cmd.Parameters.AddWithValue("@TruckNumber", incident.truck.truckNumber);
+                    cmd.Parameters.AddWithValue("@TrailerNumber", incident.trailer.TrailerNumber);
+                    cmd.Parameters.AddWithValue("@TrailerCommodity", incident.trailer.Commodity);
                     cmd.Parameters.AddWithValue("@ID_StatusDetail", "");
                     cmd.Parameters.AddWithValue("@Folio", "");
-                    cmd.Parameters.AddWithValue("@IncidentDate", incidentDate);
+                    cmd.Parameters.AddWithValue("@IncidentDate", incident.IncidentDate);
                     cmd.Parameters.AddWithValue("@IncidentCloseDate", "");
-                    cmd.Parameters.AddWithValue("@PoliceReportBoolean", policeReport);
-                    cmd.Parameters.AddWithValue("@CitationReportNumber", citationReport);
-                    cmd.Parameters.AddWithValue("@CargoSpill", cargoSpill);
-                    cmd.Parameters.AddWithValue("@ManifestNumber", manifestNumber);
-                    cmd.Parameters.AddWithValue("@LocationReferences", locationReferences);
-                    cmd.Parameters.AddWithValue("@IncidentLatitude", incidentLatitude);
-                    cmd.Parameters.AddWithValue("@IncidentLongitude", incidentLongitude);
-                    cmd.Parameters.AddWithValue("@TruckDamage", truckDamage);
-                    cmd.Parameters.AddWithValue("@TruckCanMove", truckCanMove);
-                    cmd.Parameters.AddWithValue("@TruckNeedCrane", truckNeedCrane);
-                    cmd.Parameters.AddWithValue("@TrailerDamage", trailerDamage);
-                    cmd.Parameters.AddWithValue("@TrailerCanMove", trailerCanMove);
-                    cmd.Parameters.AddWithValue("@TrailerNeedCrane", trailerNeedCrane);
-                    cmd.Parameters.AddWithValue("@ID_User", ID_User);
-                    cmd.Parameters.AddWithValue("@Comments", comments);
-                    cmd.Parameters.AddWithValue("@DSamsara", dSamsara);
+                    cmd.Parameters.AddWithValue("@PoliceReportBoolean", incident.PoliceReport);
+                    cmd.Parameters.AddWithValue("@CitationReportNumber", incident.CitationReportNumber);
+                    cmd.Parameters.AddWithValue("@CargoSpill", incident.trailer.CargoSpill);
+                    cmd.Parameters.AddWithValue("@ManifestNumber", incident.ManifestNumber);
+                    cmd.Parameters.AddWithValue("@LocationReferences", incident.LocationReferences);
+                    cmd.Parameters.AddWithValue("@IncidentLatitude", incident.IncidentLatitude);
+                    cmd.Parameters.AddWithValue("@IncidentLongitude", incident.IncidentLongitude);
+                    cmd.Parameters.AddWithValue("@TruckDamage", incident.truck.Damages);
+                    cmd.Parameters.AddWithValue("@TruckCanMove", incident.truck.CanMove);
+                    cmd.Parameters.AddWithValue("@TruckNeedCrane", incident.truck.NeedCrane);
+                    cmd.Parameters.AddWithValue("@TrailerDamage", incident.trailer.Damages);
+                    cmd.Parameters.AddWithValue("@TrailerCanMove", incident.trailer.CanMove);
+                    cmd.Parameters.AddWithValue("@TrailerNeedCrane", incident.trailer.NeedCrane);
+                    cmd.Parameters.AddWithValue("@ID_User", constants.userID);
+                    cmd.Parameters.AddWithValue("@Comments", incident.Comments);
+                    cmd.Parameters.AddWithValue("@DSamsara", incident.driver.dSamsara);
                     cmd.Parameters.AddWithValue("@Status", true);
 
                     cmd.Connection.Open();
@@ -486,7 +588,7 @@ namespace ResponseEmergencySystem.Services
                         {
                             Debug.WriteLine(sdr["Validacion"]);
                             Debug.WriteLine(sdr["msg"]);
-                            Debug.WriteLine(sdr["ID"]);
+                             Debug.WriteLine(sdr["ID"]);
 
                             //MessageBox.Show((string)sdr["msg"]);
 
