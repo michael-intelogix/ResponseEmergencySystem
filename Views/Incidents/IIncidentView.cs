@@ -58,7 +58,7 @@ namespace ResponseEmergencySystem.Views.Incidents
         string LocationReferences { get; set; }
         object Comments { get; set; }
 
-        bool NewDriver { get; }
+        string DriverID { set; }
         #endregion
 
         #region input properties

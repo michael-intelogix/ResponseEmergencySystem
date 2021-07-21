@@ -8,6 +8,7 @@ namespace ResponseEmergencySystem.Models
 {
     public class Driver
     {
+        public Guid ID { get; }
         public Guid ID_Driver { get; }
         public string ID_Samsara { get; }
         public string Name { get; }
@@ -18,6 +19,8 @@ namespace ResponseEmergencySystem.Models
         public string ID_StateOfExpedition { get; }
         public string State { get; }
         public DateTime? ExpirationDate { get; set; }
+
+        public Guid ID_Employee { get; set; }
 
         public bool dSamsara;
 
@@ -36,10 +39,11 @@ namespace ResponseEmergencySystem.Models
         }
 
         //Get Driver
-        public Driver(string id, string fullname, string phonenumber, string license, string Expedition_State, bool DSamsara, string ExpirationDate = "")
+        public Driver(string id, string ID_Samsara, string fullname, string phonenumber, string license, string Expedition_State, bool DSamsara, string ExpirationDate = "")
         {
-            ID_Driver = !DSamsara ? Guid.Parse(id) : Guid.Empty;
-            ID_Samsara = DSamsara ? id : "";
+
+            ID_Driver = Guid.Parse(id);
+            this.ID_Samsara = ID_Samsara;
             Name = fullname;
             LastName1 = "";
             LastName2 = "";
@@ -60,6 +64,20 @@ namespace ResponseEmergencySystem.Models
             ID_StateOfExpedition = Expedition_State;
             State = state;
             License = license;
+            if (ExpirationDate != "")
+                this.ExpirationDate = Convert.ToDateTime(ExpirationDate);
+        }
+        public Driver(Guid id, Guid ID_Employee, Guid ID_Driver, string ID_Samsara, string fullName, string phonenumber, string license, string Expedition_State, string state, string ExpirationDate = "")
+        {
+            ID = id;
+            this.ID_Driver = ID_Driver;
+            this.ID_Samsara = ID_Samsara;
+            Name = fullName;
+            PhoneNumber = phonenumber;
+            ID_StateOfExpedition = Expedition_State;
+            State = state;
+            License = license;
+            this.ID_Employee = ID_Employee;
             if (ExpirationDate != "")
                 this.ExpirationDate = Convert.ToDateTime(ExpirationDate);
         }
@@ -90,9 +108,19 @@ namespace ResponseEmergencySystem.Models
 
         public Driver(string ID_Driver, string ID_Samsara, string driverName, bool dSamsara)
         {
-            this.ID_Driver = Guid.Parse(ID_Driver == Guid.Empty.ToString() ? ID_Samsara : ID_Driver);
+            this.ID = Guid.Parse(ID_Driver);
             this.Name = driverName;
             this.dSamsara = dSamsara;
+        }
+
+        public Driver(string fullname, string phonenumber, string license, DateTime expirationDate = new DateTime(), string stateOfExpedition = "")
+        {
+            this.ID = Guid.Empty;
+            this.Name = fullname;
+            this.PhoneNumber = phonenumber;
+            this.License = license;
+            this.ExpirationDate = expirationDate;
+            this.State = stateOfExpedition;
         }
 
     }

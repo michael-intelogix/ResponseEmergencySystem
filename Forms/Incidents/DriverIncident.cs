@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
+using ResponseEmergencySystem.Builders;
 using ResponseEmergencySystem.Code;
 using ResponseEmergencySystem.Controllers.Incidents;
 using ResponseEmergencySystem.Models.Documents;
@@ -115,12 +116,12 @@ namespace ResponseEmergencySystem.Forms.Incidents
 
             if (_controller.IsNewDriver())
             {
-                ckedt_NewDriver.Text = "Update this driver";
+                
 
             }
             else
             {
-                ckedt_NewDriver.Text = "Register as new driver";
+                
             }
 
         }
@@ -291,9 +292,9 @@ namespace ResponseEmergencySystem.Forms.Incidents
             set { memoEdit1.EditValue = value; }
         }
 
-        public bool NewDriver
+        public string DriverID
         {
-            get { return (bool)ckedt_NewDriver.EditValue; }
+            set { lue_Drivers.EditValue = value; }
         }
         #endregion
 
@@ -909,7 +910,14 @@ namespace ResponseEmergencySystem.Forms.Incidents
         private void gridLookUpEdit1_Properties_EditValueChanged(object sender, EventArgs e)
         {
             GridLookUpEdit view = (GridLookUpEdit)sender;
-            _controller.GetDriver(view.EditValue.ToString());
+            try
+            {
+                _controller.GetDriver(view.EditValue.ToString(), btn_SaveEmployee.Visible);
+            }
+            catch (Exception ex)
+            {
+                Utils.ShowMessage(ex.Message, "Error Employee", type: "Error");
+            }
         }
 
 
@@ -1159,6 +1167,58 @@ namespace ResponseEmergencySystem.Forms.Incidents
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             Debug.WriteLine(e.ProgressPercentage);
+        }
+
+        private void simpleButton13_Click(object sender, EventArgs e)
+        {
+            if (_controller.AddEmployee())
+            {
+                Utils.ShowMessage("Employee had been added correctly", "New Employee");
+                btn_AddEmployee.Visible = true;
+                btn_SaveEmployee.Visible = false;
+                edt_PhoneNumber.Size = lue_DriverLicenseState.Size;
+                edt_License.Size = lue_DriverLicenseState.Size;
+                simpleButton7.Visible = true;
+                simpleButton5.Visible = true;
+            }
+
+   
+        }
+
+        private void btn_AddEmployee_Click(object sender, EventArgs e)
+        {
+            edt_PhoneNumber.EditValue = "";
+            edt_PhoneNumber.ReadOnly = false;
+            edt_FullName.EditValue = "";
+            edt_FullName.ReadOnly = false;
+            edt_License.EditValue = "";
+            edt_License.ReadOnly = false;
+            btn_AddEmployee.Visible = false;
+            btn_SaveEmployee.Visible = true;
+            edt_PhoneNumber.Size = edt_FullName.Size;
+            edt_License.Size = edt_FullName.Size;
+            simpleButton7.Visible = false;
+            simpleButton5.Visible = false;
+        }
+
+        private void simpleButton7_Click(object sender, EventArgs e)
+        {
+            edt_PhoneNumber.ReadOnly = false;
+            edt_PhoneNumber.EditValue = "";
+            edt_PhoneNumber.Focus();
+        }
+
+        private void simpleButton5_Click(object sender, EventArgs e)
+        {
+            edt_License.ReadOnly = false;
+            edt_License.EditValue = "";
+            edt_License.Focus();
+        }
+
+        private void onLeaveEditEmployee(object sender, EventArgs e)
+        {
+            _controller.UpdateEmployeeInfo(Utils.GetEdtValue((TextEdit)sender), ((TextEdit)sender).Name);
+            ((TextEdit)sender).ReadOnly = true;
         }
     }
 }

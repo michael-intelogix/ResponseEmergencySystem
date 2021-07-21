@@ -244,6 +244,7 @@ namespace ResponseEmergencySystem.Services
                                         ),
                                     new Driver(
                                         (string)sdr["ID_Driver"],
+                                        sdr["ID_Samsara"] == DBNull.Value ? "0" : (string)sdr["ID_Samsara"],
                                         (string)sdr["Name"],
                                         sdr["PhoneNumber"] == DBNull.Value ? "" : (string)sdr["PhoneNumber"],
                                         sdr["License"] == DBNull.Value ? "" : (string)sdr["License"],
@@ -253,8 +254,16 @@ namespace ResponseEmergencySystem.Services
                                         ),
                                     (string)sdr["ID_City"],
                                     (string)sdr["ID_State"],
-                                    new Broker((string)sdr["ID_Broker"], (string)sdr["Broker"], (string)sdr["Address"]),
-                                    new Broker((string)sdr["TrailerBroker"], (string)sdr["TrailerBrokerName"], (string)sdr["TrailerBrokerAddress"]),
+                                    new Broker(
+                                        (string)sdr["ID_Broker"], 
+                                        (string)sdr["Broker"], 
+                                        (string)sdr["Address"]
+                                        ),
+                                    new Broker(
+                                        (string)sdr["TrailerBroker"], 
+                                        (string)sdr["TrailerBrokerName"], 
+                                        (string)sdr["TrailerBrokerAddress"]
+                                        ),
                                     (string)sdr["ID_StatusDetail"],
                                     (string)sdr["Description"],
                                     (string)sdr["Name"],
@@ -545,7 +554,7 @@ namespace ResponseEmergencySystem.Services
                     }
 
                     cmd.Parameters.AddWithValue("@ID_Incident", incident.ID_Incident);
-                    cmd.Parameters.AddWithValue("@ID_Driver", incident.driver.ID_Driver);
+                    cmd.Parameters.AddWithValue("@ID_Driver", incident.driver.ID);
                     cmd.Parameters.AddWithValue("@DriverName", incident.driver.Name);
                     cmd.Parameters.AddWithValue("@ID_State", incident.ID_State);
                     cmd.Parameters.AddWithValue("@ID_City", incident.ID_City);

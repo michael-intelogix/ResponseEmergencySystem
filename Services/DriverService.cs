@@ -1,4 +1,5 @@
-﻿using ResponseEmergencySystem.Code;
+﻿using ResponseEmergencySystem.Builders;
+using ResponseEmergencySystem.Code;
 using ResponseEmergencySystem.Forms;
 using ResponseEmergencySystem.Models;
 using System;
@@ -19,16 +20,16 @@ namespace ResponseEmergencySystem.Services
         public static Response response;
         public static DataTable result;
 
-        public static List<Driver> GetDriver(string search)
+        public static List<Employee> GetDriver(string search)
         {
             opSuccess = false;
-            List<Driver> result = new List<Driver>();
+            List<Employee> result = new List<Employee>();
 
             try
             {
                 using (SqlCommand cmd = new SqlCommand
                 {
-                    Connection = constants.GeneralConnection,
+                    Connection = constants.SIREMConnection,
                     CommandText = $"Get_Driver",
                     CommandType = CommandType.StoredProcedure
                 })
@@ -50,19 +51,33 @@ namespace ResponseEmergencySystem.Services
                         while (sdr.Read())
                         {
                             result.Add(
-                                new Driver(
-                                    sdr["pk_id"] == DBNull.Value ? Guid.Empty : Guid.Parse(sdr["pk_id"].ToString()),
-                                    (string)sdr["ID_Samsara"],
-                                    (string)sdr["SamsaraDriverName"],
-                                    sdr["SamsaraPhoneNumber"] == DBNull.Value ? "" : (string)sdr["SamsaraPhoneNumber"],
-                                    sdr["SamsaraLicenseNumber"] == DBNull.Value ? "" : (string)sdr["SamsaraLicenseNumber"],
-                                    sdr["SamsaraState"] == DBNull.Value ? "" : (string)sdr["SamsaraState"],
-                                    sdr["SamsaraLicenseState"] == DBNull.Value ? "" : (string)sdr["SamsaraLicenseState"],
-                                    sdr["Expiration_Date"] == DBNull.Value ? "" : Convert.ToDateTime(sdr["Expiration_Date"]).Date.ToString()
-                                //DateTime.Now.Date.ToString()
-                                //Convert.ToDateTime(sdr["Expiration_Date"]).Date.ToString()
-                                )
-                            ) ;
+                                new EmployeeBuilder()
+                                    .Called(sdr["SamsaraDriverName"] == DBNull.Value ? (string)sdr["EmployeeName"] : (string)sdr["SamsaraDriverName"])
+                                    .PhoneNumber(sdr["SamsaraPhoneNumber"] == DBNull.Value ? (string)sdr["EmployeePhoneNumber"] : (string)sdr["SamsaraPhoneNumber"])
+                                    .LicenseNumber(sdr["SamsaraLicenseNumber"] == DBNull.Value ? (string)sdr["EmployeeLicense"] : (string)sdr["SamsaraLicenseNumber"])
+                                    .State(sdr["SamsaraState"] == DBNull.Value ? "" : (string)sdr["SamsaraState"])
+                                    .IsRegisteredInGeneral(
+                                        sdr["pk_id"] == DBNull.Value ? Guid.Empty : Guid.Parse(sdr["pk_id"].ToString()),
+                                        sdr["ID_Samsara"] == DBNull.Value ? "0" : sdr["ID_Samsara"].ToString()
+                                     )
+                                    .HasEmployeeID(sdr["ID_Employee"] == DBNull.Value ? Guid.Empty : Guid.Parse(sdr["ID_Employee"].ToString()))
+                                    .SetNewID()
+                                    .Build()
+                            //new Driver(
+                            //        Guid.Parse(sdr["ID"].ToString()),
+                            //        sdr["ID_Employee"] == DBNull.Value ? Guid.Empty : Guid.Parse(sdr["ID_Employee"].ToString()),
+                            //        sdr["pk_id"] == DBNull.Value ? Guid.Empty : Guid.Parse(sdr["pk_id"].ToString()),
+                            //        sdr["ID_Samsara"] == DBNull.Value ? "0" : sdr["ID_Samsara"].ToString(),
+                            //        sdr["SamsaraDriverName"] == DBNull.Value ? (string)sdr["EmployeeName"] : (string)sdr["SamsaraDriverName"],
+                            //        sdr["SamsaraPhoneNumber"] == DBNull.Value ? (string)sdr["EmployeePhoneNumber"] : (string)sdr["SamsaraPhoneNumber"],
+                            //        sdr["SamsaraLicenseNumber"] == DBNull.Value ? (string)sdr["EmployeeLicense"] : (string)sdr["SamsaraLicenseNumber"],
+                            //        sdr["SamsaraState"] == DBNull.Value ? "" : (string)sdr["SamsaraState"],
+                            //        sdr["SamsaraLicenseState"] == DBNull.Value ? "" : (string)sdr["SamsaraLicenseState"],
+                            //        sdr["Expiration_Date"] == DBNull.Value ? "" : Convert.ToDateTime(sdr["Expiration_Date"]).Date.ToString()
+                            //    //DateTime.Now.Date.ToString()
+                            //    //Convert.ToDateTime(sdr["Expiration_Date"]).Date.ToString()
+                            //    )
+                            );
                         }
                     }
                     cmd.Connection.Close();
@@ -107,7 +122,7 @@ namespace ResponseEmergencySystem.Services
             {
                 using (SqlCommand cmd = new SqlCommand
                 {
-                    Connection = constants.GeneralConnection,
+                    Connection = constants.SIREMConnection,
                     CommandText = $"List_Drivers",
                     CommandType = CommandType.StoredProcedure
                 })
@@ -135,7 +150,6 @@ namespace ResponseEmergencySystem.Services
                                     (string)sdr["driverName"],
                                     (string)sdr["pat_surname"],
                                     (string)sdr["mat_surname"],
-                                    "",
                                     "",
                                     "",
                                     "",
@@ -274,7 +288,7 @@ namespace ResponseEmergencySystem.Services
             }
         }
 
-        public static Response AddDriver(string ID, string name, string phone, string license)
+        public static Response AddDriver(string ID, string name, string phone, string license, Employee emp)
         {
             
             try
@@ -291,10 +305,17 @@ namespace ResponseEmergencySystem.Services
                         cmd.Connection.Close();
                     }
 
-                    cmd.Parameters.AddWithValue("@ID_Employee", Guid.Parse(ID));
-                    cmd.Parameters.AddWithValue("@Name", name);
-                    cmd.Parameters.AddWithValue("@PhoneNumber", phone);
-                    cmd.Parameters.AddWithValue("@License", license);
+                    cmd.Parameters.AddWithValue("@ID_Employee", emp.ID_Employee);
+                    cmd.Parameters.AddWithValue("@Name", emp.Name);
+                    cmd.Parameters.AddWithValue("@PhoneNumber", emp.PhoneNumber);
+                    cmd.Parameters.AddWithValue("@License", emp.License);
+                    if (emp.IsSamsara)
+                        cmd.Parameters.AddWithValue("@ID_Samsara", emp.ID_Samsara);
+                    if (emp.IsLocal)
+                    {
+                        cmd.Parameters.AddWithValue("@ID_General", emp.ID_General);
+                        cmd.Parameters.AddWithValue("@ID_Samsara", emp.ID_Samsara);
+                    }
 
                     cmd.Connection.Open();
                     using (SqlDataReader sdr = cmd.ExecuteReader())
@@ -318,7 +339,59 @@ namespace ResponseEmergencySystem.Services
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Broker couldn't be saved due: {ex.Message}");
+                //MessageBox.Show($"Broker couldn't be saved due: {ex.Message}");
+                return new Response(false, ex.Message, Guid.Empty.ToString());
+
+            }
+
+            return new Response(false, "Failed request", Guid.Empty.ToString());
+        }
+
+        public static Response UpdateDriver(Employee emp)
+        {
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand
+                {
+                    Connection = constants.SIREMConnection,
+                    CommandText = $"Update_Employee",
+                    CommandType = CommandType.StoredProcedure
+                })
+                {
+                    if (cmd.Connection.State == ConnectionState.Open)
+                    {
+                        cmd.Connection.Close();
+                    }
+
+                    cmd.Parameters.AddWithValue("@ID_Employee", emp.ID_Employee);
+                    cmd.Parameters.AddWithValue("@Name", emp.Name);
+                    cmd.Parameters.AddWithValue("@PhoneNumber", emp.PhoneNumber);
+                    cmd.Parameters.AddWithValue("@License", emp.License);
+
+                    cmd.Connection.Open();
+                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    {
+                        if (sdr == null)
+                        {
+                            throw new NullReferenceException("No Information Available.");
+                        }
+                        while (sdr.Read())
+                        {
+                            Debug.WriteLine(sdr["Validacion"]);
+                            Debug.WriteLine(sdr["msg"]);
+                            Debug.WriteLine(sdr["ID"]);
+
+                            return new Response(Convert.ToBoolean(sdr["Validacion"]), sdr["msg"].ToString(), sdr["ID"].ToString());
+                        }
+                    }
+                    cmd.Connection.Close();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show($"Broker couldn't be saved due: {ex.Message}");
                 return new Response(false, ex.Message, Guid.Empty.ToString());
 
             }

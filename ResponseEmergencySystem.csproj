@@ -232,6 +232,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Data.SqlClient, Version=4.6.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Data.SqlClient.4.8.2\lib\net461\System.Data.SqlClient.dll</HintPath>
     </Reference>
@@ -394,6 +395,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Builders\Employee.cs" />
     <Compile Include="Builders\LogBuilder.cs" />
     <Compile Include="Code\constants.cs" />
     <Compile Include="Code\FireBaseFunctions.cs" />
@@ -769,6 +771,14 @@
     <None Include="Resources\logo.bmp" />
     <None Include="Resources\intelogixWhite.svg" />
     <None Include="Resources\intelogixWhite1.svg" />
+    <None Include="Resources\bo_employee.svg" />
+    <None Include="Resources\bo_employee1.svg" />
+    <None Include="Resources\bo_person1.svg" />
+    <None Include="Resources\bo_customer.svg" />
+    <None Include="Resources\bo_lead.svg" />
+    <None Include="Resources\newemployee.svg" />
+    <None Include="Resources\bo_skull.svg" />
+    <None Include="Resources\newemployee1.svg" />
     <Content Include="Resources\pdf.png" />
     <None Include="Resources\pdf1.png" />
     <None Include="Resources\índice1.jpg" />
@@ -779,6 +789,7 @@
     <None Include="Resources\prev_32x32.png" />
     <None Include="Resources\richeditbookmark_16x16.png" />
     <None Include="Resources\richeditbookmark_32x32.png" />
+    <None Include="Resources\pencil.svg" />
     <Content Include="x64\SQLite.Interop.dll" />
     <Content Include="x86\SQLite.Interop.dll" />
     <EmbeddedResource Include="Forms\frm_Image.resx">

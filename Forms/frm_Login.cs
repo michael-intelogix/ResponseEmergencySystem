@@ -63,5 +63,10 @@ namespace ResponseEmergencySystem.Forms
             }
 
         }
+
+        private void loginCtrl1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

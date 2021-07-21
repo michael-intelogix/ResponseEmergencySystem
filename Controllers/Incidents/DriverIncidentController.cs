@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraEditors.Controls;
 using Firebase.Storage;
 using Newtonsoft.Json.Linq;
+using ResponseEmergencySystem.Builders;
 using ResponseEmergencySystem.Code;
 using ResponseEmergencySystem.Forms;
 using ResponseEmergencySystem.Forms.Modals;
@@ -27,11 +28,11 @@ namespace ResponseEmergencySystem.Controllers.Incidents
     {
         IIncidentView _view;
         Incident _selectedIncident;
-        Driver _selectedDriver;
+        Employee _selectedDriver;
 
         List<PersonsInvolved> _PersonsInvolved;
 
-        private List<Driver> _DriversLocal = new List<Driver>();
+        private List<Employee> _DriversLocal = new List<Employee>();
         private List<Truck> _trucks = new List<Truck>();
 
         private List<Models.Logs.Log> _logs = new List<Models.Logs.Log>();
@@ -84,7 +85,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
             _view.LoadStates(GeneralService.list_States());
             _view.DriversDataSource = _DriversLocal;
-            var samsaraDrivers = _DriversLocal.Where(x => x.ID_Driver == Guid.Empty).ToList();
+            //var samsaraDrivers = _DriversLocal.Where(x => x.ID == Guid.Empty).ToList();
             _view.TrucksDataSource = _trucks;
             _view.MailDirectoryCategoriesDataSource = MailDirectoryService.GetCategories();
         }
@@ -97,6 +98,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
         public void LoadIncident()
         {
+            
             _selectedIncident = IncidentService.GetIncident(ID_Incident)[0];
 
             ID_Truck = _selectedIncident.truck.ID_Truck.ToString();
@@ -111,6 +113,11 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             ID_Truck = _selectedIncident.truck.ID_Truck.ToString();
             ID_Trailer = _selectedIncident.trailer.ID_Trailer.ToString();
             _ID_Samsara = _selectedIncident.driver.ID_Samsara;
+
+            if (_selectedIncident.driver.ID_Samsara != "0")
+            {
+                _view.DriverID = _DriversLocal.Where(ds => ds.ID_Samsara == _selectedIncident.driver.ID_Samsara).FirstOrDefault().ID.ToString();
+            }
 
             _view.InvolvedPersonsDataSource = _PersonsInvolved;
 
@@ -161,25 +168,29 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             _view.LueCitiesDataSource = cities;
         }
 
-        public void GetDriver(string ID)
+        public void GetDriver(string ID, bool disableAction = false)
         {
-            _selectedDriver = _DriversLocal.Where(d => d.ID_Samsara == ID).First();
+            if (ID == "" || disableAction)
+                return;
+            
+            _selectedDriver = _DriversLocal.Where(d => d.ID == Guid.Parse(ID)).FirstOrDefault();
 
-            ID_Driver = _selectedDriver.ID_Driver.ToString();
+            ID_Driver = _selectedDriver.ID.ToString();
             _ID_Samsara = _selectedDriver.ID_Samsara.ToString();
             _DriverName = _selectedDriver.Name + " " + _selectedDriver.LastName1;
             _view.FullName = _DriverName;
             _view.PhoneNumber = _selectedDriver.PhoneNumber;
             _view.License = _selectedDriver.License;
 
-            if (_selectedDriver.ExpirationDate != null)
-                _view.ExpirationDate = (DateTime)_selectedDriver.ExpirationDate;
-            else
-            {
-                _view.ExpirationDate = DateTime.Now;
-            }
+            _view.ExpirationDate = DateTime.Now;
+            //if (_selectedDriver.ExpirationDate != null)
+            //    _view.ExpirationDate = (DateTime)_selectedDriver.ExpirationDate;
+            //else
+            //{
+            //    _view.ExpirationDate = DateTime.Now;
+            //}
 
-            _view.LicenseState = _selectedDriver.ID_StateOfExpedition;
+            //_view.LicenseState = _selectedDriver.ID_StateOfExpedition;
         }
 
         public void GetBroker()
@@ -227,18 +238,40 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                 }
             }
 
-            if (_view.NewDriver || ID_Driver == Guid.Empty.ToString())
+            // Add Employee if not in samsara 
+            var driver = _DriversLocal.Where(dl => dl.ID == Guid.Parse(ID_Driver)).First();
+
+            if (driver.Status == "added")
             {
-                t2 = new Task<Response>(() => DriverService.AddDriver(Guid.Empty.ToString(), _view.FullName, _view.PhoneNumber, _view.License));
+                t2 = new Task<Response>(() => DriverService.AddDriver(Guid.Empty.ToString(), _view.FullName, _view.PhoneNumber, _view.License, driver));
                 t2.Start();
                 t2.Wait();
+
+                if(!t2.Result.validation)
+                {
+                    Utils.ShowMessage(t2.Result.Message, title: "New Employee Error", type: "Error");
+                    return;
+                }
+
+                driver.ID_Employee = Guid.Parse(t2.Result.ID);
+            }
+
+            if (driver.Status == "updated")
+            {
+                t2 = new Task<Response>(() => DriverService.UpdateDriver(driver));
+                t2.Start();
+                t2.Wait();
+
                 if (!t2.Result.validation)
                 {
                     Utils.ShowMessage(t2.Result.Message, title: "New Employee Error", type: "Error");
                     return;
                 }
+
+                driver.ID_Employee = Guid.Parse(t2.Result.ID);
             }
- 
+
+            return;
             try
             {
                 var incident = new Incident(
@@ -266,10 +299,10 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                         _view.TrailerNeedCrane
                         ),
                     new Driver(
-                        ID_Driver,
-                        _ID_Samsara,
-                        _DriverName,
-                        ID_Driver == Guid.Empty.ToString()
+                        //driver.ID_Employee == Guid.Empty ? driver.ID_Driver.ToString() : driver.ID_Employee.ToString(),
+                        //_ID_Samsara,
+                        //_DriverName,
+                        //driver.ID_Samsara == "0"
                         ),
                     _view.ID_City,
                     _view.ID_State,
@@ -431,17 +464,17 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                 }
             }
 
-            if (_view.NewDriver)
-            {
-                t2 = new Task<Response>(() => DriverService.AddDriver(Guid.Empty.ToString(), _view.FullName, _view.PhoneNumber, _view.License));
-                t2.Start();
-                t2.Wait();
-                if (!t2.Result.validation)
-                {
-                    Utils.ShowMessage(t2.Result.Message, title: "New Employee Error", type: "Error");
-                    return;
-                }
-            }
+            //if (_view.NewDriver)
+            //{
+            //    t2 = new Task<Response>(() => DriverService.AddDriver(Guid.Empty.ToString(), _view.FullName, _view.PhoneNumber, _view.License));
+            //    t2.Start();
+            //    t2.Wait();
+            //    if (!t2.Result.validation)
+            //    {
+            //        Utils.ShowMessage(t2.Result.Message, title: "New Employee Error", type: "Error");
+            //        return;
+            //    }
+            //}
 
             DataRow folioReponse = Functions.Get_Folio().Select().First();
             Folio = folioReponse.ItemArray[2].ToString() + "-" + folioReponse.ItemArray[3].ToString();
@@ -1184,6 +1217,46 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         {
             _MailDIrectory = MailDirectoryService.GetMailDirectory(_view.MailDirectoryCategory);
             _view.MailDirectoryDataSource = _MailDIrectory;
+        }
+        #endregion
+
+        #region Add Employee system
+        public bool AddEmployee()
+        {
+            //var emp = _DriversLocal.Where(dl => dl.ID == Guid.Parse(ID_Driver)).First();
+
+            var emp = new EmployeeBuilder()
+                    .Called(_view.FullName)
+                    .PhoneNumber(_view.PhoneNumber)
+                    .LicenseNumber(_view.License)
+                    .NewEmployee()
+                    .Build();
+
+            _DriversLocal.Add(emp);
+                
+            _view.DriversDataSource = _DriversLocal;
+            _view.DriverID = emp.ID.ToString();
+            ID_Driver = emp.ID.ToString();
+            return true;
+            //Utils.ShowMessage($"Status: {emp.Status}, Value: {emp.PhoneNumber}");
+        }
+
+        public void UpdateEmployeeInfo(string newData, string controlName)
+        {
+            var emp = _DriversLocal.Where(dl => dl.ID == Guid.Parse(ID_Driver)).First();
+            switch (controlName)
+            {
+                case "edt_PhoneNumber":
+                    if (!emp.ValidatePhoneNumber(newData))
+                        _view.PhoneNumber = emp.PhoneNumber;
+                    break;
+                case "edt_License":
+                    if (!emp.ValidateLicense(newData))
+                        _view.License = emp.License;
+                    break;
+            }
+
+            
         }
         #endregion
     }

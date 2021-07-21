@@ -47,6 +47,7 @@ namespace ResponseEmergencySystem.Forms
             this.loginCtrl1.TabIndex = 0;
             this.loginCtrl1.userid = null;
             this.loginCtrl1.userloged = null;
+            this.loginCtrl1.Load += new System.EventHandler(this.loginCtrl1_Load);
             // 
             // frm_Login
             // 
