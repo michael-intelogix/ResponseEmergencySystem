@@ -120,7 +120,7 @@ namespace ResponseEmergencySystem.Services
                     cmd.Connection.Close();
 
 
-                    return result;
+                    return result.Where(t => t.IsTrailer).ToList();
                 }
             }
             catch (Exception ex)
