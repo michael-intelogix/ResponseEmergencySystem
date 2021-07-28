@@ -111,7 +111,7 @@ namespace ResponseEmergencySystem.Services
                                     .SetModel(sdr["ID_Vehicle"] ==DBNull.Value ? (string)sdr["Model"] : (string)sdr["InternalModel"])
                                     .SetYear(sdr["ID_Vehicle"] == DBNull.Value ? (string)sdr["Year"] : (string)sdr["InternalYear"])
                                     .SetLicensePlate(sdr["ID_Vehicle"] == DBNull.Value ? (string)sdr["LicensePlate"] : (string)sdr["InternalLicensePlate"])
-                                    .VehicleType(sdr["ID_Vehicle"] == DBNull.Value ? "trailer" : (string)sdr["ID_Vehicle"])
+                                    .VehicleType(sdr["ID_Vehicle"] == DBNull.Value ? "trailer" : (string)sdr["VehicleType"])
                                     .NewVehicle()
                                     .Build()
                             );
@@ -125,7 +125,66 @@ namespace ResponseEmergencySystem.Services
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Driver couldn't be found due: {ex.Message}");
+                MessageBox.Show($"Trailer couldn't be found due: {ex.Message}");
+
+                return new List<Vehicle>();
+            }
+            //return result;
+        }
+
+        public static List<Vehicle> list_Vehicles()
+        {
+            List<Vehicle> result = new List<Vehicle>();
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand
+                {
+                    Connection = constants.SIREMConnection,
+                    CommandText = $"List_Vehicles",
+                    CommandType = CommandType.StoredProcedure
+                })
+                {
+                    if (cmd.Connection.State == ConnectionState.Open)
+                    {
+                        cmd.Connection.Close();
+                    }
+                    cmd.Connection.Open();
+
+                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    {
+                        if (sdr == null)
+                        {
+                            throw new NullReferenceException("No Information Available.");
+                        }
+                        while (sdr.Read())
+                        {
+                            result.Add(
+                                new VehicleBuilder()
+                                    .IsRegisteredInGeneral(Guid.Empty, "0")
+                                    .HasVehicleID((Guid)sdr["ID_Vehicle"])
+                                    .SetName((string)sdr["Name"])
+                                    .SetVinNumber((string)sdr["VinNumber"])
+                                    .SetSerialNumber((string)sdr["SerialNumber"])
+                                    .SetMake((string)sdr["Make"])
+                                    .SetModel((string)sdr["Model"])
+                                    .SetYear((string)sdr["Year"])
+                                    .SetLicensePlate((string)sdr["LicensePlate"])
+                                    .VehicleType((string)sdr["VehicleType"])
+                                    .NewVehicle()
+                                    .Build()
+                            );
+                        }
+                    }
+                    cmd.Connection.Close();
+
+
+                    return result.Where(t => t.IsVehicle).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Vehicle couldn't be found due: {ex.Message}");
 
                 return new List<Vehicle>();
             }

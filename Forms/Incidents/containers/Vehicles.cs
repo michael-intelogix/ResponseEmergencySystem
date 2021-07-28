@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using ResponseEmergencySystem.Views.Incidents.Containers;
 using ResponseEmergencySystem.Code;
 using ResponseEmergencySystem.Controllers.Incidents;
+using ResponseEmergencySystem.Builders;
 
 namespace ResponseEmergencySystem.Forms.Incidents.containers
 {
@@ -81,28 +82,6 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
         }
         #endregion
 
-        private void simpleButton2_Click(object sender, EventArgs e)
-        {
-            edt_Name.EditValue = "";
-            edt_Name.ReadOnly = false;
-            edt_VinNumber.EditValue = "";
-            edt_VinNumber.ReadOnly = false;
-            edt_SerialNumber.EditValue = "";
-            edt_SerialNumber.ReadOnly = false;
-            edt_Make.EditValue = "";
-            edt_Make.ReadOnly = false;
-            edt_Year.EditValue = "";
-            edt_Year.ReadOnly = false;
-            edt_Model.EditValue = "";
-            edt_Model.ReadOnly = false;
-            edt_LicensePlate.EditValue = "";
-            edt_LicensePlate.ReadOnly = false;
-
-            lue_Vehicles.ReadOnly = true;
-            btn_AddVehicle.Visible = false;
-            btn_SaveVehicle.Visible = true;
-        }
-
         private void gridLookUpEdit1_Properties_EditValueChanged(object sender, EventArgs e)
         {
             GridLookUpEdit view = (GridLookUpEdit)sender;
@@ -118,92 +97,95 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
 
         private void Vehicles_Load(object sender, EventArgs e)
         {
-            //_controller.SetVehiclesView(this);
-            //_controller.LoadVehicles();
+            _controller.SetVehiclesView(this);
+            _controller.LoadVehicles();
+
+            if (((List<Vehicle>)lue_Vehicles.Properties.DataSource).Count == 0)
+            {
+                btn_UpdateVehicle.Enabled = false;
+                lue_Vehicles.ReadOnly = true;
+            }
         }
 
-        private void btn_SaveVehicle_Click(object sender, EventArgs e)
+        private void btn_UpdateVehicle_Click(object sender, EventArgs e)
         {
-            //_controller.AddVehicle();
+            pnl_VehicleStatus.Visible = false;
+            pnl_VehicleInformation.Visible = true;
+
+            btn_UpdateVehicle.Enabled = false;
+            btn_AddVehicle.Enabled = false;
+            lue_Vehicles.ReadOnly = true;
+
+            //_parentController.SetTruckInfo();
+        }
+
+        private void btn_SaveVehicle_Click_1(object sender, EventArgs e)
+        {
+            pnl_VehicleStatus.Visible = true;
+            pnl_VehicleInformation.Visible = false;
             lue_Vehicles.ReadOnly = false;
+
+            btn_UpdateVehicle.Enabled = true;
+            btn_AddVehicle.Enabled = true;
+
+            if (!edt_Name.ReadOnly)
+                edt_Name.ReadOnly = true;
+
+            if ((bool)ckedt_New.EditValue)
+            {
+                _controller.AddVehicle();
+                ckedt_New.EditValue = false;
+            }
+            //else
+            //    _parentController.UpdateTruckInfo();
+
+            if (((List<Vehicle>)lue_Vehicles.Properties.DataSource).Count == 0)
+            {
+                btn_UpdateVehicle.Enabled = false;
+                lue_Vehicles.ReadOnly = true;
+            }
         }
 
-        private void btn_UpdateVinNumber_Click(object sender, EventArgs e)
+        private void btn_Cancel_Click(object sender, EventArgs e)
         {
-            edt_VinNumber.ReadOnly = false;
-            edt_VinNumber.EditValue = "";
-            edt_VinNumber.Focus();
+            pnl_VehicleStatus.Visible = true;
+            pnl_VehicleInformation.Visible = false;
+            lue_Vehicles.ReadOnly = false;
+
+            btn_UpdateVehicle.Enabled = true;
+            btn_AddVehicle.Enabled = true;
+
+            if (!edt_Name.ReadOnly)
+                edt_Name.ReadOnly = true;
+
+            if (((List<Vehicle>)lue_Vehicles.Properties.DataSource).Count == 0)
+            {
+                btn_UpdateVehicle.Enabled = false;
+                lue_Vehicles.ReadOnly = true;
+            }
         }
 
-        private void simpleButton2_Click_1(object sender, EventArgs e)
+        private void btn_AddVehicle_Click(object sender, EventArgs e)
         {
-            edt_SerialNumber.ReadOnly = false;
-            edt_SerialNumber.EditValue = "";
-            edt_SerialNumber.Focus();
-        }
+            pnl_VehicleStatus.Visible = false;
+            pnl_VehicleInformation.Visible = true;
 
-        private void simpleButton3_Click(object sender, EventArgs e)
-        {
-            edt_Model.ReadOnly = false;
-            edt_Model.EditValue = "";
-            edt_Model.Focus();
-        }
+            lue_Vehicles.ReadOnly = true;
 
-        private void simpleButton4_Click(object sender, EventArgs e)
-        {
-            edt_LicensePlate.ReadOnly = false;
-            edt_LicensePlate.EditValue = "";
-            edt_LicensePlate.Focus();
-        }
+            btn_AddVehicle.Enabled = false;
+            btn_UpdateVehicle.Enabled = false;
 
-        private void simpleButton6_Click(object sender, EventArgs e)
-        {
-            edt_Make.ReadOnly = false;
-            edt_Make.EditValue = "";
-            edt_Make.Focus();
-        }
+            edt_Name.ReadOnly = false;
 
-        private void simpleButton5_Click(object sender, EventArgs e)
-        {
-            edt_Year.ReadOnly = false;
-            edt_Year.EditValue = "";
-            edt_Year.Focus();
-        }
+            ckedt_New.EditValue = true;
 
-        private void edt_VinNumber_Leave(object sender, EventArgs e)
-        {
-            //_controller.UpdateVehicleInfo(Utils.GetEdtValue((TextEdit)sender), ((TextEdit)sender).Name);
-            ((TextEdit)sender).ReadOnly = true;
-        }
+            _controller.NewVehicle();
 
-        private void edt_SerialNumber_Leave(object sender, EventArgs e)
-        {
-            _controller.UpdateEmployeeInfo(Utils.GetEdtValue((TextEdit)sender), ((TextEdit)sender).Name);
-            ((TextEdit)sender).ReadOnly = true;
-        }
-
-        private void edt_Make_Leave(object sender, EventArgs e)
-        {
-            _controller.UpdateEmployeeInfo(Utils.GetEdtValue((TextEdit)sender), ((TextEdit)sender).Name);
-            ((TextEdit)sender).ReadOnly = true;
-        }
-
-        private void edt_Model_Leave(object sender, EventArgs e)
-        {
-            _controller.UpdateEmployeeInfo(Utils.GetEdtValue((TextEdit)sender), ((TextEdit)sender).Name);
-            ((TextEdit)sender).ReadOnly = true;
-        }
-
-        private void edt_Year_Leave(object sender, EventArgs e)
-        {
-            _controller.UpdateEmployeeInfo(Utils.GetEdtValue((TextEdit)sender), ((TextEdit)sender).Name);
-            ((TextEdit)sender).ReadOnly = true;
-        }
-
-        private void edt_LicensePlate_Leave(object sender, EventArgs e)
-        {
-            _controller.UpdateEmployeeInfo(Utils.GetEdtValue((TextEdit)sender), ((TextEdit)sender).Name);
-            ((TextEdit)sender).ReadOnly = true;
+            if (((List<Vehicle>)lue_Vehicles.Properties.DataSource).Count > 0)
+            {
+                btn_UpdateVehicle.Enabled = true;
+                lue_Vehicles.ReadOnly = false;
+            }
         }
     }
 }

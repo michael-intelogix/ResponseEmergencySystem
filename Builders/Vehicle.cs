@@ -26,6 +26,7 @@ namespace ResponseEmergencySystem.Builders
         public bool IsSamsara { get; set; } = false;
         public bool IsTruck { get; set; }
         public bool IsTrailer{ get; set; }
+        public bool IsVehicle { get; set; }
         public string Status { get; private set; }
 
         public Vehicle()
@@ -203,8 +204,11 @@ namespace ResponseEmergencySystem.Builders
                 case "trailer":
                     v.IsTrailer = true;
                     break;
+                case "vehicle":
+                    v.IsVehicle = true;
+                    break;
             }
-                
+
         });
 
         public VehicleBuilder NewVehicle() => Do(v => v.ID = Guid.NewGuid());

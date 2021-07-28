@@ -36,6 +36,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         private List<Employee> _DriversLocal = new List<Employee>();
         private List<Vehicle> _trucks = new List<Vehicle>();
         private List<Vehicle> _trailers = new List<Vehicle>();
+        private List<Vehicle> _vehicles = new List<Vehicle>();
 
         private List<Models.Logs.Log> _logs = new List<Models.Logs.Log>();
 
@@ -72,6 +73,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             _DriversLocal = DriverService.GetDriver("");
             _trucks = VehicleService.list_Trucks();
             _trailers = VehicleService.list_Trailers();
+            _vehicles = VehicleService.list_Vehicles();
 
             if (incidentId == constants.emptyId.ToString())
             {
@@ -1409,6 +1411,53 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
             LoadTrailers();
             _truckTrailerView.ID_Trailer = newTrailer.ID.ToString();
+        }
+        #endregion
+
+        #region vehicles view
+        IVehiclesView _vehiclesView;
+        public void SetVehiclesView(IVehiclesView view)
+        {
+            _vehiclesView = view;
+        }
+        #endregion
+
+        #region vehicles
+        public void LoadVehicles()
+        {
+            _vehiclesView.VehiclesDataSource = _vehicles;
+        }
+
+        public void NewVehicle()
+        {
+            _vehiclesView.VehicleName = "";
+            _vehiclesView.VinNumber = "";
+            _vehiclesView.Serialnumber = "";
+            _vehiclesView.Make = "";
+            _vehiclesView.Model = "";
+            _vehiclesView.Year = "";
+            _vehiclesView.LicensePlate = "";
+        }
+
+        public void AddVehicle()
+        {
+            var newVehicle = new VehicleBuilder()
+                .SetName(_vehiclesView.VehicleName)
+                .SetVinNumber(_vehiclesView.VinNumber)
+                .SetSerialNumber(_vehiclesView.Serialnumber)
+                .SetMake(_vehiclesView.Make)
+                .SetModel(_vehiclesView.Model)
+                .SetYear(_vehiclesView.Year)
+                .SetLicensePlate(_vehiclesView.LicensePlate)
+                .VehicleType("trailer")
+                .NewVehicle()
+                .Build();
+
+            newVehicle.SetNewVehicle();
+            _vehicles.Add(newVehicle);
+
+            LoadVehicles();
+            _vehiclesView.ID_Vehicle = newVehicle.ID.ToString();
         }
         #endregion
     }

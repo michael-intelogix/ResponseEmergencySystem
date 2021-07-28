@@ -844,13 +844,17 @@ namespace ResponseEmergencySystem.Forms.Incidents
 
         private void Incident_Load(object sender, EventArgs e)
         {
-            #region vehicles information
             ITXFramework.ITXFramework itx = new ITXFramework.ITXFramework();
-            var view = new containers.TruckTrailer();
-            view.SetController(_controller);
-            itx.cfrm_InsertForm(view, pnl_VehicleInformationContainer);
+            #region trucks-trailers information
+            //var trucksTrailersView = new containers.TruckTrailer();
+            //trucksTrailersView.SetController(_controller);
+            //itx.cfrm_InsertForm(trucksTrailersView, pnl_VehicleInformationContainer);
+            #endregion
 
-
+            #region vehicles information
+            var vehiclesView = new containers.Vehicles();
+            vehiclesView.SetController(_controller);
+            itx.cfrm_InsertForm(vehiclesView, pnl_VehicleInformationContainer);
             #endregion
 
             if (backgroundWorker1.IsBusy != true)
