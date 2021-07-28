@@ -35,6 +35,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
         private List<Employee> _DriversLocal = new List<Employee>();
         private List<Vehicle> _trucks = new List<Vehicle>();
+        private List<Vehicle> _trailers = new List<Vehicle>();
 
         private List<Models.Logs.Log> _logs = new List<Models.Logs.Log>();
 
@@ -70,7 +71,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
             _DriversLocal = DriverService.GetDriver("");
             _trucks = VehicleService.list_Trucks();
-            
+            _trailers = VehicleService.list_Trailers();
 
             if (incidentId == constants.emptyId.ToString())
             {
@@ -1271,6 +1272,11 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         public void LoadTrucks()
         {
             _truckTrailerView.TrucksDataSource = _trucks;
+        }
+
+        public void LoadTrailers()
+        {
+            _truckTrailerView.TrailersDataSource = _trailers;
         }
         #endregion
     }

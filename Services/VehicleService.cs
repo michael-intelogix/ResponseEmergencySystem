@@ -53,6 +53,7 @@ namespace ResponseEmergencySystem.Services
                                     .SetYear(sdr["ID_Vehicle"] == DBNull.Value ? (string)sdr["Year"] : (string)sdr["InternalYear"])
                                     .SetLicensePlate(sdr["ID_Vehicle"] == DBNull.Value ? (string)sdr["LicensePlate"] : (string)sdr["InternalLicensePlate"])
                                     .VehicleType(sdr["ID_Vehicle"] == DBNull.Value ? "truck" : (string)sdr["VehicleType"])
+                                    .NewVehicle()
                                     .Build()
                             );
                         }
@@ -71,59 +72,65 @@ namespace ResponseEmergencySystem.Services
             //return result;
         }
 
-        //public static List<Trailer> list_Trailers()
-        //{
-        //    List<Trailer> result = new List<Trailer>();
+        public static List<Vehicle> list_Trailers()
+        {
+            List<Vehicle> result = new List<Vehicle>();
 
-        //    try
-        //    {
-        //        using (SqlCommand cmd = new SqlCommand
-        //        {
-        //            Connection = constants.GeneralConnection,
-        //            CommandText = $"List_Trailers",
-        //            CommandType = CommandType.StoredProcedure
-        //        })
-        //        {
-        //            if (cmd.Connection.State == ConnectionState.Open)
-        //            {
-        //                cmd.Connection.Close();
-        //            }
-        //            cmd.Connection.Open();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand
+                {
+                    Connection = constants.SIREMConnection,
+                    CommandText = $"List_Trailers",
+                    CommandType = CommandType.StoredProcedure
+                })
+                {
+                    if (cmd.Connection.State == ConnectionState.Open)
+                    {
+                        cmd.Connection.Close();
+                    }
+                    cmd.Connection.Open();
 
-        //            cmd.Parameters.AddWithValue("@ID_Capture", "");
+                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    {
+                        if (sdr == null)
+                        {
+                            throw new NullReferenceException("No Information Available.");
+                        }
+                        while (sdr.Read())
+                        {
+                            result.Add(
+                                new VehicleBuilder()
+                                    .IsRegisteredInGeneral(sdr["ID_General"] == DBNull.Value ? Guid.Empty : Guid.Parse(sdr["ID_General"].ToString()), "0")
+                                    .HasVehicleID(sdr["ID_Vehicle"] == DBNull.Value ? Guid.Empty : (Guid)sdr["ID_Vehicle"])
+                                    .SetName(sdr["ID_Vehicle"] == DBNull.Value ? (string)sdr["trailer"] : (string)sdr["InternalName"])
+                                    .SetCommodity(sdr["ID_Vehicle"] == DBNull.Value ? (string)sdr["commodity"] : (string)sdr["InternalCommodity"])
+                                    .SetVinNumber(sdr["ID_Vehicle"] == DBNull.Value ? (string)sdr["VinNumber"] : (string)sdr["InternalVinNumber"])
+                                    .SetSerialNumber(sdr["ID_Vehicle"] == DBNull.Value ? (string)sdr["SerialNumber"] : (string)sdr["InternalSerialNumber"])
+                                    .SetMake(sdr["ID_Vehicle"] == DBNull.Value ? (string)sdr["Make"] : (string)sdr["InternalMake"])
+                                    .SetModel(sdr["ID_Vehicle"] ==DBNull.Value ? (string)sdr["Model"] : (string)sdr["InternalModel"])
+                                    .SetYear(sdr["ID_Vehicle"] == DBNull.Value ? (string)sdr["Year"] : (string)sdr["InternalYear"])
+                                    .SetLicensePlate(sdr["ID_Vehicle"] == DBNull.Value ? (string)sdr["LicensePlate"] : (string)sdr["InternalLicensePlate"])
+                                    .VehicleType(sdr["ID_Vehicle"] == DBNull.Value ? "trailer" : (string)sdr["ID_Vehicle"])
+                                    .NewVehicle()
+                                    .Build()
+                            );
+                        }
+                    }
+                    cmd.Connection.Close();
 
-        //            using (SqlDataReader sdr = cmd.ExecuteReader())
-        //            {
-        //                if (sdr == null)
-        //                {
-        //                    throw new NullReferenceException("No Information Available.");
-        //                }
-        //                while (sdr.Read())
-        //                {
-        //                    result.Add(
-        //                        new Trailer(
-        //                            Guid.Parse((string)sdr["pk_id"]),
-        //                            (string)sdr["trailer"],
-        //                            (string)sdr["commodity"],
-        //                            false
-        //                        )
-        //                    );
-        //                }
-        //            }
-        //            cmd.Connection.Close();
 
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Driver couldn't be found due: {ex.Message}");
 
-        //            return result;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show($"Driver couldn't be found due: {ex.Message}");
-
-        //        return new List<Trailer>();
-        //    }
-        //    //return result;
-        //}
+                return new List<Vehicle>();
+            }
+            //return result;
+        }
 
         //public static Response UpdateTrailer(string Trailer, string commodity)
         //{

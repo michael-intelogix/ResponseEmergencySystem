@@ -281,7 +281,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
         {
             _parentController.SetTruckTrailerView(this);
             _parentController.LoadTrucks();
-            //_parentController.LoadTrailers();
+            _parentController.LoadTrailers();
         }
 
         private void btn_Broker1_Click(object sender, EventArgs e)
