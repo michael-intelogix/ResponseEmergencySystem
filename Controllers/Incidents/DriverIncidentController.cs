@@ -1303,6 +1303,40 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
             _truckTrailerView.TrucksDataSource = _trucks;
         }
+        
+        public void Newtruck()
+        {
+
+            _truckTrailerView.TruckName = "";
+            _truckTrailerView.TruckVinNumber = "";
+            _truckTrailerView.TruckSerialNumber = "";
+            _truckTrailerView.TruckMake = "";
+            _truckTrailerView.TruckModel = "";
+            _truckTrailerView.TruckYear = "";
+            _truckTrailerView.TruckLicensePlate = "";
+
+        }
+
+        public void AddTruck()
+        {
+            var newTruck = new VehicleBuilder()
+                .SetName(_truckTrailerView.TruckName)
+                .SetVinNumber(_truckTrailerView.TruckVinNumber)
+                .SetSerialNumber(_truckTrailerView.TruckSerialNumber)
+                .SetMake(_truckTrailerView.TruckMake)
+                .SetModel(_truckTrailerView.TruckModel)
+                .SetYear(_truckTrailerView.TruckYear)
+                .SetLicensePlate(_truckTrailerView.TruckLicensePlate)
+                .VehicleType("truck")
+                .NewVehicle()
+                .Build();
+
+            newTruck.SetNewVehicle();
+            _trucks.Add(newTruck);
+
+            _truckTrailerView.TrucksDataSource = _trucks;
+            _truckTrailerView.ID_Truck = newTruck.ID.ToString();
+        }
         #endregion
     }
 }

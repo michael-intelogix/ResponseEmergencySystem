@@ -209,7 +209,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
 
             if ((bool)ckedt_New.EditValue)
             {
-                //_parentController.AddTruck();
+                _parentController.AddTruck();
                 ckedt_New.EditValue = false;
             }
             else
@@ -233,6 +233,8 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             pnl_TruckStatus.Visible = false;
             pnl_TruckInfo.Visible = true;
 
+            lue_Trucks.ReadOnly = true;
+
             btn_AddTruck.Enabled = false;
             btn_UpdateTruck.Enabled = false;
 
@@ -240,7 +242,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
 
             ckedt_New.EditValue = true;
 
-            //_parentController.Newtruck();
+            _parentController.Newtruck();
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)
