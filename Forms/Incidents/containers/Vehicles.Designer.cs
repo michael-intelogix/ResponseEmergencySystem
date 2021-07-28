@@ -369,6 +369,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             // 
             this.edt_Name.Location = new System.Drawing.Point(119, 4);
             this.edt_Name.Name = "edt_Name";
+            this.edt_Name.Properties.ReadOnly = true;
             this.edt_Name.Properties.UseReadOnlyAppearance = false;
             this.edt_Name.Size = new System.Drawing.Size(202, 24);
             this.edt_Name.TabIndex = 149;

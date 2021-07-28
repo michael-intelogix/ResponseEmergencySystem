@@ -116,7 +116,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             btn_AddVehicle.Enabled = false;
             lue_Vehicles.ReadOnly = true;
 
-            //_parentController.SetTruckInfo();
+            _controller.SetVehicleInfo();
         }
 
         private void btn_SaveVehicle_Click_1(object sender, EventArgs e)
@@ -136,8 +136,8 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
                 _controller.AddVehicle();
                 ckedt_New.EditValue = false;
             }
-            //else
-            //    _parentController.UpdateTruckInfo();
+            else
+                _controller.UpdateVehicleInfo();
 
             if (((List<Vehicle>)lue_Vehicles.Properties.DataSource).Count == 0)
             {
@@ -181,11 +181,6 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
 
             _controller.NewVehicle();
 
-            if (((List<Vehicle>)lue_Vehicles.Properties.DataSource).Count > 0)
-            {
-                btn_UpdateVehicle.Enabled = true;
-                lue_Vehicles.ReadOnly = false;
-            }
         }
     }
 }

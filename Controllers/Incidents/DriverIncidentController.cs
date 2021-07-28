@@ -1459,6 +1459,35 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             LoadVehicles();
             _vehiclesView.ID_Vehicle = newVehicle.ID.ToString();
         }
+
+        public void SetVehicleInfo()
+        {
+            var ID = _vehiclesView.ID_Vehicle;
+            if (ID == "")
+                return;
+
+            var vehicle = _vehicles.Where(v => v.ID == Guid.Parse(ID)).First();
+            _vehiclesView.VehicleName = vehicle.Name;
+            _vehiclesView.VinNumber = vehicle.VinNumber;
+            _vehiclesView.Serialnumber = vehicle.SerialNumber;
+            _vehiclesView.Make = vehicle.Make;
+            _vehiclesView.Model = vehicle.Model;
+            _vehiclesView.Year = vehicle.Year.ToString();
+            _vehiclesView.LicensePlate = vehicle.LicensePlate;
+        }
+
+        public void UpdateVehicleInfo()
+        {
+            var vehicle = _vehicles.Where(v => v.ID == Guid.Parse(_vehiclesView.ID_Vehicle)).First();
+            vehicle.ValidateVinNumber(_vehiclesView.VinNumber);
+            vehicle.ValidateSerialNumber(_vehiclesView.Serialnumber);
+            vehicle.ValidateMake(_vehiclesView.Make);
+            vehicle.ValidateModel(_vehiclesView.Model);
+            vehicle.ValidateYear(_vehiclesView.Year);
+            vehicle.ValidateLicensePlate(_vehiclesView.LicensePlate);
+
+            _vehiclesView.VehiclesDataSource = _vehicles;
+        }
         #endregion
     }
 }
