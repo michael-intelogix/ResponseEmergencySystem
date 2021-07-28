@@ -846,7 +846,9 @@ namespace ResponseEmergencySystem.Forms.Incidents
         {
             #region vehicles information
             ITXFramework.ITXFramework itx = new ITXFramework.ITXFramework();
-            itx.cfrm_InsertForm(new containers.TruckTrailer(), pnl_VehicleInformationContainer);
+            var view = new containers.TruckTrailer();
+            view.SetController(_controller);
+            itx.cfrm_InsertForm(view, pnl_VehicleInformationContainer);
 
 
             #endregion

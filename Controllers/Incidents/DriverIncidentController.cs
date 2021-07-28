@@ -69,7 +69,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             ReportPath = Settings.Default.AppFolder;
 
             _DriversLocal = DriverService.GetDriver("");
-            _trucks = GeneralService.list_Trucks();
+            _trucks = VehicleService.list_Trucks();
             
 
             if (incidentId == constants.emptyId.ToString())
@@ -1266,6 +1266,11 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         public void SetTruckTrailerView(ITrucksTrailersView view)
         {
             _truckTrailerView = view;
+        }
+        
+        public void LoadTrucks()
+        {
+            _truckTrailerView.TrucksDataSource = _trucks;
         }
         #endregion
     }

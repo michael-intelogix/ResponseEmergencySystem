@@ -280,7 +280,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
         private void TruckTrailer_Load(object sender, EventArgs e)
         {
             _parentController.SetTruckTrailerView(this);
-            //_parentController.LoadTrucks();
+            _parentController.LoadTrucks();
             //_parentController.LoadTrailers();
         }
 

@@ -22,7 +22,7 @@ namespace ResponseEmergencySystem.Services
             {
                 using (SqlCommand cmd = new SqlCommand
                 {
-                    Connection = constants.GeneralConnection,
+                    Connection = constants.SIREMConnection,
                     CommandText = $"List_Trucks",
                     CommandType = CommandType.StoredProcedure
                 })
@@ -43,24 +43,23 @@ namespace ResponseEmergencySystem.Services
                         {
                             result.Add(
                                 new VehicleBuilder()
-                                    .
-                                (
-                                    sdr["pk_id"] == DBNull.Value ? Guid.Empty.ToString() : (string)sdr["pk_id"],
-                                    (string)sdr["ID_Samsara"],
-                                    (string)sdr["Name"],
-                                    (string)sdr["VinNumber"],
-                                    (string)sdr["SerialNumber"],
-                                    (string)sdr["Make"],
-                                    (string)sdr["Model"],
-                                    (string)sdr["Year"],
-                                    (string)sdr["LicensePlate"]
-                                )
+                                    .IsRegisteredInGeneral(sdr["ID_General"] == DBNull.Value ? Guid.Empty : Guid.Parse(sdr["ID_General"].ToString()), sdr["ID_Samsara"] == DBNull.Value ? "0" : (string)sdr["ID_Samsara"])
+                                    .HasVehicleID(sdr["ID_Vehicle"] == DBNull.Value ? Guid.Empty : (Guid)sdr["ID_Vehicle"])
+                                    .SetName(sdr["ID_Vehicle"] == DBNull.Value ? (string)sdr["truckNumber"] : (string)sdr["InternalName"])
+                                    .SetVinNumber(sdr["ID_Vehicle"] == DBNull.Value ? (string)sdr["VinNumber"] : (string)sdr["InternalVinNumber"])
+                                    .SetSerialNumber(sdr["ID_Vehicle"] == DBNull.Value ? (string)sdr["SerialNumber"] : (string)sdr["InternalSerialNumber"])
+                                    .SetMake(sdr["ID_Vehicle"] == DBNull.Value ? (string)sdr["Make"] : (string)sdr["InternalMake"])
+                                    .SetModel(sdr["ID_Vehicle"] == DBNull.Value ? (string)sdr["Model"] : (string)sdr["InternalModel"])
+                                    .SetYear(sdr["ID_Vehicle"] == DBNull.Value ? (string)sdr["Year"] : (string)sdr["InternalYear"])
+                                    .SetLicensePlate(sdr["ID_Vehicle"] == DBNull.Value ? (string)sdr["LicensePlate"] : (string)sdr["InternalLicensePlate"])
+                                    .VehicleType(sdr["ID_Vehicle"] == DBNull.Value ? "truck" : (string)sdr["VehicleType"])
+                                    .Build()
                             );
                         }
                     }
                     cmd.Connection.Close();
 
-                    return result;
+                    return result.Where(v => v.IsTruck).ToList();
                 }
             }
             catch (Exception ex)
