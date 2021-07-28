@@ -108,7 +108,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             GridLookUpEdit view = (GridLookUpEdit)sender;
             try
             {
-                _controller.GetVehicle(view.EditValue.ToString());
+                //_controller.GetVehicle(view.EditValue.ToString());
             }
             catch (Exception ex)
             {
@@ -118,13 +118,13 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
 
         private void Vehicles_Load(object sender, EventArgs e)
         {
-            _controller.SetVehiclesView(this);
-            _controller.LoadVehicles();
+            //_controller.SetVehiclesView(this);
+            //_controller.LoadVehicles();
         }
 
         private void btn_SaveVehicle_Click(object sender, EventArgs e)
         {
-            _controller.AddVehicle();
+            //_controller.AddVehicle();
             lue_Vehicles.ReadOnly = false;
         }
 
@@ -172,7 +172,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
 
         private void edt_VinNumber_Leave(object sender, EventArgs e)
         {
-            _controller.UpdateVehicleInfo(Utils.GetEdtValue((TextEdit)sender), ((TextEdit)sender).Name);
+            //_controller.UpdateVehicleInfo(Utils.GetEdtValue((TextEdit)sender), ((TextEdit)sender).Name);
             ((TextEdit)sender).ReadOnly = true;
         }
 

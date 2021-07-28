@@ -209,11 +209,11 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
 
             if ((bool)ckedt_New.EditValue)
             {
-                _parentController.AddTruck();
+                //_parentController.AddTruck();
                 ckedt_New.EditValue = false;
             }
-            else
-                _parentController.UpdateTruckInfo();
+            //else
+                //_parentController.UpdateTruckInfo();
         }
 
         private void btn_UpdateVinNumber_Click(object sender, EventArgs e)
@@ -225,7 +225,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             btn_AddTruck.Enabled = false;
             lue_Trucks.ReadOnly = true;
 
-            _parentController.SetTruckInfo();
+            //_parentController.SetTruckInfo();
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
@@ -240,7 +240,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
 
             ckedt_New.EditValue = true;
 
-            _parentController.Newtruck();
+            //_parentController.Newtruck();
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)
@@ -252,7 +252,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             btn_AddTrailer.Enabled = false;
             lue_Trailers.ReadOnly = true;
 
-            _parentController.SetTrailerInfo();
+            //_parentController.SetTrailerInfo();
         }
 
         private void simpleButton3_Click(object sender, EventArgs e)
@@ -270,23 +270,23 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
 
             if ((bool)ckedt_New.EditValue)
             {
-                _parentController.AddTrailer();
+                //_parentController.AddTrailer();
                 ckedt_New.EditValue = false;
             }
-            else
-                _parentController.UpdateTrailerInfo();
+            //else
+                //_parentController.UpdateTrailerInfo();
         }
 
         private void TruckTrailer_Load(object sender, EventArgs e)
         {
             _parentController.SetTruckTrailerView(this);
-            _parentController.LoadTrucks();
-            _parentController.LoadTrailers();
+            //_parentController.LoadTrucks();
+            //_parentController.LoadTrailers();
         }
 
         private void btn_Broker1_Click(object sender, EventArgs e)
         {
-            edt_Broker.EditValue = _parentController.GetBroker();
+            //edt_Broker.EditValue = _parentController.GetBroker();
         }
 
         private void btn_AddTrailer_Click(object sender, EventArgs e)
@@ -301,7 +301,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
 
             ckedt_New.EditValue = true;
 
-            _parentController.NewTrailer();
+            //_parentController.NewTrailer();
         }
     }
 }

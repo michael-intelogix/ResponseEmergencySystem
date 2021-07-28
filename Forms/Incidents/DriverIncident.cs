@@ -844,6 +844,12 @@ namespace ResponseEmergencySystem.Forms.Incidents
 
         private void Incident_Load(object sender, EventArgs e)
         {
+            #region vehicles information
+            ITXFramework.ITXFramework itx = new ITXFramework.ITXFramework();
+            itx.cfrm_InsertForm(new containers.TruckTrailer(), pnl_VehicleInformationContainer);
+
+
+            #endregion
 
             if (backgroundWorker1.IsBusy != true)
             {

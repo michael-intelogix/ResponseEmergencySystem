@@ -36,7 +36,6 @@ namespace ResponseEmergencySystem.Forms.Modals
             // simpleButton1
             // 
             this.simpleButton1.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
-            this.simpleButton1.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.trailer;
             this.simpleButton1.ImageOptions.SvgImageSize = new System.Drawing.Size(75, 75);
             this.simpleButton1.Location = new System.Drawing.Point(62, 53);
             this.simpleButton1.Name = "simpleButton1";
@@ -48,7 +47,6 @@ namespace ResponseEmergencySystem.Forms.Modals
             // simpleButton2
             // 
             this.simpleButton2.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
-            this.simpleButton2.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.Car;
             this.simpleButton2.ImageOptions.SvgImageSize = new System.Drawing.Size(60, 60);
             this.simpleButton2.Location = new System.Drawing.Point(294, 53);
             this.simpleButton2.Name = "simpleButton2";

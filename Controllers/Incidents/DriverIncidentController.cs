@@ -10,6 +10,7 @@ using ResponseEmergencySystem.Properties;
 using ResponseEmergencySystem.Reports;
 using ResponseEmergencySystem.Services;
 using ResponseEmergencySystem.Views.Incidents;
+using ResponseEmergencySystem.Views.Incidents.Containers;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -33,7 +34,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         List<PersonsInvolved> _PersonsInvolved;
 
         private List<Employee> _DriversLocal = new List<Employee>();
-        private List<Truck> _trucks = new List<Truck>();
+        private List<Vehicle> _trucks = new List<Vehicle>();
 
         private List<Models.Logs.Log> _logs = new List<Models.Logs.Log>();
 
@@ -1257,6 +1258,14 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             }
 
             
+        }
+        #endregion
+
+        #region vehicles system
+        ITrucksTrailersView _truckTrailerView;
+        public void SetTruckTrailerView(ITrucksTrailersView view)
+        {
+            _truckTrailerView = view;
         }
         #endregion
     }
