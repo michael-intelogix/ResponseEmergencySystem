@@ -128,8 +128,8 @@ namespace ResponseEmergencySystem.Forms
             _controller.SetMainController(_mainCtrl);
             repositoryItemLookUpEdit1.DataSource = StatusDetailService.list_StatusDetail();
             itx.cfrm_InsertForm(_mainView, pnl_Container);
+            itx.RefreshForms(pnl_Container);
 
-            
             splashScreenManager1.CloseWaitForm();
 
 
@@ -232,6 +232,11 @@ namespace ResponseEmergencySystem.Forms
         {
             frm_Logs logsView = new frm_Logs();
             logsView.Show();
+        }
+
+        private void frm_Main_SizeChanged(object sender, EventArgs e)
+        {
+            itx.RefreshForms(pnl_Container);
         }
     }
 }
