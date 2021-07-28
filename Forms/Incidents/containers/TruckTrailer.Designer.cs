@@ -201,9 +201,9 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.pnl_TruckInfo.Controls.Add(this.labelControl2);
             this.pnl_TruckInfo.Controls.Add(this.labelControl1);
             this.pnl_TruckInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnl_TruckInfo.Location = new System.Drawing.Point(0, 104);
+            this.pnl_TruckInfo.Location = new System.Drawing.Point(0, 67);
             this.pnl_TruckInfo.Name = "pnl_TruckInfo";
-            this.pnl_TruckInfo.Size = new System.Drawing.Size(328, 171);
+            this.pnl_TruckInfo.Size = new System.Drawing.Size(328, 208);
             this.pnl_TruckInfo.TabIndex = 179;
             this.pnl_TruckInfo.Visible = false;
             // 
@@ -352,7 +352,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.pnl_TruckStatus.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_TruckStatus.Location = new System.Drawing.Point(0, 35);
             this.pnl_TruckStatus.Name = "pnl_TruckStatus";
-            this.pnl_TruckStatus.Size = new System.Drawing.Size(328, 69);
+            this.pnl_TruckStatus.Size = new System.Drawing.Size(328, 32);
             this.pnl_TruckStatus.TabIndex = 178;
             // 
             // btn_Broker1
@@ -444,6 +444,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.btn_AddTruck.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_AddTruck.Appearance.Options.UseBackColor = true;
             this.btn_AddTruck.Appearance.Options.UseFont = true;
+            this.btn_AddTruck.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.actions_add;
             this.btn_AddTruck.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
             this.btn_AddTruck.Location = new System.Drawing.Point(292, 6);
             this.btn_AddTruck.Name = "btn_AddTruck";
@@ -886,6 +887,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.btn_AddTrailer.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_AddTrailer.Appearance.Options.UseBackColor = true;
             this.btn_AddTrailer.Appearance.Options.UseFont = true;
+            this.btn_AddTrailer.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.actions_add;
             this.btn_AddTrailer.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
             this.btn_AddTrailer.Location = new System.Drawing.Point(292, 10);
             this.btn_AddTrailer.Name = "btn_AddTrailer";

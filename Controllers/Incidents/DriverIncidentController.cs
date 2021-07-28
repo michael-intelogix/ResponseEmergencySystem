@@ -1262,7 +1262,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         }
         #endregion
 
-        #region vehicles system
+        #region trucks system
         ITrucksTrailersView _truckTrailerView;
         public void SetTruckTrailerView(ITrucksTrailersView view)
         {
@@ -1277,6 +1277,31 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         public void LoadTrailers()
         {
             _truckTrailerView.TrailersDataSource = _trailers;
+        }
+
+        public void SetTruckInfo()
+        {
+            var truck = _trucks.Where(t => t.ID == Guid.Parse(_truckTrailerView.ID_Truck)).First();
+            _truckTrailerView.TruckName = truck.Name;
+            _truckTrailerView.TruckVinNumber = truck.VinNumber;
+            _truckTrailerView.TruckSerialNumber = truck.SerialNumber;
+            _truckTrailerView.TruckMake = truck.Make;
+            _truckTrailerView.TruckModel = truck.Model;
+            _truckTrailerView.TruckYear = truck.Year.ToString();
+            _truckTrailerView.TruckLicensePlate = truck.LicensePlate;
+        }
+
+        public void UpdateTruckInfo()
+        {
+            var truck = _trucks.Where(t => t.ID == Guid.Parse(_truckTrailerView.ID_Truck)).First();
+            truck.ValidateVinNumber(_truckTrailerView.TruckVinNumber);
+            truck.ValidateSerialNumber(_truckTrailerView.TruckSerialNumber);
+            truck.ValidateMake(_truckTrailerView.TruckMake);
+            truck.ValidateModel(_truckTrailerView.TruckModel);
+            truck.ValidateYear(_truckTrailerView.TruckYear);
+            truck.ValidateLicensePlate(_truckTrailerView.TruckLicensePlate);
+
+            _truckTrailerView.TrucksDataSource = _trucks;
         }
         #endregion
     }

@@ -212,8 +212,8 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
                 //_parentController.AddTruck();
                 ckedt_New.EditValue = false;
             }
-            //else
-                //_parentController.UpdateTruckInfo();
+            else
+                _parentController.UpdateTruckInfo();
         }
 
         private void btn_UpdateVinNumber_Click(object sender, EventArgs e)
@@ -225,7 +225,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             btn_AddTruck.Enabled = false;
             lue_Trucks.ReadOnly = true;
 
-            //_parentController.SetTruckInfo();
+            _parentController.SetTruckInfo();
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
