@@ -1376,6 +1376,40 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
             LoadTrailers();
         }
+
+        public void NewTrailer()
+        {
+            _truckTrailerView.TrailerName = "";
+            _truckTrailerView.TrailerVinNumber = "";
+            _truckTrailerView.TrailerSerialNumber = "";
+            _truckTrailerView.TrailerMake = "";
+            _truckTrailerView.TrailerModel = "";
+            _truckTrailerView.TrailerYear = "";
+            _truckTrailerView.TrailerLicensePlate = "";
+            _truckTrailerView.TrailerCargoType = "";
+        }
+
+        public void AddTrailer()
+        {
+            var newTrailer = new VehicleBuilder()
+                .SetName(_truckTrailerView.TrailerName)
+                .SetVinNumber(_truckTrailerView.TrailerVinNumber)
+                .SetSerialNumber(_truckTrailerView.TrailerSerialNumber)
+                .SetMake(_truckTrailerView.TrailerMake)
+                .SetModel(_truckTrailerView.TrailerModel)
+                .SetYear(_truckTrailerView.TrailerYear)
+                .SetLicensePlate(_truckTrailerView.TrailerLicensePlate)
+                .SetCommodity(_truckTrailerView.TrailerCargoType)
+                .VehicleType("trailer")
+                .NewVehicle()
+                .Build();
+
+            newTrailer.SetNewVehicle();
+            _trailers.Add(newTrailer);
+
+            LoadTrailers();
+            _truckTrailerView.ID_Trailer = newTrailer.ID.ToString();
+        }
         #endregion
     }
 }

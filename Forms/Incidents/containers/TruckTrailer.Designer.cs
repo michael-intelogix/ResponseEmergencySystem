@@ -608,9 +608,9 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.pnl_TrailerInfo.Controls.Add(this.labelControl12);
             this.pnl_TrailerInfo.Controls.Add(this.edt_TrailerName);
             this.pnl_TrailerInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnl_TrailerInfo.Location = new System.Drawing.Point(0, 53);
+            this.pnl_TrailerInfo.Location = new System.Drawing.Point(0, 139);
             this.pnl_TrailerInfo.Name = "pnl_TrailerInfo";
-            this.pnl_TrailerInfo.Size = new System.Drawing.Size(328, 222);
+            this.pnl_TrailerInfo.Size = new System.Drawing.Size(328, 136);
             this.pnl_TrailerInfo.TabIndex = 184;
             this.pnl_TrailerInfo.Visible = false;
             // 
@@ -769,7 +769,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.pnl_TrailerStatus.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_TrailerStatus.Location = new System.Drawing.Point(0, 40);
             this.pnl_TrailerStatus.Name = "pnl_TrailerStatus";
-            this.pnl_TrailerStatus.Size = new System.Drawing.Size(328, 13);
+            this.pnl_TrailerStatus.Size = new System.Drawing.Size(328, 99);
             this.pnl_TrailerStatus.TabIndex = 183;
             // 
             // ckedt_TrailerDamages

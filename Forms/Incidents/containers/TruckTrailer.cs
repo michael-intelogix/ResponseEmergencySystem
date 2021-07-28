@@ -272,7 +272,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
 
             if ((bool)ckedt_New.EditValue)
             {
-                //_parentController.AddTrailer();
+                _parentController.AddTrailer();
                 ckedt_New.EditValue = false;
             }
             else
@@ -303,7 +303,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
 
             ckedt_New.EditValue = true;
 
-            //_parentController.NewTrailer();
+            _parentController.NewTrailer();
         }
     }
 }
