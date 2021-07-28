@@ -254,7 +254,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             btn_AddTrailer.Enabled = false;
             lue_Trailers.ReadOnly = true;
 
-            //_parentController.SetTrailerInfo();
+            _parentController.SetTrailerInfo();
         }
 
         private void simpleButton3_Click(object sender, EventArgs e)
@@ -275,8 +275,8 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
                 //_parentController.AddTrailer();
                 ckedt_New.EditValue = false;
             }
-            //else
-                //_parentController.UpdateTrailerInfo();
+            else
+                _parentController.UpdateTrailerInfo();
         }
 
         private void TruckTrailer_Load(object sender, EventArgs e)

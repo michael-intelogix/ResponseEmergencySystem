@@ -201,9 +201,9 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.pnl_TruckInfo.Controls.Add(this.labelControl2);
             this.pnl_TruckInfo.Controls.Add(this.labelControl1);
             this.pnl_TruckInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnl_TruckInfo.Location = new System.Drawing.Point(0, 67);
+            this.pnl_TruckInfo.Location = new System.Drawing.Point(0, 102);
             this.pnl_TruckInfo.Name = "pnl_TruckInfo";
-            this.pnl_TruckInfo.Size = new System.Drawing.Size(328, 208);
+            this.pnl_TruckInfo.Size = new System.Drawing.Size(328, 173);
             this.pnl_TruckInfo.TabIndex = 179;
             this.pnl_TruckInfo.Visible = false;
             // 
@@ -352,7 +352,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.pnl_TruckStatus.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_TruckStatus.Location = new System.Drawing.Point(0, 35);
             this.pnl_TruckStatus.Name = "pnl_TruckStatus";
-            this.pnl_TruckStatus.Size = new System.Drawing.Size(328, 32);
+            this.pnl_TruckStatus.Size = new System.Drawing.Size(328, 67);
             this.pnl_TruckStatus.TabIndex = 178;
             // 
             // btn_Broker1
@@ -608,9 +608,9 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.pnl_TrailerInfo.Controls.Add(this.labelControl12);
             this.pnl_TrailerInfo.Controls.Add(this.edt_TrailerName);
             this.pnl_TrailerInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnl_TrailerInfo.Location = new System.Drawing.Point(0, 134);
+            this.pnl_TrailerInfo.Location = new System.Drawing.Point(0, 53);
             this.pnl_TrailerInfo.Name = "pnl_TrailerInfo";
-            this.pnl_TrailerInfo.Size = new System.Drawing.Size(328, 141);
+            this.pnl_TrailerInfo.Size = new System.Drawing.Size(328, 222);
             this.pnl_TrailerInfo.TabIndex = 184;
             this.pnl_TrailerInfo.Visible = false;
             // 
@@ -769,7 +769,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.pnl_TrailerStatus.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_TrailerStatus.Location = new System.Drawing.Point(0, 40);
             this.pnl_TrailerStatus.Name = "pnl_TrailerStatus";
-            this.pnl_TrailerStatus.Size = new System.Drawing.Size(328, 94);
+            this.pnl_TrailerStatus.Size = new System.Drawing.Size(328, 13);
             this.pnl_TrailerStatus.TabIndex = 183;
             // 
             // ckedt_TrailerDamages

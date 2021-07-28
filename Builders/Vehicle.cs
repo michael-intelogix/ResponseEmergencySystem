@@ -118,6 +118,19 @@ namespace ResponseEmergencySystem.Builders
             return false;
         }
 
+        public bool ValidateCommodity(string newCommodity)
+        {
+            string newValue = newCommodity.Trim();
+            if (this.Commodity != newValue && newValue != "")
+            {
+                this.Commodity = newValue;
+                this.Status = this.Exists ? "updated" : "added";
+                return true;
+            }
+
+            return false;
+        }
+
         public void SetNewVehicle ()
         {
             Status = "added";

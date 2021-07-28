@@ -1262,26 +1262,27 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         }
         #endregion
 
-        #region trucks system
+        #region trucktrailers view
         ITrucksTrailersView _truckTrailerView;
         public void SetTruckTrailerView(ITrucksTrailersView view)
         {
             _truckTrailerView = view;
         }
-        
+        #endregion
+
+        #region trucks
         public void LoadTrucks()
         {
             _truckTrailerView.TrucksDataSource = _trucks;
         }
 
-        public void LoadTrailers()
-        {
-            _truckTrailerView.TrailersDataSource = _trailers;
-        }
-
         public void SetTruckInfo()
         {
-            var truck = _trucks.Where(t => t.ID == Guid.Parse(_truckTrailerView.ID_Truck)).First();
+            var ID = _truckTrailerView.ID_Truck;
+            if (ID == "")
+                return;
+
+            var truck = _trucks.Where(t => t.ID == Guid.Parse(ID)).First();
             _truckTrailerView.TruckName = truck.Name;
             _truckTrailerView.TruckVinNumber = truck.VinNumber;
             _truckTrailerView.TruckSerialNumber = truck.SerialNumber;
@@ -1336,6 +1337,44 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
             _truckTrailerView.TrucksDataSource = _trucks;
             _truckTrailerView.ID_Truck = newTruck.ID.ToString();
+        }
+        #endregion
+
+        #region Trailers system
+        public void LoadTrailers()
+        {
+            _truckTrailerView.TrailersDataSource = _trailers;
+        }
+
+        public void SetTrailerInfo()
+        {
+            var ID = _truckTrailerView.ID_Trailer;
+            if (ID == "")
+                return;
+
+            var trailer = _trailers.Where(t => t.ID == Guid.Parse(ID)).First();
+            _truckTrailerView.TrailerName = trailer.Name;
+            _truckTrailerView.TrailerVinNumber = trailer.VinNumber;
+            _truckTrailerView.TrailerSerialNumber = trailer.SerialNumber;
+            _truckTrailerView.TrailerMake = trailer.Make;
+            _truckTrailerView.TrailerModel = trailer.Model;
+            _truckTrailerView.TrailerYear = trailer.Year.ToString();
+            _truckTrailerView.TrailerLicensePlate = trailer.LicensePlate;
+            _truckTrailerView.TrailerCargoType = trailer.Commodity;
+        }
+
+        public void UpdateTrailerInfo()
+        {
+            var trailer = _trailers.Where(t => t.ID == Guid.Parse(_truckTrailerView.ID_Trailer)).First();
+            trailer.ValidateVinNumber(_truckTrailerView.TrailerVinNumber);
+            trailer.ValidateSerialNumber(_truckTrailerView.TrailerSerialNumber);
+            trailer.ValidateMake(_truckTrailerView.TrailerMake);
+            trailer.ValidateModel(_truckTrailerView.TrailerModel);
+            trailer.ValidateYear(_truckTrailerView.TrailerYear);
+            trailer.ValidateLicensePlate(_truckTrailerView.TrailerLicensePlate);
+            trailer.ValidateCommodity(_truckTrailerView.TrailerCargoType); 
+
+            LoadTrailers();
         }
         #endregion
     }
