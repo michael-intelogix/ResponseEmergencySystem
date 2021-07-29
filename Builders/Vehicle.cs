@@ -32,8 +32,6 @@ namespace ResponseEmergencySystem.Builders
         public Vehicle()
         {
             this.Status = "empty";
-            if (IsSamsara && !Exists)
-                SetNewVehicle();
         }
 
         public bool ValidateVinNumber(string newVinNumber)
@@ -151,10 +149,10 @@ namespace ResponseEmergencySystem.Builders
 
         private TSelf AddAction(Action<Vehicle> action) 
         {
-            actions.Add(e =>
+            actions.Add(v =>
             {
-                action(e);
-                return e;
+                action(v);
+                return v;
             });
 
             return (TSelf)this;
@@ -191,6 +189,7 @@ namespace ResponseEmergencySystem.Builders
         });
         public VehicleBuilder HasVehicleID(Guid vehicleID) => Do(v => {
             v.ID_Vehicle = vehicleID;
+
             if (vehicleID != Guid.Empty)
                 v.Exists = true;
         });
@@ -211,7 +210,12 @@ namespace ResponseEmergencySystem.Builders
 
         });
 
-        public VehicleBuilder NewVehicle() => Do(v => v.ID = Guid.NewGuid());
+        public VehicleBuilder NewVehicle() => Do(v => {
+            if (v.IsSamsara && !v.Exists)
+                v.SetNewVehicle();
+
+            v.ID = Guid.NewGuid();
+        });
     }
     
 }

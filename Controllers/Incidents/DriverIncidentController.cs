@@ -275,7 +275,46 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                 driver.ID_Employee = Guid.Parse(t2.Result.ID);
             }
 
-            return;
+            #region vehicles services
+            
+            var truck = _trucks.Where(t => t.ID == Guid.Parse(_truckTrailerView.ID_Truck)).First();
+
+            if (truck.Status != "empty")
+            {
+                t2 = new Task<Response>(() => VehicleService.update_Truck(truck));
+
+                t2.Start();
+                t2.Wait();
+
+                if (!t2.Result.validation)
+                {
+                    Utils.ShowMessage(t2.Result.Message, title: "New Employee Error", type: "Error");
+                    return;
+                }
+
+                truck.ID_Vehicle = Guid.Parse(t2.Result.ID);
+            }
+
+            var trailer = _trailers.Where(t => t.ID == Guid.Parse(_truckTrailerView.ID_Trailer)).First();
+
+            if (trailer.Status != "empty")
+            {
+                t2 = new Task<Response>(() => VehicleService.update_Trailer(trailer));
+
+                t2.Start();
+                t2.Wait();
+
+                if (!t2.Result.validation)
+                {
+                    Utils.ShowMessage(t2.Result.Message, title: "New Employee Error", type: "Error");
+                    return;
+                }
+
+                truck.ID_Vehicle = Guid.Parse(t2.Result.ID);
+            }
+            #endregion
+
+             return;
             try
             {
                 var incident = new Incident(

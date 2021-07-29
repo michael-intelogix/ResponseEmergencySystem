@@ -201,9 +201,9 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.pnl_TruckInfo.Controls.Add(this.labelControl2);
             this.pnl_TruckInfo.Controls.Add(this.labelControl1);
             this.pnl_TruckInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnl_TruckInfo.Location = new System.Drawing.Point(0, 102);
+            this.pnl_TruckInfo.Location = new System.Drawing.Point(0, 100);
             this.pnl_TruckInfo.Name = "pnl_TruckInfo";
-            this.pnl_TruckInfo.Size = new System.Drawing.Size(328, 173);
+            this.pnl_TruckInfo.Size = new System.Drawing.Size(328, 175);
             this.pnl_TruckInfo.TabIndex = 179;
             this.pnl_TruckInfo.Visible = false;
             // 
@@ -352,7 +352,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.pnl_TruckStatus.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_TruckStatus.Location = new System.Drawing.Point(0, 35);
             this.pnl_TruckStatus.Name = "pnl_TruckStatus";
-            this.pnl_TruckStatus.Size = new System.Drawing.Size(328, 67);
+            this.pnl_TruckStatus.Size = new System.Drawing.Size(328, 65);
             this.pnl_TruckStatus.TabIndex = 178;
             // 
             // btn_Broker1

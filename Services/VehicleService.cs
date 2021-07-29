@@ -1,9 +1,11 @@
 ﻿using ResponseEmergencySystem.Builders;
 using ResponseEmergencySystem.Code;
+using ResponseEmergencySystem.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -189,6 +191,178 @@ namespace ResponseEmergencySystem.Services
                 return new List<Vehicle>();
             }
             //return result;
+        }
+
+        public static Response update_Truck(Vehicle truck)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand
+                {
+                    Connection = constants.SIREMConnection,
+                    CommandText = $"Update_Vehicle",
+                    CommandType = CommandType.StoredProcedure
+                })
+                {
+                    if (cmd.Connection.State == ConnectionState.Open)
+                    {
+                        cmd.Connection.Close();
+                    }
+
+                    cmd.Parameters.AddWithValue("@ID_Vehicle", truck.ID_Vehicle);
+                    cmd.Parameters.AddWithValue("@Name", truck.Name);
+                    cmd.Parameters.AddWithValue("@VinNumber", truck.VinNumber);
+                    cmd.Parameters.AddWithValue("@SerialNumber", truck.SerialNumber);
+                    cmd.Parameters.AddWithValue("@Make", truck.Make);
+                    cmd.Parameters.AddWithValue("@Model", truck.Model);
+                    cmd.Parameters.AddWithValue("@Year", truck.Year);
+                    cmd.Parameters.AddWithValue("@LicensePlate", truck.LicensePlate);
+                    cmd.Parameters.AddWithValue("@VehicleType", "truck");
+
+                    if (truck.IsSamsara)
+                        cmd.Parameters.AddWithValue("@ID_Samsara", truck.ID_Samsara);
+                    if (truck.IsLocal)
+                    {
+                        cmd.Parameters.AddWithValue("@ID_General", truck.ID_General);
+                        cmd.Parameters.AddWithValue("@ID_Samsara", truck.ID_Samsara);
+                    }
+
+                    cmd.Connection.Open();
+                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    {
+                        if (sdr == null)
+                        {
+                            throw new NullReferenceException("No Information Available.");
+                        }
+                        while (sdr.Read())
+                        {
+                            Debug.WriteLine(sdr["Validacion"]);
+                            Debug.WriteLine(sdr["msg"]);
+                            Debug.WriteLine(sdr["ID"]);
+
+                            return new Response(Convert.ToBoolean(sdr["Validacion"]), sdr["msg"].ToString(), sdr["ID"].ToString());
+                        }
+                    }
+                    cmd.Connection.Close();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show($"Broker couldn't be saved due: {ex.Message}");
+                return new Response(false, ex.Message, Guid.Empty.ToString());
+
+            }
+
+            return new Response(false, "Failed request", Guid.Empty.ToString());
+        }
+
+        public static Response update_Trailer(Vehicle trailer)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand
+                {
+                    Connection = constants.SIREMConnection,
+                    CommandText = $"Update_Vehicle",
+                    CommandType = CommandType.StoredProcedure
+                })
+                {
+                    if (cmd.Connection.State == ConnectionState.Open)
+                    {
+                        cmd.Connection.Close();
+                    }
+
+                    cmd.Parameters.AddWithValue("@ID_Vehicle", trailer.ID_Vehicle);
+                    cmd.Parameters.AddWithValue("@Name", trailer.Name);
+                    cmd.Parameters.AddWithValue("@VinNumber", trailer.VinNumber);
+                    cmd.Parameters.AddWithValue("@SerialNumber", trailer.SerialNumber);
+                    cmd.Parameters.AddWithValue("@Make", trailer.Make);
+                    cmd.Parameters.AddWithValue("@Model", trailer.Model);
+                    cmd.Parameters.AddWithValue("@Year", trailer.Year);
+                    cmd.Parameters.AddWithValue("@LicensePlate", trailer.LicensePlate);
+                    cmd.Parameters.AddWithValue("@Commodity", trailer.Commodity);
+                    cmd.Parameters.AddWithValue("@VehicleType", "trailer");
+
+                    if (trailer.IsSamsara)
+                        cmd.Parameters.AddWithValue("@ID_Samsara", trailer.ID_Samsara);
+                    if (trailer.IsLocal)
+                    {
+                        cmd.Parameters.AddWithValue("@ID_General", trailer.ID_General);
+                        cmd.Parameters.AddWithValue("@ID_Samsara", trailer.ID_Samsara);
+                    }
+
+                    cmd.Connection.Open();
+                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    {
+                        if (sdr == null)
+                        {
+                            throw new NullReferenceException("No Information Available.");
+                        }
+                        while (sdr.Read())
+                        {
+                            Debug.WriteLine(sdr["Validacion"]);
+                            Debug.WriteLine(sdr["msg"]);
+                            Debug.WriteLine(sdr["ID"]);
+
+                            return new Response(Convert.ToBoolean(sdr["Validacion"]), sdr["msg"].ToString(), sdr["ID"].ToString());
+                        }
+                    }
+                    cmd.Connection.Close();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show($"Broker couldn't be saved due: {ex.Message}");
+                return new Response(false, ex.Message, Guid.Empty.ToString());
+
+            }
+
+            return new Response(false, "Failed request", Guid.Empty.ToString());
+        }
+
+        public static void get_CategoriesIncidentVehicle()
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand
+                {
+                    Connection = constants.SIREMConnection,
+                    CommandText = $"List_Categories",
+                    CommandType = CommandType.StoredProcedure
+                })
+                {
+                    if (cmd.Connection.State == ConnectionState.Open)
+                    {
+                        cmd.Connection.Close();
+                    }
+                    cmd.Connection.Open();
+
+                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    {
+                        if (sdr == null)
+                        {
+                            throw new NullReferenceException("No Information Available.");
+                        }
+                        while (sdr.Read())
+                        {
+                            constants.CategoriesIncidentVehicle.Add(
+                                (string)sdr["Description"],
+                                (string)sdr["ID_Category"]
+                            );
+                        }
+                    }
+                    cmd.Connection.Close();
+
+
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"category couldn't be found due: {ex.Message}");
+            }
         }
 
         //public static Response UpdateTrailer(string Trailer, string commodity)

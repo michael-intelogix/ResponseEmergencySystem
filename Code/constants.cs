@@ -67,6 +67,7 @@ namespace ResponseEmergencySystem.Code
             new Models.Action("other")
         };
 
+        public static Dictionary<string, string> CategoriesIncidentVehicle { get; set; }  = new Dictionary<string, string>();
         public static void SetUserId(string ID)
         {
             userID = ID;

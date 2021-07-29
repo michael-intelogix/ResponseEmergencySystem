@@ -130,6 +130,8 @@ namespace ResponseEmergencySystem.Forms
             itx.cfrm_InsertForm(_mainView, pnl_Container);
             itx.RefreshForms(pnl_Container);
 
+            VehicleService.get_CategoriesIncidentVehicle();
+
             splashScreenManager1.CloseWaitForm();
 
 

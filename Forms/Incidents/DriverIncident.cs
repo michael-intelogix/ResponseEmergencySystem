@@ -846,15 +846,15 @@ namespace ResponseEmergencySystem.Forms.Incidents
         {
             ITXFramework.ITXFramework itx = new ITXFramework.ITXFramework();
             #region trucks-trailers information
-            //var trucksTrailersView = new containers.TruckTrailer();
-            //trucksTrailersView.SetController(_controller);
-            //itx.cfrm_InsertForm(trucksTrailersView, pnl_VehicleInformationContainer);
+            var trucksTrailersView = new containers.TruckTrailer();
+            trucksTrailersView.SetController(_controller);
+            itx.cfrm_InsertForm(trucksTrailersView, pnl_VehicleInformationContainer);
             #endregion
 
             #region vehicles information
-            var vehiclesView = new containers.Vehicles();
-            vehiclesView.SetController(_controller);
-            itx.cfrm_InsertForm(vehiclesView, pnl_VehicleInformationContainer);
+            //var vehiclesView = new containers.Vehicles();
+            //vehiclesView.SetController(_controller);
+            //itx.cfrm_InsertForm(vehiclesView, pnl_VehicleInformationContainer);
             #endregion
 
             if (backgroundWorker1.IsBusy != true)
