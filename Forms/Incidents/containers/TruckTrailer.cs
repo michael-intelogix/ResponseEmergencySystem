@@ -86,6 +86,24 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             get => Utils.GetEdtValue(edt_TruckLicensePlate);
             set => edt_TruckLicensePlate.EditValue = value;
         }
+
+        public bool TruckDamage 
+        {
+            get => (bool)ckedt_truckDamages.EditValue;
+            set => ckedt_truckDamages.EditValue = value;
+        }
+
+        public bool TruckCanMove 
+        { 
+            get => (bool)ckedt_TruckCanMove.EditValue;
+            set => ckedt_TruckCanMove.EditValue = value;
+        }
+
+        public bool TruckNeedCrane 
+        { 
+            get => (bool)ckedt_TruckNeedCrane.EditValue;
+            set => ckedt_TruckNeedCrane.EditValue = value;
+        }
         #endregion
 
         #region Trailer Information
@@ -135,6 +153,24 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
         {
             get => Utils.GetEdtValue(edt_TrailerLicensePlate);
             set => edt_TrailerLicensePlate.EditValue = value;
+        }
+
+        public bool TrailerDamage
+        {
+            get => (bool)ckedt_TrailerDamages.EditValue;
+            set => ckedt_TrailerDamages.EditValue = value;
+        }
+
+        public bool TrailerCanMove
+        {
+            get => (bool)ckedt_TrailerNeedCrane.EditValue;
+            set => ckedt_TrailerNeedCrane.EditValue = value;
+        }
+
+        public bool TrailerNeedCrane
+        {
+            get => (bool)ckedt_TrailerCanMove.EditValue;
+            set => ckedt_TrailerCanMove.EditValue = value;
         }
         #endregion
 

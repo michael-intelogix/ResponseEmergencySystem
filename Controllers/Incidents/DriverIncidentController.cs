@@ -220,9 +220,8 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                 ID_Broker2 = brokerView.ID;
             }
         }
-        public void Update()
+        public async Task UpdateAsync()
         {
-            Task<Response> t2 = null;
 
             //check location refreces
             if (_view.SendAfterSave)
@@ -245,76 +244,39 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             // Add Employee if not in samsara 
             var driver = _DriversLocal.Where(dl => dl.ID == Guid.Parse(ID_Driver)).First();
 
-            if (driver.Status == "added")
-            {
-                t2 = new Task<Response>(() => DriverService.AddDriver(Guid.Empty.ToString(), _view.FullName, _view.PhoneNumber, _view.License, driver));
-                t2.Start();
-                t2.Wait();
-
-                if(!t2.Result.validation)
-                {
-                    Utils.ShowMessage(t2.Result.Message, title: "New Employee Error", type: "Error");
-                    return;
-                }
-
-                driver.ID_Employee = Guid.Parse(t2.Result.ID);
-            }
-
-            if (driver.Status == "updated")
-            {
-                t2 = new Task<Response>(() => DriverService.UpdateDriver(driver));
-                t2.Start();
-                t2.Wait();
-
-                if (!t2.Result.validation)
-                {
-                    Utils.ShowMessage(t2.Result.Message, title: "New Employee Error", type: "Error");
-                    return;
-                }
-
-                driver.ID_Employee = Guid.Parse(t2.Result.ID);
-            }
-
             #region vehicles services
             
-            var truck = _trucks.Where(t => t.ID == Guid.Parse(_truckTrailerView.ID_Truck)).First();
+            var truck = _trucks.Where(v => v.ID == Guid.Parse(_truckTrailerView.ID_Truck)).First();
+            truck.SetVehicleStatus(_truckTrailerView.TruckDamage, _truckTrailerView.TruckCanMove, _truckTrailerView.TruckNeedCrane);
 
-            if (truck.Status != "empty")
-            {
-                t2 = new Task<Response>(() => VehicleService.update_Truck(truck));
-
-                t2.Start();
-                t2.Wait();
-
-                if (!t2.Result.validation)
-                {
-                    Utils.ShowMessage(t2.Result.Message, title: "New Employee Error", type: "Error");
-                    return;
-                }
-
-                truck.ID_Vehicle = Guid.Parse(t2.Result.ID);
-            }
-
-            var trailer = _trailers.Where(t => t.ID == Guid.Parse(_truckTrailerView.ID_Trailer)).First();
-
-            if (trailer.Status != "empty")
-            {
-                t2 = new Task<Response>(() => VehicleService.update_Trailer(trailer));
-
-                t2.Start();
-                t2.Wait();
-
-                if (!t2.Result.validation)
-                {
-                    Utils.ShowMessage(t2.Result.Message, title: "New Employee Error", type: "Error");
-                    return;
-                }
-
-                truck.ID_Vehicle = Guid.Parse(t2.Result.ID);
-            }
+            var trailer = _trailers.Where(v => v.ID == Guid.Parse(_truckTrailerView.ID_Trailer)).First();
+            trailer.SetVehicleStatus(_truckTrailerView.TrailerDamage, _truckTrailerView.TrailerCanMove, _truckTrailerView.TrailerNeedCrane);
             #endregion
 
-             return;
+            var incident2 = new Incident(
+            Guid.Parse(ID_Incident),
+            _view.ClaimNumber,
+            _view.PoliceReport,
+            _view.CitationReportNumber,
+            _view.ManifestNumber,
+            _view.IncidentDate,
+            new Location(_view.Latitude, _view.Longitude, _view.LocationReferences, DateTime.Now),
+            _view.Comments == null ? "" : _view.Comments.ToString(),
+            truck,
+            trailer,
+            driver,
+            _view.ID_City,
+            _view.ID_State,
+            ID_Broker,
+            ID_Broker2
+            );
+
+            incident2.Folio = _selectedIncident.Folio;
+
+            var incidentRes = await IncidentService.update_TruckTrailerIncident(incident2, trailer, truck, driver, _PersonsInvolved, _view.Documents, true);
+            
+
+            return;
             try
             {
                 var incident = new Incident(
@@ -353,73 +315,18 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                     ID_Broker2
                     );
 
-                var t = new Task<Response>(() => IncidentService.UpdateIncident(
+                var t3= new Task<Response>(() => IncidentService.UpdateIncident(
                     incident, _selectedIncident
                 ));
 
-                t.Start();
-                t.Wait();
+                t3.Start();
+                t3.Wait();
 
-                CheckDiscrepancies(t.Result.ID);
+                //CheckDiscrepancies(t.Result.ID);
 
-                foreach (var person in _PersonsInvolved)
-                {
-                    if (t.Result.validation)
-                    {
-                        person.ID_Incident = t.Result.ID;
-                        IncidentService.AddPersonInvolved(person);
-                    }
-                    else
-                    {
-                        Debug.WriteLine(t.Result.Message);
-                    }
-                }
 
-                if (t.Result.validation)
-                {
-                    foreach (var documentCapture in _view.Documents)
-                    {
 
-                        if (documentCapture.Status == "created")
-                        {
-                            Task tCapture = new Task(() => SaveCapture(documentCapture.ID_Capture, documentCapture.ID_CaptureType, t.Result.ID));
-                            tCapture.Start();
-                            tCapture.Wait();
 
-                            foreach (var doc in documentCapture.documents)
-                            {
-                                if (doc.Status == "empty" || doc.Status == "loaded")
-                                    continue;
-
-                                var tDocument = new Task(() => CaptureService.AddImage(Guid.NewGuid().ToString(), documentCapture.ID_Capture, doc.FirebaseUrl, doc.name, "", doc.Type));
-                                tDocument.Start();
-                                tDocument.Wait();
-                            }
-                        }
-                        else if (documentCapture.Status == "updated")
-                        {
-                            foreach (var doc in documentCapture.documents)
-                            {
-                                if (doc.Status == "empty" || doc.Status == "loaded" || doc.Status == "disposed")
-                                    continue;
-
-                                if (doc.Status == "deleted")
-                                {
-                                    var tDelete = new Task(() => CaptureService.DeleteImageCapture(doc.ID_Document));
-                                    tDelete.Start();
-                                    tDelete.Wait();
-                                    continue;
-                                }
-
-                                var ID = doc.Status == "created" ? Guid.NewGuid().ToString() : doc.ID_Document;
-                                var tDocument = new Task(() => CaptureService.AddImage(ID, documentCapture.ID_Capture, doc.FirebaseUrl, doc.name, "", doc.Type));
-                                tDocument.Start();
-                                tDocument.Wait();
-                            }
-                        }
-
-                    }
-                }
 
                 foreach(var log in _logs)
                 {

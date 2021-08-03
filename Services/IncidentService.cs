@@ -3,6 +3,7 @@ using ResponseEmergencySystem.Code;
 using ResponseEmergencySystem.EF;
 using ResponseEmergencySystem.Models;
 using ResponseEmergencySystem.Samsara_Models;
+using ResponseEmergencySystem.Builders;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -619,6 +620,251 @@ namespace ResponseEmergencySystem.Services
 
         }
 
+        public static Task<Response> update_TruckTrailerIncident(Incident incident, Builders.Vehicle trailer, Builders.Vehicle truck, Builders.Employee driver, List<PersonsInvolved> personsInvolved, List<Models.Documents.DocumentCapture> documents, bool update = false)
+        {
+            Response r = new Response();
+            Task<Response> t = null;
+            List<Task<Response>> tasks = new List<Task<Response>>();
+
+            if (driver.Status == "added")
+            {
+                t = new Task<Response>(() => DriverService.AddDriver(driver));
+                t.Start();
+                t.Wait();
+
+                if (!t.Result.validation)
+                {
+                    Utils.ShowMessage(t.Result.Message, title: "New Employee Error", type: "Error");
+
+                    return t; /// NEED CHANGE
+                }
+
+                driver.ID_Employee = Guid.Parse(t.Result.ID);
+                incident.driver2 = driver;
+            }
+
+
+            if (driver.Status == "updated")
+            {
+                t = new Task<Response>(() => DriverService.UpdateDriver(driver));
+                t.Start();
+                t.Wait();
+
+                if (!t.Result.validation)
+                {
+                    Utils.ShowMessage(t.Result.Message, title: "New Employee Error", type: "Error");
+                    return t; /// NEED CHANGE
+                }
+
+                driver.ID_Employee = Guid.Parse(t.Result.ID);
+                incident.driver2 = driver;
+            }
+
+            if (truck.Status != "empty")
+            {
+                t = new Task<Response>(() => VehicleService.update_Truck(truck));
+
+                t.Start();
+                t.Wait();
+
+                if (!t.Result.validation)
+                {
+                    Utils.ShowMessage(t.Result.Message, title: "New Truck Error", type: "Error");
+                    return t; /// NEED CHANGE
+                }
+
+                truck.RegisterNewVehicle(Guid.Parse(t.Result.ID));
+                incident.truck1 = truck;
+            }
+
+            if (trailer.Status != "empty")
+            {
+                t = new Task<Response>(() => VehicleService.update_Trailer(trailer));
+
+                t.Start();
+                t.Wait();
+
+                if (!t.Result.validation)
+                {
+                    Utils.ShowMessage(t.Result.Message, title: "New Trailer Error", type: "Error");
+                    return t; /// NEED CHANGE
+                }
+
+                trailer.RegisterNewVehicle(Guid.Parse(t.Result.ID));
+                incident.trailer1 = trailer;
+            }
+
+            t = new Task<Response>(() => IncidentService.update_Incident( incident ));
+            t.Start();
+            t.Wait();
+
+            if (!t.Result.validation)
+            {
+                Utils.ShowMessage(t.Result.Message, title: "Incident Error", type: "Error");
+                return t; /// NEED CHANGE
+            }
+
+            var t2 = new Task<Response>(() => update_IncidentTruckTrailerCategory(Guid.Parse(t.Result.ID), truck, trailer, update));
+            t2.Start();
+            t2.Wait();
+
+            if (!t2.Result.validation)
+            {
+                Utils.ShowMessage(t2.Result.Message, title: "New Incident-Truck-Trailer Error", type: "Error");
+                return t2; /// NEED CHANGE
+            }
+
+            var t3 = new Task<Response>(() => update_VehicleStatus(Guid.Parse(t.Result.ID), truck, update));
+            t3.Start();
+            t3.Wait();
+
+            if (!t3.Result.validation)
+            {
+                Utils.ShowMessage(t3.Result.Message, title: "New Vehicle Status Error", type: "Error");
+                return t3; /// NEED CHANGE
+            }
+
+            t3 = null;
+
+            t3 = new Task<Response>(() => update_VehicleStatus(Guid.Parse(t.Result.ID), trailer, update));
+            t3.Start();
+            t3.Wait();
+
+            if (!t3.Result.validation)
+            {
+                Utils.ShowMessage(t3.Result.Message, title: "New Vehicle Status Error", type: "Error");
+                return t3; /// NEED CHANGE
+            }
+
+            return t;
+ 
+            string ID_incident = t.Result.ID;
+            foreach (var person in personsInvolved)
+            {
+                if (t.Result.validation)
+                {
+                    person.ID_Incident = ID_incident;
+                    IncidentService.AddPersonInvolved(person);
+                }
+                else
+                {
+                    Debug.WriteLine(t.Result.Message);
+                }
+            }
+
+            if (t.Result.validation)
+            {
+                foreach (var documentCapture in documents)
+                {
+
+                    if (documentCapture.Status == "created")
+                    {
+                        t = new Task<Response>(() => CaptureService.AddCapture(documentCapture.ID_Capture, documentCapture.ID_CaptureType, t.Result.ID, "testing", ""));
+                        t.Start();
+                        t.Wait();
+
+                        foreach (var doc in documentCapture.documents)
+                        {
+                            if (doc.Status == "empty" || doc.Status == "loaded")
+                                continue;
+
+                            var tDocument = new Task(() => CaptureService.AddImage(Guid.NewGuid().ToString(), documentCapture.ID_Capture, doc.FirebaseUrl, doc.name, "", doc.Type));
+                            tDocument.Start();
+                            tDocument.Wait();
+                        }
+                    }
+                    else if (documentCapture.Status == "updated")
+                    {
+                        foreach (var doc in documentCapture.documents)
+                        {
+                            if (doc.Status == "empty" || doc.Status == "loaded" || doc.Status == "disposed")
+                                continue;
+
+                            if (doc.Status == "deleted")
+                            {
+                                var tDelete = new Task(() => CaptureService.DeleteImageCapture(doc.ID_Document));
+                                tDelete.Start();
+                                tDelete.Wait();
+                                continue;
+                            }
+
+                            var ID = doc.Status == "created" ? Guid.NewGuid().ToString() : doc.ID_Document;
+                            t = new Task<Response>(() => CaptureService.AddImage(ID, documentCapture.ID_Capture, doc.FirebaseUrl, doc.name, "", doc.Type));
+                            t.Start();
+                            t.Wait();
+                        }
+                    }
+
+                }
+            }
+        }
+
+        private static Response update_Incident(Incident incident)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand
+                {
+                    Connection = constants.SIREMConnection,
+                    CommandText = $"Update_Incident2",
+                    CommandType = CommandType.StoredProcedure
+                })
+                {
+                    if (cmd.Connection.State == ConnectionState.Open)
+                    {
+                        cmd.Connection.Close();
+                    }
+
+                    cmd.Parameters.AddWithValue("@ID_Incident", incident.ID_Incident);
+                    cmd.Parameters.AddWithValue("@ID_Driver", incident.driver2.ID_General);
+                    cmd.Parameters.AddWithValue("@ID_State", incident.ID_State);
+                    cmd.Parameters.AddWithValue("@ID_City", incident.ID_City);
+                    cmd.Parameters.AddWithValue("@ID_StatusDetail", "");
+                    cmd.Parameters.AddWithValue("@Folio", incident.Folio);
+                    cmd.Parameters.AddWithValue("@IncidentDate", incident.IncidentDate);
+                    cmd.Parameters.AddWithValue("@IncidentCloseDate", "");
+                    cmd.Parameters.AddWithValue("@PoliceReportBoolean", incident.PoliceReport);
+                    cmd.Parameters.AddWithValue("@CitationReportNumber", incident.CitationReportNumber);
+                    cmd.Parameters.AddWithValue("@ManifestNumber", incident.ManifestNumber);
+                    cmd.Parameters.AddWithValue("@LocationReferences", incident.LocationReferences);
+                    cmd.Parameters.AddWithValue("@IncidentLatitude", incident.IncidentLatitude);
+                    cmd.Parameters.AddWithValue("@IncidentLongitude", incident.IncidentLongitude);
+                    cmd.Parameters.AddWithValue("@ID_User", constants.userID);
+                    cmd.Parameters.AddWithValue("@Comments", incident.Comments);
+                    cmd.Parameters.AddWithValue("@Status", true);
+
+                    cmd.Connection.Open();
+                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    {
+                        if (sdr == null)
+                        {
+                            throw new NullReferenceException("No Information Available.");
+                        }
+                        while (sdr.Read())
+                        {
+                            Debug.WriteLine(sdr["Validacion"]);
+                            Debug.WriteLine(sdr["msg"]);
+                            Debug.WriteLine(sdr["ID"]);
+
+                            //MessageBox.Show((string)sdr["msg"]);
+
+                            response = new Response(Convert.ToBoolean(sdr["Validacion"]), sdr["msg"].ToString(), sdr["ID"].ToString());
+                        }
+                    }
+                    cmd.Connection.Close();
+
+                }
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show($"Incident couldn't be saved due: {ex.Message}");
+                Debug.WriteLine(ex.Message);
+                return new Response(false, ex.Message, Guid.Empty.ToString());
+            }
+        }
+
         public static void AddPersonInvolved(PersonsInvolved involved)
         {
 
@@ -799,7 +1045,7 @@ namespace ResponseEmergencySystem.Services
                         )["data"].ToString()
                     );
 
-                    List<Vehicle> locs = data.Select(p => new Vehicle
+                    List<Samsara_Models.Vehicle> locs = data.Select(p => new Samsara_Models.Vehicle
                     {
                         name = p["name"].ToString().Trim(),
                         time = (DateTime)p["location"]["time"],
@@ -1031,5 +1277,152 @@ namespace ResponseEmergencySystem.Services
             }
 
         }
+
+        private static Response update_IncidentTruckTrailerCategory(Guid ID_incident, Builders.Vehicle truck, Builders.Vehicle trailer, bool update = false)
+        {  
+            string _category = "";
+            string _truck = "";
+            string _trailer = "";
+
+            if (!truck.Exists && !trailer.Exists)
+            {
+                _category = constants.CategoriesIncidentVehicle["tt"];
+                _truck = truck.ID_General.ToString();
+                _trailer = trailer.ID_General.ToString();
+            }
+
+            if (truck.Exists && !trailer.Exists)
+            {
+                _category = constants.CategoriesIncidentVehicle["nt"];
+                _truck = truck.ID_Vehicle.ToString();
+                _trailer = trailer.ID_General.ToString();
+            }
+
+            if (!truck.Exists && trailer.Exists)
+            {
+                _category = constants.CategoriesIncidentVehicle["tn"];
+                _truck = truck.ID_General.ToString();
+                _trailer = trailer.ID_Vehicle.ToString();
+            }
+
+            if (truck.Exists && trailer.Exists)
+            {
+                _category = constants.CategoriesIncidentVehicle["nn"];
+                _truck = truck.ID_Vehicle.ToString();
+                _trailer = trailer.ID_Vehicle.ToString();
+            }
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand
+                {
+                    Connection = constants.SIREMConnection,
+                    CommandText = $"Update_IncidentVehicle",
+                    CommandType = CommandType.StoredProcedure
+                })
+                {
+                    if (cmd.Connection.State == ConnectionState.Open)
+                    {
+                        cmd.Connection.Close();
+                    }
+
+                    cmd.Parameters.AddWithValue("@ID_Truck", _truck);
+                    cmd.Parameters.AddWithValue("@ID_Trailer", _trailer);
+                    cmd.Parameters.AddWithValue("@ID_Incident", ID_incident);
+                    cmd.Parameters.AddWithValue("@ID_Category", _category);
+                    cmd.Parameters.AddWithValue("@Update", update);
+
+                    cmd.Connection.Open();
+                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    {
+                        if (sdr == null)
+                        {
+                            throw new NullReferenceException("No Information Available.");
+                        }
+                        while (sdr.Read())
+                        {
+                            Debug.WriteLine(sdr["Validacion"]);
+                            Debug.WriteLine(sdr["msg"]);
+                            Debug.WriteLine(sdr["ID"]);
+
+                            //MessageBox.Show((string)sdr["msg"]);
+
+                            response = new Response(Convert.ToBoolean(sdr["Validacion"]), sdr["msg"].ToString(), sdr["ID"].ToString());
+                        }
+                    }
+                    cmd.Connection.Close();
+
+                }
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show($"Incident couldn't be saved due: {ex.Message}");
+                Debug.WriteLine(ex.Message);
+                return new Response(false, ex.Message, Guid.Empty.ToString());
+            }
+        }
+
+        private static Response update_VehicleStatus(Guid ID_incident, Builders.Vehicle vehicle, bool update = false)
+        {
+            string _category = "";
+            string _truck = "";
+            string _trailer = "";
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand
+                {
+                    Connection = constants.SIREMConnection,
+                    CommandText = $"Update_VehicleStatus",
+                    CommandType = CommandType.StoredProcedure
+                })
+                {
+                    if (cmd.Connection.State == ConnectionState.Open)
+                    {
+                        cmd.Connection.Close();
+                    }
+
+                    cmd.Parameters.AddWithValue("@ID_Incident", ID_incident);
+                    cmd.Parameters.AddWithValue("@ID_Vehicle", vehicle.Exists ? vehicle.ID_Vehicle.ToString() : vehicle.ID_General.ToString());
+                    cmd.Parameters.AddWithValue("@ID_Broker", ID_incident);
+                    cmd.Parameters.AddWithValue("@Damage", vehicle.vehicleStatus.Damage);
+                    cmd.Parameters.AddWithValue("@CanMove", vehicle.vehicleStatus.CanMove);
+                    cmd.Parameters.AddWithValue("@NeedCrane", vehicle.vehicleStatus.NeedCrane);
+                    cmd.Parameters.AddWithValue("@Update", update);
+
+                    cmd.Connection.Open();
+                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    {
+                        if (sdr == null)
+                        {
+                            throw new NullReferenceException("No Information Available.");
+                        }
+                        while (sdr.Read())
+                        {
+                            Debug.WriteLine(sdr["Validacion"]);
+                            Debug.WriteLine(sdr["msg"]);
+                            Debug.WriteLine(sdr["ID"]);
+
+                            //MessageBox.Show((string)sdr["msg"]);
+
+                            response = new Response(Convert.ToBoolean(sdr["Validacion"]), sdr["msg"].ToString(), sdr["ID"].ToString());
+                        }
+                    }
+                    cmd.Connection.Close();
+
+                }
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show($"Incident couldn't be saved due: {ex.Message}");
+                Debug.WriteLine(ex.Message);
+                return new Response(false, ex.Message, Guid.Empty.ToString());
+            }
+        }
+
     }
 }

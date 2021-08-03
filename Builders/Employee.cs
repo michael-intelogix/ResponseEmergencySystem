@@ -27,8 +27,7 @@ namespace ResponseEmergencySystem.Builders
 
         public Employee()
         {
-            if(IsSamsara && !Exists)
-                SetNewEmployee();
+            this.Status = "empty";
         }
 
         public bool ValidatePhoneNumber(string newPhoneNumber)
@@ -38,10 +37,7 @@ namespace ResponseEmergencySystem.Builders
             if (this.PhoneNumber != newValue && newValue != "")
             {
                 this.PhoneNumber = newValue;
-                if (this.Exists)
-                    this.Status = "updated";
-                else
-                    this.Status = "added";
+                this.Status = this.Exists ? "updated" : "added";
 
                 return true;
             }
@@ -56,10 +52,7 @@ namespace ResponseEmergencySystem.Builders
             if (this.License != newValue && newValue != "")
             {
                 this.License = newValue;
-                if (this.Exists)
-                    this.Status = "updated";
-                else
-                    this.Status = "added";
+                this.Status = this.Exists ? "updated" : "added";
 
                 return true;
             }
@@ -121,7 +114,10 @@ namespace ResponseEmergencySystem.Builders
         });
 
         public EmployeeBuilder NewEmployee() => Do(e => {
-            e.SetNewEmployee();
+            if (e.IsSamsara && !e.Exists)
+                e.SetNewEmployee();
+
+            e.ID = Guid.NewGuid();
         });
     }
 

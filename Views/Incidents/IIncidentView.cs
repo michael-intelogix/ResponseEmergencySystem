@@ -28,6 +28,7 @@ namespace ResponseEmergencySystem.Views.Incidents
 
         #region basic vehicle incident
         string Folio { set; }
+        string ClaimNumber { get; set; }
         string FullName { get; set; }
         string PhoneNumber { get; set; }
         string License { get; set; }

@@ -28,10 +28,24 @@ namespace ResponseEmergencySystem.Builders
         public bool IsTrailer{ get; set; }
         public bool IsVehicle { get; set; }
         public string Status { get; private set; }
+        public VehicleStatus vehicleStatus { get; private set; }
 
         public Vehicle()
         {
             this.Status = "empty";
+        }
+
+        public void SetVehicleStatus(bool damage, bool canMove, bool needCrane)
+        {
+            this.vehicleStatus = new VehicleStatus();
+            this.vehicleStatus.Damage = damage;
+            this.vehicleStatus.CanMove = canMove;
+            this.vehicleStatus.NeedCrane = needCrane;
+        }
+
+        public void SetBroker(string Broker)
+        {
+            this.vehicleStatus.Broker = Broker;
         }
 
         public bool ValidateVinNumber(string newVinNumber)
@@ -134,6 +148,12 @@ namespace ResponseEmergencySystem.Builders
         {
             Status = "added";
         }
+
+        public void RegisterNewVehicle(Guid ID)
+        {
+            Exists = true;
+            ID_Vehicle = ID;
+        }
     }
 
 
@@ -217,5 +237,12 @@ namespace ResponseEmergencySystem.Builders
             v.ID = Guid.NewGuid();
         });
     }
-    
+ 
+    public class VehicleStatus
+    {
+        public bool Damage { get; internal set; }
+        public bool CanMove { get; internal set; }
+        public bool NeedCrane { get; internal set; }
+        public string Broker { get; internal set; }
+    }
 }

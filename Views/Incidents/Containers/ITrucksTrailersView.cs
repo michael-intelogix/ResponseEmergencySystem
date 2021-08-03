@@ -18,6 +18,13 @@ namespace ResponseEmergencySystem.Views.Incidents.Containers
         string TruckModel { get; set; }
         string TruckYear { get; set; }
         string TruckLicensePlate { get; set; }
+
+        // truck status
+        bool TruckDamage { get; set; }
+        bool TruckCanMove { get; set; }
+        bool TruckNeedCrane { get; set; }
+
+        //truck broker
         #endregion
 
         #region Trailer Information
@@ -29,6 +36,13 @@ namespace ResponseEmergencySystem.Views.Incidents.Containers
         string TrailerModel { get; set; }
         string TrailerYear { get; set; }
         string TrailerLicensePlate { get; set; }
+
+        // trailer status
+        bool TrailerDamage { get; set; }
+        bool TrailerCanMove { get; set; }
+        bool TrailerNeedCrane { get; set; }
+
+        // trailer broker
         #endregion
 
         #region IDs

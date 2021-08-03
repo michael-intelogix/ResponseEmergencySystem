@@ -147,6 +147,12 @@ namespace ResponseEmergencySystem.Forms.Incidents
             set { lbl_Folio.Text = value; }
         }
 
+        public string ClaimNumber
+        {
+            get { return Utils.GetEdtValue(edt_ClaimNumber); }
+            set { edt_ClaimNumber.EditValue = value; }
+        }
+
         public string FullName
         {
             get { return Utils.GetEdtValue(edt_FullName); }
@@ -980,7 +986,8 @@ namespace ResponseEmergencySystem.Forms.Incidents
                 }
                 else
                 {
-                    _controller.Update();
+                    Task update =_controller.UpdateAsync();
+                    update.Wait();
                 }
 
                 splashScreenManager1.CloseWaitForm();
