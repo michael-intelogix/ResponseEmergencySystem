@@ -64,6 +64,12 @@ namespace ResponseEmergencySystem.Builders
         {
             Status = "added";
         }
+
+        public void RegisterNewEmployee(Guid ID)
+        {
+            Exists = true;
+            ID_Employee = ID;
+        }
     }
 
     public abstract class FunctionalEmployeeBuilder<TSubject, TSelf>
@@ -113,12 +119,13 @@ namespace ResponseEmergencySystem.Builders
                 e.Exists = true;
         });
 
-        public EmployeeBuilder NewEmployee() => Do(e => {
-            if (e.IsSamsara && !e.Exists)
+        public EmployeeBuilder NewEmployee(bool added = false) => Do(e => {
+            if ((e.IsSamsara && !e.Exists) || added)
                 e.SetNewEmployee();
 
             e.ID = Guid.NewGuid();
         });
+
     }
 
     //public static class EmployeeBuilderExtensions

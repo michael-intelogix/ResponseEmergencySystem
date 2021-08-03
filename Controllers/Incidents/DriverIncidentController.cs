@@ -222,9 +222,10 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         }
         public async Task UpdateAsync()
         {
-
-            //check location refreces
-            if (_view.SendAfterSave)
+            try
+            {
+                //check location refreces
+                if (_view.SendAfterSave)
             {
                 if (_view.SelectedMail == "" && !_view.SendToAllRecipientsInTheCategory)
                 {
@@ -241,116 +242,65 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                 }
             }
 
-            // Add Employee if not in samsara 
-            var driver = _DriversLocal.Where(dl => dl.ID == Guid.Parse(ID_Driver)).First();
+                // Add Employee if not in samsara 
+                var driver = _DriversLocal.Where(dl => dl.ID == Guid.Parse(ID_Driver)).First();
 
-            #region vehicles services
+                #region vehicles services
             
-            var truck = _trucks.Where(v => v.ID == Guid.Parse(_truckTrailerView.ID_Truck)).First();
-            truck.SetVehicleStatus(_truckTrailerView.TruckDamage, _truckTrailerView.TruckCanMove, _truckTrailerView.TruckNeedCrane);
+                var truck = _trucks.Where(v => v.ID == Guid.Parse(_truckTrailerView.ID_Truck)).First();
+                truck.SetVehicleStatus(_truckTrailerView.TruckDamage, _truckTrailerView.TruckCanMove, _truckTrailerView.TruckNeedCrane);
 
-            var trailer = _trailers.Where(v => v.ID == Guid.Parse(_truckTrailerView.ID_Trailer)).First();
-            trailer.SetVehicleStatus(_truckTrailerView.TrailerDamage, _truckTrailerView.TrailerCanMove, _truckTrailerView.TrailerNeedCrane);
-            #endregion
+                var trailer = _trailers.Where(v => v.ID == Guid.Parse(_truckTrailerView.ID_Trailer)).First();
+                trailer.SetVehicleStatus(_truckTrailerView.TrailerDamage, _truckTrailerView.TrailerCanMove, _truckTrailerView.TrailerNeedCrane);
+                #endregion
 
-            var incident2 = new Incident(
-            Guid.Parse(ID_Incident),
-            _view.ClaimNumber,
-            _view.PoliceReport,
-            _view.CitationReportNumber,
-            _view.ManifestNumber,
-            _view.IncidentDate,
-            new Location(_view.Latitude, _view.Longitude, _view.LocationReferences, DateTime.Now),
-            _view.Comments == null ? "" : _view.Comments.ToString(),
-            truck,
-            trailer,
-            driver,
-            _view.ID_City,
-            _view.ID_State,
-            ID_Broker,
-            ID_Broker2
-            );
+                var incident2 = new Incident(
+                Guid.Parse(ID_Incident),
+                _view.ClaimNumber,
+                _view.PoliceReport,
+                _view.CitationReportNumber,
+                _view.ManifestNumber,
+                _view.IncidentDate,
+                new Location(_view.Latitude, _view.Longitude, _view.LocationReferences, DateTime.Now),
+                _view.Comments == null ? "" : _view.Comments.ToString(),
+                truck,
+                trailer,
+                driver,
+                _view.ID_City,
+                _view.ID_State,
+                ID_Broker,
+                ID_Broker2
+                );
 
-            incident2.Folio = _selectedIncident.Folio;
+                incident2.Folio = _selectedIncident.Folio;
 
-            var incidentRes = await IncidentService.update_TruckTrailerIncident(incident2, trailer, truck, driver, _PersonsInvolved, _view.Documents, true);
-            
-
-            return;
-            try
-            {
-                var incident = new Incident(
-                    Guid.Parse(ID_Incident),
-                    _view.PoliceReport,
-                    _view.CitationReportNumber,
-                    _view.ManifestNumber,
-                    _view.IncidentDate,
-                    new Location(_view.Latitude, _view.Longitude, _view.LocationReferences, DateTime.Now),
-                    _view.Comments == null ? "" : _view.Comments.ToString(),
-                    new Truck(
-                        ID_Truck,
-                        _view.TruckNumber == null ? "" : _view.TruckNumber.ToString(),
-                        _view.TruckDamages,
-                        _view.TruckCanMove,
-                        _view.TruckNeedCrane
-                        ),
-                    new Trailer(
-                        ID_Trailer,
-                        _view.TrailerNumber,
-                        _view.CargoType,
-                        _view.CargoSpill,
-                        _view.TrailerDamages,
-                        _view.TrailerCanMove,
-                        _view.TrailerNeedCrane
-                        ),
-                    new Driver(
-                        //driver.ID_Employee == Guid.Empty ? driver.ID_Driver.ToString() : driver.ID_Employee.ToString(),
-                        //_ID_Samsara,
-                        //_DriverName,
-                        //driver.ID_Samsara == "0"
-                        ),
-                    _view.ID_City,
-                    _view.ID_State,
-                    ID_Broker,
-                    ID_Broker2
-                    );
-
-                var t3= new Task<Response>(() => IncidentService.UpdateIncident(
-                    incident, _selectedIncident
-                ));
-
-                t3.Start();
-                t3.Wait();
+                var incidentRes = await IncidentService.update_TruckTrailerIncident(incident2, trailer, truck, driver, _PersonsInvolved, _view.Documents, true);
 
                 //CheckDiscrepancies(t.Result.ID);
 
+ 
 
+                //foreach(var log in _logs)
+                //{
 
+                //}
 
-
-                foreach(var log in _logs)
-                {
-
-                }
-
-                if (_view.SendAfterSave && ID_Incident != "")
-                {
-                    SendEmail();
-                    _view.ViewClose();
-                }
-                else
-                {
-                    _view.ViewClose();
-                }
-
-
-
-
+                //if (_view.SendAfterSave && ID_Incident != "")
+                //{
+                //    SendEmail();
+                //    _view.ViewClose();
+                //}
+                //else
+                //{
+                //    _view.ViewClose();
+                //}
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }
+
+            return;
         }
 
         public void CheckDiscrepancies(string ID)
@@ -393,144 +343,119 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             ID_Capture = response.ID;
         }
 
-        public void AddIncident()
+        public async Task AddIncidentAsync()
         {
-            Task<Response> t2 = null; 
 
-            if (_view.SendAfterSave)
+            try
             {
-                if (_view.SelectedMail == "" && !_view.SendToAllRecipientsInTheCategory)
+                //check location refreces
+                if (_view.SendAfterSave)
                 {
-                    _view.MailValidationBorder = BorderStyles.Simple;
-                    Utils.ShowMessage("Please select a mail before submit the changes", "Mail Error", type: "Warning");
-                    return;
+                    if (_view.SelectedMail == "" && !_view.SendToAllRecipientsInTheCategory)
+                    {
+                        _view.MailValidationBorder = BorderStyles.Simple;
+                        Utils.ShowMessage("Please select a mail before submit the changes", "Mail Error", type: "Warning");
+                        return;
+                    }
+
+                    if (_view.MailDirectoryCategory == "" && _view.SendToAllRecipientsInTheCategory)
+                    {
+                        _view.CategoryValidationBorder = BorderStyles.Simple;
+                        Utils.ShowMessage("Please select a category before submit the changes", "Mail Error", type: "Warning");
+                        return;
+                    }
                 }
 
-                if (_view.MailDirectoryCategory == "" && _view.SendToAllRecipientsInTheCategory)
-                {
-                    _view.CategoryValidationBorder = BorderStyles.Simple;
-                    Utils.ShowMessage("Please select a category before submit the changes", "Mail Error", type: "Warning");
-                    return;
-                }
+                // Add Employee if not in samsara 
+                var driver = _DriversLocal.Where(dl => dl.ID == Guid.Parse(ID_Driver)).First();
+
+                #region vehicles services
+
+                var truck = _trucks.Where(v => v.ID == Guid.Parse(_truckTrailerView.ID_Truck)).First();
+                truck.SetVehicleStatus(_truckTrailerView.TruckDamage, _truckTrailerView.TruckCanMove, _truckTrailerView.TruckNeedCrane);
+
+                var trailer = _trailers.Where(v => v.ID == Guid.Parse(_truckTrailerView.ID_Trailer)).First();
+                trailer.SetVehicleStatus(_truckTrailerView.TrailerDamage, _truckTrailerView.TrailerCanMove, _truckTrailerView.TrailerNeedCrane);
+                #endregion
+
+                var incident2 = new Incident(
+                Guid.Parse(ID_Incident),
+                _view.ClaimNumber,
+                _view.PoliceReport,
+                _view.CitationReportNumber,
+                _view.ManifestNumber,
+                _view.IncidentDate,
+                new Location(_view.Latitude, _view.Longitude, _view.LocationReferences, DateTime.Now),
+                _view.Comments == null ? "" : _view.Comments.ToString(),
+                truck,
+                trailer,
+                driver,
+                _view.ID_City,
+                _view.ID_State,
+                ID_Broker,
+                ID_Broker2
+                );
+
+                DataRow folioReponse = Functions.Get_Folio().Select().First();
+                Folio = folioReponse.ItemArray[2].ToString() + "-" + folioReponse.ItemArray[3].ToString();
+
+                incident2.Folio = Folio;
+
+                var incidentRes = await IncidentService.update_TruckTrailerIncident(incident2, trailer, truck, driver, _PersonsInvolved, _view.Documents);
+
+                //CheckDiscrepancies(t.Result.ID);
+
+
+
+                //foreach(var log in _logs)
+                //{
+
+                //}
+
+                //if (_view.SendAfterSave && ID_Incident != "")
+                //{
+                //    SendEmail();
+                //    _view.ViewClose();
+                //}
+                //else
+                //{
+                //    _view.ViewClose();
+                //}
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
             }
 
-            //if (_view.NewDriver)
+            return;
+
+            //if (_view.SendAfterSave)
             //{
-            //    t2 = new Task<Response>(() => DriverService.AddDriver(Guid.Empty.ToString(), _view.FullName, _view.PhoneNumber, _view.License));
-            //    t2.Start();
-            //    t2.Wait();
-            //    if (!t2.Result.validation)
+            //    if (_view.SelectedMail == "" && !_view.SendToAllRecipientsInTheCategory)
             //    {
-            //        Utils.ShowMessage(t2.Result.Message, title: "New Employee Error", type: "Error");
+            //        _view.MailValidationBorder = BorderStyles.Simple;
+            //        Utils.ShowMessage("Please select a mail before submit the changes", "Mail Error", type: "Warning");
+            //        return;
+            //    }
+
+            //    if (_view.MailDirectoryCategory == "" && _view.SendToAllRecipientsInTheCategory)
+            //    {
+            //        _view.CategoryValidationBorder = BorderStyles.Simple;
+            //        Utils.ShowMessage("Please select a category before submit the changes", "Mail Error", type: "Warning");
             //        return;
             //    }
             //}
-
-            DataRow folioReponse = Functions.Get_Folio().Select().First();
-            Folio = folioReponse.ItemArray[2].ToString() + "-" + folioReponse.ItemArray[3].ToString();
-
-            var t = new Task<Response>(() => IncidentService.AddIncident(
-                ID_Driver == Guid.Empty.ToString() ? t2.Result.ID : ID_Driver,
-                _view.FullName,
-                _view.ID_State,
-                _view.ID_City,
-                ID_Broker.ToUpper(),
-                ID_Broker2,
-                ID_Truck,
-                Folio,
-                _view.TruckNumber == null ? "" : _view.TruckNumber.ToString(),
-                _view.TrailerNumber,
-                _view.CargoType,
-                _view.IncidentDate,
-                _view.PoliceReport,
-                _view.CitationReportNumber,
-                _view.CargoSpill,
-                _view.ManifestNumber,
-                _view.LocationReferences,
-                _view.Latitude,
-                _view.Longitude,
-                _view.TruckDamages,
-                _view.TruckCanMove,
-                _view.TruckNeedCrane,
-                _view.TrailerDamages,
-                _view.TrailerCanMove,
-                _view.TrailerNeedCrane,
-                constants.userID,
-                _view.Comments == null ? "" : _view.Comments.ToString(),
-                ID_Driver ==  Guid.Empty.ToString()
-            ));
-            t.Start();
-            t.Wait();
-
-            if (!t.Result.validation)
-            {
-                Utils.ShowMessage(t.Result.Message, title: "Incident Error", type: "Error");
-                return;
-            }
-
-            if (t.Result.validation)
-            {
-                ID_Incident = t.Result.ID;
-            }
             
-            foreach (var person in _PersonsInvolved)
-            {
-                if (t.Result.validation)
-                {
-                    person.ID_Incident = t.Result.ID;
-                    IncidentService.AddPersonInvolved(person);
-                }
-                else
-                {
-                    Debug.WriteLine(t.Result.Message);
-                }
 
-            }
-
-            if (t.Result.validation)
-            {
-                foreach (var documentCapture in _view.Documents)
-                {
-
-                    if (documentCapture.Status == "created")
-                    {
-                        Task tCapture = new Task(() => SaveCapture(documentCapture.ID_Capture, documentCapture.ID_CaptureType, t.Result.ID));
-                        tCapture.Start();
-                        tCapture.Wait();
-
-                        foreach (var doc in documentCapture.documents)
-                        {
-                            if (doc.Status == "empty" || doc.Status == "loaded")
-                                continue;
-                            var tDocument = new Task(() => CaptureService.AddImage(Guid.NewGuid().ToString(), documentCapture.ID_Capture, doc.FirebaseUrl, doc.name, "", doc.Type));
-                            tDocument.Start();
-                            tDocument.Wait();
-                        }
-                    }
-                    else if (documentCapture.Status == "updated")
-                    {
-                        foreach (var doc in documentCapture.documents)
-                        {
-                            if (doc.Status == "empty" || doc.Status == "loaded")
-                                continue;
-                            var tDocument = new Task(() => CaptureService.AddImage(Guid.NewGuid().ToString(), documentCapture.ID_Capture, doc.FirebaseUrl, doc.name, "", doc.Type));
-                            tDocument.Start();
-                            tDocument.Wait();
-                        }
-                    }
-                }
-
-            }
-
-            if (_view.SendAfterSave && ID_Incident != "")
-            {
-                SendEmail();
-                _view.ViewClose();
-            }
-            else
-            {
-                _view.ViewClose();
-            }
+            //if (_view.SendAfterSave && ID_Incident != "")
+            //{
+            //    SendEmail();
+            //    _view.ViewClose();
+            //}
+            //else
+            //{
+            //    _view.ViewClose();
+            //}
         }
 
         public double[] GetTruckSamsara()
@@ -1179,7 +1104,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                     .Called(_view.FullName)
                     .PhoneNumber(_view.PhoneNumber)
                     .LicenseNumber(_view.License)
-                    .NewEmployee()
+                    .NewEmployee(true)
                     .Build();
 
             _DriversLocal.Add(emp);
@@ -1191,8 +1116,11 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             //Utils.ShowMessage($"Status: {emp.Status}, Value: {emp.PhoneNumber}");
         }
 
-        public void UpdateEmployeeInfo(string newData, string controlName)
+        public void UpdateEmployeeInfo(string newData, string controlName, bool isUpdate = false)
         {
+            if (isUpdate)
+                return;
+
             var emp = _DriversLocal.Where(dl => dl.ID == Guid.Parse(ID_Driver)).First();
             switch (controlName)
             {

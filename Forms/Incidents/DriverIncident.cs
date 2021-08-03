@@ -29,6 +29,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
         bool isNew = false;
         bool isShow = false;
         string ID_Incident = "";
+        bool updateEmployee = false;
 
         public DriverIncident(string view = "edit")
         {
@@ -977,18 +978,23 @@ namespace ResponseEmergencySystem.Forms.Incidents
 
         private void simpleButton16_Click(object sender, EventArgs e)
         {
+            
             if (dxValidationProvider1.Validate())
             {
+                
                 splashScreenManager1.ShowWaitForm();
+                Task incident = null;
+
                 if (isNew)
                 {
-                    _controller.AddIncident();
+                    incident = _controller.AddIncidentAsync();
                 }
                 else
                 {
-                    Task update =_controller.UpdateAsync();
-                    update.Wait();
+                    incident = _controller.UpdateAsync();
                 }
+
+                incident.Wait();
 
                 splashScreenManager1.CloseWaitForm();
             }
@@ -1197,8 +1203,12 @@ namespace ResponseEmergencySystem.Forms.Incidents
                 btn_SaveEmployee.Visible = false;
                 edt_PhoneNumber.Size = lue_DriverLicenseState.Size;
                 edt_License.Size = lue_DriverLicenseState.Size;
+                edt_FullName.ReadOnly = true;
+                edt_PhoneNumber.ReadOnly = true;
+                edt_License.ReadOnly = true;
                 simpleButton7.Visible = true;
                 simpleButton5.Visible = true;
+                updateEmployee = false;
             }
 
    
@@ -1206,6 +1216,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
 
         private void btn_AddEmployee_Click(object sender, EventArgs e)
         {
+            edt_FullName.Focus();
             edt_PhoneNumber.EditValue = "";
             edt_PhoneNumber.ReadOnly = false;
             edt_FullName.EditValue = "";
@@ -1218,6 +1229,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             edt_License.Size = edt_FullName.Size;
             simpleButton7.Visible = false;
             simpleButton5.Visible = false;
+            updateEmployee = true;
         }
 
         private void simpleButton7_Click(object sender, EventArgs e)
@@ -1236,8 +1248,9 @@ namespace ResponseEmergencySystem.Forms.Incidents
 
         private void onLeaveEditEmployee(object sender, EventArgs e)
         {
-            _controller.UpdateEmployeeInfo(Utils.GetEdtValue((TextEdit)sender), ((TextEdit)sender).Name);
-            ((TextEdit)sender).ReadOnly = true;
+            _controller.UpdateEmployeeInfo(Utils.GetEdtValue((TextEdit)sender), ((TextEdit)sender).Name, updateEmployee);
+            if (!updateEmployee)
+                ((TextEdit)sender).ReadOnly = true;
         }
     }
 }

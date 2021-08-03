@@ -40,16 +40,9 @@ namespace ResponseEmergencySystem.Services
                         cmd.Connection.Close();
                     }
 
-                    cmd.Parameters.AddWithValue("@ID_Incident", Guid.Empty);
-                    cmd.Parameters.AddWithValue("@Folio", constants.folioCode);
-                    cmd.Parameters.AddWithValue("@ID_Driver", driverId);
                     cmd.Parameters.AddWithValue("@ID_StatusDetail", statusDetailId == "" ? "423E82C9-EE3F-4D83-9066-01E6927FE14D" : statusDetailId);
-                    cmd.Parameters.AddWithValue("@DriverName", driverName);
-                    cmd.Parameters.AddWithValue("@Truck_No", truckNum);
-                    cmd.Parameters.AddWithValue("@Trailer_No", "");
                     cmd.Parameters.AddWithValue("@Date1", date1);
                     cmd.Parameters.AddWithValue("@Date2", date2);
-                    cmd.Parameters.AddWithValue("@Tester", constants.tester);
 
                     cmd.Connection.Open();
                     using (SqlDataReader sdr = cmd.ExecuteReader())
@@ -639,7 +632,7 @@ namespace ResponseEmergencySystem.Services
                     return t; /// NEED CHANGE
                 }
 
-                driver.ID_Employee = Guid.Parse(t.Result.ID);
+                driver.RegisterNewEmployee(Guid.Parse(t.Result.ID));
                 incident.driver2 = driver;
             }
 
@@ -736,6 +729,55 @@ namespace ResponseEmergencySystem.Services
                 return t3; /// NEED CHANGE
             }
 
+            if (t.Result.validation)
+            {
+                foreach (var documentCapture in documents)
+                {
+                    Task<Response> tCapture = null;
+
+                    if (documentCapture.Status == "created")
+                    {
+                        tCapture = new Task<Response>(() => CaptureService.AddCapture(documentCapture.ID_Capture, documentCapture.ID_CaptureType, t.Result.ID, "testing", ""));
+                        tCapture.Start();
+                        tCapture.Wait();
+
+                        foreach (var doc in documentCapture.documents)
+                        {
+                            if (doc.Status == "empty" || doc.Status == "loaded")
+                                continue;
+
+                            var tDocument = new Task(() => CaptureService.AddImage(Guid.NewGuid().ToString(), documentCapture.ID_Capture, doc.FirebaseUrl, doc.name, "", doc.Type));
+                            tDocument.Start();
+                            tDocument.Wait();
+                        }
+                    }
+                    else if (documentCapture.Status == "updated")
+                    {
+                        foreach (var doc in documentCapture.documents)
+                        {
+                            Task<Response> tImage = null;
+
+                            if (doc.Status == "empty" || doc.Status == "loaded" || doc.Status == "disposed")
+                                continue;
+
+                            if (doc.Status == "deleted")
+                            {
+                                var tDelete = new Task(() => CaptureService.DeleteImageCapture(doc.ID_Document));
+                                tDelete.Start();
+                                tDelete.Wait();
+                                continue;
+                            }
+
+                            var ID = doc.Status == "created" ? Guid.NewGuid().ToString() : doc.ID_Document;
+                            tImage = new Task<Response>(() => CaptureService.AddImage(ID, documentCapture.ID_Capture, doc.FirebaseUrl, doc.name, "", doc.Type));
+                            tImage.Start();
+                            tImage.Wait();
+                        }
+                    }
+
+                }
+            }
+
             return t;
  
             string ID_incident = t.Result.ID;
@@ -752,51 +794,6 @@ namespace ResponseEmergencySystem.Services
                 }
             }
 
-            if (t.Result.validation)
-            {
-                foreach (var documentCapture in documents)
-                {
-
-                    if (documentCapture.Status == "created")
-                    {
-                        t = new Task<Response>(() => CaptureService.AddCapture(documentCapture.ID_Capture, documentCapture.ID_CaptureType, t.Result.ID, "testing", ""));
-                        t.Start();
-                        t.Wait();
-
-                        foreach (var doc in documentCapture.documents)
-                        {
-                            if (doc.Status == "empty" || doc.Status == "loaded")
-                                continue;
-
-                            var tDocument = new Task(() => CaptureService.AddImage(Guid.NewGuid().ToString(), documentCapture.ID_Capture, doc.FirebaseUrl, doc.name, "", doc.Type));
-                            tDocument.Start();
-                            tDocument.Wait();
-                        }
-                    }
-                    else if (documentCapture.Status == "updated")
-                    {
-                        foreach (var doc in documentCapture.documents)
-                        {
-                            if (doc.Status == "empty" || doc.Status == "loaded" || doc.Status == "disposed")
-                                continue;
-
-                            if (doc.Status == "deleted")
-                            {
-                                var tDelete = new Task(() => CaptureService.DeleteImageCapture(doc.ID_Document));
-                                tDelete.Start();
-                                tDelete.Wait();
-                                continue;
-                            }
-
-                            var ID = doc.Status == "created" ? Guid.NewGuid().ToString() : doc.ID_Document;
-                            t = new Task<Response>(() => CaptureService.AddImage(ID, documentCapture.ID_Capture, doc.FirebaseUrl, doc.name, "", doc.Type));
-                            t.Start();
-                            t.Wait();
-                        }
-                    }
-
-                }
-            }
         }
 
         private static Response update_Incident(Incident incident)
@@ -816,7 +813,7 @@ namespace ResponseEmergencySystem.Services
                     }
 
                     cmd.Parameters.AddWithValue("@ID_Incident", incident.ID_Incident);
-                    cmd.Parameters.AddWithValue("@ID_Driver", incident.driver2.ID_General);
+                    cmd.Parameters.AddWithValue("@ID_Driver", incident.driver2.Exists ? incident.driver2.ID_Employee : incident.driver2.ID_General);
                     cmd.Parameters.AddWithValue("@ID_State", incident.ID_State);
                     cmd.Parameters.AddWithValue("@ID_City", incident.ID_City);
                     cmd.Parameters.AddWithValue("@ID_StatusDetail", "");

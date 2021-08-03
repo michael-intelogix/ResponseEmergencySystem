@@ -396,6 +396,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Builders\Employee.cs" />
+    <Compile Include="Builders\Incident.cs" />
     <Compile Include="Builders\LogBuilder.cs" />
     <Compile Include="Builders\Vehicle.cs" />
     <Compile Include="Code\constants.cs" />

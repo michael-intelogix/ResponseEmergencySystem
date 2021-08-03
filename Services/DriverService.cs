@@ -61,7 +61,7 @@ namespace ResponseEmergencySystem.Services
                                         sdr["ID_Samsara"] == DBNull.Value ? "0" : sdr["ID_Samsara"].ToString()
                                      )
                                     .HasEmployeeID(sdr["ID_Employee"] == DBNull.Value ? Guid.Empty : Guid.Parse(sdr["ID_Employee"].ToString()))
-                                    .SetNewID()
+                                    .NewEmployee()
                                     .Build()
                             //new Driver(
                             //        Guid.Parse(sdr["ID"].ToString()),

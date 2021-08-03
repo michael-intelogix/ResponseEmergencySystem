@@ -163,14 +163,14 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
 
         public bool TrailerCanMove
         {
-            get => (bool)ckedt_TrailerNeedCrane.EditValue;
-            set => ckedt_TrailerNeedCrane.EditValue = value;
+            get => (bool)ckedt_TrailerCanMove.EditValue;
+            set => ckedt_TrailerCanMove.EditValue = value;
         }
 
         public bool TrailerNeedCrane
         {
-            get => (bool)ckedt_TrailerCanMove.EditValue;
-            set => ckedt_TrailerCanMove.EditValue = value;
+            get => (bool)ckedt_TrailerNeedCrane.EditValue;
+            set => ckedt_TrailerNeedCrane.EditValue = value;
         }
         #endregion
 
