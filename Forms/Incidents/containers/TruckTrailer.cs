@@ -104,6 +104,12 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             get => (bool)ckedt_TruckNeedCrane.EditValue;
             set => ckedt_TruckNeedCrane.EditValue = value;
         }
+
+        public string TruckBroker
+        {
+            get => Utils.GetEdtValue(edt_Broker);
+            set => edt_Broker.EditValue = value;
+        }
         #endregion
 
         #region Trailer Information
@@ -172,6 +178,12 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             get => (bool)ckedt_TrailerNeedCrane.EditValue;
             set => ckedt_TrailerNeedCrane.EditValue = value;
         }
+
+        public string TrailerBroker
+        {
+            get => Utils.GetEdtValue(edt_Broker2);
+            set => edt_Broker2.EditValue = value;
+        }
         #endregion
 
         #region view properties
@@ -193,20 +205,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
 
         private void lue_Trucks_Closed(object sender, DevExpress.XtraEditors.Controls.ClosedEventArgs e)
         {
-
-            //splashScreenManager1.ShowWaitForm();
-            //var res = _controller.GetTruckSamsara();
-            //gMapControl1.Position = new GMap.NET.PointLatLng(res[0], res[1]);
-
-            //GMap.NET.WindowsForms.GMapOverlay markers = new GMap.NET.WindowsForms.GMapOverlay("markers");
-            //GMap.NET.WindowsForms.GMapMarker marker = new GMap.NET.WindowsForms.Markers.GMarkerGoogle(
-            //                                                new GMap.NET.PointLatLng(res[0], res[1]),
-            //GMap.NET.WindowsForms.Markers.GMarkerGoogleType.red_dot);
-            //gMapControl1.Overlays.Clear();
-            //markers.Markers.Add(marker);
-            //gMapControl1.Overlays.Add(markers);
-
-            //splashScreenManager1.CloseWaitForm();
+            _parentController.GetTruckSamsara();
         }
 
         private void lue_Trucks_KeyDown(object sender, KeyEventArgs e)
@@ -324,7 +323,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
 
         private void btn_Broker1_Click(object sender, EventArgs e)
         {
-            //edt_Broker.EditValue = _parentController.GetBroker();
+            _parentController.GetBroker();
         }
 
         private void btn_AddTrailer_Click(object sender, EventArgs e)
@@ -340,6 +339,11 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             ckedt_New.EditValue = true;
 
             _parentController.NewTrailer();
+        }
+
+        private void btn_Broker2_Click_1(object sender, EventArgs e)
+        {
+            _parentController.GetBroker2();
         }
     }
 }

@@ -33,11 +33,11 @@ namespace ResponseEmergencySystem.Builders
         public Vehicle()
         {
             this.Status = "empty";
+            this.vehicleStatus = new VehicleStatus();
         }
 
         public void SetVehicleStatus(bool damage, bool canMove, bool needCrane)
         {
-            this.vehicleStatus = new VehicleStatus();
             this.vehicleStatus.Damage = damage;
             this.vehicleStatus.CanMove = canMove;
             this.vehicleStatus.NeedCrane = needCrane;
@@ -238,13 +238,12 @@ namespace ResponseEmergencySystem.Builders
             v.ID = Guid.NewGuid();
         });
 
-        public VehicleBuilder SetVehicleStatus(bool damage, bool canMove, bool needCrane) => Do(v =>
-        {
-            var status = new VehicleStatus();
-            status.Damage = damage;
-            status.CanMove = canMove;
-            status.NeedCrane = needCrane;
-            v.vehicleStatus = status;
+        public VehicleBuilder SetVehicleStatus(bool damage, bool canMove, bool needCrane, string broker) => Do(v =>
+        { 
+            v.vehicleStatus.Damage = damage;
+            v.vehicleStatus.CanMove = canMove;
+            v.vehicleStatus.NeedCrane = needCrane;
+            v.vehicleStatus.Broker = broker;
         });
     }
  
@@ -254,5 +253,10 @@ namespace ResponseEmergencySystem.Builders
         public bool CanMove { get; internal set; }
         public bool NeedCrane { get; internal set; }
         public string Broker { get; internal set; }
+
+        public VehicleStatus()
+        {
+            this.Broker = Guid.Empty.ToString();
+        }
     }
 }

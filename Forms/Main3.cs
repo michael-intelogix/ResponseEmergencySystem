@@ -150,7 +150,7 @@ namespace ResponseEmergencySystem.Forms
             get
             {
                 gv_Incidents.FocusedColumn = gv_Incidents.VisibleColumns[0];
-                return (List<Incident>)gv_Incidents.GridControl.DataSource;
+                return (List<Builders.Incident>)gv_Incidents.GridControl.DataSource;
             }
         }
         public object CapturesDataSource 

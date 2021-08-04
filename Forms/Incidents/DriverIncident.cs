@@ -126,6 +126,21 @@ namespace ResponseEmergencySystem.Forms.Incidents
             }
 
         }
+
+        public void SetMap(double[]  coords)
+        {
+            splashScreenManager1.ShowWaitForm();
+            gMapControl1.Position = new GMap.NET.PointLatLng(coords[0], coords[1]);
+
+            GMap.NET.WindowsForms.GMapOverlay markers = new GMap.NET.WindowsForms.GMapOverlay("markers");
+            GMap.NET.WindowsForms.GMapMarker marker = new GMap.NET.WindowsForms.Markers.GMarkerGoogle(
+                                                            new GMap.NET.PointLatLng(coords[0], coords[1]),
+            GMap.NET.WindowsForms.Markers.GMarkerGoogleType.red_dot);
+            gMapControl1.Overlays.Clear();
+            markers.Markers.Add(marker);
+            gMapControl1.Overlays.Add(markers);
+            splashScreenManager1.CloseWaitForm();
+        }
         #endregion
 
         #region documents
@@ -1004,19 +1019,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
 
         private void lue_Trucks_Closed(object sender, ClosedEventArgs e)
         {
-            splashScreenManager1.ShowWaitForm();
-            var res = _controller.GetTruckSamsara();
-            gMapControl1.Position = new GMap.NET.PointLatLng(res[0], res[1]);
-
-            GMap.NET.WindowsForms.GMapOverlay markers = new GMap.NET.WindowsForms.GMapOverlay("markers");
-            GMap.NET.WindowsForms.GMapMarker marker = new GMap.NET.WindowsForms.Markers.GMarkerGoogle(
-                                                            new GMap.NET.PointLatLng(res[0], res[1]),
-            GMap.NET.WindowsForms.Markers.GMarkerGoogleType.red_dot);
-            gMapControl1.Overlays.Clear();
-            markers.Markers.Add(marker);
-            gMapControl1.Overlays.Add(markers);
-            ////_controller.SetTruck("");
-            splashScreenManager1.CloseWaitForm();
+            
         }
 
         private void lue_Trucks_KeyDown(object sender, KeyEventArgs e)
@@ -1078,6 +1081,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
                     _captures.RemoveAll(c => c.ID_CaptureType == capture.ID_CaptureType.ToUpper());
                     gc_DocumentCaptures.DataSource = docsType;
                     gv_DocumentCaptures.BestFitColumns();
+                    CreatePanel(4, _docs[gv_DocumentCaptures.FocusedRowHandle].documents);
 
                     if (!simpleButton10.Visible)
                         simpleButton10.Visible = true;

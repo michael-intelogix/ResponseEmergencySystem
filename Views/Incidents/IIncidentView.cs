@@ -18,6 +18,8 @@ namespace ResponseEmergencySystem.Views.Incidents
         void LoadInjuredPersons(DataTable dt_InjuredPersons);
         void ViewClose();
 
+        void SetMap(double[] coords);
+
         #region View Methods
 
         void DriverInformationReadOnly(bool enable, bool update = false);

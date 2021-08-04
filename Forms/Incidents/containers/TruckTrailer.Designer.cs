@@ -815,6 +815,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.btn_Broker2.Size = new System.Drawing.Size(28, 23);
             this.btn_Broker2.TabIndex = 179;
             this.btn_Broker2.TabStop = false;
+            this.btn_Broker2.Click += new System.EventHandler(this.btn_Broker2_Click_1);
             // 
             // ckedt_TrailerCanMove
             // 

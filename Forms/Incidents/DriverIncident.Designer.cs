@@ -52,12 +52,12 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.edt_License = new DevExpress.XtraEditors.TextEdit();
             this.edt_PhoneNumber = new DevExpress.XtraEditors.TextEdit();
             this.edt_FullName = new DevExpress.XtraEditors.TextEdit();
-            this.edt_TrailerNumber = new DevExpress.XtraEditors.TextEdit();
             this.lue_Cities = new DevExpress.XtraEditors.LookUpEdit();
             this.lue_states = new DevExpress.XtraEditors.LookUpEdit();
             this.tme_IncidentTime = new DevExpress.XtraEditors.TimeEdit();
             this.edt_Highway = new DevExpress.XtraEditors.TextEdit();
             this.dte_IncidentDate = new DevExpress.XtraEditors.DateEdit();
+            this.edt_TrailerNumber = new DevExpress.XtraEditors.TextEdit();
             this.edt_Cargo = new DevExpress.XtraEditors.TextEdit();
             this.edt_Broker2 = new DevExpress.XtraEditors.TextEdit();
             this.edt_Broker = new DevExpress.XtraEditors.TextEdit();
@@ -238,13 +238,13 @@ namespace ResponseEmergencySystem.Forms.Incidents
             ((System.ComponentModel.ISupportInitialize)(this.edt_License.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_PhoneNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_FullName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.edt_TrailerNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_Cities.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_states.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tme_IncidentTime.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_Highway.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dte_IncidentDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dte_IncidentDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_TrailerNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_Cargo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_Broker2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_Broker.Properties)).BeginInit();
@@ -409,14 +409,6 @@ namespace ResponseEmergencySystem.Forms.Incidents
             conditionValidationRule3.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
             this.dxValidationProvider1.SetValidationRule(this.edt_FullName, conditionValidationRule3);
             // 
-            // edt_TrailerNumber
-            // 
-            this.edt_TrailerNumber.Location = new System.Drawing.Point(96, 32);
-            this.edt_TrailerNumber.Name = "edt_TrailerNumber";
-            this.edt_TrailerNumber.Properties.UseReadOnlyAppearance = false;
-            this.edt_TrailerNumber.Size = new System.Drawing.Size(223, 24);
-            this.edt_TrailerNumber.TabIndex = 1;
-            // 
             // lue_Cities
             // 
             this.lue_Cities.Location = new System.Drawing.Point(260, 89);
@@ -466,6 +458,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.tme_IncidentTime.Name = "tme_IncidentTime";
             this.tme_IncidentTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.tme_IncidentTime.Properties.ReadOnly = true;
             this.tme_IncidentTime.Size = new System.Drawing.Size(108, 24);
             this.tme_IncidentTime.TabIndex = 2;
             conditionValidationRule6.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
@@ -508,6 +501,14 @@ namespace ResponseEmergencySystem.Forms.Incidents
             conditionValidationRule8.ErrorText = "This value is not valid";
             conditionValidationRule8.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
             this.dxValidationProvider1.SetValidationRule(this.dte_IncidentDate, conditionValidationRule8);
+            // 
+            // edt_TrailerNumber
+            // 
+            this.edt_TrailerNumber.Location = new System.Drawing.Point(96, 32);
+            this.edt_TrailerNumber.Name = "edt_TrailerNumber";
+            this.edt_TrailerNumber.Properties.UseReadOnlyAppearance = false;
+            this.edt_TrailerNumber.Size = new System.Drawing.Size(223, 24);
+            this.edt_TrailerNumber.TabIndex = 1;
             // 
             // edt_Cargo
             // 
@@ -2624,13 +2625,13 @@ namespace ResponseEmergencySystem.Forms.Incidents
             ((System.ComponentModel.ISupportInitialize)(this.edt_License.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_PhoneNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_FullName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.edt_TrailerNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_Cities.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_states.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tme_IncidentTime.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_Highway.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dte_IncidentDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dte_IncidentDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_TrailerNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_Cargo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_Broker2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_Broker.Properties)).EndInit();

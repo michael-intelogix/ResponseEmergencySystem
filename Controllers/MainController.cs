@@ -445,7 +445,7 @@ namespace ResponseEmergencySystem.Controllers
             _view.OpenSpinner();
             if (all)
             {
-                List<Incident> incidents = (List<Incident>)_view.Incidents;
+                List<Builders.Incident> incidents = (List<Builders.Incident>)_view.Incidents;
                 if (incidents == null)
                 {
                     _view.CloseSpinner();
@@ -454,14 +454,12 @@ namespace ResponseEmergencySystem.Controllers
 
                 foreach (var incident in incidents)
                 {
-                    if (GetID("truck") != "")
-                        IncidentService.UpdateStatus(incident.ID_Incident.ToString(), incident.ID_StatusDetail, incident.truck.ID);
+                    IncidentService.UpdateStatus(incident.ID_Incident.ToString(), incident.ID_StatusDetail);
                 }
             }
             else
             {
-                if (GetID("truck") != "")
-                    IncidentService.UpdateStatus(GetID("incident"), GetID("status"), GetID("truck"));
+                IncidentService.UpdateStatus(GetID("incident"), GetID("status"));
             }
 
             ClearFilters(refreshIncidents: false);

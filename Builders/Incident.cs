@@ -22,6 +22,12 @@ namespace ResponseEmergencySystem.Builders
         public Vehicle Trailer { get; internal set; }
         public Employee Driver { get; internal set; }
         public string Comments { get; internal set; }
+
+        public Incident ShallowCopy()
+        {
+            return (Incident)this.MemberwiseClone();
+        }
+
     }
 
     public class Location

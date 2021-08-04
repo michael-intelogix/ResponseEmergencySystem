@@ -30,6 +30,11 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         IIncidentView _view;
         Builders.Incident _selectedIncident;
         Employee _selectedDriver;
+        Vehicle _selectedTruck;
+        Vehicle _selectedTrailer;
+
+        private frm_BrokerList _brokerView = new frm_BrokerList();
+        private BrokerController _brokerCtrl = null;
 
         List<PersonsInvolved> _PersonsInvolved;
 
@@ -37,6 +42,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         private List<Vehicle> _trucks = new List<Vehicle>();
         private List<Vehicle> _trailers = new List<Vehicle>();
         private List<Vehicle> _vehicles = new List<Vehicle>();
+        private List<Broker> _brokerList = null;
 
         private List<Models.Logs.Log> _logs = new List<Models.Logs.Log>();
 
@@ -92,6 +98,10 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             //var samsaraDrivers = _DriversLocal.Where(x => x.ID == Guid.Empty).ToList();
             _view.TrucksDataSource = _trucks;
             _view.MailDirectoryCategoriesDataSource = MailDirectoryService.GetCategories();
+
+            _brokerList = BrokerService.list_Brokers();
+            _brokerCtrl = new BrokerController(_brokerView, _brokerList);
+            _brokerCtrl.LoadBrokers();
         }
 
         public bool IsNewDriver()
@@ -105,66 +115,53 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             
             _selectedIncident = IncidentService.GetIncident(ID_Incident);
 
+            Folio = _selectedIncident.Folio;
+            _view.Folio = Folio;
+            _view.ClaimNumber = _selectedIncident.ClaimNumber;
+
+            #region driver information
+            _selectedDriver = _DriversLocal.Where(d => d.PhoneNumber == _selectedIncident.Driver.PhoneNumber).FirstOrDefault();
+            _view.DriverID = _selectedDriver.ID.ToString();
+            #endregion region
+
+            #region trucks information
             ID_Truck = _selectedIncident.Truck.ID.ToString();
-            _truckTrailerView.ID_Truck = _trucks.Where(t => t.Name == _selectedIncident.Truck.Name).FirstOrDefault().ID.ToString();
-            
-
-            //Folio = _selectedIncident.Folio;
-            //_view.Folio = Folio;
-
-            //ID_Driver = _selectedIncident.driver.ID_Driver.ToString(); ;
-            //ID_Broker = _selectedIncident.broker.ID_Broker;
-            //ID_Broker2 = _selectedIncident.TrailerBroker.ID_Broker;
-            //ID_Truck = _selectedIncident.truck.ID_Truck.ToString();
-            //ID_Trailer = _selectedIncident.trailer.ID_Trailer.ToString();
-            //_ID_Samsara = _selectedIncident.driver.ID_Samsara;
-
-            //if (_selectedIncident.driver.ID_Samsara != "0")
-            //{
-            //    _view.DriverID = _DriversLocal.Where(ds => ds.ID_Samsara == _selectedIncident.driver.ID_Samsara).FirstOrDefault().ID.ToString();
-            //}
-
-            //_view.InvolvedPersonsDataSource = _PersonsInvolved;
-
-            //_DriverName = _selectedIncident.Name;
-            //_view.FullName = _selectedIncident.Name;
-            //_view.PhoneNumber = _selectedIncident.PhoneNumber;
-            //_view.License = _selectedIncident.driver.License;
-            //_view.ExpirationDate = Convert.ToDateTime(_selectedIncident.driver.ExpirationDate).Date;
-            //_view.LicenseState = _selectedIncident.driver.ID_StateOfExpedition;
-            //_view.TruckNumber = _selectedIncident.truck.truckNumber;
-            //_view.TrailerNumber = _selectedIncident.trailer.TrailerNumber;
-            //_view.TruckDamages = _selectedIncident.TruckDamage;
-            //_view.TruckCanMove = _selectedIncident.TruckCanMove;
-            //_view.TruckNeedCrane = _selectedIncident.TruckNeedCrane;
-            //_view.TrailerDamages = _selectedIncident.TrailerDamage;
-            //_view.TrailerCanMove = _selectedIncident.TrailerCanMove;
-            //_view.TrailerNeedCrane = _selectedIncident.TrailerNeedCrane;
-            //_view.CargoSpill = _selectedIncident.trailer.CargoSpill;
-            //_view.ManifestNumber = _selectedIncident.ManifestNumber;
-            //_view.CargoType = _selectedIncident.trailer.Commodity;
-
-            //_view.ID_State = _selectedIncident.ID_State;
-            //_view.ID_City = _selectedIncident.ID_City;
-
-            //_view.Broker = _selectedIncident.broker.Name;
-            //_view.Broker2 = _selectedIncident.TrailerBroker.Name;
-            //_view.Comments = _selectedIncident.Comments;
-
-            #region Accident Details
-            //_view.IncidentDate = _selectedIncident.IncidentDate;
-            //_view.PoliceReport = _selectedIncident.PoliceReport;
-            //_view.CitationReportNumber = _selectedIncident.CitationReportNumber;
-            //_view.Latitude = _selectedIncident.IncidentLatitude;
-            //_view.Longitude = _selectedIncident.IncidentLongitude;
-            //_view.LocationReferences = _selectedIncident.LocationReferences;
+            _selectedTruck = _trucks.Where(t => t.Name == _selectedIncident.Truck.Name).FirstOrDefault();
+            _truckTrailerView.ID_Truck = _selectedTruck.ID.ToString();
+            _truckTrailerView.TruckDamage = _selectedIncident.Truck.vehicleStatus.Damage;
+            _truckTrailerView.TruckNeedCrane = _selectedIncident.Truck.vehicleStatus.NeedCrane;
+            _truckTrailerView.TruckCanMove = _selectedIncident.Truck.vehicleStatus.CanMove;
+            _truckTrailerView.TruckBroker = _selectedIncident.Truck.vehicleStatus.Broker;
             #endregion
 
-            //latitude = Convert.ToDouble(_selectedIncident.IncidentLatitude);
-            //longitude = Convert.ToDouble(_selectedIncident.IncidentLongitude);
+            #region trailers information
+            ID_Trailer = _selectedIncident.Trailer.ID.ToString();
+            var trailer = _trailers.Where(t => t.Name == _selectedIncident.Trailer.Name).FirstOrDefault();
+            _truckTrailerView.ID_Trailer = trailer.ID.ToString();
+            _truckTrailerView.TrailerDamage = _selectedIncident.Trailer.vehicleStatus.Damage;
+            _truckTrailerView.TrailerNeedCrane = _selectedIncident.Trailer.vehicleStatus.NeedCrane;
+            _truckTrailerView.TrailerCanMove = _selectedIncident.Trailer.vehicleStatus.CanMove;
+            _truckTrailerView.TrailerBroker = _selectedIncident.Trailer.vehicleStatus.Broker;
+            #endregion
 
-            //_view.TruckId = _selectedIncident.truck.ID_Samsara;
+            #region Location Information
+            _view.Latitude = _selectedIncident.Location.Latitude;
+            _view.Longitude = _selectedIncident.Location.Longitude;
+            _view.LocationReferences = _selectedIncident.Location.Description;
+            _view.ID_State = _selectedIncident.Location.ID_State;
+            _view.ID_City = _selectedIncident.Location.ID_City;
+            #endregion
 
+            #region Accident Details
+            _view.IncidentDate = _selectedIncident.IncidentDate;
+            _view.PoliceReport = _selectedIncident.PoliceReport;
+            _view.CitationReportNumber = _selectedIncident.CitationReportNumber;
+            #endregion
+
+            #region Involved Persons
+            if (_PersonsInvolved.Count > 0)
+                _view.InvolvedPersonsDataSource = _PersonsInvolved;
+            #endregion
         }
 
         public void GetCitiesByState()
@@ -200,25 +197,21 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
         public void GetBroker()
         {
-            frm_BrokerList brokerView = new frm_BrokerList();
-            BrokerController brokerCtrl = new BrokerController(brokerView, BrokerService.list_Brokers());
-            brokerCtrl.LoadBrokers();
-            if (brokerView.ShowDialog() == DialogResult.OK)
+            if (_brokerView.ShowDialog() == DialogResult.OK)
             {
-                _view.Broker = brokerView.broker;
-                ID_Broker = brokerView.ID;
+                _truckTrailerView.TruckBroker = _brokerView.broker;
+                _selectedTruck = _trucks.Where(t => t.ID == Guid.Parse(_truckTrailerView.ID_Truck)).FirstOrDefault();
+                _selectedTruck.SetBroker(_brokerView.ID);
             }
         }
 
         public void GetBroker2()
         {
-            frm_BrokerList brokerView = new frm_BrokerList();
-            BrokerController brokerCtrl = new BrokerController(brokerView, BrokerService.list_Brokers());
-            brokerCtrl.LoadBrokers();
-            if (brokerView.ShowDialog() == DialogResult.OK)
+            if (_brokerView.ShowDialog() == DialogResult.OK)
             {
-                _view.Broker2 = brokerView.broker;
-                ID_Broker2 = brokerView.ID;
+                _truckTrailerView.TrailerBroker = _brokerView.broker;
+                _selectedTrailer = _trailers.Where(t => t.ID == Guid.Parse(_truckTrailerView.ID_Trailer)).FirstOrDefault();
+                _selectedTrailer.SetBroker(_brokerView.ID);
             }
         }
         public async Task UpdateAsync()
@@ -255,31 +248,26 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                 trailer.SetVehicleStatus(_truckTrailerView.TrailerDamage, _truckTrailerView.TrailerCanMove, _truckTrailerView.TrailerNeedCrane);
                 #endregion
 
-                var incident2 = new Models.Incident(
-                Guid.Parse(ID_Incident),
-                _view.ClaimNumber,
-                _view.PoliceReport,
-                _view.CitationReportNumber,
-                _view.ManifestNumber,
-                _view.IncidentDate,
-                new Models.Location(_view.Latitude, _view.Longitude, _view.LocationReferences, DateTime.Now),
-                _view.Comments == null ? "" : _view.Comments.ToString(),
-                truck,
-                trailer,
-                driver,
-                _view.ID_City,
-                _view.ID_State,
-                ID_Broker,
-                ID_Broker2
-                );
+                // prototype
+                Builders.Incident incident = _selectedIncident.ShallowCopy();
 
-                incident2.Folio = _selectedIncident.Folio;
+                incident.ID_Incident = Guid.Parse(ID_Incident);
+                incident.Folio = Folio;
+                incident.ClaimNumber = _view.ClaimNumber;
+                incident.PoliceReport = _view.PoliceReport;
+                incident.CitationReportNumber = _view.CitationReportNumber;
+                incident.ManifestNumber = _view.ManifestNumber;
+                incident.IncidentDate =_view.IncidentDate;
+                incident.Location = new Builders.Location(_view.ID_State, _view.ID_City, _view.Latitude, _view.Longitude, _view.LocationReferences);
+                incident.Truck = _trucks.Where(t => t.ID == Guid.Parse(_truckTrailerView.ID_Truck)).FirstOrDefault();
+                incident.Trailer = _trailers.Where(t => t.ID == Guid.Parse(_truckTrailerView.ID_Trailer)).FirstOrDefault();
+                incident.Driver = _selectedDriver;
 
-                var incidentRes = await IncidentService.update_TruckTrailerIncident(incident2, trailer, truck, driver, _PersonsInvolved, _view.Documents, true);
+                var incidentRes = await IncidentService.update_TruckTrailerIncident(incident, trailer, truck, driver, _PersonsInvolved, _view.Documents, true);
 
                 //CheckDiscrepancies(t.Result.ID);
 
- 
+
 
                 //foreach(var log in _logs)
                 //{
@@ -295,6 +283,8 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                 //{
                 //    _view.ViewClose();
                 //}
+
+                _view.ViewClose();
             }
             catch (Exception e)
             {
@@ -379,30 +369,26 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                 trailer.SetVehicleStatus(_truckTrailerView.TrailerDamage, _truckTrailerView.TrailerCanMove, _truckTrailerView.TrailerNeedCrane);
                 #endregion
 
-                var incident2 = new Models.Incident(
-                Guid.Parse(ID_Incident),
-                _view.ClaimNumber,
-                _view.PoliceReport,
-                _view.CitationReportNumber,
-                _view.ManifestNumber,
-                _view.IncidentDate,
-                new Models.Location(_view.Latitude, _view.Longitude, _view.LocationReferences, DateTime.Now),
-                _view.Comments == null ? "" : _view.Comments.ToString(),
-                truck,
-                trailer,
-                driver,
-                _view.ID_City,
-                _view.ID_State,
-                ID_Broker,
-                ID_Broker2
-                );
-
                 DataRow folioReponse = Functions.Get_Folio().Select().First();
                 Folio = folioReponse.ItemArray[2].ToString() + "-" + folioReponse.ItemArray[3].ToString();
 
-                incident2.Folio = Folio;
+                // prototype
+                Builders.Incident incident = _selectedIncident.ShallowCopy();
 
-                var incidentRes = await IncidentService.update_TruckTrailerIncident(incident2, trailer, truck, driver, _PersonsInvolved, _view.Documents);
+                incident.ID_Incident = Guid.Parse(ID_Incident);
+                incident.Folio = Folio;
+                incident.ClaimNumber = _view.ClaimNumber;
+                incident.PoliceReport = _view.PoliceReport;
+                incident.CitationReportNumber = _view.CitationReportNumber;
+                incident.ManifestNumber = _view.ManifestNumber;
+                incident.IncidentDate = _view.IncidentDate;
+                incident.Location = new Builders.Location(_view.ID_State, _view.ID_City, _view.Latitude, _view.Longitude, _view.LocationReferences);
+                incident.Truck = _trucks.Where(t => t.ID == Guid.Parse(_truckTrailerView.ID_Truck)).FirstOrDefault();
+                incident.Trailer = _trailers.Where(t => t.ID == Guid.Parse(_truckTrailerView.ID_Trailer)).FirstOrDefault();
+                incident.Driver = _selectedDriver;
+
+
+                var incidentRes = await IncidentService.update_TruckTrailerIncident(incident, trailer, truck, driver, _PersonsInvolved, _view.Documents);
 
                 //CheckDiscrepancies(t.Result.ID);
 
@@ -422,6 +408,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                 //{
                 //    _view.ViewClose();
                 //}
+                _view.ViewClose();
             }
             catch (Exception e)
             {
@@ -459,14 +446,17 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             //}
         }
 
-        public double[] GetTruckSamsara()
+        public void GetTruckSamsara()
         {
+            if (_truckTrailerView.ID_Truck == "")
+                return;
+
             double latitude = 0;
             double longitude = 0;
-            string number = _view.TruckId;
-            string url = "https://api.samsara.com/fleet/vehicles/locations/feed?vehicleIds=" + number;
+            string samsaraId = _trucks.Where(t => t.ID == Guid.Parse(_truckTrailerView.ID_Truck)).FirstOrDefault().ID_Samsara;
+            string url = "https://api.samsara.com/fleet/vehicles/locations/feed?vehicleIds=" + samsaraId;
 
-            if (number != "")
+            if (samsaraId != "")
             {
                 try
                 {
@@ -496,6 +486,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                             _view.Latitude = latitude.ToString();
                             _view.Longitude = longitude.ToString();
                             _view.LocationReferences = (string)data[0]["locations"][0]["reverseGeo"]["formattedLocation"];
+                            _view.SetMap(new double[] { latitude, longitude });
                         }
 
                         //Dispose once all HttpClient calls are complete.This is not necessary if the containing object will be disposed of; for example in this case the HttpClient instance will be disposed automatically when the application terminates so the following call is superfluous.
@@ -508,8 +499,6 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                     MessageBox.Show(ex.Message);
                 }
             }
-
-            return new double[] { latitude, longitude };
         }
 
         #region Involved Persons

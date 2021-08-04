@@ -175,6 +175,7 @@ namespace ResponseEmergencySystem.Services
                             result = new IncidentBuilder()
                                     .SetID((Guid)sdr["ID_Incident"])
                                     .SetFolio((string)sdr["Folio"])
+                                    .SetClaimNumber((string)sdr["ClaimNumber"])
                                     .SetOpenDate(Convert.ToDateTime(sdr["IncidentDate"]))
                                     .HasPoliceReport((bool)sdr["PoliceReport"])
                                     .SetCitationReport((string)sdr["CitationReportNumber"])
@@ -196,7 +197,8 @@ namespace ResponseEmergencySystem.Services
                                             .SetVehicleStatus(
                                                 (bool)sdr["TruckDamage"],
                                                 (bool)sdr["TruckCanMove"],
-                                                (bool)sdr["TruckNeedCrane"]
+                                                (bool)sdr["TruckNeedCrane"],
+                                                sdr["TruckBroker"] == DBNull.Value ? "" : (string)sdr["TruckBroker"]
                                             )
                                             .VehicleType((string)sdr["VehicleType1"])
                                             .Build()
@@ -210,7 +212,8 @@ namespace ResponseEmergencySystem.Services
                                             .SetVehicleStatus(
                                                 (bool)sdr["TrailerDamage"],
                                                 (bool)sdr["TrailerCanMove"],
-                                                (bool)sdr["TrailerNeedCrane"]
+                                                (bool)sdr["TrailerNeedCrane"],
+                                                sdr["TrailerBroker"] == DBNull.Value ? "" : (string)sdr["TrailerBroker"]
                                             )
                                             .VehicleType((string)sdr["VehicleType2"])
                                             .Build()
@@ -572,7 +575,7 @@ namespace ResponseEmergencySystem.Services
 
         }
 
-        public static Task<Response> update_TruckTrailerIncident(Models.Incident incident, Builders.Vehicle trailer, Builders.Vehicle truck, Builders.Employee driver, List<PersonsInvolved> personsInvolved, List<Models.Documents.DocumentCapture> documents, bool update = false)
+        public static Task<Response> update_TruckTrailerIncident(Builders.Incident incident, Builders.Vehicle trailer, Builders.Vehicle truck, Builders.Employee driver, List<PersonsInvolved> personsInvolved, List<Models.Documents.DocumentCapture> documents, bool update = false)
         {
             Response r = new Response();
             Task<Response> t = null;
@@ -592,7 +595,7 @@ namespace ResponseEmergencySystem.Services
                 }
 
                 driver.RegisterNewEmployee(Guid.Parse(t.Result.ID));
-                incident.driver2 = driver;
+                incident.Driver = driver;
             }
 
 
@@ -609,7 +612,7 @@ namespace ResponseEmergencySystem.Services
                 }
 
                 driver.ID_Employee = Guid.Parse(t.Result.ID);
-                incident.driver2 = driver;
+                incident.Driver = driver;
             }
 
             if (truck.Status != "empty")
@@ -626,7 +629,7 @@ namespace ResponseEmergencySystem.Services
                 }
 
                 truck.RegisterNewVehicle(Guid.Parse(t.Result.ID));
-                incident.truck1 = truck;
+                incident.Truck = truck;
             }
 
             if (trailer.Status != "empty")
@@ -643,7 +646,7 @@ namespace ResponseEmergencySystem.Services
                 }
 
                 trailer.RegisterNewVehicle(Guid.Parse(t.Result.ID));
-                incident.trailer1 = trailer;
+                incident.Trailer = trailer;
             }
 
             t = new Task<Response>(() => IncidentService.update_Incident( incident ));
@@ -688,7 +691,7 @@ namespace ResponseEmergencySystem.Services
                 return t3; /// NEED CHANGE
             }
 
-            if (t.Result.validation)
+            if (t.Result.validation && documents != null)
             {
                 foreach (var documentCapture in documents)
                 {
@@ -737,25 +740,22 @@ namespace ResponseEmergencySystem.Services
                 }
             }
 
-            return t;
- 
-            string ID_incident = t.Result.ID;
-            foreach (var person in personsInvolved)
+            if (t.Result.validation)
             {
-                if (t.Result.validation)
+                string ID_incident = t.Result.ID;
+                foreach (var person in personsInvolved)
                 {
                     person.ID_Incident = ID_incident;
                     IncidentService.AddPersonInvolved(person);
-                }
-                else
-                {
                     Debug.WriteLine(t.Result.Message);
                 }
             }
 
+
+            return t;
         }
 
-        private static Response update_Incident(Models.Incident incident)
+        private static Response update_Incident(Builders.Incident incident)
         {
             try
             {
@@ -772,9 +772,10 @@ namespace ResponseEmergencySystem.Services
                     }
 
                     cmd.Parameters.AddWithValue("@ID_Incident", incident.ID_Incident);
-                    cmd.Parameters.AddWithValue("@ID_Driver", incident.driver2.Exists ? incident.driver2.ID_Employee : incident.driver2.ID_General);
-                    cmd.Parameters.AddWithValue("@ID_State", incident.ID_State);
-                    cmd.Parameters.AddWithValue("@ID_City", incident.ID_City);
+                    cmd.Parameters.AddWithValue("@ClaimNumber", incident.ClaimNumber);
+                    cmd.Parameters.AddWithValue("@ID_Driver", incident.Driver.Exists ? incident.Driver.ID_Employee : incident.Driver.ID_General);
+                    cmd.Parameters.AddWithValue("@ID_State", incident.Location.ID_State);
+                    cmd.Parameters.AddWithValue("@ID_City", incident.Location.ID_City);
                     cmd.Parameters.AddWithValue("@ID_StatusDetail", "");
                     cmd.Parameters.AddWithValue("@Folio", incident.Folio);
                     cmd.Parameters.AddWithValue("@IncidentDate", incident.IncidentDate);
@@ -782,9 +783,9 @@ namespace ResponseEmergencySystem.Services
                     cmd.Parameters.AddWithValue("@PoliceReportBoolean", incident.PoliceReport);
                     cmd.Parameters.AddWithValue("@CitationReportNumber", incident.CitationReportNumber);
                     cmd.Parameters.AddWithValue("@ManifestNumber", incident.ManifestNumber);
-                    cmd.Parameters.AddWithValue("@LocationReferences", incident.LocationReferences);
-                    cmd.Parameters.AddWithValue("@IncidentLatitude", incident.IncidentLatitude);
-                    cmd.Parameters.AddWithValue("@IncidentLongitude", incident.IncidentLongitude);
+                    cmd.Parameters.AddWithValue("@LocationReferences", incident.Location.Description);
+                    cmd.Parameters.AddWithValue("@IncidentLatitude", incident.Location.Latitude);
+                    cmd.Parameters.AddWithValue("@IncidentLongitude", incident.Location.Longitude);
                     cmd.Parameters.AddWithValue("@ID_User", constants.userID);
                     cmd.Parameters.AddWithValue("@Comments", incident.Comments);
                     cmd.Parameters.AddWithValue("@Status", true);
@@ -926,7 +927,7 @@ namespace ResponseEmergencySystem.Services
 
         }
 
-        public static void UpdateStatus(string incidentID, string status, string truckNum)
+        public static void UpdateStatus(string incidentID, string status)
         {
             Guid ID_Incident = Guid.Parse(incidentID);
             using (var db = new SIREMEntities())
@@ -1342,10 +1343,10 @@ namespace ResponseEmergencySystem.Services
 
                     cmd.Parameters.AddWithValue("@ID_Incident", ID_incident);
                     cmd.Parameters.AddWithValue("@ID_Vehicle", vehicle.Exists ? vehicle.ID_Vehicle.ToString() : vehicle.ID_General.ToString());
-                    cmd.Parameters.AddWithValue("@ID_Broker", ID_incident);
                     cmd.Parameters.AddWithValue("@Damage", vehicle.vehicleStatus.Damage);
                     cmd.Parameters.AddWithValue("@CanMove", vehicle.vehicleStatus.CanMove);
                     cmd.Parameters.AddWithValue("@NeedCrane", vehicle.vehicleStatus.NeedCrane);
+                    cmd.Parameters.AddWithValue("@Broker", vehicle.vehicleStatus.Broker);
                     cmd.Parameters.AddWithValue("@Update", update);
 
                     cmd.Connection.Open();

@@ -25,6 +25,7 @@ namespace ResponseEmergencySystem.Views.Incidents.Containers
         bool TruckNeedCrane { get; set; }
 
         //truck broker
+        string TruckBroker { get; set; }
         #endregion
 
         #region Trailer Information
@@ -43,6 +44,7 @@ namespace ResponseEmergencySystem.Views.Incidents.Containers
         bool TrailerNeedCrane { get; set; }
 
         // trailer broker
+        string TrailerBroker { get; set; }
         #endregion
 
         #region IDs
