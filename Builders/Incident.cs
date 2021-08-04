@@ -33,12 +33,13 @@ namespace ResponseEmergencySystem.Builders
         public string Description { get; internal set; }
         public DateTime CreatedAt { get; internal set; }
 
-        public Location(string lat, string lon, string des, DateTime createdAt)
+        public Location(string state, string city, string lat, string lon, string des)
         {
+            ID_State = state;
+            ID_City = city;
             Latitude = lat;
             Longitude = lon;
             Description = des;
-            CreatedAt = createdAt;
         }
     }
 
@@ -65,9 +66,35 @@ namespace ResponseEmergencySystem.Builders
         }
     }
 
-    public sealed class IncidentBuilder : FunctionalEmployeeBuilder<Incident, IncidentBuilder>
+    public sealed class IncidentBuilder : FunctionalIncidentBuilder<Incident, IncidentBuilder>
     {
+        public IncidentBuilder SetID(Guid incidentId) => Do(i => i.ID_Incident = incidentId);
 
+        public IncidentBuilder SetStatusDetail(string statusDetail) => Do(i => i.ID_StatusDetail = statusDetail);
+
+        public IncidentBuilder SetFolio(string folio) => Do(i => i.Folio = folio);
+
+        public IncidentBuilder SetClaimNumber(string claim) => Do(i => i.ClaimNumber = claim);
+
+        public IncidentBuilder SetOpenDate(DateTime date) => Do(i => i.IncidentDate = date);
+
+        public IncidentBuilder HasPoliceReport(bool policeReport) => Do(i => i.PoliceReport = policeReport);
+
+        public IncidentBuilder SetCitationReport(string citationReport) => Do(i => i.CitationReportNumber = citationReport);
+
+        public IncidentBuilder SetManifestNumber(string manifest) => Do(i => i.ManifestNumber = manifest);
+
+        public IncidentBuilder SetLocation(Location location) => Do(i => {
+            i.Location = location;
+        });
+
+        public IncidentBuilder SetTruck(Vehicle truck) => Do(i => i.Truck = truck);
+
+        public IncidentBuilder SetTrailer(Vehicle trailer) => Do(i => i.Trailer = trailer);
+
+        public IncidentBuilder SetDriver(Employee driver) => Do(i => i.Driver = driver);
+
+        public IncidentBuilder SetComments(string comments) => Do(i => i.Comments = comments);
     }
 
 }

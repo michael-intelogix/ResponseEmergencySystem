@@ -21,7 +21,7 @@ namespace ResponseEmergencySystem.Controllers
         IMainView _view;
         IMain2View _mainView;
         public List<Capture> _captures;
-        List<Incident> _incidents;
+        List<Builders.Incident> _incidents;
         List<StatusDetail> _statusDetail;
         private string ID_Incident = "";
         private string ID_Capture = "";
@@ -40,7 +40,7 @@ namespace ResponseEmergencySystem.Controllers
 
         public MainController(IMainView view, ref IMain2View main2View)
         {
-            _incidents = new List<Incident>();
+            _incidents = new List<Builders.Incident>();
             _statusDetail = StatusDetailService.list_StatusDetail();
             _view = view;
             _mainView = main2View;

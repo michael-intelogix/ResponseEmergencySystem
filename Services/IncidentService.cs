@@ -22,10 +22,10 @@ namespace ResponseEmergencySystem.Services
     {
         public static Response response;
 
-        public static List<Incident> list_Incidents(string folio, string driverId, string driverName, string truckNum, string statusDetailId, string date1 = "", string date2 = "")
+        public static List<Builders.Incident> list_Incidents(string folio, string driverId, string driverName, string truckNum, string statusDetailId, string date1 = "", string date2 = "")
         {
 
-            List<Incident> result = new List<Incident>();
+            List<Builders.Incident> result = new List<Builders.Incident>();
             try
             {
                 using (SqlCommand cmd = new SqlCommand
@@ -56,41 +56,22 @@ namespace ResponseEmergencySystem.Services
                             //Debug.WriteLine(sdr["IncidentCloseDate"]);
 
                             result.Add(
-                                new Incident(
-                                    (Guid)sdr["ID_Incident"],
-                                    (string)sdr["Folio"],
-                                    Convert.ToDateTime(sdr["IncidentDate"]),
-                                    DateTime.Now,
-                                    (bool)sdr["PoliceReport"],
-                                    (string)sdr["CitationReportNumber"],
-                                    (string)sdr["ManifestNumber"],
-                                    (string)sdr["LocationReferences"],
-                                    (string)sdr["IncidentLatitude"],
-                                    (string)sdr["IncidentLongitude"],
-                                    (string)sdr["Comments"],
-                                    new Truck(Guid.Parse((string)sdr["ID_Truck"]), (string)sdr["TruckNumber"]),
-                                    (bool)sdr["TruckDamage"],
-                                    (bool)sdr["TruckCanMove"],
-                                    (bool)sdr["TruckNeedCrane"],
-                                    new Trailer(
-                                        sdr["ID_Trailer"] == DBNull.Value ? Guid.Empty : Guid.Parse((string)sdr["ID_Trailer"]),
-                                        sdr["TrailerNumber"] == DBNull.Value ? "" : (string)sdr["TrailerNumber"],
-                                        sdr["TrailerCommodity"] == DBNull.Value ? "" : (string)sdr["TrailerCommodity"],
-                                        (bool)sdr["CargoSpill"]),
-                                    (bool)sdr["TrailerDamage"],
-                                    (bool)sdr["TrailerCanMove"],
-                                    (bool)sdr["TrailerNeedCrane"],
-                                    new Driver(),
-                                    //new Driver((string)sdr["ID_Driver"], (string)sdr["License"], (string)sdr["Expedition_State"], ExpirationDate: sdr["Expiration_Date"] == DBNull.Value ? "" : Convert.ToDateTime(sdr["Expiration_Date"]).Date.ToString()),
-                                    (string)sdr["ID_City"],
-                                    (string)sdr["ID_State"],
-                                    (string)sdr["ID_Broker"],
-                                    new Broker((string)sdr["ID_Broker"], (string)sdr["Broker"]),
-                                    (string)sdr["ID_StatusDetail"],
-                                    (string)sdr["Description"],
-                                    (string)sdr["DriverName"],
-                                    ""
-                                )
+                                new IncidentBuilder()
+                                    .SetID((Guid)sdr["ID_Incident"])
+                                    .SetStatusDetail((string)sdr["ID_StatusDetail"])
+                                    .SetFolio((string)sdr["Folio"])
+                                    .SetOpenDate(Convert.ToDateTime(sdr["IncidentDate"]))
+                                    .SetDriver(
+                                        new EmployeeBuilder()
+                                            .Called((string)sdr["DriverName"])
+                                            .Build()
+                                        )
+                                    .SetTruck(
+                                        new VehicleBuilder()
+                                            .SetName((string)sdr["TruckName"])
+                                            .Build()
+                                    )
+                                    .Build()
                             );
                         }
                     }
@@ -160,16 +141,16 @@ namespace ResponseEmergencySystem.Services
         //        (bool)sdr["NewDriver"]
         //    )
 
-        public static List<Incident> GetIncident(string incidentId)
+        public static Builders.Incident GetIncident(string incidentId)
         {
 
-            List<Incident> result = new List<Incident>();
+            Builders.Incident result = null;
             try
             {
                 using (SqlCommand cmd = new SqlCommand
                 {
                     Connection = constants.SIREMConnection,
-                    CommandText = $"List_Incidents",
+                    CommandText = $"Get_Incident",
                     CommandType = CommandType.StoredProcedure
                 })
                 {
@@ -179,14 +160,6 @@ namespace ResponseEmergencySystem.Services
                     }
 
                     cmd.Parameters.AddWithValue("@ID_Incident", Guid.Parse(incidentId));
-                    cmd.Parameters.AddWithValue("@Folio", "");
-                    cmd.Parameters.AddWithValue("@ID_Driver", "");
-                    cmd.Parameters.AddWithValue("@ID_StatusDetail", "");
-                    cmd.Parameters.AddWithValue("@DriverName", "");
-                    cmd.Parameters.AddWithValue("@Truck_No", "");
-                    cmd.Parameters.AddWithValue("@Trailer_No", "");
-                    cmd.Parameters.AddWithValue("@Date1", "");
-                    cmd.Parameters.AddWithValue("@Date2", "");
 
                     cmd.Connection.Open();
                     using (SqlDataReader sdr = cmd.ExecuteReader())
@@ -199,72 +172,58 @@ namespace ResponseEmergencySystem.Services
                         {
                             //Debug.WriteLine(sdr["IncidentCloseDate"]);
 
-                            result.Add(
-                                new Incident(
-                                    (Guid)sdr["ID_Incident"],
-                                    (string)sdr["Folio"],
-                                    Convert.ToDateTime(sdr["IncidentDate"]),
-                                    (bool)sdr["PoliceReport"],
-                                    (string)sdr["CitationReportNumber"],
-                                    (string)sdr["ManifestNumber"],
-                                    new Location(
-                                        (string)sdr["IncidentLatitude"],
-                                        (string)sdr["IncidentLongitude"],
-                                        (string)sdr["LocationReferences"],
-                                        DateTime.Now
-                                        ),
-                                    (string)sdr["Comments"],
-                                    new Truck(
-                                        Guid.Parse((string)sdr["ID_Truck"]),
-                                        (string)sdr["TruckSamsaraID"],
-                                        (string)sdr["TruckNumber"],
-                                        (string)sdr["VinNumber"],
-                                        (string)sdr["Broker"],
-                                        (string)sdr["Address"],
-                                        (bool)sdr["TruckDamage"],
-                                        (bool)sdr["TruckCanMove"],
-                                        (bool)sdr["TruckNeedCrane"]
-                                        ),
-                                    new Trailer(
-                                        sdr["ID_Trailer"] == DBNull.Value ? Guid.Empty : Guid.Parse((string)sdr["ID_Trailer"]),
-                                        sdr["TrailerNumber"] == DBNull.Value ? "" : (string)sdr["TrailerNumber"],
-                                        sdr["TrailerCommodity"] == DBNull.Value ? "" : (string)sdr["TrailerCommodity"],
-                                        (bool)sdr["CargoSpill"],
-                                        (string)sdr["TrailerBrokerName"],
-                                        (string)sdr["TrailerBrokerAddress"],
-                                        (bool)sdr["TrailerDamage"],
-                                        (bool)sdr["TrailerCanMove"],
-                                        (bool)sdr["TrailerNeedCrane"]
-                                        ),
-                                    new Driver(
-                                        (string)sdr["ID_Driver"],
-                                        sdr["ID_Samsara"] == DBNull.Value ? "0" : (string)sdr["ID_Samsara"],
-                                        (string)sdr["Name"],
-                                        sdr["PhoneNumber"] == DBNull.Value ? "" : (string)sdr["PhoneNumber"],
-                                        sdr["License"] == DBNull.Value ? "" : (string)sdr["License"],
-                                        sdr["Expedition_State"] == DBNull.Value ? Guid.Empty.ToString() : (string)sdr["Expedition_State"],
-                                        (bool)sdr["DSamsara"],
-                                        ExpirationDate: sdr["Expiration_Date"] == DBNull.Value ? "" : Convert.ToDateTime(sdr["Expiration_Date"]).Date.ToString()
-                                        ),
-                                    (string)sdr["ID_City"],
-                                    (string)sdr["ID_State"],
-                                    new Broker(
-                                        (string)sdr["ID_Broker"], 
-                                        (string)sdr["Broker"], 
-                                        (string)sdr["Address"]
-                                        ),
-                                    new Broker(
-                                        (string)sdr["TrailerBroker"], 
-                                        (string)sdr["TrailerBrokerName"], 
-                                        (string)sdr["TrailerBrokerAddress"]
-                                        ),
-                                    (string)sdr["ID_StatusDetail"],
-                                    (string)sdr["Description"],
-                                    (string)sdr["Name"],
-                                    (string)sdr["PhoneNumber"],
-                                    (bool)sdr["NewDriver"]
+                            result = new IncidentBuilder()
+                                    .SetID((Guid)sdr["ID_Incident"])
+                                    .SetFolio((string)sdr["Folio"])
+                                    .SetOpenDate(Convert.ToDateTime(sdr["IncidentDate"]))
+                                    .HasPoliceReport((bool)sdr["PoliceReport"])
+                                    .SetCitationReport((string)sdr["CitationReportNumber"])
+                                    .SetManifestNumber((string)sdr["Manifestnumber"])
+                                    .SetLocation(
+                                        new Builders.Location(
+                                            (string)sdr["ID_State"],
+                                            (string)sdr["ID_City"],
+                                            (string)sdr["IncidentLatitude"],
+                                            (string)sdr["IncidentLongitude"],
+                                            (string)sdr["LocationReferences"]
+                                        )
                                     )
-                            );
+                                    .SetTruck(
+                                        new VehicleBuilder()
+                                            .SetID((Guid)sdr["ID_Truck"])
+                                            .SetName((string)sdr["TruckName"])
+                                            .SetVinNumber((string)sdr["TruckVinNumber"])
+                                            .SetVehicleStatus(
+                                                (bool)sdr["TruckDamage"],
+                                                (bool)sdr["TruckCanMove"],
+                                                (bool)sdr["TruckNeedCrane"]
+                                            )
+                                            .VehicleType((string)sdr["VehicleType1"])
+                                            .Build()
+                                    )
+                                    .SetTrailer(
+                                        new VehicleBuilder()
+                                            .SetID((Guid)sdr["ID_Trailer"])
+                                            .SetName((string)sdr["TrailerName"])
+                                            .SetCommodity((string)sdr["TrailerCommodity"])
+                                            .SetVinNumber((string)sdr["TrailerVinNumber"])
+                                            .SetVehicleStatus(
+                                                (bool)sdr["TrailerDamage"],
+                                                (bool)sdr["TrailerCanMove"],
+                                                (bool)sdr["TrailerNeedCrane"]
+                                            )
+                                            .VehicleType((string)sdr["VehicleType2"])
+                                            .Build()
+                                    )
+                                    .SetDriver(
+                                        new EmployeeBuilder()
+                                            .Called((string)sdr["Name"])
+                                            .PhoneNumber((string)sdr["PhoneNumber"])
+                                            .LicenseNumber((string)sdr["License"])
+                                            .Build()
+                                    )
+                                    .SetComments((string)sdr["Comments"])
+                                    .Build();
                         }
                     }
                     cmd.Connection.Close();
@@ -518,7 +477,7 @@ namespace ResponseEmergencySystem.Services
                     },
                     { typeof(Trailer), () => Console.WriteLine("trailer") },
                     { typeof(Broker), () => Console.WriteLine("Broker") },
-                    { typeof(List<Location>), () => Console.WriteLine("Locations") },
+                    { typeof(List<Models.Location>), () => Console.WriteLine("Locations") },
                 };
 
                 if (oldValue != null && newvalue != null)
@@ -527,7 +486,7 @@ namespace ResponseEmergencySystem.Services
         }
 
         public static Response UpdateIncident(
-            Incident incident, Incident oldIncident
+            Models.Incident incident, Models.Incident oldIncident
         )
         {
 
@@ -613,7 +572,7 @@ namespace ResponseEmergencySystem.Services
 
         }
 
-        public static Task<Response> update_TruckTrailerIncident(Incident incident, Builders.Vehicle trailer, Builders.Vehicle truck, Builders.Employee driver, List<PersonsInvolved> personsInvolved, List<Models.Documents.DocumentCapture> documents, bool update = false)
+        public static Task<Response> update_TruckTrailerIncident(Models.Incident incident, Builders.Vehicle trailer, Builders.Vehicle truck, Builders.Employee driver, List<PersonsInvolved> personsInvolved, List<Models.Documents.DocumentCapture> documents, bool update = false)
         {
             Response r = new Response();
             Task<Response> t = null;
@@ -796,7 +755,7 @@ namespace ResponseEmergencySystem.Services
 
         }
 
-        private static Response update_Incident(Incident incident)
+        private static Response update_Incident(Models.Incident incident)
         {
             try
             {
@@ -1155,10 +1114,10 @@ namespace ResponseEmergencySystem.Services
 
         }
 
-        public static List<Location> list_Locations(string incidentId)
+        public static List<Models.Location> list_Locations(string incidentId)
         {
 
-            List<Location> result = new List<Location>();
+            List<Models.Location> result = new List<Models.Location>();
             try
             {
                 using (SqlCommand cmd = new SqlCommand
@@ -1194,7 +1153,7 @@ namespace ResponseEmergencySystem.Services
                             //Debug.WriteLine(sdr["IncidentCloseDate"]);
 
                             result.Add(
-                                new Location(
+                                new Models.Location(
                                     (string)sdr["Latitude"],
                                     (string)sdr["Longitude"],
                                     (string)sdr["Description"],

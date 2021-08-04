@@ -28,7 +28,7 @@ namespace ResponseEmergencySystem.Builders
         public bool IsTrailer{ get; set; }
         public bool IsVehicle { get; set; }
         public string Status { get; private set; }
-        public VehicleStatus vehicleStatus { get; private set; }
+        public VehicleStatus vehicleStatus { get; internal set; }
 
         public Vehicle()
         {
@@ -182,6 +182,7 @@ namespace ResponseEmergencySystem.Builders
 
     public sealed class VehicleBuilder : FunctionalVehicleBuilder<Vehicle, VehicleBuilder>
     {
+        public VehicleBuilder SetID(Guid id) => Do(v => v.ID = id);
         public VehicleBuilder SetName(string name) => Do(v => v.Name = name);
         public VehicleBuilder SetVinNumber(string vinNumber) => Do(v => v.VinNumber = vinNumber);
         public VehicleBuilder SetSerialNumber(string serialNumber) => Do(v => v.SerialNumber = serialNumber);
@@ -235,6 +236,15 @@ namespace ResponseEmergencySystem.Builders
                 v.SetNewVehicle();
 
             v.ID = Guid.NewGuid();
+        });
+
+        public VehicleBuilder SetVehicleStatus(bool damage, bool canMove, bool needCrane) => Do(v =>
+        {
+            var status = new VehicleStatus();
+            status.Damage = damage;
+            status.CanMove = canMove;
+            status.NeedCrane = needCrane;
+            v.vehicleStatus = status;
         });
     }
  
