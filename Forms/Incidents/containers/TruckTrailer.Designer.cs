@@ -378,7 +378,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.edt_Broker.Name = "edt_Broker";
             this.edt_Broker.Properties.ReadOnly = true;
             this.edt_Broker.Properties.UseReadOnlyAppearance = false;
-            this.edt_Broker.Size = new System.Drawing.Size(175, 24);
+            this.edt_Broker.Size = new System.Drawing.Size(198, 24);
             this.edt_Broker.TabIndex = 180;
             this.edt_Broker.TabStop = false;
             // 
@@ -856,6 +856,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.ckedt_Spill.Properties.CheckedChanged += new System.EventHandler(this.Ckedt_OnValueChanged);
             this.ckedt_Spill.Size = new System.Drawing.Size(94, 21);
             this.ckedt_Spill.TabIndex = 174;
+            this.ckedt_Spill.CheckedChanged += new System.EventHandler(this.ckedt_Spill_CheckedChanged);
             // 
             // edt_Broker2
             // 
@@ -864,7 +865,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.edt_Broker2.Name = "edt_Broker2";
             this.edt_Broker2.Properties.ReadOnly = true;
             this.edt_Broker2.Properties.UseReadOnlyAppearance = false;
-            this.edt_Broker2.Size = new System.Drawing.Size(170, 24);
+            this.edt_Broker2.Size = new System.Drawing.Size(194, 24);
             this.edt_Broker2.TabIndex = 181;
             this.edt_Broker2.TabStop = false;
             // 

@@ -30,7 +30,7 @@
     <ProductName>SIREM</ProductName>
     <PublisherName>IntelogixSoft</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>105</ApplicationRevision>
+    <ApplicationRevision>106</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -411,6 +411,7 @@
     <Compile Include="Controllers\EditImageDataController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\Incidents\DriverIncidentController.cs" />
+    <Compile Include="Controllers\Incidents\DriverIncidentShowController.cs" />
     <Compile Include="Controllers\Main2Controller.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\ModalController.cs" />

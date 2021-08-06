@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,6 +46,10 @@ namespace ResponseEmergencySystem.Views.Incidents.Containers
 
         // trailer broker
         string TrailerBroker { get; set; }
+
+        // cargo status
+        bool TrailerCargoSpill { get; set; }
+        string TrailerBOL { get; set; }
         #endregion
 
         #region IDs
@@ -56,6 +61,22 @@ namespace ResponseEmergencySystem.Views.Incidents.Containers
         object TrucksDataSource { set; }
         object TrailersDataSource { set; }
         bool IsNew { get; }
+        #endregion
+
+        #region inputs properties
+        // 238, 24
+        Size LueTrucksSize { set; }
+        bool BtnEditTruckVisibility { set; }
+        bool BtnAddTruckVisibility { set; }
+        // broker 1
+        bool BtnBroker1Visibility { set; }
+
+
+        Size LueTrailerSize { set; }
+        bool BtnEditTrailerVisibility { set; }
+        bool BtnAddTrailerVisibility { set; }
+        // broker 2
+        bool BtnBroker2Visibility { set; }
         #endregion
     }
 }

@@ -12,7 +12,7 @@ namespace ResponseEmergencySystem.Reports
 {
     public partial class IncidentReport : DevExpress.XtraReports.UI.XtraReport
     {
-        public IncidentReport(Incident incident)
+        public IncidentReport(Builders.Incident incident)
         {
             InitializeComponent();
 
@@ -60,34 +60,34 @@ namespace ResponseEmergencySystem.Reports
             LoadData(incident);
         }
 
-        private void LoadData(Incident incident)
+        private void LoadData(Builders.Incident incident)
         {
-            lbl_Name.Text = incident.Name;
-            lbl_License.Text = incident.driver.License;
-            lbl_PhoneNumber.Text = incident.PhoneNumber;
+            lbl_Name.Text = incident.Driver.Name;
+            lbl_License.Text = incident.Driver.License;
+            lbl_PhoneNumber.Text = incident.Driver.PhoneNumber;
             lbl_IncidentDate.Text = incident.IncidentDate.ToString("MM/dd/yyyy");
             lbl_IncidentTime.Text = incident.IncidentDate.ToString("hh:mm tt");
-            lbl_LocationReferences.Text = incident.LocationReferences;
+            lbl_LocationReferences.Text = incident.Location.Description;
             cklbl_PoliceReport1.Checked = incident.PoliceReport == true ? true : false;
             cklbl_PoliceReport0.Checked = incident.PoliceReport == false ? true : false;
             lbl_PoliceReportNo.Text = incident.CitationReportNumber;
-            lbl_TruckNo.Text = incident.truck.truckNumber;
-            cklbl_TruckDamages1.Checked = incident.TruckDamage == true ? true : false;
-            cklbl_TruckDamages0.Checked = incident.TruckDamage == false ? true : false;
-            lbl_TrailerNo.Text = incident.trailer.TrailerNumber;
-            cklbl_TrailerDamages1.Checked = incident.TrailerDamage == true ? true : false;
-            cklbl_TrailerDamages0.Checked = incident.TrailerDamage == false ? true : false;
-            lbl_Cargo.Text = incident.trailer.Commodity;
-            cklbl_Spill1.Checked = incident.trailer.CargoSpill == true ? true : false;
-            cklbl_Spill0.Checked = incident.trailer.CargoSpill == false ? true : false;
-            lbl_BOL.Text = incident.ManifestNumber;
+            lbl_TruckNo.Text = incident.Truck.Name;
+            cklbl_TruckDamages1.Checked = incident.Truck.vehicleStatus.Damage == true ? true : false;
+            cklbl_TruckDamages0.Checked = incident.Truck.vehicleStatus.Damage == false ? true : false;
+            lbl_TrailerNo.Text = incident.Trailer.Name;
+            cklbl_TrailerDamages1.Checked = incident.Trailer.vehicleStatus.Damage == true ? true : false;
+            cklbl_TrailerDamages0.Checked = incident.Trailer.vehicleStatus.Damage == false ? true : false;
+            lbl_Cargo.Text = incident.Trailer.Commodity;
+            cklbl_Spill1.Checked = incident.Trailer.vehicleStatus.CargoSpill == true ? true : false;
+            cklbl_Spill0.Checked = incident.Trailer.vehicleStatus.CargoSpill == false ? true : false;
+            lbl_BOL.Text = incident.Trailer.vehicleStatus.BOL;
 
-            lbl_VIN.Text = incident.truck.VinNumber;
-            lbl_TruckTowingName.Text = incident.truck.TowingName;
-            lbl_TruckTowingAddress.Text = incident.truck.TowedTo;
+            lbl_VIN.Text = incident.Truck.VinNumber;
+            lbl_TruckTowingName.Text = incident.Truck.vehicleStatus.Broker;
+            lbl_TruckTowingAddress.Text = "";
 
-            lbl_TrailerTowingName.Text = incident.trailer.TowingName;
-            lbl_TrailerTowingAddress.Text = incident.trailer.TowedTo;
+            lbl_TrailerTowingName.Text = incident.Trailer.vehicleStatus.Broker;
+            lbl_TrailerTowingAddress.Text = "";
         }
 
         public void CreateLabels(List<State> list)

@@ -44,6 +44,18 @@ namespace ResponseEmergencySystem.Forms.Incidents
             switch (view)
             {
                 case "show":
+                    edt_PhoneNumber.Size = edt_FullName.Size;
+                    edt_License.Size = edt_FullName.Size;
+                    dte_ExpirationDate.Size = edt_FullName.Size;
+                    lue_DriverLicenseState.Size = edt_FullName.Size;
+                    simpleButton7.Visible = false;
+                    simpleButton5.Visible = false;
+                    simpleButton14.Visible = false;
+                    simpleButton4.Visible = false;
+
+                    edt_Latitude.ReadOnly = true;
+                    edt_Longitude.ReadOnly = true;
+
                     pnl_DriversSamsara.Visible = false;
                     pnl_InvolvedPersonsCapture.Visible = false;
                     pnl_CapturesHeader.Visible = false;
@@ -65,6 +77,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             }
         }
 
+        
         private void SaveEmptyIncident()
         {
             var response = IncidentService.CreateEmptyIncident();
@@ -887,6 +900,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             if (isShow)
             {
                 enableReadOnly();
+                _controller.TransportShown();
             }
 
             if (!isNew)

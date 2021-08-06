@@ -2045,7 +2045,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.btn_Broker1.Appearance.Options.UseFont = true;
             this.btn_Broker1.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.searchWhite;
             this.btn_Broker1.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
-            this.btn_Broker1.Location = new System.Drawing.Point(291, 92);
+            this.btn_Broker1.Location = new System.Drawing.Point(291, 93);
             this.btn_Broker1.Name = "btn_Broker1";
             this.btn_Broker1.Size = new System.Drawing.Size(28, 23);
             this.btn_Broker1.TabIndex = 138;

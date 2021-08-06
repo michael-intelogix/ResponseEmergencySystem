@@ -60,6 +60,7 @@ namespace ResponseEmergencySystem.Services
                                     .SetID((Guid)sdr["ID_Incident"])
                                     .SetStatusDetail((string)sdr["ID_StatusDetail"])
                                     .SetFolio((string)sdr["Folio"])
+                                .SetClaimNumber((string)sdr["ClaimNumber"])
                                     .SetOpenDate(Convert.ToDateTime(sdr["IncidentDate"]))
                                     .SetDriver(
                                         new EmployeeBuilder()
@@ -86,60 +87,6 @@ namespace ResponseEmergencySystem.Services
 
             return result;
         }
-
-
-        //new Incident(
-        //        (Guid)sdr["ID_Incident"],
-        //        (string)sdr["Folio"],
-        //        Convert.ToDateTime(sdr["IncidentDate"]),
-        //        DateTime.Now,
-        //        (bool)sdr["PoliceReport"],
-        //        (string)sdr["CitationReportNumber"],
-        //        (string)sdr["ManifestNumber"],
-        //        (string)sdr["LocationReferences"],
-        //        (string)sdr["IncidentLatitude"],
-        //        (string)sdr["IncidentLongitude"],
-
-        //        new Truck(
-        //            Guid.Parse((string)sdr["ID_Truck"]),
-        //            (string)sdr["TruckSamsaraID"],
-        //            (string)sdr["TruckNumber"],
-        //            (string)sdr["VinNumber"],
-        //            (string)sdr["Broker"],
-        //            (string)sdr["Address"]),
-        //        (bool)sdr["TruckDamage"],
-        //        (bool)sdr["TruckCanMove"],
-        //        (bool)sdr["TruckNeedCrane"],
-        //        new Trailer(
-        //            sdr["ID_Trailer"] == DBNull.Value ? Guid.Empty : Guid.Parse((string)sdr["ID_Trailer"]),
-        //            sdr["TrailerNumber"] == DBNull.Value ? "" : (string)sdr["TrailerNumber"],
-        //            sdr["TrailerCommodity"] == DBNull.Value ? "" : (string)sdr["TrailerCommodity"],
-        //            (bool)sdr["CargoSpill"],
-        //            (string)sdr["TrailerBrokerName"],
-        //            (string)sdr["TrailerBrokerAddress"]),
-        //        (bool)sdr["TrailerDamage"],
-        //        (bool)sdr["TrailerCanMove"],
-        //        (bool)sdr["TrailerNeedCrane"],
-        //        new Driver(
-        //            (string)sdr["ID_Driver"],
-        //            (string)sdr["Name"],
-        //            sdr["PhoneNumber"] == DBNull.Value ? "" : (string)sdr["PhoneNumber"],
-        //            sdr["License"] == DBNull.Value ? "" : (string)sdr["License"],
-        //            sdr["Expedition_State"] == DBNull.Value ? Guid.Empty.ToString() : (string)sdr["Expedition_State"],
-        //            (bool)sdr["DSamsara"],
-        //            ExpirationDate: sdr["Expiration_Date"] == DBNull.Value ? "" : Convert.ToDateTime(sdr["Expiration_Date"]).Date.ToString()
-        //        ),
-        //        (string)sdr["ID_City"],
-        //        (string)sdr["ID_State"],
-        //        (string)sdr["ID_Broker"],
-        //        new Broker((string)sdr["ID_Broker"], (string)sdr["Broker"], (string)sdr["Address"]),
-        //        new Broker((string)sdr["TrailerBroker"], (string)sdr["TrailerBrokerName"], (string)sdr["TrailerBrokerAddress"]),
-        //        (string)sdr["ID_StatusDetail"],
-        //        (string)sdr["Description"],
-        //        (string)sdr["Name"],
-        //        (string)sdr["PhoneNumber"],
-        //        (bool)sdr["NewDriver"]
-        //    )
 
         public static Builders.Incident GetIncident(string incidentId)
         {
@@ -214,6 +161,10 @@ namespace ResponseEmergencySystem.Services
                                                 (bool)sdr["TrailerCanMove"],
                                                 (bool)sdr["TrailerNeedCrane"],
                                                 sdr["TrailerBroker"] == DBNull.Value ? "" : (string)sdr["TrailerBroker"]
+                                            )
+                                            .SetCargoStatus(
+                                                (bool)sdr["CargoSpill"],
+                                                (string)sdr["BOL"]
                                             )
                                             .VehicleType((string)sdr["VehicleType2"])
                                             .Build()
@@ -782,7 +733,7 @@ namespace ResponseEmergencySystem.Services
                     cmd.Parameters.AddWithValue("@IncidentCloseDate", "");
                     cmd.Parameters.AddWithValue("@PoliceReportBoolean", incident.PoliceReport);
                     cmd.Parameters.AddWithValue("@CitationReportNumber", incident.CitationReportNumber);
-                    cmd.Parameters.AddWithValue("@ManifestNumber", incident.ManifestNumber);
+                    cmd.Parameters.AddWithValue("@ManifestNumber", "");
                     cmd.Parameters.AddWithValue("@LocationReferences", incident.Location.Description);
                     cmd.Parameters.AddWithValue("@IncidentLatitude", incident.Location.Latitude);
                     cmd.Parameters.AddWithValue("@IncidentLongitude", incident.Location.Longitude);
@@ -1347,6 +1298,12 @@ namespace ResponseEmergencySystem.Services
                     cmd.Parameters.AddWithValue("@CanMove", vehicle.vehicleStatus.CanMove);
                     cmd.Parameters.AddWithValue("@NeedCrane", vehicle.vehicleStatus.NeedCrane);
                     cmd.Parameters.AddWithValue("@Broker", vehicle.vehicleStatus.Broker);
+                    if (vehicle.IsTrailer)
+                    {
+                        cmd.Parameters.AddWithValue("@CargoSpill", vehicle.vehicleStatus.CargoSpill);
+                        cmd.Parameters.AddWithValue("@BOL", vehicle.vehicleStatus.BOL);
+                    }
+                        
                     cmd.Parameters.AddWithValue("@Update", update);
 
                     cmd.Connection.Open();

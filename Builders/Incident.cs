@@ -84,7 +84,10 @@ namespace ResponseEmergencySystem.Builders
 
         public IncidentBuilder SetOpenDate(DateTime date) => Do(i => i.IncidentDate = date);
 
-        public IncidentBuilder HasPoliceReport(bool policeReport) => Do(i => i.PoliceReport = policeReport);
+        public IncidentBuilder HasPoliceReport(bool policeReport, string citationReport = "") => Do(i => {
+            i.PoliceReport = policeReport;
+            i.CitationReportNumber = citationReport;
+        });
 
         public IncidentBuilder SetCitationReport(string citationReport) => Do(i => i.CitationReportNumber = citationReport);
 

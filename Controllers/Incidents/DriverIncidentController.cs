@@ -142,6 +142,8 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             _truckTrailerView.TrailerNeedCrane = _selectedIncident.Trailer.vehicleStatus.NeedCrane;
             _truckTrailerView.TrailerCanMove = _selectedIncident.Trailer.vehicleStatus.CanMove;
             _truckTrailerView.TrailerBroker = _selectedIncident.Trailer.vehicleStatus.Broker;
+            _truckTrailerView.TrailerCargoSpill = _selectedIncident.Trailer.vehicleStatus.CargoSpill;
+            _truckTrailerView.TrailerBOL = _selectedIncident.Trailer.vehicleStatus.BOL;
             #endregion
 
             #region Location Information
@@ -246,6 +248,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
                 var trailer = _trailers.Where(v => v.ID == Guid.Parse(_truckTrailerView.ID_Trailer)).First();
                 trailer.SetVehicleStatus(_truckTrailerView.TrailerDamage, _truckTrailerView.TrailerCanMove, _truckTrailerView.TrailerNeedCrane);
+                trailer.SetCargoStatus(_truckTrailerView.TrailerCargoSpill, _truckTrailerView.TrailerBOL);
                 #endregion
 
                 // prototype
@@ -367,26 +370,29 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
                 var trailer = _trailers.Where(v => v.ID == Guid.Parse(_truckTrailerView.ID_Trailer)).First();
                 trailer.SetVehicleStatus(_truckTrailerView.TrailerDamage, _truckTrailerView.TrailerCanMove, _truckTrailerView.TrailerNeedCrane);
+                trailer.SetCargoStatus(_truckTrailerView.TrailerCargoSpill, _truckTrailerView.TrailerBOL);
                 #endregion
 
                 DataRow folioReponse = Functions.Get_Folio().Select().First();
                 Folio = folioReponse.ItemArray[2].ToString() + "-" + folioReponse.ItemArray[3].ToString();
 
-                // prototype
-                Builders.Incident incident = _selectedIncident.ShallowCopy();
-
-                incident.ID_Incident = Guid.Parse(ID_Incident);
-                incident.Folio = Folio;
-                incident.ClaimNumber = _view.ClaimNumber;
-                incident.PoliceReport = _view.PoliceReport;
-                incident.CitationReportNumber = _view.CitationReportNumber;
-                incident.ManifestNumber = _view.ManifestNumber;
-                incident.IncidentDate = _view.IncidentDate;
-                incident.Location = new Builders.Location(_view.ID_State, _view.ID_City, _view.Latitude, _view.Longitude, _view.LocationReferences);
-                incident.Truck = _trucks.Where(t => t.ID == Guid.Parse(_truckTrailerView.ID_Truck)).FirstOrDefault();
-                incident.Trailer = _trailers.Where(t => t.ID == Guid.Parse(_truckTrailerView.ID_Trailer)).FirstOrDefault();
-                incident.Driver = _selectedDriver;
-
+                Builders.Incident incident = new IncidentBuilder()
+                                                    .SetID(Guid.Parse(ID_Incident))
+                                                    .SetFolio(Folio)
+                                                    .SetClaimNumber(_view.ClaimNumber)
+                                                    .HasPoliceReport(_view.PoliceReport, _view.CitationReportNumber)
+                                                    .SetOpenDate(_view.IncidentDate)
+                                                    .SetLocation(
+                                                        new Builders.Location(
+                                                            _view.ID_State, 
+                                                            _view.ID_City, 
+                                                            _view.Latitude, 
+                                                            _view.Longitude,
+                                                            _view.LocationReferences
+                                                        )
+                                                    )
+                                                    .SetComments(_view.Comments == null ? "" : _view.Comments.ToString())
+                                                    .Build();
 
                 var incidentRes = await IncidentService.update_TruckTrailerIncident(incident, trailer, truck, driver, _PersonsInvolved, _view.Documents);
 
@@ -1049,22 +1055,22 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 
         public void PDF(bool generate = false, bool openAfterSave = false)
         {
-            return;
 
+            Builders.Incident incident = null;
             if (generate)
             {
                 
                 var t = new Task(() =>
                 {
-                    //_selectedIncident = IncidentService.GetIncident(ID_Incident).FirstOrDefault();
+                    incident = IncidentService.GetIncident(ID_Incident);
                 });
                 t.Start();
                 t.Wait();
 
             }
 
-            //IncidentReport report1 = new IncidentReport(_selectedIncident);
-            IncidentReport report1 = new IncidentReport(null);
+            IncidentReport report1 = new IncidentReport(_selectedIncident);
+            //IncidentReport report1 = new IncidentReport(null);
             try
             {
                 var reportFilename = ReportPath + $"\\{Folio}.pdf";
@@ -1140,6 +1146,20 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         #endregion
 
         #region trucks
+        public void TransportShown()
+        {
+            //trucks
+            _truckTrailerView.LueTrucksSize = new System.Drawing.Size(238, 24);
+            _truckTrailerView.BtnEditTruckVisibility = false;
+            _truckTrailerView.BtnAddTruckVisibility = false;
+            _truckTrailerView.BtnBroker1Visibility = false;
+            //trailers
+            _truckTrailerView.LueTrailerSize = new System.Drawing.Size(238, 24);
+            _truckTrailerView.BtnEditTrailerVisibility = false;
+            _truckTrailerView.BtnAddTrailerVisibility = false;
+            _truckTrailerView.BtnBroker2Visibility = false;
+        }
+
         public void LoadTrucks()
         {
             _truckTrailerView.TrucksDataSource = _trucks;

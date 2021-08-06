@@ -48,6 +48,12 @@ namespace ResponseEmergencySystem.Builders
             this.vehicleStatus.Broker = Broker;
         }
 
+        public void SetCargoStatus(bool cargoSpill, string BOL)
+        {
+            this.vehicleStatus.CargoSpill = cargoSpill;
+            this.vehicleStatus.BOL = BOL;
+        }
+
         public bool ValidateVinNumber(string newVinNumber)
         {
             string newValue = newVinNumber.Trim();
@@ -244,6 +250,13 @@ namespace ResponseEmergencySystem.Builders
             v.vehicleStatus.CanMove = canMove;
             v.vehicleStatus.NeedCrane = needCrane;
             v.vehicleStatus.Broker = broker;
+            v.vehicleStatus.Broker = broker;
+        });
+
+        public VehicleBuilder SetCargoStatus(bool cargoSpill , string BOL) => Do(v =>
+        {
+            v.vehicleStatus.CargoSpill = cargoSpill;
+            v.vehicleStatus.BOL = BOL;
         });
     }
  
@@ -253,6 +266,8 @@ namespace ResponseEmergencySystem.Builders
         public bool CanMove { get; internal set; }
         public bool NeedCrane { get; internal set; }
         public string Broker { get; internal set; }
+        public bool CargoSpill { get; internal set; }
+        public string BOL { get; set; }
 
         public VehicleStatus()
         {

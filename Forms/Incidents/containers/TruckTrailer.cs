@@ -184,6 +184,18 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             get => Utils.GetEdtValue(edt_Broker2);
             set => edt_Broker2.EditValue = value;
         }
+
+        public bool TrailerCargoSpill
+        {
+            get => (bool)ckedt_Spill.EditValue;
+            set => ckedt_Spill.EditValue = value;
+        }
+
+        public string TrailerBOL
+        {
+            get => Utils.GetEdtValue(edt_manifest);
+            set => edt_manifest.EditValue = value;
+        }
         #endregion
 
         #region view properties
@@ -200,6 +212,50 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
         public bool IsNew
         {
             get => (bool)ckedt_New.EditValue;
+        }
+        #endregion
+
+        #region input properties
+        // trucks
+        public Size LueTrucksSize
+        {
+            set => lue_Trucks.Size = value; 
+        }
+
+        public bool BtnEditTruckVisibility
+        {
+            set => btn_UpdateTruck.Visible = value;
+        }
+
+        public bool BtnAddTruckVisibility
+        {
+            set => btn_AddTruck.Visible = value;
+        }
+
+        public bool BtnBroker1Visibility
+        {
+            set => btn_Broker1.Visible = false;
+        }
+
+        // trailers
+        public Size LueTrailerSize
+        {
+            set => lue_Trailers.Size = value;
+        }
+
+        public bool BtnEditTrailerVisibility
+        {
+            set => btn_UpdateTrailer.Visible = value;
+        }
+
+        public bool BtnAddTrailerVisibility
+        {
+            set => btn_AddTrailer.Visible = value;
+        }
+
+        public bool BtnBroker2Visibility
+        {
+            set => btn_Broker2.Visible = false;
         }
         #endregion
 
@@ -222,7 +278,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
 
         private void btn_Broker2_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void Ckedt_OnValueChanged(object sender, EventArgs e)
@@ -344,6 +400,11 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
         private void btn_Broker2_Click_1(object sender, EventArgs e)
         {
             _parentController.GetBroker2();
+        }
+
+        private void ckedt_Spill_CheckedChanged(object sender, EventArgs e)
+        {
+            edt_manifest.ReadOnly = !(bool)((CheckEdit)sender).EditValue;
         }
     }
 }
