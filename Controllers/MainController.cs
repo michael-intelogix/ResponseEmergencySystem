@@ -311,11 +311,14 @@ namespace ResponseEmergencySystem.Controllers
             if (_view.Folio != null)
             {
                 _view.OpenSpinner();
+                // liskov substitution principle
                 Forms.Incidents.DriverIncident viewIncident = new Forms.Incidents.DriverIncident("show");
-                Incidents.DriverIncidentController viewIncidentCtrl = new Incidents.DriverIncidentController(viewIncident, GetID("incident"), _view.Folio.ToString());
-
+                Incidents.DriverIncidentShowController viewIncidentCtrl = new Incidents.DriverIncidentShowController(viewIncident, GetID("incident"), _view.Folio.ToString());
+                
                 viewIncident.Load += new System.EventHandler((object sender, EventArgs e) =>
                 {
+                    viewIncidentCtrl.TransportShown();
+                    viewIncidentCtrl.LoadIncident();
                     _view.CloseSpinner();
                 });
 

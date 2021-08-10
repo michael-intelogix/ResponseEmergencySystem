@@ -27,7 +27,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
 {
     public class DriverIncidentController
     {
-        IIncidentView _view;
+        protected IIncidentView _view;
         Builders.Incident _selectedIncident;
         Employee _selectedDriver;
         Vehicle _selectedTruck;
@@ -1138,7 +1138,7 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         #endregion
 
         #region trucktrailers view
-        ITrucksTrailersView _truckTrailerView;
+        protected ITrucksTrailersView _truckTrailerView;
         public void SetTruckTrailerView(ITrucksTrailersView view)
         {
             _truckTrailerView = view;
@@ -1146,20 +1146,6 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         #endregion
 
         #region trucks
-        public void TransportShown()
-        {
-            //trucks
-            _truckTrailerView.LueTrucksSize = new System.Drawing.Size(238, 24);
-            _truckTrailerView.BtnEditTruckVisibility = false;
-            _truckTrailerView.BtnAddTruckVisibility = false;
-            _truckTrailerView.BtnBroker1Visibility = false;
-            //trailers
-            _truckTrailerView.LueTrailerSize = new System.Drawing.Size(238, 24);
-            _truckTrailerView.BtnEditTrailerVisibility = false;
-            _truckTrailerView.BtnAddTrailerVisibility = false;
-            _truckTrailerView.BtnBroker2Visibility = false;
-        }
-
         public void LoadTrucks()
         {
             _truckTrailerView.TrucksDataSource = _trucks;

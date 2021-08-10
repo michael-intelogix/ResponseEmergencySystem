@@ -23,7 +23,7 @@ namespace ResponseEmergencySystem.Views.Incidents
         #region View Methods
 
         void DriverInformationReadOnly(bool enable, bool update = false);
-
+        void enableReadOnly();
         #endregion
 
         List<Models.Documents.DocumentCapture> Documents { get; set; }

@@ -128,15 +128,6 @@ namespace ResponseEmergencySystem.Forms.Incidents
             edt_PhoneNumber.ReadOnly = !enable;
             edt_License.ReadOnly = !enable;
 
-            if (_controller.IsNewDriver())
-            {
-                
-
-            }
-            else
-            {
-                
-            }
 
         }
 
@@ -897,21 +888,10 @@ namespace ResponseEmergencySystem.Forms.Incidents
                 backgroundWorker1.RunWorkerAsync();
             }
 
-            if (isShow)
-            {
-                enableReadOnly();
-                _controller.TransportShown();
-            }
-
-            if (!isNew)
-            {
-                _controller.LoadIncident();
-                
-            }
-
             if (!isNew && !isShow)
             {
                 //DriverInformationReadOnly(true, _controller.IsNewDriver());
+                _controller.LoadIncident();
             }
 
             if (isNew)
@@ -1078,17 +1058,6 @@ namespace ResponseEmergencySystem.Forms.Incidents
                 if (AddMoreCaptures.ShowDialog() == DialogResult.OK)
                 {
                     var capture = addCapturesCtrl.GetDocuments();
-
-                    //for(var i = 0; i < capture.documents.Count; i++)
-                    //{
-                    //    var doc = capture.documents[i];
-                    //    if (checkPath(doc).Status == "disposed")
-                    //    {
-                    //        capture.documents[i].SetStatus("created");
-                    //        capture.documents[i].Path = "";
-                    //    }
-                        
-                    //}
 
                     _docs.Add(capture);
                     var docsType = _docs.Select(dc => new { dc.CaptureType, dc.ID_Capture });

@@ -411,6 +411,7 @@
     <Compile Include="Controllers\EditImageDataController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\Incidents\DriverIncidentController.cs" />
+    <Compile Include="Controllers\Incidents\DriverIncidentEditController.cs" />
     <Compile Include="Controllers\Incidents\DriverIncidentShowController.cs" />
     <Compile Include="Controllers\Main2Controller.cs" />
     <Compile Include="Controllers\MainController.cs" />
@@ -672,6 +673,7 @@
     <Compile Include="Views\Incidents\Containers\ITrucksTrailersView.cs" />
     <Compile Include="Views\Incidents\Containers\IVehiclesView.cs" />
     <Compile Include="Views\Incidents\IIncidentView.cs" />
+    <Compile Include="Views\Incidents\Show\ITranportShow.cs" />
     <EmbeddedResource Include="Forms\frm_Logs.resx">
       <DependentUpon>frm_Logs.cs</DependentUpon>
     </EmbeddedResource>
