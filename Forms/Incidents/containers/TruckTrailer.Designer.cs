@@ -29,6 +29,9 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.pnl_TruckInfo = new DevExpress.XtraEditors.PanelControl();
@@ -56,6 +59,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.ckedt_TruckNeedCrane = new DevExpress.XtraEditors.CheckEdit();
             this.ckedt_TruckCanMove = new DevExpress.XtraEditors.CheckEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.pic_TruckWarning = new DevExpress.XtraEditors.PictureEdit();
             this.btn_AddTruck = new DevExpress.XtraEditors.SimpleButton();
             this.btn_UpdateTruck = new DevExpress.XtraEditors.SimpleButton();
             this.lue_Trucks = new DevExpress.XtraEditors.GridLookUpEdit();
@@ -99,6 +103,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.ckedt_Spill = new DevExpress.XtraEditors.CheckEdit();
             this.edt_Broker2 = new DevExpress.XtraEditors.TextEdit();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.pic_TrailerWarning = new DevExpress.XtraEditors.PictureEdit();
             this.btn_AddTrailer = new DevExpress.XtraEditors.SimpleButton();
             this.btn_UpdateTrailer = new DevExpress.XtraEditors.SimpleButton();
             this.lue_Trailers = new DevExpress.XtraEditors.GridLookUpEdit();
@@ -112,6 +117,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
+            this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
@@ -133,6 +139,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             ((System.ComponentModel.ISupportInitialize)(this.ckedt_TruckCanMove.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_TruckWarning.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_Trucks.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.xtraTabPage2.SuspendLayout();
@@ -156,8 +163,10 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             ((System.ComponentModel.ISupportInitialize)(this.edt_Broker2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_TrailerWarning.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_Trailers.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // xtraTabControl1
@@ -441,6 +450,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             // panelControl1
             // 
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl1.Controls.Add(this.pic_TruckWarning);
             this.panelControl1.Controls.Add(this.btn_AddTruck);
             this.panelControl1.Controls.Add(this.btn_UpdateTruck);
             this.panelControl1.Controls.Add(this.lue_Trucks);
@@ -450,6 +460,22 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(328, 35);
             this.panelControl1.TabIndex = 177;
+            // 
+            // pic_TruckWarning
+            // 
+            this.pic_TruckWarning.EditValue = global::ResponseEmergencySystem.Properties.Resources.warnigColors;
+            this.pic_TruckWarning.Location = new System.Drawing.Point(85, 7);
+            this.pic_TruckWarning.Name = "pic_TruckWarning";
+            this.pic_TruckWarning.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.pic_TruckWarning.Properties.Appearance.BorderColor = System.Drawing.Color.Transparent;
+            this.pic_TruckWarning.Properties.Appearance.Options.UseBackColor = true;
+            this.pic_TruckWarning.Properties.Appearance.Options.UseBorderColor = true;
+            this.pic_TruckWarning.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pic_TruckWarning.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pic_TruckWarning.Properties.SvgImageSize = new System.Drawing.Size(30, 30);
+            this.pic_TruckWarning.Size = new System.Drawing.Size(30, 22);
+            this.pic_TruckWarning.TabIndex = 186;
+            this.pic_TruckWarning.Visible = false;
             // 
             // btn_AddTruck
             // 
@@ -490,6 +516,8 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.lue_Trucks.EditValue = "";
             this.lue_Trucks.Location = new System.Drawing.Point(81, 5);
             this.lue_Trucks.Name = "lue_Trucks";
+            this.lue_Trucks.Properties.Appearance.BorderColor = System.Drawing.Color.Maroon;
+            this.lue_Trucks.Properties.Appearance.Options.UseBorderColor = true;
             this.lue_Trucks.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lue_Trucks.Properties.DisplayMember = "Name";
@@ -504,6 +532,10 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.lue_Trucks.Size = new System.Drawing.Size(171, 24);
             this.lue_Trucks.TabIndex = 170;
             this.lue_Trucks.TabStop = false;
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "This value is not valid";
+            conditionValidationRule1.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
+            this.dxValidationProvider1.SetValidationRule(this.lue_Trucks, conditionValidationRule1);
             // 
             // gridView1
             // 
@@ -586,7 +618,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             // 
             // labelControl15
             // 
-            this.labelControl15.Location = new System.Drawing.Point(11, 6);
+            this.labelControl15.Location = new System.Drawing.Point(11, 8);
             this.labelControl15.Name = "labelControl15";
             this.labelControl15.Size = new System.Drawing.Size(64, 17);
             this.labelControl15.TabIndex = 169;
@@ -886,6 +918,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             // panelControl2
             // 
             this.panelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl2.Controls.Add(this.pic_TrailerWarning);
             this.panelControl2.Controls.Add(this.btn_AddTrailer);
             this.panelControl2.Controls.Add(this.btn_UpdateTrailer);
             this.panelControl2.Controls.Add(this.lue_Trailers);
@@ -895,6 +928,22 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(328, 40);
             this.panelControl2.TabIndex = 182;
+            // 
+            // pic_TrailerWarning
+            // 
+            this.pic_TrailerWarning.EditValue = global::ResponseEmergencySystem.Properties.Resources.warnigColors;
+            this.pic_TrailerWarning.Location = new System.Drawing.Point(90, 11);
+            this.pic_TrailerWarning.Name = "pic_TrailerWarning";
+            this.pic_TrailerWarning.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.pic_TrailerWarning.Properties.Appearance.BorderColor = System.Drawing.Color.Transparent;
+            this.pic_TrailerWarning.Properties.Appearance.Options.UseBackColor = true;
+            this.pic_TrailerWarning.Properties.Appearance.Options.UseBorderColor = true;
+            this.pic_TrailerWarning.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pic_TrailerWarning.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pic_TrailerWarning.Properties.SvgImageSize = new System.Drawing.Size(30, 30);
+            this.pic_TrailerWarning.Size = new System.Drawing.Size(30, 22);
+            this.pic_TrailerWarning.TabIndex = 186;
+            this.pic_TrailerWarning.Visible = false;
             // 
             // btn_AddTrailer
             // 
@@ -935,6 +984,8 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.lue_Trailers.EditValue = "";
             this.lue_Trailers.Location = new System.Drawing.Point(80, 9);
             this.lue_Trailers.Name = "lue_Trailers";
+            this.lue_Trailers.Properties.Appearance.BorderColor = System.Drawing.Color.Maroon;
+            this.lue_Trailers.Properties.Appearance.Options.UseBorderColor = true;
             this.lue_Trailers.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lue_Trailers.Properties.DisplayMember = "Name";
@@ -949,6 +1000,10 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.lue_Trailers.Size = new System.Drawing.Size(172, 24);
             this.lue_Trailers.TabIndex = 181;
             this.lue_Trailers.TabStop = false;
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "This value is not valid";
+            conditionValidationRule2.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
+            this.dxValidationProvider1.SetValidationRule(this.lue_Trailers, conditionValidationRule2);
             // 
             // gridView2
             // 
@@ -1070,6 +1125,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_TruckWarning.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_Trucks.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.xtraTabPage2.ResumeLayout(false);
@@ -1096,8 +1152,10 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             this.panelControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_TrailerWarning.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_Trailers.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1187,5 +1245,8 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
         private DevExpress.XtraEditors.LabelControl labelControl18;
         private DevExpress.XtraEditors.LabelControl labelControl19;
         private DevExpress.XtraEditors.CheckEdit ckedt_New;
+        private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProvider1;
+        private DevExpress.XtraEditors.PictureEdit pic_TruckWarning;
+        private DevExpress.XtraEditors.PictureEdit pic_TrailerWarning;
     }
 }

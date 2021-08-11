@@ -260,6 +260,14 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
         }
         #endregion
 
+
+        #region validation
+        public bool ValidateTransport()
+        {
+            return dxValidationProvider1.Validate();
+        }
+        #endregion
+
         private void lue_Trucks_Closed(object sender, DevExpress.XtraEditors.Controls.ClosedEventArgs e)
         {
             _parentController.GetTruckSamsara();

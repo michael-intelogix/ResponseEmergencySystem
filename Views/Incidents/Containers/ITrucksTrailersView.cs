@@ -10,7 +10,9 @@ namespace ResponseEmergencySystem.Views.Incidents.Containers
     public interface ITrucksTrailersView
     {
         void SetController(Controllers.Incidents.DriverIncidentController controller);
-        
+
+        bool ValidateTransport();
+
         #region Truck Information
         string TruckName { get; set; }
         string TruckVinNumber { get; set; }

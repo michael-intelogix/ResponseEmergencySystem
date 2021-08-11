@@ -1362,5 +1362,12 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             _vehiclesView.VehiclesDataSource = _vehicles;
         }
         #endregion
+
+        #region validations
+        public bool TransportValidate()
+        {
+            return _truckTrailerView.ValidateTransport();
+        }
+        #endregion 
     }
 }

@@ -986,8 +986,8 @@ namespace ResponseEmergencySystem.Forms.Incidents
 
         private void simpleButton16_Click(object sender, EventArgs e)
         {
-            
-            if (dxValidationProvider1.Validate())
+            bool _TransportValidation = _controller.TransportValidate();
+            if (dxValidationProvider1.Validate() && _TransportValidation)
             {
                 
                 splashScreenManager1.ShowWaitForm();
