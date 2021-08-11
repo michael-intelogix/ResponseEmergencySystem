@@ -82,7 +82,9 @@ namespace ResponseEmergencySystem.Builders
 
         public IncidentBuilder SetClaimNumber(string claim) => Do(i => i.ClaimNumber = claim);
 
-        public IncidentBuilder SetOpenDate(DateTime date) => Do(i => i.IncidentDate = date);
+        public IncidentBuilder SetOpenDate(DateTime date ) => Do(i => {
+            i.IncidentDate = date;
+        });
 
         public IncidentBuilder HasPoliceReport(bool policeReport, string citationReport = "") => Do(i => {
             i.PoliceReport = policeReport;

@@ -36,8 +36,6 @@ namespace ResponseEmergencySystem.Forms.Incidents
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule5 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule6 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule7 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule8 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -54,9 +52,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.edt_FullName = new DevExpress.XtraEditors.TextEdit();
             this.lue_Cities = new DevExpress.XtraEditors.LookUpEdit();
             this.lue_states = new DevExpress.XtraEditors.LookUpEdit();
-            this.tme_IncidentTime = new DevExpress.XtraEditors.TimeEdit();
             this.edt_Highway = new DevExpress.XtraEditors.TextEdit();
-            this.dte_IncidentDate = new DevExpress.XtraEditors.DateEdit();
             this.edt_TrailerNumber = new DevExpress.XtraEditors.TextEdit();
             this.edt_Cargo = new DevExpress.XtraEditors.TextEdit();
             this.edt_Broker2 = new DevExpress.XtraEditors.TextEdit();
@@ -155,6 +151,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.gMapControl1 = new GMap.NET.WindowsForms.GMapControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
+            this.dte_IncidentDateTime = new DevExpress.XtraEditors.DateEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.edt_ClaimNumber = new DevExpress.XtraEditors.TextEdit();
             this.edt_OtherAction = new DevExpress.XtraEditors.TextEdit();
@@ -173,7 +170,6 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.edt_Longitude = new DevExpress.XtraEditors.TextEdit();
             this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl25 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl24 = new DevExpress.XtraEditors.LabelControl();
             this.pnl_Divider1 = new DevExpress.XtraEditors.PanelControl();
             this.pnl_TruckTrailerContent = new DevExpress.XtraEditors.PanelControl();
             this.pnl_VehicleInformationContainer = new DevExpress.XtraEditors.PanelControl();
@@ -240,10 +236,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             ((System.ComponentModel.ISupportInitialize)(this.edt_FullName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_Cities.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_states.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tme_IncidentTime.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_Highway.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dte_IncidentDate.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dte_IncidentDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_TrailerNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_Cargo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_Broker2.Properties)).BeginInit();
@@ -315,6 +308,8 @@ namespace ResponseEmergencySystem.Forms.Incidents
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
             this.groupControl4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dte_IncidentDateTime.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dte_IncidentDateTime.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_ClaimNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_OtherAction.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_PoliceReport.Properties)).BeginInit();
@@ -451,21 +446,6 @@ namespace ResponseEmergencySystem.Forms.Incidents
             conditionValidationRule5.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
             this.dxValidationProvider1.SetValidationRule(this.lue_states, conditionValidationRule5);
             // 
-            // tme_IncidentTime
-            // 
-            this.tme_IncidentTime.EditValue = new System.DateTime(2021, 5, 11, 0, 0, 0, 0);
-            this.tme_IncidentTime.Location = new System.Drawing.Point(257, 28);
-            this.tme_IncidentTime.Name = "tme_IncidentTime";
-            this.tme_IncidentTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.tme_IncidentTime.Properties.ReadOnly = true;
-            this.tme_IncidentTime.Size = new System.Drawing.Size(108, 24);
-            this.tme_IncidentTime.TabIndex = 2;
-            conditionValidationRule6.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule6.ErrorText = "This value is not valid";
-            conditionValidationRule6.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
-            this.dxValidationProvider1.SetValidationRule(this.tme_IncidentTime, conditionValidationRule6);
-            // 
             // edt_Highway
             // 
             this.edt_Highway.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -474,33 +454,10 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.edt_Highway.Properties.UseReadOnlyAppearance = false;
             this.edt_Highway.Size = new System.Drawing.Size(351, 24);
             this.edt_Highway.TabIndex = 5;
-            conditionValidationRule7.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule7.ErrorText = "This value is not valid";
-            conditionValidationRule7.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
-            this.dxValidationProvider1.SetValidationRule(this.edt_Highway, conditionValidationRule7);
-            // 
-            // dte_IncidentDate
-            // 
-            this.dte_IncidentDate.EditValue = null;
-            this.dte_IncidentDate.Location = new System.Drawing.Point(68, 27);
-            this.dte_IncidentDate.Name = "dte_IncidentDate";
-            this.dte_IncidentDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dte_IncidentDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dte_IncidentDate.Properties.DisplayFormat.FormatString = "";
-            this.dte_IncidentDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dte_IncidentDate.Properties.EditFormat.FormatString = "";
-            this.dte_IncidentDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dte_IncidentDate.Properties.MaskSettings.Set("mask", "dd/MM/yyyy");
-            this.dte_IncidentDate.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.dte_IncidentDate.Properties.UseMaskAsDisplayFormat = true;
-            this.dte_IncidentDate.Size = new System.Drawing.Size(107, 24);
-            this.dte_IncidentDate.TabIndex = 1;
-            conditionValidationRule8.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule8.ErrorText = "This value is not valid";
-            conditionValidationRule8.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
-            this.dxValidationProvider1.SetValidationRule(this.dte_IncidentDate, conditionValidationRule8);
+            conditionValidationRule6.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule6.ErrorText = "This value is not valid";
+            conditionValidationRule6.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
+            this.dxValidationProvider1.SetValidationRule(this.edt_Highway, conditionValidationRule6);
             // 
             // edt_TrailerNumber
             // 
@@ -1650,6 +1607,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             // 
             // groupControl4
             // 
+            this.groupControl4.Controls.Add(this.dte_IncidentDateTime);
             this.groupControl4.Controls.Add(this.labelControl3);
             this.groupControl4.Controls.Add(this.edt_ClaimNumber);
             this.groupControl4.Controls.Add(this.edt_OtherAction);
@@ -1667,19 +1625,34 @@ namespace ResponseEmergencySystem.Forms.Incidents
             this.groupControl4.Controls.Add(this.edt_Latitude);
             this.groupControl4.Controls.Add(this.labelControl21);
             this.groupControl4.Controls.Add(this.ckedt_PoliceReport);
-            this.groupControl4.Controls.Add(this.tme_IncidentTime);
             this.groupControl4.Controls.Add(this.edt_Highway);
             this.groupControl4.Controls.Add(this.edt_Longitude);
             this.groupControl4.Controls.Add(this.labelControl18);
-            this.groupControl4.Controls.Add(this.dte_IncidentDate);
             this.groupControl4.Controls.Add(this.labelControl25);
-            this.groupControl4.Controls.Add(this.labelControl24);
             this.groupControl4.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupControl4.Location = new System.Drawing.Point(722, 0);
             this.groupControl4.Name = "groupControl4";
             this.groupControl4.Size = new System.Drawing.Size(375, 305);
             this.groupControl4.TabIndex = 13;
             this.groupControl4.Text = "Accident Details";
+            // 
+            // dte_IncidentDateTime
+            // 
+            this.dte_IncidentDateTime.EditValue = null;
+            this.dte_IncidentDateTime.Location = new System.Drawing.Point(110, 28);
+            this.dte_IncidentDateTime.Name = "dte_IncidentDateTime";
+            this.dte_IncidentDateTime.Properties.BeepOnError = false;
+            this.dte_IncidentDateTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dte_IncidentDateTime.Properties.CalendarTimeEditing = DevExpress.Utils.DefaultBoolean.True;
+            this.dte_IncidentDateTime.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dte_IncidentDateTime.Properties.DisplayFormat.FormatString = "mm/dd/yy hh:mm:tt";
+            this.dte_IncidentDateTime.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dte_IncidentDateTime.Properties.MaskSettings.Set("mask", "f");
+            this.dte_IncidentDateTime.Properties.UseMaskAsDisplayFormat = true;
+            this.dte_IncidentDateTime.Size = new System.Drawing.Size(255, 24);
+            this.dte_IncidentDateTime.TabIndex = 50;
             // 
             // labelControl3
             // 
@@ -1853,17 +1826,9 @@ namespace ResponseEmergencySystem.Forms.Incidents
             // 
             this.labelControl25.Location = new System.Drawing.Point(14, 30);
             this.labelControl25.Name = "labelControl25";
-            this.labelControl25.Size = new System.Drawing.Size(27, 17);
+            this.labelControl25.Size = new System.Drawing.Size(90, 17);
             this.labelControl25.TabIndex = 32;
-            this.labelControl25.Text = "Date";
-            // 
-            // labelControl24
-            // 
-            this.labelControl24.Location = new System.Drawing.Point(192, 31);
-            this.labelControl24.Name = "labelControl24";
-            this.labelControl24.Size = new System.Drawing.Size(28, 17);
-            this.labelControl24.TabIndex = 33;
-            this.labelControl24.Text = "Time";
+            this.labelControl25.Text = "Date And Time";
             // 
             // pnl_Divider1
             // 
@@ -2627,10 +2592,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             ((System.ComponentModel.ISupportInitialize)(this.edt_FullName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_Cities.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_states.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tme_IncidentTime.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_Highway.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dte_IncidentDate.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dte_IncidentDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_TrailerNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_Cargo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_Broker2.Properties)).EndInit();
@@ -2705,6 +2667,8 @@ namespace ResponseEmergencySystem.Forms.Incidents
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).EndInit();
             this.groupControl4.ResumeLayout(false);
             this.groupControl4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dte_IncidentDateTime.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dte_IncidentDateTime.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_ClaimNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_OtherAction.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.edt_PoliceReport.Properties)).EndInit();
@@ -2874,13 +2838,10 @@ namespace ResponseEmergencySystem.Forms.Incidents
         private DevExpress.XtraEditors.TextEdit edt_Latitude;
         private DevExpress.XtraEditors.LabelControl labelControl21;
         private DevExpress.XtraEditors.CheckEdit ckedt_PoliceReport;
-        private DevExpress.XtraEditors.TimeEdit tme_IncidentTime;
         private DevExpress.XtraEditors.TextEdit edt_Highway;
         private DevExpress.XtraEditors.TextEdit edt_Longitude;
         private DevExpress.XtraEditors.LabelControl labelControl18;
-        private DevExpress.XtraEditors.DateEdit dte_IncidentDate;
         private DevExpress.XtraEditors.LabelControl labelControl25;
-        private DevExpress.XtraEditors.LabelControl labelControl24;
         private DevExpress.XtraEditors.PanelControl pnl_Divider1;
         private DevExpress.XtraEditors.PanelControl pnl_TruckTrailerContent;
         private DevExpress.XtraEditors.GroupControl groupControl3;
@@ -2950,5 +2911,6 @@ namespace ResponseEmergencySystem.Forms.Incidents
         private DevExpress.XtraEditors.CheckEdit checkEdit2;
         private DevExpress.XtraEditors.TextEdit edt_IPHospital;
         private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.DateEdit dte_IncidentDateTime;
     }
 }

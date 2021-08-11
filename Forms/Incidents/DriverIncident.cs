@@ -103,8 +103,7 @@ namespace ResponseEmergencySystem.Forms.Incidents
             edt_Cargo.ReadOnly = true;
             edt_Broker2.ReadOnly = true;
             ckedt_Spill.ReadOnly = true;
-            dte_IncidentDate.ReadOnly = true;
-            tme_IncidentTime.ReadOnly = true;
+            dte_IncidentDateTime.ReadOnly = true;
             lue_states.ReadOnly = true;
             lue_Cities.ReadOnly = true;
             edt_Highway.ReadOnly = true;
@@ -270,13 +269,13 @@ namespace ResponseEmergencySystem.Forms.Incidents
         }
         public DateTime IncidentDate
         {
-            get { return new DateTime(dte_IncidentDate.DateTime.Ticks); }
+            get { return dte_IncidentDateTime.DateTime; }
             set
             {
-                dte_IncidentDate.DateTime = value;
-                tme_IncidentTime.Time = value;
+                dte_IncidentDateTime.DateTime = value;
             }
         }
+
         public bool PoliceReport
         {
             get { return (bool)ckedt_PoliceReport.EditValue; }

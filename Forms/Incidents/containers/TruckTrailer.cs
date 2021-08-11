@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
 using ResponseEmergencySystem.Code;
 using ResponseEmergencySystem.Controllers.Incidents;
 using ResponseEmergencySystem.Views.Incidents.Containers;
@@ -288,6 +289,18 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
 
         private void btn_SaveVehicle_Click(object sender, EventArgs e)
         {
+
+            if ((bool)ckedt_New.EditValue)
+            {
+                //if (!Validatetruck())
+                //    return;
+
+                _parentController.AddTruck();
+                ckedt_New.EditValue = false;
+            }
+            else
+                _parentController.UpdateTruckInfo();
+
             pnl_TruckStatus.Visible = true;
             pnl_TruckInfo.Visible = false;
             lue_Trucks.ReadOnly = false;
@@ -297,14 +310,6 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
 
             if (!edt_TruckName.ReadOnly)
                 edt_TruckName.ReadOnly = true;
-
-            if ((bool)ckedt_New.EditValue)
-            {
-                _parentController.AddTruck();
-                ckedt_New.EditValue = false;
-            }
-            else
-                _parentController.UpdateTruckInfo();
         }
 
         private void btn_UpdateVinNumber_Click(object sender, EventArgs e)
@@ -405,6 +410,20 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
         private void ckedt_Spill_CheckedChanged(object sender, EventArgs e)
         {
             edt_manifest.ReadOnly = !(bool)((CheckEdit)sender).EditValue;
+        }
+
+        private bool Validatetruck()
+        {
+
+            edt_TruckName.BorderStyle = Utils.GetEdtValue(edt_TruckName) == "" ? BorderStyles.Simple : BorderStyles.Default;
+            edt_TruckVinNumber.BorderStyle = Utils.GetEdtValue(edt_TruckVinNumber) == "" ? BorderStyles.Simple : BorderStyles.Default;
+            edt_TruckSerialNumber.BorderStyle = Utils.GetEdtValue(edt_TruckSerialNumber) == "" ? BorderStyles.Simple : BorderStyles.Default;
+            edt_TruckMake.BorderStyle = Utils.GetEdtValue(edt_TruckMake) == "" ? BorderStyles.Simple : BorderStyles.Default;
+            edt_TruckModel.BorderStyle = Utils.GetEdtValue(edt_TruckModel) == "" ? BorderStyles.Simple : BorderStyles.Default;
+            edt_TruckYear.BorderStyle = Utils.GetEdtValue(edt_TruckYear) == "" ? BorderStyles.Simple : BorderStyles.Default;
+            edt_TruckLicensePlate.BorderStyle = Utils.GetEdtValue(edt_TruckLicensePlate) == "" ? BorderStyles.Simple : BorderStyles.Default;
+
+            return false;
         }
     }
 }

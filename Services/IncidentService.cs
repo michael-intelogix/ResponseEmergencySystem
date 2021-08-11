@@ -566,6 +566,11 @@ namespace ResponseEmergencySystem.Services
                 incident.Driver = driver;
             }
 
+            if (driver.Status == "empty")
+            {
+                incident.Driver = driver;
+            }
+            
             if (truck.Status != "empty")
             {
                 t = new Task<Response>(() => VehicleService.update_Truck(truck));

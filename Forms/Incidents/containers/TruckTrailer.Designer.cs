@@ -201,9 +201,9 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.pnl_TruckInfo.Controls.Add(this.labelControl2);
             this.pnl_TruckInfo.Controls.Add(this.labelControl1);
             this.pnl_TruckInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnl_TruckInfo.Location = new System.Drawing.Point(0, 100);
+            this.pnl_TruckInfo.Location = new System.Drawing.Point(0, 101);
             this.pnl_TruckInfo.Name = "pnl_TruckInfo";
-            this.pnl_TruckInfo.Size = new System.Drawing.Size(328, 175);
+            this.pnl_TruckInfo.Size = new System.Drawing.Size(328, 174);
             this.pnl_TruckInfo.TabIndex = 179;
             this.pnl_TruckInfo.Visible = false;
             // 
@@ -230,6 +230,8 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             // 
             this.edt_TruckLicensePlate.Location = new System.Drawing.Point(224, 130);
             this.edt_TruckLicensePlate.Name = "edt_TruckLicensePlate";
+            this.edt_TruckLicensePlate.Properties.Appearance.BorderColor = System.Drawing.Color.Maroon;
+            this.edt_TruckLicensePlate.Properties.Appearance.Options.UseBorderColor = true;
             this.edt_TruckLicensePlate.Properties.UseReadOnlyAppearance = false;
             this.edt_TruckLicensePlate.Size = new System.Drawing.Size(95, 24);
             this.edt_TruckLicensePlate.TabIndex = 156;
@@ -238,6 +240,8 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             // 
             this.edt_TruckMake.Location = new System.Drawing.Point(54, 98);
             this.edt_TruckMake.Name = "edt_TruckMake";
+            this.edt_TruckMake.Properties.Appearance.BorderColor = System.Drawing.Color.Maroon;
+            this.edt_TruckMake.Properties.Appearance.Options.UseBorderColor = true;
             this.edt_TruckMake.Properties.UseReadOnlyAppearance = false;
             this.edt_TruckMake.Size = new System.Drawing.Size(108, 24);
             this.edt_TruckMake.TabIndex = 152;
@@ -246,6 +250,8 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             // 
             this.edt_TruckYear.Location = new System.Drawing.Point(54, 130);
             this.edt_TruckYear.Name = "edt_TruckYear";
+            this.edt_TruckYear.Properties.Appearance.BorderColor = System.Drawing.Color.Maroon;
+            this.edt_TruckYear.Properties.Appearance.Options.UseBorderColor = true;
             this.edt_TruckYear.Properties.UseReadOnlyAppearance = false;
             this.edt_TruckYear.Size = new System.Drawing.Size(108, 24);
             this.edt_TruckYear.TabIndex = 154;
@@ -254,6 +260,8 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             // 
             this.edt_TruckModel.Location = new System.Drawing.Point(224, 98);
             this.edt_TruckModel.Name = "edt_TruckModel";
+            this.edt_TruckModel.Properties.Appearance.BorderColor = System.Drawing.Color.Maroon;
+            this.edt_TruckModel.Properties.Appearance.Options.UseBorderColor = true;
             this.edt_TruckModel.Properties.UseReadOnlyAppearance = false;
             this.edt_TruckModel.Size = new System.Drawing.Size(95, 24);
             this.edt_TruckModel.TabIndex = 153;
@@ -262,6 +270,8 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             // 
             this.edt_TruckVinNumber.Location = new System.Drawing.Point(117, 38);
             this.edt_TruckVinNumber.Name = "edt_TruckVinNumber";
+            this.edt_TruckVinNumber.Properties.Appearance.BorderColor = System.Drawing.Color.Maroon;
+            this.edt_TruckVinNumber.Properties.Appearance.Options.UseBorderColor = true;
             this.edt_TruckVinNumber.Properties.UseReadOnlyAppearance = false;
             this.edt_TruckVinNumber.Size = new System.Drawing.Size(202, 24);
             this.edt_TruckVinNumber.TabIndex = 150;
@@ -270,6 +280,8 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             // 
             this.edt_TruckSerialNumber.Location = new System.Drawing.Point(117, 68);
             this.edt_TruckSerialNumber.Name = "edt_TruckSerialNumber";
+            this.edt_TruckSerialNumber.Properties.Appearance.BorderColor = System.Drawing.Color.Maroon;
+            this.edt_TruckSerialNumber.Properties.Appearance.Options.UseBorderColor = true;
             this.edt_TruckSerialNumber.Properties.UseReadOnlyAppearance = false;
             this.edt_TruckSerialNumber.Size = new System.Drawing.Size(202, 24);
             this.edt_TruckSerialNumber.TabIndex = 151;
@@ -278,6 +290,8 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             // 
             this.edt_TruckName.Location = new System.Drawing.Point(117, 8);
             this.edt_TruckName.Name = "edt_TruckName";
+            this.edt_TruckName.Properties.Appearance.BorderColor = System.Drawing.Color.Maroon;
+            this.edt_TruckName.Properties.Appearance.Options.UseBorderColor = true;
             this.edt_TruckName.Properties.ReadOnly = true;
             this.edt_TruckName.Properties.UseReadOnlyAppearance = false;
             this.edt_TruckName.Size = new System.Drawing.Size(202, 24);
@@ -352,7 +366,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.pnl_TruckStatus.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_TruckStatus.Location = new System.Drawing.Point(0, 35);
             this.pnl_TruckStatus.Name = "pnl_TruckStatus";
-            this.pnl_TruckStatus.Size = new System.Drawing.Size(328, 65);
+            this.pnl_TruckStatus.Size = new System.Drawing.Size(328, 66);
             this.pnl_TruckStatus.TabIndex = 178;
             // 
             // btn_Broker1
