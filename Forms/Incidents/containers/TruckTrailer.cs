@@ -308,10 +308,15 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
 
                 _parentController.AddTruck();
                 ckedt_New.EditValue = false;
-                
+
             }
             else
+            {
+                if (!truck_UpdateValidationProvider.Validate())
+                    return;
+
                 _parentController.UpdateTruckInfo();
+            }
 
             pnl_TruckStatus.Visible = true;
             pnl_TruckInfo.Visible = false;
@@ -502,6 +507,38 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
         private DriverIncidentController.vehicleTypes _VehicleType;
 
         public CustomValidationRule(ref DriverIncidentController controller)
+        {
+            this._controller = controller;
+            this.ErrorType = ErrorType.Warning;
+        }
+
+        public void SetFieldName(DriverIncidentController.vehicleInformation type)
+        {
+            this._type = type;
+        }
+
+        public void SetVehicleType(DriverIncidentController.vehicleTypes vehicleType)
+        {
+            this._VehicleType = vehicleType;
+        }
+
+        public override bool Validate(Control control, object value)
+        {
+            (bool, string) res = _controller.TruckNameIsRegistered(Utils.GetEdtValue((TextEdit)control), _type, _VehicleType);
+
+
+            this.ErrorText = res.Item2;
+            return res.Item1;
+        }
+    }
+
+    internal class CustomValidationRule2 : ValidationRule
+    {
+        private DriverIncidentController _controller;
+        private DriverIncidentController.vehicleInformation _type;
+        private DriverIncidentController.vehicleTypes _VehicleType;
+
+        public CustomValidationRule2(ref DriverIncidentController controller)
         {
             this._controller = controller;
             this.ErrorType = ErrorType.Warning;

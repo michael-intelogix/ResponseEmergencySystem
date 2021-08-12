@@ -1388,11 +1388,14 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         }
 
 
-        public (bool, string) TruckNameIsRegistered(string val, vehicleInformation type, vehicleTypes vehicleType)
+        public (bool, string) TruckNameIsRegistered(string val, vehicleInformation type, vehicleTypes vehicleType, bool update = false)
         {
             bool exists = false;
             bool res = false;
             string msg = "This field can't be empty";
+            string vehicleName = "";
+
+            IEnumerable<Vehicle> v = null;
             List<Vehicle> vehicles = null;
             
             if(val == "")
@@ -1411,24 +1414,32 @@ namespace ResponseEmergencySystem.Controllers.Incidents
             switch (type)
             {
                 case vehicleInformation.Name:
-                    exists = vehicles.Where(t => t.Name == val).Count() > 0;
+                    v = vehicles.Where(t => t.Name == val);
+                    exists = v.Count() > 0;
+
                     if (exists)
                         msg = $"A { vehicleType } with this name is already registered";
                     break;
                 case vehicleInformation.VinNumber:
-                    exists = vehicles.Where(t => t.VinNumber == val).Count() > 0;
+                    v = vehicles.Where(t => t.VinNumber == val);
+                    exists = v.Count() > 0;
+
                     if (exists)
-                        msg = $"A { vehicleType } with this Vin Number is already registered";
+                        msg = $"A { vehicleType } with name { v.First().Name } already have this Vin Number";
                     break;
                 case vehicleInformation.SerialNumber:
-                    exists = vehicles.Where(t => t.SerialNumber == val).Count() > 0;
+                    v = vehicles.Where(t => t.SerialNumber == val);
+                    exists = v.Count() > 0;
+
                     if (exists)
-                        msg = $"A { vehicleType } with this Serial Number is already registered";
+                        msg = $"A { vehicleType } with name { v.First().Name } already have this Serial Number";
                     break;
                 case vehicleInformation.Plate:
-                    exists = vehicles.Where(t => t.LicensePlate == val).Count() > 0;
+                    v = vehicles.Where(t => t.LicensePlate == val);
+                    exists = v.Count() > 0;
+
                     if (exists)
-                        msg = $"A { vehicleType } with this Plate is already registered";
+                        msg = $"A { vehicleType } with name { v.First().Name } already have this Plate";
                     break;
             }
             
