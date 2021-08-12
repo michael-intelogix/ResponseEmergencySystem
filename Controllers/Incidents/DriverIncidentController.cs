@@ -1388,12 +1388,12 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         }
 
 
-        public (bool, string) TruckNameIsRegistered(string val, vehicleInformation type, vehicleTypes vehicleType, bool update = false)
+        public (bool, string) TruckNameIsRegistered(string val, vehicleInformation type, vehicleTypes vehicleType, string name)
         {
             bool exists = false;
             bool res = false;
             string msg = "This field can't be empty";
-            string vehicleName = "";
+            string vehicleName = name;
 
             IEnumerable<Vehicle> v = null;
             List<Vehicle> vehicles = null;
@@ -1421,21 +1421,21 @@ namespace ResponseEmergencySystem.Controllers.Incidents
                         msg = $"A { vehicleType } with this name is already registered";
                     break;
                 case vehicleInformation.VinNumber:
-                    v = vehicles.Where(t => t.VinNumber == val);
+                    v = vehicleName != null ? vehicles.Where(t => t.VinNumber == val && t.Name != vehicleName) : vehicles.Where(t => t.VinNumber == val);
                     exists = v.Count() > 0;
 
                     if (exists)
                         msg = $"A { vehicleType } with name { v.First().Name } already have this Vin Number";
                     break;
                 case vehicleInformation.SerialNumber:
-                    v = vehicles.Where(t => t.SerialNumber == val);
+                    v = vehicleName != null ? vehicles.Where(t => t.SerialNumber == val && t.Name != vehicleName) : vehicles.Where(t => t.SerialNumber == val);
                     exists = v.Count() > 0;
 
                     if (exists)
                         msg = $"A { vehicleType } with name { v.First().Name } already have this Serial Number";
                     break;
                 case vehicleInformation.Plate:
-                    v = vehicles.Where(t => t.LicensePlate == val);
+                    v = vehicleName != null ? vehicles.Where(t => t.LicensePlate == val && t.Name != vehicleName) : vehicles.Where(t => t.LicensePlate == val);
                     exists = v.Count() > 0;
 
                     if (exists)

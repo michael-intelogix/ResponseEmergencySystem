@@ -42,6 +42,10 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule10 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule11 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule12 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule13 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule14 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule15 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule16 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.pnl_TruckInfo = new DevExpress.XtraEditors.PanelControl();
@@ -132,6 +136,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.truck_ValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.trailer_ValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.truck_UpdateValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.trailer_UpdateValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
@@ -184,6 +189,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             ((System.ComponentModel.ISupportInitialize)(this.truck_ValidationProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trailer_ValidationProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.truck_UpdateValidationProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trailer_UpdateValidationProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // xtraTabControl1
@@ -304,11 +310,11 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule1.ErrorText = "This field can\'t be empty";
             conditionValidationRule1.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
-            this.truck_UpdateValidationProvider.SetValidationRule(this.edt_TruckMake, conditionValidationRule1);
+            this.truck_ValidationProvider.SetValidationRule(this.edt_TruckMake, conditionValidationRule1);
             conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule2.ErrorText = "This field can\'t be empty";
             conditionValidationRule2.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
-            this.truck_ValidationProvider.SetValidationRule(this.edt_TruckMake, conditionValidationRule2);
+            this.truck_UpdateValidationProvider.SetValidationRule(this.edt_TruckMake, conditionValidationRule2);
             // 
             // edt_TruckYear
             // 
@@ -322,11 +328,11 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule3.ErrorText = "This field can\'t be empty";
             conditionValidationRule3.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
-            this.truck_UpdateValidationProvider.SetValidationRule(this.edt_TruckYear, conditionValidationRule3);
+            this.truck_ValidationProvider.SetValidationRule(this.edt_TruckYear, conditionValidationRule3);
             conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule4.ErrorText = "This field can\'t be empty";
             conditionValidationRule4.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
-            this.truck_ValidationProvider.SetValidationRule(this.edt_TruckYear, conditionValidationRule4);
+            this.truck_UpdateValidationProvider.SetValidationRule(this.edt_TruckYear, conditionValidationRule4);
             // 
             // edt_TruckModel
             // 
@@ -340,11 +346,11 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule5.ErrorText = "This field can\'t be empty";
             conditionValidationRule5.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
-            this.truck_UpdateValidationProvider.SetValidationRule(this.edt_TruckModel, conditionValidationRule5);
+            this.truck_ValidationProvider.SetValidationRule(this.edt_TruckModel, conditionValidationRule5);
             conditionValidationRule6.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule6.ErrorText = "This field can\'t be empty";
             conditionValidationRule6.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
-            this.truck_ValidationProvider.SetValidationRule(this.edt_TruckModel, conditionValidationRule6);
+            this.truck_UpdateValidationProvider.SetValidationRule(this.edt_TruckModel, conditionValidationRule6);
             // 
             // edt_TruckVinNumber
             // 
@@ -769,6 +775,10 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             conditionValidationRule8.ErrorText = "This field can\'t be empty";
             conditionValidationRule8.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
             this.trailer_ValidationProvider.SetValidationRule(this.edt_TrailerMake, conditionValidationRule8);
+            conditionValidationRule9.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule9.ErrorText = "This field can\'t be empty";
+            conditionValidationRule9.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
+            this.trailer_UpdateValidationProvider.SetValidationRule(this.edt_TrailerMake, conditionValidationRule9);
             // 
             // edt_TrailerYear
             // 
@@ -777,10 +787,14 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.edt_TrailerYear.Properties.UseReadOnlyAppearance = false;
             this.edt_TrailerYear.Size = new System.Drawing.Size(108, 24);
             this.edt_TrailerYear.TabIndex = 184;
-            conditionValidationRule9.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule9.ErrorText = "This field can\'t be empty";
-            conditionValidationRule9.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
-            this.trailer_ValidationProvider.SetValidationRule(this.edt_TrailerYear, conditionValidationRule9);
+            conditionValidationRule10.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule10.ErrorText = "This field can\'t be empty";
+            conditionValidationRule10.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
+            this.trailer_ValidationProvider.SetValidationRule(this.edt_TrailerYear, conditionValidationRule10);
+            conditionValidationRule11.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule11.ErrorText = "This field can\'t be empty";
+            conditionValidationRule11.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
+            this.trailer_UpdateValidationProvider.SetValidationRule(this.edt_TrailerYear, conditionValidationRule11);
             // 
             // edt_TrailerModel
             // 
@@ -789,10 +803,14 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.edt_TrailerModel.Properties.UseReadOnlyAppearance = false;
             this.edt_TrailerModel.Size = new System.Drawing.Size(95, 24);
             this.edt_TrailerModel.TabIndex = 183;
-            conditionValidationRule10.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule10.ErrorText = "This field can\'t be empty";
-            conditionValidationRule10.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
-            this.trailer_ValidationProvider.SetValidationRule(this.edt_TrailerModel, conditionValidationRule10);
+            conditionValidationRule12.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule12.ErrorText = "This field can\'t be empty";
+            conditionValidationRule12.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
+            this.trailer_ValidationProvider.SetValidationRule(this.edt_TrailerModel, conditionValidationRule12);
+            conditionValidationRule13.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule13.ErrorText = "This field can\'t be empty";
+            conditionValidationRule13.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
+            this.trailer_UpdateValidationProvider.SetValidationRule(this.edt_TrailerModel, conditionValidationRule13);
             // 
             // edt_TrailerVinNumber
             // 
@@ -817,10 +835,14 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.edt_TrailerCargoType.Properties.UseReadOnlyAppearance = false;
             this.edt_TrailerCargoType.Size = new System.Drawing.Size(205, 24);
             this.edt_TrailerCargoType.TabIndex = 179;
-            conditionValidationRule11.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule11.ErrorText = "This field can\'t be empty";
-            conditionValidationRule11.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
-            this.trailer_ValidationProvider.SetValidationRule(this.edt_TrailerCargoType, conditionValidationRule11);
+            conditionValidationRule14.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule14.ErrorText = "This field can\'t be empty";
+            conditionValidationRule14.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
+            this.trailer_ValidationProvider.SetValidationRule(this.edt_TrailerCargoType, conditionValidationRule14);
+            conditionValidationRule15.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule15.ErrorText = "This field can\'t be empty";
+            conditionValidationRule15.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
+            this.trailer_UpdateValidationProvider.SetValidationRule(this.edt_TrailerCargoType, conditionValidationRule15);
             // 
             // labelControl9
             // 
@@ -1096,10 +1118,10 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.lue_Trailers.Size = new System.Drawing.Size(172, 24);
             this.lue_Trailers.TabIndex = 181;
             this.lue_Trailers.TabStop = false;
-            conditionValidationRule12.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule12.ErrorText = "This value is not valid";
-            conditionValidationRule12.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
-            this.dxValidationProvider1.SetValidationRule(this.lue_Trailers, conditionValidationRule12);
+            conditionValidationRule16.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule16.ErrorText = "This value is not valid";
+            conditionValidationRule16.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
+            this.dxValidationProvider1.SetValidationRule(this.lue_Trailers, conditionValidationRule16);
             // 
             // gridView2
             // 
@@ -1255,6 +1277,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             ((System.ComponentModel.ISupportInitialize)(this.truck_ValidationProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trailer_ValidationProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.truck_UpdateValidationProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trailer_UpdateValidationProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1351,5 +1374,6 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
         private DevExpress.XtraEditors.SimpleButton simpleButton4;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider trailer_ValidationProvider;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider truck_UpdateValidationProvider;
+        private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider trailer_UpdateValidationProvider;
     }
 }
