@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
+using DevExpress.XtraEditors.DXErrorProvider;
 using ResponseEmergencySystem.Code;
 using ResponseEmergencySystem.Controllers.Incidents;
 using ResponseEmergencySystem.Views.Incidents.Containers;
@@ -22,6 +23,8 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
         public TruckTrailer()
         {
             InitializeComponent();
+
+            
         }
 
         #region View Methods
@@ -300,11 +303,12 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
 
             if ((bool)ckedt_New.EditValue)
             {
-                //if (!Validatetruck())
-                //    return;
+                if (!truck_ValidationProvider.Validate())
+                    return;
 
                 _parentController.AddTruck();
                 ckedt_New.EditValue = false;
+                
             }
             else
                 _parentController.UpdateTruckInfo();
@@ -363,6 +367,17 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
 
         private void simpleButton3_Click(object sender, EventArgs e)
         {
+            if (!trailer_ValidationProvider.Validate())
+                return;
+
+            if ((bool)ckedt_New.EditValue)
+            {
+                _parentController.AddTrailer();
+                ckedt_New.EditValue = false;
+            }
+            else
+                _parentController.UpdateTrailerInfo();
+
             pnl_TrailerStatus.Visible = true;
             pnl_TrailerInfo.Visible = false;
 
@@ -373,14 +388,6 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
 
             if (!edt_TrailerName.ReadOnly)
                 edt_TrailerName.ReadOnly = true;
-
-            if ((bool)ckedt_New.EditValue)
-            {
-                _parentController.AddTrailer();
-                ckedt_New.EditValue = false;
-            }
-            else
-                _parentController.UpdateTrailerInfo();
         }
 
         private void TruckTrailer_Load(object sender, EventArgs e)
@@ -388,6 +395,39 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             _parentController.SetTruckTrailerView(this);
             _parentController.LoadTrucks();
             _parentController.LoadTrailers();
+
+            CustomValidationRule vehicleValidationRule = new CustomValidationRule(ref _parentController);
+            #region custom validations trucks
+            vehicleValidationRule.SetVehicleType(DriverIncidentController.vehicleTypes.Truck);
+            //
+            vehicleValidationRule.SetFieldName(DriverIncidentController.vehicleInformation.Name);
+            truck_ValidationProvider.SetValidationRule(edt_TruckName, vehicleValidationRule);
+
+            vehicleValidationRule.SetFieldName(DriverIncidentController.vehicleInformation.VinNumber);
+            truck_ValidationProvider.SetValidationRule(edt_TruckVinNumber, vehicleValidationRule);
+
+            vehicleValidationRule.SetFieldName(DriverIncidentController.vehicleInformation.SerialNumber);
+            truck_ValidationProvider.SetValidationRule(edt_TruckSerialNumber, vehicleValidationRule);
+
+            vehicleValidationRule.SetFieldName(DriverIncidentController.vehicleInformation.Plate);
+            truck_ValidationProvider.SetValidationRule(edt_TruckLicensePlate, vehicleValidationRule);
+            #endregion
+
+            #region custom validations trailers
+            vehicleValidationRule.SetVehicleType(DriverIncidentController.vehicleTypes.Trailer);
+            //
+            vehicleValidationRule.SetFieldName(DriverIncidentController.vehicleInformation.Name);
+            trailer_ValidationProvider.SetValidationRule(edt_TrailerName, vehicleValidationRule);
+
+            vehicleValidationRule.SetFieldName(DriverIncidentController.vehicleInformation.VinNumber);
+            trailer_ValidationProvider.SetValidationRule(edt_TrailerVinNumber, vehicleValidationRule);
+
+            vehicleValidationRule.SetFieldName(DriverIncidentController.vehicleInformation.SerialNumber);
+            trailer_ValidationProvider.SetValidationRule(edt_TrailerSerialNumber, vehicleValidationRule);
+
+            vehicleValidationRule.SetFieldName(DriverIncidentController.vehicleInformation.Plate);
+            trailer_ValidationProvider.SetValidationRule(edt_TrailerLicensePlate, vehicleValidationRule);
+            #endregion
         }
 
         private void btn_Broker1_Click(object sender, EventArgs e)
@@ -432,6 +472,58 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             edt_TruckLicensePlate.BorderStyle = Utils.GetEdtValue(edt_TruckLicensePlate) == "" ? BorderStyles.Simple : BorderStyles.Default;
 
             return false;
+        }
+
+        private void simpleButton2_Click_1(object sender, EventArgs e)
+        {
+            //var controls = truck_ValidationProvider.GetInvalidControls();
+            //foreach(Control control in controls)
+            //{
+            //    truck_ValidationProvider.RemoveControlError(control);
+            //}
+            
+            pnl_TruckStatus.Visible = true;
+            pnl_TruckInfo.Visible = false;
+            lue_Trucks.ReadOnly = false;
+
+            btn_UpdateTruck.Enabled = true;
+            btn_AddTruck.Enabled = true;
+
+            if (!edt_TruckName.ReadOnly)
+                edt_TruckName.ReadOnly = true;
+        }
+    }
+
+    //https://docs.devexpress.com/WindowsForms/DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider
+    internal class CustomValidationRule : ValidationRule
+    {
+        private DriverIncidentController _controller;
+        private DriverIncidentController.vehicleInformation _type;
+        private DriverIncidentController.vehicleTypes _VehicleType;
+
+        public CustomValidationRule(ref DriverIncidentController controller)
+        {
+            this._controller = controller;
+            this.ErrorType = ErrorType.Warning;
+        }
+
+        public void SetFieldName(DriverIncidentController.vehicleInformation type)
+        {
+            this._type = type;
+        }
+
+        public void SetVehicleType(DriverIncidentController.vehicleTypes vehicleType)
+        {
+            this._VehicleType = vehicleType;
+        }
+
+        public override bool Validate(Control control, object value)
+        {
+            (bool, string) res = _controller.TruckNameIsRegistered(Utils.GetEdtValue((TextEdit)control), _type, _VehicleType);
+
+
+            this.ErrorText = res.Item2;
+            return res.Item1;
         }
     }
 }

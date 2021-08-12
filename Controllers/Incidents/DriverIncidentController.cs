@@ -1364,9 +1364,75 @@ namespace ResponseEmergencySystem.Controllers.Incidents
         #endregion
 
         #region validations
+        public enum vehicleInformation
+        {
+            Name,
+            VinNumber,
+            SerialNumber,
+            Make,
+            Model,
+            Year,
+            Plate
+        }
+
+        public enum vehicleTypes
+        {
+            Truck,
+            Trailer,
+            Vehicle
+        }
+
         public bool TransportValidate()
         {
             return _truckTrailerView.ValidateTransport();
+        }
+
+
+        public (bool, string) TruckNameIsRegistered(string val, vehicleInformation type, vehicleTypes vehicleType)
+        {
+            bool exists = false;
+            bool res = false;
+            string msg = "This field can't be empty";
+            List<Vehicle> vehicles = null;
+            
+            if(val == "")
+                return (res, msg);
+
+            switch (vehicleType)
+            {
+                case vehicleTypes.Truck:
+                    vehicles = _trucks;
+                    break;
+                case vehicleTypes.Trailer:
+                    vehicles = _trailers;
+                    break;
+            }
+
+            switch (type)
+            {
+                case vehicleInformation.Name:
+                    exists = vehicles.Where(t => t.Name == val).Count() > 0;
+                    if (exists)
+                        msg = $"A { vehicleType } with this name is already registered";
+                    break;
+                case vehicleInformation.VinNumber:
+                    exists = vehicles.Where(t => t.VinNumber == val).Count() > 0;
+                    if (exists)
+                        msg = $"A { vehicleType } with this Vin Number is already registered";
+                    break;
+                case vehicleInformation.SerialNumber:
+                    exists = vehicles.Where(t => t.SerialNumber == val).Count() > 0;
+                    if (exists)
+                        msg = $"A { vehicleType } with this Serial Number is already registered";
+                    break;
+                case vehicleInformation.Plate:
+                    exists = vehicles.Where(t => t.LicensePlate == val).Count() > 0;
+                    if (exists)
+                        msg = $"A { vehicleType } with this Plate is already registered";
+                    break;
+            }
+            
+            return (!exists, msg);
         }
         #endregion 
     }

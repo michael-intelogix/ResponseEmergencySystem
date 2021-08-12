@@ -32,11 +32,19 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule5 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule6 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule7 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule8 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule9 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.pnl_TruckInfo = new DevExpress.XtraEditors.PanelControl();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.ckedt_New = new DevExpress.XtraEditors.CheckEdit();
-            this.btn_SaveVehicle = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.edt_TruckLicensePlate = new DevExpress.XtraEditors.TextEdit();
             this.edt_TruckMake = new DevExpress.XtraEditors.TextEdit();
             this.edt_TruckYear = new DevExpress.XtraEditors.TextEdit();
@@ -75,7 +83,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.pnl_TrailerInfo = new DevExpress.XtraEditors.PanelControl();
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.edt_TrailerLicensePlate = new DevExpress.XtraEditors.TextEdit();
             this.edt_TrailerMake = new DevExpress.XtraEditors.TextEdit();
             this.edt_TrailerYear = new DevExpress.XtraEditors.TextEdit();
@@ -118,6 +126,8 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.truck_ValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.trailer_ValidationProvider = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
@@ -167,6 +177,8 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             ((System.ComponentModel.ISupportInitialize)(this.lue_Trailers.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.truck_ValidationProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trailer_ValidationProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // xtraTabControl1
@@ -193,8 +205,9 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             // pnl_TruckInfo
             // 
             this.pnl_TruckInfo.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pnl_TruckInfo.Controls.Add(this.simpleButton2);
             this.pnl_TruckInfo.Controls.Add(this.ckedt_New);
-            this.pnl_TruckInfo.Controls.Add(this.btn_SaveVehicle);
+            this.pnl_TruckInfo.Controls.Add(this.simpleButton1);
             this.pnl_TruckInfo.Controls.Add(this.edt_TruckLicensePlate);
             this.pnl_TruckInfo.Controls.Add(this.edt_TruckMake);
             this.pnl_TruckInfo.Controls.Add(this.edt_TruckYear);
@@ -210,11 +223,31 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.pnl_TruckInfo.Controls.Add(this.labelControl2);
             this.pnl_TruckInfo.Controls.Add(this.labelControl1);
             this.pnl_TruckInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnl_TruckInfo.Location = new System.Drawing.Point(0, 101);
+            this.pnl_TruckInfo.Location = new System.Drawing.Point(0, 100);
             this.pnl_TruckInfo.Name = "pnl_TruckInfo";
-            this.pnl_TruckInfo.Size = new System.Drawing.Size(328, 174);
+            this.pnl_TruckInfo.Size = new System.Drawing.Size(328, 175);
             this.pnl_TruckInfo.TabIndex = 179;
             this.pnl_TruckInfo.Visible = false;
+            // 
+            // simpleButton2
+            // 
+            this.simpleButton2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.simpleButton2.Appearance.BackColor = System.Drawing.Color.Maroon;
+            this.simpleButton2.Appearance.BorderColor = System.Drawing.Color.Maroon;
+            this.simpleButton2.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton2.Appearance.Options.UseBackColor = true;
+            this.simpleButton2.Appearance.Options.UseBorderColor = true;
+            this.simpleButton2.Appearance.Options.UseFont = true;
+            this.simpleButton2.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.simpleButton2.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.closeWhite;
+            this.simpleButton2.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
+            this.simpleButton2.Location = new System.Drawing.Point(10, 138);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(35, 29);
+            this.simpleButton2.TabIndex = 9;
+            this.simpleButton2.Text = "Cancel";
+            this.simpleButton2.Visible = false;
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click_1);
             // 
             // ckedt_New
             // 
@@ -225,15 +258,24 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.ckedt_New.TabIndex = 164;
             this.ckedt_New.Visible = false;
             // 
-            // btn_SaveVehicle
+            // simpleButton1
             // 
-            this.btn_SaveVehicle.Location = new System.Drawing.Point(79, 175);
-            this.btn_SaveVehicle.Name = "btn_SaveVehicle";
-            this.btn_SaveVehicle.Size = new System.Drawing.Size(167, 23);
-            this.btn_SaveVehicle.TabIndex = 163;
-            this.btn_SaveVehicle.TabStop = false;
-            this.btn_SaveVehicle.Text = " Save Truck";
-            this.btn_SaveVehicle.Click += new System.EventHandler(this.btn_SaveVehicle_Click);
+            this.simpleButton1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.simpleButton1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.simpleButton1.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton1.Appearance.Options.UseBackColor = true;
+            this.simpleButton1.Appearance.Options.UseBorderColor = true;
+            this.simpleButton1.Appearance.Options.UseFont = true;
+            this.simpleButton1.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.simpleButton1.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.saveWhite;
+            this.simpleButton1.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
+            this.simpleButton1.Location = new System.Drawing.Point(97, 138);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(155, 29);
+            this.simpleButton1.TabIndex = 8;
+            this.simpleButton1.Text = "Save Truck";
+            this.simpleButton1.Click += new System.EventHandler(this.btn_SaveVehicle_Click);
             // 
             // edt_TruckLicensePlate
             // 
@@ -254,6 +296,10 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.edt_TruckMake.Properties.UseReadOnlyAppearance = false;
             this.edt_TruckMake.Size = new System.Drawing.Size(108, 24);
             this.edt_TruckMake.TabIndex = 152;
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "This field can\'t be empty";
+            conditionValidationRule1.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
+            this.truck_ValidationProvider.SetValidationRule(this.edt_TruckMake, conditionValidationRule1);
             // 
             // edt_TruckYear
             // 
@@ -264,6 +310,10 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.edt_TruckYear.Properties.UseReadOnlyAppearance = false;
             this.edt_TruckYear.Size = new System.Drawing.Size(108, 24);
             this.edt_TruckYear.TabIndex = 154;
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "This field can\'t be empty";
+            conditionValidationRule2.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
+            this.truck_ValidationProvider.SetValidationRule(this.edt_TruckYear, conditionValidationRule2);
             // 
             // edt_TruckModel
             // 
@@ -274,6 +324,10 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.edt_TruckModel.Properties.UseReadOnlyAppearance = false;
             this.edt_TruckModel.Size = new System.Drawing.Size(95, 24);
             this.edt_TruckModel.TabIndex = 153;
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule3.ErrorText = "This field can\'t be empty";
+            conditionValidationRule3.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
+            this.truck_ValidationProvider.SetValidationRule(this.edt_TruckModel, conditionValidationRule3);
             // 
             // edt_TruckVinNumber
             // 
@@ -375,7 +429,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.pnl_TruckStatus.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_TruckStatus.Location = new System.Drawing.Point(0, 35);
             this.pnl_TruckStatus.Name = "pnl_TruckStatus";
-            this.pnl_TruckStatus.Size = new System.Drawing.Size(328, 66);
+            this.pnl_TruckStatus.Size = new System.Drawing.Size(328, 65);
             this.pnl_TruckStatus.TabIndex = 178;
             // 
             // btn_Broker1
@@ -532,10 +586,10 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.lue_Trucks.Size = new System.Drawing.Size(171, 24);
             this.lue_Trucks.TabIndex = 170;
             this.lue_Trucks.TabStop = false;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "This value is not valid";
-            conditionValidationRule1.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
-            this.dxValidationProvider1.SetValidationRule(this.lue_Trucks, conditionValidationRule1);
+            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule4.ErrorText = "This value is not valid";
+            conditionValidationRule4.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
+            this.dxValidationProvider1.SetValidationRule(this.lue_Trucks, conditionValidationRule4);
             // 
             // gridView1
             // 
@@ -636,7 +690,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             // pnl_TrailerInfo
             // 
             this.pnl_TrailerInfo.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.pnl_TrailerInfo.Controls.Add(this.simpleButton3);
+            this.pnl_TrailerInfo.Controls.Add(this.simpleButton4);
             this.pnl_TrailerInfo.Controls.Add(this.edt_TrailerLicensePlate);
             this.pnl_TrailerInfo.Controls.Add(this.edt_TrailerMake);
             this.pnl_TrailerInfo.Controls.Add(this.edt_TrailerYear);
@@ -654,21 +708,30 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.pnl_TrailerInfo.Controls.Add(this.labelControl12);
             this.pnl_TrailerInfo.Controls.Add(this.edt_TrailerName);
             this.pnl_TrailerInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnl_TrailerInfo.Location = new System.Drawing.Point(0, 139);
+            this.pnl_TrailerInfo.Location = new System.Drawing.Point(0, 106);
             this.pnl_TrailerInfo.Name = "pnl_TrailerInfo";
-            this.pnl_TrailerInfo.Size = new System.Drawing.Size(328, 136);
+            this.pnl_TrailerInfo.Size = new System.Drawing.Size(328, 169);
             this.pnl_TrailerInfo.TabIndex = 184;
             this.pnl_TrailerInfo.Visible = false;
             // 
-            // simpleButton3
+            // simpleButton4
             // 
-            this.simpleButton3.Location = new System.Drawing.Point(86, 202);
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(167, 23);
-            this.simpleButton3.TabIndex = 193;
-            this.simpleButton3.TabStop = false;
-            this.simpleButton3.Text = " Save Trailer";
-            this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
+            this.simpleButton4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.simpleButton4.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.simpleButton4.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.simpleButton4.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton4.Appearance.Options.UseBackColor = true;
+            this.simpleButton4.Appearance.Options.UseBorderColor = true;
+            this.simpleButton4.Appearance.Options.UseFont = true;
+            this.simpleButton4.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.simpleButton4.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.saveWhite;
+            this.simpleButton4.ImageOptions.SvgImageSize = new System.Drawing.Size(30, 30);
+            this.simpleButton4.Location = new System.Drawing.Point(90, 132);
+            this.simpleButton4.Name = "simpleButton4";
+            this.simpleButton4.Size = new System.Drawing.Size(155, 29);
+            this.simpleButton4.TabIndex = 194;
+            this.simpleButton4.Text = "Save Trailer";
+            this.simpleButton4.Click += new System.EventHandler(this.simpleButton3_Click);
             // 
             // edt_TrailerLicensePlate
             // 
@@ -685,6 +748,10 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.edt_TrailerMake.Properties.UseReadOnlyAppearance = false;
             this.edt_TrailerMake.Size = new System.Drawing.Size(108, 24);
             this.edt_TrailerMake.TabIndex = 182;
+            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule5.ErrorText = "This field can\'t be empty";
+            conditionValidationRule5.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
+            this.trailer_ValidationProvider.SetValidationRule(this.edt_TrailerMake, conditionValidationRule5);
             // 
             // edt_TrailerYear
             // 
@@ -693,6 +760,10 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.edt_TrailerYear.Properties.UseReadOnlyAppearance = false;
             this.edt_TrailerYear.Size = new System.Drawing.Size(108, 24);
             this.edt_TrailerYear.TabIndex = 184;
+            conditionValidationRule6.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule6.ErrorText = "This field can\'t be empty";
+            conditionValidationRule6.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
+            this.trailer_ValidationProvider.SetValidationRule(this.edt_TrailerYear, conditionValidationRule6);
             // 
             // edt_TrailerModel
             // 
@@ -701,6 +772,10 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.edt_TrailerModel.Properties.UseReadOnlyAppearance = false;
             this.edt_TrailerModel.Size = new System.Drawing.Size(95, 24);
             this.edt_TrailerModel.TabIndex = 183;
+            conditionValidationRule7.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule7.ErrorText = "This field can\'t be empty";
+            conditionValidationRule7.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
+            this.trailer_ValidationProvider.SetValidationRule(this.edt_TrailerModel, conditionValidationRule7);
             // 
             // edt_TrailerVinNumber
             // 
@@ -725,6 +800,10 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.edt_TrailerCargoType.Properties.UseReadOnlyAppearance = false;
             this.edt_TrailerCargoType.Size = new System.Drawing.Size(205, 24);
             this.edt_TrailerCargoType.TabIndex = 179;
+            conditionValidationRule8.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule8.ErrorText = "This field can\'t be empty";
+            conditionValidationRule8.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
+            this.trailer_ValidationProvider.SetValidationRule(this.edt_TrailerCargoType, conditionValidationRule8);
             // 
             // labelControl9
             // 
@@ -787,9 +866,9 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             // 
             this.labelControl12.Location = new System.Drawing.Point(11, 39);
             this.labelControl12.Name = "labelControl12";
-            this.labelControl12.Size = new System.Drawing.Size(66, 17);
+            this.labelControl12.Size = new System.Drawing.Size(67, 17);
             this.labelControl12.TabIndex = 178;
-            this.labelControl12.Text = "Cargo type";
+            this.labelControl12.Text = "Commodity";
             // 
             // edt_TrailerName
             // 
@@ -815,7 +894,7 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.pnl_TrailerStatus.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_TrailerStatus.Location = new System.Drawing.Point(0, 40);
             this.pnl_TrailerStatus.Name = "pnl_TrailerStatus";
-            this.pnl_TrailerStatus.Size = new System.Drawing.Size(328, 99);
+            this.pnl_TrailerStatus.Size = new System.Drawing.Size(328, 66);
             this.pnl_TrailerStatus.TabIndex = 183;
             // 
             // ckedt_TrailerDamages
@@ -1000,10 +1079,10 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             this.lue_Trailers.Size = new System.Drawing.Size(172, 24);
             this.lue_Trailers.TabIndex = 181;
             this.lue_Trailers.TabStop = false;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule2.ErrorText = "This value is not valid";
-            conditionValidationRule2.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
-            this.dxValidationProvider1.SetValidationRule(this.lue_Trailers, conditionValidationRule2);
+            conditionValidationRule9.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule9.ErrorText = "This value is not valid";
+            conditionValidationRule9.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Warning;
+            this.dxValidationProvider1.SetValidationRule(this.lue_Trailers, conditionValidationRule9);
             // 
             // gridView2
             // 
@@ -1156,6 +1235,8 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
             ((System.ComponentModel.ISupportInitialize)(this.lue_Trailers.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.truck_ValidationProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trailer_ValidationProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1212,7 +1293,6 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.SimpleButton btn_SaveVehicle;
         private DevExpress.XtraEditors.PanelControl pnl_TrailerInfo;
         private DevExpress.XtraEditors.PanelControl pnl_TrailerStatus;
         private DevExpress.XtraEditors.PanelControl panelControl2;
@@ -1229,7 +1309,6 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
         private DevExpress.XtraEditors.LabelControl labelControl8;
-        private DevExpress.XtraEditors.SimpleButton simpleButton3;
         private DevExpress.XtraEditors.TextEdit edt_TrailerLicensePlate;
         private DevExpress.XtraEditors.TextEdit edt_TrailerMake;
         private DevExpress.XtraEditors.TextEdit edt_TrailerYear;
@@ -1248,5 +1327,10 @@ namespace ResponseEmergencySystem.Forms.Incidents.containers
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProvider1;
         private DevExpress.XtraEditors.PictureEdit pic_TruckWarning;
         private DevExpress.XtraEditors.PictureEdit pic_TrailerWarning;
+        private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider truck_ValidationProvider;
+        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton4;
+        private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider trailer_ValidationProvider;
     }
 }
