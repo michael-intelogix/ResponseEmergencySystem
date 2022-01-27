@@ -29,16 +29,25 @@ namespace ResponseEmergencySystem.Forms.Modals
         /// </summary>
         private void InitializeComponent()
         {
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+            this.btn_Approved1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.gc_Drivers = new DevExpress.XtraGrid.GridControl();
-            this.gv_Drivers = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gv_Brokers = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.col_Broker = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_State = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_City = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -46,295 +55,587 @@ namespace ResponseEmergencySystem.Forms.Modals
             this.col_Type = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_Approved = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btn_approved = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
-            this.lookUpEdit2 = new DevExpress.XtraEditors.LookUpEdit();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.lue_City = new DevExpress.XtraEditors.LookUpEdit();
+            this.lue_State = new DevExpress.XtraEditors.LookUpEdit();
+            this.btn_Add = new DevExpress.XtraEditors.SimpleButton();
+            this.ckedt_Private = new DevExpress.XtraEditors.CheckEdit();
+            this.edt_Address = new DevExpress.XtraEditors.TextEdit();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.edt_Broker = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.gc_Brokers = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.col_ID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_BrokerName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_StateName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_CityName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_BrokerAddress = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_BrokerAccepted = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btn_Accpeted = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.stackPanel2 = new DevExpress.Utils.Layout.StackPanel();
+            this.btn_Cancel2 = new DevExpress.XtraEditors.SimpleButton();
+            this.stackPanel1 = new DevExpress.Utils.Layout.StackPanel();
+            this.simpleButton9 = new DevExpress.XtraEditors.SimpleButton();
+            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.edt_PhoneNumber = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Approved1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gv_Brokers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_approved)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gc_Drivers)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gv_Drivers)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_approved)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lue_City.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lue_State.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckedt_Private.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_Address.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_Broker.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gc_Brokers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Accpeted)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
+            this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stackPanel2)).BeginInit();
+            this.stackPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stackPanel1)).BeginInit();
+            this.stackPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_PhoneNumber.Properties)).BeginInit();
             this.SuspendLayout();
+            // 
+            // btn_Approved1
+            // 
+            this.btn_Approved1.AutoHeight = false;
+            editorButtonImageOptions1.SvgImage = global::ResponseEmergencySystem.Properties.Resources.checkGreen;
+            editorButtonImageOptions1.SvgImageSize = new System.Drawing.Size(20, 20);
+            this.btn_Approved1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.btn_Approved1.Name = "btn_Approved1";
+            this.btn_Approved1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
             // panelControl1
             // 
+            this.panelControl1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.panelControl1.Appearance.Options.UseBackColor = true;
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl1.Controls.Add(this.labelControl1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(666, 44);
+            this.panelControl1.Size = new System.Drawing.Size(658, 28);
             this.panelControl1.TabIndex = 2;
             // 
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.White;
             this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.Appearance.Options.UseForeColor = true;
             this.labelControl1.Appearance.Options.UseTextOptions = true;
             this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.labelControl1.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.labelControl1.Location = new System.Drawing.Point(61, 12);
+            this.labelControl1.Location = new System.Drawing.Point(89, 6);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(520, 15);
+            this.labelControl1.Size = new System.Drawing.Size(465, 15);
             this.labelControl1.TabIndex = 2;
-            this.labelControl1.Text = "More than one broker has appeared in the search, Please select one from the list " +
-    "with button";
+            this.labelControl1.Text = "More than one company has appeared in the search, Please select one from the list" +
+    ".";
             // 
-            // panelControl2
+            // gv_Brokers
             // 
-            this.panelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl2.Controls.Add(this.gc_Drivers);
-            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl2.Location = new System.Drawing.Point(0, 44);
-            this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(666, 154);
-            this.panelControl2.TabIndex = 3;
-            // 
-            // gc_Drivers
-            // 
-            this.gc_Drivers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gc_Drivers.Location = new System.Drawing.Point(0, 0);
-            this.gc_Drivers.MainView = this.gv_Drivers;
-            this.gc_Drivers.Name = "gc_Drivers";
-            this.gc_Drivers.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.btn_approved});
-            this.gc_Drivers.Size = new System.Drawing.Size(666, 154);
-            this.gc_Drivers.TabIndex = 1;
-            this.gc_Drivers.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gv_Drivers});
-            // 
-            // gv_Drivers
-            // 
-            this.gv_Drivers.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gv_Brokers.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.col_Broker,
             this.col_State,
             this.col_City,
             this.col_Address,
             this.col_Type,
             this.col_Approved});
-            this.gv_Drivers.GridControl = this.gc_Drivers;
-            this.gv_Drivers.Name = "gv_Drivers";
-            this.gv_Drivers.OptionsView.ShowGroupPanel = false;
+            this.gv_Brokers.Name = "gv_Brokers";
             // 
             // col_Broker
             // 
             this.col_Broker.Caption = "Broker";
             this.col_Broker.FieldName = "Broker";
+            this.col_Broker.MinWidth = 23;
             this.col_Broker.Name = "col_Broker";
             this.col_Broker.OptionsColumn.AllowEdit = false;
             this.col_Broker.Visible = true;
-            this.col_Broker.VisibleIndex = 1;
-            this.col_Broker.Width = 94;
+            this.col_Broker.VisibleIndex = 0;
+            this.col_Broker.Width = 110;
             // 
             // col_State
             // 
             this.col_State.Caption = "State";
             this.col_State.FieldName = "State";
+            this.col_State.MinWidth = 23;
             this.col_State.Name = "col_State";
             this.col_State.OptionsColumn.AllowEdit = false;
             this.col_State.Visible = true;
-            this.col_State.VisibleIndex = 3;
-            this.col_State.Width = 94;
+            this.col_State.VisibleIndex = 2;
+            this.col_State.Width = 110;
             // 
             // col_City
             // 
             this.col_City.Caption = "City";
             this.col_City.FieldName = "City";
+            this.col_City.MinWidth = 23;
             this.col_City.Name = "col_City";
             this.col_City.OptionsColumn.AllowEdit = false;
             this.col_City.Visible = true;
-            this.col_City.VisibleIndex = 2;
-            this.col_City.Width = 105;
+            this.col_City.VisibleIndex = 1;
+            this.col_City.Width = 122;
             // 
             // col_Address
             // 
             this.col_Address.Caption = "Address";
             this.col_Address.FieldName = "Address";
+            this.col_Address.MinWidth = 23;
             this.col_Address.Name = "col_Address";
             this.col_Address.OptionsColumn.AllowEdit = false;
             this.col_Address.Visible = true;
-            this.col_Address.VisibleIndex = 4;
-            this.col_Address.Width = 90;
+            this.col_Address.VisibleIndex = 3;
+            this.col_Address.Width = 105;
             // 
             // col_Type
             // 
             this.col_Type.FieldName = "Type";
+            this.col_Type.MinWidth = 23;
             this.col_Type.Name = "col_Type";
             this.col_Type.OptionsColumn.AllowEdit = false;
             this.col_Type.Visible = true;
             this.col_Type.VisibleIndex = 4;
-            this.col_Type.Width = 95;
+            this.col_Type.Width = 111;
             // 
             // col_Approved
             // 
             this.col_Approved.ColumnEdit = this.btn_approved;
+            this.col_Approved.MinWidth = 23;
             this.col_Approved.Name = "col_Approved";
             this.col_Approved.Visible = true;
             this.col_Approved.VisibleIndex = 5;
-            this.col_Approved.Width = 39;
+            this.col_Approved.Width = 45;
             // 
             // btn_approved
             // 
             this.btn_approved.AutoHeight = false;
-            editorButtonImageOptions3.Image = global::ResponseEmergencySystem.Properties.Resources.apply_16x16;
+            editorButtonImageOptions2.SvgImage = global::ResponseEmergencySystem.Properties.Resources.checkGreen;
+            editorButtonImageOptions2.SvgImageSize = new System.Drawing.Size(20, 20);
             this.btn_approved.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.btn_approved.Name = "btn_approved";
             this.btn_approved.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.btn_approved.Click += new System.EventHandler(this.btn_ApprovedBroker);
+            // 
+            // panelControl2
+            // 
+            this.panelControl2.Controls.Add(this.edt_PhoneNumber);
+            this.panelControl2.Controls.Add(this.labelControl7);
+            this.panelControl2.Controls.Add(this.lue_City);
+            this.panelControl2.Controls.Add(this.lue_State);
+            this.panelControl2.Controls.Add(this.btn_Add);
+            this.panelControl2.Controls.Add(this.ckedt_Private);
+            this.panelControl2.Controls.Add(this.edt_Address);
+            this.panelControl2.Controls.Add(this.labelControl6);
+            this.panelControl2.Controls.Add(this.labelControl5);
+            this.panelControl2.Controls.Add(this.labelControl4);
+            this.panelControl2.Controls.Add(this.edt_Broker);
+            this.panelControl2.Controls.Add(this.labelControl3);
+            this.panelControl2.Controls.Add(this.labelControl2);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl2.Location = new System.Drawing.Point(0, 28);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(658, 116);
+            this.panelControl2.TabIndex = 3;
+            // 
+            // lue_City
+            // 
+            this.lue_City.Location = new System.Drawing.Point(496, 37);
+            this.lue_City.Name = "lue_City";
+            this.lue_City.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lue_City.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID_City", "ID_City", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Name")});
+            this.lue_City.Properties.DisplayMember = "Name";
+            this.lue_City.Properties.NullText = "";
+            this.lue_City.Properties.ShowHeader = false;
+            this.lue_City.Properties.ValueMember = "ID_City";
+            this.lue_City.Size = new System.Drawing.Size(137, 24);
+            this.lue_City.TabIndex = 12;
+            // 
+            // lue_State
+            // 
+            this.lue_State.Location = new System.Drawing.Point(316, 37);
+            this.lue_State.Name = "lue_State";
+            this.lue_State.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lue_State.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID_State", "ID_State", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Name")});
+            this.lue_State.Properties.DisplayMember = "Name";
+            this.lue_State.Properties.NullText = "";
+            this.lue_State.Properties.ShowHeader = false;
+            this.lue_State.Properties.ValueMember = "ID_State";
+            this.lue_State.Size = new System.Drawing.Size(124, 24);
+            this.lue_State.TabIndex = 11;
+            this.lue_State.EditValueChanged += new System.EventHandler(this.lue_State_EditValueChanged);
+            // 
+            // btn_Add
+            // 
+            this.btn_Add.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(138)))), ((int)(((byte)(50)))));
+            this.btn_Add.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Add.Appearance.ForeColor = System.Drawing.Color.White;
+            this.btn_Add.Appearance.Options.UseBackColor = true;
+            this.btn_Add.Appearance.Options.UseFont = true;
+            this.btn_Add.Appearance.Options.UseForeColor = true;
+            this.btn_Add.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btn_Add.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.addWhite;
+            this.btn_Add.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.btn_Add.Location = new System.Drawing.Point(558, 70);
+            this.btn_Add.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            this.btn_Add.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.btn_Add.Name = "btn_Add";
+            this.btn_Add.Size = new System.Drawing.Size(75, 23);
+            this.btn_Add.TabIndex = 10;
+            this.btn_Add.Text = "Add";
+            this.btn_Add.Click += new System.EventHandler(this.add_Click);
+            // 
+            // ckedt_Private
+            // 
+            this.ckedt_Private.Location = new System.Drawing.Point(487, 74);
+            this.ckedt_Private.Name = "ckedt_Private";
+            this.ckedt_Private.Properties.Caption = "Private";
+            this.ckedt_Private.Size = new System.Drawing.Size(65, 21);
+            this.ckedt_Private.TabIndex = 9;
+            // 
+            // edt_Address
+            // 
+            this.edt_Address.Location = new System.Drawing.Point(80, 73);
+            this.edt_Address.Name = "edt_Address";
+            this.edt_Address.Size = new System.Drawing.Size(221, 24);
+            this.edt_Address.TabIndex = 8;
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Location = new System.Drawing.Point(15, 76);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(49, 17);
+            this.labelControl6.TabIndex = 5;
+            this.labelControl6.Text = "Address";
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Location = new System.Drawing.Point(460, 40);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(21, 17);
+            this.labelControl5.TabIndex = 4;
+            this.labelControl5.Text = "City";
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Location = new System.Drawing.Point(272, 40);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(29, 17);
+            this.labelControl4.TabIndex = 3;
+            this.labelControl4.Text = "State";
+            // 
+            // edt_Broker
+            // 
+            this.edt_Broker.Location = new System.Drawing.Point(117, 37);
+            this.edt_Broker.Name = "edt_Broker";
+            this.edt_Broker.Size = new System.Drawing.Size(139, 24);
+            this.edt_Broker.TabIndex = 2;
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Location = new System.Drawing.Point(15, 41);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(96, 17);
+            this.labelControl3.TabIndex = 1;
+            this.labelControl3.Text = "Company Name";
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl2.Appearance.Options.UseFont = true;
+            this.labelControl2.Location = new System.Drawing.Point(12, 8);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(200, 20);
+            this.labelControl2.TabIndex = 0;
+            this.labelControl2.Text = "Add a new towing company";
+            // 
+            // gc_Brokers
+            // 
+            this.gc_Brokers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gc_Brokers.Location = new System.Drawing.Point(0, 144);
+            this.gc_Brokers.MainView = this.gridView1;
+            this.gc_Brokers.Name = "gc_Brokers";
+            this.gc_Brokers.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.btn_Accpeted});
+            this.gc_Brokers.Size = new System.Drawing.Size(658, 378);
+            this.gc_Brokers.TabIndex = 5;
+            this.gc_Brokers.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.col_ID,
+            this.col_BrokerName,
+            this.col_StateName,
+            this.col_CityName,
+            this.col_BrokerAddress,
+            this.col_BrokerAccepted});
+            this.gridView1.GridControl = this.gc_Brokers;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.OptionsView.ShowIndicator = false;
+            // 
+            // col_ID
+            // 
+            this.col_ID.Caption = "ID_Broker";
+            this.col_ID.FieldName = "ID_Broker";
+            this.col_ID.Name = "col_ID";
+            // 
+            // col_BrokerName
+            // 
+            this.col_BrokerName.Caption = "Company Name";
+            this.col_BrokerName.FieldName = "Name";
+            this.col_BrokerName.Name = "col_BrokerName";
+            this.col_BrokerName.OptionsColumn.AllowEdit = false;
+            this.col_BrokerName.Visible = true;
+            this.col_BrokerName.VisibleIndex = 0;
+            this.col_BrokerName.Width = 126;
+            // 
+            // col_StateName
+            // 
+            this.col_StateName.Caption = "State";
+            this.col_StateName.FieldName = "State";
+            this.col_StateName.Name = "col_StateName";
+            this.col_StateName.OptionsColumn.AllowEdit = false;
+            this.col_StateName.Visible = true;
+            this.col_StateName.VisibleIndex = 1;
+            this.col_StateName.Width = 126;
+            // 
+            // col_CityName
+            // 
+            this.col_CityName.Caption = "City";
+            this.col_CityName.FieldName = "City";
+            this.col_CityName.Name = "col_CityName";
+            this.col_CityName.OptionsColumn.AllowEdit = false;
+            this.col_CityName.Visible = true;
+            this.col_CityName.VisibleIndex = 2;
+            this.col_CityName.Width = 126;
+            // 
+            // col_BrokerAddress
+            // 
+            this.col_BrokerAddress.Caption = "Address";
+            this.col_BrokerAddress.FieldName = "Address";
+            this.col_BrokerAddress.Name = "col_BrokerAddress";
+            this.col_BrokerAddress.OptionsColumn.AllowEdit = false;
+            this.col_BrokerAddress.Visible = true;
+            this.col_BrokerAddress.VisibleIndex = 3;
+            this.col_BrokerAddress.Width = 126;
+            // 
+            // col_BrokerAccepted
+            // 
+            this.col_BrokerAccepted.ColumnEdit = this.btn_Accpeted;
+            this.col_BrokerAccepted.Name = "col_BrokerAccepted";
+            this.col_BrokerAccepted.Width = 30;
+            // 
+            // btn_Accpeted
+            // 
+            this.btn_Accpeted.AutoHeight = false;
+            editorButtonImageOptions3.SvgImage = global::ResponseEmergencySystem.Properties.Resources.checkGreen;
+            editorButtonImageOptions3.SvgImageSize = new System.Drawing.Size(20, 20);
+            this.btn_Accpeted.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.btn_Accpeted.Name = "btn_Accpeted";
+            this.btn_Accpeted.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.btn_Accpeted.Click += new System.EventHandler(this.btn_ApprovedBroker);
             // 
             // panelControl3
             // 
             this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl3.Controls.Add(this.simpleButton1);
-            this.panelControl3.Controls.Add(this.checkEdit1);
-            this.panelControl3.Controls.Add(this.labelControl6);
-            this.panelControl3.Controls.Add(this.labelControl5);
-            this.panelControl3.Controls.Add(this.labelControl4);
-            this.panelControl3.Controls.Add(this.lookUpEdit2);
-            this.panelControl3.Controls.Add(this.lookUpEdit1);
-            this.panelControl3.Controls.Add(this.textEdit2);
-            this.panelControl3.Controls.Add(this.labelControl3);
-            this.panelControl3.Controls.Add(this.textEdit1);
-            this.panelControl3.Controls.Add(this.labelControl2);
-            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl3.Location = new System.Drawing.Point(0, 198);
+            this.panelControl3.Controls.Add(this.layoutControl1);
+            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelControl3.Location = new System.Drawing.Point(0, 522);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(666, 80);
+            this.panelControl3.Size = new System.Drawing.Size(658, 77);
             this.panelControl3.TabIndex = 4;
             // 
-            // labelControl2
+            // layoutControl1
             // 
-            this.labelControl2.Location = new System.Drawing.Point(12, 9);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(31, 13);
-            this.labelControl2.TabIndex = 2;
-            this.labelControl2.Text = "Broker";
+            this.layoutControl1.Controls.Add(this.stackPanel2);
+            this.layoutControl1.Controls.Add(this.stackPanel1);
+            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl1.Name = "layoutControl1";
+            this.layoutControl1.Root = this.Root;
+            this.layoutControl1.Size = new System.Drawing.Size(658, 77);
+            this.layoutControl1.TabIndex = 0;
+            this.layoutControl1.Text = "layoutControl1";
             // 
-            // textEdit1
+            // stackPanel2
             // 
-            this.textEdit1.Location = new System.Drawing.Point(49, 6);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(288, 20);
-            this.textEdit1.TabIndex = 3;
+            this.stackPanel2.Controls.Add(this.btn_Cancel2);
+            this.stackPanel2.LayoutDirection = DevExpress.Utils.Layout.StackPanelLayoutDirection.RightToLeft;
+            this.stackPanel2.Location = new System.Drawing.Point(12, 12);
+            this.stackPanel2.Name = "stackPanel2";
+            this.stackPanel2.Size = new System.Drawing.Size(315, 53);
+            this.stackPanel2.TabIndex = 5;
             // 
-            // textEdit2
+            // btn_Cancel2
             // 
-            this.textEdit2.Location = new System.Drawing.Point(57, 44);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Size = new System.Drawing.Size(420, 20);
-            this.textEdit2.TabIndex = 5;
+            this.btn_Cancel2.Appearance.BackColor = System.Drawing.Color.Maroon;
+            this.btn_Cancel2.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Cancel2.Appearance.ForeColor = System.Drawing.Color.White;
+            this.btn_Cancel2.Appearance.Options.UseBackColor = true;
+            this.btn_Cancel2.Appearance.Options.UseFont = true;
+            this.btn_Cancel2.Appearance.Options.UseForeColor = true;
+            this.btn_Cancel2.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btn_Cancel2.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.closeWhite;
+            this.btn_Cancel2.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.btn_Cancel2.Location = new System.Drawing.Point(210, 5);
+            this.btn_Cancel2.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            this.btn_Cancel2.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.btn_Cancel2.Name = "btn_Cancel2";
+            this.btn_Cancel2.Size = new System.Drawing.Size(102, 42);
+            this.btn_Cancel2.TabIndex = 3;
+            this.btn_Cancel2.Text = "Cancel";
+            this.btn_Cancel2.Click += new System.EventHandler(this.CloseOnClick);
             // 
-            // labelControl3
+            // stackPanel1
             // 
-            this.labelControl3.Location = new System.Drawing.Point(12, 47);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(39, 13);
-            this.labelControl3.TabIndex = 4;
-            this.labelControl3.Text = "Address";
+            this.stackPanel1.Controls.Add(this.simpleButton9);
+            this.stackPanel1.Location = new System.Drawing.Point(331, 12);
+            this.stackPanel1.Name = "stackPanel1";
+            this.stackPanel1.Size = new System.Drawing.Size(315, 53);
+            this.stackPanel1.TabIndex = 4;
             // 
-            // lookUpEdit1
+            // simpleButton9
             // 
-            this.lookUpEdit1.Location = new System.Drawing.Point(403, 6);
-            this.lookUpEdit1.Name = "lookUpEdit1";
-            this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpEdit1.Size = new System.Drawing.Size(100, 20);
-            this.lookUpEdit1.TabIndex = 6;
+            this.simpleButton9.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(40)))), ((int)(((byte)(94)))));
+            this.simpleButton9.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton9.Appearance.ForeColor = System.Drawing.Color.White;
+            this.simpleButton9.Appearance.Options.UseBackColor = true;
+            this.simpleButton9.Appearance.Options.UseFont = true;
+            this.simpleButton9.Appearance.Options.UseForeColor = true;
+            this.simpleButton9.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.simpleButton9.ImageOptions.SvgImage = global::ResponseEmergencySystem.Properties.Resources.saveWhite;
+            this.simpleButton9.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.simpleButton9.Location = new System.Drawing.Point(3, 5);
+            this.simpleButton9.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            this.simpleButton9.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.simpleButton9.Name = "simpleButton9";
+            this.simpleButton9.Size = new System.Drawing.Size(102, 42);
+            this.simpleButton9.TabIndex = 2;
+            this.simpleButton9.Text = "Save";
+            this.simpleButton9.Click += new System.EventHandler(this.btn_SaveOnClick);
             // 
-            // lookUpEdit2
+            // Root
             // 
-            this.lookUpEdit2.Location = new System.Drawing.Point(554, 6);
-            this.lookUpEdit2.Name = "lookUpEdit2";
-            this.lookUpEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpEdit2.Size = new System.Drawing.Size(100, 20);
-            this.lookUpEdit2.TabIndex = 7;
+            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.Root.GroupBordersVisible = false;
+            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1,
+            this.layoutControlItem2});
+            this.Root.Name = "Root";
+            this.Root.Size = new System.Drawing.Size(658, 77);
+            this.Root.TextVisible = false;
             // 
-            // labelControl4
+            // layoutControlItem1
             // 
-            this.labelControl4.Location = new System.Drawing.Point(366, 9);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(26, 13);
-            this.labelControl4.TabIndex = 8;
-            this.labelControl4.Text = "State";
+            this.layoutControlItem1.Control = this.stackPanel1;
+            this.layoutControlItem1.Location = new System.Drawing.Point(319, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(319, 57);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
             // 
-            // labelControl5
+            // layoutControlItem2
             // 
-            this.labelControl5.Location = new System.Drawing.Point(529, 9);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(19, 13);
-            this.labelControl5.TabIndex = 9;
-            this.labelControl5.Text = "City";
+            this.layoutControlItem2.Control = this.stackPanel2;
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(319, 57);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextVisible = false;
             // 
-            // labelControl6
+            // edt_PhoneNumber
             // 
-            this.labelControl6.Location = new System.Drawing.Point(449, 9);
-            this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(0, 13);
-            this.labelControl6.TabIndex = 11;
+            this.edt_PhoneNumber.Location = new System.Drawing.Point(405, 73);
+            this.edt_PhoneNumber.Name = "edt_PhoneNumber";
+            this.edt_PhoneNumber.Size = new System.Drawing.Size(76, 24);
+            this.edt_PhoneNumber.TabIndex = 14;
             // 
-            // checkEdit1
+            // labelControl7
             // 
-            this.checkEdit1.Location = new System.Drawing.Point(491, 45);
-            this.checkEdit1.Name = "checkEdit1";
-            this.checkEdit1.Properties.Caption = "Private";
-            this.checkEdit1.Properties.ContentAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.checkEdit1.Size = new System.Drawing.Size(57, 19);
-            this.checkEdit1.TabIndex = 12;
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.ImageOptions.Image = global::ResponseEmergencySystem.Properties.Resources.add_16x16;
-            this.simpleButton1.Location = new System.Drawing.Point(561, 41);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(93, 23);
-            this.simpleButton1.TabIndex = 13;
-            this.simpleButton1.Text = "Add Broker";
+            this.labelControl7.Location = new System.Drawing.Point(307, 76);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(92, 17);
+            this.labelControl7.TabIndex = 13;
+            this.labelControl7.Text = "Phone Number";
             // 
             // frm_BrokerList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(666, 276);
+            this.ClientSize = new System.Drawing.Size(658, 599);
+            this.Controls.Add(this.gc_Brokers);
             this.Controls.Add(this.panelControl3);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frm_BrokerList";
-            this.Text = "frm_BrokerList";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Towing Company Listing";
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Approved1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gv_Brokers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_approved)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gc_Drivers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gv_Drivers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_approved)).EndInit();
+            this.panelControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lue_City.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lue_State.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckedt_Private.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_Address.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_Broker.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gc_Brokers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_Accpeted)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
-            this.panelControl3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
+            this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.stackPanel2)).EndInit();
+            this.stackPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.stackPanel1)).EndInit();
+            this.stackPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.edt_PhoneNumber.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -343,9 +644,7 @@ namespace ResponseEmergencySystem.Forms.Modals
 
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.PanelControl panelControl2;
-        private DevExpress.XtraGrid.GridControl gc_Drivers;
-        private DevExpress.XtraGrid.Views.Grid.GridView gv_Drivers;
+        private DevExpress.XtraGrid.Views.Grid.GridView gv_Brokers;
         private DevExpress.XtraGrid.Columns.GridColumn col_Broker;
         private DevExpress.XtraGrid.Columns.GridColumn col_State;
         private DevExpress.XtraGrid.Columns.GridColumn col_City;
@@ -353,17 +652,38 @@ namespace ResponseEmergencySystem.Forms.Modals
         private DevExpress.XtraGrid.Columns.GridColumn col_Type;
         private DevExpress.XtraGrid.Columns.GridColumn col_Approved;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btn_approved;
-        private DevExpress.XtraEditors.PanelControl panelControl3;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.CheckEdit checkEdit1;
+        private DevExpress.XtraEditors.PanelControl panelControl2;
+        private DevExpress.XtraEditors.SimpleButton btn_Add;
+        private DevExpress.XtraEditors.CheckEdit ckedt_Private;
+        private DevExpress.XtraEditors.TextEdit edt_Address;
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.LabelControl labelControl4;
-        private DevExpress.XtraEditors.LookUpEdit lookUpEdit2;
-        private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
+        private DevExpress.XtraEditors.TextEdit edt_Broker;
         private DevExpress.XtraEditors.LabelControl labelControl3;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.LookUpEdit lue_City;
+        private DevExpress.XtraEditors.LookUpEdit lue_State;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btn_Approved1;
+        private DevExpress.XtraGrid.GridControl gc_Brokers;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Columns.GridColumn col_ID;
+        private DevExpress.XtraGrid.Columns.GridColumn col_BrokerName;
+        private DevExpress.XtraGrid.Columns.GridColumn col_StateName;
+        private DevExpress.XtraGrid.Columns.GridColumn col_CityName;
+        private DevExpress.XtraGrid.Columns.GridColumn col_BrokerAddress;
+        private DevExpress.XtraGrid.Columns.GridColumn col_BrokerAccepted;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btn_Accpeted;
+        private DevExpress.XtraEditors.PanelControl panelControl3;
+        private DevExpress.XtraLayout.LayoutControl layoutControl1;
+        private DevExpress.Utils.Layout.StackPanel stackPanel2;
+        private DevExpress.Utils.Layout.StackPanel stackPanel1;
+        private DevExpress.XtraLayout.LayoutControlGroup Root;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraEditors.SimpleButton btn_Cancel2;
+        private DevExpress.XtraEditors.SimpleButton simpleButton9;
+        private DevExpress.XtraEditors.TextEdit edt_PhoneNumber;
+        private DevExpress.XtraEditors.LabelControl labelControl7;
     }
 }

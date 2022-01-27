@@ -7,15 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ResponseEmergencySystem.Code.Captures;
 using ResponseEmergencySystem.Forms;
+using ResponseEmergencySystem.Forms.Modals;
 
 namespace ResponseEmergencySystem.Code
 {
     public static class Functions
     {
         private static DataTable result;
-        private static Boolean opSuccess;
 
         private static DataTable errorsResult(string error)
         {
@@ -32,25 +31,27 @@ namespace ResponseEmergencySystem.Code
             return dt_Errors;
         } 
 
-        public static DataTable getStates()
+        public static DataTable getStates(string countryID = "")
         {
-            opSuccess = false;
+           
             try
             {
                 using (SqlCommand cmd = new SqlCommand
                 {
-                    Connection = constants.GeneralConnection,
+                    Connection = constants.SIREMConnection,
                     CommandText = $"List_States",
                     CommandType = CommandType.StoredProcedure
                 })
                 {
-                    cmd.Parameters.AddWithValue("@ID_Country", Guid.Parse("99F9B034-75BE-4615-88C6-8D64BC3549DC"));
+                    cmd.Parameters.AddWithValue("@ID_Country", countryID != "" ? Guid.Parse(countryID) : Guid.Empty);
                     result = new DataTable();
                     using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
                     {
                         sda.Fill(result);
                     }
-                    opSuccess = true;
+
+                    result.Rows.Add(new Object[] { "00000000-0000-0000-0000-000000000000", "00000000-0000-0000-0000-000000000000", "DNE" });
+                   
                 }
             }
             catch (Exception ex)
@@ -60,9 +61,9 @@ namespace ResponseEmergencySystem.Code
             return result;
         }
 
-        public static DataTable getCities(Guid ID_State, string state)
+        public static DataTable getCities(Guid ID_State, string state = "")
         {
-            opSuccess = false;
+           
             try
             {
                 using (SqlCommand cmd = new SqlCommand
@@ -79,7 +80,7 @@ namespace ResponseEmergencySystem.Code
                     {
                         sda.Fill(result);
                     }
-                    opSuccess = true;
+                   
                 }
             }
             catch (Exception ex)
@@ -91,7 +92,7 @@ namespace ResponseEmergencySystem.Code
 
         public static DataRow getDriver(string license, string phone, string name) 
         {
-            opSuccess = false;
+           
             try
             {
                 using (SqlCommand cmd = new SqlCommand
@@ -109,7 +110,7 @@ namespace ResponseEmergencySystem.Code
                     {
                         sda.Fill(result);
                     }
-                    opSuccess = true;
+                   
                 }
             }
             catch (Exception ex)
@@ -119,11 +120,11 @@ namespace ResponseEmergencySystem.Code
 
             if (result.Rows.Count > 1)
             {
-                frm_DriverSearchList drivers = new frm_DriverSearchList(result);
-                if (drivers.ShowDialog() == DialogResult.OK)
-                {
-                    return result.Select()[drivers.dt_DriverRowSelected];
-                }
+                //frm_DriverSearchList drivers = new frm_DriverSearchList(result);
+                //if (drivers.ShowDialog() == DialogResult.OK)
+                //{
+                //    return result.Select()[drivers.dt_DriverRowSelected];
+                //}
 
                 return errorsResult("Please select a driver from the list").Select().First();
             }
@@ -153,30 +154,9 @@ namespace ResponseEmergencySystem.Code
             //return result;
         }
 
-        public static DataTable captureTable(string [] columns, List<Capture> data)
-        {
-            DataTable result = new DataTable();
-            foreach (string column in columns)
-            {
-                result.Columns.Add(column);
-            }
-
-            foreach (Capture ic in data)
-            {
-                DataRow _data = result.NewRow();
-                _data["ID_capture"] = ic.ID_Capture;
-                _data["capture_date"] = ic.captureDate;
-                _data["Type"] = ic.type;
-                _data["CapturesByType"] = ic.totalOfcaptures;
-                _data["Comments"] = ic.comments;
-                result.Rows.Add(_data);
-            }
-            return result;
-        }
-
         public static DataTable updateInjuredPerson(Guid ID, string fullName, string lastName1, string lastName2, string phone, Guid ID_Incident)
         {
-            opSuccess = false;
+           
             try
             {
                 using (SqlCommand cmd = new SqlCommand
@@ -197,7 +177,7 @@ namespace ResponseEmergencySystem.Code
                     {
                         sda.Fill(result);
                     }
-                    opSuccess = true;
+                   
                 }
             }
             catch (Exception ex)
@@ -209,7 +189,7 @@ namespace ResponseEmergencySystem.Code
 
         public static DataTable Get_Truck(string truckNumber)
         {
-            opSuccess = false;
+           
             try
             {
                 using (SqlCommand cmd = new SqlCommand
@@ -225,7 +205,7 @@ namespace ResponseEmergencySystem.Code
                     {
                         sda.Fill(result);
                     }
-                    opSuccess = true;
+                   
                 }
             }
             catch (Exception ex)
@@ -238,7 +218,7 @@ namespace ResponseEmergencySystem.Code
 
         public static DataTable Get_Trailer(string trailerNumber)
         {
-            opSuccess = false;
+           
             try
             {
                 using (SqlCommand cmd = new SqlCommand
@@ -254,7 +234,7 @@ namespace ResponseEmergencySystem.Code
                     {
                         sda.Fill(result);
                     }
-                    opSuccess = true;
+                   
                 }
             }
             catch (Exception ex)
@@ -267,7 +247,7 @@ namespace ResponseEmergencySystem.Code
 
         public static DataTable Get_Folio()
         {
-            opSuccess = false;
+           
             try
             {
                 using (SqlCommand cmd = new SqlCommand
@@ -283,7 +263,7 @@ namespace ResponseEmergencySystem.Code
                     {
                         sda.Fill(result);
                     }
-                    opSuccess = true;
+                   
                 }
             }
             catch (Exception ex)
@@ -320,7 +300,7 @@ namespace ResponseEmergencySystem.Code
         )
         {
             result = new DataTable();
-            opSuccess = false;
+           
             try
             {
                 using (SqlCommand cmd = new SqlCommand
@@ -360,7 +340,7 @@ namespace ResponseEmergencySystem.Code
                     {
                         sda.Fill(result);
                     }
-                    opSuccess = true;
+                   
                 }
             }
             catch (Exception ex)
@@ -373,7 +353,7 @@ namespace ResponseEmergencySystem.Code
         public static DataTable list_CaptureType()
         {
 
-            opSuccess = false;
+           
             try
             {
                 using (SqlCommand cmd = new SqlCommand
@@ -392,7 +372,7 @@ namespace ResponseEmergencySystem.Code
                     {
                         sda.Fill(result);
                     }
-                    opSuccess = true;
+                   
                 }
             }
             catch (Exception ex)
@@ -403,28 +383,28 @@ namespace ResponseEmergencySystem.Code
             return result;
         }
 
-        public static DataRow getBroker(string license, string phone, string name)
+        public static DataRow getBroker(string name)
         {
-            opSuccess = false;
+           
             try
             {
                 using (SqlCommand cmd = new SqlCommand
                 {
-                    Connection = constants.GeneralConnection,
+                    Connection = constants.SIREMConnection,
                     CommandText = $"List_Brokers",
                     CommandType = CommandType.StoredProcedure
                 })
                 {
-                    cmd.Parameters.AddWithValue("@ID_State", license);
-                    cmd.Parameters.AddWithValue("@ID_City", phone);
+                    cmd.Parameters.AddWithValue("@ID_State", "");
+                    cmd.Parameters.AddWithValue("@ID_City", "");
                     cmd.Parameters.AddWithValue("@Broker", name);
-                    cmd.Parameters.AddWithValue("@Address", name);
+                    cmd.Parameters.AddWithValue("@Address", "");
                     result = new DataTable();
                     using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
                     {
                         sda.Fill(result);
                     }
-                    opSuccess = true;
+                   
                 }
             }
             catch (Exception ex)
@@ -434,11 +414,11 @@ namespace ResponseEmergencySystem.Code
 
             if (result.Rows.Count > 1)
             {
-                frm_DriverSearchList drivers = new frm_DriverSearchList(result);
-                if (drivers.ShowDialog() == DialogResult.OK)
-                {
-                    return result.Select()[drivers.dt_DriverRowSelected];
-                }
+                //frm_BrokerList brokers = new frm_BrokerList(result);
+                //if (brokers.ShowDialog() == DialogResult.OK)
+                //{
+                //    return result.Select()[brokers.dt_BrokerRowSelected];
+                //}
 
                 return errorsResult("Please select a broker from the list").Select().First();
             }
@@ -450,9 +430,121 @@ namespace ResponseEmergencySystem.Code
             return result.Select().First();
         }
 
+        public static DataRow saveBroker(string name)
+        {
+           
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand
+                {
+                    Connection = constants.SIREMConnection,
+                    CommandText = $"List_Brokers",
+                    CommandType = CommandType.StoredProcedure
+                })
+                {
+                    cmd.Parameters.AddWithValue("@ID_State", "");
+                    cmd.Parameters.AddWithValue("@ID_City", "");
+                    cmd.Parameters.AddWithValue("@Broker", name);
+                    cmd.Parameters.AddWithValue("@Address", "");
+                    result = new DataTable();
+                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    {
+                        sda.Fill(result);
+                    }
+                   
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Broker couldn't be found due: {ex.Message}");
+            }
+
+            if (result.Rows.Count > 1)
+            {
+                //frm_BrokerList brokers = new frm_BrokerList(result);
+                //if (brokers.ShowDialog() == DialogResult.OK)
+                //{
+                //    return result.Select()[brokers.dt_BrokerRowSelected];
+                //}
+
+                return errorsResult("Please select a broker from the list").Select().First();
+            }
+            else if (result.Rows.Count == 1)
+            {
+                return result.Select().First();
+            }
+
+            return result.Select().First();
+        }
+
+        public static DataTable list_Incidents(string folio, string driverId, string driverName, string truckNum, string statusDetailId, string incidentId = "00000000-0000-0000-0000-000000000000", string date1 = "", string date2 = "")
+        {
+           
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand
+                {
+                    Connection = constants.SIREMConnection,
+                    CommandText = $"List_Incidents",
+                    CommandType = CommandType.StoredProcedure
+                })
+                {
+                    cmd.Parameters.AddWithValue("@ID_Incident", Guid.Parse(incidentId));
+                    cmd.Parameters.AddWithValue("@Folio", folio);
+                    cmd.Parameters.AddWithValue("@ID_Driver", driverId);
+                    cmd.Parameters.AddWithValue("@ID_StatusDetail", statusDetailId);
+                    cmd.Parameters.AddWithValue("@DriverName", driverName);
+                    cmd.Parameters.AddWithValue("@Truck_No", truckNum);
+                    cmd.Parameters.AddWithValue("@Trailer_No", "");
+                    cmd.Parameters.AddWithValue("@Date1", date1);
+                    cmd.Parameters.AddWithValue("@Date2", date2);
+                    result = new DataTable();
+                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    {
+                        sda.Fill(result);
+                    }
+                   
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Capture type couldn't be found due: {ex.Message}");
+            }
+
+            return result;
+        }
+
+        public static DataTable list_StatusDetail()
+        {
+           
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand
+                {
+                    Connection = constants.GeneralConnection,
+                    CommandText = $"List_StatusDetail",
+                    CommandType = CommandType.StoredProcedure
+                })
+                {
+                    result = new DataTable();
+                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    {
+                        sda.Fill(result);
+                    }
+                   
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Status Detail couldn't be found due: {ex.Message}");
+            }
+
+            return result;
+        }
+
         //public static DataTable UpdateEmployee(Employee updateEmployee, bool bln_UsaInfo, out bool opSuccess)
         //{
-        //    opSuccess = false;
+        //   
         //    try
         //    {
         //        using (SqlCommand cmd = new SqlCommand
@@ -520,7 +612,7 @@ namespace ResponseEmergencySystem.Code
         //            {
         //                sda.Fill(result);
         //            }
-        //            opSuccess = true;
+        //           
         //        }
         //    }
         //    catch (Exception ex)

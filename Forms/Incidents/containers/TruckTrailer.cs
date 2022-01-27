@@ -1,0 +1,597 @@
+﻿using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
+using DevExpress.XtraEditors.DXErrorProvider;
+using ResponseEmergencySystem.Code;
+using ResponseEmergencySystem.Controllers.Incidents;
+using ResponseEmergencySystem.Views.Incidents.Containers;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace ResponseEmergencySystem.Forms.Incidents.containers
+{
+    public partial class TruckTrailer : DevExpress.XtraEditors.XtraForm, ITrucksTrailersView
+    {
+        DriverIncidentController _parentController;
+        CustomValidationRule vehicleUpdateValidationRule = null;
+
+        public TruckTrailer()
+        {
+            InitializeComponent();
+
+            
+        }
+
+        #region View Methods
+        public void SetController(DriverIncidentController parentCtrl)
+        {
+            _parentController = parentCtrl;
+        }
+        #endregion
+
+        #region IDs
+        public string ID_Truck
+        {
+            get => lue_Trucks.EditValue == null ? "" : lue_Trucks.EditValue.ToString();
+            set => lue_Trucks.EditValue = value;
+        }
+
+        public string ID_Trailer
+        {
+            get => lue_Trailers.EditValue == null ? "" : lue_Trailers.EditValue.ToString();
+            set => lue_Trailers.EditValue = value;
+        }
+        #endregion
+
+        #region Truck Information
+        public string TruckName
+        {
+            get => Utils.GetEdtValue(edt_TruckName);
+            set => edt_TruckName.EditValue = value;
+        }
+
+        public string TruckVinNumber
+        {
+            get => Utils.GetEdtValue(edt_TruckVinNumber);
+            set => edt_TruckVinNumber.EditValue = value;
+        }
+
+        public string TruckSerialNumber
+        {
+            get => Utils.GetEdtValue(edt_TruckSerialNumber);
+            set => edt_TruckSerialNumber.EditValue = value;
+        }
+
+        public string TruckMake
+        {
+            get => Utils.GetEdtValue(edt_TruckMake);
+            set => edt_TruckMake.EditValue = value;
+        }
+
+        public string TruckModel
+        {
+            get => Utils.GetEdtValue(edt_TruckModel);
+            set => edt_TruckModel.EditValue = value;
+        }
+
+        public string TruckYear
+        {
+            get => Utils.GetEdtValue(edt_TruckYear);
+            set => edt_TruckYear.EditValue = value;
+        }
+
+        public string TruckLicensePlate
+        {
+            get => Utils.GetEdtValue(edt_TruckLicensePlate);
+            set => edt_TruckLicensePlate.EditValue = value;
+        }
+
+        public bool TruckDamage 
+        {
+            get => (bool)ckedt_truckDamages.EditValue;
+            set => ckedt_truckDamages.EditValue = value;
+        }
+
+        public bool TruckCanMove 
+        { 
+            get => (bool)ckedt_TruckCanMove.EditValue;
+            set => ckedt_TruckCanMove.EditValue = value;
+        }
+
+        public bool TruckNeedCrane 
+        { 
+            get => (bool)ckedt_TruckNeedCrane.EditValue;
+            set => ckedt_TruckNeedCrane.EditValue = value;
+        }
+
+        public string TruckBroker
+        {
+            get => Utils.GetEdtValue(edt_Broker);
+            set => edt_Broker.EditValue = value;
+        }
+        #endregion
+
+        #region Trailer Information
+        public string TrailerName
+        {
+            get => Utils.GetEdtValue(edt_TrailerName);
+            set => edt_TrailerName.EditValue = value;        
+        }
+
+        public string TrailerCargoType
+        {
+            get => Utils.GetEdtValue(edt_TrailerCargoType);
+            set => edt_TrailerCargoType.EditValue = value;
+        }
+
+        public string TrailerVinNumber
+        {
+            get => Utils.GetEdtValue(edt_TrailerVinNumber);
+            set => edt_TrailerVinNumber.EditValue = value;
+        }
+
+        public string TrailerSerialNumber
+        {
+            get => Utils.GetEdtValue(edt_TrailerSerialNumber);
+            set => edt_TrailerSerialNumber.EditValue = value;
+        }
+
+        public string TrailerMake
+        {
+            get => Utils.GetEdtValue(edt_TrailerMake);
+            set => edt_TrailerMake.EditValue = value;
+        }
+
+        public string TrailerModel
+        {
+            get => Utils.GetEdtValue(edt_TrailerModel);
+            set => edt_TrailerModel.EditValue = value;
+        }
+
+        public string TrailerYear
+        {
+            get => Utils.GetEdtValue(edt_TrailerYear);
+            set => edt_TrailerYear.EditValue = value;
+        }
+
+        public string TrailerLicensePlate
+        {
+            get => Utils.GetEdtValue(edt_TrailerLicensePlate);
+            set => edt_TrailerLicensePlate.EditValue = value;
+        }
+
+        public bool TrailerDamage
+        {
+            get => (bool)ckedt_TrailerDamages.EditValue;
+            set => ckedt_TrailerDamages.EditValue = value;
+        }
+
+        public bool TrailerCanMove
+        {
+            get => (bool)ckedt_TrailerCanMove.EditValue;
+            set => ckedt_TrailerCanMove.EditValue = value;
+        }
+
+        public bool TrailerNeedCrane
+        {
+            get => (bool)ckedt_TrailerNeedCrane.EditValue;
+            set => ckedt_TrailerNeedCrane.EditValue = value;
+        }
+
+        public string TrailerBroker
+        {
+            get => Utils.GetEdtValue(edt_Broker2);
+            set => edt_Broker2.EditValue = value;
+        }
+
+        public bool TrailerCargoSpill
+        {
+            get => (bool)ckedt_Spill.EditValue;
+            set => ckedt_Spill.EditValue = value;
+        }
+
+        public string TrailerBOL
+        {
+            get => Utils.GetEdtValue(edt_manifest);
+            set => edt_manifest.EditValue = value;
+        }
+        #endregion
+
+        #region view properties
+        public object TrucksDataSource 
+        {
+            set => lue_Trucks.Properties.DataSource = value;
+        }
+
+        public object TrailersDataSource 
+        {
+            set => lue_Trailers.Properties.DataSource = value;
+        }
+
+        public bool IsNew
+        {
+            get => (bool)ckedt_New.EditValue;
+        }
+        #endregion
+
+        #region input properties
+        // trucks
+        public Size LueTrucksSize
+        {
+            set => lue_Trucks.Size = value; 
+        }
+
+        public bool BtnEditTruckVisibility
+        {
+            set => btn_UpdateTruck.Visible = value;
+        }
+
+        public bool BtnAddTruckVisibility
+        {
+            set => btn_AddTruck.Visible = value;
+        }
+
+        public bool BtnBroker1Visibility
+        {
+            set => btn_Broker1.Visible = false;
+        }
+
+        // trailers
+        public Size LueTrailerSize
+        {
+            set => lue_Trailers.Size = value;
+        }
+
+        public bool BtnEditTrailerVisibility
+        {
+            set => btn_UpdateTrailer.Visible = value;
+        }
+
+        public bool BtnAddTrailerVisibility
+        {
+            set => btn_AddTrailer.Visible = value;
+        }
+
+        public bool BtnBroker2Visibility
+        {
+            set => btn_Broker2.Visible = false;
+        }
+        #endregion
+
+
+        #region validation
+        public bool ValidateTransport()
+        {
+            return dxValidationProvider1.Validate();
+        }
+        #endregion
+
+        private void lue_Trucks_Closed(object sender, DevExpress.XtraEditors.Controls.ClosedEventArgs e)
+        {
+            _parentController.GetTruckSamsara();
+        }
+
+        private void lue_Trucks_KeyDown(object sender, KeyEventArgs e)
+        {
+            GridLookUpEdit edit = sender as GridLookUpEdit;
+            if (e.KeyData == Keys.Down || e.KeyData == Keys.Up)
+            {
+                if (!edit.IsPopupOpen)
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void btn_Broker2_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Ckedt_OnValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_SaveVehicle_Click(object sender, EventArgs e)
+        {
+
+            if ((bool)ckedt_New.EditValue)
+            {
+                if (!truck_ValidationProvider.Validate())
+                    return;
+
+                _parentController.AddTruck();
+                ckedt_New.EditValue = false;
+
+            }
+            else
+            {
+                if (!truck_UpdateValidationProvider.Validate())
+                    return;
+
+                _parentController.UpdateTruckInfo();
+            }
+
+            pnl_TruckStatus.Visible = true;
+            pnl_TruckInfo.Visible = false;
+            lue_Trucks.ReadOnly = false;
+
+            btn_UpdateTruck.Enabled = true;
+            btn_AddTruck.Enabled = true;
+
+            if (!edt_TruckName.ReadOnly)
+                edt_TruckName.ReadOnly = true;
+        }
+
+        private void btn_UpdateVinNumber_Click(object sender, EventArgs e)
+        {
+            pnl_TruckStatus.Visible = false;
+            pnl_TruckInfo.Visible = true;
+
+            btn_UpdateTruck.Enabled = false;
+            btn_AddTruck.Enabled = false;
+            lue_Trucks.ReadOnly = true;
+
+            _parentController.SetTruckInfo();
+
+            vehicleUpdateValidationRule.SetVehicleName(Utils.GetEdtValue(edt_TruckName));
+
+            #region custom validations trucks
+            vehicleUpdateValidationRule.SetVehicleType(DriverIncidentController.vehicleTypes.Truck);
+            
+            vehicleUpdateValidationRule.SetFieldName(DriverIncidentController.vehicleInformation.VinNumber);
+            truck_UpdateValidationProvider.SetValidationRule(edt_TruckVinNumber, vehicleUpdateValidationRule);
+
+            vehicleUpdateValidationRule.SetFieldName(DriverIncidentController.vehicleInformation.SerialNumber);
+            truck_UpdateValidationProvider.SetValidationRule(edt_TruckSerialNumber, vehicleUpdateValidationRule);
+
+            vehicleUpdateValidationRule.SetFieldName(DriverIncidentController.vehicleInformation.Plate);
+            truck_UpdateValidationProvider.SetValidationRule(edt_TruckLicensePlate, vehicleUpdateValidationRule);
+            #endregion
+
+            //#region custom validations trailers
+            //vehicleValidationRule.SetVehicleType(DriverIncidentController.vehicleTypes.Trailer);
+            ////
+            //vehicleValidationRule.SetFieldName(DriverIncidentController.vehicleInformation.Name);
+            //trailer_ValidationProvider.SetValidationRule(edt_TrailerName, vehicleValidationRule);
+
+            //vehicleValidationRule.SetFieldName(DriverIncidentController.vehicleInformation.VinNumber);
+            //trailer_ValidationProvider.SetValidationRule(edt_TrailerVinNumber, vehicleValidationRule);
+
+            //vehicleValidationRule.SetFieldName(DriverIncidentController.vehicleInformation.SerialNumber);
+            //trailer_ValidationProvider.SetValidationRule(edt_TrailerSerialNumber, vehicleValidationRule);
+
+            //vehicleValidationRule.SetFieldName(DriverIncidentController.vehicleInformation.Plate);
+            //trailer_ValidationProvider.SetValidationRule(edt_TrailerLicensePlate, vehicleValidationRule);
+            //#endregion
+
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            pnl_TruckStatus.Visible = false;
+            pnl_TruckInfo.Visible = true;
+
+            lue_Trucks.ReadOnly = true;
+
+            btn_AddTruck.Enabled = false;
+            btn_UpdateTruck.Enabled = false;
+
+            edt_TruckName.ReadOnly = false;
+
+            ckedt_New.EditValue = true;
+
+            _parentController.Newtruck();
+        }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            pnl_TrailerStatus.Visible = false;
+            pnl_TrailerInfo.Visible = true;
+
+            btn_UpdateTrailer.Enabled = false;
+            btn_AddTrailer.Enabled = false;
+            lue_Trailers.ReadOnly = true;
+
+            _parentController.SetTrailerInfo();
+            string trailerName = Utils.GetEdtValue(edt_TrailerName);
+
+            vehicleUpdateValidationRule.SetVehicleName(trailerName);
+
+            #region custom validations trailers
+            vehicleUpdateValidationRule.SetVehicleType(DriverIncidentController.vehicleTypes.Trailer);
+
+            vehicleUpdateValidationRule.SetFieldName(DriverIncidentController.vehicleInformation.VinNumber);
+            trailer_UpdateValidationProvider.SetValidationRule(edt_TrailerVinNumber, vehicleUpdateValidationRule);
+
+            vehicleUpdateValidationRule.SetFieldName(DriverIncidentController.vehicleInformation.SerialNumber);
+            trailer_UpdateValidationProvider.SetValidationRule(edt_TrailerSerialNumber, vehicleUpdateValidationRule);
+
+            vehicleUpdateValidationRule.SetFieldName(DriverIncidentController.vehicleInformation.Plate);
+            trailer_UpdateValidationProvider.SetValidationRule(edt_TrailerLicensePlate, vehicleUpdateValidationRule);
+            #endregion
+        }
+
+        private void simpleButton3_Click(object sender, EventArgs e)
+        {
+            if ((bool)ckedt_New.EditValue)
+            {
+                if (!trailer_ValidationProvider.Validate())
+                    return;
+
+                _parentController.AddTrailer();
+                ckedt_New.EditValue = false;
+            }
+            else
+            { 
+                if (!trailer_UpdateValidationProvider.Validate())
+                    return;
+
+                _parentController.UpdateTrailerInfo();
+            }
+
+            pnl_TrailerStatus.Visible = true;
+            pnl_TrailerInfo.Visible = false;
+
+            lue_Trailers.ReadOnly = false;
+
+            btn_UpdateTrailer.Enabled = true;
+            btn_AddTrailer.Enabled = true;
+
+            if (!edt_TrailerName.ReadOnly)
+                edt_TrailerName.ReadOnly = true;
+        }
+
+        private void TruckTrailer_Load(object sender, EventArgs e)
+        {
+            _parentController.SetTruckTrailerView(this);
+            _parentController.LoadTrucks();
+            _parentController.LoadTrailers();
+
+            CustomValidationRule vehicleValidationRule = new CustomValidationRule(ref _parentController);
+            vehicleUpdateValidationRule = new CustomValidationRule(ref _parentController);
+
+            #region custom validations trucks
+            vehicleValidationRule.SetVehicleType(DriverIncidentController.vehicleTypes.Truck);
+            //
+            vehicleValidationRule.SetFieldName(DriverIncidentController.vehicleInformation.Name);
+            truck_ValidationProvider.SetValidationRule(edt_TruckName, vehicleValidationRule);
+
+            vehicleValidationRule.SetFieldName(DriverIncidentController.vehicleInformation.VinNumber);
+            truck_ValidationProvider.SetValidationRule(edt_TruckVinNumber, vehicleValidationRule);
+
+            vehicleValidationRule.SetFieldName(DriverIncidentController.vehicleInformation.SerialNumber);
+            truck_ValidationProvider.SetValidationRule(edt_TruckSerialNumber, vehicleValidationRule);
+
+            vehicleValidationRule.SetFieldName(DriverIncidentController.vehicleInformation.Plate);
+            truck_ValidationProvider.SetValidationRule(edt_TruckLicensePlate, vehicleValidationRule);
+            #endregion
+
+            #region custom validations trailers
+            vehicleValidationRule.SetVehicleType(DriverIncidentController.vehicleTypes.Trailer);
+            //
+            vehicleValidationRule.SetFieldName(DriverIncidentController.vehicleInformation.Name);
+            trailer_ValidationProvider.SetValidationRule(edt_TrailerName, vehicleValidationRule);
+
+            vehicleValidationRule.SetFieldName(DriverIncidentController.vehicleInformation.VinNumber);
+            trailer_ValidationProvider.SetValidationRule(edt_TrailerVinNumber, vehicleValidationRule);
+
+            vehicleValidationRule.SetFieldName(DriverIncidentController.vehicleInformation.SerialNumber);
+            trailer_ValidationProvider.SetValidationRule(edt_TrailerSerialNumber, vehicleValidationRule);
+
+            vehicleValidationRule.SetFieldName(DriverIncidentController.vehicleInformation.Plate);
+            trailer_ValidationProvider.SetValidationRule(edt_TrailerLicensePlate, vehicleValidationRule);
+            #endregion
+        }
+
+        private void btn_Broker1_Click(object sender, EventArgs e)
+        {
+            _parentController.GetBroker();
+        }
+
+        private void btn_AddTrailer_Click(object sender, EventArgs e)
+        {
+            pnl_TrailerStatus.Visible = false;
+            pnl_TrailerInfo.Visible = true;
+
+            btn_AddTrailer.Enabled = false;
+            btn_UpdateTrailer.Enabled = false;
+            
+            edt_TrailerName.ReadOnly = false;
+
+            ckedt_New.EditValue = true;
+
+            _parentController.NewTrailer();
+        }
+
+        private void btn_Broker2_Click_1(object sender, EventArgs e)
+        {
+            _parentController.GetBroker2();
+        }
+
+        private void ckedt_Spill_CheckedChanged(object sender, EventArgs e)
+        {
+            edt_manifest.ReadOnly = !(bool)((CheckEdit)sender).EditValue;
+        }
+
+        private bool Validatetruck()
+        {
+
+            edt_TruckName.BorderStyle = Utils.GetEdtValue(edt_TruckName) == "" ? BorderStyles.Simple : BorderStyles.Default;
+            edt_TruckVinNumber.BorderStyle = Utils.GetEdtValue(edt_TruckVinNumber) == "" ? BorderStyles.Simple : BorderStyles.Default;
+            edt_TruckSerialNumber.BorderStyle = Utils.GetEdtValue(edt_TruckSerialNumber) == "" ? BorderStyles.Simple : BorderStyles.Default;
+            edt_TruckMake.BorderStyle = Utils.GetEdtValue(edt_TruckMake) == "" ? BorderStyles.Simple : BorderStyles.Default;
+            edt_TruckModel.BorderStyle = Utils.GetEdtValue(edt_TruckModel) == "" ? BorderStyles.Simple : BorderStyles.Default;
+            edt_TruckYear.BorderStyle = Utils.GetEdtValue(edt_TruckYear) == "" ? BorderStyles.Simple : BorderStyles.Default;
+            edt_TruckLicensePlate.BorderStyle = Utils.GetEdtValue(edt_TruckLicensePlate) == "" ? BorderStyles.Simple : BorderStyles.Default;
+
+            return false;
+        }
+
+        private void simpleButton2_Click_1(object sender, EventArgs e)
+        {
+            //var controls = truck_ValidationProvider.GetInvalidControls();
+            //foreach(Control control in controls)
+            //{
+            //    truck_ValidationProvider.RemoveControlError(control);
+            //}
+            
+            pnl_TruckStatus.Visible = true;
+            pnl_TruckInfo.Visible = false;
+            lue_Trucks.ReadOnly = false;
+
+            btn_UpdateTruck.Enabled = true;
+            btn_AddTruck.Enabled = true;
+
+            if (!edt_TruckName.ReadOnly)
+                edt_TruckName.ReadOnly = true;
+        }
+    }
+
+    //https://docs.devexpress.com/WindowsForms/DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider
+    internal class CustomValidationRule : ValidationRule
+    {
+        private DriverIncidentController _controller;
+        private DriverIncidentController.vehicleInformation _type;
+        private DriverIncidentController.vehicleTypes _VehicleType;
+        private string _name = "test";
+
+        public CustomValidationRule(ref DriverIncidentController controller)
+        {
+            this._controller = controller;
+            this.ErrorType = ErrorType.Warning;
+        }
+
+        public void SetFieldName(DriverIncidentController.vehicleInformation type)
+        {
+            this._type = type;
+        }
+
+        public void SetVehicleType(DriverIncidentController.vehicleTypes vehicleType)
+        {
+            this._VehicleType = vehicleType;
+        }
+
+        public void SetVehicleName(string name)
+        {
+            this._name = name;
+        }
+
+        public override bool Validate(Control control, object value)
+        {
+            (bool, string) res = _controller.TruckNameIsRegistered(Utils.GetEdtValue((TextEdit)control), _type, _VehicleType, _name);
+
+
+            this.ErrorText = res.Item2;
+            return res.Item1;
+        }
+    }
+
+}

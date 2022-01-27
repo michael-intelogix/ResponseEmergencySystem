@@ -2,7 +2,6 @@
 using DevExpress.XtraEditors.Controls;
 using ResponseEmergencySystem.Code;
 using ResponseEmergencySystem.Properties;
-using ResponseEmergencySystem.Forms.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,20 +17,73 @@ using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Collections;
 using Firebase.Storage;
+using ResponseEmergencySystem.Views;
+using ResponseEmergencySystem.Controllers;
 
 namespace ResponseEmergencySystem.Forms
 {
-    public partial class frm_Image : DevExpress.XtraEditors.XtraForm
+    public partial class frm_Image : DevExpress.XtraEditors.XtraForm, IImageView
     {
         OpenFileDialog ofd = new OpenFileDialog();
-        string filepath = "";
+        public string filepath = "";
         Image newImg = null;
+        private string ID_Capture = "";
+        private string fileName = "";
 
-        public frm_Image()
+        public frm_Image(string ID_Capture, string captureName, string imgPath = "", bool firebase = true)
         {
             InitializeComponent();
+            splashScreenManager1.ShowWaitForm();
+            this.ID_Capture = ID_Capture;
+            fileName = captureName;
+            if (firebase)
+                LoadImage(imgPath);
+            else
+                LoadLocalImage(imgPath);
+            splashScreenManager1.CloseWaitForm();
+            Debug.WriteLine(imgPath);
             //var value = section["url"];
         }
+
+        ImageController _controller;
+
+        public void DisableLoad()
+        {
+            simpleButton1.Visible = false;
+            btn_SaveImage.Visible = false;
+            btn_Cancel.Location = new Point(403, 683);
+        }
+
+        public void LoadImage(string imgPath)
+        {
+            try
+            {
+                System.Net.WebRequest request =
+                System.Net.WebRequest.Create(imgPath);
+                System.Net.WebResponse response = request.GetResponse();
+                System.IO.Stream responseStream = response.GetResponseStream();
+
+                using (var bmpTemp = new Bitmap(responseStream))
+                {
+                    newImg = new Bitmap(bmpTemp);
+                    img_Test.Image = newImg;
+                }
+            }
+            catch (System.Net.WebException)
+            {
+                MessageBox.Show("There was an error opening the image file.");
+            }
+        }
+
+        public void LoadLocalImage(string imgPath)
+        {
+            using (var bmpTemp = new Bitmap(imgPath))
+            {
+                newImg = new Bitmap(bmpTemp);
+                img_Test.Image = newImg;
+            }
+        }
+
 
         public void onClickLoadImage (object sender, EventArgs e)
         {
@@ -47,7 +99,6 @@ namespace ResponseEmergencySystem.Forms
                     img_Test .Visible = true;
                     filepath = ofd.FileName;
 
-                    Image img;
                     using (var bmpTemp = new Bitmap(filepath))
                     {
                         newImg = new Bitmap(bmpTemp);
@@ -75,78 +126,149 @@ namespace ResponseEmergencySystem.Forms
             Settings.Default.Reset();
         }
 
+        private void img_Test_DoubleClick(object sender, MouseEventArgs e)
+        {
+            if (img_Test.Properties.SizeMode == PictureSizeMode.Zoom)
+            {
+                img_Test.Properties.SizeMode = PictureSizeMode.Clip;
+            }
+
+            img_Test.Properties.ZoomPercent += 20;
+        }
+
         private void img_Test_Click(object sender, MouseEventArgs e)
         {
 
-            
-            if (e.Button == MouseButtons.Left)
-            {
-                img_Test.Properties.ZoomPercent += 20;
-            }
-            else
-            {
-                img_Test.Properties.ZoomPercent -= 20;
-            }
-        }
 
-        private void frm_Image_Shown(object sender, EventArgs e)
-        {
-            if (Settings.Default.ZoomMsg)
+            if (e.Button == MouseButtons.Right)
             {
-                frm_Zoom zoomHelper = new frm_Zoom();
-                zoomHelper.ShowDialog();
+                if (img_Test.Properties.SizeMode == PictureSizeMode.Zoom)
+                {
+                    img_Test.Properties.SizeMode = PictureSizeMode.Clip;
+                }
+
+                img_Test.Properties.ZoomPercent -= 20;
             }
         }
 
         private void labelControl3_Click(object sender, EventArgs e)
         {
+            if (img_Test.Properties.SizeMode == PictureSizeMode.Zoom)
+            {
+                img_Test.Properties.SizeMode = PictureSizeMode.Clip;
+            }
+                
             img_Test.Properties.ZoomPercent += 20;
         }
 
         private void labelControl2_Click(object sender, EventArgs e)
         {
+            if (img_Test.Properties.SizeMode == PictureSizeMode.Zoom)
+            {
+                img_Test.Properties.SizeMode = PictureSizeMode.Clip;
+            }
+
             img_Test.Properties.ZoomPercent -= 20;
         }
 
         private void labelControl1_Click(object sender, EventArgs e)
         {
-            img_Test.Properties.ZoomPercent = 100;
+            img_Test.Properties.SizeMode = PictureSizeMode.Zoom;
         }
 
         private void img_Test_EditValueChanged(object sender, EventArgs e)
         {
             pnl_ImgControls.Visible = true;
-            btn_SaveImage.Visible = true;
+            //btn_SaveImage.Visible = true;
         }
 
-        private async void btn_SaveImage_Click(object sender, EventArgs e)
+        private void btn_SaveImage_Click(object sender, EventArgs e)
         {
-            btn_SaveImage.Visible = false;
-            pnl_Uploading.BackColor = Color.FromArgb(17, 0, 0, 0);
-            pnl_Uploading.Visible = true;
+            //btn_SaveImage.Visible = false;
+            //pnl_Uploading.BackColor = Color.FromArgb(17, 0, 0, 0);
+            //pnl_Uploading.Visible = true;
             //MessageBox.Show(filepath);
-            // Get any Stream — it can be FileStream, MemoryStream or any other type of Stream
-            var stream = File.Open(filepath, FileMode.Open);
 
-            // Construct FirebaseStorage with path to where you want to upload the file and put it there
-            var task = new FirebaseStorage("dcmanagement-3d402.appspot.com")
-            .Child("data")
-            .Child("random")
-            .Child("file.png")
-            .PutAsync(stream);
+            _controller.SaveImage(filepath);
+            
 
-            // Track progress of the upload
-            task.Progress.ProgressChanged += (s, ev) =>
-            {
-                progressBarControl1.EditValue = ev.Percentage;
-                progressBarControl1.CreateGraphics().DrawString(ev.Percentage.ToString() + "%", new Font("Arial", (float)8.25, FontStyle.Regular), Brushes.Black, new PointF(progressBarControl1.Width / 2 - 10, progressBarControl1.Height / 2 - 7));
-                //Console.WriteLine($"Progress: {ev.Percentage} %");
-            };
+            //try
+            //{
+            //    // Get any Stream — it can be FileStream, MemoryStream or any other type of Stream
+            //    var stream = File.Open(filepath, FileMode.Open);
 
-            // Await the task to wait until upload is completed and get the download url
-            var downloadUrl = await task;
-            pnl_Uploading.Visible = false;
+            //    // Construct FirebaseStorage with path to where you want to upload the file and put it there
+            //    var task = new FirebaseStorage("dcmanagement-3d402.appspot.com")
+            //    .Child("SIREM")
+            //    .Child("DD0C17C7-2D9C-4A84-8851-5647A8373669")
+            //    .Child("test")
+            //    .PutAsync(stream);
 
+            //    // Track progress of the upload
+            //    task.Progress.ProgressChanged += (s, ev) =>
+            //    {
+            //        progressBarControl1.EditValue = ev.Percentage;
+            //        progressBarControl1.CreateGraphics().DrawString(ev.Percentage.ToString() + "%", new Font("Arial", (float)8.25, FontStyle.Regular), Brushes.Black, new PointF(progressBarControl1.Width / 2 - 10, progressBarControl1.Height / 2 - 7));
+            //        //Console.WriteLine($"Progress: {ev.Percentage} %");
+            //    };
+
+            //    // Await the task to wait until upload is completed and get the download url
+            //    var downloadUrl = await task;
+            //    Debug.WriteLine(downloadUrl);
+            //    pnl_Uploading.Visible = false;
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
+            
+
+        }
+
+        private void btn_Cancel_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+        }
+
+        #region view interface methods
+        public void SetController(ImageController controller)
+        {
+            _controller = controller;
+        }
+
+        public void CloseForm()
+        {
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+
+        #endregion
+
+        #region form inputs
+        public ProgressBarControl PbImage
+        {
+            get { return progressBarControl1; }
+        }
+
+        public Color PnlUploadingBackColor
+        {
+            set { pnl_Uploading.BackColor = value; }
+        }
+
+        public bool PnlUploadingVisibility
+        {
+            set { pnl_Uploading.Visible = value; }
+        }
+
+        public bool BtnSaveEnable 
+        { 
+            set { btn_SaveImage.Enabled = value; }
+        }
+        #endregion
+
+        private void frm_Image_Load(object sender, EventArgs e)
+        {
+            btn_Cancel.Location = new Point((this.Width - btn_Cancel.Width) / 2, btn_Cancel.Location.Y);
         }
     }
 }
